@@ -45,6 +45,10 @@ export class SetIdentityMailFromDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "setIdentityMailFromDomain",
+      inputFilterLog: SetIdentityMailFromDomainRequest.filterSensitiveLog,
+      outputFilterLog: SetIdentityMailFromDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

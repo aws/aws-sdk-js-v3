@@ -45,6 +45,10 @@ export class UpdateContainerInstancesStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "updateContainerInstancesState",
+      inputFilterLog: UpdateContainerInstancesStateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateContainerInstancesStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

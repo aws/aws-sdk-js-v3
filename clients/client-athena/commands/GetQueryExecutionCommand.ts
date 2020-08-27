@@ -45,6 +45,10 @@ export class GetQueryExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "getQueryExecution",
+      inputFilterLog: GetQueryExecutionInput.filterSensitiveLog,
+      outputFilterLog: GetQueryExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

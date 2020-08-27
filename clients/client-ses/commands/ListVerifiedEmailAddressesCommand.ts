@@ -45,6 +45,10 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "listVerifiedEmailAddresses",
+      inputFilterLog: (input) => input,
+      outputFilterLog: ListVerifiedEmailAddressesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

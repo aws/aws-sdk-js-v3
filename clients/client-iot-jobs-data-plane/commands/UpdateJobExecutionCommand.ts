@@ -45,6 +45,10 @@ export class UpdateJobExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTJobsDataPlane",
+      clientName: "updateJobExecution",
+      inputFilterLog: UpdateJobExecutionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateJobExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

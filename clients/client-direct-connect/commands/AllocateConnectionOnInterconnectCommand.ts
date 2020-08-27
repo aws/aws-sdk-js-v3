@@ -45,6 +45,10 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "allocateConnectionOnInterconnect",
+      inputFilterLog: AllocateConnectionOnInterconnectRequest.filterSensitiveLog,
+      outputFilterLog: Connection.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

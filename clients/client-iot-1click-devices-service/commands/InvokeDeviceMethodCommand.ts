@@ -49,6 +49,10 @@ export class InvokeDeviceMethodCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickDevicesService",
+      clientName: "invokeDeviceMethod",
+      inputFilterLog: InvokeDeviceMethodRequest.filterSensitiveLog,
+      outputFilterLog: InvokeDeviceMethodResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

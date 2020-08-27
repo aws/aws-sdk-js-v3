@@ -45,6 +45,10 @@ export class UpdateUserIdentityInfoCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "updateUserIdentityInfo",
+      inputFilterLog: UpdateUserIdentityInfoRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

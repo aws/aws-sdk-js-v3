@@ -45,6 +45,10 @@ export class ListSolutionVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "listSolutionVersions",
+      inputFilterLog: ListSolutionVersionsRequest.filterSensitiveLog,
+      outputFilterLog: ListSolutionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

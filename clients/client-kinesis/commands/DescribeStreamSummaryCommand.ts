@@ -45,6 +45,10 @@ export class DescribeStreamSummaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "describeStreamSummary",
+      inputFilterLog: DescribeStreamSummaryInput.filterSensitiveLog,
+      outputFilterLog: DescribeStreamSummaryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

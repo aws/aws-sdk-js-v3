@@ -45,6 +45,10 @@ export class DeleteRoomSkillParameterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteRoomSkillParameter",
+      inputFilterLog: DeleteRoomSkillParameterRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRoomSkillParameterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class CreateFlowLogsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createFlowLogs",
+      inputFilterLog: CreateFlowLogsRequest.filterSensitiveLog,
+      outputFilterLog: CreateFlowLogsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

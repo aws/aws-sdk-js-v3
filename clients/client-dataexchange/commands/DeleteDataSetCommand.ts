@@ -45,6 +45,10 @@ export class DeleteDataSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataExchange",
+      clientName: "deleteDataSet",
+      inputFilterLog: DeleteDataSetRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

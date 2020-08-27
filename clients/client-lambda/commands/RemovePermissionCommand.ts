@@ -45,6 +45,10 @@ export class RemovePermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "removePermission",
+      inputFilterLog: RemovePermissionRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateTagOptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "createTagOption",
+      inputFilterLog: CreateTagOptionInput.filterSensitiveLog,
+      outputFilterLog: CreateTagOptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

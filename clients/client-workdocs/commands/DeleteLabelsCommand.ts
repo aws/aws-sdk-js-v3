@@ -45,6 +45,10 @@ export class DeleteLabelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "deleteLabels",
+      inputFilterLog: DeleteLabelsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLabelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

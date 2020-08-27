@@ -45,6 +45,10 @@ export class DeleteInstanceSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteInstanceSnapshot",
+      inputFilterLog: DeleteInstanceSnapshotRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInstanceSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

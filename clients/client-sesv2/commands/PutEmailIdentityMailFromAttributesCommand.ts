@@ -46,6 +46,10 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putEmailIdentityMailFromAttributes",
+      inputFilterLog: PutEmailIdentityMailFromAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutEmailIdentityMailFromAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

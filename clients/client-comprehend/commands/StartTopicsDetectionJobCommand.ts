@@ -45,6 +45,10 @@ export class StartTopicsDetectionJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "startTopicsDetectionJob",
+      inputFilterLog: StartTopicsDetectionJobRequest.filterSensitiveLog,
+      outputFilterLog: StartTopicsDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

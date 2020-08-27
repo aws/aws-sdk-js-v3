@@ -45,6 +45,10 @@ export class DescribeImagePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "describeImagePermissions",
+      inputFilterLog: DescribeImagePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeImagePermissionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

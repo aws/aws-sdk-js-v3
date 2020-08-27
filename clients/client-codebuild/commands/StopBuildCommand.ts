@@ -42,6 +42,10 @@ export class StopBuildCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "stopBuild",
+      inputFilterLog: StopBuildInput.filterSensitiveLog,
+      outputFilterLog: StopBuildOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

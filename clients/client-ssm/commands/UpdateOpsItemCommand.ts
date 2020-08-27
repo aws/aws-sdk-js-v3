@@ -45,6 +45,10 @@ export class UpdateOpsItemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "updateOpsItem",
+      inputFilterLog: UpdateOpsItemRequest.filterSensitiveLog,
+      outputFilterLog: UpdateOpsItemResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

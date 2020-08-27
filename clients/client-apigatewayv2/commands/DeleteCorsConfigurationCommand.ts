@@ -45,6 +45,10 @@ export class DeleteCorsConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "deleteCorsConfiguration",
+      inputFilterLog: DeleteCorsConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

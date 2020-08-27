@@ -49,6 +49,10 @@ export class CreateListenerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "createListener",
+      inputFilterLog: CreateListenerRequest.filterSensitiveLog,
+      outputFilterLog: CreateListenerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

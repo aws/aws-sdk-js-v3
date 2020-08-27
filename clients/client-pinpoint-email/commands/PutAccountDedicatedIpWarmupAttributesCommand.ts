@@ -49,6 +49,10 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "putAccountDedicatedIpWarmupAttributes",
+      inputFilterLog: PutAccountDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutAccountDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

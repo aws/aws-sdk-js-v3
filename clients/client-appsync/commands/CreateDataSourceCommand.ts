@@ -45,6 +45,10 @@ export class CreateDataSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "createDataSource",
+      inputFilterLog: CreateDataSourceRequest.filterSensitiveLog,
+      outputFilterLog: CreateDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

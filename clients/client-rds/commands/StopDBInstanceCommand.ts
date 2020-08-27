@@ -45,6 +45,10 @@ export class StopDBInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "stopDBInstance",
+      inputFilterLog: StopDBInstanceMessage.filterSensitiveLog,
+      outputFilterLog: StopDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class RestorePhoneNumberCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "restorePhoneNumber",
+      inputFilterLog: RestorePhoneNumberRequest.filterSensitiveLog,
+      outputFilterLog: RestorePhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

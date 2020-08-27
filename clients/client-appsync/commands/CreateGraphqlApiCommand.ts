@@ -45,6 +45,10 @@ export class CreateGraphqlApiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "createGraphqlApi",
+      inputFilterLog: CreateGraphqlApiRequest.filterSensitiveLog,
+      outputFilterLog: CreateGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

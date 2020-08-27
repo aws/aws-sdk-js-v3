@@ -45,6 +45,10 @@ export class SyncDeploymentJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "syncDeploymentJob",
+      inputFilterLog: SyncDeploymentJobRequest.filterSensitiveLog,
+      outputFilterLog: SyncDeploymentJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,6 +47,10 @@ export class GetBucketEncryptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketEncryption",
+      inputFilterLog: GetBucketEncryptionRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketEncryptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListCertificatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listCertificates",
+      inputFilterLog: ListCertificatesRequest.filterSensitiveLog,
+      outputFilterLog: ListCertificatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

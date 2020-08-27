@@ -45,6 +45,10 @@ export class ShutdownGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "shutdownGateway",
+      inputFilterLog: ShutdownGatewayInput.filterSensitiveLog,
+      outputFilterLog: ShutdownGatewayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "updateAccount",
+      inputFilterLog: UpdateAccountRequest.filterSensitiveLog,
+      outputFilterLog: Account.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

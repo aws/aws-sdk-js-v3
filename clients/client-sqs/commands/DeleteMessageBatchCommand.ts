@@ -45,6 +45,10 @@ export class DeleteMessageBatchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "deleteMessageBatch",
+      inputFilterLog: DeleteMessageBatchRequest.filterSensitiveLog,
+      outputFilterLog: DeleteMessageBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

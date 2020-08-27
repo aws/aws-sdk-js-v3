@@ -45,6 +45,10 @@ export class StartBuildBatchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "startBuildBatch",
+      inputFilterLog: StartBuildBatchInput.filterSensitiveLog,
+      outputFilterLog: StartBuildBatchOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

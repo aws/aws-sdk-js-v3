@@ -45,6 +45,10 @@ export class DeleteSizeConstraintSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "deleteSizeConstraintSet",
+      inputFilterLog: DeleteSizeConstraintSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSizeConstraintSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

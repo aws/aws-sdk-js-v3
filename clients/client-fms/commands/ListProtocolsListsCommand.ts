@@ -45,6 +45,10 @@ export class ListProtocolsListsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "listProtocolsLists",
+      inputFilterLog: ListProtocolsListsRequest.filterSensitiveLog,
+      outputFilterLog: ListProtocolsListsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListInstanceProfilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "listInstanceProfiles",
+      inputFilterLog: ListInstanceProfilesRequest.filterSensitiveLog,
+      outputFilterLog: ListInstanceProfilesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

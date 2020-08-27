@@ -45,6 +45,10 @@ export class ListDatabasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "listDatabases",
+      inputFilterLog: ListDatabasesInput.filterSensitiveLog,
+      outputFilterLog: ListDatabasesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

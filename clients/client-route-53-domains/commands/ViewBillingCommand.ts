@@ -45,6 +45,10 @@ export class ViewBillingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "viewBilling",
+      inputFilterLog: ViewBillingRequest.filterSensitiveLog,
+      outputFilterLog: ViewBillingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

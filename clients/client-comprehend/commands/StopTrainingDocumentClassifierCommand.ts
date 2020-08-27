@@ -45,6 +45,10 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "stopTrainingDocumentClassifier",
+      inputFilterLog: StopTrainingDocumentClassifierRequest.filterSensitiveLog,
+      outputFilterLog: StopTrainingDocumentClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

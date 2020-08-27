@@ -45,6 +45,10 @@ export class LookupPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "lookupPolicy",
+      inputFilterLog: LookupPolicyRequest.filterSensitiveLog,
+      outputFilterLog: LookupPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

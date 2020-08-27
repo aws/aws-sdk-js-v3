@@ -45,6 +45,10 @@ export class StopTransformJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "stopTransformJob",
+      inputFilterLog: StopTransformJobRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

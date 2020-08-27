@@ -49,6 +49,10 @@ export class ListEntitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MarketplaceCatalog",
+      clientName: "listEntities",
+      inputFilterLog: ListEntitiesRequest.filterSensitiveLog,
+      outputFilterLog: ListEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

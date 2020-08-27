@@ -46,6 +46,10 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "putConfigurationSetDeliveryOptions",
+      inputFilterLog: PutConfigurationSetDeliveryOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetDeliveryOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

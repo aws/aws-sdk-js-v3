@@ -45,6 +45,10 @@ export class UpdateSecretVersionStageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecretsManager",
+      clientName: "updateSecretVersionStage",
+      inputFilterLog: UpdateSecretVersionStageRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSecretVersionStageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

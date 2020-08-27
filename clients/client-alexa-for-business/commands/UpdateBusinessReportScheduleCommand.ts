@@ -45,6 +45,10 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "updateBusinessReportSchedule",
+      inputFilterLog: UpdateBusinessReportScheduleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateBusinessReportScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "addApplicationVpcConfiguration",
+      inputFilterLog: AddApplicationVpcConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: AddApplicationVpcConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

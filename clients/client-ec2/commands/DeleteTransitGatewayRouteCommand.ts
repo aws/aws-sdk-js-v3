@@ -45,6 +45,10 @@ export class DeleteTransitGatewayRouteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteTransitGatewayRoute",
+      inputFilterLog: DeleteTransitGatewayRouteRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTransitGatewayRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

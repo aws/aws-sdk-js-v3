@@ -49,6 +49,10 @@ export class GetBotsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "getBots",
+      inputFilterLog: GetBotsRequest.filterSensitiveLog,
+      outputFilterLog: GetBotsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

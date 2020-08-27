@@ -45,6 +45,10 @@ export class ListFlowExecutionMessagesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "listFlowExecutionMessages",
+      inputFilterLog: ListFlowExecutionMessagesRequest.filterSensitiveLog,
+      outputFilterLog: ListFlowExecutionMessagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

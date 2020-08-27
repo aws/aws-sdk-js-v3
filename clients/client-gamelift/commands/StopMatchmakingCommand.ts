@@ -45,6 +45,10 @@ export class StopMatchmakingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "stopMatchmaking",
+      inputFilterLog: StopMatchmakingInput.filterSensitiveLog,
+      outputFilterLog: StopMatchmakingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

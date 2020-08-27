@@ -45,6 +45,10 @@ export class AddRoleToDBInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "addRoleToDBInstance",
+      inputFilterLog: AddRoleToDBInstanceMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

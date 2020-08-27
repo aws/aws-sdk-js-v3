@@ -46,6 +46,10 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "createStreamingDistributionWithTags",
+      inputFilterLog: CreateStreamingDistributionWithTagsRequest.filterSensitiveLog,
+      outputFilterLog: CreateStreamingDistributionWithTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

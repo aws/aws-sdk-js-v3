@@ -45,6 +45,10 @@ export class GetDomainAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "getDomainAssociation",
+      inputFilterLog: GetDomainAssociationRequest.filterSensitiveLog,
+      outputFilterLog: GetDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

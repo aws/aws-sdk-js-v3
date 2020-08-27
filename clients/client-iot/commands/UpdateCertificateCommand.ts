@@ -45,6 +45,10 @@ export class UpdateCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateCertificate",
+      inputFilterLog: UpdateCertificateRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class RestoreDBClusterFromS3Command extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "restoreDBClusterFromS3",
+      inputFilterLog: RestoreDBClusterFromS3Message.filterSensitiveLog,
+      outputFilterLog: RestoreDBClusterFromS3Result.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

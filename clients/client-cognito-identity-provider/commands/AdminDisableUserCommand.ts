@@ -49,6 +49,10 @@ export class AdminDisableUserCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminDisableUser",
+      inputFilterLog: AdminDisableUserRequest.filterSensitiveLog,
+      outputFilterLog: AdminDisableUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalytics",
+      clientName: "deleteApplicationReferenceDataSource",
+      inputFilterLog: DeleteApplicationReferenceDataSourceRequest.filterSensitiveLog,
+      outputFilterLog: DeleteApplicationReferenceDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

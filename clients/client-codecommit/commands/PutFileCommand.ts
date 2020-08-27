@@ -42,6 +42,10 @@ export class PutFileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "putFile",
+      inputFilterLog: PutFileInput.filterSensitiveLog,
+      outputFilterLog: PutFileOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

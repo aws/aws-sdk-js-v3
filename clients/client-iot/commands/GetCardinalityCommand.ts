@@ -45,6 +45,10 @@ export class GetCardinalityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "getCardinality",
+      inputFilterLog: GetCardinalityRequest.filterSensitiveLog,
+      outputFilterLog: GetCardinalityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

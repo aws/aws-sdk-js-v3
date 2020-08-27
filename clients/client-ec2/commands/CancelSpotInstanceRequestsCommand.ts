@@ -45,6 +45,10 @@ export class CancelSpotInstanceRequestsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "cancelSpotInstanceRequests",
+      inputFilterLog: CancelSpotInstanceRequestsRequest.filterSensitiveLog,
+      outputFilterLog: CancelSpotInstanceRequestsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

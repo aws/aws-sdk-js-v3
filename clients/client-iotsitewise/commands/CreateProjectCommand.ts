@@ -45,6 +45,10 @@ export class CreateProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "createProject",
+      inputFilterLog: CreateProjectRequest.filterSensitiveLog,
+      outputFilterLog: CreateProjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

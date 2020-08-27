@@ -45,6 +45,10 @@ export class ListSubscriptionsByTopicCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "listSubscriptionsByTopic",
+      inputFilterLog: ListSubscriptionsByTopicInput.filterSensitiveLog,
+      outputFilterLog: ListSubscriptionsByTopicResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

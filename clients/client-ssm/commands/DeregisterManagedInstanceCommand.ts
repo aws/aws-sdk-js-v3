@@ -45,6 +45,10 @@ export class DeregisterManagedInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deregisterManagedInstance",
+      inputFilterLog: DeregisterManagedInstanceRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterManagedInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

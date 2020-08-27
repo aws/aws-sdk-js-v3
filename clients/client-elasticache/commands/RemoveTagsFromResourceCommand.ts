@@ -45,6 +45,10 @@ export class RemoveTagsFromResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "removeTagsFromResource",
+      inputFilterLog: RemoveTagsFromResourceMessage.filterSensitiveLog,
+      outputFilterLog: TagListMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

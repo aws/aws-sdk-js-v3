@@ -45,6 +45,10 @@ export class UpdateFleetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "updateFleet",
+      inputFilterLog: UpdateFleetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class EnableLoggingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "enableLogging",
+      inputFilterLog: EnableLoggingMessage.filterSensitiveLog,
+      outputFilterLog: LoggingStatus.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

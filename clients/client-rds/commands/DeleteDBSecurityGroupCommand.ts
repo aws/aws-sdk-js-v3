@@ -45,6 +45,10 @@ export class DeleteDBSecurityGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "deleteDBSecurityGroup",
+      inputFilterLog: DeleteDBSecurityGroupMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

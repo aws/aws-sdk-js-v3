@@ -49,6 +49,10 @@ export class StartExportTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationDiscoveryService",
+      clientName: "startExportTask",
+      inputFilterLog: StartExportTaskRequest.filterSensitiveLog,
+      outputFilterLog: StartExportTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateFunctionDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "createFunctionDefinition",
+      inputFilterLog: CreateFunctionDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: CreateFunctionDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

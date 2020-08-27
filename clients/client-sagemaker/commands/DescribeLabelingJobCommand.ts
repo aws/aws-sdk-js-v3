@@ -45,6 +45,10 @@ export class DescribeLabelingJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "describeLabelingJob",
+      inputFilterLog: DescribeLabelingJobRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLabelingJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

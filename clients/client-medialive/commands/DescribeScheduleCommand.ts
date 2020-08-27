@@ -45,6 +45,10 @@ export class DescribeScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "describeSchedule",
+      inputFilterLog: DescribeScheduleRequest.filterSensitiveLog,
+      outputFilterLog: DescribeScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

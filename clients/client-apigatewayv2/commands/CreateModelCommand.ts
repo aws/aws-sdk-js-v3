@@ -45,6 +45,10 @@ export class CreateModelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "createModel",
+      inputFilterLog: CreateModelRequest.filterSensitiveLog,
+      outputFilterLog: CreateModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

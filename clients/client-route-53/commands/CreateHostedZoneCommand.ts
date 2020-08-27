@@ -47,6 +47,10 @@ export class CreateHostedZoneCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "createHostedZone",
+      inputFilterLog: CreateHostedZoneRequest.filterSensitiveLog,
+      outputFilterLog: CreateHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

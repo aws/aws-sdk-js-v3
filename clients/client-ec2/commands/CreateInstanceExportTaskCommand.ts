@@ -45,6 +45,10 @@ export class CreateInstanceExportTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createInstanceExportTask",
+      inputFilterLog: CreateInstanceExportTaskRequest.filterSensitiveLog,
+      outputFilterLog: CreateInstanceExportTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

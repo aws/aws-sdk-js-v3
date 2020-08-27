@@ -45,6 +45,10 @@ export class ResumeSessionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "resumeSession",
+      inputFilterLog: ResumeSessionRequest.filterSensitiveLog,
+      outputFilterLog: ResumeSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

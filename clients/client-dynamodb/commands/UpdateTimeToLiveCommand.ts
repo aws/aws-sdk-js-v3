@@ -45,6 +45,10 @@ export class UpdateTimeToLiveCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "updateTimeToLive",
+      inputFilterLog: UpdateTimeToLiveInput.filterSensitiveLog,
+      outputFilterLog: UpdateTimeToLiveOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ArchiveFindingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "archiveFindings",
+      inputFilterLog: ArchiveFindingsRequest.filterSensitiveLog,
+      outputFilterLog: ArchiveFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteUserCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteUser",
+      inputFilterLog: DeleteUserRequest.filterSensitiveLog,
+      outputFilterLog: DeleteUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

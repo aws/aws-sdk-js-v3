@@ -46,6 +46,10 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "putConfigurationSetTrackingOptions",
+      inputFilterLog: PutConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

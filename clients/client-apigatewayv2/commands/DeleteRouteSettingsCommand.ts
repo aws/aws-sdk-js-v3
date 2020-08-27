@@ -45,6 +45,10 @@ export class DeleteRouteSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "deleteRouteSettings",
+      inputFilterLog: DeleteRouteSettingsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

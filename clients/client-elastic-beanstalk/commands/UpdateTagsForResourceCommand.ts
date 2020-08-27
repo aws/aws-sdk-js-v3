@@ -45,6 +45,10 @@ export class UpdateTagsForResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "updateTagsForResource",
+      inputFilterLog: UpdateTagsForResourceMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

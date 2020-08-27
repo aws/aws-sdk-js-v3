@@ -45,6 +45,10 @@ export class DeleteCodeRepositoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteCodeRepository",
+      inputFilterLog: DeleteCodeRepositoryInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class GetAlarmsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getAlarms",
+      inputFilterLog: GetAlarmsRequest.filterSensitiveLog,
+      outputFilterLog: GetAlarmsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DisassociateWebACLCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "disassociateWebACL",
+      inputFilterLog: DisassociateWebACLRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

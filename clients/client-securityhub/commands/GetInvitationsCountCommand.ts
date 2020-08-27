@@ -45,6 +45,10 @@ export class GetInvitationsCountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "getInvitationsCount",
+      inputFilterLog: GetInvitationsCountRequest.filterSensitiveLog,
+      outputFilterLog: GetInvitationsCountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

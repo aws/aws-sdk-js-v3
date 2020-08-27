@@ -45,6 +45,10 @@ export class PutQueryDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "putQueryDefinition",
+      inputFilterLog: PutQueryDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: PutQueryDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

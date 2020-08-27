@@ -45,6 +45,10 @@ export class DeleteLexiconCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Polly",
+      clientName: "deleteLexicon",
+      inputFilterLog: DeleteLexiconInput.filterSensitiveLog,
+      outputFilterLog: DeleteLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

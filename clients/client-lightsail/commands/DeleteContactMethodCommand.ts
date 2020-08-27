@@ -45,6 +45,10 @@ export class DeleteContactMethodCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteContactMethod",
+      inputFilterLog: DeleteContactMethodRequest.filterSensitiveLog,
+      outputFilterLog: DeleteContactMethodResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

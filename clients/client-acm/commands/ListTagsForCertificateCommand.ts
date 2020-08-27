@@ -45,6 +45,10 @@ export class ListTagsForCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ACM",
+      clientName: "listTagsForCertificate",
+      inputFilterLog: ListTagsForCertificateRequest.filterSensitiveLog,
+      outputFilterLog: ListTagsForCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

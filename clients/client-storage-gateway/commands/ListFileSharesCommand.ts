@@ -45,6 +45,10 @@ export class ListFileSharesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "listFileShares",
+      inputFilterLog: ListFileSharesInput.filterSensitiveLog,
+      outputFilterLog: ListFileSharesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

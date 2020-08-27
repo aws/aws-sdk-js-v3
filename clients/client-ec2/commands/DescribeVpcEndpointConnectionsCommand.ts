@@ -45,6 +45,10 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeVpcEndpointConnections",
+      inputFilterLog: DescribeVpcEndpointConnectionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeVpcEndpointConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "describeEvents",
+      inputFilterLog: DescribeEventsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

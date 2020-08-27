@@ -45,6 +45,10 @@ export class DescribeProfilingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruProfiler",
+      clientName: "describeProfilingGroup",
+      inputFilterLog: DescribeProfilingGroupRequest.filterSensitiveLog,
+      outputFilterLog: DescribeProfilingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

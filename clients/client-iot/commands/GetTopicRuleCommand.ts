@@ -45,6 +45,10 @@ export class GetTopicRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "getTopicRule",
+      inputFilterLog: GetTopicRuleRequest.filterSensitiveLog,
+      outputFilterLog: GetTopicRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

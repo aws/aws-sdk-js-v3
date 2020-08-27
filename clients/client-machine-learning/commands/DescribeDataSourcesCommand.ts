@@ -45,6 +45,10 @@ export class DescribeDataSourcesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "describeDataSources",
+      inputFilterLog: DescribeDataSourcesInput.filterSensitiveLog,
+      outputFilterLog: DescribeDataSourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

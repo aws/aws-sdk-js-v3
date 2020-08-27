@@ -45,6 +45,10 @@ export class DeregisterContainerInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "deregisterContainerInstance",
+      inputFilterLog: DeregisterContainerInstanceRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterContainerInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

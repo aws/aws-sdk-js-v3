@@ -56,6 +56,10 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "deleteApplicationCloudWatchLoggingOption",
+      inputFilterLog: DeleteApplicationCloudWatchLoggingOptionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteApplicationCloudWatchLoggingOptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeFleetInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeFleetInstances",
+      inputFilterLog: DescribeFleetInstancesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeFleetInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

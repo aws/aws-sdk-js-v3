@@ -45,6 +45,10 @@ export class UpdateDomainAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "updateDomainAssociation",
+      inputFilterLog: UpdateDomainAssociationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

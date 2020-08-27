@@ -42,6 +42,10 @@ export class ModifyIdFormatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyIdFormat",
+      inputFilterLog: ModifyIdFormatRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

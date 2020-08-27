@@ -45,6 +45,10 @@ export class GetQualificationScoreCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "getQualificationScore",
+      inputFilterLog: GetQualificationScoreRequest.filterSensitiveLog,
+      outputFilterLog: GetQualificationScoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

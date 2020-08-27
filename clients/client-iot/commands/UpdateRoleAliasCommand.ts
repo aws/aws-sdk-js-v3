@@ -45,6 +45,10 @@ export class UpdateRoleAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateRoleAlias",
+      inputFilterLog: UpdateRoleAliasRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRoleAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

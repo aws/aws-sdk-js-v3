@@ -45,6 +45,10 @@ export class DeleteDBClusterEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "deleteDBClusterEndpoint",
+      inputFilterLog: DeleteDBClusterEndpointMessage.filterSensitiveLog,
+      outputFilterLog: DBClusterEndpoint.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

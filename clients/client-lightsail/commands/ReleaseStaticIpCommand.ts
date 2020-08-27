@@ -45,6 +45,10 @@ export class ReleaseStaticIpCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "releaseStaticIp",
+      inputFilterLog: ReleaseStaticIpRequest.filterSensitiveLog,
+      outputFilterLog: ReleaseStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class UpdatePipelineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticTranscoder",
+      clientName: "updatePipeline",
+      inputFilterLog: UpdatePipelineRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePipelineResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

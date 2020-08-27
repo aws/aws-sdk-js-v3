@@ -45,6 +45,10 @@ export class GetExportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "getExport",
+      inputFilterLog: GetExportRequest.filterSensitiveLog,
+      outputFilterLog: ExportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

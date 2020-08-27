@@ -45,6 +45,10 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2Protocol",
+      clientName: "queryIdempotencyTokenAutoFill",
+      inputFilterLog: QueryIdempotencyTokenAutoFillInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

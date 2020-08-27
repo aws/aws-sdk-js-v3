@@ -45,6 +45,10 @@ export class GetLinkAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "getLinkAttributes",
+      inputFilterLog: GetLinkAttributesRequest.filterSensitiveLog,
+      outputFilterLog: GetLinkAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

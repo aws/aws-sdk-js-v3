@@ -45,6 +45,10 @@ export class ListSolutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "listSolutions",
+      inputFilterLog: ListSolutionsRequest.filterSensitiveLog,
+      outputFilterLog: ListSolutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class CreateProposalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "createProposal",
+      inputFilterLog: CreateProposalInput.filterSensitiveLog,
+      outputFilterLog: CreateProposalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

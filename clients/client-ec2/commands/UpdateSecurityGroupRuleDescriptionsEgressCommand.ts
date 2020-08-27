@@ -52,6 +52,10 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "updateSecurityGroupRuleDescriptionsEgress",
+      inputFilterLog: UpdateSecurityGroupRuleDescriptionsEgressRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSecurityGroupRuleDescriptionsEgressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

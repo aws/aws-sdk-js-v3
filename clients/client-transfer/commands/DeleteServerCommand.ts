@@ -45,6 +45,10 @@ export class DeleteServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transfer",
+      clientName: "deleteServer",
+      inputFilterLog: DeleteServerRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeVirtualServiceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "describeVirtualService",
+      inputFilterLog: DescribeVirtualServiceInput.filterSensitiveLog,
+      outputFilterLog: DescribeVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

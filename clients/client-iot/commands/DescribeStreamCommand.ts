@@ -45,6 +45,10 @@ export class DescribeStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "describeStream",
+      inputFilterLog: DescribeStreamRequest.filterSensitiveLog,
+      outputFilterLog: DescribeStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -38,6 +38,10 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "getApp",
+      inputFilterLog: GetAppRequest.filterSensitiveLog,
+      outputFilterLog: GetAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

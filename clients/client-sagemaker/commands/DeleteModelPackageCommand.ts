@@ -45,6 +45,10 @@ export class DeleteModelPackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteModelPackage",
+      inputFilterLog: DeleteModelPackageInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

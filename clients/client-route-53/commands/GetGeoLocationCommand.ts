@@ -45,6 +45,10 @@ export class GetGeoLocationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "getGeoLocation",
+      inputFilterLog: GetGeoLocationRequest.filterSensitiveLog,
+      outputFilterLog: GetGeoLocationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

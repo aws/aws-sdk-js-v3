@@ -45,6 +45,10 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listOrganizationalUnitsForParent",
+      inputFilterLog: ListOrganizationalUnitsForParentRequest.filterSensitiveLog,
+      outputFilterLog: ListOrganizationalUnitsForParentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

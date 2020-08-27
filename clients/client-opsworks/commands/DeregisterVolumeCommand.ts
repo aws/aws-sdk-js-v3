@@ -45,6 +45,10 @@ export class DeregisterVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "deregisterVolume",
+      inputFilterLog: DeregisterVolumeRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

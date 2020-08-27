@@ -45,6 +45,10 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getCampaignDateRangeKpi",
+      inputFilterLog: GetCampaignDateRangeKpiRequest.filterSensitiveLog,
+      outputFilterLog: GetCampaignDateRangeKpiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

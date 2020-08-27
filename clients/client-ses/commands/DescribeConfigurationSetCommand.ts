@@ -45,6 +45,10 @@ export class DescribeConfigurationSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "describeConfigurationSet",
+      inputFilterLog: DescribeConfigurationSetRequest.filterSensitiveLog,
+      outputFilterLog: DescribeConfigurationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

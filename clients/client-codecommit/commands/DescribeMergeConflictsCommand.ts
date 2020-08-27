@@ -45,6 +45,10 @@ export class DescribeMergeConflictsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "describeMergeConflicts",
+      inputFilterLog: DescribeMergeConflictsInput.filterSensitiveLog,
+      outputFilterLog: DescribeMergeConflictsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

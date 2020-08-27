@@ -45,6 +45,10 @@ export class DeleteThingShadowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTDataPlane",
+      clientName: "deleteThingShadow",
+      inputFilterLog: DeleteThingShadowRequest.filterSensitiveLog,
+      outputFilterLog: DeleteThingShadowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

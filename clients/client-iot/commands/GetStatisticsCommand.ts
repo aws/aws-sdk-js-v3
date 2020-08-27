@@ -45,6 +45,10 @@ export class GetStatisticsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "getStatistics",
+      inputFilterLog: GetStatisticsRequest.filterSensitiveLog,
+      outputFilterLog: GetStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

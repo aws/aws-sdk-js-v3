@@ -45,6 +45,10 @@ export class GetMetricPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "getMetricPolicy",
+      inputFilterLog: GetMetricPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetMetricPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

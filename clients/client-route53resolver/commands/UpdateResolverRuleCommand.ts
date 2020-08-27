@@ -45,6 +45,10 @@ export class UpdateResolverRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "updateResolverRule",
+      inputFilterLog: UpdateResolverRuleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StopGameSessionPlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "stopGameSessionPlacement",
+      inputFilterLog: StopGameSessionPlacementInput.filterSensitiveLog,
+      outputFilterLog: StopGameSessionPlacementOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateByteMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "updateByteMatchSet",
+      inputFilterLog: UpdateByteMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateByteMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

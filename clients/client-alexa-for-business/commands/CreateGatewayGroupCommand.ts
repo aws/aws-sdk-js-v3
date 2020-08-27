@@ -45,6 +45,10 @@ export class CreateGatewayGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "createGatewayGroup",
+      inputFilterLog: CreateGatewayGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateGatewayGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

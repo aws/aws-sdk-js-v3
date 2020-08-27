@@ -45,6 +45,10 @@ export class ListNotebookInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "listNotebookInstances",
+      inputFilterLog: ListNotebookInstancesInput.filterSensitiveLog,
+      outputFilterLog: ListNotebookInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

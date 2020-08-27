@@ -49,6 +49,10 @@ export class AdminUpdateUserAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminUpdateUserAttributes",
+      inputFilterLog: AdminUpdateUserAttributesRequest.filterSensitiveLog,
+      outputFilterLog: AdminUpdateUserAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Cloud9",
+      clientName: "describeEnvironmentMemberships",
+      inputFilterLog: DescribeEnvironmentMembershipsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEnvironmentMembershipsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetRegexPatternSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "getRegexPatternSet",
+      inputFilterLog: GetRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterLog: GetRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

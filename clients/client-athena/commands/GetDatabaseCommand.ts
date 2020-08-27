@@ -45,6 +45,10 @@ export class GetDatabaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "getDatabase",
+      inputFilterLog: GetDatabaseInput.filterSensitiveLog,
+      outputFilterLog: GetDatabaseOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

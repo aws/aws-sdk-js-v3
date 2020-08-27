@@ -46,6 +46,10 @@ export class ModifyRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "modifyRule",
+      inputFilterLog: ModifyRuleInput.filterSensitiveLog,
+      outputFilterLog: ModifyRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

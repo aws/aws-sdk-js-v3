@@ -49,6 +49,10 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "startMLLabelingSetGenerationTaskRun",
+      inputFilterLog: StartMLLabelingSetGenerationTaskRunRequest.filterSensitiveLog,
+      outputFilterLog: StartMLLabelingSetGenerationTaskRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

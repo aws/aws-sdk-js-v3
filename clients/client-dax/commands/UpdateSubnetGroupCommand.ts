@@ -45,6 +45,10 @@ export class UpdateSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "updateSubnetGroup",
+      inputFilterLog: UpdateSubnetGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

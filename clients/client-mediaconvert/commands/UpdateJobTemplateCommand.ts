@@ -45,6 +45,10 @@ export class UpdateJobTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "updateJobTemplate",
+      inputFilterLog: UpdateJobTemplateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateJobTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

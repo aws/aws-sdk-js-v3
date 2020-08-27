@@ -45,6 +45,10 @@ export class DeleteAccessKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteAccessKey",
+      inputFilterLog: DeleteAccessKeyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

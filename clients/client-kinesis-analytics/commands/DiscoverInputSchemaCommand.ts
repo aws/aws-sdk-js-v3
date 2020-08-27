@@ -45,6 +45,10 @@ export class DiscoverInputSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalytics",
+      clientName: "discoverInputSchema",
+      inputFilterLog: DiscoverInputSchemaRequest.filterSensitiveLog,
+      outputFilterLog: DiscoverInputSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

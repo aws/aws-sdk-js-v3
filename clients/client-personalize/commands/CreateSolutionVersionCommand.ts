@@ -45,6 +45,10 @@ export class CreateSolutionVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "createSolutionVersion",
+      inputFilterLog: CreateSolutionVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateSolutionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

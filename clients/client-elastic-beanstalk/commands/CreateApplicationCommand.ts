@@ -45,6 +45,10 @@ export class CreateApplicationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "createApplication",
+      inputFilterLog: CreateApplicationMessage.filterSensitiveLog,
+      outputFilterLog: ApplicationDescriptionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDomainNamesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "getDomainNames",
+      inputFilterLog: GetDomainNamesRequest.filterSensitiveLog,
+      outputFilterLog: GetDomainNamesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

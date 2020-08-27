@@ -45,6 +45,10 @@ export class ModifyDBParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyDBParameterGroup",
+      inputFilterLog: ModifyDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

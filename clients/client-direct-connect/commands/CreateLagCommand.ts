@@ -42,6 +42,10 @@ export class CreateLagCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "createLag",
+      inputFilterLog: CreateLagRequest.filterSensitiveLog,
+      outputFilterLog: Lag.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

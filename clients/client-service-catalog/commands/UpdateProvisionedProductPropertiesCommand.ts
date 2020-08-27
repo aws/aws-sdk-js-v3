@@ -46,6 +46,10 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "updateProvisionedProductProperties",
+      inputFilterLog: UpdateProvisionedProductPropertiesInput.filterSensitiveLog,
+      outputFilterLog: UpdateProvisionedProductPropertiesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

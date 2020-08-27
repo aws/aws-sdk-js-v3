@@ -45,6 +45,10 @@ export class DescribeSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "describeSchema",
+      inputFilterLog: DescribeSchemaRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

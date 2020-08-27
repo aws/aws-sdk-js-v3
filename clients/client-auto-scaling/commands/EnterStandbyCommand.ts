@@ -42,6 +42,10 @@ export class EnterStandbyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "enterStandby",
+      inputFilterLog: EnterStandbyQuery.filterSensitiveLog,
+      outputFilterLog: EnterStandbyAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

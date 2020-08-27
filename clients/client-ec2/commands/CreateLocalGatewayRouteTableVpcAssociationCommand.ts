@@ -52,6 +52,10 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createLocalGatewayRouteTableVpcAssociation",
+      inputFilterLog: CreateLocalGatewayRouteTableVpcAssociationRequest.filterSensitiveLog,
+      outputFilterLog: CreateLocalGatewayRouteTableVpcAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

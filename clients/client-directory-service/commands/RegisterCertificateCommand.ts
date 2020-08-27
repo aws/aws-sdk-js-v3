@@ -45,6 +45,10 @@ export class RegisterCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "registerCertificate",
+      inputFilterLog: RegisterCertificateRequest.filterSensitiveLog,
+      outputFilterLog: RegisterCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

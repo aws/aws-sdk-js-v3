@@ -42,6 +42,10 @@ export class PutAlarmCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "putAlarm",
+      inputFilterLog: PutAlarmRequest.filterSensitiveLog,
+      outputFilterLog: PutAlarmResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

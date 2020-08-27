@@ -45,6 +45,10 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "countOpenWorkflowExecutions",
+      inputFilterLog: CountOpenWorkflowExecutionsInput.filterSensitiveLog,
+      outputFilterLog: WorkflowExecutionCount.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

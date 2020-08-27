@@ -45,6 +45,10 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "removeThingFromBillingGroup",
+      inputFilterLog: RemoveThingFromBillingGroupRequest.filterSensitiveLog,
+      outputFilterLog: RemoveThingFromBillingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

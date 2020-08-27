@@ -45,6 +45,10 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "deleteFunctionConcurrency",
+      inputFilterLog: DeleteFunctionConcurrencyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeActivityTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "describeActivityType",
+      inputFilterLog: DescribeActivityTypeInput.filterSensitiveLog,
+      outputFilterLog: ActivityTypeDetail.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

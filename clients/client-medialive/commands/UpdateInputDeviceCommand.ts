@@ -45,6 +45,10 @@ export class UpdateInputDeviceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "updateInputDevice",
+      inputFilterLog: UpdateInputDeviceRequest.filterSensitiveLog,
+      outputFilterLog: UpdateInputDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

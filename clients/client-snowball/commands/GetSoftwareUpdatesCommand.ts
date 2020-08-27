@@ -45,6 +45,10 @@ export class GetSoftwareUpdatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Snowball",
+      clientName: "getSoftwareUpdates",
+      inputFilterLog: GetSoftwareUpdatesRequest.filterSensitiveLog,
+      outputFilterLog: GetSoftwareUpdatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

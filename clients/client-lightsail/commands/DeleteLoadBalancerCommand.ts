@@ -45,6 +45,10 @@ export class DeleteLoadBalancerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteLoadBalancer",
+      inputFilterLog: DeleteLoadBalancerRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLoadBalancerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

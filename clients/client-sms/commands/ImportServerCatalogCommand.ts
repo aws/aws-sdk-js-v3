@@ -45,6 +45,10 @@ export class ImportServerCatalogCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "importServerCatalog",
+      inputFilterLog: ImportServerCatalogRequest.filterSensitiveLog,
+      outputFilterLog: ImportServerCatalogResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

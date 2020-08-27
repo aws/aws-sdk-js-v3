@@ -45,6 +45,10 @@ export class IsVpcPeeredCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "isVpcPeered",
+      inputFilterLog: IsVpcPeeredRequest.filterSensitiveLog,
+      outputFilterLog: IsVpcPeeredResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UnassignVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "unassignVolume",
+      inputFilterLog: UnassignVolumeRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

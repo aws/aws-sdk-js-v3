@@ -45,6 +45,10 @@ export class CreateSegmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "createSegment",
+      inputFilterLog: CreateSegmentRequest.filterSensitiveLog,
+      outputFilterLog: CreateSegmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

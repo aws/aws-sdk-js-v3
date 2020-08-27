@@ -45,6 +45,10 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listAttachedGroupPolicies",
+      inputFilterLog: ListAttachedGroupPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListAttachedGroupPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

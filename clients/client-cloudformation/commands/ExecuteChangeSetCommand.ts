@@ -45,6 +45,10 @@ export class ExecuteChangeSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "executeChangeSet",
+      inputFilterLog: ExecuteChangeSetInput.filterSensitiveLog,
+      outputFilterLog: ExecuteChangeSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

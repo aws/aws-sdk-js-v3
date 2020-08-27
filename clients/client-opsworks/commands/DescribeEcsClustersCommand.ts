@@ -45,6 +45,10 @@ export class DescribeEcsClustersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "describeEcsClusters",
+      inputFilterLog: DescribeEcsClustersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEcsClustersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "createServer",
+      inputFilterLog: CreateServerRequest.filterSensitiveLog,
+      outputFilterLog: CreateServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

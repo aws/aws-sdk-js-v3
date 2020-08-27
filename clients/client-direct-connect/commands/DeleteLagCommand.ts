@@ -42,6 +42,10 @@ export class DeleteLagCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "deleteLag",
+      inputFilterLog: DeleteLagRequest.filterSensitiveLog,
+      outputFilterLog: Lag.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

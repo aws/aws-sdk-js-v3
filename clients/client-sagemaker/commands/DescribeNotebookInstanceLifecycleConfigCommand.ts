@@ -52,6 +52,10 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "describeNotebookInstanceLifecycleConfig",
+      inputFilterLog: DescribeNotebookInstanceLifecycleConfigInput.filterSensitiveLog,
+      outputFilterLog: DescribeNotebookInstanceLifecycleConfigOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

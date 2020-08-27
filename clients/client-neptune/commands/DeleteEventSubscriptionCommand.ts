@@ -45,6 +45,10 @@ export class DeleteEventSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "deleteEventSubscription",
+      inputFilterLog: DeleteEventSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: DeleteEventSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

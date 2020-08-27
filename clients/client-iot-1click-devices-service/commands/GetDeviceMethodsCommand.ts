@@ -49,6 +49,10 @@ export class GetDeviceMethodsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickDevicesService",
+      clientName: "getDeviceMethods",
+      inputFilterLog: GetDeviceMethodsRequest.filterSensitiveLog,
+      outputFilterLog: GetDeviceMethodsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

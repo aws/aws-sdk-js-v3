@@ -45,6 +45,10 @@ export class TerminateAppCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "terminateApp",
+      inputFilterLog: TerminateAppRequest.filterSensitiveLog,
+      outputFilterLog: TerminateAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

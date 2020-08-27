@@ -45,6 +45,10 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createVpcPeeringConnection",
+      inputFilterLog: CreateVpcPeeringConnectionRequest.filterSensitiveLog,
+      outputFilterLog: CreateVpcPeeringConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

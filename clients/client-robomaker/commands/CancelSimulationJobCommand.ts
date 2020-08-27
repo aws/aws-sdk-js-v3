@@ -45,6 +45,10 @@ export class CancelSimulationJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "cancelSimulationJob",
+      inputFilterLog: CancelSimulationJobRequest.filterSensitiveLog,
+      outputFilterLog: CancelSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

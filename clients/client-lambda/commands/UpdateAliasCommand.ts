@@ -45,6 +45,10 @@ export class UpdateAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "updateAlias",
+      inputFilterLog: UpdateAliasRequest.filterSensitiveLog,
+      outputFilterLog: AliasConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

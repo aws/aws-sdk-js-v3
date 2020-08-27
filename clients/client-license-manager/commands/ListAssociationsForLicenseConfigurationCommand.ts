@@ -52,6 +52,10 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LicenseManager",
+      clientName: "listAssociationsForLicenseConfiguration",
+      inputFilterLog: ListAssociationsForLicenseConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: ListAssociationsForLicenseConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

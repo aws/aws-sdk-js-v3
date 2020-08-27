@@ -45,6 +45,10 @@ export class UploadSigningCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "uploadSigningCertificate",
+      inputFilterLog: UploadSigningCertificateRequest.filterSensitiveLog,
+      outputFilterLog: UploadSigningCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class SetRulePrioritiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "setRulePriorities",
+      inputFilterLog: SetRulePrioritiesInput.filterSensitiveLog,
+      outputFilterLog: SetRulePrioritiesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

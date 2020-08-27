@@ -45,6 +45,10 @@ export class GetFunctionConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "getFunctionConfiguration",
+      inputFilterLog: GetFunctionConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: FunctionConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

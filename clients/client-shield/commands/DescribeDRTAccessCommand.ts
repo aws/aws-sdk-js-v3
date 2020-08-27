@@ -45,6 +45,10 @@ export class DescribeDRTAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "describeDRTAccess",
+      inputFilterLog: DescribeDRTAccessRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDRTAccessResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

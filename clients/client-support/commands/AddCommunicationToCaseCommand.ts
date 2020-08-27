@@ -45,6 +45,10 @@ export class AddCommunicationToCaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Support",
+      clientName: "addCommunicationToCase",
+      inputFilterLog: AddCommunicationToCaseRequest.filterSensitiveLog,
+      outputFilterLog: AddCommunicationToCaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

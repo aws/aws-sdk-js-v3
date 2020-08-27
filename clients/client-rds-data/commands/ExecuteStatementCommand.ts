@@ -45,6 +45,10 @@ export class ExecuteStatementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDSData",
+      clientName: "executeStatement",
+      inputFilterLog: ExecuteStatementRequest.filterSensitiveLog,
+      outputFilterLog: ExecuteStatementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

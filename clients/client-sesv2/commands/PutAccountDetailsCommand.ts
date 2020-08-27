@@ -45,6 +45,10 @@ export class PutAccountDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putAccountDetails",
+      inputFilterLog: PutAccountDetailsRequest.filterSensitiveLog,
+      outputFilterLog: PutAccountDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "createResource",
+      inputFilterLog: CreateResourceRequest.filterSensitiveLog,
+      outputFilterLog: Resource.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

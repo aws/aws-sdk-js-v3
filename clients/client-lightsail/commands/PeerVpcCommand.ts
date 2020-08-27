@@ -38,6 +38,10 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "peerVpc",
+      inputFilterLog: PeerVpcRequest.filterSensitiveLog,
+      outputFilterLog: PeerVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

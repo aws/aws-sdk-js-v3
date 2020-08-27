@@ -45,6 +45,10 @@ export class CreateBackupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FSx",
+      clientName: "createBackup",
+      inputFilterLog: CreateBackupRequest.filterSensitiveLog,
+      outputFilterLog: CreateBackupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

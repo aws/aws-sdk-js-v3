@@ -49,6 +49,10 @@ export class RegisterScalableTargetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationAutoScaling",
+      clientName: "registerScalableTarget",
+      inputFilterLog: RegisterScalableTargetRequest.filterSensitiveLog,
+      outputFilterLog: RegisterScalableTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

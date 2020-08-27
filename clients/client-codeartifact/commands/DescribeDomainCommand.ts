@@ -45,6 +45,10 @@ export class DescribeDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "describeDomain",
+      inputFilterLog: DescribeDomainRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

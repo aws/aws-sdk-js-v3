@@ -45,6 +45,10 @@ export class PutEventStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "putEventStream",
+      inputFilterLog: PutEventStreamRequest.filterSensitiveLog,
+      outputFilterLog: PutEventStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

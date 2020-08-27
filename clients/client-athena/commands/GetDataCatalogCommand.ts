@@ -45,6 +45,10 @@ export class GetDataCatalogCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "getDataCatalog",
+      inputFilterLog: GetDataCatalogInput.filterSensitiveLog,
+      outputFilterLog: GetDataCatalogOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

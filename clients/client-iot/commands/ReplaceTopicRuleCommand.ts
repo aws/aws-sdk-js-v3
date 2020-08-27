@@ -45,6 +45,10 @@ export class ReplaceTopicRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "replaceTopicRule",
+      inputFilterLog: ReplaceTopicRuleRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "describeAuditMitigationActionsTask",
+      inputFilterLog: DescribeAuditMitigationActionsTaskRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAuditMitigationActionsTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "updateDomainEndpointOptions",
+      inputFilterLog: UpdateDomainEndpointOptionsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainEndpointOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteAppCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "deleteApp",
+      inputFilterLog: DeleteAppRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

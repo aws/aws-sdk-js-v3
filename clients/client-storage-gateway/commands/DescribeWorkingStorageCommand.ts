@@ -45,6 +45,10 @@ export class DescribeWorkingStorageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeWorkingStorage",
+      inputFilterLog: DescribeWorkingStorageInput.filterSensitiveLog,
+      outputFilterLog: DescribeWorkingStorageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

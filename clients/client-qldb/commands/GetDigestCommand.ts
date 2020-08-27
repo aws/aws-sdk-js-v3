@@ -45,6 +45,10 @@ export class GetDigestCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "getDigest",
+      inputFilterLog: GetDigestRequest.filterSensitiveLog,
+      outputFilterLog: GetDigestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

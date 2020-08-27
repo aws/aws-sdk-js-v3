@@ -45,6 +45,10 @@ export class GetAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getAccount",
+      inputFilterLog: GetAccountRequest.filterSensitiveLog,
+      outputFilterLog: GetAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListGeoMatchSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "listGeoMatchSets",
+      inputFilterLog: ListGeoMatchSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListGeoMatchSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

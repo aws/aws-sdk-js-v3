@@ -45,6 +45,10 @@ export class ListAttachedRolePoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listAttachedRolePolicies",
+      inputFilterLog: ListAttachedRolePoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListAttachedRolePoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

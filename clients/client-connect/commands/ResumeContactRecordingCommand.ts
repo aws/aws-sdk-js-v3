@@ -45,6 +45,10 @@ export class ResumeContactRecordingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "resumeContactRecording",
+      inputFilterLog: ResumeContactRecordingRequest.filterSensitiveLog,
+      outputFilterLog: ResumeContactRecordingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

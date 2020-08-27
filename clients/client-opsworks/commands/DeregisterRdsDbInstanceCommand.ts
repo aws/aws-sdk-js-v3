@@ -45,6 +45,10 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "deregisterRdsDbInstance",
+      inputFilterLog: DeregisterRdsDbInstanceRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

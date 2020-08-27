@@ -45,6 +45,10 @@ export class UpdateGlobalSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "updateGlobalSettings",
+      inputFilterLog: UpdateGlobalSettingsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

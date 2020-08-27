@@ -45,6 +45,10 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describeLaunchConfigurations",
+      inputFilterLog: LaunchConfigurationNamesType.filterSensitiveLog,
+      outputFilterLog: LaunchConfigurationsType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DeleteReplicationInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "deleteReplicationInstance",
+      inputFilterLog: DeleteReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterLog: DeleteReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

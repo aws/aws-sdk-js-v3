@@ -45,6 +45,10 @@ export class DetectStackResourceDriftCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "detectStackResourceDrift",
+      inputFilterLog: DetectStackResourceDriftInput.filterSensitiveLog,
+      outputFilterLog: DetectStackResourceDriftOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

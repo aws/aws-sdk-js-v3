@@ -49,6 +49,10 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "updateElasticsearchDomainConfig",
+      inputFilterLog: UpdateElasticsearchDomainConfigRequest.filterSensitiveLog,
+      outputFilterLog: UpdateElasticsearchDomainConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "recordLifecycleActionHeartbeat",
+      inputFilterLog: RecordLifecycleActionHeartbeatType.filterSensitiveLog,
+      outputFilterLog: RecordLifecycleActionHeartbeatAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

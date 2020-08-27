@@ -45,6 +45,10 @@ export class DeleteResolverCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "deleteResolver",
+      inputFilterLog: DeleteResolverRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResolverResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteSubscriptionFilterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "deleteSubscriptionFilter",
+      inputFilterLog: DeleteSubscriptionFilterRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

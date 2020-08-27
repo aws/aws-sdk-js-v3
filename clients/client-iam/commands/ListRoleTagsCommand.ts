@@ -42,6 +42,10 @@ export class ListRoleTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listRoleTags",
+      inputFilterLog: ListRoleTagsRequest.filterSensitiveLog,
+      outputFilterLog: ListRoleTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

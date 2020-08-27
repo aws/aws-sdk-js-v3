@@ -45,6 +45,10 @@ export class ListReusableDelegationSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "listReusableDelegationSets",
+      inputFilterLog: ListReusableDelegationSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListReusableDelegationSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

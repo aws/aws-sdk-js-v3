@@ -45,6 +45,10 @@ export class DeletePartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deletePartition",
+      inputFilterLog: DeletePartitionRequest.filterSensitiveLog,
+      outputFilterLog: DeletePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

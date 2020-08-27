@@ -49,6 +49,10 @@ export class GetRawMessageContentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMailMessageFlow",
+      clientName: "getRawMessageContent",
+      inputFilterLog: GetRawMessageContentRequest.filterSensitiveLog,
+      outputFilterLog: GetRawMessageContentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

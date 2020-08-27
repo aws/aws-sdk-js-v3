@@ -42,6 +42,10 @@ export class GetLabelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getLabels",
+      inputFilterLog: GetLabelsRequest.filterSensitiveLog,
+      outputFilterLog: GetLabelsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

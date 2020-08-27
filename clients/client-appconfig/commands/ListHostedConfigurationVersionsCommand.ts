@@ -45,6 +45,10 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppConfig",
+      clientName: "listHostedConfigurationVersions",
+      inputFilterLog: ListHostedConfigurationVersionsRequest.filterSensitiveLog,
+      outputFilterLog: HostedConfigurationVersions.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

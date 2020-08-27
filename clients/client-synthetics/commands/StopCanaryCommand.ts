@@ -45,6 +45,10 @@ export class StopCanaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Synthetics",
+      clientName: "stopCanary",
+      inputFilterLog: StopCanaryRequest.filterSensitiveLog,
+      outputFilterLog: StopCanaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

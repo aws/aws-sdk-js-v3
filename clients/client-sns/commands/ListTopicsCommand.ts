@@ -42,6 +42,10 @@ export class ListTopicsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "listTopics",
+      inputFilterLog: ListTopicsInput.filterSensitiveLog,
+      outputFilterLog: ListTopicsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

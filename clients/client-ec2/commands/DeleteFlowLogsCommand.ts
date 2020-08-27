@@ -42,6 +42,10 @@ export class DeleteFlowLogsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteFlowLogs",
+      inputFilterLog: DeleteFlowLogsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFlowLogsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateMeshCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "updateMesh",
+      inputFilterLog: UpdateMeshInput.filterSensitiveLog,
+      outputFilterLog: UpdateMeshOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

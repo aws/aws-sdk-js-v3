@@ -45,6 +45,10 @@ export class CreatePatchBaselineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "createPatchBaseline",
+      inputFilterLog: CreatePatchBaselineRequest.filterSensitiveLog,
+      outputFilterLog: CreatePatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

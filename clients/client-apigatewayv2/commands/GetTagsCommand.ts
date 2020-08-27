@@ -45,6 +45,10 @@ export class GetTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "getTags",
+      inputFilterLog: GetTagsRequest.filterSensitiveLog,
+      outputFilterLog: GetTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LakeFormation",
+      clientName: "getEffectivePermissionsForPath",
+      inputFilterLog: GetEffectivePermissionsForPathRequest.filterSensitiveLog,
+      outputFilterLog: GetEffectivePermissionsForPathResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

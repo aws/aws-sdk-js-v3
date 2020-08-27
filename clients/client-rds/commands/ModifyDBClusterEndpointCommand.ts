@@ -45,6 +45,10 @@ export class ModifyDBClusterEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyDBClusterEndpoint",
+      inputFilterLog: ModifyDBClusterEndpointMessage.filterSensitiveLog,
+      outputFilterLog: DBClusterEndpoint.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

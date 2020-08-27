@@ -45,6 +45,10 @@ export class UntagProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStar",
+      clientName: "untagProject",
+      inputFilterLog: UntagProjectRequest.filterSensitiveLog,
+      outputFilterLog: UntagProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

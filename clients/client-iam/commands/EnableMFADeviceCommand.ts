@@ -45,6 +45,10 @@ export class EnableMFADeviceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "enableMFADevice",
+      inputFilterLog: EnableMFADeviceRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeAgentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "describeAgent",
+      inputFilterLog: DescribeAgentRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAgentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateDashboardPermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateDashboardPermissions",
+      inputFilterLog: UpdateDashboardPermissionsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDashboardPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

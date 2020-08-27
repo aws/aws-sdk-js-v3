@@ -45,6 +45,10 @@ export class CreateSmsTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "createSmsTemplate",
+      inputFilterLog: CreateSmsTemplateRequest.filterSensitiveLog,
+      outputFilterLog: CreateSmsTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

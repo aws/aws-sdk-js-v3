@@ -45,6 +45,10 @@ export class ListUsersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "listUsers",
+      inputFilterLog: ListUsersRequest.filterSensitiveLog,
+      outputFilterLog: ListUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

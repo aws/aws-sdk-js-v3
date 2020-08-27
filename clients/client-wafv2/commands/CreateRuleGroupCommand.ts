@@ -45,6 +45,10 @@ export class CreateRuleGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "createRuleGroup",
+      inputFilterLog: CreateRuleGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

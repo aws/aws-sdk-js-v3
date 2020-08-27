@@ -45,6 +45,10 @@ export class AssociateDelegateToResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "associateDelegateToResource",
+      inputFilterLog: AssociateDelegateToResourceRequest.filterSensitiveLog,
+      outputFilterLog: AssociateDelegateToResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

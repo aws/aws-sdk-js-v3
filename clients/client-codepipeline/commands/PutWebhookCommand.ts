@@ -45,6 +45,10 @@ export class PutWebhookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "putWebhook",
+      inputFilterLog: PutWebhookInput.filterSensitiveLog,
+      outputFilterLog: PutWebhookOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

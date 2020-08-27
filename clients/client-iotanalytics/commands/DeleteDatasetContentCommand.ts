@@ -45,6 +45,10 @@ export class DeleteDatasetContentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "deleteDatasetContent",
+      inputFilterLog: DeleteDatasetContentRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

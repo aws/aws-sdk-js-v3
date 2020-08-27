@@ -45,6 +45,10 @@ export class ListHoursOfOperationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "listHoursOfOperations",
+      inputFilterLog: ListHoursOfOperationsRequest.filterSensitiveLog,
+      outputFilterLog: ListHoursOfOperationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutMetricAlarmCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "putMetricAlarm",
+      inputFilterLog: PutMetricAlarmInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

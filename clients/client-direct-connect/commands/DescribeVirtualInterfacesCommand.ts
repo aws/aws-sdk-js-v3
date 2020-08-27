@@ -45,6 +45,10 @@ export class DescribeVirtualInterfacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "describeVirtualInterfaces",
+      inputFilterLog: DescribeVirtualInterfacesRequest.filterSensitiveLog,
+      outputFilterLog: VirtualInterfaces.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

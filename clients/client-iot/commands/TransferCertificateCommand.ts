@@ -45,6 +45,10 @@ export class TransferCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "transferCertificate",
+      inputFilterLog: TransferCertificateRequest.filterSensitiveLog,
+      outputFilterLog: TransferCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

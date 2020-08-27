@@ -45,6 +45,10 @@ export class DeleteParameterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deleteParameter",
+      inputFilterLog: DeleteParameterRequest.filterSensitiveLog,
+      outputFilterLog: DeleteParameterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

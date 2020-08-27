@@ -45,6 +45,10 @@ export class UpdateBranchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "updateBranch",
+      inputFilterLog: UpdateBranchRequest.filterSensitiveLog,
+      outputFilterLog: UpdateBranchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

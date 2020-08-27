@@ -45,6 +45,10 @@ export class ModifyGlobalClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyGlobalCluster",
+      inputFilterLog: ModifyGlobalClusterMessage.filterSensitiveLog,
+      outputFilterLog: ModifyGlobalClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

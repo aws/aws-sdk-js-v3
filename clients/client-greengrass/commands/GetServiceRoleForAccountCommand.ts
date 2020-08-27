@@ -45,6 +45,10 @@ export class GetServiceRoleForAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getServiceRoleForAccount",
+      inputFilterLog: GetServiceRoleForAccountRequest.filterSensitiveLog,
+      outputFilterLog: GetServiceRoleForAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

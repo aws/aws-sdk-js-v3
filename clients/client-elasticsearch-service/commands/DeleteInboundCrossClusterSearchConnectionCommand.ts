@@ -56,6 +56,10 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "deleteInboundCrossClusterSearchConnection",
+      inputFilterLog: DeleteInboundCrossClusterSearchConnectionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInboundCrossClusterSearchConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteProvisionedConcurrencyConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "deleteProvisionedConcurrencyConfig",
+      inputFilterLog: DeleteProvisionedConcurrencyConfigRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

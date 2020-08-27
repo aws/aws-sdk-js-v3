@@ -45,6 +45,10 @@ export class BatchPutAssetPropertyValueCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "batchPutAssetPropertyValue",
+      inputFilterLog: BatchPutAssetPropertyValueRequest.filterSensitiveLog,
+      outputFilterLog: BatchPutAssetPropertyValueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

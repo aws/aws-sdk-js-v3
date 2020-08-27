@@ -45,6 +45,10 @@ export class UpdateWorkforceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "updateWorkforce",
+      inputFilterLog: UpdateWorkforceRequest.filterSensitiveLog,
+      outputFilterLog: UpdateWorkforceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

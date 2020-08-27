@@ -45,6 +45,10 @@ export class AllQueryStringTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "allQueryStringTypes",
+      inputFilterLog: AllQueryStringTypesInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

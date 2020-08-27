@@ -45,6 +45,10 @@ export class DisableMacieCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "disableMacie",
+      inputFilterLog: DisableMacieRequest.filterSensitiveLog,
+      outputFilterLog: DisableMacieResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

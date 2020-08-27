@@ -47,6 +47,10 @@ export class GetQueryLoggingConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "getQueryLoggingConfig",
+      inputFilterLog: GetQueryLoggingConfigRequest.filterSensitiveLog,
+      outputFilterLog: GetQueryLoggingConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

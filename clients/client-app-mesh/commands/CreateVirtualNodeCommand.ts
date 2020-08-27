@@ -45,6 +45,10 @@ export class CreateVirtualNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "createVirtualNode",
+      inputFilterLog: CreateVirtualNodeInput.filterSensitiveLog,
+      outputFilterLog: CreateVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

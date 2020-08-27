@@ -49,6 +49,10 @@ export class GetMemberCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "getMember",
+      inputFilterLog: GetMemberInput.filterSensitiveLog,
+      outputFilterLog: GetMemberOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

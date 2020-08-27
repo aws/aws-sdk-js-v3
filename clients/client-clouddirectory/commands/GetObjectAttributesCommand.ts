@@ -45,6 +45,10 @@ export class GetObjectAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "getObjectAttributes",
+      inputFilterLog: GetObjectAttributesRequest.filterSensitiveLog,
+      outputFilterLog: GetObjectAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

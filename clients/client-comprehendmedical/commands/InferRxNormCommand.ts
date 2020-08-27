@@ -49,6 +49,10 @@ export class InferRxNormCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComprehendMedical",
+      clientName: "inferRxNorm",
+      inputFilterLog: InferRxNormRequest.filterSensitiveLog,
+      outputFilterLog: InferRxNormResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

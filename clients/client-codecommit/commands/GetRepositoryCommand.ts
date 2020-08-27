@@ -45,6 +45,10 @@ export class GetRepositoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "getRepository",
+      inputFilterLog: GetRepositoryInput.filterSensitiveLog,
+      outputFilterLog: GetRepositoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

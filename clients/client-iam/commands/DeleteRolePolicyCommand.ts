@@ -45,6 +45,10 @@ export class DeleteRolePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteRolePolicy",
+      inputFilterLog: DeleteRolePolicyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

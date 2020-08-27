@@ -45,6 +45,10 @@ export class GetLoadBalancersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getLoadBalancers",
+      inputFilterLog: GetLoadBalancersRequest.filterSensitiveLog,
+      outputFilterLog: GetLoadBalancersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

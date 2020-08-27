@@ -45,6 +45,10 @@ export class GetMailboxDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "getMailboxDetails",
+      inputFilterLog: GetMailboxDetailsRequest.filterSensitiveLog,
+      outputFilterLog: GetMailboxDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

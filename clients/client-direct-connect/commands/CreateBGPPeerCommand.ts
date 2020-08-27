@@ -45,6 +45,10 @@ export class CreateBGPPeerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "createBGPPeer",
+      inputFilterLog: CreateBGPPeerRequest.filterSensitiveLog,
+      outputFilterLog: CreateBGPPeerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

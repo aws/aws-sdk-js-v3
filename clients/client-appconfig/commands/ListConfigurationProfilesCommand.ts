@@ -45,6 +45,10 @@ export class ListConfigurationProfilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppConfig",
+      clientName: "listConfigurationProfiles",
+      inputFilterLog: ListConfigurationProfilesRequest.filterSensitiveLog,
+      outputFilterLog: ConfigurationProfiles.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

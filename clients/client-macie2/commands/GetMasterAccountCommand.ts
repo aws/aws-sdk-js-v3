@@ -45,6 +45,10 @@ export class GetMasterAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "getMasterAccount",
+      inputFilterLog: GetMasterAccountRequest.filterSensitiveLog,
+      outputFilterLog: GetMasterAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

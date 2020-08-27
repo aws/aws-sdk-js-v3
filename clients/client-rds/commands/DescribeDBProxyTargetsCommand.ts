@@ -45,6 +45,10 @@ export class DescribeDBProxyTargetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeDBProxyTargets",
+      inputFilterLog: DescribeDBProxyTargetsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDBProxyTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

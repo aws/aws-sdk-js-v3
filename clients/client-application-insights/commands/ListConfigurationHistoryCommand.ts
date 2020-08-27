@@ -49,6 +49,10 @@ export class ListConfigurationHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationInsights",
+      clientName: "listConfigurationHistory",
+      inputFilterLog: ListConfigurationHistoryRequest.filterSensitiveLog,
+      outputFilterLog: ListConfigurationHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

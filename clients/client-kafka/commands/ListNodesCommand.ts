@@ -45,6 +45,10 @@ export class ListNodesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kafka",
+      clientName: "listNodes",
+      inputFilterLog: ListNodesRequest.filterSensitiveLog,
+      outputFilterLog: ListNodesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateProvisioningTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateProvisioningTemplate",
+      inputFilterLog: UpdateProvisioningTemplateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateProvisioningTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

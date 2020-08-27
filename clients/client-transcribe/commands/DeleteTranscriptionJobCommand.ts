@@ -45,6 +45,10 @@ export class DeleteTranscriptionJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "deleteTranscriptionJob",
+      inputFilterLog: DeleteTranscriptionJobRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

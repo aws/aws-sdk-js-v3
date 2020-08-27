@@ -45,6 +45,10 @@ export class DescribeCreateAccountStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "describeCreateAccountStatus",
+      inputFilterLog: DescribeCreateAccountStatusRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCreateAccountStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

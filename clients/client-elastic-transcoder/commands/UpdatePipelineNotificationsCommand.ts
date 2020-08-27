@@ -49,6 +49,10 @@ export class UpdatePipelineNotificationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticTranscoder",
+      clientName: "updatePipelineNotifications",
+      inputFilterLog: UpdatePipelineNotificationsRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePipelineNotificationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

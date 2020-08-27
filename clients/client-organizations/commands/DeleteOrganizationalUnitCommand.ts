@@ -45,6 +45,10 @@ export class DeleteOrganizationalUnitCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "deleteOrganizationalUnit",
+      inputFilterLog: DeleteOrganizationalUnitRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetOutpostInstanceTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Outposts",
+      clientName: "getOutpostInstanceTypes",
+      inputFilterLog: GetOutpostInstanceTypesInput.filterSensitiveLog,
+      outputFilterLog: GetOutpostInstanceTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

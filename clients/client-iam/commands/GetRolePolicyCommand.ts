@@ -45,6 +45,10 @@ export class GetRolePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "getRolePolicy",
+      inputFilterLog: GetRolePolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetRolePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

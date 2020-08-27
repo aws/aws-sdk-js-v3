@@ -45,6 +45,10 @@ export class UpdateDatabaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "updateDatabase",
+      inputFilterLog: UpdateDatabaseRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDatabaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

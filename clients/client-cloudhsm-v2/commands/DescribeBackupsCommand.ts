@@ -45,6 +45,10 @@ export class DescribeBackupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSMV2",
+      clientName: "describeBackups",
+      inputFilterLog: DescribeBackupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeBackupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

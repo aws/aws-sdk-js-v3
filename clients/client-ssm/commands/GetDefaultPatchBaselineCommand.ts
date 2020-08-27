@@ -45,6 +45,10 @@ export class GetDefaultPatchBaselineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getDefaultPatchBaseline",
+      inputFilterLog: GetDefaultPatchBaselineRequest.filterSensitiveLog,
+      outputFilterLog: GetDefaultPatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

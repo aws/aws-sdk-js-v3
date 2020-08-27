@@ -47,6 +47,10 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Health",
+      clientName: "disableHealthServiceAccessForOrganization",
+      inputFilterLog: (input) => input,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

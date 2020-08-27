@@ -44,6 +44,10 @@ export class GetChangeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "getChange",
+      inputFilterLog: GetChangeRequest.filterSensitiveLog,
+      outputFilterLog: GetChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

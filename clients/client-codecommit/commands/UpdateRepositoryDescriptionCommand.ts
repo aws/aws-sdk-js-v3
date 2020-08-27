@@ -45,6 +45,10 @@ export class UpdateRepositoryDescriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "updateRepositoryDescription",
+      inputFilterLog: UpdateRepositoryDescriptionInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

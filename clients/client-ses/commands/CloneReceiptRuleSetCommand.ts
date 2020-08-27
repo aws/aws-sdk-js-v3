@@ -45,6 +45,10 @@ export class CloneReceiptRuleSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "cloneReceiptRuleSet",
+      inputFilterLog: CloneReceiptRuleSetRequest.filterSensitiveLog,
+      outputFilterLog: CloneReceiptRuleSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

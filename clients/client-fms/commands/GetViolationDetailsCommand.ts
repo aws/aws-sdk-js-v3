@@ -45,6 +45,10 @@ export class GetViolationDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "getViolationDetails",
+      inputFilterLog: GetViolationDetailsRequest.filterSensitiveLog,
+      outputFilterLog: GetViolationDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

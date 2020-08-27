@@ -52,6 +52,10 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeEffectivePatchesForPatchBaseline",
+      inputFilterLog: DescribeEffectivePatchesForPatchBaselineRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEffectivePatchesForPatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetTableVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getTableVersion",
+      inputFilterLog: GetTableVersionRequest.filterSensitiveLog,
+      outputFilterLog: GetTableVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "deleteAppLaunchConfiguration",
+      inputFilterLog: DeleteAppLaunchConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAppLaunchConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

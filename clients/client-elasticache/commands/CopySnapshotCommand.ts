@@ -42,6 +42,10 @@ export class CopySnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "copySnapshot",
+      inputFilterLog: CopySnapshotMessage.filterSensitiveLog,
+      outputFilterLog: CopySnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateStageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "updateStage",
+      inputFilterLog: UpdateStageRequest.filterSensitiveLog,
+      outputFilterLog: Stage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

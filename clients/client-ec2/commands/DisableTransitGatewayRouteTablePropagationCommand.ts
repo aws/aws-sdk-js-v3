@@ -52,6 +52,10 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "disableTransitGatewayRouteTablePropagation",
+      inputFilterLog: DisableTransitGatewayRouteTablePropagationRequest.filterSensitiveLog,
+      outputFilterLog: DisableTransitGatewayRouteTablePropagationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

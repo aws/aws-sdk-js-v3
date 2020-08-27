@@ -45,6 +45,10 @@ export class UpdateQueueCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "updateQueue",
+      inputFilterLog: UpdateQueueRequest.filterSensitiveLog,
+      outputFilterLog: UpdateQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

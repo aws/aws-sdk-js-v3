@@ -49,6 +49,10 @@ export class DeleteSlotTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "deleteSlotType",
+      inputFilterLog: DeleteSlotTypeRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

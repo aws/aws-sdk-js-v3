@@ -42,6 +42,10 @@ export class PutLabelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "putLabel",
+      inputFilterLog: PutLabelRequest.filterSensitiveLog,
+      outputFilterLog: PutLabelResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

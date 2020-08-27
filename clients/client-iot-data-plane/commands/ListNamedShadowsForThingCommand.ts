@@ -45,6 +45,10 @@ export class ListNamedShadowsForThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTDataPlane",
+      clientName: "listNamedShadowsForThing",
+      inputFilterLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
+      outputFilterLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

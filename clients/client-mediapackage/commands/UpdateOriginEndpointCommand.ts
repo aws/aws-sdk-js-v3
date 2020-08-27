@@ -45,6 +45,10 @@ export class UpdateOriginEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackage",
+      clientName: "updateOriginEndpoint",
+      inputFilterLog: UpdateOriginEndpointRequest.filterSensitiveLog,
+      outputFilterLog: UpdateOriginEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

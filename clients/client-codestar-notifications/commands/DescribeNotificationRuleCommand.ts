@@ -49,6 +49,10 @@ export class DescribeNotificationRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodestarNotifications",
+      clientName: "describeNotificationRule",
+      inputFilterLog: DescribeNotificationRuleRequest.filterSensitiveLog,
+      outputFilterLog: DescribeNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

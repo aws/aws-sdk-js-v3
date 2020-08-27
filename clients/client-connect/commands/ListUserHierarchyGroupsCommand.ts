@@ -45,6 +45,10 @@ export class ListUserHierarchyGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "listUserHierarchyGroups",
+      inputFilterLog: ListUserHierarchyGroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListUserHierarchyGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -56,6 +56,10 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "purchaseReservedElasticsearchInstanceOffering",
+      inputFilterLog: PurchaseReservedElasticsearchInstanceOfferingRequest.filterSensitiveLog,
+      outputFilterLog: PurchaseReservedElasticsearchInstanceOfferingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

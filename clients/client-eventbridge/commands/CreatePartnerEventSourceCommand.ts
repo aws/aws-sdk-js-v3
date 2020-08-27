@@ -45,6 +45,10 @@ export class CreatePartnerEventSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EventBridge",
+      clientName: "createPartnerEventSource",
+      inputFilterLog: CreatePartnerEventSourceRequest.filterSensitiveLog,
+      outputFilterLog: CreatePartnerEventSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

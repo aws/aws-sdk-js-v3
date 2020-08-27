@@ -45,6 +45,10 @@ export class ModifyCacheParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "modifyCacheParameterGroup",
+      inputFilterLog: ModifyCacheParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: CacheParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class BatchDeleteBuildsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "batchDeleteBuilds",
+      inputFilterLog: BatchDeleteBuildsInput.filterSensitiveLog,
+      outputFilterLog: BatchDeleteBuildsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

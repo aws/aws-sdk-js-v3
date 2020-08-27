@@ -45,6 +45,10 @@ export class GetScreenDataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Honeycode",
+      clientName: "getScreenData",
+      inputFilterLog: GetScreenDataRequest.filterSensitiveLog,
+      outputFilterLog: GetScreenDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

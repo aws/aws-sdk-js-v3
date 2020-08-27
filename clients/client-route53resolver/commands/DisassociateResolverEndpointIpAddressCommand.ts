@@ -49,6 +49,10 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "disassociateResolverEndpointIpAddress",
+      inputFilterLog: DisassociateResolverEndpointIpAddressRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateResolverEndpointIpAddressResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

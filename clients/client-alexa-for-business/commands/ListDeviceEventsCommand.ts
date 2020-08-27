@@ -45,6 +45,10 @@ export class ListDeviceEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "listDeviceEvents",
+      inputFilterLog: ListDeviceEventsRequest.filterSensitiveLog,
+      outputFilterLog: ListDeviceEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "deleteMatchmakingConfiguration",
+      inputFilterLog: DeleteMatchmakingConfigurationInput.filterSensitiveLog,
+      outputFilterLog: DeleteMatchmakingConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

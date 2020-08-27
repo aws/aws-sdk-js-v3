@@ -45,6 +45,10 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateDashboardPublishedVersion",
+      inputFilterLog: UpdateDashboardPublishedVersionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDashboardPublishedVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

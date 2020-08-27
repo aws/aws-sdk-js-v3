@@ -45,6 +45,10 @@ export class DeleteRuleGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "deleteRuleGroup",
+      inputFilterLog: DeleteRuleGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

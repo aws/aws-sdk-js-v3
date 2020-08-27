@@ -45,6 +45,10 @@ export class DescribeProvisioningParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "describeProvisioningParameters",
+      inputFilterLog: DescribeProvisioningParametersInput.filterSensitiveLog,
+      outputFilterLog: DescribeProvisioningParametersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

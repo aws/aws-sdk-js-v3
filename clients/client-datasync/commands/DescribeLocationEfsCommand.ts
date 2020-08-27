@@ -45,6 +45,10 @@ export class DescribeLocationEfsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "describeLocationEfs",
+      inputFilterLog: DescribeLocationEfsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLocationEfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

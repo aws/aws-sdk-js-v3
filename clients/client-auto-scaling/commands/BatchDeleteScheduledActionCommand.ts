@@ -45,6 +45,10 @@ export class BatchDeleteScheduledActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "batchDeleteScheduledAction",
+      inputFilterLog: BatchDeleteScheduledActionType.filterSensitiveLog,
+      outputFilterLog: BatchDeleteScheduledActionAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

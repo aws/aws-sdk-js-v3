@@ -49,6 +49,10 @@ export class GetBotChannelAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "getBotChannelAssociation",
+      inputFilterLog: GetBotChannelAssociationRequest.filterSensitiveLog,
+      outputFilterLog: GetBotChannelAssociationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

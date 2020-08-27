@@ -45,6 +45,10 @@ export class ListBudgetsForResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "listBudgetsForResource",
+      inputFilterLog: ListBudgetsForResourceInput.filterSensitiveLog,
+      outputFilterLog: ListBudgetsForResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

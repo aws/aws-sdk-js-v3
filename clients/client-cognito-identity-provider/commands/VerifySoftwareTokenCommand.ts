@@ -49,6 +49,10 @@ export class VerifySoftwareTokenCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "verifySoftwareToken",
+      inputFilterLog: VerifySoftwareTokenRequest.filterSensitiveLog,
+      outputFilterLog: VerifySoftwareTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

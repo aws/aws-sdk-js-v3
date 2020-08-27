@@ -45,6 +45,10 @@ export class DescribeLocationNfsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "describeLocationNfs",
+      inputFilterLog: DescribeLocationNfsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLocationNfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

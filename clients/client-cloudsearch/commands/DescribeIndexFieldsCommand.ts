@@ -45,6 +45,10 @@ export class DescribeIndexFieldsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "describeIndexFields",
+      inputFilterLog: DescribeIndexFieldsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIndexFieldsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

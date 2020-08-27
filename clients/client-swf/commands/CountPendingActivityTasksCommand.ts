@@ -45,6 +45,10 @@ export class CountPendingActivityTasksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "countPendingActivityTasks",
+      inputFilterLog: CountPendingActivityTasksInput.filterSensitiveLog,
+      outputFilterLog: PendingTaskCount.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

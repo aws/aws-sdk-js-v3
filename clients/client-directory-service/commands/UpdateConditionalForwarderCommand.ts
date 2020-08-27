@@ -45,6 +45,10 @@ export class UpdateConditionalForwarderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "updateConditionalForwarder",
+      inputFilterLog: UpdateConditionalForwarderRequest.filterSensitiveLog,
+      outputFilterLog: UpdateConditionalForwarderResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

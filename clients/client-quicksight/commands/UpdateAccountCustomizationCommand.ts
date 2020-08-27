@@ -45,6 +45,10 @@ export class UpdateAccountCustomizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateAccountCustomization",
+      inputFilterLog: UpdateAccountCustomizationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAccountCustomizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

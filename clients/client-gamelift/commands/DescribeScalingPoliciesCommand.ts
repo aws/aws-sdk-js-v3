@@ -45,6 +45,10 @@ export class DescribeScalingPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "describeScalingPolicies",
+      inputFilterLog: DescribeScalingPoliciesInput.filterSensitiveLog,
+      outputFilterLog: DescribeScalingPoliciesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

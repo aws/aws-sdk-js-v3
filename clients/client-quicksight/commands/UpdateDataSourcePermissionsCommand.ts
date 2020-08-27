@@ -45,6 +45,10 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateDataSourcePermissions",
+      inputFilterLog: UpdateDataSourcePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDataSourcePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

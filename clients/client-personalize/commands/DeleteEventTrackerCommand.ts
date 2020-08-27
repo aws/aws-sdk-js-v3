@@ -45,6 +45,10 @@ export class DeleteEventTrackerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "deleteEventTracker",
+      inputFilterLog: DeleteEventTrackerRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

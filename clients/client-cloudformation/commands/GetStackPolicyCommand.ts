@@ -45,6 +45,10 @@ export class GetStackPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "getStackPolicy",
+      inputFilterLog: GetStackPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetStackPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

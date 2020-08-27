@@ -38,6 +38,10 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "query",
+      inputFilterLog: QueryInput.filterSensitiveLog,
+      outputFilterLog: QueryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

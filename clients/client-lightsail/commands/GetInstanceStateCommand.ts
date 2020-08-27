@@ -45,6 +45,10 @@ export class GetInstanceStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getInstanceState",
+      inputFilterLog: GetInstanceStateRequest.filterSensitiveLog,
+      outputFilterLog: GetInstanceStateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

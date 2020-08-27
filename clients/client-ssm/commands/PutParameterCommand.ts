@@ -45,6 +45,10 @@ export class PutParameterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "putParameter",
+      inputFilterLog: PutParameterRequest.filterSensitiveLog,
+      outputFilterLog: PutParameterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

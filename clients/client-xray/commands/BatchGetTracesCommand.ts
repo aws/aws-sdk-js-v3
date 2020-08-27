@@ -45,6 +45,10 @@ export class BatchGetTracesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "batchGetTraces",
+      inputFilterLog: BatchGetTracesRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetTracesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

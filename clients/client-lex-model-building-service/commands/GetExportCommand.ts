@@ -49,6 +49,10 @@ export class GetExportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "getExport",
+      inputFilterLog: GetExportRequest.filterSensitiveLog,
+      outputFilterLog: GetExportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

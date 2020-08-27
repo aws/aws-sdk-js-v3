@@ -45,6 +45,10 @@ export class SendVoiceMessageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointSMSVoice",
+      clientName: "sendVoiceMessage",
+      inputFilterLog: SendVoiceMessageRequest.filterSensitiveLog,
+      outputFilterLog: SendVoiceMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

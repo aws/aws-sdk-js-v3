@@ -45,6 +45,10 @@ export class RevokeClientVpnIngressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "revokeClientVpnIngress",
+      inputFilterLog: RevokeClientVpnIngressRequest.filterSensitiveLog,
+      outputFilterLog: RevokeClientVpnIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

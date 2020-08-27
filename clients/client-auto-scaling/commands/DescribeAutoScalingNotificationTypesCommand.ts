@@ -46,6 +46,10 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describeAutoScalingNotificationTypes",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeAutoScalingNotificationTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

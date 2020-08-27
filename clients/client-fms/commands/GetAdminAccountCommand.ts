@@ -45,6 +45,10 @@ export class GetAdminAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "getAdminAccount",
+      inputFilterLog: GetAdminAccountRequest.filterSensitiveLog,
+      outputFilterLog: GetAdminAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

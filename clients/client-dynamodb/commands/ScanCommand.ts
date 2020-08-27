@@ -38,6 +38,10 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "scan",
+      inputFilterLog: ScanInput.filterSensitiveLog,
+      outputFilterLog: ScanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

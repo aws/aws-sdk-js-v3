@@ -45,6 +45,10 @@ export class CancelClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Snowball",
+      clientName: "cancelCluster",
+      inputFilterLog: CancelClusterRequest.filterSensitiveLog,
+      outputFilterLog: CancelClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

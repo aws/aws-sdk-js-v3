@@ -45,6 +45,10 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "removeAllResourcePermissions",
+      inputFilterLog: RemoveAllResourcePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

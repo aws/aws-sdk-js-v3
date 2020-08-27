@@ -49,6 +49,10 @@ export class DescribeChangeSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MarketplaceCatalog",
+      clientName: "describeChangeSet",
+      inputFilterLog: DescribeChangeSetRequest.filterSensitiveLog,
+      outputFilterLog: DescribeChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

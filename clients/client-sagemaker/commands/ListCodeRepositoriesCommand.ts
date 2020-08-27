@@ -45,6 +45,10 @@ export class ListCodeRepositoriesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "listCodeRepositories",
+      inputFilterLog: ListCodeRepositoriesInput.filterSensitiveLog,
+      outputFilterLog: ListCodeRepositoriesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

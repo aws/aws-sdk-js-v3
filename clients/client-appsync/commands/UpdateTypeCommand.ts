@@ -45,6 +45,10 @@ export class UpdateTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "updateType",
+      inputFilterLog: UpdateTypeRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

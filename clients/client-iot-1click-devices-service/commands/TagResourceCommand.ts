@@ -49,6 +49,10 @@ export class TagResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickDevicesService",
+      clientName: "tagResource",
+      inputFilterLog: TagResourceRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

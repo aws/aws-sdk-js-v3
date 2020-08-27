@@ -49,6 +49,10 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putConfigurationSetReputationOptions",
+      inputFilterLog: PutConfigurationSetReputationOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetReputationOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

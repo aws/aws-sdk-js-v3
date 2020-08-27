@@ -45,6 +45,10 @@ export class UpdateAddressBookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "updateAddressBook",
+      inputFilterLog: UpdateAddressBookRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

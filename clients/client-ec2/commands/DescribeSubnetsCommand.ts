@@ -42,6 +42,10 @@ export class DescribeSubnetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeSubnets",
+      inputFilterLog: DescribeSubnetsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSubnetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

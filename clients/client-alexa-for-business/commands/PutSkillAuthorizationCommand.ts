@@ -45,6 +45,10 @@ export class PutSkillAuthorizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "putSkillAuthorization",
+      inputFilterLog: PutSkillAuthorizationRequest.filterSensitiveLog,
+      outputFilterLog: PutSkillAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListGroupMembersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "listGroupMembers",
+      inputFilterLog: ListGroupMembersRequest.filterSensitiveLog,
+      outputFilterLog: ListGroupMembersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

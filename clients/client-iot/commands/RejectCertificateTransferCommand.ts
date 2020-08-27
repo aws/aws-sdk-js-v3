@@ -45,6 +45,10 @@ export class RejectCertificateTransferCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "rejectCertificateTransfer",
+      inputFilterLog: RejectCertificateTransferRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

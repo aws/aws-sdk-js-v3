@@ -45,6 +45,10 @@ export class RetireGrantCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "retireGrant",
+      inputFilterLog: RetireGrantRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

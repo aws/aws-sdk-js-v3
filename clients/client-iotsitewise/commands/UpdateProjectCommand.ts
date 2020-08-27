@@ -45,6 +45,10 @@ export class UpdateProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "updateProject",
+      inputFilterLog: UpdateProjectRequest.filterSensitiveLog,
+      outputFilterLog: UpdateProjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

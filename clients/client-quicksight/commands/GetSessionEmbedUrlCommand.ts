@@ -45,6 +45,10 @@ export class GetSessionEmbedUrlCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "getSessionEmbedUrl",
+      inputFilterLog: GetSessionEmbedUrlRequest.filterSensitiveLog,
+      outputFilterLog: GetSessionEmbedUrlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

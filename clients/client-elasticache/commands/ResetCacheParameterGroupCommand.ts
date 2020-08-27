@@ -45,6 +45,10 @@ export class ResetCacheParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "resetCacheParameterGroup",
+      inputFilterLog: ResetCacheParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: CacheParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

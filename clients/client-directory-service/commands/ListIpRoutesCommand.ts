@@ -45,6 +45,10 @@ export class ListIpRoutesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "listIpRoutes",
+      inputFilterLog: ListIpRoutesRequest.filterSensitiveLog,
+      outputFilterLog: ListIpRoutesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

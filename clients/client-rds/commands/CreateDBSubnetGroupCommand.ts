@@ -45,6 +45,10 @@ export class CreateDBSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "createDBSubnetGroup",
+      inputFilterLog: CreateDBSubnetGroupMessage.filterSensitiveLog,
+      outputFilterLog: CreateDBSubnetGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

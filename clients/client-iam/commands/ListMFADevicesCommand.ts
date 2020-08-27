@@ -45,6 +45,10 @@ export class ListMFADevicesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listMFADevices",
+      inputFilterLog: ListMFADevicesRequest.filterSensitiveLog,
+      outputFilterLog: ListMFADevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

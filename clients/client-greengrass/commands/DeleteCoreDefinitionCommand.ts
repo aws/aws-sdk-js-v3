@@ -45,6 +45,10 @@ export class DeleteCoreDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "deleteCoreDefinition",
+      inputFilterLog: DeleteCoreDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteCoreDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

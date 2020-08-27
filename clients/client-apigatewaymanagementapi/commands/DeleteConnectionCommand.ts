@@ -49,6 +49,10 @@ export class DeleteConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayManagementApi",
+      clientName: "deleteConnection",
+      inputFilterLog: DeleteConnectionRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

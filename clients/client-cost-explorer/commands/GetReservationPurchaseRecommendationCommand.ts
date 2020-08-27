@@ -49,6 +49,10 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostExplorer",
+      clientName: "getReservationPurchaseRecommendation",
+      inputFilterLog: GetReservationPurchaseRecommendationRequest.filterSensitiveLog,
+      outputFilterLog: GetReservationPurchaseRecommendationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

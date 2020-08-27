@@ -45,6 +45,10 @@ export class DeleteDBProxyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "deleteDBProxy",
+      inputFilterLog: DeleteDBProxyRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDBProxyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

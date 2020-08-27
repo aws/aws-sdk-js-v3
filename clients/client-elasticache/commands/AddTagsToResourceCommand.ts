@@ -45,6 +45,10 @@ export class AddTagsToResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "addTagsToResource",
+      inputFilterLog: AddTagsToResourceMessage.filterSensitiveLog,
+      outputFilterLog: TagListMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

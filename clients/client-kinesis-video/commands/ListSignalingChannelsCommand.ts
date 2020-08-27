@@ -45,6 +45,10 @@ export class ListSignalingChannelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideo",
+      clientName: "listSignalingChannels",
+      inputFilterLog: ListSignalingChannelsInput.filterSensitiveLog,
+      outputFilterLog: ListSignalingChannelsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateChannelClassCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "updateChannelClass",
+      inputFilterLog: UpdateChannelClassRequest.filterSensitiveLog,
+      outputFilterLog: UpdateChannelClassResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

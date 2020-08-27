@@ -45,6 +45,10 @@ export class DeleteNotebookInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteNotebookInstance",
+      inputFilterLog: DeleteNotebookInstanceInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StartExportLabelsTaskRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "startExportLabelsTaskRun",
+      inputFilterLog: StartExportLabelsTaskRunRequest.filterSensitiveLog,
+      outputFilterLog: StartExportLabelsTaskRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

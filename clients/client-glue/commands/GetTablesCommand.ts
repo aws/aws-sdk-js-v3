@@ -42,6 +42,10 @@ export class GetTablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getTables",
+      inputFilterLog: GetTablesRequest.filterSensitiveLog,
+      outputFilterLog: GetTablesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

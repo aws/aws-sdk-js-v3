@@ -45,6 +45,10 @@ export class PutIntegrationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "putIntegration",
+      inputFilterLog: PutIntegrationRequest.filterSensitiveLog,
+      outputFilterLog: Integration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

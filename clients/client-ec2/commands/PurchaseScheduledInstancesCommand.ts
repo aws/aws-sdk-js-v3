@@ -45,6 +45,10 @@ export class PurchaseScheduledInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "purchaseScheduledInstances",
+      inputFilterLog: PurchaseScheduledInstancesRequest.filterSensitiveLog,
+      outputFilterLog: PurchaseScheduledInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

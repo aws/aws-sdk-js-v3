@@ -45,6 +45,10 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "describeEntitiesDetectionJob",
+      inputFilterLog: DescribeEntitiesDetectionJobRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEntitiesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

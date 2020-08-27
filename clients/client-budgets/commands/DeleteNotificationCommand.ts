@@ -45,6 +45,10 @@ export class DeleteNotificationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Budgets",
+      clientName: "deleteNotification",
+      inputFilterLog: DeleteNotificationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteNotificationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

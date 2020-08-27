@@ -45,6 +45,10 @@ export class GetTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ResourceGroups",
+      clientName: "getTags",
+      inputFilterLog: GetTagsInput.filterSensitiveLog,
+      outputFilterLog: GetTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

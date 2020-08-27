@@ -42,6 +42,10 @@ export class UpdateRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "updateRole",
+      inputFilterLog: UpdateRoleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deleteAssociation",
+      inputFilterLog: DeleteAssociationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteAccountAuditConfiguration",
+      inputFilterLog: DeleteAccountAuditConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAccountAuditConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

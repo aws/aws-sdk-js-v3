@@ -45,6 +45,10 @@ export class GetAppsListCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "getAppsList",
+      inputFilterLog: GetAppsListRequest.filterSensitiveLog,
+      outputFilterLog: GetAppsListResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ExportProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mobile",
+      clientName: "exportProject",
+      inputFilterLog: ExportProjectRequest.filterSensitiveLog,
+      outputFilterLog: ExportProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

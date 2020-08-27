@@ -49,6 +49,10 @@ export class DescribeTableStatisticsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeTableStatistics",
+      inputFilterLog: DescribeTableStatisticsMessage.filterSensitiveLog,
+      outputFilterLog: DescribeTableStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

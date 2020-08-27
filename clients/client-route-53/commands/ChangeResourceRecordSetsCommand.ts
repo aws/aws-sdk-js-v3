@@ -48,6 +48,10 @@ export class ChangeResourceRecordSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "changeResourceRecordSets",
+      inputFilterLog: ChangeResourceRecordSetsRequest.filterSensitiveLog,
+      outputFilterLog: ChangeResourceRecordSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

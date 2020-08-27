@@ -45,6 +45,10 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "updateVTLDeviceType",
+      inputFilterLog: UpdateVTLDeviceTypeInput.filterSensitiveLog,
+      outputFilterLog: UpdateVTLDeviceTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

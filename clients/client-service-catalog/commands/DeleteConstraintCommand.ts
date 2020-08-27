@@ -45,6 +45,10 @@ export class DeleteConstraintCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "deleteConstraint",
+      inputFilterLog: DeleteConstraintInput.filterSensitiveLog,
+      outputFilterLog: DeleteConstraintOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

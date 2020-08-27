@@ -45,6 +45,10 @@ export class DeleteAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "deleteAttributes",
+      inputFilterLog: DeleteAttributesRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getReservedInstancesExchangeQuote",
+      inputFilterLog: GetReservedInstancesExchangeQuoteRequest.filterSensitiveLog,
+      outputFilterLog: GetReservedInstancesExchangeQuoteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

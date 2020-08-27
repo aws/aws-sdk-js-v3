@@ -49,6 +49,10 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancing",
+      clientName: "deregisterInstancesFromLoadBalancer",
+      inputFilterLog: DeregisterEndPointsInput.filterSensitiveLog,
+      outputFilterLog: DeregisterEndPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

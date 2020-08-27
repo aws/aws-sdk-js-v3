@@ -45,6 +45,10 @@ export class AssociateDRTLogBucketCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "associateDRTLogBucket",
+      inputFilterLog: AssociateDRTLogBucketRequest.filterSensitiveLog,
+      outputFilterLog: AssociateDRTLogBucketResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

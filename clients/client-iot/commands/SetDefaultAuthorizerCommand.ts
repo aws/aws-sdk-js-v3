@@ -45,6 +45,10 @@ export class SetDefaultAuthorizerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "setDefaultAuthorizer",
+      inputFilterLog: SetDefaultAuthorizerRequest.filterSensitiveLog,
+      outputFilterLog: SetDefaultAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

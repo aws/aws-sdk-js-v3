@@ -45,6 +45,10 @@ export class SuspendGameServerGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "suspendGameServerGroup",
+      inputFilterLog: SuspendGameServerGroupInput.filterSensitiveLog,
+      outputFilterLog: SuspendGameServerGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

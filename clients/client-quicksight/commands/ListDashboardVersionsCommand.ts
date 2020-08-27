@@ -45,6 +45,10 @@ export class ListDashboardVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "listDashboardVersions",
+      inputFilterLog: ListDashboardVersionsRequest.filterSensitiveLog,
+      outputFilterLog: ListDashboardVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

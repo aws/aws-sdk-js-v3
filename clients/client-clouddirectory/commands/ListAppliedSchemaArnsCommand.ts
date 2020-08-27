@@ -45,6 +45,10 @@ export class ListAppliedSchemaArnsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listAppliedSchemaArns",
+      inputFilterLog: ListAppliedSchemaArnsRequest.filterSensitiveLog,
+      outputFilterLog: ListAppliedSchemaArnsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

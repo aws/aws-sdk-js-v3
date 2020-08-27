@@ -45,6 +45,10 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "terminateClientVpnConnections",
+      inputFilterLog: TerminateClientVpnConnectionsRequest.filterSensitiveLog,
+      outputFilterLog: TerminateClientVpnConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

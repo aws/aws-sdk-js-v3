@@ -45,6 +45,10 @@ export class ModifyLaunchTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyLaunchTemplate",
+      inputFilterLog: ModifyLaunchTemplateRequest.filterSensitiveLog,
+      outputFilterLog: ModifyLaunchTemplateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

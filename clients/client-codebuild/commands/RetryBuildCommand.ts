@@ -45,6 +45,10 @@ export class RetryBuildCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "retryBuild",
+      inputFilterLog: RetryBuildInput.filterSensitiveLog,
+      outputFilterLog: RetryBuildOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

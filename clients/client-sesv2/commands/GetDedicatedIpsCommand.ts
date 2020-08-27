@@ -45,6 +45,10 @@ export class GetDedicatedIpsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "getDedicatedIps",
+      inputFilterLog: GetDedicatedIpsRequest.filterSensitiveLog,
+      outputFilterLog: GetDedicatedIpsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

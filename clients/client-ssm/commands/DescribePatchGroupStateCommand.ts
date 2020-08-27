@@ -45,6 +45,10 @@ export class DescribePatchGroupStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describePatchGroupState",
+      inputFilterLog: DescribePatchGroupStateRequest.filterSensitiveLog,
+      outputFilterLog: DescribePatchGroupStateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

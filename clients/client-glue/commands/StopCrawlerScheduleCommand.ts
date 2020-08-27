@@ -45,6 +45,10 @@ export class StopCrawlerScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "stopCrawlerSchedule",
+      inputFilterLog: StopCrawlerScheduleRequest.filterSensitiveLog,
+      outputFilterLog: StopCrawlerScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

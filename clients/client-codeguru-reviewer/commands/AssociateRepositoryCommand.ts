@@ -45,6 +45,10 @@ export class AssociateRepositoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruReviewer",
+      clientName: "associateRepository",
+      inputFilterLog: AssociateRepositoryRequest.filterSensitiveLog,
+      outputFilterLog: AssociateRepositoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

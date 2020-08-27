@@ -46,6 +46,10 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "createPresignedNotebookInstanceUrl",
+      inputFilterLog: CreatePresignedNotebookInstanceUrlInput.filterSensitiveLog,
+      outputFilterLog: CreatePresignedNotebookInstanceUrlOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

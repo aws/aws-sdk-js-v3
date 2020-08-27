@@ -45,6 +45,10 @@ export class ListEmailTemplatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "listEmailTemplates",
+      inputFilterLog: ListEmailTemplatesRequest.filterSensitiveLog,
+      outputFilterLog: ListEmailTemplatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

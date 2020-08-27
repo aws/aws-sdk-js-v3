@@ -45,6 +45,10 @@ export class DeleteSiteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "deleteSite",
+      inputFilterLog: DeleteSiteRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSiteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

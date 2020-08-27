@@ -45,6 +45,10 @@ export class ListDataSourceSyncJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "listDataSourceSyncJobs",
+      inputFilterLog: ListDataSourceSyncJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListDataSourceSyncJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

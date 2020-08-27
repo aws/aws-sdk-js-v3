@@ -45,6 +45,10 @@ export class UpdateInputSecurityGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "updateInputSecurityGroup",
+      inputFilterLog: UpdateInputSecurityGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateInputSecurityGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

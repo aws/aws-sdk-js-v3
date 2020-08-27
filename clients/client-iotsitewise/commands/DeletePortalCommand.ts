@@ -45,6 +45,10 @@ export class DeletePortalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "deletePortal",
+      inputFilterLog: DeletePortalRequest.filterSensitiveLog,
+      outputFilterLog: DeletePortalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

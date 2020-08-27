@@ -46,6 +46,10 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "disassociateContactFromAddressBook",
+      inputFilterLog: DisassociateContactFromAddressBookRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateContactFromAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

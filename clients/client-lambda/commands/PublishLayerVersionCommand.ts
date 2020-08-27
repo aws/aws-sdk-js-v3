@@ -45,6 +45,10 @@ export class PublishLayerVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "publishLayerVersion",
+      inputFilterLog: PublishLayerVersionRequest.filterSensitiveLog,
+      outputFilterLog: PublishLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

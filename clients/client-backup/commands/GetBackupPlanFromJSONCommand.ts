@@ -45,6 +45,10 @@ export class GetBackupPlanFromJSONCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "getBackupPlanFromJSON",
+      inputFilterLog: GetBackupPlanFromJSONInput.filterSensitiveLog,
+      outputFilterLog: GetBackupPlanFromJSONOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

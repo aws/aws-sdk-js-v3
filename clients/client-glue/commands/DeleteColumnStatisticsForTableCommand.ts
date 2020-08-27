@@ -45,6 +45,10 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deleteColumnStatisticsForTable",
+      inputFilterLog: DeleteColumnStatisticsForTableRequest.filterSensitiveLog,
+      outputFilterLog: DeleteColumnStatisticsForTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

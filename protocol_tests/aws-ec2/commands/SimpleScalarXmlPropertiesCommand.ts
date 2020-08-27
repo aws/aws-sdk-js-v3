@@ -45,6 +45,10 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2Protocol",
+      clientName: "simpleScalarXmlProperties",
+      inputFilterLog: (input) => input,
+      outputFilterLog: SimpleScalarXmlPropertiesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

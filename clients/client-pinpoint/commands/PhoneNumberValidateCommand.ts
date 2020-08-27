@@ -45,6 +45,10 @@ export class PhoneNumberValidateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "phoneNumberValidate",
+      inputFilterLog: PhoneNumberValidateRequest.filterSensitiveLog,
+      outputFilterLog: PhoneNumberValidateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

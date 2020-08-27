@@ -45,6 +45,10 @@ export class ListRestoreJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "listRestoreJobs",
+      inputFilterLog: ListRestoreJobsInput.filterSensitiveLog,
+      outputFilterLog: ListRestoreJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

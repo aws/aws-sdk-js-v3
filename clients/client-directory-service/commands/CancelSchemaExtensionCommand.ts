@@ -45,6 +45,10 @@ export class CancelSchemaExtensionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "cancelSchemaExtension",
+      inputFilterLog: CancelSchemaExtensionRequest.filterSensitiveLog,
+      outputFilterLog: CancelSchemaExtensionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateSignalingChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideo",
+      clientName: "updateSignalingChannel",
+      inputFilterLog: UpdateSignalingChannelInput.filterSensitiveLog,
+      outputFilterLog: UpdateSignalingChannelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

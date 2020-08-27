@@ -45,6 +45,10 @@ export class DeleteVirtualServiceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "deleteVirtualService",
+      inputFilterLog: DeleteVirtualServiceInput.filterSensitiveLog,
+      outputFilterLog: DeleteVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

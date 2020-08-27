@@ -45,6 +45,10 @@ export class ResumeWorkflowRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "resumeWorkflowRun",
+      inputFilterLog: ResumeWorkflowRunRequest.filterSensitiveLog,
+      outputFilterLog: ResumeWorkflowRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

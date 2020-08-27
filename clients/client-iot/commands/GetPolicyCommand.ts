@@ -41,6 +41,10 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "getPolicy",
+      inputFilterLog: GetPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

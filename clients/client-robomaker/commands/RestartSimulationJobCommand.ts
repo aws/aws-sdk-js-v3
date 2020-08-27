@@ -45,6 +45,10 @@ export class RestartSimulationJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "restartSimulationJob",
+      inputFilterLog: RestartSimulationJobRequest.filterSensitiveLog,
+      outputFilterLog: RestartSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

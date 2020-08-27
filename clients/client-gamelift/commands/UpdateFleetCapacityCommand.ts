@@ -45,6 +45,10 @@ export class UpdateFleetCapacityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "updateFleetCapacity",
+      inputFilterLog: UpdateFleetCapacityInput.filterSensitiveLog,
+      outputFilterLog: UpdateFleetCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

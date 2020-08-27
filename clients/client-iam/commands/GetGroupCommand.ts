@@ -38,6 +38,10 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "getGroup",
+      inputFilterLog: GetGroupRequest.filterSensitiveLog,
+      outputFilterLog: GetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

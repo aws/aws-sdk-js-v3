@@ -45,6 +45,10 @@ export class ListVolumesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "listVolumes",
+      inputFilterLog: ListVolumesInput.filterSensitiveLog,
+      outputFilterLog: ListVolumesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

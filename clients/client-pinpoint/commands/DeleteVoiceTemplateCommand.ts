@@ -45,6 +45,10 @@ export class DeleteVoiceTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "deleteVoiceTemplate",
+      inputFilterLog: DeleteVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterLog: DeleteVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StopInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "stopInstance",
+      inputFilterLog: StopInstanceRequest.filterSensitiveLog,
+      outputFilterLog: StopInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

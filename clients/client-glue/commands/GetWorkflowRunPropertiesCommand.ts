@@ -45,6 +45,10 @@ export class GetWorkflowRunPropertiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getWorkflowRunProperties",
+      inputFilterLog: GetWorkflowRunPropertiesRequest.filterSensitiveLog,
+      outputFilterLog: GetWorkflowRunPropertiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

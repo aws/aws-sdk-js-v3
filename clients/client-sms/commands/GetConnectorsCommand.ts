@@ -45,6 +45,10 @@ export class GetConnectorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "getConnectors",
+      inputFilterLog: GetConnectorsRequest.filterSensitiveLog,
+      outputFilterLog: GetConnectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

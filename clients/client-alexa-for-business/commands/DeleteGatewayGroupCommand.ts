@@ -45,6 +45,10 @@ export class DeleteGatewayGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteGatewayGroup",
+      inputFilterLog: DeleteGatewayGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteGatewayGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

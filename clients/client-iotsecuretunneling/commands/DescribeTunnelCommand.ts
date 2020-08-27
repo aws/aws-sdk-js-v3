@@ -49,6 +49,10 @@ export class DescribeTunnelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSecureTunneling",
+      clientName: "describeTunnel",
+      inputFilterLog: DescribeTunnelRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTunnelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

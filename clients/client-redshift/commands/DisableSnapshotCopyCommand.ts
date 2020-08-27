@@ -45,6 +45,10 @@ export class DisableSnapshotCopyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "disableSnapshotCopy",
+      inputFilterLog: DisableSnapshotCopyMessage.filterSensitiveLog,
+      outputFilterLog: DisableSnapshotCopyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

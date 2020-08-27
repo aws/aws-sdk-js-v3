@@ -45,6 +45,10 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getJourneyExecutionMetrics",
+      inputFilterLog: GetJourneyExecutionMetricsRequest.filterSensitiveLog,
+      outputFilterLog: GetJourneyExecutionMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

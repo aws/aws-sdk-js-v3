@@ -45,6 +45,10 @@ export class DescribeSecretCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecretsManager",
+      clientName: "describeSecret",
+      inputFilterLog: DescribeSecretRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

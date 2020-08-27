@@ -45,6 +45,10 @@ export class GetSecretValueCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecretsManager",
+      clientName: "getSecretValue",
+      inputFilterLog: GetSecretValueRequest.filterSensitiveLog,
+      outputFilterLog: GetSecretValueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

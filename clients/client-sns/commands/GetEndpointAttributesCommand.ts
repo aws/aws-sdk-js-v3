@@ -45,6 +45,10 @@ export class GetEndpointAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "getEndpointAttributes",
+      inputFilterLog: GetEndpointAttributesInput.filterSensitiveLog,
+      outputFilterLog: GetEndpointAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

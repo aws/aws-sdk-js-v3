@@ -38,6 +38,10 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "decrypt",
+      inputFilterLog: DecryptRequest.filterSensitiveLog,
+      outputFilterLog: DecryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

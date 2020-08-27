@@ -45,6 +45,10 @@ export class GetSolutionMetricsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "getSolutionMetrics",
+      inputFilterLog: GetSolutionMetricsRequest.filterSensitiveLog,
+      outputFilterLog: GetSolutionMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteMLModelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "deleteMLModel",
+      inputFilterLog: DeleteMLModelInput.filterSensitiveLog,
+      outputFilterLog: DeleteMLModelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetServiceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceDiscovery",
+      clientName: "getService",
+      inputFilterLog: GetServiceRequest.filterSensitiveLog,
+      outputFilterLog: GetServiceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

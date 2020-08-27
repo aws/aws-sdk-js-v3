@@ -45,6 +45,10 @@ export class CreateSamplingRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "createSamplingRule",
+      inputFilterLog: CreateSamplingRuleRequest.filterSensitiveLog,
+      outputFilterLog: CreateSamplingRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

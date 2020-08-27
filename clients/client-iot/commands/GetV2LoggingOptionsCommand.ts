@@ -45,6 +45,10 @@ export class GetV2LoggingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "getV2LoggingOptions",
+      inputFilterLog: GetV2LoggingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: GetV2LoggingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

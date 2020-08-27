@@ -46,6 +46,10 @@ export class DescribeConformancePackComplianceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "describeConformancePackCompliance",
+      inputFilterLog: DescribeConformancePackComplianceRequest.filterSensitiveLog,
+      outputFilterLog: DescribeConformancePackComplianceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

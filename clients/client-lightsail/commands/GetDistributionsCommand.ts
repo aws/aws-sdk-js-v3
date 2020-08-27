@@ -45,6 +45,10 @@ export class GetDistributionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getDistributions",
+      inputFilterLog: GetDistributionsRequest.filterSensitiveLog,
+      outputFilterLog: GetDistributionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

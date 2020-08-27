@@ -45,6 +45,10 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "updateApprovalRuleTemplateName",
+      inputFilterLog: UpdateApprovalRuleTemplateNameInput.filterSensitiveLog,
+      outputFilterLog: UpdateApprovalRuleTemplateNameOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

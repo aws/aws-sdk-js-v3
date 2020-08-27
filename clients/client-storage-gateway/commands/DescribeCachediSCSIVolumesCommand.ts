@@ -45,6 +45,10 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeCachediSCSIVolumes",
+      inputFilterLog: DescribeCachediSCSIVolumesInput.filterSensitiveLog,
+      outputFilterLog: DescribeCachediSCSIVolumesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "associateResolverEndpointIpAddress",
+      inputFilterLog: AssociateResolverEndpointIpAddressRequest.filterSensitiveLog,
+      outputFilterLog: AssociateResolverEndpointIpAddressResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

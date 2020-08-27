@@ -45,6 +45,10 @@ export class ListOutgoingTypedLinksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listOutgoingTypedLinks",
+      inputFilterLog: ListOutgoingTypedLinksRequest.filterSensitiveLog,
+      outputFilterLog: ListOutgoingTypedLinksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

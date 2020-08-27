@@ -45,6 +45,10 @@ export class ListAttachedPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listAttachedPolicies",
+      inputFilterLog: ListAttachedPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListAttachedPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

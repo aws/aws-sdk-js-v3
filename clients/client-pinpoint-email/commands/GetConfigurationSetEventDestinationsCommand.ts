@@ -49,6 +49,10 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "getConfigurationSetEventDestinations",
+      inputFilterLog: GetConfigurationSetEventDestinationsRequest.filterSensitiveLog,
+      outputFilterLog: GetConfigurationSetEventDestinationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

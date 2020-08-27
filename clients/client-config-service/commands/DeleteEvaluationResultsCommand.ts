@@ -45,6 +45,10 @@ export class DeleteEvaluationResultsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "deleteEvaluationResults",
+      inputFilterLog: DeleteEvaluationResultsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteEvaluationResultsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

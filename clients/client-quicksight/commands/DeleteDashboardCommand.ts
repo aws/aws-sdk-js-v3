@@ -45,6 +45,10 @@ export class DeleteDashboardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "deleteDashboard",
+      inputFilterLog: DeleteDashboardRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDashboardResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

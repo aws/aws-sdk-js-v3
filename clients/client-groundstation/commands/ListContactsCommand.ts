@@ -45,6 +45,10 @@ export class ListContactsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GroundStation",
+      clientName: "listContacts",
+      inputFilterLog: ListContactsRequest.filterSensitiveLog,
+      outputFilterLog: ListContactsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

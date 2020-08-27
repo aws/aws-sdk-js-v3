@@ -45,6 +45,10 @@ export class RegisterGameServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "registerGameServer",
+      inputFilterLog: RegisterGameServerInput.filterSensitiveLog,
+      outputFilterLog: RegisterGameServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

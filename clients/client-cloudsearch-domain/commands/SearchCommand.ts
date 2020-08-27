@@ -46,6 +46,10 @@ export class SearchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearchDomain",
+      clientName: "search",
+      inputFilterLog: SearchRequest.filterSensitiveLog,
+      outputFilterLog: SearchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

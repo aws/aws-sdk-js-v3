@@ -45,6 +45,10 @@ export class UpdateTrialComponentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "updateTrialComponent",
+      inputFilterLog: UpdateTrialComponentRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

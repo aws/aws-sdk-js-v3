@@ -45,6 +45,10 @@ export class DeleteKnownHostKeysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteKnownHostKeys",
+      inputFilterLog: DeleteKnownHostKeysRequest.filterSensitiveLog,
+      outputFilterLog: DeleteKnownHostKeysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

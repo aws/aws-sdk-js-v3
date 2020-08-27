@@ -45,6 +45,10 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putDedicatedIpWarmupAttributes",
+      inputFilterLog: PutDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancing",
+      clientName: "createLBCookieStickinessPolicy",
+      inputFilterLog: CreateLBCookieStickinessPolicyInput.filterSensitiveLog,
+      outputFilterLog: CreateLBCookieStickinessPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

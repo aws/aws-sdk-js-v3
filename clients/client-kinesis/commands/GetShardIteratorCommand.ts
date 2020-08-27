@@ -45,6 +45,10 @@ export class GetShardIteratorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "getShardIterator",
+      inputFilterLog: GetShardIteratorInput.filterSensitiveLog,
+      outputFilterLog: GetShardIteratorOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

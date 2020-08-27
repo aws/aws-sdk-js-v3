@@ -38,6 +38,10 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "getRule",
+      inputFilterLog: GetRuleRequest.filterSensitiveLog,
+      outputFilterLog: GetRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

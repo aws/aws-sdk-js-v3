@@ -45,6 +45,10 @@ export class DescribeNamespaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "describeNamespace",
+      inputFilterLog: DescribeNamespaceRequest.filterSensitiveLog,
+      outputFilterLog: DescribeNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

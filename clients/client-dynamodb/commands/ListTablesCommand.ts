@@ -45,6 +45,10 @@ export class ListTablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "listTables",
+      inputFilterLog: ListTablesInput.filterSensitiveLog,
+      outputFilterLog: ListTablesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

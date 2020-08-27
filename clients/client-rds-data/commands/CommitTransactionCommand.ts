@@ -45,6 +45,10 @@ export class CommitTransactionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDSData",
+      clientName: "commitTransaction",
+      inputFilterLog: CommitTransactionRequest.filterSensitiveLog,
+      outputFilterLog: CommitTransactionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

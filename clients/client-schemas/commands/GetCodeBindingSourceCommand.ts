@@ -45,6 +45,10 @@ export class GetCodeBindingSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "getCodeBindingSource",
+      inputFilterLog: GetCodeBindingSourceRequest.filterSensitiveLog,
+      outputFilterLog: GetCodeBindingSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

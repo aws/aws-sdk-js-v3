@@ -49,6 +49,10 @@ export class ListChangeSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MarketplaceCatalog",
+      clientName: "listChangeSets",
+      inputFilterLog: ListChangeSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListChangeSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

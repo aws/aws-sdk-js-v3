@@ -45,6 +45,10 @@ export class PollForActivityTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "pollForActivityTask",
+      inputFilterLog: PollForActivityTaskInput.filterSensitiveLog,
+      outputFilterLog: ActivityTask.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

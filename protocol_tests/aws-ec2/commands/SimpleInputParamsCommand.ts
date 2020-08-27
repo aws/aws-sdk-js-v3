@@ -45,6 +45,10 @@ export class SimpleInputParamsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2Protocol",
+      clientName: "simpleInputParams",
+      inputFilterLog: SimpleInputParamsInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class ModifyEventSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "modifyEventSubscription",
+      inputFilterLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: ModifyEventSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

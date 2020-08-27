@@ -46,6 +46,10 @@ export class SetSubnetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "setSubnets",
+      inputFilterLog: SetSubnetsInput.filterSensitiveLog,
+      outputFilterLog: SetSubnetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

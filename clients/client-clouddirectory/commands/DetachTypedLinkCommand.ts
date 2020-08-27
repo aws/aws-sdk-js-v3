@@ -45,6 +45,10 @@ export class DetachTypedLinkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "detachTypedLink",
+      inputFilterLog: DetachTypedLinkRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

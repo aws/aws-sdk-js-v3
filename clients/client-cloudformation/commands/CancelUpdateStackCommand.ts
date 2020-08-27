@@ -45,6 +45,10 @@ export class CancelUpdateStackCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "cancelUpdateStack",
+      inputFilterLog: CancelUpdateStackInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

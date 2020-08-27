@@ -38,6 +38,10 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getTable",
+      inputFilterLog: GetTableRequest.filterSensitiveLog,
+      outputFilterLog: GetTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

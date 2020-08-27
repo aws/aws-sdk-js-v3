@@ -45,6 +45,10 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "deleteVpcPeeringAuthorization",
+      inputFilterLog: DeleteVpcPeeringAuthorizationInput.filterSensitiveLog,
+      outputFilterLog: DeleteVpcPeeringAuthorizationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

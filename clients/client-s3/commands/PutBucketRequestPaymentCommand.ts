@@ -47,6 +47,10 @@ export class PutBucketRequestPaymentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "putBucketRequestPayment",
+      inputFilterLog: PutBucketRequestPaymentRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

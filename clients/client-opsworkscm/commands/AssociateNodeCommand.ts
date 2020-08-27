@@ -45,6 +45,10 @@ export class AssociateNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "associateNode",
+      inputFilterLog: AssociateNodeRequest.filterSensitiveLog,
+      outputFilterLog: AssociateNodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

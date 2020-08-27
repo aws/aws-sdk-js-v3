@@ -45,6 +45,10 @@ export class CreateOTAUpdateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "createOTAUpdate",
+      inputFilterLog: CreateOTAUpdateRequest.filterSensitiveLog,
+      outputFilterLog: CreateOTAUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

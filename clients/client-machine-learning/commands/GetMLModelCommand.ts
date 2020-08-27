@@ -45,6 +45,10 @@ export class GetMLModelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "getMLModel",
+      inputFilterLog: GetMLModelInput.filterSensitiveLog,
+      outputFilterLog: GetMLModelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeletePredictorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Forecast",
+      clientName: "deletePredictor",
+      inputFilterLog: DeletePredictorRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

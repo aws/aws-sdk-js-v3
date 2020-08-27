@@ -45,6 +45,10 @@ export class CreateTableCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "createTable",
+      inputFilterLog: CreateTableInput.filterSensitiveLog,
+      outputFilterLog: CreateTableOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

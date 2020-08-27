@@ -45,6 +45,10 @@ export class CancelStepsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "cancelSteps",
+      inputFilterLog: CancelStepsInput.filterSensitiveLog,
+      outputFilterLog: CancelStepsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

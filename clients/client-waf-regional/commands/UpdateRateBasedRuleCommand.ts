@@ -45,6 +45,10 @@ export class UpdateRateBasedRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "updateRateBasedRule",
+      inputFilterLog: UpdateRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

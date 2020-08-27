@@ -42,6 +42,10 @@ export class TestFailoverCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "testFailover",
+      inputFilterLog: TestFailoverMessage.filterSensitiveLog,
+      outputFilterLog: TestFailoverResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

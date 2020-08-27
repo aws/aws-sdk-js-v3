@@ -45,6 +45,10 @@ export class PutCodeBindingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "putCodeBinding",
+      inputFilterLog: PutCodeBindingRequest.filterSensitiveLog,
+      outputFilterLog: PutCodeBindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

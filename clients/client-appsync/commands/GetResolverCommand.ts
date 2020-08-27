@@ -45,6 +45,10 @@ export class GetResolverCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "getResolver",
+      inputFilterLog: GetResolverRequest.filterSensitiveLog,
+      outputFilterLog: GetResolverResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

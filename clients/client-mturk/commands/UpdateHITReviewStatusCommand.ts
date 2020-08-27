@@ -45,6 +45,10 @@ export class UpdateHITReviewStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "updateHITReviewStatus",
+      inputFilterLog: UpdateHITReviewStatusRequest.filterSensitiveLog,
+      outputFilterLog: UpdateHITReviewStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "describeProject",
+      inputFilterLog: DescribeProjectRequest.filterSensitiveLog,
+      outputFilterLog: DescribeProjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

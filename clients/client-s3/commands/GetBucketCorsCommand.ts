@@ -47,6 +47,10 @@ export class GetBucketCorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketCors",
+      inputFilterLog: GetBucketCorsRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketCorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

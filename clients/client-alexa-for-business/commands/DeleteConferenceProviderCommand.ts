@@ -45,6 +45,10 @@ export class DeleteConferenceProviderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteConferenceProvider",
+      inputFilterLog: DeleteConferenceProviderRequest.filterSensitiveLog,
+      outputFilterLog: DeleteConferenceProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

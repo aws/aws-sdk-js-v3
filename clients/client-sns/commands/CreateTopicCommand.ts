@@ -42,6 +42,10 @@ export class CreateTopicCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "createTopic",
+      inputFilterLog: CreateTopicInput.filterSensitiveLog,
+      outputFilterLog: CreateTopicResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

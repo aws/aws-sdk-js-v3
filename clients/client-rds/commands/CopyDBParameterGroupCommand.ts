@@ -45,6 +45,10 @@ export class CopyDBParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "copyDBParameterGroup",
+      inputFilterLog: CopyDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: CopyDBParameterGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

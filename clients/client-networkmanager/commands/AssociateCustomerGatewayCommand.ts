@@ -45,6 +45,10 @@ export class AssociateCustomerGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "associateCustomerGateway",
+      inputFilterLog: AssociateCustomerGatewayRequest.filterSensitiveLog,
+      outputFilterLog: AssociateCustomerGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

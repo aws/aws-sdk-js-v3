@@ -45,6 +45,10 @@ export class UpdateGraphqlApiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "updateGraphqlApi",
+      inputFilterLog: UpdateGraphqlApiRequest.filterSensitiveLog,
+      outputFilterLog: UpdateGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

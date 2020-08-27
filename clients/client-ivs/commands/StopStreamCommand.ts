@@ -45,6 +45,10 @@ export class StopStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Ivs",
+      clientName: "stopStream",
+      inputFilterLog: StopStreamRequest.filterSensitiveLog,
+      outputFilterLog: StopStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

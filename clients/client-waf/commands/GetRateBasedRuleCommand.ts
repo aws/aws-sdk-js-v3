@@ -45,6 +45,10 @@ export class GetRateBasedRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "getRateBasedRule",
+      inputFilterLog: GetRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterLog: GetRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

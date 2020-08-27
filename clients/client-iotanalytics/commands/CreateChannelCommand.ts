@@ -45,6 +45,10 @@ export class CreateChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "createChannel",
+      inputFilterLog: CreateChannelRequest.filterSensitiveLog,
+      outputFilterLog: CreateChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

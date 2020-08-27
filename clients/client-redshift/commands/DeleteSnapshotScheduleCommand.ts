@@ -45,6 +45,10 @@ export class DeleteSnapshotScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "deleteSnapshotSchedule",
+      inputFilterLog: DeleteSnapshotScheduleMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

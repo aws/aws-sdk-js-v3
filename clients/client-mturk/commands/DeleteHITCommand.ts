@@ -42,6 +42,10 @@ export class DeleteHITCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "deleteHIT",
+      inputFilterLog: DeleteHITRequest.filterSensitiveLog,
+      outputFilterLog: DeleteHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

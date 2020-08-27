@@ -45,6 +45,10 @@ export class ListShardsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "listShards",
+      inputFilterLog: ListShardsInput.filterSensitiveLog,
+      outputFilterLog: ListShardsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

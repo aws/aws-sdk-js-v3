@@ -45,6 +45,10 @@ export class BatchEnableStandardsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "batchEnableStandards",
+      inputFilterLog: BatchEnableStandardsRequest.filterSensitiveLog,
+      outputFilterLog: BatchEnableStandardsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class AssociateMemberToGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "associateMemberToGroup",
+      inputFilterLog: AssociateMemberToGroupRequest.filterSensitiveLog,
+      outputFilterLog: AssociateMemberToGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

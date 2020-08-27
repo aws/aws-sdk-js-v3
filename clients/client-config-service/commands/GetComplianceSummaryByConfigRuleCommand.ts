@@ -45,6 +45,10 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "getComplianceSummaryByConfigRule",
+      inputFilterLog: (input) => input,
+      outputFilterLog: GetComplianceSummaryByConfigRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

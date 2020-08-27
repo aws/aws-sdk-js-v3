@@ -45,6 +45,10 @@ export class ConnectCustomKeyStoreCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "connectCustomKeyStore",
+      inputFilterLog: ConnectCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterLog: ConnectCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

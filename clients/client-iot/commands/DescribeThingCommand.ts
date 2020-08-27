@@ -45,6 +45,10 @@ export class DescribeThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "describeThing",
+      inputFilterLog: DescribeThingRequest.filterSensitiveLog,
+      outputFilterLog: DescribeThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

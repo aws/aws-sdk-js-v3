@@ -49,6 +49,10 @@ export class ModifyReportDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostAndUsageReportService",
+      clientName: "modifyReportDefinition",
+      inputFilterLog: ModifyReportDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: ModifyReportDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getProfile",
+      inputFilterLog: GetProfileRequest.filterSensitiveLog,
+      outputFilterLog: GetProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

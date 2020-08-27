@@ -45,6 +45,10 @@ export class DeleteSystemInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "deleteSystemInstance",
+      inputFilterLog: DeleteSystemInstanceRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

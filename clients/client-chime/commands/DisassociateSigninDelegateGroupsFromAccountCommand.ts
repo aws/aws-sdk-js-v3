@@ -52,6 +52,10 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "disassociateSigninDelegateGroupsFromAccount",
+      inputFilterLog: DisassociateSigninDelegateGroupsFromAccountRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateSigninDelegateGroupsFromAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

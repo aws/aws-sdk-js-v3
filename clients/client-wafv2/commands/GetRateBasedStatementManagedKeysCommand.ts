@@ -45,6 +45,10 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "getRateBasedStatementManagedKeys",
+      inputFilterLog: GetRateBasedStatementManagedKeysRequest.filterSensitiveLog,
+      outputFilterLog: GetRateBasedStatementManagedKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

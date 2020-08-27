@@ -45,6 +45,10 @@ export class CreateDhcpOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createDhcpOptions",
+      inputFilterLog: CreateDhcpOptionsRequest.filterSensitiveLog,
+      outputFilterLog: CreateDhcpOptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

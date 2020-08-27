@@ -45,6 +45,10 @@ export class DetectModerationLabelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "detectModerationLabels",
+      inputFilterLog: DetectModerationLabelsRequest.filterSensitiveLog,
+      outputFilterLog: DetectModerationLabelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

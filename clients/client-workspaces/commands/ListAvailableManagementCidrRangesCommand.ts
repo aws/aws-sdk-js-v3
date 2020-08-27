@@ -45,6 +45,10 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "listAvailableManagementCidrRanges",
+      inputFilterLog: ListAvailableManagementCidrRangesRequest.filterSensitiveLog,
+      outputFilterLog: ListAvailableManagementCidrRangesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

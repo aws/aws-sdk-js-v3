@@ -45,6 +45,10 @@ export class CreatePolicyVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "createPolicyVersion",
+      inputFilterLog: CreatePolicyVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreatePolicyVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

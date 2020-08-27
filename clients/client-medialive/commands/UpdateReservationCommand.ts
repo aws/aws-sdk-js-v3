@@ -45,6 +45,10 @@ export class UpdateReservationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "updateReservation",
+      inputFilterLog: UpdateReservationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateReservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

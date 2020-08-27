@@ -45,6 +45,10 @@ export class UpdateRoomMembershipCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "updateRoomMembership",
+      inputFilterLog: UpdateRoomMembershipRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRoomMembershipResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

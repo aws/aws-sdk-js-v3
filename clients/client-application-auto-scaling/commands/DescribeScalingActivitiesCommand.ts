@@ -49,6 +49,10 @@ export class DescribeScalingActivitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationAutoScaling",
+      clientName: "describeScalingActivities",
+      inputFilterLog: DescribeScalingActivitiesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeScalingActivitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

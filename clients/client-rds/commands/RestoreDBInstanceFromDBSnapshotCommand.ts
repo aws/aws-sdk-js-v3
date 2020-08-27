@@ -45,6 +45,10 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "restoreDBInstanceFromDBSnapshot",
+      inputFilterLog: RestoreDBInstanceFromDBSnapshotMessage.filterSensitiveLog,
+      outputFilterLog: RestoreDBInstanceFromDBSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

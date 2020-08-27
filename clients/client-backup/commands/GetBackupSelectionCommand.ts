@@ -45,6 +45,10 @@ export class GetBackupSelectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "getBackupSelection",
+      inputFilterLog: GetBackupSelectionInput.filterSensitiveLog,
+      outputFilterLog: GetBackupSelectionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

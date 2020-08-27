@@ -42,6 +42,10 @@ export class XmlListsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2Protocol",
+      clientName: "xmlLists",
+      inputFilterLog: (input) => input,
+      outputFilterLog: XmlListsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "listDominantLanguageDetectionJobs",
+      inputFilterLog: ListDominantLanguageDetectionJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListDominantLanguageDetectionJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StartRelationalDatabaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "startRelationalDatabase",
+      inputFilterLog: StartRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterLog: StartRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

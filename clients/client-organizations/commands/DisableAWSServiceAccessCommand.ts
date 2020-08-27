@@ -45,6 +45,10 @@ export class DisableAWSServiceAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "disableAWSServiceAccess",
+      inputFilterLog: DisableAWSServiceAccessRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

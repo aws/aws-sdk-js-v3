@@ -45,6 +45,10 @@ export class DeletePortfolioCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "deletePortfolio",
+      inputFilterLog: DeletePortfolioInput.filterSensitiveLog,
+      outputFilterLog: DeletePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

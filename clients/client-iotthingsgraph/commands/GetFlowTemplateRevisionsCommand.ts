@@ -45,6 +45,10 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "getFlowTemplateRevisions",
+      inputFilterLog: GetFlowTemplateRevisionsRequest.filterSensitiveLog,
+      outputFilterLog: GetFlowTemplateRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateUserPhoneConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "updateUserPhoneConfig",
+      inputFilterLog: UpdateUserPhoneConfigRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

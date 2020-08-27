@@ -45,6 +45,10 @@ export class AttachToIndexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "attachToIndex",
+      inputFilterLog: AttachToIndexRequest.filterSensitiveLog,
+      outputFilterLog: AttachToIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

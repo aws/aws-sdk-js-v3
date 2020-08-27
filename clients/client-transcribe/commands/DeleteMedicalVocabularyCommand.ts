@@ -45,6 +45,10 @@ export class DeleteMedicalVocabularyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "deleteMedicalVocabulary",
+      inputFilterLog: DeleteMedicalVocabularyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

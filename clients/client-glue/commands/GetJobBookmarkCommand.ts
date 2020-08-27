@@ -45,6 +45,10 @@ export class GetJobBookmarkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getJobBookmark",
+      inputFilterLog: GetJobBookmarkRequest.filterSensitiveLog,
+      outputFilterLog: GetJobBookmarkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

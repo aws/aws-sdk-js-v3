@@ -45,6 +45,10 @@ export class ListThemeAliasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "listThemeAliases",
+      inputFilterLog: ListThemeAliasesRequest.filterSensitiveLog,
+      outputFilterLog: ListThemeAliasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

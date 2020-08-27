@@ -49,6 +49,10 @@ export class ListConnectionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStarConnections",
+      clientName: "listConnections",
+      inputFilterLog: ListConnectionsInput.filterSensitiveLog,
+      outputFilterLog: ListConnectionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

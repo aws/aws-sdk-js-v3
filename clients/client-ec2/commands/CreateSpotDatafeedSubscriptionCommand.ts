@@ -45,6 +45,10 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createSpotDatafeedSubscription",
+      inputFilterLog: CreateSpotDatafeedSubscriptionRequest.filterSensitiveLog,
+      outputFilterLog: CreateSpotDatafeedSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

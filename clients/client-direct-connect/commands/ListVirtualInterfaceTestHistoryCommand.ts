@@ -45,6 +45,10 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "listVirtualInterfaceTestHistory",
+      inputFilterLog: ListVirtualInterfaceTestHistoryRequest.filterSensitiveLog,
+      outputFilterLog: ListVirtualInterfaceTestHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

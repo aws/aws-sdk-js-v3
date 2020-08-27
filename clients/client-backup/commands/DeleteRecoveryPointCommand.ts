@@ -45,6 +45,10 @@ export class DeleteRecoveryPointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "deleteRecoveryPoint",
+      inputFilterLog: DeleteRecoveryPointInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

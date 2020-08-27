@@ -45,6 +45,10 @@ export class PostAgentProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruProfiler",
+      clientName: "postAgentProfile",
+      inputFilterLog: PostAgentProfileRequest.filterSensitiveLog,
+      outputFilterLog: PostAgentProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

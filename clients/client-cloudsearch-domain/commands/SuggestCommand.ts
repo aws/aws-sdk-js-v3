@@ -49,6 +49,10 @@ export class SuggestCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearchDomain",
+      clientName: "suggest",
+      inputFilterLog: SuggestRequest.filterSensitiveLog,
+      outputFilterLog: SuggestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ConstantQueryStringCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "constantQueryString",
+      inputFilterLog: ConstantQueryStringInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateTrustCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "createTrust",
+      inputFilterLog: CreateTrustRequest.filterSensitiveLog,
+      outputFilterLog: CreateTrustResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

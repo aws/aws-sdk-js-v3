@@ -45,6 +45,10 @@ export class ListTagsOfResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "listTagsOfResource",
+      inputFilterLog: ListTagsOfResourceInput.filterSensitiveLog,
+      outputFilterLog: ListTagsOfResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

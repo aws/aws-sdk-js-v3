@@ -45,6 +45,10 @@ export class ListExecutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "listExecutions",
+      inputFilterLog: ListExecutionsInput.filterSensitiveLog,
+      outputFilterLog: ListExecutionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

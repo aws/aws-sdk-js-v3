@@ -45,6 +45,10 @@ export class DisableDirectoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "disableDirectory",
+      inputFilterLog: DisableDirectoryRequest.filterSensitiveLog,
+      outputFilterLog: DisableDirectoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

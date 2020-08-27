@@ -46,6 +46,10 @@ export class DeleteRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "deleteRule",
+      inputFilterLog: DeleteRuleInput.filterSensitiveLog,
+      outputFilterLog: DeleteRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

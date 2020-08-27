@@ -45,6 +45,10 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "listHyperParameterTuningJobs",
+      inputFilterLog: ListHyperParameterTuningJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListHyperParameterTuningJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

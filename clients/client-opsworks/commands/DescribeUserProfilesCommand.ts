@@ -45,6 +45,10 @@ export class DescribeUserProfilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "describeUserProfiles",
+      inputFilterLog: DescribeUserProfilesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeUserProfilesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

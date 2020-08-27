@@ -49,6 +49,10 @@ export class CreatePackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "createPackage",
+      inputFilterLog: CreatePackageRequest.filterSensitiveLog,
+      outputFilterLog: CreatePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

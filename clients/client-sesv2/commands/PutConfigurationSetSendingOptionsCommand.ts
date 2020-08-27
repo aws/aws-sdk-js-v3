@@ -46,6 +46,10 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putConfigurationSetSendingOptions",
+      inputFilterLog: PutConfigurationSetSendingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetSendingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

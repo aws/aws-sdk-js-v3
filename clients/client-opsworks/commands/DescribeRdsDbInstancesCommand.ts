@@ -45,6 +45,10 @@ export class DescribeRdsDbInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "describeRdsDbInstances",
+      inputFilterLog: DescribeRdsDbInstancesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRdsDbInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

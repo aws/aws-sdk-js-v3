@@ -45,6 +45,10 @@ export class DisableVgwRoutePropagationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "disableVgwRoutePropagation",
+      inputFilterLog: DisableVgwRoutePropagationRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

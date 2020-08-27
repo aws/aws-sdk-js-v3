@@ -38,6 +38,10 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "untagRole",
+      inputFilterLog: UntagRoleRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DetachObjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "detachObject",
+      inputFilterLog: DetachObjectRequest.filterSensitiveLog,
+      outputFilterLog: DetachObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

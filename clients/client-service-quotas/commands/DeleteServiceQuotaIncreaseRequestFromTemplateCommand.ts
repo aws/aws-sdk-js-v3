@@ -52,6 +52,10 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceQuotas",
+      clientName: "deleteServiceQuotaIncreaseRequestFromTemplate",
+      inputFilterLog: DeleteServiceQuotaIncreaseRequestFromTemplateRequest.filterSensitiveLog,
+      outputFilterLog: DeleteServiceQuotaIncreaseRequestFromTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

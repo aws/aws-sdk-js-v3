@@ -45,6 +45,10 @@ export class SendTaskFailureCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "sendTaskFailure",
+      inputFilterLog: SendTaskFailureInput.filterSensitiveLog,
+      outputFilterLog: SendTaskFailureOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

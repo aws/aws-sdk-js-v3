@@ -45,6 +45,10 @@ export class ListQueueTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "listQueueTags",
+      inputFilterLog: ListQueueTagsRequest.filterSensitiveLog,
+      outputFilterLog: ListQueueTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

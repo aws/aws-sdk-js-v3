@@ -45,6 +45,10 @@ export class AcceptInvitationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "acceptInvitation",
+      inputFilterLog: AcceptInvitationRequest.filterSensitiveLog,
+      outputFilterLog: AcceptInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

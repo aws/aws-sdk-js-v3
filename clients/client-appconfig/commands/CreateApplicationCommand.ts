@@ -45,6 +45,10 @@ export class CreateApplicationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppConfig",
+      clientName: "createApplication",
+      inputFilterLog: CreateApplicationRequest.filterSensitiveLog,
+      outputFilterLog: Application.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

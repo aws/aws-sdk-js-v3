@@ -49,6 +49,10 @@ export class RemoveTagsFromResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "removeTagsFromResource",
+      inputFilterLog: RemoveTagsFromResourceMessage.filterSensitiveLog,
+      outputFilterLog: RemoveTagsFromResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

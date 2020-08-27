@@ -45,6 +45,10 @@ export class GetSampledRequestsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "getSampledRequests",
+      inputFilterLog: GetSampledRequestsRequest.filterSensitiveLog,
+      outputFilterLog: GetSampledRequestsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

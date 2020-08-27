@@ -45,6 +45,10 @@ export class ResetServiceSettingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "resetServiceSetting",
+      inputFilterLog: ResetServiceSettingRequest.filterSensitiveLog,
+      outputFilterLog: ResetServiceSettingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

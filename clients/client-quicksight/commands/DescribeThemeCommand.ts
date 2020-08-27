@@ -45,6 +45,10 @@ export class DescribeThemeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "describeTheme",
+      inputFilterLog: DescribeThemeRequest.filterSensitiveLog,
+      outputFilterLog: DescribeThemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

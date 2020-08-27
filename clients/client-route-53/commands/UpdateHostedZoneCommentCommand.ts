@@ -47,6 +47,10 @@ export class UpdateHostedZoneCommentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "updateHostedZoneComment",
+      inputFilterLog: UpdateHostedZoneCommentRequest.filterSensitiveLog,
+      outputFilterLog: UpdateHostedZoneCommentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

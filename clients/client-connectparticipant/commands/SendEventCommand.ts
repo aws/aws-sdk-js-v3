@@ -49,6 +49,10 @@ export class SendEventCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConnectParticipant",
+      clientName: "sendEvent",
+      inputFilterLog: SendEventRequest.filterSensitiveLog,
+      outputFilterLog: SendEventResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

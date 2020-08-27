@@ -45,6 +45,10 @@ export class DeleteMailboxPermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "deleteMailboxPermissions",
+      inputFilterLog: DeleteMailboxPermissionsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteMailboxPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

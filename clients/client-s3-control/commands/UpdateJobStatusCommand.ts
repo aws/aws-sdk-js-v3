@@ -45,6 +45,10 @@ export class UpdateJobStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3Control",
+      clientName: "updateJobStatus",
+      inputFilterLog: UpdateJobStatusRequest.filterSensitiveLog,
+      outputFilterLog: UpdateJobStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

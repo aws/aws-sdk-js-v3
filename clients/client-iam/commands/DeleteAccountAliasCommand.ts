@@ -45,6 +45,10 @@ export class DeleteAccountAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteAccountAlias",
+      inputFilterLog: DeleteAccountAliasRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

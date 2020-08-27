@@ -45,6 +45,10 @@ export class CreateReservedInstancesListingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createReservedInstancesListing",
+      inputFilterLog: CreateReservedInstancesListingRequest.filterSensitiveLog,
+      outputFilterLog: CreateReservedInstancesListingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

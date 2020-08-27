@@ -45,6 +45,10 @@ export class ListRoutesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "listRoutes",
+      inputFilterLog: ListRoutesInput.filterSensitiveLog,
+      outputFilterLog: ListRoutesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetEnrollmentStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComputeOptimizer",
+      clientName: "getEnrollmentStatus",
+      inputFilterLog: GetEnrollmentStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetEnrollmentStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

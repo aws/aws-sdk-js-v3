@@ -45,6 +45,10 @@ export class DescribeAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeAssociation",
+      inputFilterLog: DescribeAssociationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

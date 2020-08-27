@@ -45,6 +45,10 @@ export class CreateCommentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "createComment",
+      inputFilterLog: CreateCommentRequest.filterSensitiveLog,
+      outputFilterLog: CreateCommentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

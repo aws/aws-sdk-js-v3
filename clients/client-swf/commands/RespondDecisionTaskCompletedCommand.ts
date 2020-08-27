@@ -45,6 +45,10 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "respondDecisionTaskCompleted",
+      inputFilterLog: RespondDecisionTaskCompletedInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

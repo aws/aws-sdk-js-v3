@@ -45,6 +45,10 @@ export class ModifyReservedInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyReservedInstances",
+      inputFilterLog: ModifyReservedInstancesRequest.filterSensitiveLog,
+      outputFilterLog: ModifyReservedInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

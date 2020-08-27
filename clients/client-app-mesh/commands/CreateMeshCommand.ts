@@ -45,6 +45,10 @@ export class CreateMeshCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "createMesh",
+      inputFilterLog: CreateMeshInput.filterSensitiveLog,
+      outputFilterLog: CreateMeshOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

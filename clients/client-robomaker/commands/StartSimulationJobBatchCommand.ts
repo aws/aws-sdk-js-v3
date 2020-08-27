@@ -45,6 +45,10 @@ export class StartSimulationJobBatchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "startSimulationJobBatch",
+      inputFilterLog: StartSimulationJobBatchRequest.filterSensitiveLog,
+      outputFilterLog: StartSimulationJobBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

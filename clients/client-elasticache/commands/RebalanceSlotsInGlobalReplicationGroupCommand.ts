@@ -49,6 +49,10 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "rebalanceSlotsInGlobalReplicationGroup",
+      inputFilterLog: RebalanceSlotsInGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterLog: RebalanceSlotsInGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

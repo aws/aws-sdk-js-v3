@@ -45,6 +45,10 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "updateNumberOfDomainControllers",
+      inputFilterLog: UpdateNumberOfDomainControllersRequest.filterSensitiveLog,
+      outputFilterLog: UpdateNumberOfDomainControllersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

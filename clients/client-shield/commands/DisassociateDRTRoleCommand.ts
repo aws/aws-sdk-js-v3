@@ -45,6 +45,10 @@ export class DisassociateDRTRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "disassociateDRTRole",
+      inputFilterLog: DisassociateDRTRoleRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateDRTRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

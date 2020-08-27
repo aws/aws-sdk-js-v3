@@ -45,6 +45,10 @@ export class CreateDeploymentGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "createDeploymentGroup",
+      inputFilterLog: CreateDeploymentGroupInput.filterSensitiveLog,
+      outputFilterLog: CreateDeploymentGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

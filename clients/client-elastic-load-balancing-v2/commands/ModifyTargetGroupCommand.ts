@@ -49,6 +49,10 @@ export class ModifyTargetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "modifyTargetGroup",
+      inputFilterLog: ModifyTargetGroupInput.filterSensitiveLog,
+      outputFilterLog: ModifyTargetGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

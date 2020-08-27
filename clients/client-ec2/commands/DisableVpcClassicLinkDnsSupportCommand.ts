@@ -45,6 +45,10 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "disableVpcClassicLinkDnsSupport",
+      inputFilterLog: DisableVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
+      outputFilterLog: DisableVpcClassicLinkDnsSupportResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

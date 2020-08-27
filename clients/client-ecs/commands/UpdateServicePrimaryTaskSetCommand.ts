@@ -45,6 +45,10 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "updateServicePrimaryTaskSet",
+      inputFilterLog: UpdateServicePrimaryTaskSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateServicePrimaryTaskSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

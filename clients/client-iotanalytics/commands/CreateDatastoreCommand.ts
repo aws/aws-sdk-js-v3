@@ -45,6 +45,10 @@ export class CreateDatastoreCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "createDatastore",
+      inputFilterLog: CreateDatastoreRequest.filterSensitiveLog,
+      outputFilterLog: CreateDatastoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

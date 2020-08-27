@@ -56,6 +56,10 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationInsights",
+      clientName: "describeComponentConfigurationRecommendation",
+      inputFilterLog: DescribeComponentConfigurationRecommendationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeComponentConfigurationRecommendationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

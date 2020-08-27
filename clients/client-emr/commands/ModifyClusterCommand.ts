@@ -45,6 +45,10 @@ export class ModifyClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "modifyCluster",
+      inputFilterLog: ModifyClusterInput.filterSensitiveLog,
+      outputFilterLog: ModifyClusterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

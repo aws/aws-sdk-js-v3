@@ -45,6 +45,10 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "updateAuditStreamConfiguration",
+      inputFilterLog: UpdateAuditStreamConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAuditStreamConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

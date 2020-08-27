@@ -45,6 +45,10 @@ export class ModifyClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "modifyCluster",
+      inputFilterLog: ModifyClusterMessage.filterSensitiveLog,
+      outputFilterLog: ModifyClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

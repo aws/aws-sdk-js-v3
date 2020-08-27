@@ -45,6 +45,10 @@ export class GetTraceGraphCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "getTraceGraph",
+      inputFilterLog: GetTraceGraphRequest.filterSensitiveLog,
+      outputFilterLog: GetTraceGraphResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

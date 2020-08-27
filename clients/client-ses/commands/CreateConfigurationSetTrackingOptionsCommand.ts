@@ -49,6 +49,10 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "createConfigurationSetTrackingOptions",
+      inputFilterLog: CreateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: CreateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

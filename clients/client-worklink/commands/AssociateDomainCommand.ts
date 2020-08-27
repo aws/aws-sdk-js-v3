@@ -45,6 +45,10 @@ export class AssociateDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "associateDomain",
+      inputFilterLog: AssociateDomainRequest.filterSensitiveLog,
+      outputFilterLog: AssociateDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

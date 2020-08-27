@@ -46,6 +46,10 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "putLifecycleEventHookExecutionStatus",
+      inputFilterLog: PutLifecycleEventHookExecutionStatusInput.filterSensitiveLog,
+      outputFilterLog: PutLifecycleEventHookExecutionStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

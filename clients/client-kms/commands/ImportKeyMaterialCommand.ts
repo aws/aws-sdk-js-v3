@@ -45,6 +45,10 @@ export class ImportKeyMaterialCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "importKeyMaterial",
+      inputFilterLog: ImportKeyMaterialRequest.filterSensitiveLog,
+      outputFilterLog: ImportKeyMaterialResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

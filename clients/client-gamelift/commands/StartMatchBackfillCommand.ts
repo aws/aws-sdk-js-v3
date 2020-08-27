@@ -45,6 +45,10 @@ export class StartMatchBackfillCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "startMatchBackfill",
+      inputFilterLog: StartMatchBackfillInput.filterSensitiveLog,
+      outputFilterLog: StartMatchBackfillOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class SetV2LoggingLevelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "setV2LoggingLevel",
+      inputFilterLog: SetV2LoggingLevelRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

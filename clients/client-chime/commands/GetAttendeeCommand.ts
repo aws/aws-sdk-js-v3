@@ -45,6 +45,10 @@ export class GetAttendeeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getAttendee",
+      inputFilterLog: GetAttendeeRequest.filterSensitiveLog,
+      outputFilterLog: GetAttendeeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

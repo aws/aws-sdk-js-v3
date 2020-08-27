@@ -45,6 +45,10 @@ export class GetTelemetryMetadataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "getTelemetryMetadata",
+      inputFilterLog: GetTelemetryMetadataRequest.filterSensitiveLog,
+      outputFilterLog: GetTelemetryMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

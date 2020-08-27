@@ -49,6 +49,10 @@ export class RejectInvitationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "rejectInvitation",
+      inputFilterLog: RejectInvitationInput.filterSensitiveLog,
+      outputFilterLog: RejectInvitationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

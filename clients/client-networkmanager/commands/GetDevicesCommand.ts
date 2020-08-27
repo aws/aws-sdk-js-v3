@@ -45,6 +45,10 @@ export class GetDevicesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "getDevices",
+      inputFilterLog: GetDevicesRequest.filterSensitiveLog,
+      outputFilterLog: GetDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

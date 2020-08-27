@@ -45,6 +45,10 @@ export class DescribeRecipeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "describeRecipe",
+      inputFilterLog: DescribeRecipeRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRecipeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

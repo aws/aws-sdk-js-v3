@@ -45,6 +45,10 @@ export class GetUserSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getUserSettings",
+      inputFilterLog: GetUserSettingsRequest.filterSensitiveLog,
+      outputFilterLog: GetUserSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

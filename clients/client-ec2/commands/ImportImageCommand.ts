@@ -42,6 +42,10 @@ export class ImportImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "importImage",
+      inputFilterLog: ImportImageRequest.filterSensitiveLog,
+      outputFilterLog: ImportImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

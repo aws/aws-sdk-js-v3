@@ -45,6 +45,10 @@ export class DeleteRegexMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "deleteRegexMatchSet",
+      inputFilterLog: DeleteRegexMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRegexMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

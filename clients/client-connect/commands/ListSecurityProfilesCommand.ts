@@ -45,6 +45,10 @@ export class ListSecurityProfilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "listSecurityProfiles",
+      inputFilterLog: ListSecurityProfilesRequest.filterSensitiveLog,
+      outputFilterLog: ListSecurityProfilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -52,6 +52,10 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeTransitGatewayPeeringAttachments",
+      inputFilterLog: DescribeTransitGatewayPeeringAttachmentsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTransitGatewayPeeringAttachmentsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

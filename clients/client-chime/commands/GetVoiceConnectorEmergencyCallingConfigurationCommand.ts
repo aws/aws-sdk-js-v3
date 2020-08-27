@@ -52,6 +52,10 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getVoiceConnectorEmergencyCallingConfiguration",
+      inputFilterLog: GetVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceConnectorEmergencyCallingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

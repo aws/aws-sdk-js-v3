@@ -42,6 +42,10 @@ export class XmlListsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "xmlLists",
+      inputFilterLog: XmlListsInputOutput.filterSensitiveLog,
+      outputFilterLog: XmlListsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

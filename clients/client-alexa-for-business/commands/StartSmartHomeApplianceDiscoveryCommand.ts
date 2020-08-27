@@ -45,6 +45,10 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "startSmartHomeApplianceDiscovery",
+      inputFilterLog: StartSmartHomeApplianceDiscoveryRequest.filterSensitiveLog,
+      outputFilterLog: StartSmartHomeApplianceDiscoveryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ResetUserPasswordCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "resetUserPassword",
+      inputFilterLog: ResetUserPasswordRequest.filterSensitiveLog,
+      outputFilterLog: ResetUserPasswordResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

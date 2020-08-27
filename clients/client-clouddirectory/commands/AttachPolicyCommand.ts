@@ -45,6 +45,10 @@ export class AttachPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "attachPolicy",
+      inputFilterLog: AttachPolicyRequest.filterSensitiveLog,
+      outputFilterLog: AttachPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

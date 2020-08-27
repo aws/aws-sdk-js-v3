@@ -45,6 +45,10 @@ export class DetectDominantLanguageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "detectDominantLanguage",
+      inputFilterLog: DetectDominantLanguageRequest.filterSensitiveLog,
+      outputFilterLog: DetectDominantLanguageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutLifecyclePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "putLifecyclePolicy",
+      inputFilterLog: PutLifecyclePolicyRequest.filterSensitiveLog,
+      outputFilterLog: PutLifecyclePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

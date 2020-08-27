@@ -46,6 +46,10 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "describeMountTargetSecurityGroups",
+      inputFilterLog: DescribeMountTargetSecurityGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeMountTargetSecurityGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

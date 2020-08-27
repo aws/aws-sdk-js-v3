@@ -45,6 +45,10 @@ export class OptInPhoneNumberCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "optInPhoneNumber",
+      inputFilterLog: OptInPhoneNumberInput.filterSensitiveLog,
+      outputFilterLog: OptInPhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

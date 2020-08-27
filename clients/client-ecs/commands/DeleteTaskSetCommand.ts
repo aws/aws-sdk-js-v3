@@ -45,6 +45,10 @@ export class DeleteTaskSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "deleteTaskSet",
+      inputFilterLog: DeleteTaskSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTaskSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

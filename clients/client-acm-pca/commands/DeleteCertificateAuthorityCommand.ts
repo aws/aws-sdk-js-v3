@@ -45,6 +45,10 @@ export class DeleteCertificateAuthorityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ACMPCA",
+      clientName: "deleteCertificateAuthority",
+      inputFilterLog: DeleteCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateSiteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "updateSite",
+      inputFilterLog: UpdateSiteRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSiteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

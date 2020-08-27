@@ -45,6 +45,10 @@ export class DescribeIndexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "describeIndex",
+      inputFilterLog: DescribeIndexRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

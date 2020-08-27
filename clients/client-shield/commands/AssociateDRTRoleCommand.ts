@@ -45,6 +45,10 @@ export class AssociateDRTRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "associateDRTRole",
+      inputFilterLog: AssociateDRTRoleRequest.filterSensitiveLog,
+      outputFilterLog: AssociateDRTRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

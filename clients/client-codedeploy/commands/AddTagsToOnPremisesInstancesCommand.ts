@@ -45,6 +45,10 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "addTagsToOnPremisesInstances",
+      inputFilterLog: AddTagsToOnPremisesInstancesInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

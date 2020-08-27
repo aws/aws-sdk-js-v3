@@ -45,6 +45,10 @@ export class StartFleetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "startFleet",
+      inputFilterLog: StartFleetRequest.filterSensitiveLog,
+      outputFilterLog: StartFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

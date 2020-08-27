@@ -45,6 +45,10 @@ export class IndexDocumentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "indexDocuments",
+      inputFilterLog: IndexDocumentsRequest.filterSensitiveLog,
+      outputFilterLog: IndexDocumentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

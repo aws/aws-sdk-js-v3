@@ -45,6 +45,10 @@ export class PutSubscriptionFilterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "putSubscriptionFilter",
+      inputFilterLog: PutSubscriptionFilterRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDataRetrievalPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "getDataRetrievalPolicy",
+      inputFilterLog: GetDataRetrievalPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetDataRetrievalPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

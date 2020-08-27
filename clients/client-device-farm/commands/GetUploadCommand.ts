@@ -42,6 +42,10 @@ export class GetUploadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "getUpload",
+      inputFilterLog: GetUploadRequest.filterSensitiveLog,
+      outputFilterLog: GetUploadResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

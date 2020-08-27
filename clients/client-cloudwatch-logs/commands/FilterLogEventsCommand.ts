@@ -45,6 +45,10 @@ export class FilterLogEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "filterLogEvents",
+      inputFilterLog: FilterLogEventsRequest.filterSensitiveLog,
+      outputFilterLog: FilterLogEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

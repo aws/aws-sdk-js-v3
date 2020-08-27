@@ -45,6 +45,10 @@ export class ListResourceDataSyncCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "listResourceDataSync",
+      inputFilterLog: ListResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterLog: ListResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

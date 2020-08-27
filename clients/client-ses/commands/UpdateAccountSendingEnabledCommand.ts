@@ -45,6 +45,10 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "updateAccountSendingEnabled",
+      inputFilterLog: UpdateAccountSendingEnabledRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

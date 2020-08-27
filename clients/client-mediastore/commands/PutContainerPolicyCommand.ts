@@ -45,6 +45,10 @@ export class PutContainerPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "putContainerPolicy",
+      inputFilterLog: PutContainerPolicyInput.filterSensitiveLog,
+      outputFilterLog: PutContainerPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutAccountSettingDefaultCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "putAccountSettingDefault",
+      inputFilterLog: PutAccountSettingDefaultRequest.filterSensitiveLog,
+      outputFilterLog: PutAccountSettingDefaultResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

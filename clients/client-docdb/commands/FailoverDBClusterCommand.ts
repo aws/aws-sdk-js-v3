@@ -45,6 +45,10 @@ export class FailoverDBClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "failoverDBCluster",
+      inputFilterLog: FailoverDBClusterMessage.filterSensitiveLog,
+      outputFilterLog: FailoverDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

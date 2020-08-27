@@ -45,6 +45,10 @@ export class GetConferencePreferenceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getConferencePreference",
+      inputFilterLog: GetConferencePreferenceRequest.filterSensitiveLog,
+      outputFilterLog: GetConferencePreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteDetectorModelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTEvents",
+      clientName: "deleteDetectorModel",
+      inputFilterLog: DeleteDetectorModelRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDetectorModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

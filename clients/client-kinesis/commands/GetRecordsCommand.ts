@@ -45,6 +45,10 @@ export class GetRecordsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "getRecords",
+      inputFilterLog: GetRecordsInput.filterSensitiveLog,
+      outputFilterLog: GetRecordsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

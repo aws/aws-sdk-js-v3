@@ -45,6 +45,10 @@ export class UpdatePublicKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "updatePublicKey",
+      inputFilterLog: UpdatePublicKeyRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePublicKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

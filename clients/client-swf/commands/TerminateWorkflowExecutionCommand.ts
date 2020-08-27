@@ -45,6 +45,10 @@ export class TerminateWorkflowExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "terminateWorkflowExecution",
+      inputFilterLog: TerminateWorkflowExecutionInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

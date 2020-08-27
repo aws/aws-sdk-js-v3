@@ -45,6 +45,10 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "replaceNetworkAclAssociation",
+      inputFilterLog: ReplaceNetworkAclAssociationRequest.filterSensitiveLog,
+      outputFilterLog: ReplaceNetworkAclAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

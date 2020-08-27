@@ -45,6 +45,10 @@ export class GetInsightsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "getInsights",
+      inputFilterLog: GetInsightsRequest.filterSensitiveLog,
+      outputFilterLog: GetInsightsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

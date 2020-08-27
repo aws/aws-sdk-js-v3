@@ -45,6 +45,10 @@ export class CreateStorageLocationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "createStorageLocation",
+      inputFilterLog: (input) => input,
+      outputFilterLog: CreateStorageLocationResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

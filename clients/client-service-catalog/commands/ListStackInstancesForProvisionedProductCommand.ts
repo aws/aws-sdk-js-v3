@@ -52,6 +52,10 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "listStackInstancesForProvisionedProduct",
+      inputFilterLog: ListStackInstancesForProvisionedProductInput.filterSensitiveLog,
+      outputFilterLog: ListStackInstancesForProvisionedProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

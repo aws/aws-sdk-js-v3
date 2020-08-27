@@ -45,6 +45,10 @@ export class GetTopicAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "getTopicAttributes",
+      inputFilterLog: GetTopicAttributesInput.filterSensitiveLog,
+      outputFilterLog: GetTopicAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetClassifierCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getClassifier",
+      inputFilterLog: GetClassifierRequest.filterSensitiveLog,
+      outputFilterLog: GetClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

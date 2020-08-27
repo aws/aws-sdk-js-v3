@@ -45,6 +45,10 @@ export class DescribeOptionGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeOptionGroups",
+      inputFilterLog: DescribeOptionGroupsMessage.filterSensitiveLog,
+      outputFilterLog: OptionGroups.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

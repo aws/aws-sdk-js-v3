@@ -45,6 +45,10 @@ export class DescribeSessionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "describeSessions",
+      inputFilterLog: DescribeSessionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSessionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

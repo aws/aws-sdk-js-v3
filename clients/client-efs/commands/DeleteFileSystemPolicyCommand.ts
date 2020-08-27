@@ -45,6 +45,10 @@ export class DeleteFileSystemPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "deleteFileSystemPolicy",
+      inputFilterLog: DeleteFileSystemPolicyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

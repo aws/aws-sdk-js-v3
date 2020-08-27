@@ -45,6 +45,10 @@ export class DescribeDBEngineVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "describeDBEngineVersions",
+      inputFilterLog: DescribeDBEngineVersionsMessage.filterSensitiveLog,
+      outputFilterLog: DBEngineVersionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

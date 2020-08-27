@@ -45,6 +45,10 @@ export class UpdateSmsTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "updateSmsTemplate",
+      inputFilterLog: UpdateSmsTemplateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSmsTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class IndexFacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "indexFaces",
+      inputFilterLog: IndexFacesRequest.filterSensitiveLog,
+      outputFilterLog: IndexFacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

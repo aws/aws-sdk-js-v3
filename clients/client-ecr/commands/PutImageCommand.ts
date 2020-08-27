@@ -38,6 +38,10 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "putImage",
+      inputFilterLog: PutImageRequest.filterSensitiveLog,
+      outputFilterLog: PutImageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

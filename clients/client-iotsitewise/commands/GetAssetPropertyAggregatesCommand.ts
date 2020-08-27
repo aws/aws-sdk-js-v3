@@ -45,6 +45,10 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "getAssetPropertyAggregates",
+      inputFilterLog: GetAssetPropertyAggregatesRequest.filterSensitiveLog,
+      outputFilterLog: GetAssetPropertyAggregatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

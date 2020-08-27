@@ -45,6 +45,10 @@ export class CreateTapeWithBarcodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "createTapeWithBarcode",
+      inputFilterLog: CreateTapeWithBarcodeInput.filterSensitiveLog,
+      outputFilterLog: CreateTapeWithBarcodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

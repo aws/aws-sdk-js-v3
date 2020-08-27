@@ -42,6 +42,10 @@ export class GetRulesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getRules",
+      inputFilterLog: GetRulesRequest.filterSensitiveLog,
+      outputFilterLog: GetRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

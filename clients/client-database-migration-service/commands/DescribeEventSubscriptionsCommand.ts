@@ -49,6 +49,10 @@ export class DescribeEventSubscriptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeEventSubscriptions",
+      inputFilterLog: DescribeEventSubscriptionsMessage.filterSensitiveLog,
+      outputFilterLog: DescribeEventSubscriptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

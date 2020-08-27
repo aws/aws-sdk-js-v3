@@ -45,6 +45,10 @@ export class GetQueueAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "getQueueAttributes",
+      inputFilterLog: GetQueueAttributesRequest.filterSensitiveLog,
+      outputFilterLog: GetQueueAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

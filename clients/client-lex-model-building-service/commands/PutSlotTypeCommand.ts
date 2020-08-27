@@ -49,6 +49,10 @@ export class PutSlotTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "putSlotType",
+      inputFilterLog: PutSlotTypeRequest.filterSensitiveLog,
+      outputFilterLog: PutSlotTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

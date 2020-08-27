@@ -49,6 +49,10 @@ export class UpdateAcceleratorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "updateAccelerator",
+      inputFilterLog: UpdateAcceleratorRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAcceleratorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

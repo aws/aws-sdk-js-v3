@@ -45,6 +45,10 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "listApprovalRuleTemplates",
+      inputFilterLog: ListApprovalRuleTemplatesInput.filterSensitiveLog,
+      outputFilterLog: ListApprovalRuleTemplatesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

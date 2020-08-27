@@ -45,6 +45,10 @@ export class UpdateGatewayGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "updateGatewayGroup",
+      inputFilterLog: UpdateGatewayGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateGatewayGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

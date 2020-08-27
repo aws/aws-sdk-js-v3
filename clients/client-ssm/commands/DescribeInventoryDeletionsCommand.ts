@@ -45,6 +45,10 @@ export class DescribeInventoryDeletionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeInventoryDeletions",
+      inputFilterLog: DescribeInventoryDeletionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInventoryDeletionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

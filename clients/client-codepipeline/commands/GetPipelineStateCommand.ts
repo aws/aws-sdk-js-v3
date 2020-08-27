@@ -45,6 +45,10 @@ export class GetPipelineStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "getPipelineState",
+      inputFilterLog: GetPipelineStateInput.filterSensitiveLog,
+      outputFilterLog: GetPipelineStateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

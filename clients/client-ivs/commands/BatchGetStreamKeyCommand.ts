@@ -45,6 +45,10 @@ export class BatchGetStreamKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Ivs",
+      clientName: "batchGetStreamKey",
+      inputFilterLog: BatchGetStreamKeyRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetStreamKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

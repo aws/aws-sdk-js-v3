@@ -45,6 +45,10 @@ export class GetRepositoryEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "getRepositoryEndpoint",
+      inputFilterLog: GetRepositoryEndpointRequest.filterSensitiveLog,
+      outputFilterLog: GetRepositoryEndpointResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

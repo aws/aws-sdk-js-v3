@@ -45,6 +45,10 @@ export class CreateWebhookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "createWebhook",
+      inputFilterLog: CreateWebhookInput.filterSensitiveLog,
+      outputFilterLog: CreateWebhookOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

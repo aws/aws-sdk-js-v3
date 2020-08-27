@@ -49,6 +49,10 @@ export class ListDeviceEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickDevicesService",
+      clientName: "listDeviceEvents",
+      inputFilterLog: ListDeviceEventsRequest.filterSensitiveLog,
+      outputFilterLog: ListDeviceEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

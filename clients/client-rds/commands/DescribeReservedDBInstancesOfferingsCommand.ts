@@ -45,6 +45,10 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeReservedDBInstancesOfferings",
+      inputFilterLog: DescribeReservedDBInstancesOfferingsMessage.filterSensitiveLog,
+      outputFilterLog: ReservedDBInstancesOfferingMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

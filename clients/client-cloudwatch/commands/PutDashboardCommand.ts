@@ -42,6 +42,10 @@ export class PutDashboardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "putDashboard",
+      inputFilterLog: PutDashboardInput.filterSensitiveLog,
+      outputFilterLog: PutDashboardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

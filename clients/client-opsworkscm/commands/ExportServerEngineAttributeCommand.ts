@@ -45,6 +45,10 @@ export class ExportServerEngineAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "exportServerEngineAttribute",
+      inputFilterLog: ExportServerEngineAttributeRequest.filterSensitiveLog,
+      outputFilterLog: ExportServerEngineAttributeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

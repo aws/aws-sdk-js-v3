@@ -42,6 +42,10 @@ export class CreateFaqCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "createFaq",
+      inputFilterLog: CreateFaqRequest.filterSensitiveLog,
+      outputFilterLog: CreateFaqResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

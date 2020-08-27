@@ -45,6 +45,10 @@ export class DescribeLoaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "describeLoa",
+      inputFilterLog: DescribeLoaRequest.filterSensitiveLog,
+      outputFilterLog: Loa.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

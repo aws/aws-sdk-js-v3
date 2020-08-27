@@ -42,6 +42,10 @@ export class QueryTimestampsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2Protocol",
+      clientName: "queryTimestamps",
+      inputFilterLog: QueryTimestampsInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

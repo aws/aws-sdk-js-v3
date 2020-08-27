@@ -45,6 +45,10 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeAvailabilityMonitorTest",
+      inputFilterLog: DescribeAvailabilityMonitorTestInput.filterSensitiveLog,
+      outputFilterLog: DescribeAvailabilityMonitorTestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

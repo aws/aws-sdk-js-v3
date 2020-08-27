@@ -46,6 +46,10 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "describeDBClusterSnapshotAttributes",
+      inputFilterLog: DescribeDBClusterSnapshotAttributesMessage.filterSensitiveLog,
+      outputFilterLog: DescribeDBClusterSnapshotAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

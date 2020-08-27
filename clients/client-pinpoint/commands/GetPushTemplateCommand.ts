@@ -45,6 +45,10 @@ export class GetPushTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getPushTemplate",
+      inputFilterLog: GetPushTemplateRequest.filterSensitiveLog,
+      outputFilterLog: GetPushTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

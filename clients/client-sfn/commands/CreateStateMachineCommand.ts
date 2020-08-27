@@ -45,6 +45,10 @@ export class CreateStateMachineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "createStateMachine",
+      inputFilterLog: CreateStateMachineInput.filterSensitiveLog,
+      outputFilterLog: CreateStateMachineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

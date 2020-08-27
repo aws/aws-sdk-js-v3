@@ -45,6 +45,10 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "batchCheckLayerAvailability",
+      inputFilterLog: BatchCheckLayerAvailabilityRequest.filterSensitiveLog,
+      outputFilterLog: BatchCheckLayerAvailabilityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

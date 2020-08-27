@@ -45,6 +45,10 @@ export class TransactWriteItemsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "transactWriteItems",
+      inputFilterLog: TransactWriteItemsInput.filterSensitiveLog,
+      outputFilterLog: TransactWriteItemsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

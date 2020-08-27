@@ -45,6 +45,10 @@ export class JoinDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "joinDomain",
+      inputFilterLog: JoinDomainInput.filterSensitiveLog,
+      outputFilterLog: JoinDomainOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

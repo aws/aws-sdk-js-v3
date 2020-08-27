@@ -45,6 +45,10 @@ export class DeleteStackCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "deleteStack",
+      inputFilterLog: DeleteStackRequest.filterSensitiveLog,
+      outputFilterLog: DeleteStackResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

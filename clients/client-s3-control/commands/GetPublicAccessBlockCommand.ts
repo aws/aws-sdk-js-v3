@@ -45,6 +45,10 @@ export class GetPublicAccessBlockCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3Control",
+      clientName: "getPublicAccessBlock",
+      inputFilterLog: GetPublicAccessBlockRequest.filterSensitiveLog,
+      outputFilterLog: GetPublicAccessBlockOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

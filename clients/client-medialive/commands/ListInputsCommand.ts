@@ -45,6 +45,10 @@ export class ListInputsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "listInputs",
+      inputFilterLog: ListInputsRequest.filterSensitiveLog,
+      outputFilterLog: ListInputsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

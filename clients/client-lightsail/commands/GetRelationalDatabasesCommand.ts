@@ -45,6 +45,10 @@ export class GetRelationalDatabasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getRelationalDatabases",
+      inputFilterLog: GetRelationalDatabasesRequest.filterSensitiveLog,
+      outputFilterLog: GetRelationalDatabasesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

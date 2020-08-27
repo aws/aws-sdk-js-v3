@@ -45,6 +45,10 @@ export class RebootClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "rebootCluster",
+      inputFilterLog: RebootClusterMessage.filterSensitiveLog,
+      outputFilterLog: RebootClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

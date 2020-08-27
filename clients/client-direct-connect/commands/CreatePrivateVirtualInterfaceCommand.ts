@@ -45,6 +45,10 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "createPrivateVirtualInterface",
+      inputFilterLog: CreatePrivateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

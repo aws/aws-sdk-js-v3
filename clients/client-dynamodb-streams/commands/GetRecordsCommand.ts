@@ -45,6 +45,10 @@ export class GetRecordsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDBStreams",
+      clientName: "getRecords",
+      inputFilterLog: GetRecordsInput.filterSensitiveLog,
+      outputFilterLog: GetRecordsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "describeJournalKinesisStream",
+      inputFilterLog: DescribeJournalKinesisStreamRequest.filterSensitiveLog,
+      outputFilterLog: DescribeJournalKinesisStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

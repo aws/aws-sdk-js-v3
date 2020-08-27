@@ -45,6 +45,10 @@ export class DescribeResizeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeResize",
+      inputFilterLog: DescribeResizeMessage.filterSensitiveLog,
+      outputFilterLog: ResizeProgressMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

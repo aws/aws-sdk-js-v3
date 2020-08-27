@@ -45,6 +45,10 @@ export class UpdateLinkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "updateLink",
+      inputFilterLog: UpdateLinkRequest.filterSensitiveLog,
+      outputFilterLog: UpdateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

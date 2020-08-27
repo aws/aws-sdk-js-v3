@@ -45,6 +45,10 @@ export class DeleteUploadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "deleteUpload",
+      inputFilterLog: DeleteUploadRequest.filterSensitiveLog,
+      outputFilterLog: DeleteUploadResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

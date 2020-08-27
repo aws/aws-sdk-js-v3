@@ -49,6 +49,10 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancing",
+      clientName: "describeLoadBalancerPolicyTypes",
+      inputFilterLog: DescribeLoadBalancerPolicyTypesInput.filterSensitiveLog,
+      outputFilterLog: DescribeLoadBalancerPolicyTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

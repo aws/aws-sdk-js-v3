@@ -46,6 +46,10 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "transferDomainToAnotherAwsAccount",
+      inputFilterLog: TransferDomainToAnotherAwsAccountRequest.filterSensitiveLog,
+      outputFilterLog: TransferDomainToAnotherAwsAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

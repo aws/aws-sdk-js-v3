@@ -45,6 +45,10 @@ export class GetServersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "getServers",
+      inputFilterLog: GetServersRequest.filterSensitiveLog,
+      outputFilterLog: GetServersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

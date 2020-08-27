@@ -45,6 +45,10 @@ export class ConfigureAgentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruProfiler",
+      clientName: "configureAgent",
+      inputFilterLog: ConfigureAgentRequest.filterSensitiveLog,
+      outputFilterLog: ConfigureAgentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -52,6 +52,10 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getRelationalDatabaseMasterUserPassword",
+      inputFilterLog: GetRelationalDatabaseMasterUserPasswordRequest.filterSensitiveLog,
+      outputFilterLog: GetRelationalDatabaseMasterUserPasswordResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

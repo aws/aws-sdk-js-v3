@@ -52,6 +52,10 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deregisterInstanceEventNotificationAttributes",
+      inputFilterLog: DeregisterInstanceEventNotificationAttributesRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterInstanceEventNotificationAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

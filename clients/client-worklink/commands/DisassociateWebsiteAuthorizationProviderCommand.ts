@@ -52,6 +52,10 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "disassociateWebsiteAuthorizationProvider",
+      inputFilterLog: DisassociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

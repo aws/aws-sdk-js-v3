@@ -45,6 +45,10 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "listGitHubAccountTokenNames",
+      inputFilterLog: ListGitHubAccountTokenNamesInput.filterSensitiveLog,
+      outputFilterLog: ListGitHubAccountTokenNamesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

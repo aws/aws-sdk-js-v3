@@ -45,6 +45,10 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "listAutomaticTapeCreationPolicies",
+      inputFilterLog: ListAutomaticTapeCreationPoliciesInput.filterSensitiveLog,
+      outputFilterLog: ListAutomaticTapeCreationPoliciesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

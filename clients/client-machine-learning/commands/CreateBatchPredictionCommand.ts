@@ -45,6 +45,10 @@ export class CreateBatchPredictionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "createBatchPrediction",
+      inputFilterLog: CreateBatchPredictionInput.filterSensitiveLog,
+      outputFilterLog: CreateBatchPredictionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

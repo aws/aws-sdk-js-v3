@@ -45,6 +45,10 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "removeLayerVersionPermission",
+      inputFilterLog: RemoveLayerVersionPermissionRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

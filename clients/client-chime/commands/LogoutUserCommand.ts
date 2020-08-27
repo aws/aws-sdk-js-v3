@@ -45,6 +45,10 @@ export class LogoutUserCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "logoutUser",
+      inputFilterLog: LogoutUserRequest.filterSensitiveLog,
+      outputFilterLog: LogoutUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StopWorkflowRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "stopWorkflowRun",
+      inputFilterLog: StopWorkflowRunRequest.filterSensitiveLog,
+      outputFilterLog: StopWorkflowRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

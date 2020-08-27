@@ -45,6 +45,10 @@ export class CreateMountTargetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "createMountTarget",
+      inputFilterLog: CreateMountTargetRequest.filterSensitiveLog,
+      outputFilterLog: MountTargetDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

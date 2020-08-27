@@ -45,6 +45,10 @@ export class ListRoleAliasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listRoleAliases",
+      inputFilterLog: ListRoleAliasesRequest.filterSensitiveLog,
+      outputFilterLog: ListRoleAliasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

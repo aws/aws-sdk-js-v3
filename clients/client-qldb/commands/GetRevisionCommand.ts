@@ -45,6 +45,10 @@ export class GetRevisionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "getRevision",
+      inputFilterLog: GetRevisionRequest.filterSensitiveLog,
+      outputFilterLog: GetRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

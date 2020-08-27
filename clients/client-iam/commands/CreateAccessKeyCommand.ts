@@ -45,6 +45,10 @@ export class CreateAccessKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "createAccessKey",
+      inputFilterLog: CreateAccessKeyRequest.filterSensitiveLog,
+      outputFilterLog: CreateAccessKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

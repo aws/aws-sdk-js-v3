@@ -45,6 +45,10 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeTapeRecoveryPoints",
+      inputFilterLog: DescribeTapeRecoveryPointsInput.filterSensitiveLog,
+      outputFilterLog: DescribeTapeRecoveryPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

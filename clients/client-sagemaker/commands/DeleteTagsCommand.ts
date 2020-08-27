@@ -45,6 +45,10 @@ export class DeleteTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteTags",
+      inputFilterLog: DeleteTagsInput.filterSensitiveLog,
+      outputFilterLog: DeleteTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

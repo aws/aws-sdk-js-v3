@@ -45,6 +45,10 @@ export class UpdateStackSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "updateStackSet",
+      inputFilterLog: UpdateStackSetInput.filterSensitiveLog,
+      outputFilterLog: UpdateStackSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateClusterSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "updateClusterSettings",
+      inputFilterLog: UpdateClusterSettingsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateClusterSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

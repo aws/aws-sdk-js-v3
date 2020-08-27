@@ -45,6 +45,10 @@ export class DescribeRoleAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "describeRoleAlias",
+      inputFilterLog: DescribeRoleAliasRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRoleAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

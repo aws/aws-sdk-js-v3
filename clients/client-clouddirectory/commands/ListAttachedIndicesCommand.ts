@@ -45,6 +45,10 @@ export class ListAttachedIndicesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listAttachedIndices",
+      inputFilterLog: ListAttachedIndicesRequest.filterSensitiveLog,
+      outputFilterLog: ListAttachedIndicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

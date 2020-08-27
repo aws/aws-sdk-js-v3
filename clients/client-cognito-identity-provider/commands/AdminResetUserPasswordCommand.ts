@@ -49,6 +49,10 @@ export class AdminResetUserPasswordCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminResetUserPassword",
+      inputFilterLog: AdminResetUserPasswordRequest.filterSensitiveLog,
+      outputFilterLog: AdminResetUserPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

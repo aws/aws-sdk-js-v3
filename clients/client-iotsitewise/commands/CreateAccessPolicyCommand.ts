@@ -45,6 +45,10 @@ export class CreateAccessPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "createAccessPolicy",
+      inputFilterLog: CreateAccessPolicyRequest.filterSensitiveLog,
+      outputFilterLog: CreateAccessPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

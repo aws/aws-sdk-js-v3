@@ -45,6 +45,10 @@ export class AssociateConnectionWithLagCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "associateConnectionWithLag",
+      inputFilterLog: AssociateConnectionWithLagRequest.filterSensitiveLog,
+      outputFilterLog: Connection.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

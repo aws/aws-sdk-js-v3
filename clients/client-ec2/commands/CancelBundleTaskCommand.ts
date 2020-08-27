@@ -45,6 +45,10 @@ export class CancelBundleTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "cancelBundleTask",
+      inputFilterLog: CancelBundleTaskRequest.filterSensitiveLog,
+      outputFilterLog: CancelBundleTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

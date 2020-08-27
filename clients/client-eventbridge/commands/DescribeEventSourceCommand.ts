@@ -45,6 +45,10 @@ export class DescribeEventSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EventBridge",
+      clientName: "describeEventSource",
+      inputFilterLog: DescribeEventSourceRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEventSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

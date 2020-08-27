@@ -45,6 +45,10 @@ export class ListConfigurationRevisionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kafka",
+      clientName: "listConfigurationRevisions",
+      inputFilterLog: ListConfigurationRevisionsRequest.filterSensitiveLog,
+      outputFilterLog: ListConfigurationRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeModelPackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "describeModelPackage",
+      inputFilterLog: DescribeModelPackageInput.filterSensitiveLog,
+      outputFilterLog: DescribeModelPackageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

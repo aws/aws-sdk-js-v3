@@ -45,6 +45,10 @@ export class DescribeAccountAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "describeAccountAttributes",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeAccountAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

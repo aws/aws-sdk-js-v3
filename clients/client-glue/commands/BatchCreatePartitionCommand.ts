@@ -45,6 +45,10 @@ export class BatchCreatePartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "batchCreatePartition",
+      inputFilterLog: BatchCreatePartitionRequest.filterSensitiveLog,
+      outputFilterLog: BatchCreatePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

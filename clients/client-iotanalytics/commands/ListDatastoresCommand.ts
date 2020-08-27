@@ -45,6 +45,10 @@ export class ListDatastoresCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "listDatastores",
+      inputFilterLog: ListDatastoresRequest.filterSensitiveLog,
+      outputFilterLog: ListDatastoresResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

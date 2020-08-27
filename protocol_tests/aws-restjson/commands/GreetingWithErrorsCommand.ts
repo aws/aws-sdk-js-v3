@@ -45,6 +45,10 @@ export class GreetingWithErrorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "greetingWithErrors",
+      inputFilterLog: (input) => input,
+      outputFilterLog: GreetingWithErrorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "registerTargetWithMaintenanceWindow",
+      inputFilterLog: RegisterTargetWithMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterLog: RegisterTargetWithMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -44,6 +44,10 @@ export class EmptyOperationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "JsonProtocol",
+      clientName: "emptyOperation",
+      inputFilterLog: (input) => input,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

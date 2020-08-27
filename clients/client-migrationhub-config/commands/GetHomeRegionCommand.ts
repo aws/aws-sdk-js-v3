@@ -49,6 +49,10 @@ export class GetHomeRegionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHubConfig",
+      clientName: "getHomeRegion",
+      inputFilterLog: GetHomeRegionRequest.filterSensitiveLog,
+      outputFilterLog: GetHomeRegionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

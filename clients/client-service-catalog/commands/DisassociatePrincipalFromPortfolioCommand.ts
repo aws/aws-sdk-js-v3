@@ -46,6 +46,10 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "disassociatePrincipalFromPortfolio",
+      inputFilterLog: DisassociatePrincipalFromPortfolioInput.filterSensitiveLog,
+      outputFilterLog: DisassociatePrincipalFromPortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

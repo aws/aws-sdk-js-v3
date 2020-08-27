@@ -45,6 +45,10 @@ export class DescribeTimeBasedAutoScalingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "describeTimeBasedAutoScaling",
+      inputFilterLog: DescribeTimeBasedAutoScalingRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTimeBasedAutoScalingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

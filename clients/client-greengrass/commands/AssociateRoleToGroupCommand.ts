@@ -45,6 +45,10 @@ export class AssociateRoleToGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "associateRoleToGroup",
+      inputFilterLog: AssociateRoleToGroupRequest.filterSensitiveLog,
+      outputFilterLog: AssociateRoleToGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class ListAcceleratorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "listAccelerators",
+      inputFilterLog: ListAcceleratorsRequest.filterSensitiveLog,
+      outputFilterLog: ListAcceleratorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

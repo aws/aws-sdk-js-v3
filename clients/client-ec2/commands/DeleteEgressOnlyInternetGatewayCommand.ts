@@ -45,6 +45,10 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteEgressOnlyInternetGateway",
+      inputFilterLog: DeleteEgressOnlyInternetGatewayRequest.filterSensitiveLog,
+      outputFilterLog: DeleteEgressOnlyInternetGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

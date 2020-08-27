@@ -46,6 +46,10 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComputeOptimizer",
+      clientName: "getAutoScalingGroupRecommendations",
+      inputFilterLog: GetAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
+      outputFilterLog: GetAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

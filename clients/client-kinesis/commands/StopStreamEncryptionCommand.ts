@@ -45,6 +45,10 @@ export class StopStreamEncryptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "stopStreamEncryption",
+      inputFilterLog: StopStreamEncryptionInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

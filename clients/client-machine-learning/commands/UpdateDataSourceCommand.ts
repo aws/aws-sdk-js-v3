@@ -45,6 +45,10 @@ export class UpdateDataSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "updateDataSource",
+      inputFilterLog: UpdateDataSourceInput.filterSensitiveLog,
+      outputFilterLog: UpdateDataSourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

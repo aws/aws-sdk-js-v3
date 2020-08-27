@@ -45,6 +45,10 @@ export class UpdateThemeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateTheme",
+      inputFilterLog: UpdateThemeRequest.filterSensitiveLog,
+      outputFilterLog: UpdateThemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

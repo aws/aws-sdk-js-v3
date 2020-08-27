@@ -45,6 +45,10 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "describeLifecycleConfiguration",
+      inputFilterLog: DescribeLifecycleConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: LifecycleConfigurationDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

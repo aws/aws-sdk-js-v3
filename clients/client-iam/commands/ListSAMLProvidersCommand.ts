@@ -45,6 +45,10 @@ export class ListSAMLProvidersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listSAMLProviders",
+      inputFilterLog: ListSAMLProvidersRequest.filterSensitiveLog,
+      outputFilterLog: ListSAMLProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

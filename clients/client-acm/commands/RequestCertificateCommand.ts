@@ -45,6 +45,10 @@ export class RequestCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ACM",
+      clientName: "requestCertificate",
+      inputFilterLog: RequestCertificateRequest.filterSensitiveLog,
+      outputFilterLog: RequestCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

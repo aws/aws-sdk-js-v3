@@ -45,6 +45,10 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeInstanceTypeOfferings",
+      inputFilterLog: DescribeInstanceTypeOfferingsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInstanceTypeOfferingsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

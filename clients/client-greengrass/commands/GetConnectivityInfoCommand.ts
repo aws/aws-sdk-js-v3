@@ -45,6 +45,10 @@ export class GetConnectivityInfoCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getConnectivityInfo",
+      inputFilterLog: GetConnectivityInfoRequest.filterSensitiveLog,
+      outputFilterLog: GetConnectivityInfoResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

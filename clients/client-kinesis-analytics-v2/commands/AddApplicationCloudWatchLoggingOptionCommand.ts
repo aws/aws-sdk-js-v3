@@ -53,6 +53,10 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "addApplicationCloudWatchLoggingOption",
+      inputFilterLog: AddApplicationCloudWatchLoggingOptionRequest.filterSensitiveLog,
+      outputFilterLog: AddApplicationCloudWatchLoggingOptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

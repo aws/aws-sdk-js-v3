@@ -45,6 +45,10 @@ export class DeleteProfilingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruProfiler",
+      clientName: "deleteProfilingGroup",
+      inputFilterLog: DeleteProfilingGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteProfilingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListPackageVersionDependenciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "listPackageVersionDependencies",
+      inputFilterLog: ListPackageVersionDependenciesRequest.filterSensitiveLog,
+      outputFilterLog: ListPackageVersionDependenciesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

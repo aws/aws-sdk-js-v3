@@ -45,6 +45,10 @@ export class ListConstraintsForPortfolioCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "listConstraintsForPortfolio",
+      inputFilterLog: ListConstraintsForPortfolioInput.filterSensitiveLog,
+      outputFilterLog: ListConstraintsForPortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

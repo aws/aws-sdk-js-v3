@@ -45,6 +45,10 @@ export class ListResourcesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStar",
+      clientName: "listResources",
+      inputFilterLog: ListResourcesRequest.filterSensitiveLog,
+      outputFilterLog: ListResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

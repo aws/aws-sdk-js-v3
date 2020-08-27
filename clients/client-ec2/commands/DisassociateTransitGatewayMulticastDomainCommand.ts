@@ -52,6 +52,10 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "disassociateTransitGatewayMulticastDomain",
+      inputFilterLog: DisassociateTransitGatewayMulticastDomainRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateTransitGatewayMulticastDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListAvailableZonesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSM",
+      clientName: "listAvailableZones",
+      inputFilterLog: ListAvailableZonesRequest.filterSensitiveLog,
+      outputFilterLog: ListAvailableZonesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "getBlockPublicAccessConfiguration",
+      inputFilterLog: GetBlockPublicAccessConfigurationInput.filterSensitiveLog,
+      outputFilterLog: GetBlockPublicAccessConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

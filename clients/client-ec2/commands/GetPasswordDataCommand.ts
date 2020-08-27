@@ -42,6 +42,10 @@ export class GetPasswordDataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getPasswordData",
+      inputFilterLog: GetPasswordDataRequest.filterSensitiveLog,
+      outputFilterLog: GetPasswordDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

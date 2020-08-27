@@ -45,6 +45,10 @@ export class DeleteScheduledActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "deleteScheduledAction",
+      inputFilterLog: DeleteScheduledActionMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateProtectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "createProtection",
+      inputFilterLog: CreateProtectionRequest.filterSensitiveLog,
+      outputFilterLog: CreateProtectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

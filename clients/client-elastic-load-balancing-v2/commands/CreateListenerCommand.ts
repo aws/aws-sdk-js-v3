@@ -49,6 +49,10 @@ export class CreateListenerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "createListener",
+      inputFilterLog: CreateListenerInput.filterSensitiveLog,
+      outputFilterLog: CreateListenerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

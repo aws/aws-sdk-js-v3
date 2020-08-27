@@ -45,6 +45,10 @@ export class CreateTestGridProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "createTestGridProject",
+      inputFilterLog: CreateTestGridProjectRequest.filterSensitiveLog,
+      outputFilterLog: CreateTestGridProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

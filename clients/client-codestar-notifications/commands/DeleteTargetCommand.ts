@@ -49,6 +49,10 @@ export class DeleteTargetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodestarNotifications",
+      clientName: "deleteTarget",
+      inputFilterLog: DeleteTargetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTargetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

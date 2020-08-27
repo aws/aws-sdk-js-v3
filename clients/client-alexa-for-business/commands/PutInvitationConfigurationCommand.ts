@@ -45,6 +45,10 @@ export class PutInvitationConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "putInvitationConfiguration",
+      inputFilterLog: PutInvitationConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutInvitationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

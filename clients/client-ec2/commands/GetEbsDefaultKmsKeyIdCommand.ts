@@ -45,6 +45,10 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getEbsDefaultKmsKeyId",
+      inputFilterLog: GetEbsDefaultKmsKeyIdRequest.filterSensitiveLog,
+      outputFilterLog: GetEbsDefaultKmsKeyIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

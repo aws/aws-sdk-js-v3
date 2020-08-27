@@ -45,6 +45,10 @@ export class UnmonitorInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "unmonitorInstances",
+      inputFilterLog: UnmonitorInstancesRequest.filterSensitiveLog,
+      outputFilterLog: UnmonitorInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

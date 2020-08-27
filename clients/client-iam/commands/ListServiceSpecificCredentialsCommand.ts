@@ -45,6 +45,10 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listServiceSpecificCredentials",
+      inputFilterLog: ListServiceSpecificCredentialsRequest.filterSensitiveLog,
+      outputFilterLog: ListServiceSpecificCredentialsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

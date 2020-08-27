@@ -47,6 +47,10 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketAccelerateConfiguration",
+      inputFilterLog: GetBucketAccelerateConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketAccelerateConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DescribeEndpointTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeEndpointTypes",
+      inputFilterLog: DescribeEndpointTypesMessage.filterSensitiveLog,
+      outputFilterLog: DescribeEndpointTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

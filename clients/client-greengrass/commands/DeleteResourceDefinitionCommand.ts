@@ -45,6 +45,10 @@ export class DeleteResourceDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "deleteResourceDefinition",
+      inputFilterLog: DeleteResourceDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResourceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

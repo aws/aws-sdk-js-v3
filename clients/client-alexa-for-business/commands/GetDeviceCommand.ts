@@ -42,6 +42,10 @@ export class GetDeviceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getDevice",
+      inputFilterLog: GetDeviceRequest.filterSensitiveLog,
+      outputFilterLog: GetDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

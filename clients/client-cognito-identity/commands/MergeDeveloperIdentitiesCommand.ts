@@ -47,6 +47,10 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "mergeDeveloperIdentities",
+      inputFilterLog: MergeDeveloperIdentitiesInput.filterSensitiveLog,
+      outputFilterLog: MergeDeveloperIdentitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

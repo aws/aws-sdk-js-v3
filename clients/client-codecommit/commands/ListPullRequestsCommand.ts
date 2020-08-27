@@ -45,6 +45,10 @@ export class ListPullRequestsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "listPullRequests",
+      inputFilterLog: ListPullRequestsInput.filterSensitiveLog,
+      outputFilterLog: ListPullRequestsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -52,6 +52,10 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteLocalGatewayRouteTableVpcAssociation",
+      inputFilterLog: DeleteLocalGatewayRouteTableVpcAssociationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLocalGatewayRouteTableVpcAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

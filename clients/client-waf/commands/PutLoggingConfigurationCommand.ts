@@ -45,6 +45,10 @@ export class PutLoggingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "putLoggingConfiguration",
+      inputFilterLog: PutLoggingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutLoggingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "describeEngineDefaultClusterParameters",
+      inputFilterLog: DescribeEngineDefaultClusterParametersMessage.filterSensitiveLog,
+      outputFilterLog: DescribeEngineDefaultClusterParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

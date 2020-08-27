@@ -42,6 +42,10 @@ export class AddCacheCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "addCache",
+      inputFilterLog: AddCacheInput.filterSensitiveLog,
+      outputFilterLog: AddCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

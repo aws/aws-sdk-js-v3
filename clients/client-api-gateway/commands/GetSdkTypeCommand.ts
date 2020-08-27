@@ -45,6 +45,10 @@ export class GetSdkTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "getSdkType",
+      inputFilterLog: GetSdkTypeRequest.filterSensitiveLog,
+      outputFilterLog: SdkType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

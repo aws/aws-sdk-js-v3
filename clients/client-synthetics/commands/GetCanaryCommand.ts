@@ -45,6 +45,10 @@ export class GetCanaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Synthetics",
+      clientName: "getCanary",
+      inputFilterLog: GetCanaryRequest.filterSensitiveLog,
+      outputFilterLog: GetCanaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

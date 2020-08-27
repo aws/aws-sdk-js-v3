@@ -45,6 +45,10 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeSpotFleetRequestHistory",
+      inputFilterLog: DescribeSpotFleetRequestHistoryRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSpotFleetRequestHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

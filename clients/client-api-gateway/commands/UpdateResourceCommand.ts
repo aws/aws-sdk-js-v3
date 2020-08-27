@@ -45,6 +45,10 @@ export class UpdateResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "updateResource",
+      inputFilterLog: UpdateResourceRequest.filterSensitiveLog,
+      outputFilterLog: Resource.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

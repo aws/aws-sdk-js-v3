@@ -45,6 +45,10 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "createStorediSCSIVolume",
+      inputFilterLog: CreateStorediSCSIVolumeInput.filterSensitiveLog,
+      outputFilterLog: CreateStorediSCSIVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

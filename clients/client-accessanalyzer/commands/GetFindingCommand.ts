@@ -45,6 +45,10 @@ export class GetFindingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AccessAnalyzer",
+      clientName: "getFinding",
+      inputFilterLog: GetFindingRequest.filterSensitiveLog,
+      outputFilterLog: GetFindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

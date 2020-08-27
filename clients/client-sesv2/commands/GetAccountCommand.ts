@@ -45,6 +45,10 @@ export class GetAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "getAccount",
+      inputFilterLog: GetAccountRequest.filterSensitiveLog,
+      outputFilterLog: GetAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

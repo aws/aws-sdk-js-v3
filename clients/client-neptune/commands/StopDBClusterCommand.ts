@@ -45,6 +45,10 @@ export class StopDBClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "stopDBCluster",
+      inputFilterLog: StopDBClusterMessage.filterSensitiveLog,
+      outputFilterLog: StopDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

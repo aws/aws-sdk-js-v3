@@ -49,6 +49,10 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "generateDataKeyPairWithoutPlaintext",
+      inputFilterLog: GenerateDataKeyPairWithoutPlaintextRequest.filterSensitiveLog,
+      outputFilterLog: GenerateDataKeyPairWithoutPlaintextResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

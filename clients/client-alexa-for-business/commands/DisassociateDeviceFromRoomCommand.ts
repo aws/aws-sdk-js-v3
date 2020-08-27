@@ -45,6 +45,10 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "disassociateDeviceFromRoom",
+      inputFilterLog: DisassociateDeviceFromRoomRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateDeviceFromRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

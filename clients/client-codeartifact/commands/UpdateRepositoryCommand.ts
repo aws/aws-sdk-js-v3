@@ -45,6 +45,10 @@ export class UpdateRepositoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "updateRepository",
+      inputFilterLog: UpdateRepositoryRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRepositoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

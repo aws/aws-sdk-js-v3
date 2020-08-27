@@ -47,6 +47,10 @@ export class DeleteHostedZoneCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "deleteHostedZone",
+      inputFilterLog: DeleteHostedZoneRequest.filterSensitiveLog,
+      outputFilterLog: DeleteHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateAssetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackageVod",
+      clientName: "createAsset",
+      inputFilterLog: CreateAssetRequest.filterSensitiveLog,
+      outputFilterLog: CreateAssetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

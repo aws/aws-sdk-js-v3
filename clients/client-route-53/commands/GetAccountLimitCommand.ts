@@ -45,6 +45,10 @@ export class GetAccountLimitCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "getAccountLimit",
+      inputFilterLog: GetAccountLimitRequest.filterSensitiveLog,
+      outputFilterLog: GetAccountLimitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

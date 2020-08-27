@@ -45,6 +45,10 @@ export class ListGameServersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "listGameServers",
+      inputFilterLog: ListGameServersInput.filterSensitiveLog,
+      outputFilterLog: ListGameServersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeConstraintCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "describeConstraint",
+      inputFilterLog: DescribeConstraintInput.filterSensitiveLog,
+      outputFilterLog: DescribeConstraintOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

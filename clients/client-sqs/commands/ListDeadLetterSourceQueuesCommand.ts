@@ -45,6 +45,10 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "listDeadLetterSourceQueues",
+      inputFilterLog: ListDeadLetterSourceQueuesRequest.filterSensitiveLog,
+      outputFilterLog: ListDeadLetterSourceQueuesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

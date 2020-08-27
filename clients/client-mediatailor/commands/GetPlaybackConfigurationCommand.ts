@@ -45,6 +45,10 @@ export class GetPlaybackConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaTailor",
+      clientName: "getPlaybackConfiguration",
+      inputFilterLog: GetPlaybackConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetPlaybackConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

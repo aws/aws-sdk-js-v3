@@ -45,6 +45,10 @@ export class DescribeSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "describeSubscription",
+      inputFilterLog: DescribeSubscriptionRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

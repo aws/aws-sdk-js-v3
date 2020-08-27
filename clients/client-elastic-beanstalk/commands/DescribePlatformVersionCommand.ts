@@ -45,6 +45,10 @@ export class DescribePlatformVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "describePlatformVersion",
+      inputFilterLog: DescribePlatformVersionRequest.filterSensitiveLog,
+      outputFilterLog: DescribePlatformVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

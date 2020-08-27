@@ -45,6 +45,10 @@ export class CreateComputeEnvironmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "createComputeEnvironment",
+      inputFilterLog: CreateComputeEnvironmentRequest.filterSensitiveLog,
+      outputFilterLog: CreateComputeEnvironmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

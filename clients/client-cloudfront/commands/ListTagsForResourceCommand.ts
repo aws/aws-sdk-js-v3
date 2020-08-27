@@ -45,6 +45,10 @@ export class ListTagsForResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "listTagsForResource",
+      inputFilterLog: ListTagsForResourceRequest.filterSensitiveLog,
+      outputFilterLog: ListTagsForResourceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

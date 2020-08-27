@@ -45,6 +45,10 @@ export class DeleteEmailChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "deleteEmailChannel",
+      inputFilterLog: DeleteEmailChannelRequest.filterSensitiveLog,
+      outputFilterLog: DeleteEmailChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

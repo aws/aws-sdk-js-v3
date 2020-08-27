@@ -45,6 +45,10 @@ export class ListBulkDeploymentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "listBulkDeployments",
+      inputFilterLog: ListBulkDeploymentsRequest.filterSensitiveLog,
+      outputFilterLog: ListBulkDeploymentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

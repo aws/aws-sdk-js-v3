@@ -45,6 +45,10 @@ export class SearchContactsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "searchContacts",
+      inputFilterLog: SearchContactsRequest.filterSensitiveLog,
+      outputFilterLog: SearchContactsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

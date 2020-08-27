@@ -45,6 +45,10 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "listAllowedNodeTypeModifications",
+      inputFilterLog: ListAllowedNodeTypeModificationsMessage.filterSensitiveLog,
+      outputFilterLog: AllowedNodeTypeModificationsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

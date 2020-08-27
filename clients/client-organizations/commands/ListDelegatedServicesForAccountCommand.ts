@@ -45,6 +45,10 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listDelegatedServicesForAccount",
+      inputFilterLog: ListDelegatedServicesForAccountRequest.filterSensitiveLog,
+      outputFilterLog: ListDelegatedServicesForAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

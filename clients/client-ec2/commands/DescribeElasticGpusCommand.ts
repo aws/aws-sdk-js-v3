@@ -45,6 +45,10 @@ export class DescribeElasticGpusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeElasticGpus",
+      inputFilterLog: DescribeElasticGpusRequest.filterSensitiveLog,
+      outputFilterLog: DescribeElasticGpusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

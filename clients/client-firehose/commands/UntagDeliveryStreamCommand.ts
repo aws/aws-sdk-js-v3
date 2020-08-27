@@ -45,6 +45,10 @@ export class UntagDeliveryStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Firehose",
+      clientName: "untagDeliveryStream",
+      inputFilterLog: UntagDeliveryStreamInput.filterSensitiveLog,
+      outputFilterLog: UntagDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

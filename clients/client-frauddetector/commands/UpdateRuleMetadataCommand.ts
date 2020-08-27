@@ -45,6 +45,10 @@ export class UpdateRuleMetadataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "updateRuleMetadata",
+      inputFilterLog: UpdateRuleMetadataRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRuleMetadataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

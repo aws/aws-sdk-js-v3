@@ -45,6 +45,10 @@ export class DisassociateCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "disassociateCertificate",
+      inputFilterLog: DisassociateCertificateRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

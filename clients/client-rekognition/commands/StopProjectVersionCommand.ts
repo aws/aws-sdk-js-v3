@@ -45,6 +45,10 @@ export class StopProjectVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "stopProjectVersion",
+      inputFilterLog: StopProjectVersionRequest.filterSensitiveLog,
+      outputFilterLog: StopProjectVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

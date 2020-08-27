@@ -45,6 +45,10 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "getCloudFrontOriginAccessIdentity",
+      inputFilterLog: GetCloudFrontOriginAccessIdentityRequest.filterSensitiveLog,
+      outputFilterLog: GetCloudFrontOriginAccessIdentityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

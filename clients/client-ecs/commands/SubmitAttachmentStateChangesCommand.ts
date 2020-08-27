@@ -45,6 +45,10 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "submitAttachmentStateChanges",
+      inputFilterLog: SubmitAttachmentStateChangesRequest.filterSensitiveLog,
+      outputFilterLog: SubmitAttachmentStateChangesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

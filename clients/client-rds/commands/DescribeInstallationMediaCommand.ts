@@ -45,6 +45,10 @@ export class DescribeInstallationMediaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeInstallationMedia",
+      inputFilterLog: DescribeInstallationMediaMessage.filterSensitiveLog,
+      outputFilterLog: InstallationMediaMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

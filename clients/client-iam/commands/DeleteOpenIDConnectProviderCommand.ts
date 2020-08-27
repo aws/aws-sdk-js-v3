@@ -45,6 +45,10 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteOpenIDConnectProvider",
+      inputFilterLog: DeleteOpenIDConnectProviderRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListDiscoveredResourcesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHub",
+      clientName: "listDiscoveredResources",
+      inputFilterLog: ListDiscoveredResourcesRequest.filterSensitiveLog,
+      outputFilterLog: ListDiscoveredResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

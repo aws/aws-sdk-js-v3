@@ -45,6 +45,10 @@ export class SetIdentityNotificationTopicCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "setIdentityNotificationTopic",
+      inputFilterLog: SetIdentityNotificationTopicRequest.filterSensitiveLog,
+      outputFilterLog: SetIdentityNotificationTopicResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

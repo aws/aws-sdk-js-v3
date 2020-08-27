@@ -45,6 +45,10 @@ export class StartDeviceAuthorizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSOOIDC",
+      clientName: "startDeviceAuthorization",
+      inputFilterLog: StartDeviceAuthorizationRequest.filterSensitiveLog,
+      outputFilterLog: StartDeviceAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

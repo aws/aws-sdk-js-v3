@@ -45,6 +45,10 @@ export class StartExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "startExecution",
+      inputFilterLog: StartExecutionInput.filterSensitiveLog,
+      outputFilterLog: StartExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

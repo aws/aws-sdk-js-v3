@@ -45,6 +45,10 @@ export class ApplySchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "applySchema",
+      inputFilterLog: ApplySchemaRequest.filterSensitiveLog,
+      outputFilterLog: ApplySchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

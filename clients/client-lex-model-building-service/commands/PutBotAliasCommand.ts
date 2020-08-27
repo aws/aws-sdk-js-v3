@@ -49,6 +49,10 @@ export class PutBotAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "putBotAlias",
+      inputFilterLog: PutBotAliasRequest.filterSensitiveLog,
+      outputFilterLog: PutBotAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

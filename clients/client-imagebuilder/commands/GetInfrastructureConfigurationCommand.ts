@@ -45,6 +45,10 @@ export class GetInfrastructureConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "getInfrastructureConfiguration",
+      inputFilterLog: GetInfrastructureConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetInfrastructureConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

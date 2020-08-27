@@ -45,6 +45,10 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getColumnStatisticsForPartition",
+      inputFilterLog: GetColumnStatisticsForPartitionRequest.filterSensitiveLog,
+      outputFilterLog: GetColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

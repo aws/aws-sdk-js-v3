@@ -45,6 +45,10 @@ export class DeleteApplicationOutputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalytics",
+      clientName: "deleteApplicationOutput",
+      inputFilterLog: DeleteApplicationOutputRequest.filterSensitiveLog,
+      outputFilterLog: DeleteApplicationOutputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateTemplateAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateTemplateAlias",
+      inputFilterLog: UpdateTemplateAliasRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTemplateAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

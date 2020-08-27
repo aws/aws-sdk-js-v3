@@ -45,6 +45,10 @@ export class ReserveContactCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GroundStation",
+      clientName: "reserveContact",
+      inputFilterLog: ReserveContactRequest.filterSensitiveLog,
+      outputFilterLog: ContactIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

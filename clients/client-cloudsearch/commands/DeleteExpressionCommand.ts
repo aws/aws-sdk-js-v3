@@ -45,6 +45,10 @@ export class DeleteExpressionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "deleteExpression",
+      inputFilterLog: DeleteExpressionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteExpressionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

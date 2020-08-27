@@ -49,6 +49,10 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "replaceIamInstanceProfileAssociation",
+      inputFilterLog: ReplaceIamInstanceProfileAssociationRequest.filterSensitiveLog,
+      outputFilterLog: ReplaceIamInstanceProfileAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

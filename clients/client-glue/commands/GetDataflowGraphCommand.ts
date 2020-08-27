@@ -45,6 +45,10 @@ export class GetDataflowGraphCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getDataflowGraph",
+      inputFilterLog: GetDataflowGraphRequest.filterSensitiveLog,
+      outputFilterLog: GetDataflowGraphResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

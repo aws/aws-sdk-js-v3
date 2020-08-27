@@ -45,6 +45,10 @@ export class GetModelVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getModelVersion",
+      inputFilterLog: GetModelVersionRequest.filterSensitiveLog,
+      outputFilterLog: GetModelVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

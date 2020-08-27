@@ -49,6 +49,10 @@ export class ListFragmentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideoArchivedMedia",
+      clientName: "listFragments",
+      inputFilterLog: ListFragmentsInput.filterSensitiveLog,
+      outputFilterLog: ListFragmentsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

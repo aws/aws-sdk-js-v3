@@ -45,6 +45,10 @@ export class RebootWorkspacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "rebootWorkspaces",
+      inputFilterLog: RebootWorkspacesRequest.filterSensitiveLog,
+      outputFilterLog: RebootWorkspacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

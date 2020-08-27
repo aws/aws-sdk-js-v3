@@ -45,6 +45,10 @@ export class DescribeOpsItemsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeOpsItems",
+      inputFilterLog: DescribeOpsItemsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeOpsItemsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

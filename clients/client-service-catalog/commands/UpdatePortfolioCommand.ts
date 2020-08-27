@@ -45,6 +45,10 @@ export class UpdatePortfolioCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "updatePortfolio",
+      inputFilterLog: UpdatePortfolioInput.filterSensitiveLog,
+      outputFilterLog: UpdatePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

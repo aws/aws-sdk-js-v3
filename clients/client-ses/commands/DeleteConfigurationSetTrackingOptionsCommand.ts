@@ -49,6 +49,10 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "deleteConfigurationSetTrackingOptions",
+      inputFilterLog: DeleteConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describeLifecycleHookTypes",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeLifecycleHookTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

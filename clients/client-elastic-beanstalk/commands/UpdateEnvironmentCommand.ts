@@ -45,6 +45,10 @@ export class UpdateEnvironmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "updateEnvironment",
+      inputFilterLog: UpdateEnvironmentMessage.filterSensitiveLog,
+      outputFilterLog: EnvironmentDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

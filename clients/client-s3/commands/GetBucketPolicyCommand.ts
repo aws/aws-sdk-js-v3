@@ -47,6 +47,10 @@ export class GetBucketPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketPolicy",
+      inputFilterLog: GetBucketPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

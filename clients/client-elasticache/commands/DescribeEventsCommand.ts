@@ -45,6 +45,10 @@ export class DescribeEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeEvents",
+      inputFilterLog: DescribeEventsMessage.filterSensitiveLog,
+      outputFilterLog: EventsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

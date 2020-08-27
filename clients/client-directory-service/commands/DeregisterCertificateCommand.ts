@@ -45,6 +45,10 @@ export class DeregisterCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "deregisterCertificate",
+      inputFilterLog: DeregisterCertificateRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListFunctionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "listFunctions",
+      inputFilterLog: ListFunctionsRequest.filterSensitiveLog,
+      outputFilterLog: ListFunctionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

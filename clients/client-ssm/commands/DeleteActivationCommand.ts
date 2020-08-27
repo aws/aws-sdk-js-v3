@@ -45,6 +45,10 @@ export class DeleteActivationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deleteActivation",
+      inputFilterLog: DeleteActivationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteActivationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

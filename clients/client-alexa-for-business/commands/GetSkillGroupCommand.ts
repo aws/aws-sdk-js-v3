@@ -45,6 +45,10 @@ export class GetSkillGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getSkillGroup",
+      inputFilterLog: GetSkillGroupRequest.filterSensitiveLog,
+      outputFilterLog: GetSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

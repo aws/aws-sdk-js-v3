@@ -45,6 +45,10 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyVpnTunnelCertificate",
+      inputFilterLog: ModifyVpnTunnelCertificateRequest.filterSensitiveLog,
+      outputFilterLog: ModifyVpnTunnelCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

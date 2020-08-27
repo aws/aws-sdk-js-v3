@@ -45,6 +45,10 @@ export class UpdateScriptCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "updateScript",
+      inputFilterLog: UpdateScriptInput.filterSensitiveLog,
+      outputFilterLog: UpdateScriptOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

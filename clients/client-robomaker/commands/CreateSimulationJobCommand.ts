@@ -45,6 +45,10 @@ export class CreateSimulationJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "createSimulationJob",
+      inputFilterLog: CreateSimulationJobRequest.filterSensitiveLog,
+      outputFilterLog: CreateSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

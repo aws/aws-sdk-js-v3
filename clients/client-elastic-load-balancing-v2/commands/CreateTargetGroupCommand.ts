@@ -49,6 +49,10 @@ export class CreateTargetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "createTargetGroup",
+      inputFilterLog: CreateTargetGroupInput.filterSensitiveLog,
+      outputFilterLog: CreateTargetGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

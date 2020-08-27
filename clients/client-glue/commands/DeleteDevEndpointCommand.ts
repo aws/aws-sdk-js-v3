@@ -45,6 +45,10 @@ export class DeleteDevEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deleteDevEndpoint",
+      inputFilterLog: DeleteDevEndpointRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDevEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

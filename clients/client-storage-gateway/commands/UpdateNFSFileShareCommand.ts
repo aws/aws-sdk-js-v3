@@ -45,6 +45,10 @@ export class UpdateNFSFileShareCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "updateNFSFileShare",
+      inputFilterLog: UpdateNFSFileShareInput.filterSensitiveLog,
+      outputFilterLog: UpdateNFSFileShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

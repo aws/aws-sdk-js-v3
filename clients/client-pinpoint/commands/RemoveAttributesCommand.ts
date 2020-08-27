@@ -45,6 +45,10 @@ export class RemoveAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "removeAttributes",
+      inputFilterLog: RemoveAttributesRequest.filterSensitiveLog,
+      outputFilterLog: RemoveAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

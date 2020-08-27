@@ -45,6 +45,10 @@ export class CreateResourceGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "createResourceGroup",
+      inputFilterLog: CreateResourceGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateResourceGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

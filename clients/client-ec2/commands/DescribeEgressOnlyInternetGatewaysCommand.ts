@@ -46,6 +46,10 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeEgressOnlyInternetGateways",
+      inputFilterLog: DescribeEgressOnlyInternetGatewaysRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEgressOnlyInternetGatewaysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

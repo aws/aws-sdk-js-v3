@@ -45,6 +45,10 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getGroupCertificateAuthority",
+      inputFilterLog: GetGroupCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterLog: GetGroupCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

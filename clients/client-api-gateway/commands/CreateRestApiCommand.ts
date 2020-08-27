@@ -45,6 +45,10 @@ export class CreateRestApiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "createRestApi",
+      inputFilterLog: CreateRestApiRequest.filterSensitiveLog,
+      outputFilterLog: RestApi.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DisassociateConnectionFromLagCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "disassociateConnectionFromLag",
+      inputFilterLog: DisassociateConnectionFromLagRequest.filterSensitiveLog,
+      outputFilterLog: Connection.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

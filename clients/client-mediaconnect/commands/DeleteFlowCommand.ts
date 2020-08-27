@@ -45,6 +45,10 @@ export class DeleteFlowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "deleteFlow",
+      inputFilterLog: DeleteFlowRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFlowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

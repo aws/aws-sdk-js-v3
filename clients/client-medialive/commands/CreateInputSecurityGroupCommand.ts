@@ -45,6 +45,10 @@ export class CreateInputSecurityGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "createInputSecurityGroup",
+      inputFilterLog: CreateInputSecurityGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateInputSecurityGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

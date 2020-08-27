@@ -45,6 +45,10 @@ export class DeleteResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "deleteResource",
+      inputFilterLog: DeleteResourceRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

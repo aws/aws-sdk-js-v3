@@ -45,6 +45,10 @@ export class EstimateTemplateCostCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "estimateTemplateCost",
+      inputFilterLog: EstimateTemplateCostInput.filterSensitiveLog,
+      outputFilterLog: EstimateTemplateCostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetIntegrationResponseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "getIntegrationResponse",
+      inputFilterLog: GetIntegrationResponseRequest.filterSensitiveLog,
+      outputFilterLog: IntegrationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

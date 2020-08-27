@@ -49,6 +49,10 @@ export class GetConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayManagementApi",
+      clientName: "getConnection",
+      inputFilterLog: GetConnectionRequest.filterSensitiveLog,
+      outputFilterLog: GetConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

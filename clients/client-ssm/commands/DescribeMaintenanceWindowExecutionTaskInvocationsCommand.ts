@@ -52,6 +52,10 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeMaintenanceWindowExecutionTaskInvocations",
+      inputFilterLog: DescribeMaintenanceWindowExecutionTaskInvocationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeMaintenanceWindowExecutionTaskInvocationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

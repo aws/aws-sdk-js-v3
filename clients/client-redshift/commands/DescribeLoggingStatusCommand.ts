@@ -45,6 +45,10 @@ export class DescribeLoggingStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeLoggingStatus",
+      inputFilterLog: DescribeLoggingStatusMessage.filterSensitiveLog,
+      outputFilterLog: LoggingStatus.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

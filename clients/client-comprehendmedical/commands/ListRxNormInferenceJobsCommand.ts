@@ -49,6 +49,10 @@ export class ListRxNormInferenceJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComprehendMedical",
+      clientName: "listRxNormInferenceJobs",
+      inputFilterLog: ListRxNormInferenceJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListRxNormInferenceJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeInstanceInformationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeInstanceInformation",
+      inputFilterLog: DescribeInstanceInformationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInstanceInformationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

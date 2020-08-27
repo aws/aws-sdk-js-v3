@@ -45,6 +45,10 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "setLoadBasedAutoScaling",
+      inputFilterLog: SetLoadBasedAutoScalingRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

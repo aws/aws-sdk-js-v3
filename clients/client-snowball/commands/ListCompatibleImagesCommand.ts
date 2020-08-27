@@ -45,6 +45,10 @@ export class ListCompatibleImagesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Snowball",
+      clientName: "listCompatibleImages",
+      inputFilterLog: ListCompatibleImagesRequest.filterSensitiveLog,
+      outputFilterLog: ListCompatibleImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

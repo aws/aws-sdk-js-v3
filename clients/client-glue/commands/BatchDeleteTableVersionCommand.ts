@@ -45,6 +45,10 @@ export class BatchDeleteTableVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "batchDeleteTableVersion",
+      inputFilterLog: BatchDeleteTableVersionRequest.filterSensitiveLog,
+      outputFilterLog: BatchDeleteTableVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

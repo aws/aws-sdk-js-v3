@@ -45,6 +45,10 @@ export class RunScheduledInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "runScheduledInstances",
+      inputFilterLog: RunScheduledInstancesRequest.filterSensitiveLog,
+      outputFilterLog: RunScheduledInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

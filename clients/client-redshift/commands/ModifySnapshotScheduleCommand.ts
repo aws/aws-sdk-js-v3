@@ -45,6 +45,10 @@ export class ModifySnapshotScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "modifySnapshotSchedule",
+      inputFilterLog: ModifySnapshotScheduleMessage.filterSensitiveLog,
+      outputFilterLog: SnapshotSchedule.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

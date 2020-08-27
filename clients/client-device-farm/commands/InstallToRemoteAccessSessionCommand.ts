@@ -45,6 +45,10 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "installToRemoteAccessSession",
+      inputFilterLog: InstallToRemoteAccessSessionRequest.filterSensitiveLog,
+      outputFilterLog: InstallToRemoteAccessSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

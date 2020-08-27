@@ -49,6 +49,10 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "createConfigurationSetEventDestination",
+      inputFilterLog: CreateConfigurationSetEventDestinationRequest.filterSensitiveLog,
+      outputFilterLog: CreateConfigurationSetEventDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StartCelebrityRecognitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "startCelebrityRecognition",
+      inputFilterLog: StartCelebrityRecognitionRequest.filterSensitiveLog,
+      outputFilterLog: StartCelebrityRecognitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

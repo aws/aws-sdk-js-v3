@@ -45,6 +45,10 @@ export class ListRuleGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "listRuleGroups",
+      inputFilterLog: ListRuleGroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListRuleGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

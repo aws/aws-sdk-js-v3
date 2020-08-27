@@ -45,6 +45,10 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "unassignPrivateIpAddresses",
+      inputFilterLog: UnassignPrivateIpAddressesRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

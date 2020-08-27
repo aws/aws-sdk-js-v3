@@ -45,6 +45,10 @@ export class RetrieveTimeSeriesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruProfiler",
+      clientName: "retrieveTimeSeries",
+      inputFilterLog: RetrieveTimeSeriesRequest.filterSensitiveLog,
+      outputFilterLog: RetrieveTimeSeriesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

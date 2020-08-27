@@ -45,6 +45,10 @@ export class DescribeDBLogFilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeDBLogFiles",
+      inputFilterLog: DescribeDBLogFilesMessage.filterSensitiveLog,
+      outputFilterLog: DescribeDBLogFilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listTargetsForSecurityProfile",
+      inputFilterLog: ListTargetsForSecurityProfileRequest.filterSensitiveLog,
+      outputFilterLog: ListTargetsForSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

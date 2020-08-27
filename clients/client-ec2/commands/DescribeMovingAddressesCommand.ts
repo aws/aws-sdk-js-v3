@@ -45,6 +45,10 @@ export class DescribeMovingAddressesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeMovingAddresses",
+      inputFilterLog: DescribeMovingAddressesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeMovingAddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

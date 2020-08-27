@@ -42,6 +42,10 @@ export class DescribeTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "describeType",
+      inputFilterLog: DescribeTypeInput.filterSensitiveLog,
+      outputFilterLog: DescribeTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

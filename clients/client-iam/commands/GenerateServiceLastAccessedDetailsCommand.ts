@@ -46,6 +46,10 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "generateServiceLastAccessedDetails",
+      inputFilterLog: GenerateServiceLastAccessedDetailsRequest.filterSensitiveLog,
+      outputFilterLog: GenerateServiceLastAccessedDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

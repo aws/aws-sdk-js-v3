@@ -45,6 +45,10 @@ export class ListClassificationJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "listClassificationJobs",
+      inputFilterLog: ListClassificationJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListClassificationJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

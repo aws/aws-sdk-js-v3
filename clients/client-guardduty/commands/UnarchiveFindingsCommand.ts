@@ -45,6 +45,10 @@ export class UnarchiveFindingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "unarchiveFindings",
+      inputFilterLog: UnarchiveFindingsRequest.filterSensitiveLog,
+      outputFilterLog: UnarchiveFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

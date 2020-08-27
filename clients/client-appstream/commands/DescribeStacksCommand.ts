@@ -45,6 +45,10 @@ export class DescribeStacksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "describeStacks",
+      inputFilterLog: DescribeStacksRequest.filterSensitiveLog,
+      outputFilterLog: DescribeStacksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

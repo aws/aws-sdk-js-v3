@@ -45,6 +45,10 @@ export class ListStreamsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Ivs",
+      clientName: "listStreams",
+      inputFilterLog: ListStreamsRequest.filterSensitiveLog,
+      outputFilterLog: ListStreamsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

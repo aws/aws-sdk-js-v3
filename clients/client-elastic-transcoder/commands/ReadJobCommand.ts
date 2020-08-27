@@ -49,6 +49,10 @@ export class ReadJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticTranscoder",
+      clientName: "readJob",
+      inputFilterLog: ReadJobRequest.filterSensitiveLog,
+      outputFilterLog: ReadJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

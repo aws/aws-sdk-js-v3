@@ -45,6 +45,10 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "deleteCustomVerificationEmailTemplate",
+      inputFilterLog: DeleteCustomVerificationEmailTemplateRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

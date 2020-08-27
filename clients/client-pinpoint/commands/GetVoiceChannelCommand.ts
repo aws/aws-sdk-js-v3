@@ -45,6 +45,10 @@ export class GetVoiceChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getVoiceChannel",
+      inputFilterLog: GetVoiceChannelRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -38,6 +38,10 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "getIPSet",
+      inputFilterLog: GetIPSetRequest.filterSensitiveLog,
+      outputFilterLog: GetIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

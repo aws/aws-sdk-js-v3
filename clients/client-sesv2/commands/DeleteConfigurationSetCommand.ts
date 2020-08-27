@@ -45,6 +45,10 @@ export class DeleteConfigurationSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "deleteConfigurationSet",
+      inputFilterLog: DeleteConfigurationSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteConfigurationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

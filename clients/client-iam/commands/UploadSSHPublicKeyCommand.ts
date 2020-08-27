@@ -45,6 +45,10 @@ export class UploadSSHPublicKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "uploadSSHPublicKey",
+      inputFilterLog: UploadSSHPublicKeyRequest.filterSensitiveLog,
+      outputFilterLog: UploadSSHPublicKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

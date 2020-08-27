@@ -47,6 +47,10 @@ export class PutObjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStoreData",
+      clientName: "putObject",
+      inputFilterLog: PutObjectRequest.filterSensitiveLog,
+      outputFilterLog: PutObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

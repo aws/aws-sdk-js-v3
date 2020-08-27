@@ -45,6 +45,10 @@ export class GetTraceSummariesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "getTraceSummaries",
+      inputFilterLog: GetTraceSummariesRequest.filterSensitiveLog,
+      outputFilterLog: GetTraceSummariesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

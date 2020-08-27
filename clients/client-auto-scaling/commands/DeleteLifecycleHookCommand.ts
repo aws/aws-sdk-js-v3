@@ -45,6 +45,10 @@ export class DeleteLifecycleHookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "deleteLifecycleHook",
+      inputFilterLog: DeleteLifecycleHookType.filterSensitiveLog,
+      outputFilterLog: DeleteLifecycleHookAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

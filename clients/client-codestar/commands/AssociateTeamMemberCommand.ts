@@ -45,6 +45,10 @@ export class AssociateTeamMemberCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStar",
+      clientName: "associateTeamMember",
+      inputFilterLog: AssociateTeamMemberRequest.filterSensitiveLog,
+      outputFilterLog: AssociateTeamMemberResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

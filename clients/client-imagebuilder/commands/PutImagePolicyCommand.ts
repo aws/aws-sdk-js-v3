@@ -45,6 +45,10 @@ export class PutImagePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "putImagePolicy",
+      inputFilterLog: PutImagePolicyRequest.filterSensitiveLog,
+      outputFilterLog: PutImagePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListPortalsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "listPortals",
+      inputFilterLog: ListPortalsRequest.filterSensitiveLog,
+      outputFilterLog: ListPortalsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

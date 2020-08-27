@@ -45,6 +45,10 @@ export class UpdateCommentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "updateComment",
+      inputFilterLog: UpdateCommentInput.filterSensitiveLog,
+      outputFilterLog: UpdateCommentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

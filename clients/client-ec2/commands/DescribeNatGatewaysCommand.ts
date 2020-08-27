@@ -45,6 +45,10 @@ export class DescribeNatGatewaysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeNatGateways",
+      inputFilterLog: DescribeNatGatewaysRequest.filterSensitiveLog,
+      outputFilterLog: DescribeNatGatewaysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

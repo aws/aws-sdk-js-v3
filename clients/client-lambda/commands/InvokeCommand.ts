@@ -38,6 +38,10 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "invoke",
+      inputFilterLog: InvocationRequest.filterSensitiveLog,
+      outputFilterLog: InvocationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

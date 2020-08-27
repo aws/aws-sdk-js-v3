@@ -45,6 +45,10 @@ export class ListLaunchPathsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "listLaunchPaths",
+      inputFilterLog: ListLaunchPathsInput.filterSensitiveLog,
+      outputFilterLog: ListLaunchPathsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

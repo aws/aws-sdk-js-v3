@@ -45,6 +45,10 @@ export class ReimportApiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "reimportApi",
+      inputFilterLog: ReimportApiRequest.filterSensitiveLog,
+      outputFilterLog: ReimportApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

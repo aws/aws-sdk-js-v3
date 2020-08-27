@@ -45,6 +45,10 @@ export class ModifyManagedPrefixListCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyManagedPrefixList",
+      inputFilterLog: ModifyManagedPrefixListRequest.filterSensitiveLog,
+      outputFilterLog: ModifyManagedPrefixListResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

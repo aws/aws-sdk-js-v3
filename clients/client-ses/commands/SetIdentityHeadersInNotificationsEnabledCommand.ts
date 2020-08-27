@@ -52,6 +52,10 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "setIdentityHeadersInNotificationsEnabled",
+      inputFilterLog: SetIdentityHeadersInNotificationsEnabledRequest.filterSensitiveLog,
+      outputFilterLog: SetIdentityHeadersInNotificationsEnabledResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

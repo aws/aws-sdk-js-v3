@@ -45,6 +45,10 @@ export class UpdateDetectorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "updateDetector",
+      inputFilterLog: UpdateDetectorRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDetectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

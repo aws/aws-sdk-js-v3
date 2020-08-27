@@ -45,6 +45,10 @@ export class GetStaticIpsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getStaticIps",
+      inputFilterLog: GetStaticIpsRequest.filterSensitiveLog,
+      outputFilterLog: GetStaticIpsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

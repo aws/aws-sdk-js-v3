@@ -45,6 +45,10 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "deleteFieldLevelEncryptionProfile",
+      inputFilterLog: DeleteFieldLevelEncryptionProfileRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

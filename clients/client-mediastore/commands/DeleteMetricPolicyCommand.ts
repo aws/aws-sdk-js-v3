@@ -45,6 +45,10 @@ export class DeleteMetricPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "deleteMetricPolicy",
+      inputFilterLog: DeleteMetricPolicyInput.filterSensitiveLog,
+      outputFilterLog: DeleteMetricPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

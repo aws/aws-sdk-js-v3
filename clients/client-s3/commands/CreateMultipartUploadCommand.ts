@@ -49,6 +49,10 @@ export class CreateMultipartUploadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "createMultipartUpload",
+      inputFilterLog: CreateMultipartUploadRequest.filterSensitiveLog,
+      outputFilterLog: CreateMultipartUploadOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

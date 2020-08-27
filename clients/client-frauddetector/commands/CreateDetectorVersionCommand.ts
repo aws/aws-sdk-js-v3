@@ -45,6 +45,10 @@ export class CreateDetectorVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "createDetectorVersion",
+      inputFilterLog: CreateDetectorVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateDetectorVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

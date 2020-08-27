@@ -45,6 +45,10 @@ export class PutCompositeAlarmCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "putCompositeAlarm",
+      inputFilterLog: PutCompositeAlarmInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

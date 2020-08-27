@@ -45,6 +45,10 @@ export class CreateLocationNfsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "createLocationNfs",
+      inputFilterLog: CreateLocationNfsRequest.filterSensitiveLog,
+      outputFilterLog: CreateLocationNfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

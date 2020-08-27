@@ -45,6 +45,10 @@ export class GetApplicationSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getApplicationSettings",
+      inputFilterLog: GetApplicationSettingsRequest.filterSensitiveLog,
+      outputFilterLog: GetApplicationSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

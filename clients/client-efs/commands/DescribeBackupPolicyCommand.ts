@@ -45,6 +45,10 @@ export class DescribeBackupPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "describeBackupPolicy",
+      inputFilterLog: DescribeBackupPolicyRequest.filterSensitiveLog,
+      outputFilterLog: BackupPolicyDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

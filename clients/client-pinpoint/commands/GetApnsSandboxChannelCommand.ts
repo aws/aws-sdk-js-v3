@@ -45,6 +45,10 @@ export class GetApnsSandboxChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getApnsSandboxChannel",
+      inputFilterLog: GetApnsSandboxChannelRequest.filterSensitiveLog,
+      outputFilterLog: GetApnsSandboxChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CancelExportTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "cancelExportTask",
+      inputFilterLog: CancelExportTaskMessage.filterSensitiveLog,
+      outputFilterLog: ExportTask.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

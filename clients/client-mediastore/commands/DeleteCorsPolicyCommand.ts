@@ -45,6 +45,10 @@ export class DeleteCorsPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "deleteCorsPolicy",
+      inputFilterLog: DeleteCorsPolicyInput.filterSensitiveLog,
+      outputFilterLog: DeleteCorsPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

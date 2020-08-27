@@ -45,6 +45,10 @@ export class DescribeContainerInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "describeContainerInstances",
+      inputFilterLog: DescribeContainerInstancesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeContainerInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

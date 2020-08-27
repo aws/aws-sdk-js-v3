@@ -52,6 +52,10 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "describeConfigurationAggregatorSourcesStatus",
+      inputFilterLog: DescribeConfigurationAggregatorSourcesStatusRequest.filterSensitiveLog,
+      outputFilterLog: DescribeConfigurationAggregatorSourcesStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

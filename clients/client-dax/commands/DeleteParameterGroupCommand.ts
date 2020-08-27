@@ -45,6 +45,10 @@ export class DeleteParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "deleteParameterGroup",
+      inputFilterLog: DeleteParameterGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteParameterGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

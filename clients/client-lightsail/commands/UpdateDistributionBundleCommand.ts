@@ -45,6 +45,10 @@ export class UpdateDistributionBundleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "updateDistributionBundle",
+      inputFilterLog: UpdateDistributionBundleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDistributionBundleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

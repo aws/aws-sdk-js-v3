@@ -45,6 +45,10 @@ export class UpdatePartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "updatePartition",
+      inputFilterLog: UpdatePartitionRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

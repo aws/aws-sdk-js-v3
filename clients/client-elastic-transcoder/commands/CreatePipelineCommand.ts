@@ -49,6 +49,10 @@ export class CreatePipelineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticTranscoder",
+      clientName: "createPipeline",
+      inputFilterLog: CreatePipelineRequest.filterSensitiveLog,
+      outputFilterLog: CreatePipelineResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

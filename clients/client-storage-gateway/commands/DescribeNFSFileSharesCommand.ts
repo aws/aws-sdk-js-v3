@@ -45,6 +45,10 @@ export class DescribeNFSFileSharesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeNFSFileShares",
+      inputFilterLog: DescribeNFSFileSharesInput.filterSensitiveLog,
+      outputFilterLog: DescribeNFSFileSharesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

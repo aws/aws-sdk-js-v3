@@ -47,6 +47,10 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "deleteBucketAnalyticsConfiguration",
+      inputFilterLog: DeleteBucketAnalyticsConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

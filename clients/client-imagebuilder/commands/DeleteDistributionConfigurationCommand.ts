@@ -45,6 +45,10 @@ export class DeleteDistributionConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "deleteDistributionConfiguration",
+      inputFilterLog: DeleteDistributionConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDistributionConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

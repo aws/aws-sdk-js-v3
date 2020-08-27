@@ -45,6 +45,10 @@ export class DescribeServiceUpdatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeServiceUpdates",
+      inputFilterLog: DescribeServiceUpdatesMessage.filterSensitiveLog,
+      outputFilterLog: ServiceUpdatesMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

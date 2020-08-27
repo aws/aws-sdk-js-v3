@@ -45,6 +45,10 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Firehose",
+      clientName: "stopDeliveryStreamEncryption",
+      inputFilterLog: StopDeliveryStreamEncryptionInput.filterSensitiveLog,
+      outputFilterLog: StopDeliveryStreamEncryptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

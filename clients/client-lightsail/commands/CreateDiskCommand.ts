@@ -45,6 +45,10 @@ export class CreateDiskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "createDisk",
+      inputFilterLog: CreateDiskRequest.filterSensitiveLog,
+      outputFilterLog: CreateDiskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

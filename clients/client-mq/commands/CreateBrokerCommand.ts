@@ -45,6 +45,10 @@ export class CreateBrokerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mq",
+      clientName: "createBroker",
+      inputFilterLog: CreateBrokerRequest.filterSensitiveLog,
+      outputFilterLog: CreateBrokerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

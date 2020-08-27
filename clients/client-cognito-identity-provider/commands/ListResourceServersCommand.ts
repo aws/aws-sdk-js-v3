@@ -49,6 +49,10 @@ export class ListResourceServersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "listResourceServers",
+      inputFilterLog: ListResourceServersRequest.filterSensitiveLog,
+      outputFilterLog: ListResourceServersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

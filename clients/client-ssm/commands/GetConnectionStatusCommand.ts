@@ -45,6 +45,10 @@ export class GetConnectionStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getConnectionStatus",
+      inputFilterLog: GetConnectionStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetConnectionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

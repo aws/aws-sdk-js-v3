@@ -45,6 +45,10 @@ export class CopyDBClusterSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "copyDBClusterSnapshot",
+      inputFilterLog: CopyDBClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterLog: CopyDBClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class VerifyUserAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "verifyUserAttribute",
+      inputFilterLog: VerifyUserAttributeRequest.filterSensitiveLog,
+      outputFilterLog: VerifyUserAttributeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

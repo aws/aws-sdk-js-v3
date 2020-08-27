@@ -45,6 +45,10 @@ export class DescribeLagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "describeLags",
+      inputFilterLog: DescribeLagsRequest.filterSensitiveLog,
+      outputFilterLog: Lags.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

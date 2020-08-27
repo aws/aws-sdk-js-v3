@@ -45,6 +45,10 @@ export class GetResourceDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getResourceDefinition",
+      inputFilterLog: GetResourceDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: GetResourceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

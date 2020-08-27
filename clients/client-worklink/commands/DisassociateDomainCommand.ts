@@ -45,6 +45,10 @@ export class DisassociateDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "disassociateDomain",
+      inputFilterLog: DisassociateDomainRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

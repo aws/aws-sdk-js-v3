@@ -45,6 +45,10 @@ export class ListActionTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "listActionTypes",
+      inputFilterLog: ListActionTypesInput.filterSensitiveLog,
+      outputFilterLog: ListActionTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

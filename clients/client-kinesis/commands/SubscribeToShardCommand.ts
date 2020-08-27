@@ -46,6 +46,10 @@ export class SubscribeToShardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "subscribeToShard",
+      inputFilterLog: SubscribeToShardInput.filterSensitiveLog,
+      outputFilterLog: SubscribeToShardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

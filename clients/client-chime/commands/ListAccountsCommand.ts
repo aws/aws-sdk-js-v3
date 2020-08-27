@@ -45,6 +45,10 @@ export class ListAccountsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "listAccounts",
+      inputFilterLog: ListAccountsRequest.filterSensitiveLog,
+      outputFilterLog: ListAccountsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

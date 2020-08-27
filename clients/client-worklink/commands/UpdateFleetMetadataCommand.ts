@@ -45,6 +45,10 @@ export class UpdateFleetMetadataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "updateFleetMetadata",
+      inputFilterLog: UpdateFleetMetadataRequest.filterSensitiveLog,
+      outputFilterLog: UpdateFleetMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteLoggingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "deleteLoggingConfiguration",
+      inputFilterLog: DeleteLoggingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLoggingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

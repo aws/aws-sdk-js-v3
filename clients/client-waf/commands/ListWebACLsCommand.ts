@@ -45,6 +45,10 @@ export class ListWebACLsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "listWebACLs",
+      inputFilterLog: ListWebACLsRequest.filterSensitiveLog,
+      outputFilterLog: ListWebACLsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

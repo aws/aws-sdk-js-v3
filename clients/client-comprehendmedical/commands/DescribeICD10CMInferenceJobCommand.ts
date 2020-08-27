@@ -49,6 +49,10 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComprehendMedical",
+      clientName: "describeICD10CMInferenceJob",
+      inputFilterLog: DescribeICD10CMInferenceJobRequest.filterSensitiveLog,
+      outputFilterLog: DescribeICD10CMInferenceJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

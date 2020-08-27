@@ -45,6 +45,10 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "listOpenWorkflowExecutions",
+      inputFilterLog: ListOpenWorkflowExecutionsInput.filterSensitiveLog,
+      outputFilterLog: WorkflowExecutionInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

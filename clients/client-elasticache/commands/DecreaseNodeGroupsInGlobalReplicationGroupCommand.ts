@@ -52,6 +52,10 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "decreaseNodeGroupsInGlobalReplicationGroup",
+      inputFilterLog: DecreaseNodeGroupsInGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterLog: DecreaseNodeGroupsInGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

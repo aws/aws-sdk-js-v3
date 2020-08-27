@@ -45,6 +45,10 @@ export class PutInsightRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "putInsightRule",
+      inputFilterLog: PutInsightRuleInput.filterSensitiveLog,
+      outputFilterLog: PutInsightRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

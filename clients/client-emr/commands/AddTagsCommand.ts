@@ -38,6 +38,10 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "addTags",
+      inputFilterLog: AddTagsInput.filterSensitiveLog,
+      outputFilterLog: AddTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

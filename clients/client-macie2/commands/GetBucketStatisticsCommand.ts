@@ -45,6 +45,10 @@ export class GetBucketStatisticsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "getBucketStatistics",
+      inputFilterLog: GetBucketStatisticsRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

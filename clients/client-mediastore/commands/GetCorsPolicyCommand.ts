@@ -45,6 +45,10 @@ export class GetCorsPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "getCorsPolicy",
+      inputFilterLog: GetCorsPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetCorsPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

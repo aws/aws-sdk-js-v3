@@ -45,6 +45,10 @@ export class DeleteInputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "deleteInput",
+      inputFilterLog: DeleteInputRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

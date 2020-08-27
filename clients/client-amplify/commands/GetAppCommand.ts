@@ -38,6 +38,10 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "getApp",
+      inputFilterLog: GetAppRequest.filterSensitiveLog,
+      outputFilterLog: GetAppResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

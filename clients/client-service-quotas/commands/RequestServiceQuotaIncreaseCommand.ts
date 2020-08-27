@@ -45,6 +45,10 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceQuotas",
+      clientName: "requestServiceQuotaIncrease",
+      inputFilterLog: RequestServiceQuotaIncreaseRequest.filterSensitiveLog,
+      outputFilterLog: RequestServiceQuotaIncreaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

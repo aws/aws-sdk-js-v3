@@ -45,6 +45,10 @@ export class ListActiveViolationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listActiveViolations",
+      inputFilterLog: ListActiveViolationsRequest.filterSensitiveLog,
+      outputFilterLog: ListActiveViolationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "putBlockPublicAccessConfiguration",
+      inputFilterLog: PutBlockPublicAccessConfigurationInput.filterSensitiveLog,
+      outputFilterLog: PutBlockPublicAccessConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

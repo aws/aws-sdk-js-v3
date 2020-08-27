@@ -45,6 +45,10 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataPipeline",
+      clientName: "reportTaskRunnerHeartbeat",
+      inputFilterLog: ReportTaskRunnerHeartbeatInput.filterSensitiveLog,
+      outputFilterLog: ReportTaskRunnerHeartbeatOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

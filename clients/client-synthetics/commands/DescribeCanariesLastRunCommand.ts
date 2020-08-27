@@ -45,6 +45,10 @@ export class DescribeCanariesLastRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Synthetics",
+      clientName: "describeCanariesLastRun",
+      inputFilterLog: DescribeCanariesLastRunRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCanariesLastRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

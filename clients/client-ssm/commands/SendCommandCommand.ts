@@ -45,6 +45,10 @@ export class SendCommandCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "sendCommand",
+      inputFilterLog: SendCommandRequest.filterSensitiveLog,
+      outputFilterLog: SendCommandResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

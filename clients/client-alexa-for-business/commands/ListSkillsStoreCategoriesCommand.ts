@@ -45,6 +45,10 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "listSkillsStoreCategories",
+      inputFilterLog: ListSkillsStoreCategoriesRequest.filterSensitiveLog,
+      outputFilterLog: ListSkillsStoreCategoriesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetInsightSelectorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudTrail",
+      clientName: "getInsightSelectors",
+      inputFilterLog: GetInsightSelectorsRequest.filterSensitiveLog,
+      outputFilterLog: GetInsightSelectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

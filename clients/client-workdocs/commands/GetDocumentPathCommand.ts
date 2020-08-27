@@ -45,6 +45,10 @@ export class GetDocumentPathCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "getDocumentPath",
+      inputFilterLog: GetDocumentPathRequest.filterSensitiveLog,
+      outputFilterLog: GetDocumentPathResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

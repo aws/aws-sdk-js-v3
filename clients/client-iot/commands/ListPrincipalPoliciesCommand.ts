@@ -45,6 +45,10 @@ export class ListPrincipalPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listPrincipalPolicies",
+      inputFilterLog: ListPrincipalPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListPrincipalPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

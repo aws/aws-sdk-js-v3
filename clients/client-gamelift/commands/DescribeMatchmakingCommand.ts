@@ -45,6 +45,10 @@ export class DescribeMatchmakingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "describeMatchmaking",
+      inputFilterLog: DescribeMatchmakingInput.filterSensitiveLog,
+      outputFilterLog: DescribeMatchmakingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

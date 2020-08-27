@@ -45,6 +45,10 @@ export class CreateDashboardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "createDashboard",
+      inputFilterLog: CreateDashboardRequest.filterSensitiveLog,
+      outputFilterLog: CreateDashboardResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

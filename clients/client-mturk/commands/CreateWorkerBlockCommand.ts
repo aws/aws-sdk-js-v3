@@ -45,6 +45,10 @@ export class CreateWorkerBlockCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "createWorkerBlock",
+      inputFilterLog: CreateWorkerBlockRequest.filterSensitiveLog,
+      outputFilterLog: CreateWorkerBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

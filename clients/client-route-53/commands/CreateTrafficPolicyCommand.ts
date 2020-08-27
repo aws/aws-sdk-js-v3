@@ -45,6 +45,10 @@ export class CreateTrafficPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "createTrafficPolicy",
+      inputFilterLog: CreateTrafficPolicyRequest.filterSensitiveLog,
+      outputFilterLog: CreateTrafficPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

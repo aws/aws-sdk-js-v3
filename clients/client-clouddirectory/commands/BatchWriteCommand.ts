@@ -45,6 +45,10 @@ export class BatchWriteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "batchWrite",
+      inputFilterLog: BatchWriteRequest.filterSensitiveLog,
+      outputFilterLog: BatchWriteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

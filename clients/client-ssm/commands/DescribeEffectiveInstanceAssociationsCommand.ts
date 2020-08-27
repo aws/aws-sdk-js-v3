@@ -49,6 +49,10 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeEffectiveInstanceAssociations",
+      inputFilterLog: DescribeEffectiveInstanceAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEffectiveInstanceAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

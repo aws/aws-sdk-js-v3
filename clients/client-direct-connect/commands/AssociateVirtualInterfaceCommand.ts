@@ -45,6 +45,10 @@ export class AssociateVirtualInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "associateVirtualInterface",
+      inputFilterLog: AssociateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

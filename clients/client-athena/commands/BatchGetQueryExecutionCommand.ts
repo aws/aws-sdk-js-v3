@@ -45,6 +45,10 @@ export class BatchGetQueryExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "batchGetQueryExecution",
+      inputFilterLog: BatchGetQueryExecutionInput.filterSensitiveLog,
+      outputFilterLog: BatchGetQueryExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

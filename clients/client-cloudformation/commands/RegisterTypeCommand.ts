@@ -42,6 +42,10 @@ export class RegisterTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "registerType",
+      inputFilterLog: RegisterTypeInput.filterSensitiveLog,
+      outputFilterLog: RegisterTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

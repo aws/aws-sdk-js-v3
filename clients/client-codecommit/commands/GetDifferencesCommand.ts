@@ -45,6 +45,10 @@ export class GetDifferencesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "getDifferences",
+      inputFilterLog: GetDifferencesInput.filterSensitiveLog,
+      outputFilterLog: GetDifferencesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

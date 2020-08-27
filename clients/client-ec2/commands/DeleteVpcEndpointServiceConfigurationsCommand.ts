@@ -49,6 +49,10 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteVpcEndpointServiceConfigurations",
+      inputFilterLog: DeleteVpcEndpointServiceConfigurationsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteVpcEndpointServiceConfigurationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

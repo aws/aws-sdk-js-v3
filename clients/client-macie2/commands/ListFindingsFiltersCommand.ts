@@ -45,6 +45,10 @@ export class ListFindingsFiltersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "listFindingsFilters",
+      inputFilterLog: ListFindingsFiltersRequest.filterSensitiveLog,
+      outputFilterLog: ListFindingsFiltersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

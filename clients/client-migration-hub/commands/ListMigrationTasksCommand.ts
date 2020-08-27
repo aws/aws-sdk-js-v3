@@ -45,6 +45,10 @@ export class ListMigrationTasksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHub",
+      clientName: "listMigrationTasks",
+      inputFilterLog: ListMigrationTasksRequest.filterSensitiveLog,
+      outputFilterLog: ListMigrationTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

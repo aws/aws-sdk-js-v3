@@ -42,6 +42,10 @@ export class AddTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataPipeline",
+      clientName: "addTags",
+      inputFilterLog: AddTagsInput.filterSensitiveLog,
+      outputFilterLog: AddTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

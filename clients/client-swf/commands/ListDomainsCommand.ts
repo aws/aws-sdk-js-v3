@@ -45,6 +45,10 @@ export class ListDomainsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "listDomains",
+      inputFilterLog: ListDomainsInput.filterSensitiveLog,
+      outputFilterLog: DomainInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

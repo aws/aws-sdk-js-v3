@@ -45,6 +45,10 @@ export class DescribeIdentityUsageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoSync",
+      clientName: "describeIdentityUsage",
+      inputFilterLog: DescribeIdentityUsageRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIdentityUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

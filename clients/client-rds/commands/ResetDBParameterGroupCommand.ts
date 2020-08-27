@@ -45,6 +45,10 @@ export class ResetDBParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "resetDBParameterGroup",
+      inputFilterLog: ResetDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

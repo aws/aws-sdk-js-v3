@@ -45,6 +45,10 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "confirmTransitVirtualInterface",
+      inputFilterLog: ConfirmTransitVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmTransitVirtualInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeEnvironmentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Cloud9",
+      clientName: "describeEnvironments",
+      inputFilterLog: DescribeEnvironmentsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEnvironmentsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

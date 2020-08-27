@@ -45,6 +45,10 @@ export class RotateEncryptionKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "rotateEncryptionKey",
+      inputFilterLog: RotateEncryptionKeyMessage.filterSensitiveLog,
+      outputFilterLog: RotateEncryptionKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

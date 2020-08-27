@@ -45,6 +45,10 @@ export class DeleteConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GroundStation",
+      clientName: "deleteConfig",
+      inputFilterLog: DeleteConfigRequest.filterSensitiveLog,
+      outputFilterLog: ConfigIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

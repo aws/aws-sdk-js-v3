@@ -45,6 +45,10 @@ export class ModifyInstancePlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyInstancePlacement",
+      inputFilterLog: ModifyInstancePlacementRequest.filterSensitiveLog,
+      outputFilterLog: ModifyInstancePlacementResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

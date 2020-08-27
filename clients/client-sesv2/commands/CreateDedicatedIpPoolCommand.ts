@@ -45,6 +45,10 @@ export class CreateDedicatedIpPoolCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "createDedicatedIpPool",
+      inputFilterLog: CreateDedicatedIpPoolRequest.filterSensitiveLog,
+      outputFilterLog: CreateDedicatedIpPoolResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutVoiceConnectorProxyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "putVoiceConnectorProxy",
+      inputFilterLog: PutVoiceConnectorProxyRequest.filterSensitiveLog,
+      outputFilterLog: PutVoiceConnectorProxyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

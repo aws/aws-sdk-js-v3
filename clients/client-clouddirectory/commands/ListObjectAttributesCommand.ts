@@ -45,6 +45,10 @@ export class ListObjectAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listObjectAttributes",
+      inputFilterLog: ListObjectAttributesRequest.filterSensitiveLog,
+      outputFilterLog: ListObjectAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

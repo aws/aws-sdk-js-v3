@@ -49,6 +49,10 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "updateDirectConnectGatewayAssociation",
+      inputFilterLog: UpdateDirectConnectGatewayAssociationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDirectConnectGatewayAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CancelPipelineReprocessingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "cancelPipelineReprocessing",
+      inputFilterLog: CancelPipelineReprocessingRequest.filterSensitiveLog,
+      outputFilterLog: CancelPipelineReprocessingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

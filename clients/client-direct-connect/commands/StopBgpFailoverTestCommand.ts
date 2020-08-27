@@ -45,6 +45,10 @@ export class StopBgpFailoverTestCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "stopBgpFailoverTest",
+      inputFilterLog: StopBgpFailoverTestRequest.filterSensitiveLog,
+      outputFilterLog: StopBgpFailoverTestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

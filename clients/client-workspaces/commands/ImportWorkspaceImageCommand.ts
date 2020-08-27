@@ -45,6 +45,10 @@ export class ImportWorkspaceImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "importWorkspaceImage",
+      inputFilterLog: ImportWorkspaceImageRequest.filterSensitiveLog,
+      outputFilterLog: ImportWorkspaceImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

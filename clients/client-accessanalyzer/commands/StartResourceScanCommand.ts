@@ -45,6 +45,10 @@ export class StartResourceScanCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AccessAnalyzer",
+      clientName: "startResourceScan",
+      inputFilterLog: StartResourceScanRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

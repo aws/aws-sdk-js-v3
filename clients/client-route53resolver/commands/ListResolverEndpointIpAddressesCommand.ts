@@ -45,6 +45,10 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "listResolverEndpointIpAddresses",
+      inputFilterLog: ListResolverEndpointIpAddressesRequest.filterSensitiveLog,
+      outputFilterLog: ListResolverEndpointIpAddressesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyDBProxyTargetGroup",
+      inputFilterLog: ModifyDBProxyTargetGroupRequest.filterSensitiveLog,
+      outputFilterLog: ModifyDBProxyTargetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

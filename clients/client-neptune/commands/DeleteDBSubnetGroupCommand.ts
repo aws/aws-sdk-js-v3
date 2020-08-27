@@ -45,6 +45,10 @@ export class DeleteDBSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "deleteDBSubnetGroup",
+      inputFilterLog: DeleteDBSubnetGroupMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

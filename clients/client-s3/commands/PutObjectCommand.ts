@@ -44,6 +44,10 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "putObject",
+      inputFilterLog: PutObjectRequest.filterSensitiveLog,
+      outputFilterLog: PutObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

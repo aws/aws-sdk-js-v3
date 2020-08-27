@@ -45,6 +45,10 @@ export class CopyClusterSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "copyClusterSnapshot",
+      inputFilterLog: CopyClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterLog: CopyClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

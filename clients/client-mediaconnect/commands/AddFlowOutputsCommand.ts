@@ -45,6 +45,10 @@ export class AddFlowOutputsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "addFlowOutputs",
+      inputFilterLog: AddFlowOutputsRequest.filterSensitiveLog,
+      outputFilterLog: AddFlowOutputsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

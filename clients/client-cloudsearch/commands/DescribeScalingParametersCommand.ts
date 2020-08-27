@@ -45,6 +45,10 @@ export class DescribeScalingParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "describeScalingParameters",
+      inputFilterLog: DescribeScalingParametersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeScalingParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

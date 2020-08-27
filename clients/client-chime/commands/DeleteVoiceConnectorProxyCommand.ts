@@ -45,6 +45,10 @@ export class DeleteVoiceConnectorProxyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "deleteVoiceConnectorProxy",
+      inputFilterLog: DeleteVoiceConnectorProxyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

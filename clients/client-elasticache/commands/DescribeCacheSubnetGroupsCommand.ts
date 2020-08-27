@@ -45,6 +45,10 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeCacheSubnetGroups",
+      inputFilterLog: DescribeCacheSubnetGroupsMessage.filterSensitiveLog,
+      outputFilterLog: CacheSubnetGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeCacheSecurityGroups",
+      inputFilterLog: DescribeCacheSecurityGroupsMessage.filterSensitiveLog,
+      outputFilterLog: CacheSecurityGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -52,6 +52,10 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "startVpcEndpointServicePrivateDnsVerification",
+      inputFilterLog: StartVpcEndpointServicePrivateDnsVerificationRequest.filterSensitiveLog,
+      outputFilterLog: StartVpcEndpointServicePrivateDnsVerificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

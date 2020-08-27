@@ -45,6 +45,10 @@ export class ListTriggersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "listTriggers",
+      inputFilterLog: ListTriggersRequest.filterSensitiveLog,
+      outputFilterLog: ListTriggersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

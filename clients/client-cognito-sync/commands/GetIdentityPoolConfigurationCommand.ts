@@ -45,6 +45,10 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoSync",
+      clientName: "getIdentityPoolConfiguration",
+      inputFilterLog: GetIdentityPoolConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetIdentityPoolConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

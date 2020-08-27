@@ -46,6 +46,10 @@ export class GetHostCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStarConnections",
+      clientName: "getHost",
+      inputFilterLog: GetHostInput.filterSensitiveLog,
+      outputFilterLog: GetHostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

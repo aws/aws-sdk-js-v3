@@ -49,6 +49,10 @@ export class ListTargetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodestarNotifications",
+      clientName: "listTargets",
+      inputFilterLog: ListTargetsRequest.filterSensitiveLog,
+      outputFilterLog: ListTargetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

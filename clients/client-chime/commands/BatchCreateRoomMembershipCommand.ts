@@ -45,6 +45,10 @@ export class BatchCreateRoomMembershipCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "batchCreateRoomMembership",
+      inputFilterLog: BatchCreateRoomMembershipRequest.filterSensitiveLog,
+      outputFilterLog: BatchCreateRoomMembershipResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

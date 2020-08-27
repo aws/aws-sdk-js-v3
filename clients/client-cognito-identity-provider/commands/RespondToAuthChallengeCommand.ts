@@ -49,6 +49,10 @@ export class RespondToAuthChallengeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "respondToAuthChallenge",
+      inputFilterLog: RespondToAuthChallengeRequest.filterSensitiveLog,
+      outputFilterLog: RespondToAuthChallengeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

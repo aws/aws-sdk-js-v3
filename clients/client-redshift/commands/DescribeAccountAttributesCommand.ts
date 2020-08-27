@@ -45,6 +45,10 @@ export class DescribeAccountAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeAccountAttributes",
+      inputFilterLog: DescribeAccountAttributesMessage.filterSensitiveLog,
+      outputFilterLog: AccountAttributeList.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

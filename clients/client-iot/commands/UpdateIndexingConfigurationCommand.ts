@@ -45,6 +45,10 @@ export class UpdateIndexingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateIndexingConfiguration",
+      inputFilterLog: UpdateIndexingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateIndexingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

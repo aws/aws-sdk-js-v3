@@ -45,6 +45,10 @@ export class BatchGetItemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "batchGetItem",
+      inputFilterLog: BatchGetItemInput.filterSensitiveLog,
+      outputFilterLog: BatchGetItemOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

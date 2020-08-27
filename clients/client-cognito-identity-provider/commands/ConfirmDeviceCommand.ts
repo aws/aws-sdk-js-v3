@@ -49,6 +49,10 @@ export class ConfirmDeviceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "confirmDevice",
+      inputFilterLog: ConfirmDeviceRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

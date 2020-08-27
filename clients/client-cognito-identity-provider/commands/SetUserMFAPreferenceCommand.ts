@@ -49,6 +49,10 @@ export class SetUserMFAPreferenceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "setUserMFAPreference",
+      inputFilterLog: SetUserMFAPreferenceRequest.filterSensitiveLog,
+      outputFilterLog: SetUserMFAPreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

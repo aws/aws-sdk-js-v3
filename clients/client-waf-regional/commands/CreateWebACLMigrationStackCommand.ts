@@ -45,6 +45,10 @@ export class CreateWebACLMigrationStackCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "createWebACLMigrationStack",
+      inputFilterLog: CreateWebACLMigrationStackRequest.filterSensitiveLog,
+      outputFilterLog: CreateWebACLMigrationStackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

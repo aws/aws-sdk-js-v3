@@ -45,6 +45,10 @@ export class GetRuleGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "getRuleGroup",
+      inputFilterLog: GetRuleGroupRequest.filterSensitiveLog,
+      outputFilterLog: GetRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

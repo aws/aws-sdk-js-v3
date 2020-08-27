@@ -45,6 +45,10 @@ export class ModifySelfservicePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "modifySelfservicePermissions",
+      inputFilterLog: ModifySelfservicePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: ModifySelfservicePermissionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

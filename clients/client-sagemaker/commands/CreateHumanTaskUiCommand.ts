@@ -45,6 +45,10 @@ export class CreateHumanTaskUiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "createHumanTaskUi",
+      inputFilterLog: CreateHumanTaskUiRequest.filterSensitiveLog,
+      outputFilterLog: CreateHumanTaskUiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

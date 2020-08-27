@@ -45,6 +45,10 @@ export class GetCoreDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getCoreDefinition",
+      inputFilterLog: GetCoreDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: GetCoreDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

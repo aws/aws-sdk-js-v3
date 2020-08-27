@@ -45,6 +45,10 @@ export class DescribePatchPropertiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describePatchProperties",
+      inputFilterLog: DescribePatchPropertiesRequest.filterSensitiveLog,
+      outputFilterLog: DescribePatchPropertiesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

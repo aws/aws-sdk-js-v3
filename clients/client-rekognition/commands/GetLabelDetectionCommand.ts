@@ -45,6 +45,10 @@ export class GetLabelDetectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "getLabelDetection",
+      inputFilterLog: GetLabelDetectionRequest.filterSensitiveLog,
+      outputFilterLog: GetLabelDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

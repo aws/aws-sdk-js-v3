@@ -45,6 +45,10 @@ export class UnsubscribeFromEventCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "unsubscribeFromEvent",
+      inputFilterLog: UnsubscribeFromEventRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

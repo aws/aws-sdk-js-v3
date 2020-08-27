@@ -45,6 +45,10 @@ export class GetDocumentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getDocument",
+      inputFilterLog: GetDocumentRequest.filterSensitiveLog,
+      outputFilterLog: GetDocumentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

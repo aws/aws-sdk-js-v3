@@ -45,6 +45,10 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "enableEbsEncryptionByDefault",
+      inputFilterLog: EnableEbsEncryptionByDefaultRequest.filterSensitiveLog,
+      outputFilterLog: EnableEbsEncryptionByDefaultResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

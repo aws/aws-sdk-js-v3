@@ -45,6 +45,10 @@ export class PutResourceAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHub",
+      clientName: "putResourceAttributes",
+      inputFilterLog: PutResourceAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutResourceAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

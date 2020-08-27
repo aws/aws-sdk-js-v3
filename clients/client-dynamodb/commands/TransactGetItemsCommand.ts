@@ -45,6 +45,10 @@ export class TransactGetItemsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "transactGetItems",
+      inputFilterLog: TransactGetItemsInput.filterSensitiveLog,
+      outputFilterLog: TransactGetItemsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DeleteEventSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "deleteEventSubscription",
+      inputFilterLog: DeleteEventSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: DeleteEventSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

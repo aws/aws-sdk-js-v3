@@ -45,6 +45,10 @@ export class GetInstancePortStatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getInstancePortStates",
+      inputFilterLog: GetInstancePortStatesRequest.filterSensitiveLog,
+      outputFilterLog: GetInstancePortStatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

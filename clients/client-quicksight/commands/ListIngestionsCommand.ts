@@ -45,6 +45,10 @@ export class ListIngestionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "listIngestions",
+      inputFilterLog: ListIngestionsRequest.filterSensitiveLog,
+      outputFilterLog: ListIngestionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

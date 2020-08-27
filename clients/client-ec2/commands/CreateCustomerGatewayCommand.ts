@@ -45,6 +45,10 @@ export class CreateCustomerGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createCustomerGateway",
+      inputFilterLog: CreateCustomerGatewayRequest.filterSensitiveLog,
+      outputFilterLog: CreateCustomerGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

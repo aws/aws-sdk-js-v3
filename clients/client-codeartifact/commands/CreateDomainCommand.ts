@@ -45,6 +45,10 @@ export class CreateDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "createDomain",
+      inputFilterLog: CreateDomainRequest.filterSensitiveLog,
+      outputFilterLog: CreateDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

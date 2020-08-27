@@ -56,6 +56,10 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "deleteApplicationInputProcessingConfiguration",
+      inputFilterLog: DeleteApplicationInputProcessingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteApplicationInputProcessingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

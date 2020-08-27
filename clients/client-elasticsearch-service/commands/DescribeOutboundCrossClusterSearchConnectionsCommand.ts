@@ -56,6 +56,10 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "describeOutboundCrossClusterSearchConnections",
+      inputFilterLog: DescribeOutboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeOutboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

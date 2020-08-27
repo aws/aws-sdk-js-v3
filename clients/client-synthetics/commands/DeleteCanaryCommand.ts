@@ -45,6 +45,10 @@ export class DeleteCanaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Synthetics",
+      clientName: "deleteCanary",
+      inputFilterLog: DeleteCanaryRequest.filterSensitiveLog,
+      outputFilterLog: DeleteCanaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

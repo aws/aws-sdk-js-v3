@@ -45,6 +45,10 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyNetworkInterfaceAttribute",
+      inputFilterLog: ModifyNetworkInterfaceAttributeRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

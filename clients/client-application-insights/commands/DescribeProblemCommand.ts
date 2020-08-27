@@ -49,6 +49,10 @@ export class DescribeProblemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationInsights",
+      clientName: "describeProblem",
+      inputFilterLog: DescribeProblemRequest.filterSensitiveLog,
+      outputFilterLog: DescribeProblemResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

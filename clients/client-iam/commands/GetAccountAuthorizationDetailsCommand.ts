@@ -45,6 +45,10 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "getAccountAuthorizationDetails",
+      inputFilterLog: GetAccountAuthorizationDetailsRequest.filterSensitiveLog,
+      outputFilterLog: GetAccountAuthorizationDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListInvitationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "listInvitations",
+      inputFilterLog: ListInvitationsRequest.filterSensitiveLog,
+      outputFilterLog: ListInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

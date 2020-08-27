@@ -45,6 +45,10 @@ export class UnassignIpv6AddressesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "unassignIpv6Addresses",
+      inputFilterLog: UnassignIpv6AddressesRequest.filterSensitiveLog,
+      outputFilterLog: UnassignIpv6AddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

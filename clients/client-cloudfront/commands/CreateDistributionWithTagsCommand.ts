@@ -45,6 +45,10 @@ export class CreateDistributionWithTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "createDistributionWithTags",
+      inputFilterLog: CreateDistributionWithTagsRequest.filterSensitiveLog,
+      outputFilterLog: CreateDistributionWithTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

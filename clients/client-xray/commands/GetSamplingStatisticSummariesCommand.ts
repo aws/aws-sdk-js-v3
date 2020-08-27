@@ -45,6 +45,10 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "getSamplingStatisticSummaries",
+      inputFilterLog: GetSamplingStatisticSummariesRequest.filterSensitiveLog,
+      outputFilterLog: GetSamplingStatisticSummariesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

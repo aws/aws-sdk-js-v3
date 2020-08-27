@@ -45,6 +45,10 @@ export class GetImagePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "getImagePolicy",
+      inputFilterLog: GetImagePolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetImagePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

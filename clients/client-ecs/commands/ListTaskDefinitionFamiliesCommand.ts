@@ -45,6 +45,10 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "listTaskDefinitionFamilies",
+      inputFilterLog: ListTaskDefinitionFamiliesRequest.filterSensitiveLog,
+      outputFilterLog: ListTaskDefinitionFamiliesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

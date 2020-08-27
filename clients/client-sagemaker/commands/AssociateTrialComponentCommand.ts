@@ -45,6 +45,10 @@ export class AssociateTrialComponentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "associateTrialComponent",
+      inputFilterLog: AssociateTrialComponentRequest.filterSensitiveLog,
+      outputFilterLog: AssociateTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

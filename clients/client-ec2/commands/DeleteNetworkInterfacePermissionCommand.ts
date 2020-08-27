@@ -45,6 +45,10 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteNetworkInterfacePermission",
+      inputFilterLog: DeleteNetworkInterfacePermissionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteNetworkInterfacePermissionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

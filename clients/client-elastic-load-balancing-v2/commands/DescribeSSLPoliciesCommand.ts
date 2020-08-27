@@ -49,6 +49,10 @@ export class DescribeSSLPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "describeSSLPolicies",
+      inputFilterLog: DescribeSSLPoliciesInput.filterSensitiveLog,
+      outputFilterLog: DescribeSSLPoliciesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

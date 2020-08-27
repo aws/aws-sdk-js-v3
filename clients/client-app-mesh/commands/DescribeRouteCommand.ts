@@ -45,6 +45,10 @@ export class DescribeRouteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "describeRoute",
+      inputFilterLog: DescribeRouteInput.filterSensitiveLog,
+      outputFilterLog: DescribeRouteOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

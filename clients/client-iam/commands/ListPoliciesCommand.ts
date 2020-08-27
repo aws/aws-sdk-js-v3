@@ -42,6 +42,10 @@ export class ListPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listPolicies",
+      inputFilterLog: ListPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

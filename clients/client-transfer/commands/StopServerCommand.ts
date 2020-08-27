@@ -45,6 +45,10 @@ export class StopServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transfer",
+      clientName: "stopServer",
+      inputFilterLog: StopServerRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

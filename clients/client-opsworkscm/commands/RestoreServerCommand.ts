@@ -45,6 +45,10 @@ export class RestoreServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "restoreServer",
+      inputFilterLog: RestoreServerRequest.filterSensitiveLog,
+      outputFilterLog: RestoreServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class GetIntentVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "getIntentVersions",
+      inputFilterLog: GetIntentVersionsRequest.filterSensitiveLog,
+      outputFilterLog: GetIntentVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

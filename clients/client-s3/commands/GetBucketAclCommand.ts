@@ -47,6 +47,10 @@ export class GetBucketAclCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketAcl",
+      inputFilterLog: GetBucketAclRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketAclOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

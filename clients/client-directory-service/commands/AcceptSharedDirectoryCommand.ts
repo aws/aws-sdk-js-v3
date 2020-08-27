@@ -45,6 +45,10 @@ export class AcceptSharedDirectoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "acceptSharedDirectory",
+      inputFilterLog: AcceptSharedDirectoryRequest.filterSensitiveLog,
+      outputFilterLog: AcceptSharedDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

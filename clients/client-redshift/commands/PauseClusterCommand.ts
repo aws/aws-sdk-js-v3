@@ -42,6 +42,10 @@ export class PauseClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "pauseCluster",
+      inputFilterLog: PauseClusterMessage.filterSensitiveLog,
+      outputFilterLog: PauseClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

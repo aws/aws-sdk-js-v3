@@ -45,6 +45,10 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Polly",
+      clientName: "startSpeechSynthesisTask",
+      inputFilterLog: StartSpeechSynthesisTaskInput.filterSensitiveLog,
+      outputFilterLog: StartSpeechSynthesisTaskOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

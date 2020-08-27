@@ -45,6 +45,10 @@ export class DescribeDocumentPermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeDocumentPermission",
+      inputFilterLog: DescribeDocumentPermissionRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDocumentPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

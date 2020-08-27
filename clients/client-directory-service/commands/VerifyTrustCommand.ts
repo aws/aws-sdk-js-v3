@@ -45,6 +45,10 @@ export class VerifyTrustCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "verifyTrust",
+      inputFilterLog: VerifyTrustRequest.filterSensitiveLog,
+      outputFilterLog: VerifyTrustResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

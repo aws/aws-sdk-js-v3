@@ -45,6 +45,10 @@ export class EnableAllFeaturesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "enableAllFeatures",
+      inputFilterLog: EnableAllFeaturesRequest.filterSensitiveLog,
+      outputFilterLog: EnableAllFeaturesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

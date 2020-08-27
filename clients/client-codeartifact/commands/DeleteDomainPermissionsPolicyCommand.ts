@@ -45,6 +45,10 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "deleteDomainPermissionsPolicy",
+      inputFilterLog: DeleteDomainPermissionsPolicyRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDomainPermissionsPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

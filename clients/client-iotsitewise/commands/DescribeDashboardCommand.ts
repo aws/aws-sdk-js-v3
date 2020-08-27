@@ -45,6 +45,10 @@ export class DescribeDashboardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "describeDashboard",
+      inputFilterLog: DescribeDashboardRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDashboardResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

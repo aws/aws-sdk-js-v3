@@ -45,6 +45,10 @@ export class GetUploadStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "getUploadStatus",
+      inputFilterLog: GetUploadStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetUploadStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

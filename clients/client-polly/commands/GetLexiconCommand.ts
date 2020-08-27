@@ -45,6 +45,10 @@ export class GetLexiconCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Polly",
+      clientName: "getLexicon",
+      inputFilterLog: GetLexiconInput.filterSensitiveLog,
+      outputFilterLog: GetLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

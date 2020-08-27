@@ -47,6 +47,10 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "associateVPCWithHostedZone",
+      inputFilterLog: AssociateVPCWithHostedZoneRequest.filterSensitiveLog,
+      outputFilterLog: AssociateVPCWithHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

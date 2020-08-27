@@ -45,6 +45,10 @@ export class ListRecommendationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruReviewer",
+      clientName: "listRecommendations",
+      inputFilterLog: ListRecommendationsRequest.filterSensitiveLog,
+      outputFilterLog: ListRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

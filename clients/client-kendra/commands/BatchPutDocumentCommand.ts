@@ -45,6 +45,10 @@ export class BatchPutDocumentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "batchPutDocument",
+      inputFilterLog: BatchPutDocumentRequest.filterSensitiveLog,
+      outputFilterLog: BatchPutDocumentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

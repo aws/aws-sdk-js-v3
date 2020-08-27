@@ -45,6 +45,10 @@ export class StartTaskExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "startTaskExecution",
+      inputFilterLog: StartTaskExecutionRequest.filterSensitiveLog,
+      outputFilterLog: StartTaskExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

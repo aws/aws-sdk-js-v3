@@ -45,6 +45,10 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "describeAvailabilityOptions",
+      inputFilterLog: DescribeAvailabilityOptionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAvailabilityOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

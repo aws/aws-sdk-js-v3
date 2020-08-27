@@ -45,6 +45,10 @@ export class PutRoomSkillParameterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "putRoomSkillParameter",
+      inputFilterLog: PutRoomSkillParameterRequest.filterSensitiveLog,
+      outputFilterLog: PutRoomSkillParameterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

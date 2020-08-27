@@ -45,6 +45,10 @@ export class GetPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "getPolicy",
+      inputFilterLog: GetPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

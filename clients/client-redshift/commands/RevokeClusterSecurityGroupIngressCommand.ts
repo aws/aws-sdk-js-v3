@@ -45,6 +45,10 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "revokeClusterSecurityGroupIngress",
+      inputFilterLog: RevokeClusterSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterLog: RevokeClusterSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

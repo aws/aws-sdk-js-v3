@@ -45,6 +45,10 @@ export class ConfirmSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "confirmSubscription",
+      inputFilterLog: ConfirmSubscriptionInput.filterSensitiveLog,
+      outputFilterLog: ConfirmSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

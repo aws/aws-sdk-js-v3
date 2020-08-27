@@ -45,6 +45,10 @@ export class DescribeRegionSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "describeRegionSettings",
+      inputFilterLog: DescribeRegionSettingsInput.filterSensitiveLog,
+      outputFilterLog: DescribeRegionSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

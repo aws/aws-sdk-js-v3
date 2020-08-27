@@ -45,6 +45,10 @@ export class RevokeSnapshotAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "revokeSnapshotAccess",
+      inputFilterLog: RevokeSnapshotAccessMessage.filterSensitiveLog,
+      outputFilterLog: RevokeSnapshotAccessResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

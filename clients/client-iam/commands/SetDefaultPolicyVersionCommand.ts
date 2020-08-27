@@ -45,6 +45,10 @@ export class SetDefaultPolicyVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "setDefaultPolicyVersion",
+      inputFilterLog: SetDefaultPolicyVersionRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

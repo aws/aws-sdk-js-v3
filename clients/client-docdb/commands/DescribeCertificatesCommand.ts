@@ -45,6 +45,10 @@ export class DescribeCertificatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "describeCertificates",
+      inputFilterLog: DescribeCertificatesMessage.filterSensitiveLog,
+      outputFilterLog: CertificateMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

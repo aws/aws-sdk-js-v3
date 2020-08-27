@@ -45,6 +45,10 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "validateSecurityProfileBehaviors",
+      inputFilterLog: ValidateSecurityProfileBehaviorsRequest.filterSensitiveLog,
+      outputFilterLog: ValidateSecurityProfileBehaviorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

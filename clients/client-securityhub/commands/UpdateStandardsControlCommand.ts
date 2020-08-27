@@ -45,6 +45,10 @@ export class UpdateStandardsControlCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "updateStandardsControl",
+      inputFilterLog: UpdateStandardsControlRequest.filterSensitiveLog,
+      outputFilterLog: UpdateStandardsControlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

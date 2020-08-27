@@ -49,6 +49,10 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeLocalGatewayVirtualInterfaces",
+      inputFilterLog: DescribeLocalGatewayVirtualInterfacesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLocalGatewayVirtualInterfacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

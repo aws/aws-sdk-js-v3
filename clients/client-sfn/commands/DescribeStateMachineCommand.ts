@@ -45,6 +45,10 @@ export class DescribeStateMachineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "describeStateMachine",
+      inputFilterLog: DescribeStateMachineInput.filterSensitiveLog,
+      outputFilterLog: DescribeStateMachineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

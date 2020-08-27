@@ -45,6 +45,10 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceQuotas",
+      clientName: "disassociateServiceQuotaTemplate",
+      inputFilterLog: DisassociateServiceQuotaTemplateRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateServiceQuotaTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

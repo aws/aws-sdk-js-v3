@@ -45,6 +45,10 @@ export class ListRoutingProfilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "listRoutingProfiles",
+      inputFilterLog: ListRoutingProfilesRequest.filterSensitiveLog,
+      outputFilterLog: ListRoutingProfilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "updateRecommenderConfiguration",
+      inputFilterLog: UpdateRecommenderConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRecommenderConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

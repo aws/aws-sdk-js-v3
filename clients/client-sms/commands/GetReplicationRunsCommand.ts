@@ -45,6 +45,10 @@ export class GetReplicationRunsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "getReplicationRuns",
+      inputFilterLog: GetReplicationRunsRequest.filterSensitiveLog,
+      outputFilterLog: GetReplicationRunsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class AcknowledgeJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "acknowledgeJob",
+      inputFilterLog: AcknowledgeJobInput.filterSensitiveLog,
+      outputFilterLog: AcknowledgeJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteCertificate",
+      inputFilterLog: DeleteCertificateRequest.filterSensitiveLog,
+      outputFilterLog: DeleteCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

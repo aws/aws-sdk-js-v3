@@ -45,6 +45,10 @@ export class EnableKeyRotationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "enableKeyRotation",
+      inputFilterLog: EnableKeyRotationRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

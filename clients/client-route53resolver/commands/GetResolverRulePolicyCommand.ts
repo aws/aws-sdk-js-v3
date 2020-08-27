@@ -45,6 +45,10 @@ export class GetResolverRulePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "getResolverRulePolicy",
+      inputFilterLog: GetResolverRulePolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetResolverRulePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

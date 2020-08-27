@@ -45,6 +45,10 @@ export class DeletePublishingDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "deletePublishingDestination",
+      inputFilterLog: DeletePublishingDestinationRequest.filterSensitiveLog,
+      outputFilterLog: DeletePublishingDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

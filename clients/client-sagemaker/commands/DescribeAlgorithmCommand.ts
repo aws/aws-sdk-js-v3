@@ -45,6 +45,10 @@ export class DescribeAlgorithmCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "describeAlgorithm",
+      inputFilterLog: DescribeAlgorithmInput.filterSensitiveLog,
+      outputFilterLog: DescribeAlgorithmOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

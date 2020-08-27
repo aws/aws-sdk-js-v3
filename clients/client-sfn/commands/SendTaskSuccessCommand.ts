@@ -45,6 +45,10 @@ export class SendTaskSuccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "sendTaskSuccess",
+      inputFilterLog: SendTaskSuccessInput.filterSensitiveLog,
+      outputFilterLog: SendTaskSuccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

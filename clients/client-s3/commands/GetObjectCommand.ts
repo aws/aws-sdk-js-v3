@@ -42,6 +42,10 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getObject",
+      inputFilterLog: GetObjectRequest.filterSensitiveLog,
+      outputFilterLog: GetObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

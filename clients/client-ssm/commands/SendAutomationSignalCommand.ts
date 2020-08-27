@@ -45,6 +45,10 @@ export class SendAutomationSignalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "sendAutomationSignal",
+      inputFilterLog: SendAutomationSignalRequest.filterSensitiveLog,
+      outputFilterLog: SendAutomationSignalResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

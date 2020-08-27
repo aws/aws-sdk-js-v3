@@ -45,6 +45,10 @@ export class GetCalendarStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getCalendarState",
+      inputFilterLog: GetCalendarStateRequest.filterSensitiveLog,
+      outputFilterLog: GetCalendarStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

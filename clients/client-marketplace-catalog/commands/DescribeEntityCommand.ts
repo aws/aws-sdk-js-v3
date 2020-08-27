@@ -49,6 +49,10 @@ export class DescribeEntityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MarketplaceCatalog",
+      clientName: "describeEntity",
+      inputFilterLog: DescribeEntityRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEntityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

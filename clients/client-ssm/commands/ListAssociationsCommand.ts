@@ -45,6 +45,10 @@ export class ListAssociationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "listAssociations",
+      inputFilterLog: ListAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: ListAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

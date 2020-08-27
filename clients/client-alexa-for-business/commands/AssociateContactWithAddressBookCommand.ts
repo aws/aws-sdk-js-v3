@@ -45,6 +45,10 @@ export class AssociateContactWithAddressBookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "associateContactWithAddressBook",
+      inputFilterLog: AssociateContactWithAddressBookRequest.filterSensitiveLog,
+      outputFilterLog: AssociateContactWithAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

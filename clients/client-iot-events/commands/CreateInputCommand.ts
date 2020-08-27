@@ -45,6 +45,10 @@ export class CreateInputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTEvents",
+      clientName: "createInput",
+      inputFilterLog: CreateInputRequest.filterSensitiveLog,
+      outputFilterLog: CreateInputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

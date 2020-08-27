@@ -45,6 +45,10 @@ export class StartMultiplexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "startMultiplex",
+      inputFilterLog: StartMultiplexRequest.filterSensitiveLog,
+      outputFilterLog: StartMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

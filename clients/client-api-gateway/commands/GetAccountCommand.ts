@@ -45,6 +45,10 @@ export class GetAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "getAccount",
+      inputFilterLog: GetAccountRequest.filterSensitiveLog,
+      outputFilterLog: Account.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

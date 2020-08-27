@@ -38,6 +38,10 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "sendEmail",
+      inputFilterLog: SendEmailRequest.filterSensitiveLog,
+      outputFilterLog: SendEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

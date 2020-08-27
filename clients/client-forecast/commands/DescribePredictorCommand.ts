@@ -45,6 +45,10 @@ export class DescribePredictorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Forecast",
+      clientName: "describePredictor",
+      inputFilterLog: DescribePredictorRequest.filterSensitiveLog,
+      outputFilterLog: DescribePredictorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

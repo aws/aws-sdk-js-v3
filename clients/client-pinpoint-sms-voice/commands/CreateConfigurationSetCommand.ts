@@ -45,6 +45,10 @@ export class CreateConfigurationSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointSMSVoice",
+      clientName: "createConfigurationSet",
+      inputFilterLog: CreateConfigurationSetRequest.filterSensitiveLog,
+      outputFilterLog: CreateConfigurationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

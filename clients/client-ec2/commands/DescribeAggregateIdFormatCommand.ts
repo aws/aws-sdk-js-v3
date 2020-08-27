@@ -45,6 +45,10 @@ export class DescribeAggregateIdFormatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeAggregateIdFormat",
+      inputFilterLog: DescribeAggregateIdFormatRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAggregateIdFormatResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

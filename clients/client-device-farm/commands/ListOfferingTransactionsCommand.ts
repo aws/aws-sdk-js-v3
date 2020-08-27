@@ -45,6 +45,10 @@ export class ListOfferingTransactionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "listOfferingTransactions",
+      inputFilterLog: ListOfferingTransactionsRequest.filterSensitiveLog,
+      outputFilterLog: ListOfferingTransactionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

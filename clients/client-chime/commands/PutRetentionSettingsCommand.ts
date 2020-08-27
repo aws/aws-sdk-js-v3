@@ -45,6 +45,10 @@ export class PutRetentionSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "putRetentionSettings",
+      inputFilterLog: PutRetentionSettingsRequest.filterSensitiveLog,
+      outputFilterLog: PutRetentionSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

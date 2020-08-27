@@ -49,6 +49,10 @@ export class PutClassificationExportConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "putClassificationExportConfiguration",
+      inputFilterLog: PutClassificationExportConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutClassificationExportConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

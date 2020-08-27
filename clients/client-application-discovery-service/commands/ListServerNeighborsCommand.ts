@@ -49,6 +49,10 @@ export class ListServerNeighborsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationDiscoveryService",
+      clientName: "listServerNeighbors",
+      inputFilterLog: ListServerNeighborsRequest.filterSensitiveLog,
+      outputFilterLog: ListServerNeighborsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

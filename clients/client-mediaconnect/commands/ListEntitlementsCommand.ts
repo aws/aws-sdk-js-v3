@@ -45,6 +45,10 @@ export class ListEntitlementsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "listEntitlements",
+      inputFilterLog: ListEntitlementsRequest.filterSensitiveLog,
+      outputFilterLog: ListEntitlementsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

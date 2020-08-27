@@ -45,6 +45,10 @@ export class UpdateSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "updateSchema",
+      inputFilterLog: UpdateSchemaRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

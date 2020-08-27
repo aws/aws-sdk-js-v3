@@ -42,6 +42,10 @@ export class GetSendQuotaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "getSendQuota",
+      inputFilterLog: (input) => input,
+      outputFilterLog: GetSendQuotaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

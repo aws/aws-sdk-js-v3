@@ -49,6 +49,10 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideoArchivedMedia",
+      clientName: "getDASHStreamingSessionURL",
+      inputFilterLog: GetDASHStreamingSessionURLInput.filterSensitiveLog,
+      outputFilterLog: GetDASHStreamingSessionURLOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

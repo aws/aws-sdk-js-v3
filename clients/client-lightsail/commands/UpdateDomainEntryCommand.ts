@@ -45,6 +45,10 @@ export class UpdateDomainEntryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "updateDomainEntry",
+      inputFilterLog: UpdateDomainEntryRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainEntryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

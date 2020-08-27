@@ -45,6 +45,10 @@ export class DescribeLocationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "describeLocations",
+      inputFilterLog: (input) => input,
+      outputFilterLog: Locations.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

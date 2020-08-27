@@ -45,6 +45,10 @@ export class DeleteSamplingRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "deleteSamplingRule",
+      inputFilterLog: DeleteSamplingRuleRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSamplingRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

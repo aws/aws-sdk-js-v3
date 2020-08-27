@@ -49,6 +49,10 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Health",
+      clientName: "describeHealthServiceStatusForOrganization",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeHealthServiceStatusForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

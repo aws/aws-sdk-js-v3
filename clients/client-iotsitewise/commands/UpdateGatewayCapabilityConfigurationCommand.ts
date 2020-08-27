@@ -49,6 +49,10 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "updateGatewayCapabilityConfiguration",
+      inputFilterLog: UpdateGatewayCapabilityConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateGatewayCapabilityConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

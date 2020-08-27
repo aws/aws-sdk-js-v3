@@ -42,6 +42,10 @@ export class DeleteDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "deleteDomain",
+      inputFilterLog: DeleteDomainRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

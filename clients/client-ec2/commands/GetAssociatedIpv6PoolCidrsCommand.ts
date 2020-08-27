@@ -45,6 +45,10 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getAssociatedIpv6PoolCidrs",
+      inputFilterLog: GetAssociatedIpv6PoolCidrsRequest.filterSensitiveLog,
+      outputFilterLog: GetAssociatedIpv6PoolCidrsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

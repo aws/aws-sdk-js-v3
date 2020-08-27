@@ -45,6 +45,10 @@ export class BatchApplyUpdateActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "batchApplyUpdateAction",
+      inputFilterLog: BatchApplyUpdateActionMessage.filterSensitiveLog,
+      outputFilterLog: UpdateActionResultsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

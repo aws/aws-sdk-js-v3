@@ -45,6 +45,10 @@ export class UpdateAccessPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "updateAccessPolicy",
+      inputFilterLog: UpdateAccessPolicyRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAccessPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

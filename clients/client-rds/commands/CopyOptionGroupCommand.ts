@@ -45,6 +45,10 @@ export class CopyOptionGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "copyOptionGroup",
+      inputFilterLog: CopyOptionGroupMessage.filterSensitiveLog,
+      outputFilterLog: CopyOptionGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetGroupPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "getGroupPolicy",
+      inputFilterLog: GetGroupPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetGroupPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

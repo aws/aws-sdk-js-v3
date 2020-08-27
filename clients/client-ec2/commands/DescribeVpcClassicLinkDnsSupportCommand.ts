@@ -45,6 +45,10 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeVpcClassicLinkDnsSupport",
+      inputFilterLog: DescribeVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
+      outputFilterLog: DescribeVpcClassicLinkDnsSupportResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDistributionConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "getDistributionConfig",
+      inputFilterLog: GetDistributionConfigRequest.filterSensitiveLog,
+      outputFilterLog: GetDistributionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

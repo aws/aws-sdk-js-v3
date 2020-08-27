@@ -45,6 +45,10 @@ export class CreateLinkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "createLink",
+      inputFilterLog: CreateLinkRequest.filterSensitiveLog,
+      outputFilterLog: CreateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

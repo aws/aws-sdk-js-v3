@@ -45,6 +45,10 @@ export class GetVariablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getVariables",
+      inputFilterLog: GetVariablesRequest.filterSensitiveLog,
+      outputFilterLog: GetVariablesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

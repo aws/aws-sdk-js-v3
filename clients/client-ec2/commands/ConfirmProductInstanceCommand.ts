@@ -45,6 +45,10 @@ export class ConfirmProductInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "confirmProductInstance",
+      inputFilterLog: ConfirmProductInstanceRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmProductInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

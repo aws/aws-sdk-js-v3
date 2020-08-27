@@ -49,6 +49,10 @@ export class DeleteNotificationRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodestarNotifications",
+      clientName: "deleteNotificationRule",
+      inputFilterLog: DeleteNotificationRuleRequest.filterSensitiveLog,
+      outputFilterLog: DeleteNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetUserDefinedFunctionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getUserDefinedFunction",
+      inputFilterLog: GetUserDefinedFunctionRequest.filterSensitiveLog,
+      outputFilterLog: GetUserDefinedFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

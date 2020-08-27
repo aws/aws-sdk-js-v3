@@ -45,6 +45,10 @@ export class DeleteInstanceProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "deleteInstanceProfile",
+      inputFilterLog: DeleteInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

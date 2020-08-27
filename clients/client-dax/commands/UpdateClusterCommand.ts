@@ -45,6 +45,10 @@ export class UpdateClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "updateCluster",
+      inputFilterLog: UpdateClusterRequest.filterSensitiveLog,
+      outputFilterLog: UpdateClusterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

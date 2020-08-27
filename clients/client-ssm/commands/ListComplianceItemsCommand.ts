@@ -45,6 +45,10 @@ export class ListComplianceItemsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "listComplianceItems",
+      inputFilterLog: ListComplianceItemsRequest.filterSensitiveLog,
+      outputFilterLog: ListComplianceItemsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

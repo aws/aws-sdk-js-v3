@@ -45,6 +45,10 @@ export class ListDelegatedAdministratorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listDelegatedAdministrators",
+      inputFilterLog: ListDelegatedAdministratorsRequest.filterSensitiveLog,
+      outputFilterLog: ListDelegatedAdministratorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

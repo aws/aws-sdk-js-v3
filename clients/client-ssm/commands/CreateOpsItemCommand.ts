@@ -45,6 +45,10 @@ export class CreateOpsItemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "createOpsItem",
+      inputFilterLog: CreateOpsItemRequest.filterSensitiveLog,
+      outputFilterLog: CreateOpsItemResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

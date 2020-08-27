@@ -47,6 +47,10 @@ export class UntagResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "untagResource",
+      inputFilterLog: UntagResourceInput.filterSensitiveLog,
+      outputFilterLog: UntagResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

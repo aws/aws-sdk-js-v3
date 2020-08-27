@@ -45,6 +45,10 @@ export class CreateConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kafka",
+      clientName: "createConfiguration",
+      inputFilterLog: CreateConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: CreateConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

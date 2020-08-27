@@ -45,6 +45,10 @@ export class DescribeTableRestoreStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeTableRestoreStatus",
+      inputFilterLog: DescribeTableRestoreStatusMessage.filterSensitiveLog,
+      outputFilterLog: TableRestoreStatusMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

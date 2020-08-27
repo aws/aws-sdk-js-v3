@@ -45,6 +45,10 @@ export class StartCopyJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "startCopyJob",
+      inputFilterLog: StartCopyJobInput.filterSensitiveLog,
+      outputFilterLog: StartCopyJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

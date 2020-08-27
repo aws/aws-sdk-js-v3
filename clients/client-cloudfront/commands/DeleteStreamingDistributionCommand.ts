@@ -45,6 +45,10 @@ export class DeleteStreamingDistributionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "deleteStreamingDistribution",
+      inputFilterLog: DeleteStreamingDistributionRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

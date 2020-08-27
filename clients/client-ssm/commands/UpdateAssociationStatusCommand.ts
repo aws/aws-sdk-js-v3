@@ -45,6 +45,10 @@ export class UpdateAssociationStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "updateAssociationStatus",
+      inputFilterLog: UpdateAssociationStatusRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAssociationStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickProjects",
+      clientName: "associateDeviceWithPlacement",
+      inputFilterLog: AssociateDeviceWithPlacementRequest.filterSensitiveLog,
+      outputFilterLog: AssociateDeviceWithPlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

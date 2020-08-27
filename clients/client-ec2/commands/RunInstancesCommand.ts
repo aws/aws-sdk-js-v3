@@ -42,6 +42,10 @@ export class RunInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "runInstances",
+      inputFilterLog: RunInstancesRequest.filterSensitiveLog,
+      outputFilterLog: Reservation.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

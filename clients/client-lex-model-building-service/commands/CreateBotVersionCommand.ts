@@ -49,6 +49,10 @@ export class CreateBotVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "createBotVersion",
+      inputFilterLog: CreateBotVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateBotVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

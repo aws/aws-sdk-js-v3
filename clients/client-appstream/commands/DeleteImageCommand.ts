@@ -45,6 +45,10 @@ export class DeleteImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "deleteImage",
+      inputFilterLog: DeleteImageRequest.filterSensitiveLog,
+      outputFilterLog: DeleteImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

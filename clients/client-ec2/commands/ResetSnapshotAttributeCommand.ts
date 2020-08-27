@@ -45,6 +45,10 @@ export class ResetSnapshotAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "resetSnapshotAttribute",
+      inputFilterLog: ResetSnapshotAttributeRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

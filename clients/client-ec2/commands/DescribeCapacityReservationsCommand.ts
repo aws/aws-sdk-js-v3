@@ -45,6 +45,10 @@ export class DescribeCapacityReservationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeCapacityReservations",
+      inputFilterLog: DescribeCapacityReservationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCapacityReservationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

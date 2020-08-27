@@ -45,6 +45,10 @@ export class StreamJournalToKinesisCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "streamJournalToKinesis",
+      inputFilterLog: StreamJournalToKinesisRequest.filterSensitiveLog,
+      outputFilterLog: StreamJournalToKinesisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

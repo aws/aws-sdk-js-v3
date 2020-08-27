@@ -45,6 +45,10 @@ export class RegisterEventTopicCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "registerEventTopic",
+      inputFilterLog: RegisterEventTopicRequest.filterSensitiveLog,
+      outputFilterLog: RegisterEventTopicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class GetTranscriptCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConnectParticipant",
+      clientName: "getTranscript",
+      inputFilterLog: GetTranscriptRequest.filterSensitiveLog,
+      outputFilterLog: GetTranscriptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

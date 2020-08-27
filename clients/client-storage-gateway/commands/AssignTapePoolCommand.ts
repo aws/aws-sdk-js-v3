@@ -45,6 +45,10 @@ export class AssignTapePoolCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "assignTapePool",
+      inputFilterLog: AssignTapePoolInput.filterSensitiveLog,
+      outputFilterLog: AssignTapePoolOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

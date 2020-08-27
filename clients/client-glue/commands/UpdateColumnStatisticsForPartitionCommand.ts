@@ -46,6 +46,10 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "updateColumnStatisticsForPartition",
+      inputFilterLog: UpdateColumnStatisticsForPartitionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateVoiceTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "createVoiceTemplate",
+      inputFilterLog: CreateVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterLog: CreateVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

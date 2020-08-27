@@ -45,6 +45,10 @@ export class DescribeAttachmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Support",
+      clientName: "describeAttachment",
+      inputFilterLog: DescribeAttachmentRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAttachmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

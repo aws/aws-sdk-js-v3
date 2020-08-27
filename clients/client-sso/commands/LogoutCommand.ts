@@ -38,6 +38,10 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSO",
+      clientName: "logout",
+      inputFilterLog: LogoutRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

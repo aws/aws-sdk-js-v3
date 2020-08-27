@@ -45,6 +45,10 @@ export class StopExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "stopExecution",
+      inputFilterLog: StopExecutionInput.filterSensitiveLog,
+      outputFilterLog: StopExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

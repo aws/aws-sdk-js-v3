@@ -45,6 +45,10 @@ export class CreateNamespaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "createNamespace",
+      inputFilterLog: CreateNamespaceRequest.filterSensitiveLog,
+      outputFilterLog: CreateNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

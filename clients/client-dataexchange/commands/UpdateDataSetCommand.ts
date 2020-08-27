@@ -45,6 +45,10 @@ export class UpdateDataSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataExchange",
+      clientName: "updateDataSet",
+      inputFilterLog: UpdateDataSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDataSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

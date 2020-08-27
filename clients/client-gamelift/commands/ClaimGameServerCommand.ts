@@ -45,6 +45,10 @@ export class ClaimGameServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "claimGameServer",
+      inputFilterLog: ClaimGameServerInput.filterSensitiveLog,
+      outputFilterLog: ClaimGameServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

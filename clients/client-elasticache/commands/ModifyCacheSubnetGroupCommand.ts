@@ -45,6 +45,10 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "modifyCacheSubnetGroup",
+      inputFilterLog: ModifyCacheSubnetGroupMessage.filterSensitiveLog,
+      outputFilterLog: ModifyCacheSubnetGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

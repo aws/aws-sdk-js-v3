@@ -45,6 +45,10 @@ export class SendAnnouncementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "sendAnnouncement",
+      inputFilterLog: SendAnnouncementRequest.filterSensitiveLog,
+      outputFilterLog: SendAnnouncementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

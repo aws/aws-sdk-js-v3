@@ -45,6 +45,10 @@ export class DetachNetworkInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "detachNetworkInterface",
+      inputFilterLog: DetachNetworkInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

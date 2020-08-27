@@ -45,6 +45,10 @@ export class DeleteLunaClientCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSM",
+      clientName: "deleteLunaClient",
+      inputFilterLog: DeleteLunaClientRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLunaClientResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

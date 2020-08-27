@@ -42,6 +42,10 @@ export class ListRootsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listRoots",
+      inputFilterLog: ListRootsRequest.filterSensitiveLog,
+      outputFilterLog: ListRootsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

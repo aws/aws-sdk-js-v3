@@ -45,6 +45,10 @@ export class DeleteBackupPlanCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "deleteBackupPlan",
+      inputFilterLog: DeleteBackupPlanInput.filterSensitiveLog,
+      outputFilterLog: DeleteBackupPlanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

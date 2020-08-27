@@ -45,6 +45,10 @@ export class UpdateDocumentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "updateDocument",
+      inputFilterLog: UpdateDocumentRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDocumentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

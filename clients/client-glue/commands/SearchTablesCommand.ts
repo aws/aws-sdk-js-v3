@@ -45,6 +45,10 @@ export class SearchTablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "searchTables",
+      inputFilterLog: SearchTablesRequest.filterSensitiveLog,
+      outputFilterLog: SearchTablesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

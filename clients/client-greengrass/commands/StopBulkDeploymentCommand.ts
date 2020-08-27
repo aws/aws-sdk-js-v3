@@ -45,6 +45,10 @@ export class StopBulkDeploymentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "stopBulkDeployment",
+      inputFilterLog: StopBulkDeploymentRequest.filterSensitiveLog,
+      outputFilterLog: StopBulkDeploymentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

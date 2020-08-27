@@ -45,6 +45,10 @@ export class DeleteRelationalDatabaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteRelationalDatabase",
+      inputFilterLog: DeleteRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

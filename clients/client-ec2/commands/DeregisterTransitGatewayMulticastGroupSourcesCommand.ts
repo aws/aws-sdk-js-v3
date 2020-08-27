@@ -52,6 +52,10 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deregisterTransitGatewayMulticastGroupSources",
+      inputFilterLog: DeregisterTransitGatewayMulticastGroupSourcesRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterTransitGatewayMulticastGroupSourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

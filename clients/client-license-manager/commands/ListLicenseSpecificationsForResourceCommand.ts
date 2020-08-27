@@ -49,6 +49,10 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LicenseManager",
+      clientName: "listLicenseSpecificationsForResource",
+      inputFilterLog: ListLicenseSpecificationsForResourceRequest.filterSensitiveLog,
+      outputFilterLog: ListLicenseSpecificationsForResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

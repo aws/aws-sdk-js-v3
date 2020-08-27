@@ -49,6 +49,10 @@ export class UpdateNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "updateNode",
+      inputFilterLog: UpdateNodeInput.filterSensitiveLog,
+      outputFilterLog: UpdateNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

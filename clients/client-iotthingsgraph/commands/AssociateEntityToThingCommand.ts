@@ -45,6 +45,10 @@ export class AssociateEntityToThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "associateEntityToThing",
+      inputFilterLog: AssociateEntityToThingRequest.filterSensitiveLog,
+      outputFilterLog: AssociateEntityToThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

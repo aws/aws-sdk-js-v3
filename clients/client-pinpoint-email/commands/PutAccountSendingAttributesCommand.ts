@@ -45,6 +45,10 @@ export class PutAccountSendingAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "putAccountSendingAttributes",
+      inputFilterLog: PutAccountSendingAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutAccountSendingAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

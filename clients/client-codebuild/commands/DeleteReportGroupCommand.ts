@@ -45,6 +45,10 @@ export class DeleteReportGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "deleteReportGroup",
+      inputFilterLog: DeleteReportGroupInput.filterSensitiveLog,
+      outputFilterLog: DeleteReportGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

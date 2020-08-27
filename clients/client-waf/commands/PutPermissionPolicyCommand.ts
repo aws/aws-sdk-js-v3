@@ -45,6 +45,10 @@ export class PutPermissionPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "putPermissionPolicy",
+      inputFilterLog: PutPermissionPolicyRequest.filterSensitiveLog,
+      outputFilterLog: PutPermissionPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

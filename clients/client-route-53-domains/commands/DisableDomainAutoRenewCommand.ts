@@ -45,6 +45,10 @@ export class DisableDomainAutoRenewCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "disableDomainAutoRenew",
+      inputFilterLog: DisableDomainAutoRenewRequest.filterSensitiveLog,
+      outputFilterLog: DisableDomainAutoRenewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

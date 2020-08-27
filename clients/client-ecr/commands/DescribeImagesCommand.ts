@@ -45,6 +45,10 @@ export class DescribeImagesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "describeImages",
+      inputFilterLog: DescribeImagesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeImagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

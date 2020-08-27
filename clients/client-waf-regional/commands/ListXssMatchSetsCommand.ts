@@ -45,6 +45,10 @@ export class ListXssMatchSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "listXssMatchSets",
+      inputFilterLog: ListXssMatchSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListXssMatchSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

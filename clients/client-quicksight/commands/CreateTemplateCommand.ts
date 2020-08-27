@@ -45,6 +45,10 @@ export class CreateTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "createTemplate",
+      inputFilterLog: CreateTemplateRequest.filterSensitiveLog,
+      outputFilterLog: CreateTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

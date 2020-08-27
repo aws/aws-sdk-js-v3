@@ -45,6 +45,10 @@ export class UndeploySystemInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "undeploySystemInstance",
+      inputFilterLog: UndeploySystemInstanceRequest.filterSensitiveLog,
+      outputFilterLog: UndeploySystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

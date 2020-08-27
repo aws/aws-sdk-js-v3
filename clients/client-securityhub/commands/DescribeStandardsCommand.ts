@@ -45,6 +45,10 @@ export class DescribeStandardsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "describeStandards",
+      inputFilterLog: DescribeStandardsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeStandardsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "removeSourceIdentifierFromSubscription",
+      inputFilterLog: RemoveSourceIdentifierFromSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: RemoveSourceIdentifierFromSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

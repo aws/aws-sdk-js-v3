@@ -45,6 +45,10 @@ export class GetEventsConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getEventsConfiguration",
+      inputFilterLog: GetEventsConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetEventsConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

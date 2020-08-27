@@ -45,6 +45,10 @@ export class BatchUpdateUserCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "batchUpdateUser",
+      inputFilterLog: BatchUpdateUserRequest.filterSensitiveLog,
+      outputFilterLog: BatchUpdateUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

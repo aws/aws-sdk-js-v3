@@ -49,6 +49,10 @@ export class BatchDeleteImportDataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationDiscoveryService",
+      clientName: "batchDeleteImportData",
+      inputFilterLog: BatchDeleteImportDataRequest.filterSensitiveLog,
+      outputFilterLog: BatchDeleteImportDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

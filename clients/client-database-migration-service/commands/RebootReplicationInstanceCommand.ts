@@ -49,6 +49,10 @@ export class RebootReplicationInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "rebootReplicationInstance",
+      inputFilterLog: RebootReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterLog: RebootReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

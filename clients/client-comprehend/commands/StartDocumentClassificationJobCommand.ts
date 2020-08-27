@@ -45,6 +45,10 @@ export class StartDocumentClassificationJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "startDocumentClassificationJob",
+      inputFilterLog: StartDocumentClassificationJobRequest.filterSensitiveLog,
+      outputFilterLog: StartDocumentClassificationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

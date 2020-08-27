@@ -45,6 +45,10 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "updateSMBSecurityStrategy",
+      inputFilterLog: UpdateSMBSecurityStrategyInput.filterSensitiveLog,
+      outputFilterLog: UpdateSMBSecurityStrategyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

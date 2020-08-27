@@ -45,6 +45,10 @@ export class DisassociateFromMasterAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "disassociateFromMasterAccount",
+      inputFilterLog: DisassociateFromMasterAccountRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateFromMasterAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListSimulationApplicationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "listSimulationApplications",
+      inputFilterLog: ListSimulationApplicationsRequest.filterSensitiveLog,
+      outputFilterLog: ListSimulationApplicationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

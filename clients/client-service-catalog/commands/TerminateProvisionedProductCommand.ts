@@ -45,6 +45,10 @@ export class TerminateProvisionedProductCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "terminateProvisionedProduct",
+      inputFilterLog: TerminateProvisionedProductInput.filterSensitiveLog,
+      outputFilterLog: TerminateProvisionedProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

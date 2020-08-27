@@ -49,6 +49,10 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deregisterPatchBaselineForPatchGroup",
+      inputFilterLog: DeregisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

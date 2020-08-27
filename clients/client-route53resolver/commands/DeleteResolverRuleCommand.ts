@@ -45,6 +45,10 @@ export class DeleteResolverRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "deleteResolverRule",
+      inputFilterLog: DeleteResolverRuleRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

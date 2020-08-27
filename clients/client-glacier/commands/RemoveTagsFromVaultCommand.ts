@@ -45,6 +45,10 @@ export class RemoveTagsFromVaultCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "removeTagsFromVault",
+      inputFilterLog: RemoveTagsFromVaultInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getDeployablePatchSnapshotForInstance",
+      inputFilterLog: GetDeployablePatchSnapshotForInstanceRequest.filterSensitiveLog,
+      outputFilterLog: GetDeployablePatchSnapshotForInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

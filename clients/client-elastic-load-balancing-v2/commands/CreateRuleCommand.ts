@@ -46,6 +46,10 @@ export class CreateRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "createRule",
+      inputFilterLog: CreateRuleInput.filterSensitiveLog,
+      outputFilterLog: CreateRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "describeEngineDefaultParameters",
+      inputFilterLog: DescribeEngineDefaultParametersMessage.filterSensitiveLog,
+      outputFilterLog: DescribeEngineDefaultParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

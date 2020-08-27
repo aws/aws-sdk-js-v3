@@ -38,6 +38,10 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "getRun",
+      inputFilterLog: GetRunRequest.filterSensitiveLog,
+      outputFilterLog: GetRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

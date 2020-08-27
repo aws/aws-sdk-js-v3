@@ -45,6 +45,10 @@ export class XmlAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "xmlAttributes",
+      inputFilterLog: XmlAttributesInputOutput.filterSensitiveLog,
+      outputFilterLog: XmlAttributesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

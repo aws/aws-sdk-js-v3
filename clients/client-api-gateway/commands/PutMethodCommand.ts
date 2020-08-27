@@ -45,6 +45,10 @@ export class PutMethodCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "putMethod",
+      inputFilterLog: PutMethodRequest.filterSensitiveLog,
+      outputFilterLog: Method.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

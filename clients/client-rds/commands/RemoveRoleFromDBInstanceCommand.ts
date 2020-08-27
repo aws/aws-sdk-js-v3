@@ -45,6 +45,10 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "removeRoleFromDBInstance",
+      inputFilterLog: RemoveRoleFromDBInstanceMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

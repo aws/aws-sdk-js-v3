@@ -45,6 +45,10 @@ export class RemoveFlowSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "removeFlowSource",
+      inputFilterLog: RemoveFlowSourceRequest.filterSensitiveLog,
+      outputFilterLog: RemoveFlowSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetOpsSummaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getOpsSummary",
+      inputFilterLog: GetOpsSummaryRequest.filterSensitiveLog,
+      outputFilterLog: GetOpsSummaryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

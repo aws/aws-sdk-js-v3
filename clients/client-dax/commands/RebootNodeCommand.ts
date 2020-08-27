@@ -45,6 +45,10 @@ export class RebootNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "rebootNode",
+      inputFilterLog: RebootNodeRequest.filterSensitiveLog,
+      outputFilterLog: RebootNodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

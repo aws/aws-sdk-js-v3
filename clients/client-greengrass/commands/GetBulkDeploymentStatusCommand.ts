@@ -45,6 +45,10 @@ export class GetBulkDeploymentStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getBulkDeploymentStatus",
+      inputFilterLog: GetBulkDeploymentStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetBulkDeploymentStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

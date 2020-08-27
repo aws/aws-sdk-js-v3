@@ -41,6 +41,10 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "getBlock",
+      inputFilterLog: GetBlockRequest.filterSensitiveLog,
+      outputFilterLog: GetBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

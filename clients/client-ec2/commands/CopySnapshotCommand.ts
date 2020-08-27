@@ -44,6 +44,10 @@ export class CopySnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "copySnapshot",
+      inputFilterLog: CopySnapshotRequest.filterSensitiveLog,
+      outputFilterLog: CopySnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

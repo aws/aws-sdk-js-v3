@@ -45,6 +45,10 @@ export class GetAppReplicationConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "getAppReplicationConfiguration",
+      inputFilterLog: GetAppReplicationConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetAppReplicationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

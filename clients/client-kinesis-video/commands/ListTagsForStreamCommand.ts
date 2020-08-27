@@ -45,6 +45,10 @@ export class ListTagsForStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideo",
+      clientName: "listTagsForStream",
+      inputFilterLog: ListTagsForStreamInput.filterSensitiveLog,
+      outputFilterLog: ListTagsForStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

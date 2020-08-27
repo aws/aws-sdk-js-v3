@@ -45,6 +45,10 @@ export class GetServiceSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LicenseManager",
+      clientName: "getServiceSettings",
+      inputFilterLog: GetServiceSettingsRequest.filterSensitiveLog,
+      outputFilterLog: GetServiceSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

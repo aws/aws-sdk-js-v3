@@ -45,6 +45,10 @@ export class DescribeDomainsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "describeDomains",
+      inputFilterLog: DescribeDomainsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDomainsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

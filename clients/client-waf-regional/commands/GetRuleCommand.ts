@@ -42,6 +42,10 @@ export class GetRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "getRule",
+      inputFilterLog: GetRuleRequest.filterSensitiveLog,
+      outputFilterLog: GetRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

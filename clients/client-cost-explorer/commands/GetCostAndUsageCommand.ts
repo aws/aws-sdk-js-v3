@@ -45,6 +45,10 @@ export class GetCostAndUsageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostExplorer",
+      clientName: "getCostAndUsage",
+      inputFilterLog: GetCostAndUsageRequest.filterSensitiveLog,
+      outputFilterLog: GetCostAndUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

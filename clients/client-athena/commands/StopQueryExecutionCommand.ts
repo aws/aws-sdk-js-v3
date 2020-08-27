@@ -45,6 +45,10 @@ export class StopQueryExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "stopQueryExecution",
+      inputFilterLog: StopQueryExecutionInput.filterSensitiveLog,
+      outputFilterLog: StopQueryExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

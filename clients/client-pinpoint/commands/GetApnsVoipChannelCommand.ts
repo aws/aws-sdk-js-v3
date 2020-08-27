@@ -45,6 +45,10 @@ export class GetApnsVoipChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getApnsVoipChannel",
+      inputFilterLog: GetApnsVoipChannelRequest.filterSensitiveLog,
+      outputFilterLog: GetApnsVoipChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

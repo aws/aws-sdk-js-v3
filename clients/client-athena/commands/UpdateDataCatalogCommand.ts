@@ -45,6 +45,10 @@ export class UpdateDataCatalogCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "updateDataCatalog",
+      inputFilterLog: UpdateDataCatalogInput.filterSensitiveLog,
+      outputFilterLog: UpdateDataCatalogOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

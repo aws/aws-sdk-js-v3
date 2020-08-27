@@ -45,6 +45,10 @@ export class GetTrailStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudTrail",
+      clientName: "getTrailStatus",
+      inputFilterLog: GetTrailStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetTrailStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

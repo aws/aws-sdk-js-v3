@@ -45,6 +45,10 @@ export class ListLexiconsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Polly",
+      clientName: "listLexicons",
+      inputFilterLog: ListLexiconsInput.filterSensitiveLog,
+      outputFilterLog: ListLexiconsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

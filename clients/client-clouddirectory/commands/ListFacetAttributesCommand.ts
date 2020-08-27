@@ -45,6 +45,10 @@ export class ListFacetAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listFacetAttributes",
+      inputFilterLog: ListFacetAttributesRequest.filterSensitiveLog,
+      outputFilterLog: ListFacetAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeMeshCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "describeMesh",
+      inputFilterLog: DescribeMeshInput.filterSensitiveLog,
+      outputFilterLog: DescribeMeshOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class StartImportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "startImport",
+      inputFilterLog: StartImportRequest.filterSensitiveLog,
+      outputFilterLog: StartImportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

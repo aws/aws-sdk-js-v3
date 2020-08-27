@@ -45,6 +45,10 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "describeCrossAccountAccessRole",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeCrossAccountAccessRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

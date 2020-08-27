@@ -45,6 +45,10 @@ export class GetJobOutputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "getJobOutput",
+      inputFilterLog: GetJobOutputInput.filterSensitiveLog,
+      outputFilterLog: GetJobOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

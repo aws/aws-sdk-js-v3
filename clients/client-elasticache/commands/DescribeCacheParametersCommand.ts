@@ -45,6 +45,10 @@ export class DescribeCacheParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeCacheParameters",
+      inputFilterLog: DescribeCacheParametersMessage.filterSensitiveLog,
+      outputFilterLog: CacheParameterGroupDetails.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

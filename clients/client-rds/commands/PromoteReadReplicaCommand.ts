@@ -45,6 +45,10 @@ export class PromoteReadReplicaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "promoteReadReplica",
+      inputFilterLog: PromoteReadReplicaMessage.filterSensitiveLog,
+      outputFilterLog: PromoteReadReplicaResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StartDocumentAnalysisCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Textract",
+      clientName: "startDocumentAnalysis",
+      inputFilterLog: StartDocumentAnalysisRequest.filterSensitiveLog,
+      outputFilterLog: StartDocumentAnalysisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class PutScheduledActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationAutoScaling",
+      clientName: "putScheduledAction",
+      inputFilterLog: PutScheduledActionRequest.filterSensitiveLog,
+      outputFilterLog: PutScheduledActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

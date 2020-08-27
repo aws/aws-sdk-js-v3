@@ -49,6 +49,10 @@ export class DeleteScheduledActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationAutoScaling",
+      clientName: "deleteScheduledAction",
+      inputFilterLog: DeleteScheduledActionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteScheduledActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

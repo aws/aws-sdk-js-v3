@@ -45,6 +45,10 @@ export class StartJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "startJob",
+      inputFilterLog: StartJobRequest.filterSensitiveLog,
+      outputFilterLog: StartJobResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

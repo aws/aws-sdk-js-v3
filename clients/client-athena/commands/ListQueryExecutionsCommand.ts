@@ -45,6 +45,10 @@ export class ListQueryExecutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "listQueryExecutions",
+      inputFilterLog: ListQueryExecutionsInput.filterSensitiveLog,
+      outputFilterLog: ListQueryExecutionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

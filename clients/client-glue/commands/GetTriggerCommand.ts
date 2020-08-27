@@ -45,6 +45,10 @@ export class GetTriggerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getTrigger",
+      inputFilterLog: GetTriggerRequest.filterSensitiveLog,
+      outputFilterLog: GetTriggerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

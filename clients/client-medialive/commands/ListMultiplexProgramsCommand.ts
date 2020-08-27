@@ -45,6 +45,10 @@ export class ListMultiplexProgramsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "listMultiplexPrograms",
+      inputFilterLog: ListMultiplexProgramsRequest.filterSensitiveLog,
+      outputFilterLog: ListMultiplexProgramsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

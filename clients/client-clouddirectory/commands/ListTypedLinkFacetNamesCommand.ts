@@ -45,6 +45,10 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listTypedLinkFacetNames",
+      inputFilterLog: ListTypedLinkFacetNamesRequest.filterSensitiveLog,
+      outputFilterLog: ListTypedLinkFacetNamesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutLoggingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "putLoggingOptions",
+      inputFilterLog: PutLoggingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutLoggingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

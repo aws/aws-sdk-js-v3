@@ -49,6 +49,10 @@ export class UpdateDeviceStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickDevicesService",
+      clientName: "updateDeviceState",
+      inputFilterLog: UpdateDeviceStateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDeviceStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

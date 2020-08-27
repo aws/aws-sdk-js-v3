@@ -45,6 +45,10 @@ export class UpdateRoomCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "updateRoom",
+      inputFilterLog: UpdateRoomRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

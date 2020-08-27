@@ -45,6 +45,10 @@ export class CreateCustomMetadataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "createCustomMetadata",
+      inputFilterLog: CreateCustomMetadataRequest.filterSensitiveLog,
+      outputFilterLog: CreateCustomMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

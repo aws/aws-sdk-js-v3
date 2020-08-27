@@ -45,6 +45,10 @@ export class StartWorkflowRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "startWorkflowRun",
+      inputFilterLog: StartWorkflowRunRequest.filterSensitiveLog,
+      outputFilterLog: StartWorkflowRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

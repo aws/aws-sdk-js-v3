@@ -56,6 +56,10 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeApplicableIndividualAssessments",
+      inputFilterLog: DescribeApplicableIndividualAssessmentsMessage.filterSensitiveLog,
+      outputFilterLog: DescribeApplicableIndividualAssessmentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

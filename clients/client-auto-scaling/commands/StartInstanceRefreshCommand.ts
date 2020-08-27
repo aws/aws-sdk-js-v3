@@ -45,6 +45,10 @@ export class StartInstanceRefreshCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "startInstanceRefresh",
+      inputFilterLog: StartInstanceRefreshType.filterSensitiveLog,
+      outputFilterLog: StartInstanceRefreshAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

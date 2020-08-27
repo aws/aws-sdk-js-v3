@@ -45,6 +45,10 @@ export class SelectResourceConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "selectResourceConfig",
+      inputFilterLog: SelectResourceConfigRequest.filterSensitiveLog,
+      outputFilterLog: SelectResourceConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

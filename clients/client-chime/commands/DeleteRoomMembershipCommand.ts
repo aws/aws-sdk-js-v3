@@ -45,6 +45,10 @@ export class DeleteRoomMembershipCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "deleteRoomMembership",
+      inputFilterLog: DeleteRoomMembershipRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class GetApplicationPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServerlessApplicationRepository",
+      clientName: "getApplicationPolicy",
+      inputFilterLog: GetApplicationPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetApplicationPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

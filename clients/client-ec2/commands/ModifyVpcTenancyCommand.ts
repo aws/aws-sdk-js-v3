@@ -45,6 +45,10 @@ export class ModifyVpcTenancyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyVpcTenancy",
+      inputFilterLog: ModifyVpcTenancyRequest.filterSensitiveLog,
+      outputFilterLog: ModifyVpcTenancyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

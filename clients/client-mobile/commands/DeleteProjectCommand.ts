@@ -45,6 +45,10 @@ export class DeleteProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mobile",
+      clientName: "deleteProject",
+      inputFilterLog: DeleteProjectRequest.filterSensitiveLog,
+      outputFilterLog: DeleteProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

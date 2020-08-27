@@ -45,6 +45,10 @@ export class CreateRateBasedRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "createRateBasedRule",
+      inputFilterLog: CreateRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterLog: CreateRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

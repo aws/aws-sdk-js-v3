@@ -45,6 +45,10 @@ export class UpdateServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "updateServer",
+      inputFilterLog: UpdateServerRequest.filterSensitiveLog,
+      outputFilterLog: UpdateServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

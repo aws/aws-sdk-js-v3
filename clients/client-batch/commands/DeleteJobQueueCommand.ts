@@ -45,6 +45,10 @@ export class DeleteJobQueueCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "deleteJobQueue",
+      inputFilterLog: DeleteJobQueueRequest.filterSensitiveLog,
+      outputFilterLog: DeleteJobQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

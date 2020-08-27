@@ -45,6 +45,10 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "disconnectCustomKeyStore",
+      inputFilterLog: DisconnectCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterLog: DisconnectCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

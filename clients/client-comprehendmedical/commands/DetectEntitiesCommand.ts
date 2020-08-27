@@ -49,6 +49,10 @@ export class DetectEntitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComprehendMedical",
+      clientName: "detectEntities",
+      inputFilterLog: DetectEntitiesRequest.filterSensitiveLog,
+      outputFilterLog: DetectEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

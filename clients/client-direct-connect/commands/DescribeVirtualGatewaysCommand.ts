@@ -45,6 +45,10 @@ export class DescribeVirtualGatewaysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "describeVirtualGateways",
+      inputFilterLog: (input) => input,
+      outputFilterLog: VirtualGateways.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

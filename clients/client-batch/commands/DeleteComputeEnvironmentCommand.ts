@@ -45,6 +45,10 @@ export class DeleteComputeEnvironmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "deleteComputeEnvironment",
+      inputFilterLog: DeleteComputeEnvironmentRequest.filterSensitiveLog,
+      outputFilterLog: DeleteComputeEnvironmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

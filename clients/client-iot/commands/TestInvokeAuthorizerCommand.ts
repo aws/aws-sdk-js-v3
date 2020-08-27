@@ -45,6 +45,10 @@ export class TestInvokeAuthorizerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "testInvokeAuthorizer",
+      inputFilterLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
+      outputFilterLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PublishSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "publishSchema",
+      inputFilterLog: PublishSchemaRequest.filterSensitiveLog,
+      outputFilterLog: PublishSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

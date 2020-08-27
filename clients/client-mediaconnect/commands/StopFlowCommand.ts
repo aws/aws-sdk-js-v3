@@ -45,6 +45,10 @@ export class StopFlowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "stopFlow",
+      inputFilterLog: StopFlowRequest.filterSensitiveLog,
+      outputFilterLog: StopFlowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

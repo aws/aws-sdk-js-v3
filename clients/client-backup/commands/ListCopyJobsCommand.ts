@@ -45,6 +45,10 @@ export class ListCopyJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "listCopyJobs",
+      inputFilterLog: ListCopyJobsInput.filterSensitiveLog,
+      outputFilterLog: ListCopyJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class EnableVolumeIOCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "enableVolumeIO",
+      inputFilterLog: EnableVolumeIORequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

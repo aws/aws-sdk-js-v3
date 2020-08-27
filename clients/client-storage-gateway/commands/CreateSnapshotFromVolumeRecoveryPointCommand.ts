@@ -49,6 +49,10 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "createSnapshotFromVolumeRecoveryPoint",
+      inputFilterLog: CreateSnapshotFromVolumeRecoveryPointInput.filterSensitiveLog,
+      outputFilterLog: CreateSnapshotFromVolumeRecoveryPointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

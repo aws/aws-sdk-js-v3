@@ -45,6 +45,10 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceQuotas",
+      clientName: "associateServiceQuotaTemplate",
+      inputFilterLog: AssociateServiceQuotaTemplateRequest.filterSensitiveLog,
+      outputFilterLog: AssociateServiceQuotaTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

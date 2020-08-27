@@ -45,6 +45,10 @@ export class CreateBotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "createBot",
+      inputFilterLog: CreateBotRequest.filterSensitiveLog,
+      outputFilterLog: CreateBotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteSuppressedDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "deleteSuppressedDestination",
+      inputFilterLog: DeleteSuppressedDestinationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSuppressedDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

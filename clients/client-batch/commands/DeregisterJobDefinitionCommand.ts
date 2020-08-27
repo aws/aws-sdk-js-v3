@@ -45,6 +45,10 @@ export class DeregisterJobDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "deregisterJobDefinition",
+      inputFilterLog: DeregisterJobDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterJobDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

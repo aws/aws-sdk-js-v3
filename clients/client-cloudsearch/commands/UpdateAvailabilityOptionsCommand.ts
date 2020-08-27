@@ -45,6 +45,10 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "updateAvailabilityOptions",
+      inputFilterLog: UpdateAvailabilityOptionsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateAvailabilityOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,6 +48,10 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "deleteVPCAssociationAuthorization",
+      inputFilterLog: DeleteVPCAssociationAuthorizationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteVPCAssociationAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListOrganizationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "listOrganizations",
+      inputFilterLog: ListOrganizationsRequest.filterSensitiveLog,
+      outputFilterLog: ListOrganizationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

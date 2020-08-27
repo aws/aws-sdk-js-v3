@@ -45,6 +45,10 @@ export class GetMergeOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "getMergeOptions",
+      inputFilterLog: GetMergeOptionsInput.filterSensitiveLog,
+      outputFilterLog: GetMergeOptionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

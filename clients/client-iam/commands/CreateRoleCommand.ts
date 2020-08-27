@@ -42,6 +42,10 @@ export class CreateRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "createRole",
+      inputFilterLog: CreateRoleRequest.filterSensitiveLog,
+      outputFilterLog: CreateRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

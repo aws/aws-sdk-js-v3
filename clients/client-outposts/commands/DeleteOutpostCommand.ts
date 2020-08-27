@@ -45,6 +45,10 @@ export class DeleteOutpostCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Outposts",
+      clientName: "deleteOutpost",
+      inputFilterLog: DeleteOutpostInput.filterSensitiveLog,
+      outputFilterLog: DeleteOutpostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

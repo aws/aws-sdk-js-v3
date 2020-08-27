@@ -45,6 +45,10 @@ export class AddTagsToResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "addTagsToResource",
+      inputFilterLog: AddTagsToResourceRequest.filterSensitiveLog,
+      outputFilterLog: AddTagsToResourceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

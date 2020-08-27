@@ -45,6 +45,10 @@ export class AssociateAdminAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "associateAdminAccount",
+      inputFilterLog: AssociateAdminAccountRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class AnalyzeDocumentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Textract",
+      clientName: "analyzeDocument",
+      inputFilterLog: AnalyzeDocumentRequest.filterSensitiveLog,
+      outputFilterLog: AnalyzeDocumentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

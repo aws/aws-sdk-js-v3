@@ -45,6 +45,10 @@ export class DeleteFlowDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteFlowDefinition",
+      inputFilterLog: DeleteFlowDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFlowDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

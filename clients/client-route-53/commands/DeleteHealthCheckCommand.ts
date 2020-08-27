@@ -45,6 +45,10 @@ export class DeleteHealthCheckCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "deleteHealthCheck",
+      inputFilterLog: DeleteHealthCheckRequest.filterSensitiveLog,
+      outputFilterLog: DeleteHealthCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

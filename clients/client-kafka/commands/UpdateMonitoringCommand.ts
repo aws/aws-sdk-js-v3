@@ -45,6 +45,10 @@ export class UpdateMonitoringCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kafka",
+      clientName: "updateMonitoring",
+      inputFilterLog: UpdateMonitoringRequest.filterSensitiveLog,
+      outputFilterLog: UpdateMonitoringResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

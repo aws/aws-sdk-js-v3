@@ -45,6 +45,10 @@ export class UpdateWorkflowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "updateWorkflow",
+      inputFilterLog: UpdateWorkflowRequest.filterSensitiveLog,
+      outputFilterLog: UpdateWorkflowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

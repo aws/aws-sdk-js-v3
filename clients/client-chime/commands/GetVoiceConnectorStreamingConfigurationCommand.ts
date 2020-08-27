@@ -52,6 +52,10 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getVoiceConnectorStreamingConfiguration",
+      inputFilterLog: GetVoiceConnectorStreamingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceConnectorStreamingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

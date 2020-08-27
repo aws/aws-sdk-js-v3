@@ -49,6 +49,10 @@ export class DeletePackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "deletePackage",
+      inputFilterLog: DeletePackageRequest.filterSensitiveLog,
+      outputFilterLog: DeletePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

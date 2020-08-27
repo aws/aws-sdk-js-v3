@@ -45,6 +45,10 @@ export class CreatePortfolioCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "createPortfolio",
+      inputFilterLog: CreatePortfolioInput.filterSensitiveLog,
+      outputFilterLog: CreatePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

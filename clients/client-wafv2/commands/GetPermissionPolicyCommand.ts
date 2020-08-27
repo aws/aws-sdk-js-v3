@@ -45,6 +45,10 @@ export class GetPermissionPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "getPermissionPolicy",
+      inputFilterLog: GetPermissionPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetPermissionPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

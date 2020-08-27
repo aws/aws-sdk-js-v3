@@ -45,6 +45,10 @@ export class RejectAssignmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "rejectAssignment",
+      inputFilterLog: RejectAssignmentRequest.filterSensitiveLog,
+      outputFilterLog: RejectAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

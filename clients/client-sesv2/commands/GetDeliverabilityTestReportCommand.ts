@@ -45,6 +45,10 @@ export class GetDeliverabilityTestReportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "getDeliverabilityTestReport",
+      inputFilterLog: GetDeliverabilityTestReportRequest.filterSensitiveLog,
+      outputFilterLog: GetDeliverabilityTestReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

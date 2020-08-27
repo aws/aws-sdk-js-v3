@@ -45,6 +45,10 @@ export class DescribeStackSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "describeStackSet",
+      inputFilterLog: DescribeStackSetInput.filterSensitiveLog,
+      outputFilterLog: DescribeStackSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

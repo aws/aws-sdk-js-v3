@@ -45,6 +45,10 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "listMedicalTranscriptionJobs",
+      inputFilterLog: ListMedicalTranscriptionJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListMedicalTranscriptionJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

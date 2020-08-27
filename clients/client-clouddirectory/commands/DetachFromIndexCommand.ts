@@ -45,6 +45,10 @@ export class DetachFromIndexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "detachFromIndex",
+      inputFilterLog: DetachFromIndexRequest.filterSensitiveLog,
+      outputFilterLog: DetachFromIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListPartnerEventSourcesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EventBridge",
+      clientName: "listPartnerEventSources",
+      inputFilterLog: ListPartnerEventSourcesRequest.filterSensitiveLog,
+      outputFilterLog: ListPartnerEventSourcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

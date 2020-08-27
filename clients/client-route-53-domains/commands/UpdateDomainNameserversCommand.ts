@@ -45,6 +45,10 @@ export class UpdateDomainNameserversCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "updateDomainNameservers",
+      inputFilterLog: UpdateDomainNameserversRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainNameserversResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

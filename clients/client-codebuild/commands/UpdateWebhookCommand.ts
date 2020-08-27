@@ -45,6 +45,10 @@ export class UpdateWebhookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "updateWebhook",
+      inputFilterLog: UpdateWebhookInput.filterSensitiveLog,
+      outputFilterLog: UpdateWebhookOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

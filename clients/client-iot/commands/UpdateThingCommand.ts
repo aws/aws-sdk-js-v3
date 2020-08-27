@@ -45,6 +45,10 @@ export class UpdateThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateThing",
+      inputFilterLog: UpdateThingRequest.filterSensitiveLog,
+      outputFilterLog: UpdateThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

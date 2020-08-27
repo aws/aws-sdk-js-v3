@@ -45,6 +45,10 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "updatePackageVersionsStatus",
+      inputFilterLog: UpdatePackageVersionsStatusRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePackageVersionsStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

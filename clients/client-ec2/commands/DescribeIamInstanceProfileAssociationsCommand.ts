@@ -49,6 +49,10 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeIamInstanceProfileAssociations",
+      inputFilterLog: DescribeIamInstanceProfileAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIamInstanceProfileAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

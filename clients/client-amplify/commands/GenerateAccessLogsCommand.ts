@@ -45,6 +45,10 @@ export class GenerateAccessLogsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "generateAccessLogs",
+      inputFilterLog: GenerateAccessLogsRequest.filterSensitiveLog,
+      outputFilterLog: GenerateAccessLogsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

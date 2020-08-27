@@ -45,6 +45,10 @@ export class CreateProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "createProject",
+      inputFilterLog: CreateProjectRequest.filterSensitiveLog,
+      outputFilterLog: CreateProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QueryProtocol",
+      clientName: "ignoresWrappingXmlName",
+      inputFilterLog: (input) => input,
+      outputFilterLog: IgnoresWrappingXmlNameOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

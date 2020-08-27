@@ -45,6 +45,10 @@ export class EnableProactiveEngagementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "enableProactiveEngagement",
+      inputFilterLog: EnableProactiveEngagementRequest.filterSensitiveLog,
+      outputFilterLog: EnableProactiveEngagementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateContributorInsightsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "updateContributorInsights",
+      inputFilterLog: UpdateContributorInsightsInput.filterSensitiveLog,
+      outputFilterLog: UpdateContributorInsightsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

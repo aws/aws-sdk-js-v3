@@ -45,6 +45,10 @@ export class StartConfigRulesEvaluationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "startConfigRulesEvaluation",
+      inputFilterLog: StartConfigRulesEvaluationRequest.filterSensitiveLog,
+      outputFilterLog: StartConfigRulesEvaluationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateTemplatePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "updateTemplatePermissions",
+      inputFilterLog: UpdateTemplatePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTemplatePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

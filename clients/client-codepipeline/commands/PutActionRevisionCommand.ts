@@ -45,6 +45,10 @@ export class PutActionRevisionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "putActionRevision",
+      inputFilterLog: PutActionRevisionInput.filterSensitiveLog,
+      outputFilterLog: PutActionRevisionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

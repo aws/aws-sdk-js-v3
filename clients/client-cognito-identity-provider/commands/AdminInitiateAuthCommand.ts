@@ -49,6 +49,10 @@ export class AdminInitiateAuthCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminInitiateAuth",
+      inputFilterLog: AdminInitiateAuthRequest.filterSensitiveLog,
+      outputFilterLog: AdminInitiateAuthResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

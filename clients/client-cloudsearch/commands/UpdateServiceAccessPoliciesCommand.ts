@@ -45,6 +45,10 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "updateServiceAccessPolicies",
+      inputFilterLog: UpdateServiceAccessPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: UpdateServiceAccessPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

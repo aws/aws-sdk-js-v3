@@ -45,6 +45,10 @@ export class CreateDataRepositoryTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FSx",
+      clientName: "createDataRepositoryTask",
+      inputFilterLog: CreateDataRepositoryTaskRequest.filterSensitiveLog,
+      outputFilterLog: CreateDataRepositoryTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateRevisionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataExchange",
+      clientName: "updateRevision",
+      inputFilterLog: UpdateRevisionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

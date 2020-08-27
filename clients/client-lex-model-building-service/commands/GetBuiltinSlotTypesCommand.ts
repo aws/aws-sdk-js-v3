@@ -49,6 +49,10 @@ export class GetBuiltinSlotTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "getBuiltinSlotTypes",
+      inputFilterLog: GetBuiltinSlotTypesRequest.filterSensitiveLog,
+      outputFilterLog: GetBuiltinSlotTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -38,6 +38,10 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getDisk",
+      inputFilterLog: GetDiskRequest.filterSensitiveLog,
+      outputFilterLog: GetDiskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

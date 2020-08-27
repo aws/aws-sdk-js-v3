@@ -45,6 +45,10 @@ export class ApproveAssignmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "approveAssignment",
+      inputFilterLog: ApproveAssignmentRequest.filterSensitiveLog,
+      outputFilterLog: ApproveAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

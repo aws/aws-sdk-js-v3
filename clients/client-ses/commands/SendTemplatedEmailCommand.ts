@@ -45,6 +45,10 @@ export class SendTemplatedEmailCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "sendTemplatedEmail",
+      inputFilterLog: SendTemplatedEmailRequest.filterSensitiveLog,
+      outputFilterLog: SendTemplatedEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

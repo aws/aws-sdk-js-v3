@@ -45,6 +45,10 @@ export class DeleteExperimentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteExperiment",
+      inputFilterLog: DeleteExperimentRequest.filterSensitiveLog,
+      outputFilterLog: DeleteExperimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

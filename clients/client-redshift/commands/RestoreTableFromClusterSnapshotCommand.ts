@@ -45,6 +45,10 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "restoreTableFromClusterSnapshot",
+      inputFilterLog: RestoreTableFromClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterLog: RestoreTableFromClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

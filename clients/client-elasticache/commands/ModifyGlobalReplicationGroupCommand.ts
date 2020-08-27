@@ -45,6 +45,10 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "modifyGlobalReplicationGroup",
+      inputFilterLog: ModifyGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterLog: ModifyGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

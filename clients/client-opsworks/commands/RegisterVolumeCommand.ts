@@ -45,6 +45,10 @@ export class RegisterVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "registerVolume",
+      inputFilterLog: RegisterVolumeRequest.filterSensitiveLog,
+      outputFilterLog: RegisterVolumeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateLoginProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "updateLoginProfile",
+      inputFilterLog: UpdateLoginProfileRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

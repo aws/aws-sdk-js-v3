@@ -45,6 +45,10 @@ export class CreateClusterParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "createClusterParameterGroup",
+      inputFilterLog: CreateClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: CreateClusterParameterGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

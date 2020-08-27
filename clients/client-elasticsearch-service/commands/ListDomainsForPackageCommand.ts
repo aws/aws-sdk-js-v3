@@ -49,6 +49,10 @@ export class ListDomainsForPackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "listDomainsForPackage",
+      inputFilterLog: ListDomainsForPackageRequest.filterSensitiveLog,
+      outputFilterLog: ListDomainsForPackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

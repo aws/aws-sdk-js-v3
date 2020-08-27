@@ -45,6 +45,10 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "cancelMaintenanceWindowExecution",
+      inputFilterLog: CancelMaintenanceWindowExecutionRequest.filterSensitiveLog,
+      outputFilterLog: CancelMaintenanceWindowExecutionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

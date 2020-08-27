@@ -45,6 +45,10 @@ export class UpdateCampaignCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "updateCampaign",
+      inputFilterLog: UpdateCampaignRequest.filterSensitiveLog,
+      outputFilterLog: UpdateCampaignResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

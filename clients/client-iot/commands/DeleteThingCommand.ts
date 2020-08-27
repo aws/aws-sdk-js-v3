@@ -45,6 +45,10 @@ export class DeleteThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteThing",
+      inputFilterLog: DeleteThingRequest.filterSensitiveLog,
+      outputFilterLog: DeleteThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

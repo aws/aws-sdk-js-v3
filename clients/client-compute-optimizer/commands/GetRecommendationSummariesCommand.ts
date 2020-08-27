@@ -45,6 +45,10 @@ export class GetRecommendationSummariesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComputeOptimizer",
+      clientName: "getRecommendationSummaries",
+      inputFilterLog: GetRecommendationSummariesRequest.filterSensitiveLog,
+      outputFilterLog: GetRecommendationSummariesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

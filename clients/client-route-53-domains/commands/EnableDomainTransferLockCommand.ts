@@ -45,6 +45,10 @@ export class EnableDomainTransferLockCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "enableDomainTransferLock",
+      inputFilterLog: EnableDomainTransferLockRequest.filterSensitiveLog,
+      outputFilterLog: EnableDomainTransferLockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

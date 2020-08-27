@@ -48,6 +48,10 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "getOpenIdTokenForDeveloperIdentity",
+      inputFilterLog: GetOpenIdTokenForDeveloperIdentityInput.filterSensitiveLog,
+      outputFilterLog: GetOpenIdTokenForDeveloperIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

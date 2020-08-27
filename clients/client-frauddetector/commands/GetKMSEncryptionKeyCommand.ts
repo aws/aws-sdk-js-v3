@@ -45,6 +45,10 @@ export class GetKMSEncryptionKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getKMSEncryptionKey",
+      inputFilterLog: (input) => input,
+      outputFilterLog: GetKMSEncryptionKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

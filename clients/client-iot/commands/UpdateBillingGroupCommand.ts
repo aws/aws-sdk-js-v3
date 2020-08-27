@@ -45,6 +45,10 @@ export class UpdateBillingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateBillingGroup",
+      inputFilterLog: UpdateBillingGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateBillingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

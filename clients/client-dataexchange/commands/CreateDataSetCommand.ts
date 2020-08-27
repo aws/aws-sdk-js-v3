@@ -45,6 +45,10 @@ export class CreateDataSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataExchange",
+      clientName: "createDataSet",
+      inputFilterLog: CreateDataSetRequest.filterSensitiveLog,
+      outputFilterLog: CreateDataSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

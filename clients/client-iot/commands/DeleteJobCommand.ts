@@ -41,6 +41,10 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteJob",
+      inputFilterLog: DeleteJobRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

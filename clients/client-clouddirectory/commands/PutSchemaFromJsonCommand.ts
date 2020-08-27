@@ -45,6 +45,10 @@ export class PutSchemaFromJsonCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "putSchemaFromJson",
+      inputFilterLog: PutSchemaFromJsonRequest.filterSensitiveLog,
+      outputFilterLog: PutSchemaFromJsonResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

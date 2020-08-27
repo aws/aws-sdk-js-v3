@@ -47,6 +47,10 @@ export class GetBucketWebsiteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketWebsite",
+      inputFilterLog: GetBucketWebsiteRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketWebsiteOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

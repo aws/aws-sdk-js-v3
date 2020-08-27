@@ -46,6 +46,10 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "describePendingAggregationRequests",
+      inputFilterLog: DescribePendingAggregationRequestsRequest.filterSensitiveLog,
+      outputFilterLog: DescribePendingAggregationRequestsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class CreateParticipantConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConnectParticipant",
+      clientName: "createParticipantConnection",
+      inputFilterLog: CreateParticipantConnectionRequest.filterSensitiveLog,
+      outputFilterLog: CreateParticipantConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

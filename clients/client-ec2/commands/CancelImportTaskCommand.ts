@@ -45,6 +45,10 @@ export class CancelImportTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "cancelImportTask",
+      inputFilterLog: CancelImportTaskRequest.filterSensitiveLog,
+      outputFilterLog: CancelImportTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class ModifyReplicationInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "modifyReplicationInstance",
+      inputFilterLog: ModifyReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterLog: ModifyReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

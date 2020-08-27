@@ -49,6 +49,10 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteTransitGatewayPeeringAttachment",
+      inputFilterLog: DeleteTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

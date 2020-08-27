@@ -45,6 +45,10 @@ export class DescribeRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EventBridge",
+      clientName: "describeRule",
+      inputFilterLog: DescribeRuleRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

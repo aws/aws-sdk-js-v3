@@ -46,6 +46,10 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "updateEndpointWeightsAndCapacities",
+      inputFilterLog: UpdateEndpointWeightsAndCapacitiesInput.filterSensitiveLog,
+      outputFilterLog: UpdateEndpointWeightsAndCapacitiesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

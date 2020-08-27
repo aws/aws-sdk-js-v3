@@ -45,6 +45,10 @@ export class UpdateUserHierarchyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Connect",
+      clientName: "updateUserHierarchy",
+      inputFilterLog: UpdateUserHierarchyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

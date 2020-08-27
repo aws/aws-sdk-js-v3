@@ -45,6 +45,10 @@ export class CreateSAMLProviderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "createSAMLProvider",
+      inputFilterLog: CreateSAMLProviderRequest.filterSensitiveLog,
+      outputFilterLog: CreateSAMLProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

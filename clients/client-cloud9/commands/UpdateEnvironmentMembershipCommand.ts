@@ -45,6 +45,10 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Cloud9",
+      clientName: "updateEnvironmentMembership",
+      inputFilterLog: UpdateEnvironmentMembershipRequest.filterSensitiveLog,
+      outputFilterLog: UpdateEnvironmentMembershipResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class SubmitJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "submitJob",
+      inputFilterLog: SubmitJobRequest.filterSensitiveLog,
+      outputFilterLog: SubmitJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

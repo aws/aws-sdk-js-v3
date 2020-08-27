@@ -45,6 +45,10 @@ export class CancelReservedInstancesListingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "cancelReservedInstancesListing",
+      inputFilterLog: CancelReservedInstancesListingRequest.filterSensitiveLog,
+      outputFilterLog: CancelReservedInstancesListingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

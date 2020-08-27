@@ -45,6 +45,10 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "authorizeDBSecurityGroupIngress",
+      inputFilterLog: AuthorizeDBSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterLog: AuthorizeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

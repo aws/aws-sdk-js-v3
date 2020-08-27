@@ -45,6 +45,10 @@ export class AttachVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "attachVolume",
+      inputFilterLog: AttachVolumeInput.filterSensitiveLog,
+      outputFilterLog: AttachVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetCampaignActivitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getCampaignActivities",
+      inputFilterLog: GetCampaignActivitiesRequest.filterSensitiveLog,
+      outputFilterLog: GetCampaignActivitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class GetPersonalizedRankingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PersonalizeRuntime",
+      clientName: "getPersonalizedRanking",
+      inputFilterLog: GetPersonalizedRankingRequest.filterSensitiveLog,
+      outputFilterLog: GetPersonalizedRankingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

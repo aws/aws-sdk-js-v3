@@ -38,6 +38,10 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getBot",
+      inputFilterLog: GetBotRequest.filterSensitiveLog,
+      outputFilterLog: GetBotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

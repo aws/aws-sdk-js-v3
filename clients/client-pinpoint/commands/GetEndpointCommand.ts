@@ -45,6 +45,10 @@ export class GetEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getEndpoint",
+      inputFilterLog: GetEndpointRequest.filterSensitiveLog,
+      outputFilterLog: GetEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutLexiconCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Polly",
+      clientName: "putLexicon",
+      inputFilterLog: PutLexiconInput.filterSensitiveLog,
+      outputFilterLog: PutLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

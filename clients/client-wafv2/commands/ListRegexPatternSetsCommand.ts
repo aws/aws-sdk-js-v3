@@ -45,6 +45,10 @@ export class ListRegexPatternSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "listRegexPatternSets",
+      inputFilterLog: ListRegexPatternSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListRegexPatternSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

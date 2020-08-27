@@ -45,6 +45,10 @@ export class DeleteTagOptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "deleteTagOption",
+      inputFilterLog: DeleteTagOptionInput.filterSensitiveLog,
+      outputFilterLog: DeleteTagOptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

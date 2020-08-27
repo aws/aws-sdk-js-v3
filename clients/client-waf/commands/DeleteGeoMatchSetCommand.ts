@@ -45,6 +45,10 @@ export class DeleteGeoMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "deleteGeoMatchSet",
+      inputFilterLog: DeleteGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

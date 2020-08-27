@@ -45,6 +45,10 @@ export class DescribeImageAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeImageAttribute",
+      inputFilterLog: DescribeImageAttributeRequest.filterSensitiveLog,
+      outputFilterLog: ImageAttribute.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

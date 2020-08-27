@@ -45,6 +45,10 @@ export class CreateDBParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "createDBParameterGroup",
+      inputFilterLog: CreateDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: CreateDBParameterGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeTimeToLiveCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "describeTimeToLive",
+      inputFilterLog: DescribeTimeToLiveInput.filterSensitiveLog,
+      outputFilterLog: DescribeTimeToLiveOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

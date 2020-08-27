@@ -45,6 +45,10 @@ export class DescribeAutomationExecutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeAutomationExecutions",
+      inputFilterLog: DescribeAutomationExecutionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAutomationExecutionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

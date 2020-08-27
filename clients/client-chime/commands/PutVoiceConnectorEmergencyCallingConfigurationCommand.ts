@@ -52,6 +52,10 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "putVoiceConnectorEmergencyCallingConfiguration",
+      inputFilterLog: PutVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutVoiceConnectorEmergencyCallingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

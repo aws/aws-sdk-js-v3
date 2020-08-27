@@ -45,6 +45,10 @@ export class GetOfferingStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "getOfferingStatus",
+      inputFilterLog: GetOfferingStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetOfferingStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

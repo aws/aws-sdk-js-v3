@@ -42,6 +42,10 @@ export class CreateJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Snowball",
+      clientName: "createJob",
+      inputFilterLog: CreateJobRequest.filterSensitiveLog,
+      outputFilterLog: CreateJobResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

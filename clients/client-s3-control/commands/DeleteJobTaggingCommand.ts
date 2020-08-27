@@ -45,6 +45,10 @@ export class DeleteJobTaggingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3Control",
+      clientName: "deleteJobTagging",
+      inputFilterLog: DeleteJobTaggingRequest.filterSensitiveLog,
+      outputFilterLog: DeleteJobTaggingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

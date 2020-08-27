@@ -45,6 +45,10 @@ export class DeleteRegistrationCodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteRegistrationCode",
+      inputFilterLog: DeleteRegistrationCodeRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRegistrationCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

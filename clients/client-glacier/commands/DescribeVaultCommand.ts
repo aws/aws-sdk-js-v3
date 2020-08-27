@@ -45,6 +45,10 @@ export class DescribeVaultCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "describeVault",
+      inputFilterLog: DescribeVaultInput.filterSensitiveLog,
+      outputFilterLog: DescribeVaultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

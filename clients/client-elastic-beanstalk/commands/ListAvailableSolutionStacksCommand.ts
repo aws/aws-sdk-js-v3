@@ -45,6 +45,10 @@ export class ListAvailableSolutionStacksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "listAvailableSolutionStacks",
+      inputFilterLog: (input) => input,
+      outputFilterLog: ListAvailableSolutionStacksResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

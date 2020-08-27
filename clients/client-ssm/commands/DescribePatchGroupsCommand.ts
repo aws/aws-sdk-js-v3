@@ -45,6 +45,10 @@ export class DescribePatchGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describePatchGroups",
+      inputFilterLog: DescribePatchGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribePatchGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

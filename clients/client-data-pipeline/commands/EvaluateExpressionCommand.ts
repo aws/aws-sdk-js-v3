@@ -45,6 +45,10 @@ export class EvaluateExpressionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataPipeline",
+      clientName: "evaluateExpression",
+      inputFilterLog: EvaluateExpressionInput.filterSensitiveLog,
+      outputFilterLog: EvaluateExpressionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

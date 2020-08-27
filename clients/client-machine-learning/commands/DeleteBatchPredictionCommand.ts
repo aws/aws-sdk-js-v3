@@ -45,6 +45,10 @@ export class DeleteBatchPredictionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "deleteBatchPrediction",
+      inputFilterLog: DeleteBatchPredictionInput.filterSensitiveLog,
+      outputFilterLog: DeleteBatchPredictionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

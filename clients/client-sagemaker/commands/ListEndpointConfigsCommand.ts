@@ -45,6 +45,10 @@ export class ListEndpointConfigsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "listEndpointConfigs",
+      inputFilterLog: ListEndpointConfigsInput.filterSensitiveLog,
+      outputFilterLog: ListEndpointConfigsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

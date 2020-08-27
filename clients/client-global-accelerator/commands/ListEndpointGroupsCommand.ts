@@ -49,6 +49,10 @@ export class ListEndpointGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "listEndpointGroups",
+      inputFilterLog: ListEndpointGroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListEndpointGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

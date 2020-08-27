@@ -45,6 +45,10 @@ export class DescribeDashboardPermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "describeDashboardPermissions",
+      inputFilterLog: DescribeDashboardPermissionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDashboardPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeClusterSecurityGroups",
+      inputFilterLog: DescribeClusterSecurityGroupsMessage.filterSensitiveLog,
+      outputFilterLog: ClusterSecurityGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

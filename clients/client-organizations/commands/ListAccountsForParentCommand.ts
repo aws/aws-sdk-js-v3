@@ -45,6 +45,10 @@ export class ListAccountsForParentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listAccountsForParent",
+      inputFilterLog: ListAccountsForParentRequest.filterSensitiveLog,
+      outputFilterLog: ListAccountsForParentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

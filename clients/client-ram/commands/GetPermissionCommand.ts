@@ -45,6 +45,10 @@ export class GetPermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "getPermission",
+      inputFilterLog: GetPermissionRequest.filterSensitiveLog,
+      outputFilterLog: GetPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

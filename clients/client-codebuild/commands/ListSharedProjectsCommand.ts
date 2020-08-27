@@ -45,6 +45,10 @@ export class ListSharedProjectsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "listSharedProjects",
+      inputFilterLog: ListSharedProjectsInput.filterSensitiveLog,
+      outputFilterLog: ListSharedProjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

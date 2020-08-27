@@ -45,6 +45,10 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DocDB",
+      clientName: "resetDBClusterParameterGroup",
+      inputFilterLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

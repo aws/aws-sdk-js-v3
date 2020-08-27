@@ -45,6 +45,10 @@ export class DescribeStackResourceDriftsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "describeStackResourceDrifts",
+      inputFilterLog: DescribeStackResourceDriftsInput.filterSensitiveLog,
+      outputFilterLog: DescribeStackResourceDriftsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,6 +47,10 @@ export class InvokeAsyncCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "invokeAsync",
+      inputFilterLog: InvokeAsyncRequest.filterSensitiveLog,
+      outputFilterLog: InvokeAsyncResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

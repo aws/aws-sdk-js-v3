@@ -45,6 +45,10 @@ export class ListIndexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listIndex",
+      inputFilterLog: ListIndexRequest.filterSensitiveLog,
+      outputFilterLog: ListIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

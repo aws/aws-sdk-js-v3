@@ -45,6 +45,10 @@ export class CreateGovCloudAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "createGovCloudAccount",
+      inputFilterLog: CreateGovCloudAccountRequest.filterSensitiveLog,
+      outputFilterLog: CreateGovCloudAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

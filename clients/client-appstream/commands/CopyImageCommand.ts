@@ -42,6 +42,10 @@ export class CopyImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "copyImage",
+      inputFilterLog: CopyImageRequest.filterSensitiveLog,
+      outputFilterLog: CopyImageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

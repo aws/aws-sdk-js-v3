@@ -45,6 +45,10 @@ export class PutMailboxPermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "putMailboxPermissions",
+      inputFilterLog: PutMailboxPermissionsRequest.filterSensitiveLog,
+      outputFilterLog: PutMailboxPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

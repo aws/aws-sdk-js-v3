@@ -45,6 +45,10 @@ export class DescribeCertificateAuthorityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ACMPCA",
+      clientName: "describeCertificateAuthority",
+      inputFilterLog: DescribeCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeregisterEcsClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "deregisterEcsCluster",
+      inputFilterLog: DeregisterEcsClusterRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

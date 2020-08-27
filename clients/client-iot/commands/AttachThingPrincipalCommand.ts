@@ -45,6 +45,10 @@ export class AttachThingPrincipalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "attachThingPrincipal",
+      inputFilterLog: AttachThingPrincipalRequest.filterSensitiveLog,
+      outputFilterLog: AttachThingPrincipalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

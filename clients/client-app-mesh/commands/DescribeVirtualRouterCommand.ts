@@ -45,6 +45,10 @@ export class DescribeVirtualRouterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "describeVirtualRouter",
+      inputFilterLog: DescribeVirtualRouterInput.filterSensitiveLog,
+      outputFilterLog: DescribeVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

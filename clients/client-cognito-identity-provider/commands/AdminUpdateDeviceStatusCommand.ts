@@ -49,6 +49,10 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminUpdateDeviceStatus",
+      inputFilterLog: AdminUpdateDeviceStatusRequest.filterSensitiveLog,
+      outputFilterLog: AdminUpdateDeviceStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

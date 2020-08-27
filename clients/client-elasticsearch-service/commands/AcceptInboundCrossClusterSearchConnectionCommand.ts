@@ -56,6 +56,10 @@ export class AcceptInboundCrossClusterSearchConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "acceptInboundCrossClusterSearchConnection",
+      inputFilterLog: AcceptInboundCrossClusterSearchConnectionRequest.filterSensitiveLog,
+      outputFilterLog: AcceptInboundCrossClusterSearchConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

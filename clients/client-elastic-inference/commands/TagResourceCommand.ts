@@ -45,6 +45,10 @@ export class TagResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticInference",
+      clientName: "tagResource",
+      inputFilterLog: TagResourceRequest.filterSensitiveLog,
+      outputFilterLog: TagResourceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

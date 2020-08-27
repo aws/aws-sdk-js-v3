@@ -45,6 +45,10 @@ export class CopyPackageVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "copyPackageVersions",
+      inputFilterLog: CopyPackageVersionsRequest.filterSensitiveLog,
+      outputFilterLog: CopyPackageVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

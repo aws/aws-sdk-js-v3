@@ -45,6 +45,10 @@ export class ListStreamsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDBStreams",
+      clientName: "listStreams",
+      inputFilterLog: ListStreamsInput.filterSensitiveLog,
+      outputFilterLog: ListStreamsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

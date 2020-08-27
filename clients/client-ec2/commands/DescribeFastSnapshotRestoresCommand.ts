@@ -45,6 +45,10 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeFastSnapshotRestores",
+      inputFilterLog: DescribeFastSnapshotRestoresRequest.filterSensitiveLog,
+      outputFilterLog: DescribeFastSnapshotRestoresResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

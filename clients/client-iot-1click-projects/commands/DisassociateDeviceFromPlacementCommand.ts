@@ -49,6 +49,10 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickProjects",
+      clientName: "disassociateDeviceFromPlacement",
+      inputFilterLog: DisassociateDeviceFromPlacementRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateDeviceFromPlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

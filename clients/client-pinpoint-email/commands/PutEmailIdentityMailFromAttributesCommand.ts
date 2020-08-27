@@ -46,6 +46,10 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "putEmailIdentityMailFromAttributes",
+      inputFilterLog: PutEmailIdentityMailFromAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutEmailIdentityMailFromAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

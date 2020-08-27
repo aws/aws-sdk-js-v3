@@ -45,6 +45,10 @@ export class PutEventSelectorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudTrail",
+      clientName: "putEventSelectors",
+      inputFilterLog: PutEventSelectorsRequest.filterSensitiveLog,
+      outputFilterLog: PutEventSelectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

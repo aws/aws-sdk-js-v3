@@ -45,6 +45,10 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "deleteRepositoryPermissionsPolicy",
+      inputFilterLog: DeleteRepositoryPermissionsPolicyRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRepositoryPermissionsPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

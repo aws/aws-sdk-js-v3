@@ -45,6 +45,10 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "updatePrimaryEmailAddress",
+      inputFilterLog: UpdatePrimaryEmailAddressRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePrimaryEmailAddressResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

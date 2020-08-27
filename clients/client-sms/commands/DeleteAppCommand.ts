@@ -38,6 +38,10 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "deleteApp",
+      inputFilterLog: DeleteAppRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

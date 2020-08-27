@@ -45,6 +45,10 @@ export class DescribeTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "describeTask",
+      inputFilterLog: DescribeTaskRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

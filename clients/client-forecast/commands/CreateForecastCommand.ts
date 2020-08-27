@@ -45,6 +45,10 @@ export class CreateForecastCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Forecast",
+      clientName: "createForecast",
+      inputFilterLog: CreateForecastRequest.filterSensitiveLog,
+      outputFilterLog: CreateForecastResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

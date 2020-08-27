@@ -45,6 +45,10 @@ export class DescribeAlarmHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "describeAlarmHistory",
+      inputFilterLog: DescribeAlarmHistoryInput.filterSensitiveLog,
+      outputFilterLog: DescribeAlarmHistoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetSegmentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getSegments",
+      inputFilterLog: GetSegmentsRequest.filterSensitiveLog,
+      outputFilterLog: GetSegmentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

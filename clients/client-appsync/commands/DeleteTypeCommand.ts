@@ -45,6 +45,10 @@ export class DeleteTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "deleteType",
+      inputFilterLog: DeleteTypeRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateRoomCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "createRoom",
+      inputFilterLog: CreateRoomRequest.filterSensitiveLog,
+      outputFilterLog: CreateRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

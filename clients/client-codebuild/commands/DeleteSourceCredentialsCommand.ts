@@ -45,6 +45,10 @@ export class DeleteSourceCredentialsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "deleteSourceCredentials",
+      inputFilterLog: DeleteSourceCredentialsInput.filterSensitiveLog,
+      outputFilterLog: DeleteSourceCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -38,6 +38,10 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "reEncrypt",
+      inputFilterLog: ReEncryptRequest.filterSensitiveLog,
+      outputFilterLog: ReEncryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

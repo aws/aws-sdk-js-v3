@@ -45,6 +45,10 @@ export class DeleteSkillAuthorizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteSkillAuthorization",
+      inputFilterLog: DeleteSkillAuthorizationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSkillAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

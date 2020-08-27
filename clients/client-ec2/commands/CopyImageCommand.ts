@@ -38,6 +38,10 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "copyImage",
+      inputFilterLog: CopyImageRequest.filterSensitiveLog,
+      outputFilterLog: CopyImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

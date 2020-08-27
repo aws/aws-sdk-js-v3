@@ -45,6 +45,10 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "getProvisionedConcurrencyConfig",
+      inputFilterLog: GetProvisionedConcurrencyConfigRequest.filterSensitiveLog,
+      outputFilterLog: GetProvisionedConcurrencyConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

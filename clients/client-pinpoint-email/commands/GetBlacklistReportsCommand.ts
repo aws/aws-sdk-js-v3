@@ -45,6 +45,10 @@ export class GetBlacklistReportsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "getBlacklistReports",
+      inputFilterLog: GetBlacklistReportsRequest.filterSensitiveLog,
+      outputFilterLog: GetBlacklistReportsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

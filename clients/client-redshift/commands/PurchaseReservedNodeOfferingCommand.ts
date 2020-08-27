@@ -45,6 +45,10 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "purchaseReservedNodeOffering",
+      inputFilterLog: PurchaseReservedNodeOfferingMessage.filterSensitiveLog,
+      outputFilterLog: PurchaseReservedNodeOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

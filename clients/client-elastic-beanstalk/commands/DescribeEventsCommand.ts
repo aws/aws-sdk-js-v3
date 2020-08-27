@@ -45,6 +45,10 @@ export class DescribeEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "describeEvents",
+      inputFilterLog: DescribeEventsMessage.filterSensitiveLog,
+      outputFilterLog: EventDescriptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

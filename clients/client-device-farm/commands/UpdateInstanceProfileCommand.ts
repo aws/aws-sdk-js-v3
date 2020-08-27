@@ -45,6 +45,10 @@ export class UpdateInstanceProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "updateInstanceProfile",
+      inputFilterLog: UpdateInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: UpdateInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

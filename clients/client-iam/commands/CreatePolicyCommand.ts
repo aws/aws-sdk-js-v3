@@ -42,6 +42,10 @@ export class CreatePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "createPolicy",
+      inputFilterLog: CreatePolicyRequest.filterSensitiveLog,
+      outputFilterLog: CreatePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

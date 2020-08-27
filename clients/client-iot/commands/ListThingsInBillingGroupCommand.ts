@@ -45,6 +45,10 @@ export class ListThingsInBillingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listThingsInBillingGroup",
+      inputFilterLog: ListThingsInBillingGroupRequest.filterSensitiveLog,
+      outputFilterLog: ListThingsInBillingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

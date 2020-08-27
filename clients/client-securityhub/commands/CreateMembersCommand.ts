@@ -45,6 +45,10 @@ export class CreateMembersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "createMembers",
+      inputFilterLog: CreateMembersRequest.filterSensitiveLog,
+      outputFilterLog: CreateMembersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class InvokeScreenAutomationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Honeycode",
+      clientName: "invokeScreenAutomation",
+      inputFilterLog: InvokeScreenAutomationRequest.filterSensitiveLog,
+      outputFilterLog: InvokeScreenAutomationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

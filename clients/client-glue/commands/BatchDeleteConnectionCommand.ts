@@ -45,6 +45,10 @@ export class BatchDeleteConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "batchDeleteConnection",
+      inputFilterLog: BatchDeleteConnectionRequest.filterSensitiveLog,
+      outputFilterLog: BatchDeleteConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

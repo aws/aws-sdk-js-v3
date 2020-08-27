@@ -49,6 +49,10 @@ export class DeregisterTargetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "deregisterTargets",
+      inputFilterLog: DeregisterTargetsInput.filterSensitiveLog,
+      outputFilterLog: DeregisterTargetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

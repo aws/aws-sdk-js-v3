@@ -49,6 +49,10 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "createReplicationSubnetGroup",
+      inputFilterLog: CreateReplicationSubnetGroupMessage.filterSensitiveLog,
+      outputFilterLog: CreateReplicationSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

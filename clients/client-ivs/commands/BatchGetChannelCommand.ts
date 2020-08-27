@@ -45,6 +45,10 @@ export class BatchGetChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Ivs",
+      clientName: "batchGetChannel",
+      inputFilterLog: BatchGetChannelRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

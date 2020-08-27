@@ -45,6 +45,10 @@ export class BeginTransactionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDSData",
+      clientName: "beginTransaction",
+      inputFilterLog: BeginTransactionRequest.filterSensitiveLog,
+      outputFilterLog: BeginTransactionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

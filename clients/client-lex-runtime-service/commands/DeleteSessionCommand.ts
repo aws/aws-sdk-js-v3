@@ -49,6 +49,10 @@ export class DeleteSessionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexRuntimeService",
+      clientName: "deleteSession",
+      inputFilterLog: DeleteSessionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

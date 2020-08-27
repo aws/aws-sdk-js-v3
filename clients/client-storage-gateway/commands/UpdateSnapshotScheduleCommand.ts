@@ -45,6 +45,10 @@ export class UpdateSnapshotScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "updateSnapshotSchedule",
+      inputFilterLog: UpdateSnapshotScheduleInput.filterSensitiveLog,
+      outputFilterLog: UpdateSnapshotScheduleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

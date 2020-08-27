@@ -45,6 +45,10 @@ export class CreateResourceShareCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "createResourceShare",
+      inputFilterLog: CreateResourceShareRequest.filterSensitiveLog,
+      outputFilterLog: CreateResourceShareResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

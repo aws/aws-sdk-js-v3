@@ -45,6 +45,10 @@ export class ModifyAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "modifyAccount",
+      inputFilterLog: ModifyAccountRequest.filterSensitiveLog,
+      outputFilterLog: ModifyAccountResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

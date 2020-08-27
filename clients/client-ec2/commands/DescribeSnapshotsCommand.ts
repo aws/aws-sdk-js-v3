@@ -45,6 +45,10 @@ export class DescribeSnapshotsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeSnapshots",
+      inputFilterLog: DescribeSnapshotsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

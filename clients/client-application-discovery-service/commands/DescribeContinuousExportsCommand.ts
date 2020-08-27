@@ -49,6 +49,10 @@ export class DescribeContinuousExportsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationDiscoveryService",
+      clientName: "describeContinuousExports",
+      inputFilterLog: DescribeContinuousExportsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeContinuousExportsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

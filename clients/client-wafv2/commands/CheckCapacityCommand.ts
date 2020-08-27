@@ -45,6 +45,10 @@ export class CheckCapacityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "checkCapacity",
+      inputFilterLog: CheckCapacityRequest.filterSensitiveLog,
+      outputFilterLog: CheckCapacityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

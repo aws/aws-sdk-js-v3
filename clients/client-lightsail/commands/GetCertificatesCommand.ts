@@ -45,6 +45,10 @@ export class GetCertificatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getCertificates",
+      inputFilterLog: GetCertificatesRequest.filterSensitiveLog,
+      outputFilterLog: GetCertificatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class StopRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "stopRun",
+      inputFilterLog: StopRunRequest.filterSensitiveLog,
+      outputFilterLog: StopRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

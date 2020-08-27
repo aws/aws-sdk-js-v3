@@ -45,6 +45,10 @@ export class KitchenSinkOperationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "JsonProtocol",
+      clientName: "kitchenSinkOperation",
+      inputFilterLog: KitchenSink.filterSensitiveLog,
+      outputFilterLog: KitchenSink.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "purchaseReservedCacheNodesOffering",
+      inputFilterLog: PurchaseReservedCacheNodesOfferingMessage.filterSensitiveLog,
+      outputFilterLog: PurchaseReservedCacheNodesOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

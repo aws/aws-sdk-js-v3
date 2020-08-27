@@ -45,6 +45,10 @@ export class WithdrawByoipCidrCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "withdrawByoipCidr",
+      inputFilterLog: WithdrawByoipCidrRequest.filterSensitiveLog,
+      outputFilterLog: WithdrawByoipCidrResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateUserProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "updateUserProfile",
+      inputFilterLog: UpdateUserProfileRequest.filterSensitiveLog,
+      outputFilterLog: UpdateUserProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

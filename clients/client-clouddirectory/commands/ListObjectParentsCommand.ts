@@ -45,6 +45,10 @@ export class ListObjectParentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "listObjectParents",
+      inputFilterLog: ListObjectParentsRequest.filterSensitiveLog,
+      outputFilterLog: ListObjectParentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

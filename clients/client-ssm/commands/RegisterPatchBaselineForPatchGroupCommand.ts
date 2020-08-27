@@ -46,6 +46,10 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "registerPatchBaselineForPatchGroup",
+      inputFilterLog: RegisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
+      outputFilterLog: RegisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

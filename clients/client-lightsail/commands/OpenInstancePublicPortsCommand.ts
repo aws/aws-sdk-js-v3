@@ -45,6 +45,10 @@ export class OpenInstancePublicPortsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "openInstancePublicPorts",
+      inputFilterLog: OpenInstancePublicPortsRequest.filterSensitiveLog,
+      outputFilterLog: OpenInstancePublicPortsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

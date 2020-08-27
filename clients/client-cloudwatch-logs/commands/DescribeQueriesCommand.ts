@@ -45,6 +45,10 @@ export class DescribeQueriesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "describeQueries",
+      inputFilterLog: DescribeQueriesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeQueriesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

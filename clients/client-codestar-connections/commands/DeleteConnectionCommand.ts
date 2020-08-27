@@ -49,6 +49,10 @@ export class DeleteConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStarConnections",
+      clientName: "deleteConnection",
+      inputFilterLog: DeleteConnectionInput.filterSensitiveLog,
+      outputFilterLog: DeleteConnectionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

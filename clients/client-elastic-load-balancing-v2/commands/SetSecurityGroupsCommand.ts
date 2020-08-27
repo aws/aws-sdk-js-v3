@@ -49,6 +49,10 @@ export class SetSecurityGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "setSecurityGroups",
+      inputFilterLog: SetSecurityGroupsInput.filterSensitiveLog,
+      outputFilterLog: SetSecurityGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

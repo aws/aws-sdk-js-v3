@@ -45,6 +45,10 @@ export class HttpRequestWithLabelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "httpRequestWithLabels",
+      inputFilterLog: HttpRequestWithLabelsInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteV2LoggingLevelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteV2LoggingLevel",
+      inputFilterLog: DeleteV2LoggingLevelRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -41,6 +41,10 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "listTags",
+      inputFilterLog: ListTagsInput.filterSensitiveLog,
+      outputFilterLog: ListTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

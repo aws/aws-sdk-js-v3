@@ -45,6 +45,10 @@ export class ModifyDBInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyDBInstance",
+      inputFilterLog: ModifyDBInstanceMessage.filterSensitiveLog,
+      outputFilterLog: ModifyDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,6 +50,10 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "getCompatibleElasticsearchVersions",
+      inputFilterLog: GetCompatibleElasticsearchVersionsRequest.filterSensitiveLog,
+      outputFilterLog: GetCompatibleElasticsearchVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

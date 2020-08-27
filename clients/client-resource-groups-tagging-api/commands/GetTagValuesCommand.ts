@@ -49,6 +49,10 @@ export class GetTagValuesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ResourceGroupsTaggingAPI",
+      clientName: "getTagValues",
+      inputFilterLog: GetTagValuesInput.filterSensitiveLog,
+      outputFilterLog: GetTagValuesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

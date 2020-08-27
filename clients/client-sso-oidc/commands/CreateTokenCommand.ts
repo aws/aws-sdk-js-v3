@@ -45,6 +45,10 @@ export class CreateTokenCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSOOIDC",
+      clientName: "createToken",
+      inputFilterLog: CreateTokenRequest.filterSensitiveLog,
+      outputFilterLog: CreateTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ResolveRoomCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "resolveRoom",
+      inputFilterLog: ResolveRoomRequest.filterSensitiveLog,
+      outputFilterLog: ResolveRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

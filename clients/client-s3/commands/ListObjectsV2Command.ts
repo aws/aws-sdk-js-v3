@@ -47,6 +47,10 @@ export class ListObjectsV2Command extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "listObjectsV2",
+      inputFilterLog: ListObjectsV2Request.filterSensitiveLog,
+      outputFilterLog: ListObjectsV2Output.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

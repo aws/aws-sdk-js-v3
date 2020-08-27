@@ -45,6 +45,10 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "getRecoveryPointRestoreMetadata",
+      inputFilterLog: GetRecoveryPointRestoreMetadataInput.filterSensitiveLog,
+      outputFilterLog: GetRecoveryPointRestoreMetadataOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

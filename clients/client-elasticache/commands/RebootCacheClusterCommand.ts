@@ -45,6 +45,10 @@ export class RebootCacheClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "rebootCacheCluster",
+      inputFilterLog: RebootCacheClusterMessage.filterSensitiveLog,
+      outputFilterLog: RebootCacheClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

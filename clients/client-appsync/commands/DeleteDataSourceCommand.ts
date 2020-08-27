@@ -45,6 +45,10 @@ export class DeleteDataSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "deleteDataSource",
+      inputFilterLog: DeleteDataSourceRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

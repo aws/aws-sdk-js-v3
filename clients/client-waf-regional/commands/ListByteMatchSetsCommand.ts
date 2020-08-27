@@ -45,6 +45,10 @@ export class ListByteMatchSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "listByteMatchSets",
+      inputFilterLog: ListByteMatchSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListByteMatchSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServerlessApplicationRepository",
+      clientName: "createCloudFormationChangeSet",
+      inputFilterLog: CreateCloudFormationChangeSetRequest.filterSensitiveLog,
+      outputFilterLog: CreateCloudFormationChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListVocabulariesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "listVocabularies",
+      inputFilterLog: ListVocabulariesRequest.filterSensitiveLog,
+      outputFilterLog: ListVocabulariesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

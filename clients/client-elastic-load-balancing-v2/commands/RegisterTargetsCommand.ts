@@ -49,6 +49,10 @@ export class RegisterTargetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "registerTargets",
+      inputFilterLog: RegisterTargetsInput.filterSensitiveLog,
+      outputFilterLog: RegisterTargetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

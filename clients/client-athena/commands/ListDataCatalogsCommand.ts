@@ -45,6 +45,10 @@ export class ListDataCatalogsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "listDataCatalogs",
+      inputFilterLog: ListDataCatalogsInput.filterSensitiveLog,
+      outputFilterLog: ListDataCatalogsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutRecommendationFeedbackCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruReviewer",
+      clientName: "putRecommendationFeedback",
+      inputFilterLog: PutRecommendationFeedbackRequest.filterSensitiveLog,
+      outputFilterLog: PutRecommendationFeedbackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

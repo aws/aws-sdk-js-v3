@@ -45,6 +45,10 @@ export class StartInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "startInstance",
+      inputFilterLog: StartInstanceRequest.filterSensitiveLog,
+      outputFilterLog: StartInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

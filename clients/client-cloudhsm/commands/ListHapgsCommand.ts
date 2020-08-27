@@ -42,6 +42,10 @@ export class ListHapgsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSM",
+      clientName: "listHapgs",
+      inputFilterLog: ListHapgsRequest.filterSensitiveLog,
+      outputFilterLog: ListHapgsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

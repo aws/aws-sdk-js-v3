@@ -45,6 +45,10 @@ export class GetAccountSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "getAccountSettings",
+      inputFilterLog: GetAccountSettingsRequest.filterSensitiveLog,
+      outputFilterLog: GetAccountSettingsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeSMBSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeSMBSettings",
+      inputFilterLog: DescribeSMBSettingsInput.filterSensitiveLog,
+      outputFilterLog: DescribeSMBSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

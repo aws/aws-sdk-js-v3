@@ -45,6 +45,10 @@ export class ListGraphsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Detective",
+      clientName: "listGraphs",
+      inputFilterLog: ListGraphsRequest.filterSensitiveLog,
+      outputFilterLog: ListGraphsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

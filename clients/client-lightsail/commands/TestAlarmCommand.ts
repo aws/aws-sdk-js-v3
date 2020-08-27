@@ -42,6 +42,10 @@ export class TestAlarmCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "testAlarm",
+      inputFilterLog: TestAlarmRequest.filterSensitiveLog,
+      outputFilterLog: TestAlarmResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

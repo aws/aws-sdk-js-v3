@@ -42,6 +42,10 @@ export class ModifyHostsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyHosts",
+      inputFilterLog: ModifyHostsRequest.filterSensitiveLog,
+      outputFilterLog: ModifyHostsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

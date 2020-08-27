@@ -45,6 +45,10 @@ export class DeleteProtectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "deleteProtection",
+      inputFilterLog: DeleteProtectionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteProtectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

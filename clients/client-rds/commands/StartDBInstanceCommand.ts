@@ -45,6 +45,10 @@ export class StartDBInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "startDBInstance",
+      inputFilterLog: StartDBInstanceMessage.filterSensitiveLog,
+      outputFilterLog: StartDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

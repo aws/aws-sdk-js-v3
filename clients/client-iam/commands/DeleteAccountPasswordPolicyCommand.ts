@@ -44,6 +44,10 @@ export class DeleteAccountPasswordPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteAccountPasswordPolicy",
+      inputFilterLog: (input) => input,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

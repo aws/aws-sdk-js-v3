@@ -45,6 +45,10 @@ export class NestedStructuresCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QueryProtocol",
+      clientName: "nestedStructures",
+      inputFilterLog: NestedStructuresInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

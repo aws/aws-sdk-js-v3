@@ -45,6 +45,10 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "putRolePermissionsBoundary",
+      inputFilterLog: PutRolePermissionsBoundaryRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

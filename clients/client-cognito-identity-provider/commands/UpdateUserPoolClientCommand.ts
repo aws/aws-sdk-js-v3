@@ -49,6 +49,10 @@ export class UpdateUserPoolClientCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "updateUserPoolClient",
+      inputFilterLog: UpdateUserPoolClientRequest.filterSensitiveLog,
+      outputFilterLog: UpdateUserPoolClientResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

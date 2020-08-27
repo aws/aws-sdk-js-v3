@@ -45,6 +45,10 @@ export class ListIndicesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listIndices",
+      inputFilterLog: ListIndicesRequest.filterSensitiveLog,
+      outputFilterLog: ListIndicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

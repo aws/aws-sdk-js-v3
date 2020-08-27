@@ -45,6 +45,10 @@ export class GetDataSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "getDataSource",
+      inputFilterLog: GetDataSourceInput.filterSensitiveLog,
+      outputFilterLog: GetDataSourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

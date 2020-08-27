@@ -46,6 +46,10 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeNetworkInterfacePermissions",
+      inputFilterLog: DescribeNetworkInterfacePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeNetworkInterfacePermissionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

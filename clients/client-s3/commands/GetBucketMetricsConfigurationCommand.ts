@@ -47,6 +47,10 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getBucketMetricsConfiguration",
+      inputFilterLog: GetBucketMetricsConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketMetricsConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

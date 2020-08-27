@@ -49,6 +49,10 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "describeGatewayCapabilityConfiguration",
+      inputFilterLog: DescribeGatewayCapabilityConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeGatewayCapabilityConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

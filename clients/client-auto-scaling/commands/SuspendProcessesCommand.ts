@@ -45,6 +45,10 @@ export class SuspendProcessesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "suspendProcesses",
+      inputFilterLog: ScalingProcessQuery.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

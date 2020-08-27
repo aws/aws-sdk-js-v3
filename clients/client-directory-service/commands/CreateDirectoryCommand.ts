@@ -45,6 +45,10 @@ export class CreateDirectoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "createDirectory",
+      inputFilterLog: CreateDirectoryRequest.filterSensitiveLog,
+      outputFilterLog: CreateDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

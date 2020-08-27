@@ -45,6 +45,10 @@ export class CreateSystemTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "createSystemTemplate",
+      inputFilterLog: CreateSystemTemplateRequest.filterSensitiveLog,
+      outputFilterLog: CreateSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

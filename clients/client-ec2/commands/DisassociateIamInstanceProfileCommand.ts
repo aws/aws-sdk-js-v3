@@ -45,6 +45,10 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "disassociateIamInstanceProfile",
+      inputFilterLog: DisassociateIamInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateIamInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateFlowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "createFlow",
+      inputFilterLog: CreateFlowRequest.filterSensitiveLog,
+      outputFilterLog: CreateFlowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

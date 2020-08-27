@@ -45,6 +45,10 @@ export class UpdateVoiceChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "updateVoiceChannel",
+      inputFilterLog: UpdateVoiceChannelRequest.filterSensitiveLog,
+      outputFilterLog: UpdateVoiceChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

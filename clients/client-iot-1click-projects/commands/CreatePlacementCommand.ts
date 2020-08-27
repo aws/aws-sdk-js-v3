@@ -49,6 +49,10 @@ export class CreatePlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickProjects",
+      clientName: "createPlacement",
+      inputFilterLog: CreatePlacementRequest.filterSensitiveLog,
+      outputFilterLog: CreatePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PutAnomalyDetectorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "putAnomalyDetector",
+      inputFilterLog: PutAnomalyDetectorInput.filterSensitiveLog,
+      outputFilterLog: PutAnomalyDetectorOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

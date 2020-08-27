@@ -45,6 +45,10 @@ export class DescribeConfigurationRevisionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mq",
+      clientName: "describeConfigurationRevision",
+      inputFilterLog: DescribeConfigurationRevisionRequest.filterSensitiveLog,
+      outputFilterLog: DescribeConfigurationRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

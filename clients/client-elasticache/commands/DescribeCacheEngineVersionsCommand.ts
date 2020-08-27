@@ -45,6 +45,10 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeCacheEngineVersions",
+      inputFilterLog: DescribeCacheEngineVersionsMessage.filterSensitiveLog,
+      outputFilterLog: CacheEngineVersionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

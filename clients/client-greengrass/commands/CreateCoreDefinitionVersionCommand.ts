@@ -45,6 +45,10 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "createCoreDefinitionVersion",
+      inputFilterLog: CreateCoreDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateCoreDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

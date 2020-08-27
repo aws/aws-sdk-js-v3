@@ -45,6 +45,10 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "confirmTopicRuleDestination",
+      inputFilterLog: ConfirmTopicRuleDestinationRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmTopicRuleDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

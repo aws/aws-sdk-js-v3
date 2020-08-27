@@ -45,6 +45,10 @@ export class DescribeDimensionKeysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PI",
+      clientName: "describeDimensionKeys",
+      inputFilterLog: DescribeDimensionKeysRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDimensionKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

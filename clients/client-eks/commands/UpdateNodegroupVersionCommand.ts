@@ -45,6 +45,10 @@ export class UpdateNodegroupVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EKS",
+      clientName: "updateNodegroupVersion",
+      inputFilterLog: UpdateNodegroupVersionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateNodegroupVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

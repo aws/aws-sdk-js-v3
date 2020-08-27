@@ -45,6 +45,10 @@ export class CreateBasePathMappingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "createBasePathMapping",
+      inputFilterLog: CreateBasePathMappingRequest.filterSensitiveLog,
+      outputFilterLog: BasePathMapping.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

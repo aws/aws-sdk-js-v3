@@ -49,6 +49,10 @@ export class ListNetworksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "listNetworks",
+      inputFilterLog: ListNetworksInput.filterSensitiveLog,
+      outputFilterLog: ListNetworksOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

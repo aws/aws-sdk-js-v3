@@ -45,6 +45,10 @@ export class DescribeSubnetGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "describeSubnetGroups",
+      inputFilterLog: DescribeSubnetGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSubnetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

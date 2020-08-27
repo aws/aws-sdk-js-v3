@@ -45,6 +45,10 @@ export class DescribeKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "describeKey",
+      inputFilterLog: DescribeKeyRequest.filterSensitiveLog,
+      outputFilterLog: DescribeKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

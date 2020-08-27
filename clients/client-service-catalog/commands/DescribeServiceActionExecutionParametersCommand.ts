@@ -52,6 +52,10 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "describeServiceActionExecutionParameters",
+      inputFilterLog: DescribeServiceActionExecutionParametersInput.filterSensitiveLog,
+      outputFilterLog: DescribeServiceActionExecutionParametersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

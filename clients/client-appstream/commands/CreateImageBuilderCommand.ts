@@ -45,6 +45,10 @@ export class CreateImageBuilderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "createImageBuilder",
+      inputFilterLog: CreateImageBuilderRequest.filterSensitiveLog,
+      outputFilterLog: CreateImageBuilderResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

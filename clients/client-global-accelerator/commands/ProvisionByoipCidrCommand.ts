@@ -49,6 +49,10 @@ export class ProvisionByoipCidrCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "provisionByoipCidr",
+      inputFilterLog: ProvisionByoipCidrRequest.filterSensitiveLog,
+      outputFilterLog: ProvisionByoipCidrResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

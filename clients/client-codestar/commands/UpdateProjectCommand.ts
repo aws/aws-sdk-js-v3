@@ -45,6 +45,10 @@ export class UpdateProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStar",
+      clientName: "updateProject",
+      inputFilterLog: UpdateProjectRequest.filterSensitiveLog,
+      outputFilterLog: UpdateProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

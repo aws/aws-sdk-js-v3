@@ -45,6 +45,10 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "removeRoleFromDBCluster",
+      inputFilterLog: RemoveRoleFromDBClusterMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

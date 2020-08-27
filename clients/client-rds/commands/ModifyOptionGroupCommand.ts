@@ -45,6 +45,10 @@ export class ModifyOptionGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyOptionGroup",
+      inputFilterLog: ModifyOptionGroupMessage.filterSensitiveLog,
+      outputFilterLog: ModifyOptionGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

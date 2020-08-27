@@ -49,6 +49,10 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "describeCompanyNetworkConfiguration",
+      inputFilterLog: DescribeCompanyNetworkConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

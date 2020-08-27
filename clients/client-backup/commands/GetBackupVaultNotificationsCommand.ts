@@ -45,6 +45,10 @@ export class GetBackupVaultNotificationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "getBackupVaultNotifications",
+      inputFilterLog: GetBackupVaultNotificationsInput.filterSensitiveLog,
+      outputFilterLog: GetBackupVaultNotificationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

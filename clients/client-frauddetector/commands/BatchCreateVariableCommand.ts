@@ -45,6 +45,10 @@ export class BatchCreateVariableCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "batchCreateVariable",
+      inputFilterLog: BatchCreateVariableRequest.filterSensitiveLog,
+      outputFilterLog: BatchCreateVariableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

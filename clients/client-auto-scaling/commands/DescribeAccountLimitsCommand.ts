@@ -45,6 +45,10 @@ export class DescribeAccountLimitsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describeAccountLimits",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeAccountLimitsAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

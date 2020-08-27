@@ -45,6 +45,10 @@ export class DescribeScriptCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "describeScript",
+      inputFilterLog: DescribeScriptInput.filterSensitiveLog,
+      outputFilterLog: DescribeScriptOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putConfigurationSetSuppressionOptions",
+      inputFilterLog: PutConfigurationSetSuppressionOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetSuppressionOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

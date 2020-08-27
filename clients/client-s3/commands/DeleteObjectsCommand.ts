@@ -49,6 +49,10 @@ export class DeleteObjectsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "deleteObjects",
+      inputFilterLog: DeleteObjectsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteObjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getDataCatalogEncryptionSettings",
+      inputFilterLog: GetDataCatalogEncryptionSettingsRequest.filterSensitiveLog,
+      outputFilterLog: GetDataCatalogEncryptionSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

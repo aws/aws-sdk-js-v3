@@ -45,6 +45,10 @@ export class CreateGlobalTableCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "createGlobalTable",
+      inputFilterLog: CreateGlobalTableInput.filterSensitiveLog,
+      outputFilterLog: CreateGlobalTableOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

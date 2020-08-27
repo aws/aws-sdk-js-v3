@@ -45,6 +45,10 @@ export class ListCachePoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "listCachePolicies",
+      inputFilterLog: ListCachePoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListCachePoliciesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateWorkGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "createWorkGroup",
+      inputFilterLog: CreateWorkGroupInput.filterSensitiveLog,
+      outputFilterLog: CreateWorkGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

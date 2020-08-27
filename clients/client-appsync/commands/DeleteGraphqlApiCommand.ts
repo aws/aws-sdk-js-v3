@@ -45,6 +45,10 @@ export class DeleteGraphqlApiCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "deleteGraphqlApi",
+      inputFilterLog: DeleteGraphqlApiRequest.filterSensitiveLog,
+      outputFilterLog: DeleteGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

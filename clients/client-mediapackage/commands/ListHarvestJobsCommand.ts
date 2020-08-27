@@ -45,6 +45,10 @@ export class ListHarvestJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackage",
+      clientName: "listHarvestJobs",
+      inputFilterLog: ListHarvestJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListHarvestJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

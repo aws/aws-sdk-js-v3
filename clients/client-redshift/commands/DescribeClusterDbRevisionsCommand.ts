@@ -45,6 +45,10 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeClusterDbRevisions",
+      inputFilterLog: DescribeClusterDbRevisionsMessage.filterSensitiveLog,
+      outputFilterLog: ClusterDbRevisionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

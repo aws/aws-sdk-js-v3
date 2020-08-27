@@ -45,6 +45,10 @@ export class CreateTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "createTask",
+      inputFilterLog: CreateTaskRequest.filterSensitiveLog,
+      outputFilterLog: CreateTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

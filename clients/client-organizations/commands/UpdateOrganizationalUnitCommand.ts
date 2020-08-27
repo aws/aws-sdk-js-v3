@@ -45,6 +45,10 @@ export class UpdateOrganizationalUnitCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "updateOrganizationalUnit",
+      inputFilterLog: UpdateOrganizationalUnitRequest.filterSensitiveLog,
+      outputFilterLog: UpdateOrganizationalUnitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

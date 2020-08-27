@@ -47,6 +47,10 @@ export class GetObjectAclCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getObjectAcl",
+      inputFilterLog: GetObjectAclRequest.filterSensitiveLog,
+      outputFilterLog: GetObjectAclOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

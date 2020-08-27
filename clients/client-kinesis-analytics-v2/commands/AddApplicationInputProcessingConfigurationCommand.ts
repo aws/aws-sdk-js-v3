@@ -56,6 +56,10 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "addApplicationInputProcessingConfiguration",
+      inputFilterLog: AddApplicationInputProcessingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: AddApplicationInputProcessingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateDeviceDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "updateDeviceDefinition",
+      inputFilterLog: UpdateDeviceDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDeviceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

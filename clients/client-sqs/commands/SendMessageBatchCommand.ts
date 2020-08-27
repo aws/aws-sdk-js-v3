@@ -47,6 +47,10 @@ export class SendMessageBatchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "sendMessageBatch",
+      inputFilterLog: SendMessageBatchRequest.filterSensitiveLog,
+      outputFilterLog: SendMessageBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

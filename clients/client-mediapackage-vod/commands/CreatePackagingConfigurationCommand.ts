@@ -45,6 +45,10 @@ export class CreatePackagingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackageVod",
+      clientName: "createPackagingConfiguration",
+      inputFilterLog: CreatePackagingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: CreatePackagingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

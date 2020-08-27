@@ -45,6 +45,10 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "batchGetCustomDataIdentifiers",
+      inputFilterLog: BatchGetCustomDataIdentifiersRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetCustomDataIdentifiersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

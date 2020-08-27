@@ -49,6 +49,10 @@ export class ListJobsByPipelineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticTranscoder",
+      clientName: "listJobsByPipeline",
+      inputFilterLog: ListJobsByPipelineRequest.filterSensitiveLog,
+      outputFilterLog: ListJobsByPipelineResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteConfigurationRecorderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "deleteConfigurationRecorder",
+      inputFilterLog: DeleteConfigurationRecorderRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

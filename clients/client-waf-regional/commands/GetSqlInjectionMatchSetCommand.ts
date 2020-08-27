@@ -45,6 +45,10 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "getSqlInjectionMatchSet",
+      inputFilterLog: GetSqlInjectionMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: GetSqlInjectionMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

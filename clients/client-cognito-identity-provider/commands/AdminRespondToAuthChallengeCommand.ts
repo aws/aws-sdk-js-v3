@@ -49,6 +49,10 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminRespondToAuthChallenge",
+      inputFilterLog: AdminRespondToAuthChallengeRequest.filterSensitiveLog,
+      outputFilterLog: AdminRespondToAuthChallengeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

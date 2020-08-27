@@ -45,6 +45,10 @@ export class DescribeBuildCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "describeBuild",
+      inputFilterLog: DescribeBuildInput.filterSensitiveLog,
+      outputFilterLog: DescribeBuildOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

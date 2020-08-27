@@ -45,6 +45,10 @@ export class GetReservationUtilizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostExplorer",
+      clientName: "getReservationUtilization",
+      inputFilterLog: GetReservationUtilizationRequest.filterSensitiveLog,
+      outputFilterLog: GetReservationUtilizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

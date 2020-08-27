@@ -45,6 +45,10 @@ export class ListProvisionedCapacityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "listProvisionedCapacity",
+      inputFilterLog: ListProvisionedCapacityInput.filterSensitiveLog,
+      outputFilterLog: ListProvisionedCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

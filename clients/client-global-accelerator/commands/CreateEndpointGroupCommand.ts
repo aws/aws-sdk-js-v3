@@ -49,6 +49,10 @@ export class CreateEndpointGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "createEndpointGroup",
+      inputFilterLog: CreateEndpointGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateEndpointGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "updateTemplate",
+      inputFilterLog: UpdateTemplateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

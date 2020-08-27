@@ -45,6 +45,10 @@ export class UpdateItemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "updateItem",
+      inputFilterLog: UpdateItemInput.filterSensitiveLog,
+      outputFilterLog: UpdateItemOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

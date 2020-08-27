@@ -45,6 +45,10 @@ export class ListThemesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "listThemes",
+      inputFilterLog: ListThemesRequest.filterSensitiveLog,
+      outputFilterLog: ListThemesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateCustomActionTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "createCustomActionType",
+      inputFilterLog: CreateCustomActionTypeInput.filterSensitiveLog,
+      outputFilterLog: CreateCustomActionTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

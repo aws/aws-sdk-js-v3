@@ -45,6 +45,10 @@ export class ModifyScheduledActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "modifyScheduledAction",
+      inputFilterLog: ModifyScheduledActionMessage.filterSensitiveLog,
+      outputFilterLog: ScheduledAction.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

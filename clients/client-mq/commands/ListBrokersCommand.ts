@@ -45,6 +45,10 @@ export class ListBrokersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mq",
+      clientName: "listBrokers",
+      inputFilterLog: ListBrokersRequest.filterSensitiveLog,
+      outputFilterLog: ListBrokersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

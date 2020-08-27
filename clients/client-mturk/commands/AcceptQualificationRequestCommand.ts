@@ -45,6 +45,10 @@ export class AcceptQualificationRequestCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "acceptQualificationRequest",
+      inputFilterLog: AcceptQualificationRequestRequest.filterSensitiveLog,
+      outputFilterLog: AcceptQualificationRequestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

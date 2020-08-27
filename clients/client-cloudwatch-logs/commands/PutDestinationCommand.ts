@@ -45,6 +45,10 @@ export class PutDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "putDestination",
+      inputFilterLog: PutDestinationRequest.filterSensitiveLog,
+      outputFilterLog: PutDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

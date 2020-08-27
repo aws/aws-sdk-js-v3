@@ -45,6 +45,10 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyTransitGatewayVpcAttachment",
+      inputFilterLog: ModifyTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
+      outputFilterLog: ModifyTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GroundStation",
+      clientName: "createConfig",
+      inputFilterLog: CreateConfigRequest.filterSensitiveLog,
+      outputFilterLog: ConfigIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

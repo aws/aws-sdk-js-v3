@@ -45,6 +45,10 @@ export class MergePullRequestBySquashCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "mergePullRequestBySquash",
+      inputFilterLog: MergePullRequestBySquashInput.filterSensitiveLog,
+      outputFilterLog: MergePullRequestBySquashOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

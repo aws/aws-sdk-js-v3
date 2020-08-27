@@ -52,6 +52,10 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "applySecurityGroupsToClientVpnTargetNetwork",
+      inputFilterLog: ApplySecurityGroupsToClientVpnTargetNetworkRequest.filterSensitiveLog,
+      outputFilterLog: ApplySecurityGroupsToClientVpnTargetNetworkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

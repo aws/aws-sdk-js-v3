@@ -45,6 +45,10 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "describeSentimentDetectionJob",
+      inputFilterLog: DescribeSentimentDetectionJobRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSentimentDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListQueuesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "listQueues",
+      inputFilterLog: ListQueuesRequest.filterSensitiveLog,
+      outputFilterLog: ListQueuesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

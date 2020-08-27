@@ -45,6 +45,10 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "batchGetAggregateResourceConfig",
+      inputFilterLog: BatchGetAggregateResourceConfigRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetAggregateResourceConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

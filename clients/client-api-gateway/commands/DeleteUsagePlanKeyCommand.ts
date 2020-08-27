@@ -45,6 +45,10 @@ export class DeleteUsagePlanKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "deleteUsagePlanKey",
+      inputFilterLog: DeleteUsagePlanKeyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

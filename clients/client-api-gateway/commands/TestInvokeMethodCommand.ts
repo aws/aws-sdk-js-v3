@@ -45,6 +45,10 @@ export class TestInvokeMethodCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "testInvokeMethod",
+      inputFilterLog: TestInvokeMethodRequest.filterSensitiveLog,
+      outputFilterLog: TestInvokeMethodResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

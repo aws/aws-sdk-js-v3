@@ -46,6 +46,10 @@ export class SignUpCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "signUp",
+      inputFilterLog: SignUpRequest.filterSensitiveLog,
+      outputFilterLog: SignUpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

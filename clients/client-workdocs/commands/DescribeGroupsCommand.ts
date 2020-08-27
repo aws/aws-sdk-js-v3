@@ -45,6 +45,10 @@ export class DescribeGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "describeGroups",
+      inputFilterLog: DescribeGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

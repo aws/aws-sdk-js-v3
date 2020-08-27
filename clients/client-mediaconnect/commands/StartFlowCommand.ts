@@ -45,6 +45,10 @@ export class StartFlowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "startFlow",
+      inputFilterLog: StartFlowRequest.filterSensitiveLog,
+      outputFilterLog: StartFlowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

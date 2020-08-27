@@ -45,6 +45,10 @@ export class ListComplianceStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "listComplianceStatus",
+      inputFilterLog: ListComplianceStatusRequest.filterSensitiveLog,
+      outputFilterLog: ListComplianceStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

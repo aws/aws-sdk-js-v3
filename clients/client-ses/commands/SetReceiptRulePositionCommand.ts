@@ -45,6 +45,10 @@ export class SetReceiptRulePositionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "setReceiptRulePosition",
+      inputFilterLog: SetReceiptRulePositionRequest.filterSensitiveLog,
+      outputFilterLog: SetReceiptRulePositionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

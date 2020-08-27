@@ -45,6 +45,10 @@ export class UpdateInputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTEvents",
+      clientName: "updateInput",
+      inputFilterLog: UpdateInputRequest.filterSensitiveLog,
+      outputFilterLog: UpdateInputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

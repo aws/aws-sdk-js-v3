@@ -45,6 +45,10 @@ export class DescribeDeliveryStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Firehose",
+      clientName: "describeDeliveryStream",
+      inputFilterLog: DescribeDeliveryStreamInput.filterSensitiveLog,
+      outputFilterLog: DescribeDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

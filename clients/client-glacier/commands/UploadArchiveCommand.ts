@@ -47,6 +47,10 @@ export class UploadArchiveCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "uploadArchive",
+      inputFilterLog: UploadArchiveInput.filterSensitiveLog,
+      outputFilterLog: ArchiveCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

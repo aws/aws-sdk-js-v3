@@ -53,6 +53,10 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancing",
+      clientName: "setLoadBalancerListenerSSLCertificate",
+      inputFilterLog: SetLoadBalancerListenerSSLCertificateInput.filterSensitiveLog,
+      outputFilterLog: SetLoadBalancerListenerSSLCertificateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

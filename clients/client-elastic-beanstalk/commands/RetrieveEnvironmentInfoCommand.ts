@@ -45,6 +45,10 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "retrieveEnvironmentInfo",
+      inputFilterLog: RetrieveEnvironmentInfoMessage.filterSensitiveLog,
+      outputFilterLog: RetrieveEnvironmentInfoResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeModelVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "describeModelVersions",
+      inputFilterLog: DescribeModelVersionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeModelVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,6 +47,10 @@ export class CreateBucketCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "createBucket",
+      inputFilterLog: CreateBucketRequest.filterSensitiveLog,
+      outputFilterLog: CreateBucketOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

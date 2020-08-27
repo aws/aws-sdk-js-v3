@@ -42,6 +42,10 @@ export class XmlBlobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "xmlBlobs",
+      inputFilterLog: XmlBlobsInputOutput.filterSensitiveLog,
+      outputFilterLog: XmlBlobsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

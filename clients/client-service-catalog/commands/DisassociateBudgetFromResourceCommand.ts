@@ -45,6 +45,10 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "disassociateBudgetFromResource",
+      inputFilterLog: DisassociateBudgetFromResourceInput.filterSensitiveLog,
+      outputFilterLog: DisassociateBudgetFromResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

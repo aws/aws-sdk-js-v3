@@ -45,6 +45,10 @@ export class PutBackupPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "putBackupPolicy",
+      inputFilterLog: PutBackupPolicyRequest.filterSensitiveLog,
+      outputFilterLog: BackupPolicyDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

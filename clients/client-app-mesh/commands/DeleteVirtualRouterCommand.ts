@@ -45,6 +45,10 @@ export class DeleteVirtualRouterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "deleteVirtualRouter",
+      inputFilterLog: DeleteVirtualRouterInput.filterSensitiveLog,
+      outputFilterLog: DeleteVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

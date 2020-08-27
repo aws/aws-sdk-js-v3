@@ -45,6 +45,10 @@ export class RegisterStreamConsumerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "registerStreamConsumer",
+      inputFilterLog: RegisterStreamConsumerInput.filterSensitiveLog,
+      outputFilterLog: RegisterStreamConsumerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

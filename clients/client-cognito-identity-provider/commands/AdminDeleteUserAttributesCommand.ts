@@ -49,6 +49,10 @@ export class AdminDeleteUserAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "adminDeleteUserAttributes",
+      inputFilterLog: AdminDeleteUserAttributesRequest.filterSensitiveLog,
+      outputFilterLog: AdminDeleteUserAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

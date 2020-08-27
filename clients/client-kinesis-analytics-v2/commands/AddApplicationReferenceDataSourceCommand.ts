@@ -50,6 +50,10 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "addApplicationReferenceDataSource",
+      inputFilterLog: AddApplicationReferenceDataSourceRequest.filterSensitiveLog,
+      outputFilterLog: AddApplicationReferenceDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

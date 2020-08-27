@@ -38,6 +38,10 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "verify",
+      inputFilterLog: VerifyRequest.filterSensitiveLog,
+      outputFilterLog: VerifyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

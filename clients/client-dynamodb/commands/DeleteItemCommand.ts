@@ -45,6 +45,10 @@ export class DeleteItemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "deleteItem",
+      inputFilterLog: DeleteItemInput.filterSensitiveLog,
+      outputFilterLog: DeleteItemOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

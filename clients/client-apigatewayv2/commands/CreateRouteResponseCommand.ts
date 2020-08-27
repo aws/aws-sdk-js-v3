@@ -45,6 +45,10 @@ export class CreateRouteResponseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "createRouteResponse",
+      inputFilterLog: CreateRouteResponseRequest.filterSensitiveLog,
+      outputFilterLog: CreateRouteResponseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

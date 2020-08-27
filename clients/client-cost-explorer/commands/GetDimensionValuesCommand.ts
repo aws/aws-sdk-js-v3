@@ -45,6 +45,10 @@ export class GetDimensionValuesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostExplorer",
+      clientName: "getDimensionValues",
+      inputFilterLog: GetDimensionValuesRequest.filterSensitiveLog,
+      outputFilterLog: GetDimensionValuesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

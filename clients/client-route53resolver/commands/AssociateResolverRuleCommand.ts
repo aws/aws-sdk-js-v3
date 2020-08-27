@@ -45,6 +45,10 @@ export class AssociateResolverRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "associateResolverRule",
+      inputFilterLog: AssociateResolverRuleRequest.filterSensitiveLog,
+      outputFilterLog: AssociateResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

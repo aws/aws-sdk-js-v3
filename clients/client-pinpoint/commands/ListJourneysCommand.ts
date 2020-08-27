@@ -45,6 +45,10 @@ export class ListJourneysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "listJourneys",
+      inputFilterLog: ListJourneysRequest.filterSensitiveLog,
+      outputFilterLog: ListJourneysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

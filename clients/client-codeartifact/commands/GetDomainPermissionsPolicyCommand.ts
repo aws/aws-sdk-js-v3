@@ -45,6 +45,10 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "getDomainPermissionsPolicy",
+      inputFilterLog: GetDomainPermissionsPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetDomainPermissionsPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

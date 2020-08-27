@@ -45,6 +45,10 @@ export class PutLifecycleHookCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "putLifecycleHook",
+      inputFilterLog: PutLifecycleHookType.filterSensitiveLog,
+      outputFilterLog: PutLifecycleHookAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

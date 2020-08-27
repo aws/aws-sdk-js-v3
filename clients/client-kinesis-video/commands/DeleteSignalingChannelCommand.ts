@@ -45,6 +45,10 @@ export class DeleteSignalingChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideo",
+      clientName: "deleteSignalingChannel",
+      inputFilterLog: DeleteSignalingChannelInput.filterSensitiveLog,
+      outputFilterLog: DeleteSignalingChannelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

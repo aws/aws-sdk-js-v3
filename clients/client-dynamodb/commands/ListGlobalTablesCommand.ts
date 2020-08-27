@@ -45,6 +45,10 @@ export class ListGlobalTablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "listGlobalTables",
+      inputFilterLog: ListGlobalTablesInput.filterSensitiveLog,
+      outputFilterLog: ListGlobalTablesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

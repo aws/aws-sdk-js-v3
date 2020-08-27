@@ -45,6 +45,10 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyFpgaImageAttribute",
+      inputFilterLog: ModifyFpgaImageAttributeRequest.filterSensitiveLog,
+      outputFilterLog: ModifyFpgaImageAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

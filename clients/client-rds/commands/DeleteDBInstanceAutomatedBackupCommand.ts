@@ -45,6 +45,10 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "deleteDBInstanceAutomatedBackup",
+      inputFilterLog: DeleteDBInstanceAutomatedBackupMessage.filterSensitiveLog,
+      outputFilterLog: DeleteDBInstanceAutomatedBackupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

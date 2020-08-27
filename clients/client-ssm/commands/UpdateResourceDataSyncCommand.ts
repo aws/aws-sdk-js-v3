@@ -45,6 +45,10 @@ export class UpdateResourceDataSyncCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "updateResourceDataSync",
+      inputFilterLog: UpdateResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterLog: UpdateResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

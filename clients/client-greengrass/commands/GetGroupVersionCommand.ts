@@ -45,6 +45,10 @@ export class GetGroupVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getGroupVersion",
+      inputFilterLog: GetGroupVersionRequest.filterSensitiveLog,
+      outputFilterLog: GetGroupVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

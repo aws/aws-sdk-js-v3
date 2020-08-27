@@ -46,6 +46,10 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeAssociationExecutionTargets",
+      inputFilterLog: DescribeAssociationExecutionTargetsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAssociationExecutionTargetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

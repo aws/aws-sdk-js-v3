@@ -45,6 +45,10 @@ export class DescribeCodeBindingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "describeCodeBinding",
+      inputFilterLog: DescribeCodeBindingRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCodeBindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class GetRecommendationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PersonalizeRuntime",
+      clientName: "getRecommendations",
+      inputFilterLog: GetRecommendationsRequest.filterSensitiveLog,
+      outputFilterLog: GetRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "searchAvailablePhoneNumbers",
+      inputFilterLog: SearchAvailablePhoneNumbersRequest.filterSensitiveLog,
+      outputFilterLog: SearchAvailablePhoneNumbersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeManagedPrefixListsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeManagedPrefixLists",
+      inputFilterLog: DescribeManagedPrefixListsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeManagedPrefixListsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class EnableSecurityHubCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "enableSecurityHub",
+      inputFilterLog: EnableSecurityHubRequest.filterSensitiveLog,
+      outputFilterLog: EnableSecurityHubResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

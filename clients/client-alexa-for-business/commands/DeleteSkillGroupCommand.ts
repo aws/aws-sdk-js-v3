@@ -45,6 +45,10 @@ export class DeleteSkillGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteSkillGroup",
+      inputFilterLog: DeleteSkillGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

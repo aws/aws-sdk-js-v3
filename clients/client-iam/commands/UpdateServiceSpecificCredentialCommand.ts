@@ -45,6 +45,10 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "updateServiceSpecificCredential",
+      inputFilterLog: UpdateServiceSpecificCredentialRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StartDataSourceSyncJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "startDataSourceSyncJob",
+      inputFilterLog: StartDataSourceSyncJobRequest.filterSensitiveLog,
+      outputFilterLog: StartDataSourceSyncJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

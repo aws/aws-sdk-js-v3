@@ -45,6 +45,10 @@ export class GetActivityTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "getActivityTask",
+      inputFilterLog: GetActivityTaskInput.filterSensitiveLog,
+      outputFilterLog: GetActivityTaskOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

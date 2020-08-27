@@ -45,6 +45,10 @@ export class DescribeBackupJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "describeBackupJob",
+      inputFilterLog: DescribeBackupJobInput.filterSensitiveLog,
+      outputFilterLog: DescribeBackupJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

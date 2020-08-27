@@ -45,6 +45,10 @@ export class RecordHandlerProgressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "recordHandlerProgress",
+      inputFilterLog: RecordHandlerProgressInput.filterSensitiveLog,
+      outputFilterLog: RecordHandlerProgressOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

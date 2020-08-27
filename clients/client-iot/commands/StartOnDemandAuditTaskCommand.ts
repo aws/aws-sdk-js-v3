@@ -45,6 +45,10 @@ export class StartOnDemandAuditTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "startOnDemandAuditTask",
+      inputFilterLog: StartOnDemandAuditTaskRequest.filterSensitiveLog,
+      outputFilterLog: StartOnDemandAuditTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

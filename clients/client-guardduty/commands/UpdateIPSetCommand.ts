@@ -45,6 +45,10 @@ export class UpdateIPSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "updateIPSet",
+      inputFilterLog: UpdateIPSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

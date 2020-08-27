@@ -45,6 +45,10 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "allocateTransitVirtualInterface",
+      inputFilterLog: AllocateTransitVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: AllocateTransitVirtualInterfaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

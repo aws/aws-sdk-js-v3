@@ -45,6 +45,10 @@ export class DisableInsightRulesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "disableInsightRules",
+      inputFilterLog: DisableInsightRulesInput.filterSensitiveLog,
+      outputFilterLog: DisableInsightRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

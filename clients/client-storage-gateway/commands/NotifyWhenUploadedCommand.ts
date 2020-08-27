@@ -45,6 +45,10 @@ export class NotifyWhenUploadedCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "notifyWhenUploaded",
+      inputFilterLog: NotifyWhenUploadedInput.filterSensitiveLog,
+      outputFilterLog: NotifyWhenUploadedOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

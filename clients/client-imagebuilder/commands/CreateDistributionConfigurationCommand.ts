@@ -45,6 +45,10 @@ export class CreateDistributionConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "createDistributionConfiguration",
+      inputFilterLog: CreateDistributionConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: CreateDistributionConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

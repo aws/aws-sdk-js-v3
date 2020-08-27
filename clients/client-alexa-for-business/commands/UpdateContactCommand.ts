@@ -45,6 +45,10 @@ export class UpdateContactCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "updateContact",
+      inputFilterLog: UpdateContactRequest.filterSensitiveLog,
+      outputFilterLog: UpdateContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

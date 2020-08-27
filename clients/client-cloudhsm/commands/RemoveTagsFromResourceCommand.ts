@@ -45,6 +45,10 @@ export class RemoveTagsFromResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSM",
+      clientName: "removeTagsFromResource",
+      inputFilterLog: RemoveTagsFromResourceRequest.filterSensitiveLog,
+      outputFilterLog: RemoveTagsFromResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

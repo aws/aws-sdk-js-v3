@@ -49,6 +49,10 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ComputeOptimizer",
+      clientName: "getEC2RecommendationProjectedMetrics",
+      inputFilterLog: GetEC2RecommendationProjectedMetricsRequest.filterSensitiveLog,
+      outputFilterLog: GetEC2RecommendationProjectedMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

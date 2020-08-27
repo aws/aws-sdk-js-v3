@@ -45,6 +45,10 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "evaluatePullRequestApprovalRules",
+      inputFilterLog: EvaluatePullRequestApprovalRulesInput.filterSensitiveLog,
+      outputFilterLog: EvaluatePullRequestApprovalRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateTestGridProjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "updateTestGridProject",
+      inputFilterLog: UpdateTestGridProjectRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTestGridProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

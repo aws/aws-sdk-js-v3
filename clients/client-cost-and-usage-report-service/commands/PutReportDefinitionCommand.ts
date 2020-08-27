@@ -49,6 +49,10 @@ export class PutReportDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostAndUsageReportService",
+      clientName: "putReportDefinition",
+      inputFilterLog: PutReportDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: PutReportDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateNotificationSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "createNotificationSubscription",
+      inputFilterLog: CreateNotificationSubscriptionRequest.filterSensitiveLog,
+      outputFilterLog: CreateNotificationSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

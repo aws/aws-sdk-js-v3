@@ -45,6 +45,10 @@ export class DescribeIpGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "describeIpGroups",
+      inputFilterLog: DescribeIpGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

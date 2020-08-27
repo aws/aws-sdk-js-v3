@@ -45,6 +45,10 @@ export class RegisterCertificateWithoutCACommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "registerCertificateWithoutCA",
+      inputFilterLog: RegisterCertificateWithoutCARequest.filterSensitiveLog,
+      outputFilterLog: RegisterCertificateWithoutCAResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

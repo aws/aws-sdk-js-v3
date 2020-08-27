@@ -45,6 +45,10 @@ export class DeleteSimulationApplicationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "deleteSimulationApplication",
+      inputFilterLog: DeleteSimulationApplicationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSimulationApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteInterconnectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "deleteInterconnect",
+      inputFilterLog: DeleteInterconnectRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInterconnectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

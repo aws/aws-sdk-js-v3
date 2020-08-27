@@ -45,6 +45,10 @@ export class DescribeAcceleratorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticInference",
+      clientName: "describeAccelerators",
+      inputFilterLog: DescribeAcceleratorsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAcceleratorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

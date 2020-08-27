@@ -45,6 +45,10 @@ export class GetVoiceTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getVoiceTemplate",
+      inputFilterLog: GetVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

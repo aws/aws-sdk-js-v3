@@ -49,6 +49,10 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeRefreshSchemasStatus",
+      inputFilterLog: DescribeRefreshSchemasStatusMessage.filterSensitiveLog,
+      outputFilterLog: DescribeRefreshSchemasStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

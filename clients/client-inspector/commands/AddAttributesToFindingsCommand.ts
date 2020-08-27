@@ -45,6 +45,10 @@ export class AddAttributesToFindingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "addAttributesToFindings",
+      inputFilterLog: AddAttributesToFindingsRequest.filterSensitiveLog,
+      outputFilterLog: AddAttributesToFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

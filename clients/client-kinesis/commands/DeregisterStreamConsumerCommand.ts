@@ -45,6 +45,10 @@ export class DeregisterStreamConsumerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kinesis",
+      clientName: "deregisterStreamConsumer",
+      inputFilterLog: DeregisterStreamConsumerInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

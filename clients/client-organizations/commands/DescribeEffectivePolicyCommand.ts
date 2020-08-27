@@ -45,6 +45,10 @@ export class DescribeEffectivePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "describeEffectivePolicy",
+      inputFilterLog: DescribeEffectivePolicyRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEffectivePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

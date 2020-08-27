@@ -45,6 +45,10 @@ export class DescribeSMBFileSharesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeSMBFileShares",
+      inputFilterLog: DescribeSMBFileSharesInput.filterSensitiveLog,
+      outputFilterLog: DescribeSMBFileSharesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

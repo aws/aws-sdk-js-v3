@@ -49,6 +49,10 @@ export class StartReplicationTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "startReplicationTask",
+      inputFilterLog: StartReplicationTaskMessage.filterSensitiveLog,
+      outputFilterLog: StartReplicationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

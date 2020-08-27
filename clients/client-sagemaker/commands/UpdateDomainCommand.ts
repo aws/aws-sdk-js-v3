@@ -45,6 +45,10 @@ export class UpdateDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "updateDomain",
+      inputFilterLog: UpdateDomainRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

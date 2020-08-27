@@ -45,6 +45,10 @@ export class AddThingToThingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "addThingToThingGroup",
+      inputFilterLog: AddThingToThingGroupRequest.filterSensitiveLog,
+      outputFilterLog: AddThingToThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

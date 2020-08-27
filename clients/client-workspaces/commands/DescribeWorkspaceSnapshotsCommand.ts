@@ -45,6 +45,10 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "describeWorkspaceSnapshots",
+      inputFilterLog: DescribeWorkspaceSnapshotsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeWorkspaceSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateModelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "createModel",
+      inputFilterLog: CreateModelRequest.filterSensitiveLog,
+      outputFilterLog: CreateModelResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

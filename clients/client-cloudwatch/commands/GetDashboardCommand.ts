@@ -42,6 +42,10 @@ export class GetDashboardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "getDashboard",
+      inputFilterLog: GetDashboardInput.filterSensitiveLog,
+      outputFilterLog: GetDashboardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

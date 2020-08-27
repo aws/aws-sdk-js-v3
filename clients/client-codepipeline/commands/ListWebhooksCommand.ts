@@ -45,6 +45,10 @@ export class ListWebhooksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "listWebhooks",
+      inputFilterLog: ListWebhooksInput.filterSensitiveLog,
+      outputFilterLog: ListWebhooksOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

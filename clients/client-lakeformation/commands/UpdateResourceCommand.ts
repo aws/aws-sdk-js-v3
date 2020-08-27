@@ -45,6 +45,10 @@ export class UpdateResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LakeFormation",
+      clientName: "updateResource",
+      inputFilterLog: UpdateResourceRequest.filterSensitiveLog,
+      outputFilterLog: UpdateResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

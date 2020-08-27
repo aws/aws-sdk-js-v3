@@ -45,6 +45,10 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "disassociateEnvironmentOperationsRole",
+      inputFilterLog: DisassociateEnvironmentOperationsRoleMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

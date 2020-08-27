@@ -45,6 +45,10 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "listPhoneNumbersOptedOut",
+      inputFilterLog: ListPhoneNumbersOptedOutInput.filterSensitiveLog,
+      outputFilterLog: ListPhoneNumbersOptedOutResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

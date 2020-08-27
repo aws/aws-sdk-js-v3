@@ -42,6 +42,10 @@ export class UpdateJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Snowball",
+      clientName: "updateJob",
+      inputFilterLog: UpdateJobRequest.filterSensitiveLog,
+      outputFilterLog: UpdateJobResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

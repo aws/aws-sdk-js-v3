@@ -45,6 +45,10 @@ export class UpdateAutoScalingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "updateAutoScalingGroup",
+      inputFilterLog: UpdateAutoScalingGroupType.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

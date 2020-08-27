@@ -38,6 +38,10 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteVpc",
+      inputFilterLog: DeleteVpcRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

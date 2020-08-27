@@ -45,6 +45,10 @@ export class SetTaskStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataPipeline",
+      clientName: "setTaskStatus",
+      inputFilterLog: SetTaskStatusInput.filterSensitiveLog,
+      outputFilterLog: SetTaskStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

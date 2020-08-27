@@ -45,6 +45,10 @@ export class DescribeChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "describeChannel",
+      inputFilterLog: DescribeChannelRequest.filterSensitiveLog,
+      outputFilterLog: DescribeChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

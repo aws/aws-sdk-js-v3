@@ -45,6 +45,10 @@ export class ListNamespacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "listNamespaces",
+      inputFilterLog: ListNamespacesRequest.filterSensitiveLog,
+      outputFilterLog: ListNamespacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

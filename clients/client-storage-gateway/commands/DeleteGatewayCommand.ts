@@ -45,6 +45,10 @@ export class DeleteGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "deleteGateway",
+      inputFilterLog: DeleteGatewayInput.filterSensitiveLog,
+      outputFilterLog: DeleteGatewayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

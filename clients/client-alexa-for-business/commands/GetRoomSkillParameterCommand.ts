@@ -45,6 +45,10 @@ export class GetRoomSkillParameterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getRoomSkillParameter",
+      inputFilterLog: GetRoomSkillParameterRequest.filterSensitiveLog,
+      outputFilterLog: GetRoomSkillParameterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

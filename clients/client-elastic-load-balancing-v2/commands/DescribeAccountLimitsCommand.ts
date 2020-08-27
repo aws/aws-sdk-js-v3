@@ -49,6 +49,10 @@ export class DescribeAccountLimitsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "describeAccountLimits",
+      inputFilterLog: DescribeAccountLimitsInput.filterSensitiveLog,
+      outputFilterLog: DescribeAccountLimitsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

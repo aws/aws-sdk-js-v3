@@ -42,6 +42,10 @@ export class StopQueryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "stopQuery",
+      inputFilterLog: StopQueryRequest.filterSensitiveLog,
+      outputFilterLog: StopQueryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

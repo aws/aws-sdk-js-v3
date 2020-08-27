@@ -45,6 +45,10 @@ export class RequestUploadCredentialsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "requestUploadCredentials",
+      inputFilterLog: RequestUploadCredentialsInput.filterSensitiveLog,
+      outputFilterLog: RequestUploadCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

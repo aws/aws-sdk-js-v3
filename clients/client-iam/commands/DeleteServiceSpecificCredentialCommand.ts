@@ -45,6 +45,10 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteServiceSpecificCredential",
+      inputFilterLog: DeleteServiceSpecificCredentialRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

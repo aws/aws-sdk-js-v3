@@ -45,6 +45,10 @@ export class ListPlatformBranchesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "listPlatformBranches",
+      inputFilterLog: ListPlatformBranchesRequest.filterSensitiveLog,
+      outputFilterLog: ListPlatformBranchesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

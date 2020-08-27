@@ -45,6 +45,10 @@ export class CreateMeetingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "createMeeting",
+      inputFilterLog: CreateMeetingRequest.filterSensitiveLog,
+      outputFilterLog: CreateMeetingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateEndpointsBatchCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "updateEndpointsBatch",
+      inputFilterLog: UpdateEndpointsBatchRequest.filterSensitiveLog,
+      outputFilterLog: UpdateEndpointsBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyInstanceMetadataOptions",
+      inputFilterLog: ModifyInstanceMetadataOptionsRequest.filterSensitiveLog,
+      outputFilterLog: ModifyInstanceMetadataOptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

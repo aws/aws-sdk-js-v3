@@ -45,6 +45,10 @@ export class GetAssociatedRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getAssociatedRole",
+      inputFilterLog: GetAssociatedRoleRequest.filterSensitiveLog,
+      outputFilterLog: GetAssociatedRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

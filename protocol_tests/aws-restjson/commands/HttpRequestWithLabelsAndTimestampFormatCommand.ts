@@ -48,6 +48,10 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "httpRequestWithLabelsAndTimestampFormat",
+      inputFilterLog: HttpRequestWithLabelsAndTimestampFormatInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,6 +48,10 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "updateConfigurationSetReputationMetricsEnabled",
+      inputFilterLog: UpdateConfigurationSetReputationMetricsEnabledRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

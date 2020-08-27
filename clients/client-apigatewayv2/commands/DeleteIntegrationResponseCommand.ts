@@ -45,6 +45,10 @@ export class DeleteIntegrationResponseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "deleteIntegrationResponse",
+      inputFilterLog: DeleteIntegrationResponseRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

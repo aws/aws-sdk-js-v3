@@ -45,6 +45,10 @@ export class NotifyWorkersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "notifyWorkers",
+      inputFilterLog: NotifyWorkersRequest.filterSensitiveLog,
+      outputFilterLog: NotifyWorkersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

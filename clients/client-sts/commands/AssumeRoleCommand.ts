@@ -42,6 +42,10 @@ export class AssumeRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "STS",
+      clientName: "assumeRole",
+      inputFilterLog: AssumeRoleRequest.filterSensitiveLog,
+      outputFilterLog: AssumeRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

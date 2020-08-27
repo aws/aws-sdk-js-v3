@@ -45,6 +45,10 @@ export class CreateLocationSmbCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "createLocationSmb",
+      inputFilterLog: CreateLocationSmbRequest.filterSensitiveLog,
+      outputFilterLog: CreateLocationSmbResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

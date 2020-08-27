@@ -45,6 +45,10 @@ export class IssueCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ACMPCA",
+      clientName: "issueCertificate",
+      inputFilterLog: IssueCertificateRequest.filterSensitiveLog,
+      outputFilterLog: IssueCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

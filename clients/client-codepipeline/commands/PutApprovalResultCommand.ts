@@ -45,6 +45,10 @@ export class PutApprovalResultCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "putApprovalResult",
+      inputFilterLog: PutApprovalResultInput.filterSensitiveLog,
+      outputFilterLog: PutApprovalResultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

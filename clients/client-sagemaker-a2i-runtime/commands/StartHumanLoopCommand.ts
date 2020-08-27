@@ -49,6 +49,10 @@ export class StartHumanLoopCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMakerA2IRuntime",
+      clientName: "startHumanLoop",
+      inputFilterLog: StartHumanLoopRequest.filterSensitiveLog,
+      outputFilterLog: StartHumanLoopResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

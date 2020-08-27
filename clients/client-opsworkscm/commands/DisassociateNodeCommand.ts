@@ -45,6 +45,10 @@ export class DisassociateNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "disassociateNode",
+      inputFilterLog: DisassociateNodeRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateNodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

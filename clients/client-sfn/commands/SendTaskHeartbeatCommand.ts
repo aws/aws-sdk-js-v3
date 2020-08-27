@@ -45,6 +45,10 @@ export class SendTaskHeartbeatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "sendTaskHeartbeat",
+      inputFilterLog: SendTaskHeartbeatInput.filterSensitiveLog,
+      outputFilterLog: SendTaskHeartbeatOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

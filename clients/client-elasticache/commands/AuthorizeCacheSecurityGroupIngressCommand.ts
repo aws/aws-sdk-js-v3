@@ -46,6 +46,10 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "authorizeCacheSecurityGroupIngress",
+      inputFilterLog: AuthorizeCacheSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterLog: AuthorizeCacheSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

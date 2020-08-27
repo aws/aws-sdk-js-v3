@@ -45,6 +45,10 @@ export class DescribeLedgerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "describeLedger",
+      inputFilterLog: DescribeLedgerRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLedgerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeDataSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "describeDataSet",
+      inputFilterLog: DescribeDataSetRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDataSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

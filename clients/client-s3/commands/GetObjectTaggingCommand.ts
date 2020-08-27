@@ -47,6 +47,10 @@ export class GetObjectTaggingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getObjectTagging",
+      inputFilterLog: GetObjectTaggingRequest.filterSensitiveLog,
+      outputFilterLog: GetObjectTaggingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

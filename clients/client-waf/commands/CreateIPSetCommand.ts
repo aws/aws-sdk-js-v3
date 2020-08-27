@@ -45,6 +45,10 @@ export class CreateIPSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "createIPSet",
+      inputFilterLog: CreateIPSetRequest.filterSensitiveLog,
+      outputFilterLog: CreateIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class ListNotificationRulesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodestarNotifications",
+      clientName: "listNotificationRules",
+      inputFilterLog: ListNotificationRulesRequest.filterSensitiveLog,
+      outputFilterLog: ListNotificationRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

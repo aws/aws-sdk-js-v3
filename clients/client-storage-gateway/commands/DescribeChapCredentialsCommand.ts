@@ -45,6 +45,10 @@ export class DescribeChapCredentialsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeChapCredentials",
+      inputFilterLog: DescribeChapCredentialsInput.filterSensitiveLog,
+      outputFilterLog: DescribeChapCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

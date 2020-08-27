@@ -45,6 +45,10 @@ export class DeleteFileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "deleteFile",
+      inputFilterLog: DeleteFileInput.filterSensitiveLog,
+      outputFilterLog: DeleteFileOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

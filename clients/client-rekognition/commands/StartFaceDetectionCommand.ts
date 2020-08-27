@@ -45,6 +45,10 @@ export class StartFaceDetectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "startFaceDetection",
+      inputFilterLog: StartFaceDetectionRequest.filterSensitiveLog,
+      outputFilterLog: StartFaceDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

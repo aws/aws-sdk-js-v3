@@ -45,6 +45,10 @@ export class CreateGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "createGroup",
+      inputFilterLog: CreateGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

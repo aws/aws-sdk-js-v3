@@ -45,6 +45,10 @@ export class DeregisterEventTopicCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "deregisterEventTopic",
+      inputFilterLog: DeregisterEventTopicRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterEventTopicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateMultiplexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "updateMultiplex",
+      inputFilterLog: UpdateMultiplexRequest.filterSensitiveLog,
+      outputFilterLog: UpdateMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

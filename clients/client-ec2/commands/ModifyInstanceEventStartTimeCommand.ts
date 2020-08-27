@@ -45,6 +45,10 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyInstanceEventStartTime",
+      inputFilterLog: ModifyInstanceEventStartTimeRequest.filterSensitiveLog,
+      outputFilterLog: ModifyInstanceEventStartTimeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

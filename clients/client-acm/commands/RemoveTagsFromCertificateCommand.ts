@@ -45,6 +45,10 @@ export class RemoveTagsFromCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ACM",
+      clientName: "removeTagsFromCertificate",
+      inputFilterLog: RemoveTagsFromCertificateRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

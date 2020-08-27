@@ -45,6 +45,10 @@ export class ListBonusPaymentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "listBonusPayments",
+      inputFilterLog: ListBonusPaymentsRequest.filterSensitiveLog,
+      outputFilterLog: ListBonusPaymentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

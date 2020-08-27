@@ -45,6 +45,10 @@ export class DescribeDBClustersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "describeDBClusters",
+      inputFilterLog: DescribeDBClustersMessage.filterSensitiveLog,
+      outputFilterLog: DBClusterMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

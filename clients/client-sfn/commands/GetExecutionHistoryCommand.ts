@@ -45,6 +45,10 @@ export class GetExecutionHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SFN",
+      clientName: "getExecutionHistory",
+      inputFilterLog: GetExecutionHistoryInput.filterSensitiveLog,
+      outputFilterLog: GetExecutionHistoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deregisterTaskFromMaintenanceWindow",
+      inputFilterLog: DeregisterTaskFromMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterTaskFromMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

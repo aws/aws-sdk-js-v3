@@ -45,6 +45,10 @@ export class TagResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "tagResource",
+      inputFilterLog: TagResourceInput.filterSensitiveLog,
+      outputFilterLog: TagResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

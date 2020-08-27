@@ -45,6 +45,10 @@ export class ListLunaClientsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSM",
+      clientName: "listLunaClients",
+      inputFilterLog: ListLunaClientsRequest.filterSensitiveLog,
+      outputFilterLog: ListLunaClientsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

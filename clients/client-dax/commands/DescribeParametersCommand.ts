@@ -45,6 +45,10 @@ export class DescribeParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "describeParameters",
+      inputFilterLog: DescribeParametersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

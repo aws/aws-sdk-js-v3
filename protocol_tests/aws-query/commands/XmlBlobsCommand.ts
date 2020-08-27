@@ -42,6 +42,10 @@ export class XmlBlobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QueryProtocol",
+      clientName: "xmlBlobs",
+      inputFilterLog: (input) => input,
+      outputFilterLog: XmlBlobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

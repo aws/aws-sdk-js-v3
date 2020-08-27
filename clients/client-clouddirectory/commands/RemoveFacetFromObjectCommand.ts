@@ -45,6 +45,10 @@ export class RemoveFacetFromObjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "removeFacetFromObject",
+      inputFilterLog: RemoveFacetFromObjectRequest.filterSensitiveLog,
+      outputFilterLog: RemoveFacetFromObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

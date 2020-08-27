@@ -38,6 +38,10 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "putPolicy",
+      inputFilterLog: PutPolicyRequest.filterSensitiveLog,
+      outputFilterLog: PutPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

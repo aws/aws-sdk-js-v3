@@ -49,6 +49,10 @@ export class StartApplicationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "startApplication",
+      inputFilterLog: StartApplicationRequest.filterSensitiveLog,
+      outputFilterLog: StartApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

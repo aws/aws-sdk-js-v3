@@ -45,6 +45,10 @@ export class PutPlaybackConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaTailor",
+      clientName: "putPlaybackConfiguration",
+      inputFilterLog: PutPlaybackConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutPlaybackConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

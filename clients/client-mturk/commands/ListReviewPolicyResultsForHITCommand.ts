@@ -45,6 +45,10 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "listReviewPolicyResultsForHIT",
+      inputFilterLog: ListReviewPolicyResultsForHITRequest.filterSensitiveLog,
+      outputFilterLog: ListReviewPolicyResultsForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

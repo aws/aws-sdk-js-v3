@@ -45,6 +45,10 @@ export class GetVocabularyFilterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "getVocabularyFilter",
+      inputFilterLog: GetVocabularyFilterRequest.filterSensitiveLog,
+      outputFilterLog: GetVocabularyFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

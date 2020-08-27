@@ -45,6 +45,10 @@ export class GetCommentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "getComment",
+      inputFilterLog: GetCommentInput.filterSensitiveLog,
+      outputFilterLog: GetCommentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

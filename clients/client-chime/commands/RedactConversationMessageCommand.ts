@@ -45,6 +45,10 @@ export class RedactConversationMessageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "redactConversationMessage",
+      inputFilterLog: RedactConversationMessageRequest.filterSensitiveLog,
+      outputFilterLog: RedactConversationMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

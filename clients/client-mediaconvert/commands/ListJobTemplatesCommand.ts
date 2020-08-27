@@ -45,6 +45,10 @@ export class ListJobTemplatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "listJobTemplates",
+      inputFilterLog: ListJobTemplatesRequest.filterSensitiveLog,
+      outputFilterLog: ListJobTemplatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

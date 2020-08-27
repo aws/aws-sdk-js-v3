@@ -45,6 +45,10 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "detachInstancesFromLoadBalancer",
+      inputFilterLog: DetachInstancesFromLoadBalancerRequest.filterSensitiveLog,
+      outputFilterLog: DetachInstancesFromLoadBalancerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

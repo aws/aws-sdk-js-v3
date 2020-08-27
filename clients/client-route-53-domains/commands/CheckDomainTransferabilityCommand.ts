@@ -45,6 +45,10 @@ export class CheckDomainTransferabilityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "checkDomainTransferability",
+      inputFilterLog: CheckDomainTransferabilityRequest.filterSensitiveLog,
+      outputFilterLog: CheckDomainTransferabilityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

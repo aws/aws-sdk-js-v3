@@ -45,6 +45,10 @@ export class ListAssessmentRunsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "listAssessmentRuns",
+      inputFilterLog: ListAssessmentRunsRequest.filterSensitiveLog,
+      outputFilterLog: ListAssessmentRunsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

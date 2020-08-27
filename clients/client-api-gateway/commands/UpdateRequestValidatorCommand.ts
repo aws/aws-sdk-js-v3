@@ -45,6 +45,10 @@ export class UpdateRequestValidatorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "updateRequestValidator",
+      inputFilterLog: UpdateRequestValidatorRequest.filterSensitiveLog,
+      outputFilterLog: RequestValidator.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

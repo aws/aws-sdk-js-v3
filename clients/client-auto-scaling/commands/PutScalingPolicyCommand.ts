@@ -45,6 +45,10 @@ export class PutScalingPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "putScalingPolicy",
+      inputFilterLog: PutScalingPolicyType.filterSensitiveLog,
+      outputFilterLog: PolicyARNType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

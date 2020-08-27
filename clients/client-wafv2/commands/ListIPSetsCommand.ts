@@ -45,6 +45,10 @@ export class ListIPSetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "listIPSets",
+      inputFilterLog: ListIPSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListIPSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

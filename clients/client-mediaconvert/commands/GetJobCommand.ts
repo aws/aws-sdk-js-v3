@@ -38,6 +38,10 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "getJob",
+      inputFilterLog: GetJobRequest.filterSensitiveLog,
+      outputFilterLog: GetJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

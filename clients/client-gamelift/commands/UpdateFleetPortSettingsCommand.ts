@@ -45,6 +45,10 @@ export class UpdateFleetPortSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "updateFleetPortSettings",
+      inputFilterLog: UpdateFleetPortSettingsInput.filterSensitiveLog,
+      outputFilterLog: UpdateFleetPortSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

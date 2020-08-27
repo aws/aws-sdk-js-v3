@@ -45,6 +45,10 @@ export class ModifyCapacityReservationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyCapacityReservation",
+      inputFilterLog: ModifyCapacityReservationRequest.filterSensitiveLog,
+      outputFilterLog: ModifyCapacityReservationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

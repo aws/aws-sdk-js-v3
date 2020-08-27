@@ -45,6 +45,10 @@ export class GetDownloadUrlForLayerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "getDownloadUrlForLayer",
+      inputFilterLog: GetDownloadUrlForLayerRequest.filterSensitiveLog,
+      outputFilterLog: GetDownloadUrlForLayerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

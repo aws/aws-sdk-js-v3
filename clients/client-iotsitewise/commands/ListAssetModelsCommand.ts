@@ -45,6 +45,10 @@ export class ListAssetModelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "listAssetModels",
+      inputFilterLog: ListAssetModelsRequest.filterSensitiveLog,
+      outputFilterLog: ListAssetModelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

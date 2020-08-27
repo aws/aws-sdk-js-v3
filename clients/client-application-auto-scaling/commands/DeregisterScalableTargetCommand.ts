@@ -49,6 +49,10 @@ export class DeregisterScalableTargetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationAutoScaling",
+      clientName: "deregisterScalableTarget",
+      inputFilterLog: DeregisterScalableTargetRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterScalableTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

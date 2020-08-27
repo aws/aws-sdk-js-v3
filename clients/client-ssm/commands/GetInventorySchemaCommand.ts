@@ -45,6 +45,10 @@ export class GetInventorySchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "getInventorySchema",
+      inputFilterLog: GetInventorySchemaRequest.filterSensitiveLog,
+      outputFilterLog: GetInventorySchemaResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

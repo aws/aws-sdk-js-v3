@@ -49,6 +49,10 @@ export class GetBotAliasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexModelBuildingService",
+      clientName: "getBotAliases",
+      inputFilterLog: GetBotAliasesRequest.filterSensitiveLog,
+      outputFilterLog: GetBotAliasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

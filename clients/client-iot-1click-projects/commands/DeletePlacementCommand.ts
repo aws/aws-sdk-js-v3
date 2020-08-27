@@ -49,6 +49,10 @@ export class DeletePlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickProjects",
+      clientName: "deletePlacement",
+      inputFilterLog: DeletePlacementRequest.filterSensitiveLog,
+      outputFilterLog: DeletePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

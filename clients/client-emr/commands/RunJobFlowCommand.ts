@@ -45,6 +45,10 @@ export class RunJobFlowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "runJobFlow",
+      inputFilterLog: RunJobFlowInput.filterSensitiveLog,
+      outputFilterLog: RunJobFlowOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

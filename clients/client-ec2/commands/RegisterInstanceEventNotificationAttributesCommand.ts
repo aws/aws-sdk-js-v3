@@ -52,6 +52,10 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "registerInstanceEventNotificationAttributes",
+      inputFilterLog: RegisterInstanceEventNotificationAttributesRequest.filterSensitiveLog,
+      outputFilterLog: RegisterInstanceEventNotificationAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

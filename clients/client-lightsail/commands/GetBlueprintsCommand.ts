@@ -45,6 +45,10 @@ export class GetBlueprintsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getBlueprints",
+      inputFilterLog: GetBlueprintsRequest.filterSensitiveLog,
+      outputFilterLog: GetBlueprintsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,6 +47,10 @@ export class ListMultipartUploadsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "listMultipartUploads",
+      inputFilterLog: ListMultipartUploadsRequest.filterSensitiveLog,
+      outputFilterLog: ListMultipartUploadsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

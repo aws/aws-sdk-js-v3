@@ -49,6 +49,10 @@ export class ListGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "listGroups",
+      inputFilterLog: ListGroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

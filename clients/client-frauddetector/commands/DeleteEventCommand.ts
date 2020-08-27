@@ -45,6 +45,10 @@ export class DeleteEventCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "deleteEvent",
+      inputFilterLog: DeleteEventRequest.filterSensitiveLog,
+      outputFilterLog: DeleteEventResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

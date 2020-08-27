@@ -45,6 +45,10 @@ export class DisassociateIpGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "disassociateIpGroups",
+      inputFilterLog: DisassociateIpGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

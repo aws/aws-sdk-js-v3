@@ -45,6 +45,10 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "associateSubnetCidrBlock",
+      inputFilterLog: AssociateSubnetCidrBlockRequest.filterSensitiveLog,
+      outputFilterLog: AssociateSubnetCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

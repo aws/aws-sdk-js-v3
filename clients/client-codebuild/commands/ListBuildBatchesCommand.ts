@@ -45,6 +45,10 @@ export class ListBuildBatchesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "listBuildBatches",
+      inputFilterLog: ListBuildBatchesInput.filterSensitiveLog,
+      outputFilterLog: ListBuildBatchesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

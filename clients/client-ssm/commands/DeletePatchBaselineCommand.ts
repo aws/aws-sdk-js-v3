@@ -45,6 +45,10 @@ export class DeletePatchBaselineCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "deletePatchBaseline",
+      inputFilterLog: DeletePatchBaselineRequest.filterSensitiveLog,
+      outputFilterLog: DeletePatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

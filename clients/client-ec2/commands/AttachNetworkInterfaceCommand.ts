@@ -45,6 +45,10 @@ export class AttachNetworkInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "attachNetworkInterface",
+      inputFilterLog: AttachNetworkInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: AttachNetworkInterfaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

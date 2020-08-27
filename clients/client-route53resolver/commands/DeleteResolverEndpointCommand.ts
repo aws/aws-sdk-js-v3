@@ -45,6 +45,10 @@ export class DeleteResolverEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "deleteResolverEndpoint",
+      inputFilterLog: DeleteResolverEndpointRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResolverEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

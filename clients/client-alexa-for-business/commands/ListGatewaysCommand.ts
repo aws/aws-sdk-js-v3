@@ -45,6 +45,10 @@ export class ListGatewaysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "listGateways",
+      inputFilterLog: ListGatewaysRequest.filterSensitiveLog,
+      outputFilterLog: ListGatewaysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

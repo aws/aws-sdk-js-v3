@@ -49,6 +49,10 @@ export class PostTextCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LexRuntimeService",
+      clientName: "postText",
+      inputFilterLog: PostTextRequest.filterSensitiveLog,
+      outputFilterLog: PostTextResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

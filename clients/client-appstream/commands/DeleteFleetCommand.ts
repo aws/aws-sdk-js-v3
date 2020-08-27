@@ -45,6 +45,10 @@ export class DeleteFleetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "deleteFleet",
+      inputFilterLog: DeleteFleetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

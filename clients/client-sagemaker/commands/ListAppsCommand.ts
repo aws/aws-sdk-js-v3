@@ -42,6 +42,10 @@ export class ListAppsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "listApps",
+      inputFilterLog: ListAppsRequest.filterSensitiveLog,
+      outputFilterLog: ListAppsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

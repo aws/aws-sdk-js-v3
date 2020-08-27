@@ -45,6 +45,10 @@ export class GetResourcePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "getResourcePolicy",
+      inputFilterLog: GetResourcePolicyInput.filterSensitiveLog,
+      outputFilterLog: GetResourcePolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

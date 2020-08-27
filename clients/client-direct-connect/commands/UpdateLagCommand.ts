@@ -42,6 +42,10 @@ export class UpdateLagCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "updateLag",
+      inputFilterLog: UpdateLagRequest.filterSensitiveLog,
+      outputFilterLog: Lag.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

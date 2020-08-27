@@ -45,6 +45,10 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "forgetSmartHomeAppliances",
+      inputFilterLog: ForgetSmartHomeAppliancesRequest.filterSensitiveLog,
+      outputFilterLog: ForgetSmartHomeAppliancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

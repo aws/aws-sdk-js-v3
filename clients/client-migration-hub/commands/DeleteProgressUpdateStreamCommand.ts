@@ -45,6 +45,10 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHub",
+      clientName: "deleteProgressUpdateStream",
+      inputFilterLog: DeleteProgressUpdateStreamRequest.filterSensitiveLog,
+      outputFilterLog: DeleteProgressUpdateStreamResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

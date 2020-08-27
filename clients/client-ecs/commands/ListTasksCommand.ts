@@ -38,6 +38,10 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "listTasks",
+      inputFilterLog: ListTasksRequest.filterSensitiveLog,
+      outputFilterLog: ListTasksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

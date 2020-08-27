@@ -45,6 +45,10 @@ export class DescribePoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describePolicies",
+      inputFilterLog: DescribePoliciesType.filterSensitiveLog,
+      outputFilterLog: PoliciesType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

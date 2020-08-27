@@ -45,6 +45,10 @@ export class DeleteInputSecurityGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "deleteInputSecurityGroup",
+      inputFilterLog: DeleteInputSecurityGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInputSecurityGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

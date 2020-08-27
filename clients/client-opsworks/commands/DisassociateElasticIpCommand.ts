@@ -45,6 +45,10 @@ export class DisassociateElasticIpCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "disassociateElasticIp",
+      inputFilterLog: DisassociateElasticIpRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

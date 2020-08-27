@@ -45,6 +45,10 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "retrieveDomainAuthCode",
+      inputFilterLog: RetrieveDomainAuthCodeRequest.filterSensitiveLog,
+      outputFilterLog: RetrieveDomainAuthCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateExclusionsPreviewCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "createExclusionsPreview",
+      inputFilterLog: CreateExclusionsPreviewRequest.filterSensitiveLog,
+      outputFilterLog: CreateExclusionsPreviewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

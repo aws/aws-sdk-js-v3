@@ -52,6 +52,10 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyInstanceCapacityReservationAttributes",
+      inputFilterLog: ModifyInstanceCapacityReservationAttributesRequest.filterSensitiveLog,
+      outputFilterLog: ModifyInstanceCapacityReservationAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

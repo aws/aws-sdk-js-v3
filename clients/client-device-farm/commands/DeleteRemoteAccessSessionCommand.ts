@@ -45,6 +45,10 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "deleteRemoteAccessSession",
+      inputFilterLog: DeleteRemoteAccessSessionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRemoteAccessSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

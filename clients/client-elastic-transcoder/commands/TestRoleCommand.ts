@@ -49,6 +49,10 @@ export class TestRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticTranscoder",
+      clientName: "testRole",
+      inputFilterLog: TestRoleRequest.filterSensitiveLog,
+      outputFilterLog: TestRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

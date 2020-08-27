@@ -42,6 +42,10 @@ export class DescribeVolumesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeVolumes",
+      inputFilterLog: DescribeVolumesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeVolumesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

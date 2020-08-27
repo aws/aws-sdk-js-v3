@@ -45,6 +45,10 @@ export class CreateProvisioningClaimCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "createProvisioningClaim",
+      inputFilterLog: CreateProvisioningClaimRequest.filterSensitiveLog,
+      outputFilterLog: CreateProvisioningClaimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

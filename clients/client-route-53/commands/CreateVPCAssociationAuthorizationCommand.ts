@@ -48,6 +48,10 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "createVPCAssociationAuthorization",
+      inputFilterLog: CreateVPCAssociationAuthorizationRequest.filterSensitiveLog,
+      outputFilterLog: CreateVPCAssociationAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

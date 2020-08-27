@@ -49,6 +49,10 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "associateWebsiteAuthorizationProvider",
+      inputFilterLog: AssociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
+      outputFilterLog: AssociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

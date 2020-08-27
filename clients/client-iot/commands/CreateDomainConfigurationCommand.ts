@@ -45,6 +45,10 @@ export class CreateDomainConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "createDomainConfiguration",
+      inputFilterLog: CreateDomainConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: CreateDomainConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

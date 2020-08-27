@@ -45,6 +45,10 @@ export class DescribeDetectorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "describeDetector",
+      inputFilterLog: DescribeDetectorRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDetectorResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

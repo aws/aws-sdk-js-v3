@@ -45,6 +45,10 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "describeReservedCacheNodesOfferings",
+      inputFilterLog: DescribeReservedCacheNodesOfferingsMessage.filterSensitiveLog,
+      outputFilterLog: ReservedCacheNodesOfferingMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

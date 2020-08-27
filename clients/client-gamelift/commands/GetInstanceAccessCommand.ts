@@ -45,6 +45,10 @@ export class GetInstanceAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "getInstanceAccess",
+      inputFilterLog: GetInstanceAccessInput.filterSensitiveLog,
+      outputFilterLog: GetInstanceAccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

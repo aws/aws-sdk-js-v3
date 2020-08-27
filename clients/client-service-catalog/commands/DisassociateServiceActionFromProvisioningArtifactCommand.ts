@@ -52,6 +52,10 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "disassociateServiceActionFromProvisioningArtifact",
+      inputFilterLog: DisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterLog: DisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

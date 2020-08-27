@@ -45,6 +45,10 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "createPullRequestApprovalRule",
+      inputFilterLog: CreatePullRequestApprovalRuleInput.filterSensitiveLog,
+      outputFilterLog: CreatePullRequestApprovalRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

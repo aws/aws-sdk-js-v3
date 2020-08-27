@@ -45,6 +45,10 @@ export class DescribeLocationSmbCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "describeLocationSmb",
+      inputFilterLog: DescribeLocationSmbRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLocationSmbResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

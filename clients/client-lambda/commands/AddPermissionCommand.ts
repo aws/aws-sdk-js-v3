@@ -45,6 +45,10 @@ export class AddPermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "addPermission",
+      inputFilterLog: AddPermissionRequest.filterSensitiveLog,
+      outputFilterLog: AddPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DetachSecurityProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "detachSecurityProfile",
+      inputFilterLog: DetachSecurityProfileRequest.filterSensitiveLog,
+      outputFilterLog: DetachSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

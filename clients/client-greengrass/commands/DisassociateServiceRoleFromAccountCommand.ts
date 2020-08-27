@@ -46,6 +46,10 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "disassociateServiceRoleFromAccount",
+      inputFilterLog: DisassociateServiceRoleFromAccountRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateServiceRoleFromAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

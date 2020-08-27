@@ -45,6 +45,10 @@ export class GetPendingJobExecutionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTJobsDataPlane",
+      clientName: "getPendingJobExecutions",
+      inputFilterLog: GetPendingJobExecutionsRequest.filterSensitiveLog,
+      outputFilterLog: GetPendingJobExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

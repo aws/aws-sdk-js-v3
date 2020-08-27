@@ -45,6 +45,10 @@ export class DeleteNamespaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceDiscovery",
+      clientName: "deleteNamespace",
+      inputFilterLog: DeleteNamespaceRequest.filterSensitiveLog,
+      outputFilterLog: DeleteNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

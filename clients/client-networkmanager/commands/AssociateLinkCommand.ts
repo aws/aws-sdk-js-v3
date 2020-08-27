@@ -45,6 +45,10 @@ export class AssociateLinkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "associateLink",
+      inputFilterLog: AssociateLinkRequest.filterSensitiveLog,
+      outputFilterLog: AssociateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

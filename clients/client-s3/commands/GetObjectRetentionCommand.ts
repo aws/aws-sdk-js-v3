@@ -47,6 +47,10 @@ export class GetObjectRetentionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getObjectRetention",
+      inputFilterLog: GetObjectRetentionRequest.filterSensitiveLog,
+      outputFilterLog: GetObjectRetentionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

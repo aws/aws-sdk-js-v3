@@ -45,6 +45,10 @@ export class ListProvisioningArtifactsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "listProvisioningArtifacts",
+      inputFilterLog: ListProvisioningArtifactsInput.filterSensitiveLog,
+      outputFilterLog: ListProvisioningArtifactsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

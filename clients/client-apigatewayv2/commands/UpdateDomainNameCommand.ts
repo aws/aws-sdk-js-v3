@@ -45,6 +45,10 @@ export class UpdateDomainNameCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "updateDomainName",
+      inputFilterLog: UpdateDomainNameRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainNameResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

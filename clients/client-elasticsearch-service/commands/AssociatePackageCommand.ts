@@ -49,6 +49,10 @@ export class AssociatePackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "associatePackage",
+      inputFilterLog: AssociatePackageRequest.filterSensitiveLog,
+      outputFilterLog: AssociatePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

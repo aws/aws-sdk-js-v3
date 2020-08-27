@@ -45,6 +45,10 @@ export class ListNodegroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EKS",
+      clientName: "listNodegroups",
+      inputFilterLog: ListNodegroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListNodegroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

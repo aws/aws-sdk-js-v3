@@ -49,6 +49,10 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "updateCloudFrontOriginAccessIdentity",
+      inputFilterLog: UpdateCloudFrontOriginAccessIdentityRequest.filterSensitiveLog,
+      outputFilterLog: UpdateCloudFrontOriginAccessIdentityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

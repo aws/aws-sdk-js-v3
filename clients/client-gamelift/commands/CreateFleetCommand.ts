@@ -45,6 +45,10 @@ export class CreateFleetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "createFleet",
+      inputFilterLog: CreateFleetInput.filterSensitiveLog,
+      outputFilterLog: CreateFleetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

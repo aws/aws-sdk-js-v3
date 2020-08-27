@@ -45,6 +45,10 @@ export class DeregisterTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "deregisterType",
+      inputFilterLog: DeregisterTypeInput.filterSensitiveLog,
+      outputFilterLog: DeregisterTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

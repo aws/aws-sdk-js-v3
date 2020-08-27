@@ -45,6 +45,10 @@ export class CreateUserCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "createUser",
+      inputFilterLog: CreateUserRequest.filterSensitiveLog,
+      outputFilterLog: CreateUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteDeliveryStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Firehose",
+      clientName: "deleteDeliveryStream",
+      inputFilterLog: DeleteDeliveryStreamInput.filterSensitiveLog,
+      outputFilterLog: DeleteDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

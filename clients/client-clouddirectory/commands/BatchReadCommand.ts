@@ -45,6 +45,10 @@ export class BatchReadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "batchRead",
+      inputFilterLog: BatchReadRequest.filterSensitiveLog,
+      outputFilterLog: BatchReadResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

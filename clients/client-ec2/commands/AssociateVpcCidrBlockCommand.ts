@@ -45,6 +45,10 @@ export class AssociateVpcCidrBlockCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "associateVpcCidrBlock",
+      inputFilterLog: AssociateVpcCidrBlockRequest.filterSensitiveLog,
+      outputFilterLog: AssociateVpcCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

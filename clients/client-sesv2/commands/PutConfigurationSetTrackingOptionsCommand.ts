@@ -46,6 +46,10 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putConfigurationSetTrackingOptions",
+      inputFilterLog: PutConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

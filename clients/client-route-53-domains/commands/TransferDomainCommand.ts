@@ -45,6 +45,10 @@ export class TransferDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "transferDomain",
+      inputFilterLog: TransferDomainRequest.filterSensitiveLog,
+      outputFilterLog: TransferDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

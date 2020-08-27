@@ -45,6 +45,10 @@ export class SubmitTaskStateChangeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "submitTaskStateChange",
+      inputFilterLog: SubmitTaskStateChangeRequest.filterSensitiveLog,
+      outputFilterLog: SubmitTaskStateChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDomainDetailCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "getDomainDetail",
+      inputFilterLog: GetDomainDetailRequest.filterSensitiveLog,
+      outputFilterLog: GetDomainDetailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

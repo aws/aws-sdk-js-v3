@@ -45,6 +45,10 @@ export class UpdateNotificationSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "updateNotificationSettings",
+      inputFilterLog: UpdateNotificationSettingsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateNotificationSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

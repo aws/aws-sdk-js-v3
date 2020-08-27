@@ -45,6 +45,10 @@ export class DescribeDBClusterParametersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeDBClusterParameters",
+      inputFilterLog: DescribeDBClusterParametersMessage.filterSensitiveLog,
+      outputFilterLog: DBClusterParameterGroupDetails.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

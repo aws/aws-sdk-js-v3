@@ -41,6 +41,10 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listJobs",
+      inputFilterLog: ListJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

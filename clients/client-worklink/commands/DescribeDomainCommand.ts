@@ -45,6 +45,10 @@ export class DescribeDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "describeDomain",
+      inputFilterLog: DescribeDomainRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

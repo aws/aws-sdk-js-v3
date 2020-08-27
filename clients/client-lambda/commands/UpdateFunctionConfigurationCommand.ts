@@ -45,6 +45,10 @@ export class UpdateFunctionConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "updateFunctionConfiguration",
+      inputFilterLog: UpdateFunctionConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: FunctionConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

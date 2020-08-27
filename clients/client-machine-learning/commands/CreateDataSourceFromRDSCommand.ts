@@ -45,6 +45,10 @@ export class CreateDataSourceFromRDSCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "createDataSourceFromRDS",
+      inputFilterLog: CreateDataSourceFromRDSInput.filterSensitiveLog,
+      outputFilterLog: CreateDataSourceFromRDSOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

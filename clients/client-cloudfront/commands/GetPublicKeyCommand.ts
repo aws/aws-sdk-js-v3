@@ -45,6 +45,10 @@ export class GetPublicKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "getPublicKey",
+      inputFilterLog: GetPublicKeyRequest.filterSensitiveLog,
+      outputFilterLog: GetPublicKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

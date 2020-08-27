@@ -49,6 +49,10 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "associateProactiveEngagementDetails",
+      inputFilterLog: AssociateProactiveEngagementDetailsRequest.filterSensitiveLog,
+      outputFilterLog: AssociateProactiveEngagementDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class GetRoomCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getRoom",
+      inputFilterLog: GetRoomRequest.filterSensitiveLog,
+      outputFilterLog: GetRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

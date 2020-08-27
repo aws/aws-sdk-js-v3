@@ -49,6 +49,10 @@ export class DescribeTargetHealthCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancingV2",
+      clientName: "describeTargetHealth",
+      inputFilterLog: DescribeTargetHealthInput.filterSensitiveLog,
+      outputFilterLog: DescribeTargetHealthOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

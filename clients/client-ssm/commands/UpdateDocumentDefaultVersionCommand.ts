@@ -45,6 +45,10 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "updateDocumentDefaultVersion",
+      inputFilterLog: UpdateDocumentDefaultVersionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDocumentDefaultVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

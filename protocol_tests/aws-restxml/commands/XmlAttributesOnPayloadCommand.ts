@@ -45,6 +45,10 @@ export class XmlAttributesOnPayloadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "xmlAttributesOnPayload",
+      inputFilterLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
+      outputFilterLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

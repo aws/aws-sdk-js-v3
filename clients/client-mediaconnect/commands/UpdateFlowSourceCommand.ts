@@ -45,6 +45,10 @@ export class UpdateFlowSourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "updateFlowSource",
+      inputFilterLog: UpdateFlowSourceRequest.filterSensitiveLog,
+      outputFilterLog: UpdateFlowSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

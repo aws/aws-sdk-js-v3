@@ -45,6 +45,10 @@ export class TerminateJobFlowsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "terminateJobFlows",
+      inputFilterLog: TerminateJobFlowsInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

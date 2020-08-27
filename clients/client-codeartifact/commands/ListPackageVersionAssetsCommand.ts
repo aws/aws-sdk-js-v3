@@ -45,6 +45,10 @@ export class ListPackageVersionAssetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "listPackageVersionAssets",
+      inputFilterLog: ListPackageVersionAssetsRequest.filterSensitiveLog,
+      outputFilterLog: ListPackageVersionAssetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

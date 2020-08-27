@@ -45,6 +45,10 @@ export class DeliverConfigSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "deliverConfigSnapshot",
+      inputFilterLog: DeliverConfigSnapshotRequest.filterSensitiveLog,
+      outputFilterLog: DeliverConfigSnapshotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

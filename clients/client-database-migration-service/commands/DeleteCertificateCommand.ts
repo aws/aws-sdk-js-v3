@@ -49,6 +49,10 @@ export class DeleteCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "deleteCertificate",
+      inputFilterLog: DeleteCertificateMessage.filterSensitiveLog,
+      outputFilterLog: DeleteCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

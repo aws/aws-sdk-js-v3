@@ -45,6 +45,10 @@ export class CancelHandshakeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "cancelHandshake",
+      inputFilterLog: CancelHandshakeRequest.filterSensitiveLog,
+      outputFilterLog: CancelHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

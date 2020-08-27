@@ -45,6 +45,10 @@ export class UpdateClassifierCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "updateClassifier",
+      inputFilterLog: UpdateClassifierRequest.filterSensitiveLog,
+      outputFilterLog: UpdateClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

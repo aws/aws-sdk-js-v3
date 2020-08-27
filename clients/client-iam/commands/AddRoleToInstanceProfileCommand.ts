@@ -45,6 +45,10 @@ export class AddRoleToInstanceProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "addRoleToInstanceProfile",
+      inputFilterLog: AddRoleToInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

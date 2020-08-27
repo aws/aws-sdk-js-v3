@@ -45,6 +45,10 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "getAssetPropertyValueHistory",
+      inputFilterLog: GetAssetPropertyValueHistoryRequest.filterSensitiveLog,
+      outputFilterLog: GetAssetPropertyValueHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

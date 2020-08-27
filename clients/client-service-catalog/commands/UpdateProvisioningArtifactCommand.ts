@@ -45,6 +45,10 @@ export class UpdateProvisioningArtifactCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "updateProvisioningArtifact",
+      inputFilterLog: UpdateProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterLog: UpdateProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

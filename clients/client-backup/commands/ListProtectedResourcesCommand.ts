@@ -45,6 +45,10 @@ export class ListProtectedResourcesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "listProtectedResources",
+      inputFilterLog: ListProtectedResourcesInput.filterSensitiveLog,
+      outputFilterLog: ListProtectedResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

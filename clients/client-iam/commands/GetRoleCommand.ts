@@ -38,6 +38,10 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "getRole",
+      inputFilterLog: GetRoleRequest.filterSensitiveLog,
+      outputFilterLog: GetRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

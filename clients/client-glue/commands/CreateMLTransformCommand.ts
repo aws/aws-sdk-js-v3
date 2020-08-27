@@ -45,6 +45,10 @@ export class CreateMLTransformCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "createMLTransform",
+      inputFilterLog: CreateMLTransformRequest.filterSensitiveLog,
+      outputFilterLog: CreateMLTransformResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

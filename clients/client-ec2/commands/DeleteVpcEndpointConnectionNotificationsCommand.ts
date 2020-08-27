@@ -52,6 +52,10 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteVpcEndpointConnectionNotifications",
+      inputFilterLog: DeleteVpcEndpointConnectionNotificationsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteVpcEndpointConnectionNotificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

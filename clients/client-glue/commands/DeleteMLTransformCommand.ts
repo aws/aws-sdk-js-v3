@@ -45,6 +45,10 @@ export class DeleteMLTransformCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deleteMLTransform",
+      inputFilterLog: DeleteMLTransformRequest.filterSensitiveLog,
+      outputFilterLog: DeleteMLTransformResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

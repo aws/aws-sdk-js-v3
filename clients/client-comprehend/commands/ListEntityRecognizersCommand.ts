@@ -45,6 +45,10 @@ export class ListEntityRecognizersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "listEntityRecognizers",
+      inputFilterLog: ListEntityRecognizersRequest.filterSensitiveLog,
+      outputFilterLog: ListEntityRecognizersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

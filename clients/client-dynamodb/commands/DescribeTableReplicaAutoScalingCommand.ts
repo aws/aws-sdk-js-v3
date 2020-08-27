@@ -45,6 +45,10 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "describeTableReplicaAutoScaling",
+      inputFilterLog: DescribeTableReplicaAutoScalingInput.filterSensitiveLog,
+      outputFilterLog: DescribeTableReplicaAutoScalingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

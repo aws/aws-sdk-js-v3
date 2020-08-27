@@ -52,6 +52,10 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Health",
+      clientName: "describeAffectedEntitiesForOrganization",
+      inputFilterLog: DescribeAffectedEntitiesForOrganizationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAffectedEntitiesForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

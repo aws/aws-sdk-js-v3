@@ -45,6 +45,10 @@ export class GetComponentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "getComponent",
+      inputFilterLog: GetComponentRequest.filterSensitiveLog,
+      outputFilterLog: GetComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeIngestionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "describeIngestion",
+      inputFilterLog: DescribeIngestionRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIngestionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

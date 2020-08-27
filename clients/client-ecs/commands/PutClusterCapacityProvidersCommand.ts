@@ -45,6 +45,10 @@ export class PutClusterCapacityProvidersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "putClusterCapacityProviders",
+      inputFilterLog: PutClusterCapacityProvidersRequest.filterSensitiveLog,
+      outputFilterLog: PutClusterCapacityProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

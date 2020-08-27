@@ -45,6 +45,10 @@ export class StartTriggerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "startTrigger",
+      inputFilterLog: StartTriggerRequest.filterSensitiveLog,
+      outputFilterLog: StartTriggerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

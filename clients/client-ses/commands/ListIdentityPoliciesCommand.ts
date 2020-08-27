@@ -45,6 +45,10 @@ export class ListIdentityPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SES",
+      clientName: "listIdentityPolicies",
+      inputFilterLog: ListIdentityPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListIdentityPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

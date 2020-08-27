@@ -47,6 +47,10 @@ export class CopyDBSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "copyDBSnapshot",
+      inputFilterLog: CopyDBSnapshotMessage.filterSensitiveLog,
+      outputFilterLog: CopyDBSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

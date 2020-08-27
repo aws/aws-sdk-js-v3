@@ -52,6 +52,10 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "rejectDomainTransferFromAnotherAwsAccount",
+      inputFilterLog: RejectDomainTransferFromAnotherAwsAccountRequest.filterSensitiveLog,
+      outputFilterLog: RejectDomainTransferFromAnotherAwsAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

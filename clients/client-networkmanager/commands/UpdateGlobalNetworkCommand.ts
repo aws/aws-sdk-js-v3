@@ -45,6 +45,10 @@ export class UpdateGlobalNetworkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "updateGlobalNetwork",
+      inputFilterLog: UpdateGlobalNetworkRequest.filterSensitiveLog,
+      outputFilterLog: UpdateGlobalNetworkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

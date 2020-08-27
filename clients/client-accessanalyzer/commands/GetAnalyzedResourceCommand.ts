@@ -45,6 +45,10 @@ export class GetAnalyzedResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AccessAnalyzer",
+      clientName: "getAnalyzedResource",
+      inputFilterLog: GetAnalyzedResourceRequest.filterSensitiveLog,
+      outputFilterLog: GetAnalyzedResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

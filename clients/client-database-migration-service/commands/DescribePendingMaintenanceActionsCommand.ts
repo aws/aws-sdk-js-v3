@@ -50,6 +50,10 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describePendingMaintenanceActions",
+      inputFilterLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
+      outputFilterLog: DescribePendingMaintenanceActionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

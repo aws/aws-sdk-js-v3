@@ -45,6 +45,10 @@ export class GetSnowballUsageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Snowball",
+      clientName: "getSnowballUsage",
+      inputFilterLog: GetSnowballUsageRequest.filterSensitiveLog,
+      outputFilterLog: GetSnowballUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

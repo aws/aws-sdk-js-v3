@@ -45,6 +45,10 @@ export class StopStackSetOperationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "stopStackSetOperation",
+      inputFilterLog: StopStackSetOperationInput.filterSensitiveLog,
+      outputFilterLog: StopStackSetOperationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

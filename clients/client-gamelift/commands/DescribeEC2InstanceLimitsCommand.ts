@@ -45,6 +45,10 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "describeEC2InstanceLimits",
+      inputFilterLog: DescribeEC2InstanceLimitsInput.filterSensitiveLog,
+      outputFilterLog: DescribeEC2InstanceLimitsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

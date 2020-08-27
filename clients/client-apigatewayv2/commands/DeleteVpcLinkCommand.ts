@@ -45,6 +45,10 @@ export class DeleteVpcLinkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApiGatewayV2",
+      clientName: "deleteVpcLink",
+      inputFilterLog: DeleteVpcLinkRequest.filterSensitiveLog,
+      outputFilterLog: DeleteVpcLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class AssociateIpGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "associateIpGroups",
+      inputFilterLog: AssociateIpGroupsRequest.filterSensitiveLog,
+      outputFilterLog: AssociateIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

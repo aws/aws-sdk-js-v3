@@ -45,6 +45,10 @@ export class DeleteTypedLinkFacetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "deleteTypedLinkFacet",
+      inputFilterLog: DeleteTypedLinkFacetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTypedLinkFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

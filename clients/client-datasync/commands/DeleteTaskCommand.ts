@@ -45,6 +45,10 @@ export class DeleteTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "deleteTask",
+      inputFilterLog: DeleteTaskRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

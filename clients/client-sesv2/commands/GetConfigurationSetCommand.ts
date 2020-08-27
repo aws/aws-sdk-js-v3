@@ -45,6 +45,10 @@ export class GetConfigurationSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "getConfigurationSet",
+      inputFilterLog: GetConfigurationSetRequest.filterSensitiveLog,
+      outputFilterLog: GetConfigurationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

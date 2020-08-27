@@ -49,6 +49,10 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "describeValidDBInstanceModifications",
+      inputFilterLog: DescribeValidDBInstanceModificationsMessage.filterSensitiveLog,
+      outputFilterLog: DescribeValidDBInstanceModificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

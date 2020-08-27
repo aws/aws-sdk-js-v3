@@ -45,6 +45,10 @@ export class DescribeChangeSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "describeChangeSet",
+      inputFilterLog: DescribeChangeSetInput.filterSensitiveLog,
+      outputFilterLog: DescribeChangeSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

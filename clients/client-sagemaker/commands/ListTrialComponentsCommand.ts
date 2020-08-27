@@ -45,6 +45,10 @@ export class ListTrialComponentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "listTrialComponents",
+      inputFilterLog: ListTrialComponentsRequest.filterSensitiveLog,
+      outputFilterLog: ListTrialComponentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

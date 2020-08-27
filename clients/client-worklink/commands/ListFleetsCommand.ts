@@ -45,6 +45,10 @@ export class ListFleetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "listFleets",
+      inputFilterLog: ListFleetsRequest.filterSensitiveLog,
+      outputFilterLog: ListFleetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

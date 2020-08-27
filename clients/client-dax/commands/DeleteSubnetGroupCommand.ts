@@ -45,6 +45,10 @@ export class DeleteSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "deleteSubnetGroup",
+      inputFilterLog: DeleteSubnetGroupRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

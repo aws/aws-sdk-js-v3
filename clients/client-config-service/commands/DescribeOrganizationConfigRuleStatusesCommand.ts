@@ -49,6 +49,10 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "describeOrganizationConfigRuleStatuses",
+      inputFilterLog: DescribeOrganizationConfigRuleStatusesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeOrganizationConfigRuleStatusesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

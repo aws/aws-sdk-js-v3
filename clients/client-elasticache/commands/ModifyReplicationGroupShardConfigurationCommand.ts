@@ -52,6 +52,10 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "modifyReplicationGroupShardConfiguration",
+      inputFilterLog: ModifyReplicationGroupShardConfigurationMessage.filterSensitiveLog,
+      outputFilterLog: ModifyReplicationGroupShardConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

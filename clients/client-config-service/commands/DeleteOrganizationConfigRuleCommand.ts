@@ -45,6 +45,10 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "deleteOrganizationConfigRule",
+      inputFilterLog: DeleteOrganizationConfigRuleRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

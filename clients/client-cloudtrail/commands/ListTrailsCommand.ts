@@ -45,6 +45,10 @@ export class ListTrailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudTrail",
+      clientName: "listTrails",
+      inputFilterLog: ListTrailsRequest.filterSensitiveLog,
+      outputFilterLog: ListTrailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

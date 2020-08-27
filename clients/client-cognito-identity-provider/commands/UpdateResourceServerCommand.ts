@@ -49,6 +49,10 @@ export class UpdateResourceServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "updateResourceServer",
+      inputFilterLog: UpdateResourceServerRequest.filterSensitiveLog,
+      outputFilterLog: UpdateResourceServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

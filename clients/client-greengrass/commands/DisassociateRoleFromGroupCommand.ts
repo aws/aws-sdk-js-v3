@@ -45,6 +45,10 @@ export class DisassociateRoleFromGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "disassociateRoleFromGroup",
+      inputFilterLog: DisassociateRoleFromGroupRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateRoleFromGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

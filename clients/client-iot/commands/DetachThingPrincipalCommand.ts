@@ -45,6 +45,10 @@ export class DetachThingPrincipalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "detachThingPrincipal",
+      inputFilterLog: DetachThingPrincipalRequest.filterSensitiveLog,
+      outputFilterLog: DetachThingPrincipalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

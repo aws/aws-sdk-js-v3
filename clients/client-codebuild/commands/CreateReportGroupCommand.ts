@@ -45,6 +45,10 @@ export class CreateReportGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "createReportGroup",
+      inputFilterLog: CreateReportGroupInput.filterSensitiveLog,
+      outputFilterLog: CreateReportGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

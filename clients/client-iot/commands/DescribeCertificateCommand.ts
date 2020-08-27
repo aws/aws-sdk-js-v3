@@ -45,6 +45,10 @@ export class DescribeCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "describeCertificate",
+      inputFilterLog: DescribeCertificateRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

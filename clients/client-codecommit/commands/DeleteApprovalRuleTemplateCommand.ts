@@ -45,6 +45,10 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "deleteApprovalRuleTemplate",
+      inputFilterLog: DeleteApprovalRuleTemplateInput.filterSensitiveLog,
+      outputFilterLog: DeleteApprovalRuleTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

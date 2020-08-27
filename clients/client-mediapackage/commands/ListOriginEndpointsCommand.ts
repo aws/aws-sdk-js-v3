@@ -45,6 +45,10 @@ export class ListOriginEndpointsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackage",
+      clientName: "listOriginEndpoints",
+      inputFilterLog: ListOriginEndpointsRequest.filterSensitiveLog,
+      outputFilterLog: ListOriginEndpointsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

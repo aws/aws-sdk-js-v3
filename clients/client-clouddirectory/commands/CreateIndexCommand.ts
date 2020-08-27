@@ -45,6 +45,10 @@ export class CreateIndexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "createIndex",
+      inputFilterLog: CreateIndexRequest.filterSensitiveLog,
+      outputFilterLog: CreateIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

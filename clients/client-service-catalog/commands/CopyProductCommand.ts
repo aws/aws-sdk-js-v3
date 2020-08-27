@@ -45,6 +45,10 @@ export class CopyProductCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "copyProduct",
+      inputFilterLog: CopyProductInput.filterSensitiveLog,
+      outputFilterLog: CopyProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

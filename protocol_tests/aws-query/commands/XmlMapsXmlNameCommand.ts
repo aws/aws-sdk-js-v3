@@ -45,6 +45,10 @@ export class XmlMapsXmlNameCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QueryProtocol",
+      clientName: "xmlMapsXmlName",
+      inputFilterLog: (input) => input,
+      outputFilterLog: XmlMapsXmlNameOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

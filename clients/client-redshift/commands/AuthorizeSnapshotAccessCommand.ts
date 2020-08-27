@@ -45,6 +45,10 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "authorizeSnapshotAccess",
+      inputFilterLog: AuthorizeSnapshotAccessMessage.filterSensitiveLog,
+      outputFilterLog: AuthorizeSnapshotAccessResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

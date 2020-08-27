@@ -42,6 +42,10 @@ export class ListTestsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "listTests",
+      inputFilterLog: ListTestsRequest.filterSensitiveLog,
+      outputFilterLog: ListTestsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

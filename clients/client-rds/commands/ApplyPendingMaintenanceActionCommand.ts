@@ -45,6 +45,10 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "applyPendingMaintenanceAction",
+      inputFilterLog: ApplyPendingMaintenanceActionMessage.filterSensitiveLog,
+      outputFilterLog: ApplyPendingMaintenanceActionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

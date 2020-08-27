@@ -45,6 +45,10 @@ export class ListSharedReportGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "listSharedReportGroups",
+      inputFilterLog: ListSharedReportGroupsInput.filterSensitiveLog,
+      outputFilterLog: ListSharedReportGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

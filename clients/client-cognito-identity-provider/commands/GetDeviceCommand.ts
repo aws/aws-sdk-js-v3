@@ -46,6 +46,10 @@ export class GetDeviceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "getDevice",
+      inputFilterLog: GetDeviceRequest.filterSensitiveLog,
+      outputFilterLog: GetDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

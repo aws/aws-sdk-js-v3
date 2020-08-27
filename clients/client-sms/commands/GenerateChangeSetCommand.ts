@@ -45,6 +45,10 @@ export class GenerateChangeSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "generateChangeSet",
+      inputFilterLog: GenerateChangeSetRequest.filterSensitiveLog,
+      outputFilterLog: GenerateChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

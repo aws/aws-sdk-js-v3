@@ -45,6 +45,10 @@ export class DescribeIpv6PoolsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeIpv6Pools",
+      inputFilterLog: DescribeIpv6PoolsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIpv6PoolsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

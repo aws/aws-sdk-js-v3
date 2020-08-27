@@ -49,6 +49,10 @@ export class ListApplicationSnapshotsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisAnalyticsV2",
+      clientName: "listApplicationSnapshots",
+      inputFilterLog: ListApplicationSnapshotsRequest.filterSensitiveLog,
+      outputFilterLog: ListApplicationSnapshotsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

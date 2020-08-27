@@ -45,6 +45,10 @@ export class GetTextDetectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "getTextDetection",
+      inputFilterLog: GetTextDetectionRequest.filterSensitiveLog,
+      outputFilterLog: GetTextDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

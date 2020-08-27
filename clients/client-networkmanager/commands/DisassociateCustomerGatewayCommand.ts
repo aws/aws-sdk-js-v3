@@ -45,6 +45,10 @@ export class DisassociateCustomerGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "disassociateCustomerGateway",
+      inputFilterLog: DisassociateCustomerGatewayRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateCustomerGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

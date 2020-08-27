@@ -45,6 +45,10 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "copyDBClusterParameterGroup",
+      inputFilterLog: CopyDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterLog: CopyDBClusterParameterGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

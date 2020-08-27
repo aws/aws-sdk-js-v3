@@ -38,6 +38,10 @@ export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "listRules",
+      inputFilterLog: ListRulesRequest.filterSensitiveLog,
+      outputFilterLog: ListRulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

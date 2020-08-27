@@ -45,6 +45,10 @@ export class ListVoiceConnectorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "listVoiceConnectors",
+      inputFilterLog: ListVoiceConnectorsRequest.filterSensitiveLog,
+      outputFilterLog: ListVoiceConnectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

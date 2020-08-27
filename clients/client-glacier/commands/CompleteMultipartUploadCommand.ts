@@ -45,6 +45,10 @@ export class CompleteMultipartUploadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "completeMultipartUpload",
+      inputFilterLog: CompleteMultipartUploadInput.filterSensitiveLog,
+      outputFilterLog: ArchiveCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

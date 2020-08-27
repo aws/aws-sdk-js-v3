@@ -52,6 +52,10 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "associateServiceActionWithProvisioningArtifact",
+      inputFilterLog: AssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterLog: AssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

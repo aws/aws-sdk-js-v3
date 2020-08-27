@@ -45,6 +45,10 @@ export class UpdateSizeConstraintSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "updateSizeConstraintSet",
+      inputFilterLog: UpdateSizeConstraintSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSizeConstraintSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

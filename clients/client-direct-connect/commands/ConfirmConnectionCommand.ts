@@ -45,6 +45,10 @@ export class ConfirmConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "confirmConnection",
+      inputFilterLog: ConfirmConnectionRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

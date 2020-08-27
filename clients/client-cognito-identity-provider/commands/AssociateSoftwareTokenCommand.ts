@@ -49,6 +49,10 @@ export class AssociateSoftwareTokenCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "associateSoftwareToken",
+      inputFilterLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
+      outputFilterLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

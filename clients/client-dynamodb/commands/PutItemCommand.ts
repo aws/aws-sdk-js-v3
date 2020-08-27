@@ -38,6 +38,10 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "putItem",
+      inputFilterLog: PutItemInput.filterSensitiveLog,
+      outputFilterLog: PutItemOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

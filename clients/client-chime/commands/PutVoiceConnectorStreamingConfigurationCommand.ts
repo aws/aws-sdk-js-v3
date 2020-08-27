@@ -52,6 +52,10 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "putVoiceConnectorStreamingConfiguration",
+      inputFilterLog: PutVoiceConnectorStreamingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutVoiceConnectorStreamingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

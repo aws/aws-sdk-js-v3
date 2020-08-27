@@ -45,6 +45,10 @@ export class ActivateGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "activateGateway",
+      inputFilterLog: ActivateGatewayInput.filterSensitiveLog,
+      outputFilterLog: ActivateGatewayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

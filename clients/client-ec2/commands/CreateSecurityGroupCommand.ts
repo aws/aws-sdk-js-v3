@@ -45,6 +45,10 @@ export class CreateSecurityGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createSecurityGroup",
+      inputFilterLog: CreateSecurityGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateSecurityGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

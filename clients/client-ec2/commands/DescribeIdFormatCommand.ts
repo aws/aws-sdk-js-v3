@@ -45,6 +45,10 @@ export class DescribeIdFormatCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeIdFormat",
+      inputFilterLog: DescribeIdFormatRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIdFormatResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

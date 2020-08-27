@@ -45,6 +45,10 @@ export class CreateApiKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "createApiKey",
+      inputFilterLog: CreateApiKeyRequest.filterSensitiveLog,
+      outputFilterLog: CreateApiKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

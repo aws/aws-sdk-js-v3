@@ -45,6 +45,10 @@ export class GetLayerVersionByArnCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lambda",
+      clientName: "getLayerVersionByArn",
+      inputFilterLog: GetLayerVersionByArnRequest.filterSensitiveLog,
+      outputFilterLog: GetLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

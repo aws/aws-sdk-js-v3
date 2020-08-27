@@ -45,6 +45,10 @@ export class GetMeshPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "getMeshPolicy",
+      inputFilterLog: GetMeshPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetMeshPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateProductCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "createProduct",
+      inputFilterLog: CreateProductInput.filterSensitiveLog,
+      outputFilterLog: CreateProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class SearchResourcesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ResourceGroups",
+      clientName: "searchResources",
+      inputFilterLog: SearchResourcesInput.filterSensitiveLog,
+      outputFilterLog: SearchResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

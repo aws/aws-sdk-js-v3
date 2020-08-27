@@ -45,6 +45,10 @@ export class DeleteNetworkAclEntryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteNetworkAclEntry",
+      inputFilterLog: DeleteNetworkAclEntryRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

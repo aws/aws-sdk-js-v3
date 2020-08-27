@@ -45,6 +45,10 @@ export class ListSchemasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "listSchemas",
+      inputFilterLog: ListSchemasRequest.filterSensitiveLog,
+      outputFilterLog: ListSchemasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

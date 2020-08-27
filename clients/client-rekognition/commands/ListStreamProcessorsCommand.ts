@@ -45,6 +45,10 @@ export class ListStreamProcessorsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "listStreamProcessors",
+      inputFilterLog: ListStreamProcessorsRequest.filterSensitiveLog,
+      outputFilterLog: ListStreamProcessorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

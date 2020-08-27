@@ -45,6 +45,10 @@ export class ListAgentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "listAgents",
+      inputFilterLog: ListAgentsRequest.filterSensitiveLog,
+      outputFilterLog: ListAgentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListSecurityConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "listSecurityConfigurations",
+      inputFilterLog: ListSecurityConfigurationsInput.filterSensitiveLog,
+      outputFilterLog: ListSecurityConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

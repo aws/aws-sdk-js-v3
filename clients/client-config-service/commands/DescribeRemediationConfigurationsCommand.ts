@@ -46,6 +46,10 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "describeRemediationConfigurations",
+      inputFilterLog: DescribeRemediationConfigurationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRemediationConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

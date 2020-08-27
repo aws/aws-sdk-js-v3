@@ -45,6 +45,10 @@ export class UpdateStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KinesisVideo",
+      clientName: "updateStream",
+      inputFilterLog: UpdateStreamInput.filterSensitiveLog,
+      outputFilterLog: UpdateStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

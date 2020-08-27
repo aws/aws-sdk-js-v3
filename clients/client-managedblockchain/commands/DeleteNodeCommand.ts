@@ -49,6 +49,10 @@ export class DeleteNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "deleteNode",
+      inputFilterLog: DeleteNodeInput.filterSensitiveLog,
+      outputFilterLog: DeleteNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeInstanceCreditSpecifications",
+      inputFilterLog: DescribeInstanceCreditSpecificationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInstanceCreditSpecificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

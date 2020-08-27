@@ -52,6 +52,10 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getTransitGatewayRouteTableAssociations",
+      inputFilterLog: GetTransitGatewayRouteTableAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: GetTransitGatewayRouteTableAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

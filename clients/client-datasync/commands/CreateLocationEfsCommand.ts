@@ -45,6 +45,10 @@ export class CreateLocationEfsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "createLocationEfs",
+      inputFilterLog: CreateLocationEfsRequest.filterSensitiveLog,
+      outputFilterLog: CreateLocationEfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

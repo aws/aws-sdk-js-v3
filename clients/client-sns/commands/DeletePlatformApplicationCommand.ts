@@ -45,6 +45,10 @@ export class DeletePlatformApplicationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "deletePlatformApplication",
+      inputFilterLog: DeletePlatformApplicationInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

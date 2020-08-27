@@ -45,6 +45,10 @@ export class UpdateVirtualServiceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppMesh",
+      clientName: "updateVirtualService",
+      inputFilterLog: UpdateVirtualServiceInput.filterSensitiveLog,
+      outputFilterLog: UpdateVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

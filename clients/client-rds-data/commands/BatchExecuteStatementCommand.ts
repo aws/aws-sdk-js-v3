@@ -45,6 +45,10 @@ export class BatchExecuteStatementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDSData",
+      clientName: "batchExecuteStatement",
+      inputFilterLog: BatchExecuteStatementRequest.filterSensitiveLog,
+      outputFilterLog: BatchExecuteStatementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

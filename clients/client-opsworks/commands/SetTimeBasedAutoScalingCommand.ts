@@ -45,6 +45,10 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "setTimeBasedAutoScaling",
+      inputFilterLog: SetTimeBasedAutoScalingRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

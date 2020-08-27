@@ -42,6 +42,10 @@ export class XmlEnumsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "xmlEnums",
+      inputFilterLog: XmlEnumsInputOutput.filterSensitiveLog,
+      outputFilterLog: XmlEnumsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeprovisionByoipCidrCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deprovisionByoipCidr",
+      inputFilterLog: DeprovisionByoipCidrRequest.filterSensitiveLog,
+      outputFilterLog: DeprovisionByoipCidrResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

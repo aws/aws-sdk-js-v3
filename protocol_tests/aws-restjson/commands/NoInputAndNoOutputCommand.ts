@@ -44,6 +44,10 @@ export class NoInputAndNoOutputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "noInputAndNoOutput",
+      inputFilterLog: (input) => input,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

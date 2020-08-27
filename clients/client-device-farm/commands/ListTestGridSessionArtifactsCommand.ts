@@ -45,6 +45,10 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "listTestGridSessionArtifacts",
+      inputFilterLog: ListTestGridSessionArtifactsRequest.filterSensitiveLog,
+      outputFilterLog: ListTestGridSessionArtifactsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class RestoreDomainAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "restoreDomainAccess",
+      inputFilterLog: RestoreDomainAccessRequest.filterSensitiveLog,
+      outputFilterLog: RestoreDomainAccessResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

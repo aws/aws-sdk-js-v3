@@ -45,6 +45,10 @@ export class UpdateXssMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "updateXssMatchSet",
+      inputFilterLog: UpdateXssMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateXssMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

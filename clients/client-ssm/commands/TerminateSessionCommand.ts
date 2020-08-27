@@ -45,6 +45,10 @@ export class TerminateSessionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "terminateSession",
+      inputFilterLog: TerminateSessionRequest.filterSensitiveLog,
+      outputFilterLog: TerminateSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

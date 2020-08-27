@@ -45,6 +45,10 @@ export class GetInvitationConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "getInvitationConfiguration",
+      inputFilterLog: GetInvitationConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetInvitationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

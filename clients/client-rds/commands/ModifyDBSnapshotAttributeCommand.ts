@@ -45,6 +45,10 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyDBSnapshotAttribute",
+      inputFilterLog: ModifyDBSnapshotAttributeMessage.filterSensitiveLog,
+      outputFilterLog: ModifyDBSnapshotAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

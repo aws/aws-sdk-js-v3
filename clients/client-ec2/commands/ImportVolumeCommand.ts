@@ -42,6 +42,10 @@ export class ImportVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "importVolume",
+      inputFilterLog: ImportVolumeRequest.filterSensitiveLog,
+      outputFilterLog: ImportVolumeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

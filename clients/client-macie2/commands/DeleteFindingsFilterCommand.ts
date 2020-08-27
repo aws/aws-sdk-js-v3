@@ -45,6 +45,10 @@ export class DeleteFindingsFilterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "deleteFindingsFilter",
+      inputFilterLog: DeleteFindingsFilterRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFindingsFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

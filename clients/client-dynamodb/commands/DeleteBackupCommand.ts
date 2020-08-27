@@ -45,6 +45,10 @@ export class DeleteBackupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "deleteBackup",
+      inputFilterLog: DeleteBackupInput.filterSensitiveLog,
+      outputFilterLog: DeleteBackupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

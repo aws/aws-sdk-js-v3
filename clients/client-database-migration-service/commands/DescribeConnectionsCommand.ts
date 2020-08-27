@@ -49,6 +49,10 @@ export class DescribeConnectionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeConnections",
+      inputFilterLog: DescribeConnectionsMessage.filterSensitiveLog,
+      outputFilterLog: DescribeConnectionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

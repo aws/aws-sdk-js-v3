@@ -45,6 +45,10 @@ export class SearchDashboardsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "searchDashboards",
+      inputFilterLog: SearchDashboardsRequest.filterSensitiveLog,
+      outputFilterLog: SearchDashboardsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

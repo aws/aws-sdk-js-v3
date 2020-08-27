@@ -45,6 +45,10 @@ export class UpdateServiceSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LicenseManager",
+      clientName: "updateServiceSettings",
+      inputFilterLog: UpdateServiceSettingsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateServiceSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateVpcLinkCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "createVpcLink",
+      inputFilterLog: CreateVpcLinkRequest.filterSensitiveLog,
+      outputFilterLog: VpcLink.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

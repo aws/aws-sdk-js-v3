@@ -45,6 +45,10 @@ export class CreateSnapshotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "createSnapshot",
+      inputFilterLog: CreateSnapshotRequest.filterSensitiveLog,
+      outputFilterLog: CreateSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeResourceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "describeResource",
+      inputFilterLog: DescribeResourceRequest.filterSensitiveLog,
+      outputFilterLog: DescribeResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

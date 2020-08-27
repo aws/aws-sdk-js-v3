@@ -45,6 +45,10 @@ export class RunPipelineActivityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "runPipelineActivity",
+      inputFilterLog: RunPipelineActivityRequest.filterSensitiveLog,
+      outputFilterLog: RunPipelineActivityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

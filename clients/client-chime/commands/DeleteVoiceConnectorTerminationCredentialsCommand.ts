@@ -48,6 +48,10 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "deleteVoiceConnectorTerminationCredentials",
+      inputFilterLog: DeleteVoiceConnectorTerminationCredentialsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

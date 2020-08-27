@@ -45,6 +45,10 @@ export class DeleteNetworkProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "deleteNetworkProfile",
+      inputFilterLog: DeleteNetworkProfileRequest.filterSensitiveLog,
+      outputFilterLog: DeleteNetworkProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListPartsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "listParts",
+      inputFilterLog: ListPartsInput.filterSensitiveLog,
+      outputFilterLog: ListPartsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

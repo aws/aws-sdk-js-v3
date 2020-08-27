@@ -47,6 +47,10 @@ export class CreateDBClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "createDBCluster",
+      inputFilterLog: CreateDBClusterMessage.filterSensitiveLog,
+      outputFilterLog: CreateDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

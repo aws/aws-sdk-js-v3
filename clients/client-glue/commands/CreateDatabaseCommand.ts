@@ -45,6 +45,10 @@ export class CreateDatabaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "createDatabase",
+      inputFilterLog: CreateDatabaseRequest.filterSensitiveLog,
+      outputFilterLog: CreateDatabaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

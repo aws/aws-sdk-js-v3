@@ -45,6 +45,10 @@ export class GetInstanceSnapshotsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getInstanceSnapshots",
+      inputFilterLog: GetInstanceSnapshotsRequest.filterSensitiveLog,
+      outputFilterLog: GetInstanceSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

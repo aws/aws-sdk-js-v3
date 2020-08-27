@@ -47,6 +47,10 @@ export class DeleteReusableDelegationSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "deleteReusableDelegationSet",
+      inputFilterLog: DeleteReusableDelegationSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteReusableDelegationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

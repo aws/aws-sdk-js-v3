@@ -41,6 +41,10 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "listBots",
+      inputFilterLog: ListBotsRequest.filterSensitiveLog,
+      outputFilterLog: ListBotsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

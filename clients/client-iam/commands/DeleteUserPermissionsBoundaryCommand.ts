@@ -45,6 +45,10 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "deleteUserPermissionsBoundary",
+      inputFilterLog: DeleteUserPermissionsBoundaryRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

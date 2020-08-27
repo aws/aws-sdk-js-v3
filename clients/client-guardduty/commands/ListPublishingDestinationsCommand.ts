@@ -45,6 +45,10 @@ export class ListPublishingDestinationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "listPublishingDestinations",
+      inputFilterLog: ListPublishingDestinationsRequest.filterSensitiveLog,
+      outputFilterLog: ListPublishingDestinationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

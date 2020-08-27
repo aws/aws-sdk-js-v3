@@ -38,6 +38,10 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "encrypt",
+      inputFilterLog: EncryptRequest.filterSensitiveLog,
+      outputFilterLog: EncryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

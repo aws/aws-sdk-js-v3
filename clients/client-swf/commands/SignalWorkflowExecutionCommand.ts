@@ -45,6 +45,10 @@ export class SignalWorkflowExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "signalWorkflowExecution",
+      inputFilterLog: SignalWorkflowExecutionInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeHsmConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeHsmConfigurations",
+      inputFilterLog: DescribeHsmConfigurationsMessage.filterSensitiveLog,
+      outputFilterLog: HsmConfigurationMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteAuthorizerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteAuthorizer",
+      inputFilterLog: DeleteAuthorizerRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

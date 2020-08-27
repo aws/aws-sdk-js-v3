@@ -45,6 +45,10 @@ export class TimestampFormatHeadersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "timestampFormatHeaders",
+      inputFilterLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      outputFilterLog: TimestampFormatHeadersIO.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

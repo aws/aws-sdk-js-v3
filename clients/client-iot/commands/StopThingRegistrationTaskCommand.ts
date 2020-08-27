@@ -45,6 +45,10 @@ export class StopThingRegistrationTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "stopThingRegistrationTask",
+      inputFilterLog: StopThingRegistrationTaskRequest.filterSensitiveLog,
+      outputFilterLog: StopThingRegistrationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

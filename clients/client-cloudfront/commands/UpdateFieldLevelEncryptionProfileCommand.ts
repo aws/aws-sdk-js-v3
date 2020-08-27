@@ -45,6 +45,10 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "updateFieldLevelEncryptionProfile",
+      inputFilterLog: UpdateFieldLevelEncryptionProfileRequest.filterSensitiveLog,
+      outputFilterLog: UpdateFieldLevelEncryptionProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

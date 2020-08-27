@@ -45,6 +45,10 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "createSnapshotCopyGrant",
+      inputFilterLog: CreateSnapshotCopyGrantMessage.filterSensitiveLog,
+      outputFilterLog: CreateSnapshotCopyGrantResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

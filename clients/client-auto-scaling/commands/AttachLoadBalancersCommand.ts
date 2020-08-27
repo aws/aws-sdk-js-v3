@@ -45,6 +45,10 @@ export class AttachLoadBalancersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "attachLoadBalancers",
+      inputFilterLog: AttachLoadBalancersType.filterSensitiveLog,
+      outputFilterLog: AttachLoadBalancersResultType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,6 +46,10 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "listWebsiteAuthorizationProviders",
+      inputFilterLog: ListWebsiteAuthorizationProvidersRequest.filterSensitiveLog,
+      outputFilterLog: ListWebsiteAuthorizationProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

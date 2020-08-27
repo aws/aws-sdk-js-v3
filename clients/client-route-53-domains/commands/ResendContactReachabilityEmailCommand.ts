@@ -45,6 +45,10 @@ export class ResendContactReachabilityEmailCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "resendContactReachabilityEmail",
+      inputFilterLog: ResendContactReachabilityEmailRequest.filterSensitiveLog,
+      outputFilterLog: ResendContactReachabilityEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

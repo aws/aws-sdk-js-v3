@@ -45,6 +45,10 @@ export class DeleteNotificationConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "deleteNotificationConfiguration",
+      inputFilterLog: DeleteNotificationConfigurationType.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

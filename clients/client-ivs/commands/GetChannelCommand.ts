@@ -45,6 +45,10 @@ export class GetChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Ivs",
+      clientName: "getChannel",
+      inputFilterLog: GetChannelRequest.filterSensitiveLog,
+      outputFilterLog: GetChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

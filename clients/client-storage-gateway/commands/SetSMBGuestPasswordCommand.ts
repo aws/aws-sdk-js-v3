@@ -45,6 +45,10 @@ export class SetSMBGuestPasswordCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "setSMBGuestPassword",
+      inputFilterLog: SetSMBGuestPasswordInput.filterSensitiveLog,
+      outputFilterLog: SetSMBGuestPasswordOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class AttachVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "attachVolume",
+      inputFilterLog: AttachVolumeRequest.filterSensitiveLog,
+      outputFilterLog: VolumeAttachment.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

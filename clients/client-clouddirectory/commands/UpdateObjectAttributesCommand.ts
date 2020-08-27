@@ -45,6 +45,10 @@ export class UpdateObjectAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "updateObjectAttributes",
+      inputFilterLog: UpdateObjectAttributesRequest.filterSensitiveLog,
+      outputFilterLog: UpdateObjectAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

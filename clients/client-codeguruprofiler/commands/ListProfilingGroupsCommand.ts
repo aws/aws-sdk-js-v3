@@ -45,6 +45,10 @@ export class ListProfilingGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeGuruProfiler",
+      clientName: "listProfilingGroups",
+      inputFilterLog: ListProfilingGroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListProfilingGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

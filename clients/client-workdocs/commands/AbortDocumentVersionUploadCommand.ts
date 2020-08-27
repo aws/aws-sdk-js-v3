@@ -45,6 +45,10 @@ export class AbortDocumentVersionUploadCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "abortDocumentVersionUpload",
+      inputFilterLog: AbortDocumentVersionUploadRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

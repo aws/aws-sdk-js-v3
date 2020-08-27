@@ -45,6 +45,10 @@ export class DescribeBundleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mobile",
+      clientName: "describeBundle",
+      inputFilterLog: DescribeBundleRequest.filterSensitiveLog,
+      outputFilterLog: DescribeBundleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

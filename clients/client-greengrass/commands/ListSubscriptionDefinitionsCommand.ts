@@ -45,6 +45,10 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "listSubscriptionDefinitions",
+      inputFilterLog: ListSubscriptionDefinitionsRequest.filterSensitiveLog,
+      outputFilterLog: ListSubscriptionDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

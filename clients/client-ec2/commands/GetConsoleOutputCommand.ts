@@ -45,6 +45,10 @@ export class GetConsoleOutputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getConsoleOutput",
+      inputFilterLog: GetConsoleOutputRequest.filterSensitiveLog,
+      outputFilterLog: GetConsoleOutputResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

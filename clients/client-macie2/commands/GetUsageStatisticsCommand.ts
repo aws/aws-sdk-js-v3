@@ -45,6 +45,10 @@ export class GetUsageStatisticsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "getUsageStatistics",
+      inputFilterLog: GetUsageStatisticsRequest.filterSensitiveLog,
+      outputFilterLog: GetUsageStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetAppLaunchConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "getAppLaunchConfiguration",
+      inputFilterLog: GetAppLaunchConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetAppLaunchConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

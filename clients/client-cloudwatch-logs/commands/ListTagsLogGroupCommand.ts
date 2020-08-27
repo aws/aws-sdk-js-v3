@@ -45,6 +45,10 @@ export class ListTagsLogGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatchLogs",
+      clientName: "listTagsLogGroup",
+      inputFilterLog: ListTagsLogGroupRequest.filterSensitiveLog,
+      outputFilterLog: ListTagsLogGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

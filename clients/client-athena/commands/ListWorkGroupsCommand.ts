@@ -45,6 +45,10 @@ export class ListWorkGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "listWorkGroups",
+      inputFilterLog: ListWorkGroupsInput.filterSensitiveLog,
+      outputFilterLog: ListWorkGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -38,6 +38,10 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "listFaqs",
+      inputFilterLog: ListFaqsRequest.filterSensitiveLog,
+      outputFilterLog: ListFaqsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class ListQueuesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "listQueues",
+      inputFilterLog: ListQueuesRequest.filterSensitiveLog,
+      outputFilterLog: ListQueuesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

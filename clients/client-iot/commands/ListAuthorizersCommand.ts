@@ -45,6 +45,10 @@ export class ListAuthorizersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "listAuthorizers",
+      inputFilterLog: ListAuthorizersRequest.filterSensitiveLog,
+      outputFilterLog: ListAuthorizersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

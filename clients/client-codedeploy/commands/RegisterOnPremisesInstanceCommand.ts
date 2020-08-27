@@ -45,6 +45,10 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "registerOnPremisesInstance",
+      inputFilterLog: RegisterOnPremisesInstanceInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

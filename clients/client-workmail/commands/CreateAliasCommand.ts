@@ -45,6 +45,10 @@ export class CreateAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkMail",
+      clientName: "createAlias",
+      inputFilterLog: CreateAliasRequest.filterSensitiveLog,
+      outputFilterLog: CreateAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

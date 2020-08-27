@@ -45,6 +45,10 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteTopicRuleDestination",
+      inputFilterLog: DeleteTopicRuleDestinationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTopicRuleDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteDeliveryChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "deleteDeliveryChannel",
+      inputFilterLog: DeleteDeliveryChannelRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

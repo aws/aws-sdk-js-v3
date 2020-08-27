@@ -45,6 +45,10 @@ export class ListBundlesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Mobile",
+      clientName: "listBundles",
+      inputFilterLog: ListBundlesRequest.filterSensitiveLog,
+      outputFilterLog: ListBundlesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

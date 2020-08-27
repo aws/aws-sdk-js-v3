@@ -45,6 +45,10 @@ export class GetRepositoryPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "getRepositoryPolicy",
+      inputFilterLog: GetRepositoryPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetRepositoryPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

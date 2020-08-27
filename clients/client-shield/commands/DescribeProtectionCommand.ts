@@ -45,6 +45,10 @@ export class DescribeProtectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "describeProtection",
+      inputFilterLog: DescribeProtectionRequest.filterSensitiveLog,
+      outputFilterLog: DescribeProtectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

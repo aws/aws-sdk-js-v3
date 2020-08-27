@@ -45,6 +45,10 @@ export class ListGroundStationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GroundStation",
+      clientName: "listGroundStations",
+      inputFilterLog: ListGroundStationsRequest.filterSensitiveLog,
+      outputFilterLog: ListGroundStationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

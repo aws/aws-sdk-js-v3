@@ -46,6 +46,10 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostExplorer",
+      clientName: "getSavingsPlansUtilizationDetails",
+      inputFilterLog: GetSavingsPlansUtilizationDetailsRequest.filterSensitiveLog,
+      outputFilterLog: GetSavingsPlansUtilizationDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

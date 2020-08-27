@@ -45,6 +45,10 @@ export class BatchPutMessageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTEventsData",
+      clientName: "batchPutMessage",
+      inputFilterLog: BatchPutMessageRequest.filterSensitiveLog,
+      outputFilterLog: BatchPutMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

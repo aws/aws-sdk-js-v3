@@ -45,6 +45,10 @@ export class SetSMSAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SNS",
+      clientName: "setSMSAttributes",
+      inputFilterLog: SetSMSAttributesInput.filterSensitiveLog,
+      outputFilterLog: SetSMSAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

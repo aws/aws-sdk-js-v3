@@ -42,6 +42,10 @@ export class CreateVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createVolume",
+      inputFilterLog: CreateVolumeRequest.filterSensitiveLog,
+      outputFilterLog: Volume.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

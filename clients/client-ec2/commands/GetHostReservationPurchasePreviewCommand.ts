@@ -45,6 +45,10 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "getHostReservationPurchasePreview",
+      inputFilterLog: GetHostReservationPurchasePreviewRequest.filterSensitiveLog,
+      outputFilterLog: GetHostReservationPurchasePreviewResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

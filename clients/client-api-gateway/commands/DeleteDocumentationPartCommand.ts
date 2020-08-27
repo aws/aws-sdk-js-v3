@@ -45,6 +45,10 @@ export class DeleteDocumentationPartCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "deleteDocumentationPart",
+      inputFilterLog: DeleteDocumentationPartRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeAlarmsForMetricCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "describeAlarmsForMetric",
+      inputFilterLog: DescribeAlarmsForMetricInput.filterSensitiveLog,
+      outputFilterLog: DescribeAlarmsForMetricOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateJobQueueCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "updateJobQueue",
+      inputFilterLog: UpdateJobQueueRequest.filterSensitiveLog,
+      outputFilterLog: UpdateJobQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

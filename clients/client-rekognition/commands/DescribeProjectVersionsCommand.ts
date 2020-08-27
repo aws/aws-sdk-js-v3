@@ -45,6 +45,10 @@ export class DescribeProjectVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "describeProjectVersions",
+      inputFilterLog: DescribeProjectVersionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeProjectVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

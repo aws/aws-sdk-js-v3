@@ -45,6 +45,10 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "listVolumeRecoveryPoints",
+      inputFilterLog: ListVolumeRecoveryPointsInput.filterSensitiveLog,
+      outputFilterLog: ListVolumeRecoveryPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class RegisterImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "registerImage",
+      inputFilterLog: RegisterImageRequest.filterSensitiveLog,
+      outputFilterLog: RegisterImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

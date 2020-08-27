@@ -45,6 +45,10 @@ export class StartSegmentDetectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "startSegmentDetection",
+      inputFilterLog: StartSegmentDetectionRequest.filterSensitiveLog,
+      outputFilterLog: StartSegmentDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "ignoreQueryParamsInResponse",
+      inputFilterLog: (input) => input,
+      outputFilterLog: IgnoreQueryParamsInResponseOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

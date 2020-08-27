@@ -49,6 +49,10 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putEmailIdentityDkimSigningAttributes",
+      inputFilterLog: PutEmailIdentityDkimSigningAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutEmailIdentityDkimSigningAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

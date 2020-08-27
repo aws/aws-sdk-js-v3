@@ -45,6 +45,10 @@ export class GetSatelliteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GroundStation",
+      clientName: "getSatellite",
+      inputFilterLog: GetSatelliteRequest.filterSensitiveLog,
+      outputFilterLog: GetSatelliteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

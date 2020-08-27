@@ -45,6 +45,10 @@ export class RestoreAddressToClassicCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "restoreAddressToClassic",
+      inputFilterLog: RestoreAddressToClassicRequest.filterSensitiveLog,
+      outputFilterLog: RestoreAddressToClassicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

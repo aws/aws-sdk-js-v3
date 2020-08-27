@@ -45,6 +45,10 @@ export class DescribeTrustsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectoryService",
+      clientName: "describeTrusts",
+      inputFilterLog: DescribeTrustsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTrustsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

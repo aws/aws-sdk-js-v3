@@ -45,6 +45,10 @@ export class QueryForecastCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Forecastquery",
+      clientName: "queryForecast",
+      inputFilterLog: QueryForecastRequest.filterSensitiveLog,
+      outputFilterLog: QueryForecastResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

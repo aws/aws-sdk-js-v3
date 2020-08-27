@@ -45,6 +45,10 @@ export class DisablePolicyTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "disablePolicyType",
+      inputFilterLog: DisablePolicyTypeRequest.filterSensitiveLog,
+      outputFilterLog: DisablePolicyTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

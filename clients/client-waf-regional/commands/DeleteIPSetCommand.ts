@@ -45,6 +45,10 @@ export class DeleteIPSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "deleteIPSet",
+      inputFilterLog: DeleteIPSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

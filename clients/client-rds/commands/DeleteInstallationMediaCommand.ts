@@ -45,6 +45,10 @@ export class DeleteInstallationMediaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "deleteInstallationMedia",
+      inputFilterLog: DeleteInstallationMediaMessage.filterSensitiveLog,
+      outputFilterLog: InstallationMedia.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

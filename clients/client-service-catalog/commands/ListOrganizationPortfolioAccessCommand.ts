@@ -45,6 +45,10 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceCatalog",
+      clientName: "listOrganizationPortfolioAccess",
+      inputFilterLog: ListOrganizationPortfolioAccessInput.filterSensitiveLog,
+      outputFilterLog: ListOrganizationPortfolioAccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

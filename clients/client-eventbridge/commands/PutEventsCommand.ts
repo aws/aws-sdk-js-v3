@@ -42,6 +42,10 @@ export class PutEventsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EventBridge",
+      clientName: "putEvents",
+      inputFilterLog: PutEventsRequest.filterSensitiveLog,
+      outputFilterLog: PutEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "updateTask",
+      inputFilterLog: UpdateTaskRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

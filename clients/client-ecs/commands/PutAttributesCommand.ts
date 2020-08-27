@@ -45,6 +45,10 @@ export class PutAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "putAttributes",
+      inputFilterLog: PutAttributesRequest.filterSensitiveLog,
+      outputFilterLog: PutAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

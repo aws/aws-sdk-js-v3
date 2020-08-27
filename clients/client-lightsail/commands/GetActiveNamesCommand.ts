@@ -45,6 +45,10 @@ export class GetActiveNamesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getActiveNames",
+      inputFilterLog: GetActiveNamesRequest.filterSensitiveLog,
+      outputFilterLog: GetActiveNamesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

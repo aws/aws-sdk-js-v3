@@ -45,6 +45,10 @@ export class SendCustomVerificationEmailCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "sendCustomVerificationEmail",
+      inputFilterLog: SendCustomVerificationEmailRequest.filterSensitiveLog,
+      outputFilterLog: SendCustomVerificationEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

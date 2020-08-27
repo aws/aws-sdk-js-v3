@@ -45,6 +45,10 @@ export class DescribeLaunchTemplatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeLaunchTemplates",
+      inputFilterLog: DescribeLaunchTemplatesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeLaunchTemplatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

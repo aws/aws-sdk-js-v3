@@ -45,6 +45,10 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "deleteFirewallManagerRuleGroups",
+      inputFilterLog: DeleteFirewallManagerRuleGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFirewallManagerRuleGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetHostnameSuggestionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorks",
+      clientName: "getHostnameSuggestion",
+      inputFilterLog: GetHostnameSuggestionRequest.filterSensitiveLog,
+      outputFilterLog: GetHostnameSuggestionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

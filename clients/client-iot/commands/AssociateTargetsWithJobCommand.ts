@@ -45,6 +45,10 @@ export class AssociateTargetsWithJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "associateTargetsWithJob",
+      inputFilterLog: AssociateTargetsWithJobRequest.filterSensitiveLog,
+      outputFilterLog: AssociateTargetsWithJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

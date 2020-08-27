@@ -45,6 +45,10 @@ export class DeleteWebACLCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "deleteWebACL",
+      inputFilterLog: DeleteWebACLRequest.filterSensitiveLog,
+      outputFilterLog: DeleteWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

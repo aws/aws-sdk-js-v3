@@ -46,6 +46,10 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteProvisioningTemplateVersion",
+      inputFilterLog: DeleteProvisioningTemplateVersionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteProvisioningTemplateVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

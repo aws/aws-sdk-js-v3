@@ -45,6 +45,10 @@ export class StartProjectVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "startProjectVersion",
+      inputFilterLog: StartProjectVersionRequest.filterSensitiveLog,
+      outputFilterLog: StartProjectVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeCommentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "describeComments",
+      inputFilterLog: DescribeCommentsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCommentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

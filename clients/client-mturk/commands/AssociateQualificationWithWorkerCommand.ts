@@ -45,6 +45,10 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "associateQualificationWithWorker",
+      inputFilterLog: AssociateQualificationWithWorkerRequest.filterSensitiveLog,
+      outputFilterLog: AssociateQualificationWithWorkerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

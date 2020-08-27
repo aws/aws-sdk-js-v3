@@ -49,6 +49,10 @@ export class GetConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeStarConnections",
+      clientName: "getConnection",
+      inputFilterLog: GetConnectionInput.filterSensitiveLog,
+      outputFilterLog: GetConnectionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class AssociateAddressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "associateAddress",
+      inputFilterLog: AssociateAddressRequest.filterSensitiveLog,
+      outputFilterLog: AssociateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

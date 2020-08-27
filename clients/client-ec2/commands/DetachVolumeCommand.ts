@@ -42,6 +42,10 @@ export class DetachVolumeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "detachVolume",
+      inputFilterLog: DetachVolumeRequest.filterSensitiveLog,
+      outputFilterLog: VolumeAttachment.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

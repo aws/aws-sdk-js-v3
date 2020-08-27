@@ -45,6 +45,10 @@ export class ListInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "listInstances",
+      inputFilterLog: ListInstancesInput.filterSensitiveLog,
+      outputFilterLog: ListInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kafka",
+      clientName: "createCluster",
+      inputFilterLog: CreateClusterRequest.filterSensitiveLog,
+      outputFilterLog: CreateClusterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

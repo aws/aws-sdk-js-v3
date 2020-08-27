@@ -45,6 +45,10 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Cloud9",
+      clientName: "deleteEnvironmentMembership",
+      inputFilterLog: DeleteEnvironmentMembershipRequest.filterSensitiveLog,
+      outputFilterLog: DeleteEnvironmentMembershipResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

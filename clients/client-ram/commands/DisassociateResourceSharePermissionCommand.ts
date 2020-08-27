@@ -49,6 +49,10 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "disassociateResourceSharePermission",
+      inputFilterLog: DisassociateResourceSharePermissionRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateResourceSharePermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

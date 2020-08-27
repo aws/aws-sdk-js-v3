@@ -45,6 +45,10 @@ export class ListConferenceProvidersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "listConferenceProviders",
+      inputFilterLog: ListConferenceProvidersRequest.filterSensitiveLog,
+      outputFilterLog: ListConferenceProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

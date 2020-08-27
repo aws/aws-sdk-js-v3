@@ -45,6 +45,10 @@ export class ValidateTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "validateTemplate",
+      inputFilterLog: ValidateTemplateInput.filterSensitiveLog,
+      outputFilterLog: ValidateTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

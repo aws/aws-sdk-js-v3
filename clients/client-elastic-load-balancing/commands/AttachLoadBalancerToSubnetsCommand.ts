@@ -49,6 +49,10 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancing",
+      clientName: "attachLoadBalancerToSubnets",
+      inputFilterLog: AttachLoadBalancerToSubnetsInput.filterSensitiveLog,
+      outputFilterLog: AttachLoadBalancerToSubnetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

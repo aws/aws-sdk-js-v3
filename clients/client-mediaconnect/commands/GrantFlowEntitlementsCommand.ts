@@ -45,6 +45,10 @@ export class GrantFlowEntitlementsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "grantFlowEntitlements",
+      inputFilterLog: GrantFlowEntitlementsRequest.filterSensitiveLog,
+      outputFilterLog: GrantFlowEntitlementsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

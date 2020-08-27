@@ -42,6 +42,10 @@ export class ListTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "listTags",
+      inputFilterLog: ListTagsRequest.filterSensitiveLog,
+      outputFilterLog: ListTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

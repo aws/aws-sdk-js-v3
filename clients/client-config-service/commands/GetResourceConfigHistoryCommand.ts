@@ -45,6 +45,10 @@ export class GetResourceConfigHistoryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "getResourceConfigHistory",
+      inputFilterLog: GetResourceConfigHistoryRequest.filterSensitiveLog,
+      outputFilterLog: GetResourceConfigHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

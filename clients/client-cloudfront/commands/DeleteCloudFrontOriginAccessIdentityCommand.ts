@@ -45,6 +45,10 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "deleteCloudFrontOriginAccessIdentity",
+      inputFilterLog: DeleteCloudFrontOriginAccessIdentityRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

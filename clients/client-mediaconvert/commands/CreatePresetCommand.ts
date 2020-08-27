@@ -45,6 +45,10 @@ export class CreatePresetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "createPreset",
+      inputFilterLog: CreatePresetRequest.filterSensitiveLog,
+      outputFilterLog: CreatePresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

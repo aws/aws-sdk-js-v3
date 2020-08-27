@@ -45,6 +45,10 @@ export class RecursiveShapesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "recursiveShapes",
+      inputFilterLog: RecursiveShapesInputOutput.filterSensitiveLog,
+      outputFilterLog: RecursiveShapesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

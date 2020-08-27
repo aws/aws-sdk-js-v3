@@ -45,6 +45,10 @@ export class DescribeContinuousBackupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "describeContinuousBackups",
+      inputFilterLog: DescribeContinuousBackupsInput.filterSensitiveLog,
+      outputFilterLog: DescribeContinuousBackupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

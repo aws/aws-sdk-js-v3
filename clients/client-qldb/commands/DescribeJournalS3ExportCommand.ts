@@ -45,6 +45,10 @@ export class DescribeJournalS3ExportCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "describeJournalS3Export",
+      inputFilterLog: DescribeJournalS3ExportRequest.filterSensitiveLog,
+      outputFilterLog: DescribeJournalS3ExportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

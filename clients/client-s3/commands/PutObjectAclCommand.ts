@@ -47,6 +47,10 @@ export class PutObjectAclCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "putObjectAcl",
+      inputFilterLog: PutObjectAclRequest.filterSensitiveLog,
+      outputFilterLog: PutObjectAclOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

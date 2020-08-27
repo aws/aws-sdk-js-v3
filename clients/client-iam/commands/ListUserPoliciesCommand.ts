@@ -45,6 +45,10 @@ export class ListUserPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "listUserPolicies",
+      inputFilterLog: ListUserPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListUserPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

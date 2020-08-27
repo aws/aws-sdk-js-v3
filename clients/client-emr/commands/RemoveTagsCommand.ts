@@ -45,6 +45,10 @@ export class RemoveTagsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "removeTags",
+      inputFilterLog: RemoveTagsInput.filterSensitiveLog,
+      outputFilterLog: RemoveTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

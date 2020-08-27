@@ -49,6 +49,10 @@ export class GetSigningCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "getSigningCertificate",
+      inputFilterLog: GetSigningCertificateRequest.filterSensitiveLog,
+      outputFilterLog: GetSigningCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class RegisterUsageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MarketplaceMetering",
+      clientName: "registerUsage",
+      inputFilterLog: RegisterUsageRequest.filterSensitiveLog,
+      outputFilterLog: RegisterUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

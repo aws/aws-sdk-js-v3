@@ -45,6 +45,10 @@ export class UpdateMitigationActionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "updateMitigationAction",
+      inputFilterLog: UpdateMitigationActionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateMitigationActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

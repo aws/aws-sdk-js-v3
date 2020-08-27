@@ -45,6 +45,10 @@ export class DeleteReplicationGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "deleteReplicationGroup",
+      inputFilterLog: DeleteReplicationGroupMessage.filterSensitiveLog,
+      outputFilterLog: DeleteReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

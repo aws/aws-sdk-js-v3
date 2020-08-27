@@ -45,6 +45,10 @@ export class UpdateVPCEConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "updateVPCEConfiguration",
+      inputFilterLog: UpdateVPCEConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateVPCEConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

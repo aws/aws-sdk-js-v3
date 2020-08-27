@@ -49,6 +49,10 @@ export class DeleteHumanLoopCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMakerA2IRuntime",
+      clientName: "deleteHumanLoop",
+      inputFilterLog: DeleteHumanLoopRequest.filterSensitiveLog,
+      outputFilterLog: DeleteHumanLoopResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

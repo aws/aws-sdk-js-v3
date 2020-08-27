@@ -45,6 +45,10 @@ export class CreateSizeConstraintSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "createSizeConstraintSet",
+      inputFilterLog: CreateSizeConstraintSetRequest.filterSensitiveLog,
+      outputFilterLog: CreateSizeConstraintSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeletePresetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "deletePreset",
+      inputFilterLog: DeletePresetRequest.filterSensitiveLog,
+      outputFilterLog: DeletePresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

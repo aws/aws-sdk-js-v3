@@ -40,6 +40,10 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "listParts",
+      inputFilterLog: ListPartsRequest.filterSensitiveLog,
+      outputFilterLog: ListPartsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

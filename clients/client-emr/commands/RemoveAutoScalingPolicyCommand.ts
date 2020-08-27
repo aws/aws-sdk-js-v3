@@ -45,6 +45,10 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "removeAutoScalingPolicy",
+      inputFilterLog: RemoveAutoScalingPolicyInput.filterSensitiveLog,
+      outputFilterLog: RemoveAutoScalingPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

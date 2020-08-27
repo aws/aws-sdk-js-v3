@@ -45,6 +45,10 @@ export class StartRemediationExecutionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "startRemediationExecution",
+      inputFilterLog: StartRemediationExecutionRequest.filterSensitiveLog,
+      outputFilterLog: StartRemediationExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

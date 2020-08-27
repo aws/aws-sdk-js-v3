@@ -45,6 +45,10 @@ export class ListBranchesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Amplify",
+      clientName: "listBranches",
+      inputFilterLog: ListBranchesRequest.filterSensitiveLog,
+      outputFilterLog: ListBranchesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

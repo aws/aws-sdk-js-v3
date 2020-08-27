@@ -45,6 +45,10 @@ export class AddInstanceGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "addInstanceGroups",
+      inputFilterLog: AddInstanceGroupsInput.filterSensitiveLog,
+      outputFilterLog: AddInstanceGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

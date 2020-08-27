@@ -45,6 +45,10 @@ export class UpdateCoreDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "updateCoreDefinition",
+      inputFilterLog: UpdateCoreDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateCoreDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

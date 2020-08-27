@@ -45,6 +45,10 @@ export class GetAnalyzerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AccessAnalyzer",
+      clientName: "getAnalyzer",
+      inputFilterLog: GetAnalyzerRequest.filterSensitiveLog,
+      outputFilterLog: GetAnalyzerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "getDevicePoolCompatibility",
+      inputFilterLog: GetDevicePoolCompatibilityRequest.filterSensitiveLog,
+      outputFilterLog: GetDevicePoolCompatibilityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

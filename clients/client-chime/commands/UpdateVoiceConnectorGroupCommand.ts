@@ -45,6 +45,10 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "updateVoiceConnectorGroup",
+      inputFilterLog: UpdateVoiceConnectorGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateVoiceConnectorGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

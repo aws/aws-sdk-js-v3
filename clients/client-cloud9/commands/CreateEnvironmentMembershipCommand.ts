@@ -45,6 +45,10 @@ export class CreateEnvironmentMembershipCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Cloud9",
+      clientName: "createEnvironmentMembership",
+      inputFilterLog: CreateEnvironmentMembershipRequest.filterSensitiveLog,
+      outputFilterLog: CreateEnvironmentMembershipResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeApplicationStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHub",
+      clientName: "describeApplicationState",
+      inputFilterLog: DescribeApplicationStateRequest.filterSensitiveLog,
+      outputFilterLog: DescribeApplicationStateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

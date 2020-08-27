@@ -45,6 +45,10 @@ export class BatchGetTriggersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "batchGetTriggers",
+      inputFilterLog: BatchGetTriggersRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetTriggersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

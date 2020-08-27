@@ -45,6 +45,10 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeOrderableClusterOptions",
+      inputFilterLog: DescribeOrderableClusterOptionsMessage.filterSensitiveLog,
+      outputFilterLog: OrderableClusterOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

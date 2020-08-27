@@ -45,6 +45,10 @@ export class RestoreTableFromBackupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "restoreTableFromBackup",
+      inputFilterLog: RestoreTableFromBackupInput.filterSensitiveLog,
+      outputFilterLog: RestoreTableFromBackupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

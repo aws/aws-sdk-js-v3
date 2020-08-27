@@ -48,6 +48,10 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "deleteVoiceConnectorStreamingConfiguration",
+      inputFilterLog: DeleteVoiceConnectorStreamingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

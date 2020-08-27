@@ -45,6 +45,10 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "updateDevicePolicyConfiguration",
+      inputFilterLog: UpdateDevicePolicyConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDevicePolicyConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

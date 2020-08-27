@@ -45,6 +45,10 @@ export class DescribeCacheCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeCache",
+      inputFilterLog: DescribeCacheInput.filterSensitiveLog,
+      outputFilterLog: DescribeCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

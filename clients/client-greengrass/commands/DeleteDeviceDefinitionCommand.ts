@@ -45,6 +45,10 @@ export class DeleteDeviceDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "deleteDeviceDefinition",
+      inputFilterLog: DeleteDeviceDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDeviceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

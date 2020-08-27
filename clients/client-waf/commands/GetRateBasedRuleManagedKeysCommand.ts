@@ -45,6 +45,10 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "getRateBasedRuleManagedKeys",
+      inputFilterLog: GetRateBasedRuleManagedKeysRequest.filterSensitiveLog,
+      outputFilterLog: GetRateBasedRuleManagedKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describeAutoScalingGroups",
+      inputFilterLog: AutoScalingGroupNamesType.filterSensitiveLog,
+      outputFilterLog: AutoScalingGroupsType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteSecurityProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteSecurityProfile",
+      inputFilterLog: DeleteSecurityProfileRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

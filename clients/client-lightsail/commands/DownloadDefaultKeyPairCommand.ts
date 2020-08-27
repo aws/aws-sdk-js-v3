@@ -45,6 +45,10 @@ export class DownloadDefaultKeyPairCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "downloadDefaultKeyPair",
+      inputFilterLog: DownloadDefaultKeyPairRequest.filterSensitiveLog,
+      outputFilterLog: DownloadDefaultKeyPairResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

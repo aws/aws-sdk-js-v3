@@ -45,6 +45,10 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "createConnectorDefinitionVersion",
+      inputFilterLog: CreateConnectorDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateConnectorDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

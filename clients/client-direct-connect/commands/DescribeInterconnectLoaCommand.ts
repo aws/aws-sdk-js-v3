@@ -45,6 +45,10 @@ export class DescribeInterconnectLoaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "describeInterconnectLoa",
+      inputFilterLog: DescribeInterconnectLoaRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInterconnectLoaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

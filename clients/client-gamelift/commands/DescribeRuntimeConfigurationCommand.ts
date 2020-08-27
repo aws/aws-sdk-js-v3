@@ -45,6 +45,10 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GameLift",
+      clientName: "describeRuntimeConfiguration",
+      inputFilterLog: DescribeRuntimeConfigurationInput.filterSensitiveLog,
+      outputFilterLog: DescribeRuntimeConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

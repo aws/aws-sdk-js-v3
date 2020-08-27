@@ -45,6 +45,10 @@ export class ListTextTranslationJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Translate",
+      clientName: "listTextTranslationJobs",
+      inputFilterLog: ListTextTranslationJobsRequest.filterSensitiveLog,
+      outputFilterLog: ListTextTranslationJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

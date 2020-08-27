@@ -46,6 +46,10 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "listDomainDeliverabilityCampaigns",
+      inputFilterLog: ListDomainDeliverabilityCampaignsRequest.filterSensitiveLog,
+      outputFilterLog: ListDomainDeliverabilityCampaignsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

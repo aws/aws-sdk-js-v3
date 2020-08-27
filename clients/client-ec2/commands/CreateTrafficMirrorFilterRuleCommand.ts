@@ -45,6 +45,10 @@ export class CreateTrafficMirrorFilterRuleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createTrafficMirrorFilterRule",
+      inputFilterLog: CreateTrafficMirrorFilterRuleRequest.filterSensitiveLog,
+      outputFilterLog: CreateTrafficMirrorFilterRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

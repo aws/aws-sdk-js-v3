@@ -47,6 +47,10 @@ export class CreateIdentityPoolCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "createIdentityPool",
+      inputFilterLog: CreateIdentityPoolInput.filterSensitiveLog,
+      outputFilterLog: IdentityPool.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

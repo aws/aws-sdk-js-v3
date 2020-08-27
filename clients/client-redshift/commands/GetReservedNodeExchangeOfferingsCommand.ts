@@ -49,6 +49,10 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "getReservedNodeExchangeOfferings",
+      inputFilterLog: GetReservedNodeExchangeOfferingsInputMessage.filterSensitiveLog,
+      outputFilterLog: GetReservedNodeExchangeOfferingsOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

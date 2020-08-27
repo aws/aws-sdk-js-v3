@@ -45,6 +45,10 @@ export class GetThingShadowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTDataPlane",
+      clientName: "getThingShadow",
+      inputFilterLog: GetThingShadowRequest.filterSensitiveLog,
+      outputFilterLog: GetThingShadowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

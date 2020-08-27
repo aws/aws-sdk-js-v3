@@ -47,6 +47,10 @@ export class PutBucketWebsiteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "putBucketWebsite",
+      inputFilterLog: PutBucketWebsiteRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

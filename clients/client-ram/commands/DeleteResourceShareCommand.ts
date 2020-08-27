@@ -45,6 +45,10 @@ export class DeleteResourceShareCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "deleteResourceShare",
+      inputFilterLog: DeleteResourceShareRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResourceShareResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

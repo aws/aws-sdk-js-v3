@@ -45,6 +45,10 @@ export class GetDashboardEmbedUrlCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "getDashboardEmbedUrl",
+      inputFilterLog: GetDashboardEmbedUrlRequest.filterSensitiveLog,
+      outputFilterLog: GetDashboardEmbedUrlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "addSourceIdentifierToSubscription",
+      inputFilterLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

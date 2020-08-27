@@ -45,6 +45,10 @@ export class UpdateScalingPlanCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScalingPlans",
+      clientName: "updateScalingPlan",
+      inputFilterLog: UpdateScalingPlanRequest.filterSensitiveLog,
+      outputFilterLog: UpdateScalingPlanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

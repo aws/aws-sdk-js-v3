@@ -49,6 +49,10 @@ export class DescribeRiskConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "describeRiskConfiguration",
+      inputFilterLog: DescribeRiskConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRiskConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

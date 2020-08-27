@@ -42,6 +42,10 @@ export class CreateImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "createImage",
+      inputFilterLog: CreateImageRequest.filterSensitiveLog,
+      outputFilterLog: CreateImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

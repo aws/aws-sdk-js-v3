@@ -46,6 +46,10 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getVoiceConnectorTerminationHealth",
+      inputFilterLog: GetVoiceConnectorTerminationHealthRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceConnectorTerminationHealthResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

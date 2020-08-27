@@ -45,6 +45,10 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "purchaseProvisionedCapacity",
+      inputFilterLog: PurchaseProvisionedCapacityInput.filterSensitiveLog,
+      outputFilterLog: PurchaseProvisionedCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

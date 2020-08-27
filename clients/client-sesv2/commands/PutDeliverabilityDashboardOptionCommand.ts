@@ -45,6 +45,10 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "putDeliverabilityDashboardOption",
+      inputFilterLog: PutDeliverabilityDashboardOptionRequest.filterSensitiveLog,
+      outputFilterLog: PutDeliverabilityDashboardOptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

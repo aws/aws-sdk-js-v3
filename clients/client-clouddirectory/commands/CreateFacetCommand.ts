@@ -45,6 +45,10 @@ export class CreateFacetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "createFacet",
+      inputFilterLog: CreateFacetRequest.filterSensitiveLog,
+      outputFilterLog: CreateFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

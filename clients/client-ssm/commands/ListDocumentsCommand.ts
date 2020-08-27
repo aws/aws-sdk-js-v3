@@ -45,6 +45,10 @@ export class ListDocumentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "listDocuments",
+      inputFilterLog: ListDocumentsRequest.filterSensitiveLog,
+      outputFilterLog: ListDocumentsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

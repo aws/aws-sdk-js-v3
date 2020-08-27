@@ -45,6 +45,10 @@ export class BatchDeleteDocumentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Kendra",
+      clientName: "batchDeleteDocument",
+      inputFilterLog: BatchDeleteDocumentRequest.filterSensitiveLog,
+      outputFilterLog: BatchDeleteDocumentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

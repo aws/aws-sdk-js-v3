@@ -45,6 +45,10 @@ export class GetIntrospectionSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "getIntrospectionSchema",
+      inputFilterLog: GetIntrospectionSchemaRequest.filterSensitiveLog,
+      outputFilterLog: GetIntrospectionSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

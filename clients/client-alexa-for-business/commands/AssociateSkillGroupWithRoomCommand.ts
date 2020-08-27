@@ -45,6 +45,10 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "associateSkillGroupWithRoom",
+      inputFilterLog: AssociateSkillGroupWithRoomRequest.filterSensitiveLog,
+      outputFilterLog: AssociateSkillGroupWithRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

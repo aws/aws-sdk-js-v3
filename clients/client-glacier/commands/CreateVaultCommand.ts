@@ -45,6 +45,10 @@ export class CreateVaultCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "createVault",
+      inputFilterLog: CreateVaultInput.filterSensitiveLog,
+      outputFilterLog: CreateVaultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

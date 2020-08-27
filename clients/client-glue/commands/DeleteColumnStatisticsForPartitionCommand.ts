@@ -46,6 +46,10 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deleteColumnStatisticsForPartition",
+      inputFilterLog: DeleteColumnStatisticsForPartitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

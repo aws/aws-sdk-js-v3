@@ -45,6 +45,10 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "getHealthCheckLastFailureReason",
+      inputFilterLog: GetHealthCheckLastFailureReasonRequest.filterSensitiveLog,
+      outputFilterLog: GetHealthCheckLastFailureReasonResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

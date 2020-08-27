@@ -45,6 +45,10 @@ export class GetRightsizingRecommendationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CostExplorer",
+      clientName: "getRightsizingRecommendation",
+      inputFilterLog: GetRightsizingRecommendationRequest.filterSensitiveLog,
+      outputFilterLog: GetRightsizingRecommendationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

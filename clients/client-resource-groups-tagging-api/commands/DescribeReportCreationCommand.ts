@@ -49,6 +49,10 @@ export class DescribeReportCreationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ResourceGroupsTaggingAPI",
+      clientName: "describeReportCreation",
+      inputFilterLog: DescribeReportCreationInput.filterSensitiveLog,
+      outputFilterLog: DescribeReportCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

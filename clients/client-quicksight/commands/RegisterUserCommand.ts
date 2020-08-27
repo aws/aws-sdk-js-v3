@@ -45,6 +45,10 @@ export class RegisterUserCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "registerUser",
+      inputFilterLog: RegisterUserRequest.filterSensitiveLog,
+      outputFilterLog: RegisterUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

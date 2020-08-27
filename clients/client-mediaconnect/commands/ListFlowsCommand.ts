@@ -45,6 +45,10 @@ export class ListFlowsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "listFlows",
+      inputFilterLog: ListFlowsRequest.filterSensitiveLog,
+      outputFilterLog: ListFlowsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

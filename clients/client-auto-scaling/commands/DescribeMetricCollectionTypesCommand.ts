@@ -45,6 +45,10 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AutoScaling",
+      clientName: "describeMetricCollectionTypes",
+      inputFilterLog: (input) => input,
+      outputFilterLog: DescribeMetricCollectionTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class StopAppReplicationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "stopAppReplication",
+      inputFilterLog: StopAppReplicationRequest.filterSensitiveLog,
+      outputFilterLog: StopAppReplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

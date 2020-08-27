@@ -46,6 +46,10 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "getComplianceSummaryByResourceType",
+      inputFilterLog: GetComplianceSummaryByResourceTypeRequest.filterSensitiveLog,
+      outputFilterLog: GetComplianceSummaryByResourceTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

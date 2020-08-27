@@ -45,6 +45,10 @@ export class SimpleScalarPropertiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "simpleScalarProperties",
+      inputFilterLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
+      outputFilterLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeWorkspaceImagesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "describeWorkspaceImages",
+      inputFilterLog: DescribeWorkspaceImagesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeWorkspaceImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

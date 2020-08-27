@@ -47,6 +47,10 @@ export class DeleteIdentitiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "deleteIdentities",
+      inputFilterLog: DeleteIdentitiesInput.filterSensitiveLog,
+      outputFilterLog: DeleteIdentitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

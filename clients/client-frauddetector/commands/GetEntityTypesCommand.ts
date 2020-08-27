@@ -45,6 +45,10 @@ export class GetEntityTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getEntityTypes",
+      inputFilterLog: GetEntityTypesRequest.filterSensitiveLog,
+      outputFilterLog: GetEntityTypesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

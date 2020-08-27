@@ -45,6 +45,10 @@ export class DeleteEvaluationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MachineLearning",
+      clientName: "deleteEvaluation",
+      inputFilterLog: DeleteEvaluationInput.filterSensitiveLog,
+      outputFilterLog: DeleteEvaluationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

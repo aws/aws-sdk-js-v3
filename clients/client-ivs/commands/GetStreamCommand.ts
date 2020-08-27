@@ -41,6 +41,10 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Ivs",
+      clientName: "getStream",
+      inputFilterLog: GetStreamRequest.filterSensitiveLog,
+      outputFilterLog: GetStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

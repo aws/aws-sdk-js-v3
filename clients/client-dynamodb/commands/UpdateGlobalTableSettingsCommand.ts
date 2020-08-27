@@ -45,6 +45,10 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DynamoDB",
+      clientName: "updateGlobalTableSettings",
+      inputFilterLog: UpdateGlobalTableSettingsInput.filterSensitiveLog,
+      outputFilterLog: UpdateGlobalTableSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

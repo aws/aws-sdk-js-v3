@@ -45,6 +45,10 @@ export class DeleteMonitoringScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "deleteMonitoringSchedule",
+      inputFilterLog: DeleteMonitoringScheduleRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateScheduledAuditCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "createScheduledAudit",
+      inputFilterLog: CreateScheduledAuditRequest.filterSensitiveLog,
+      outputFilterLog: CreateScheduledAuditResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

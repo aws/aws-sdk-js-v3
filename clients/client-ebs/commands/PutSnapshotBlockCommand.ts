@@ -47,6 +47,10 @@ export class PutSnapshotBlockCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EBS",
+      clientName: "putSnapshotBlock",
+      inputFilterLog: PutSnapshotBlockRequest.filterSensitiveLog,
+      outputFilterLog: PutSnapshotBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

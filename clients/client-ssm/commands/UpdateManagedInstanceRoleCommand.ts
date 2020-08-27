@@ -45,6 +45,10 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "updateManagedInstanceRole",
+      inputFilterLog: UpdateManagedInstanceRoleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateManagedInstanceRoleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

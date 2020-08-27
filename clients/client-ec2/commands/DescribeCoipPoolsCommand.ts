@@ -45,6 +45,10 @@ export class DescribeCoipPoolsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeCoipPools",
+      inputFilterLog: DescribeCoipPoolsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCoipPoolsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

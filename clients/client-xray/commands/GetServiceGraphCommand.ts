@@ -45,6 +45,10 @@ export class GetServiceGraphCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "getServiceGraph",
+      inputFilterLog: GetServiceGraphRequest.filterSensitiveLog,
+      outputFilterLog: GetServiceGraphResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

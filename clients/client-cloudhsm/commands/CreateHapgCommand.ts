@@ -45,6 +45,10 @@ export class CreateHapgCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSM",
+      clientName: "createHapg",
+      inputFilterLog: CreateHapgRequest.filterSensitiveLog,
+      outputFilterLog: CreateHapgResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

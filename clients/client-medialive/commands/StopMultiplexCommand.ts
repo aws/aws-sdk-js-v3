@@ -45,6 +45,10 @@ export class StopMultiplexCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "stopMultiplex",
+      inputFilterLog: StopMultiplexRequest.filterSensitiveLog,
+      outputFilterLog: StopMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

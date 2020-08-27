@@ -45,6 +45,10 @@ export class GetVPCEConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "getVPCEConfiguration",
+      inputFilterLog: GetVPCEConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetVPCEConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

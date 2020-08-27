@@ -45,6 +45,10 @@ export class TestEventPatternCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EventBridge",
+      clientName: "testEventPattern",
+      inputFilterLog: TestEventPatternRequest.filterSensitiveLog,
+      outputFilterLog: TestEventPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

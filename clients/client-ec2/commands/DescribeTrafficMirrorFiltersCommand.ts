@@ -45,6 +45,10 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeTrafficMirrorFilters",
+      inputFilterLog: DescribeTrafficMirrorFiltersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTrafficMirrorFiltersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -42,6 +42,10 @@ export class ImportInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "importInstance",
+      inputFilterLog: ImportInstanceRequest.filterSensitiveLog,
+      outputFilterLog: ImportInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

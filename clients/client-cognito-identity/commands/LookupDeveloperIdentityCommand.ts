@@ -47,6 +47,10 @@ export class LookupDeveloperIdentityCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "lookupDeveloperIdentity",
+      inputFilterLog: LookupDeveloperIdentityInput.filterSensitiveLog,
+      outputFilterLog: LookupDeveloperIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

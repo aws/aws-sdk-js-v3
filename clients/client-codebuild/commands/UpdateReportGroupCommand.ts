@@ -45,6 +45,10 @@ export class UpdateReportGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "updateReportGroup",
+      inputFilterLog: UpdateReportGroupInput.filterSensitiveLog,
+      outputFilterLog: UpdateReportGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

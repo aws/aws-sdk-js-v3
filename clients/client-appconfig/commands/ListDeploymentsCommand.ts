@@ -45,6 +45,10 @@ export class ListDeploymentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppConfig",
+      clientName: "listDeployments",
+      inputFilterLog: ListDeploymentsRequest.filterSensitiveLog,
+      outputFilterLog: Deployments.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

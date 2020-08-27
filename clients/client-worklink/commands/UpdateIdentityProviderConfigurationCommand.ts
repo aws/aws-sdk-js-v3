@@ -49,6 +49,10 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkLink",
+      clientName: "updateIdentityProviderConfiguration",
+      inputFilterLog: UpdateIdentityProviderConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateIdentityProviderConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

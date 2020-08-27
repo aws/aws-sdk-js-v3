@@ -45,6 +45,10 @@ export class RegisterWorkflowTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "registerWorkflowType",
+      inputFilterLog: RegisterWorkflowTypeInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

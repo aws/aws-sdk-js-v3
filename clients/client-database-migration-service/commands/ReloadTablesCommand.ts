@@ -49,6 +49,10 @@ export class ReloadTablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "reloadTables",
+      inputFilterLog: ReloadTablesMessage.filterSensitiveLog,
+      outputFilterLog: ReloadTablesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class DeleteElasticsearchDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "deleteElasticsearchDomain",
+      inputFilterLog: DeleteElasticsearchDomainRequest.filterSensitiveLog,
+      outputFilterLog: DeleteElasticsearchDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

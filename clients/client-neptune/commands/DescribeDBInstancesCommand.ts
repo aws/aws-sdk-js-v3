@@ -45,6 +45,10 @@ export class DescribeDBInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "describeDBInstances",
+      inputFilterLog: DescribeDBInstancesMessage.filterSensitiveLog,
+      outputFilterLog: DBInstanceMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

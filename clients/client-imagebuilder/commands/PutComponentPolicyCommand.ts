@@ -45,6 +45,10 @@ export class PutComponentPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "putComponentPolicy",
+      inputFilterLog: PutComponentPolicyRequest.filterSensitiveLog,
+      outputFilterLog: PutComponentPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

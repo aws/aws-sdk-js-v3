@@ -45,6 +45,10 @@ export class DeleteWorkflowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deleteWorkflow",
+      inputFilterLog: DeleteWorkflowRequest.filterSensitiveLog,
+      outputFilterLog: DeleteWorkflowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

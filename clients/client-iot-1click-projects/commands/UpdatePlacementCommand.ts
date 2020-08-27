@@ -49,6 +49,10 @@ export class UpdatePlacementCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickProjects",
+      clientName: "updatePlacement",
+      inputFilterLog: UpdatePlacementRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

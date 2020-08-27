@@ -45,6 +45,10 @@ export class StartDeviceSyncCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "startDeviceSync",
+      inputFilterLog: StartDeviceSyncRequest.filterSensitiveLog,
+      outputFilterLog: StartDeviceSyncResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

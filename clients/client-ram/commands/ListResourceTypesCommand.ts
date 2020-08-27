@@ -45,6 +45,10 @@ export class ListResourceTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "listResourceTypes",
+      inputFilterLog: ListResourceTypesRequest.filterSensitiveLog,
+      outputFilterLog: ListResourceTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

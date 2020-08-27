@@ -38,6 +38,10 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "getWebACL",
+      inputFilterLog: GetWebACLRequest.filterSensitiveLog,
+      outputFilterLog: GetWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

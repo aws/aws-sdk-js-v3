@@ -45,6 +45,10 @@ export class PutDetectorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "putDetector",
+      inputFilterLog: PutDetectorRequest.filterSensitiveLog,
+      outputFilterLog: PutDetectorResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

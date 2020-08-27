@@ -49,6 +49,10 @@ export class ResolveCustomerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MarketplaceMetering",
+      clientName: "resolveCustomer",
+      inputFilterLog: ResolveCustomerRequest.filterSensitiveLog,
+      outputFilterLog: ResolveCustomerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

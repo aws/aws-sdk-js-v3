@@ -45,6 +45,10 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServiceDiscovery",
+      clientName: "createPublicDnsNamespace",
+      inputFilterLog: CreatePublicDnsNamespaceRequest.filterSensitiveLog,
+      outputFilterLog: CreatePublicDnsNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,6 +50,10 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "cancelReplicationTaskAssessmentRun",
+      inputFilterLog: CancelReplicationTaskAssessmentRunMessage.filterSensitiveLog,
+      outputFilterLog: CancelReplicationTaskAssessmentRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

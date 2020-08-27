@@ -45,6 +45,10 @@ export class GetDocumentationPartCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "getDocumentationPart",
+      inputFilterLog: GetDocumentationPartRequest.filterSensitiveLog,
+      outputFilterLog: DocumentationPart.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

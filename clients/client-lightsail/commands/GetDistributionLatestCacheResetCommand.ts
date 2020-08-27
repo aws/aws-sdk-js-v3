@@ -45,6 +45,10 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getDistributionLatestCacheReset",
+      inputFilterLog: GetDistributionLatestCacheResetRequest.filterSensitiveLog,
+      outputFilterLog: GetDistributionLatestCacheResetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

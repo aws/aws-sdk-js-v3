@@ -45,6 +45,10 @@ export class PutRetentionConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "putRetentionConfiguration",
+      inputFilterLog: PutRetentionConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutRetentionConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

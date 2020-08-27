@@ -45,6 +45,10 @@ export class ListPhoneNumberOrdersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "listPhoneNumberOrders",
+      inputFilterLog: ListPhoneNumberOrdersRequest.filterSensitiveLog,
+      outputFilterLog: ListPhoneNumberOrdersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class CreateApplicationVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServerlessApplicationRepository",
+      clientName: "createApplicationVersion",
+      inputFilterLog: CreateApplicationVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateApplicationVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

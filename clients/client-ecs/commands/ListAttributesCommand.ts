@@ -45,6 +45,10 @@ export class ListAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "listAttributes",
+      inputFilterLog: ListAttributesRequest.filterSensitiveLog,
+      outputFilterLog: ListAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

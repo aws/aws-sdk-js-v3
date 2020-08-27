@@ -45,6 +45,10 @@ export class GetOutcomesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "getOutcomes",
+      inputFilterLog: GetOutcomesRequest.filterSensitiveLog,
+      outputFilterLog: GetOutcomesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

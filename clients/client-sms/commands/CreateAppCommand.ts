@@ -38,6 +38,10 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "createApp",
+      inputFilterLog: CreateAppRequest.filterSensitiveLog,
+      outputFilterLog: CreateAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

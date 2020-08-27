@@ -45,6 +45,10 @@ export class CreateDeploymentStrategyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppConfig",
+      clientName: "createDeploymentStrategy",
+      inputFilterLog: CreateDeploymentStrategyRequest.filterSensitiveLog,
+      outputFilterLog: DeploymentStrategy.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateComputeEnvironmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Batch",
+      clientName: "updateComputeEnvironment",
+      inputFilterLog: UpdateComputeEnvironmentRequest.filterSensitiveLog,
+      outputFilterLog: UpdateComputeEnvironmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

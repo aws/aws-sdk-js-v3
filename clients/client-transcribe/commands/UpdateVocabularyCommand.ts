@@ -45,6 +45,10 @@ export class UpdateVocabularyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "updateVocabulary",
+      inputFilterLog: UpdateVocabularyRequest.filterSensitiveLog,
+      outputFilterLog: UpdateVocabularyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteRoleAliasCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteRoleAlias",
+      inputFilterLog: DeleteRoleAliasRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRoleAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

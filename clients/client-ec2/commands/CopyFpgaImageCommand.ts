@@ -42,6 +42,10 @@ export class CopyFpgaImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "copyFpgaImage",
+      inputFilterLog: CopyFpgaImageRequest.filterSensitiveLog,
+      outputFilterLog: CopyFpgaImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

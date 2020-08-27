@@ -45,6 +45,10 @@ export class RevokePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "LakeFormation",
+      clientName: "revokePermissions",
+      inputFilterLog: RevokePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: RevokePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CancelArchivalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "cancelArchival",
+      inputFilterLog: CancelArchivalInput.filterSensitiveLog,
+      outputFilterLog: CancelArchivalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

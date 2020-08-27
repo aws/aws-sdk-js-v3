@@ -45,6 +45,10 @@ export class DescribeDetectorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTEventsData",
+      clientName: "describeDetector",
+      inputFilterLog: DescribeDetectorRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDetectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

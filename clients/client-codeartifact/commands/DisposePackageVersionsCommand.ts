@@ -45,6 +45,10 @@ export class DisposePackageVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "disposePackageVersions",
+      inputFilterLog: DisposePackageVersionsRequest.filterSensitiveLog,
+      outputFilterLog: DisposePackageVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

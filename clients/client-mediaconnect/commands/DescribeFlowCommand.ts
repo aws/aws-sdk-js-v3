@@ -45,6 +45,10 @@ export class DescribeFlowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "describeFlow",
+      inputFilterLog: DescribeFlowRequest.filterSensitiveLog,
+      outputFilterLog: DescribeFlowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

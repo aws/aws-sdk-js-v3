@@ -45,6 +45,10 @@ export class UpdateRuleGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "updateRuleGroup",
+      inputFilterLog: UpdateRuleGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

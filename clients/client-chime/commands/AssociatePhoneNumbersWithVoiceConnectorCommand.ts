@@ -52,6 +52,10 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "associatePhoneNumbersWithVoiceConnector",
+      inputFilterLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
+      outputFilterLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

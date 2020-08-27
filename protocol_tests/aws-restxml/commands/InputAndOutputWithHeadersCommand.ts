@@ -45,6 +45,10 @@ export class InputAndOutputWithHeadersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "inputAndOutputWithHeaders",
+      inputFilterLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
+      outputFilterLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

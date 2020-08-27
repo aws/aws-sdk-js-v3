@@ -45,6 +45,10 @@ export class DescribeHostReservationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeHostReservations",
+      inputFilterLog: DescribeHostReservationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeHostReservationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

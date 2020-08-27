@@ -49,6 +49,10 @@ export class ListProjectsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickProjects",
+      clientName: "listProjects",
+      inputFilterLog: ListProjectsRequest.filterSensitiveLog,
+      outputFilterLog: ListProjectsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

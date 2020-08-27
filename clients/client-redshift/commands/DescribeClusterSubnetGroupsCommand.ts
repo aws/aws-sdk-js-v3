@@ -45,6 +45,10 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeClusterSubnetGroups",
+      inputFilterLog: DescribeClusterSubnetGroupsMessage.filterSensitiveLog,
+      outputFilterLog: ClusterSubnetGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "deleteBandwidthRateLimit",
+      inputFilterLog: DeleteBandwidthRateLimitInput.filterSensitiveLog,
+      outputFilterLog: DeleteBandwidthRateLimitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

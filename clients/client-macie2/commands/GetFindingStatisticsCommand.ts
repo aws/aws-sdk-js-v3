@@ -45,6 +45,10 @@ export class GetFindingStatisticsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "getFindingStatistics",
+      inputFilterLog: GetFindingStatisticsRequest.filterSensitiveLog,
+      outputFilterLog: GetFindingStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

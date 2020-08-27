@@ -45,6 +45,10 @@ export class AddInstanceFleetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EMR",
+      clientName: "addInstanceFleet",
+      inputFilterLog: AddInstanceFleetInput.filterSensitiveLog,
+      outputFilterLog: AddInstanceFleetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

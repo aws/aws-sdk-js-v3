@@ -45,6 +45,10 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteLoadBalancerTlsCertificate",
+      inputFilterLog: DeleteLoadBalancerTlsCertificateRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLoadBalancerTlsCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

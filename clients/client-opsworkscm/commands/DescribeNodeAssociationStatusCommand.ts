@@ -45,6 +45,10 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "OpsWorksCM",
+      clientName: "describeNodeAssociationStatus",
+      inputFilterLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
+      outputFilterLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

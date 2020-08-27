@@ -38,6 +38,10 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentity",
+      clientName: "getId",
+      inputFilterLog: GetIdInput.filterSensitiveLog,
+      outputFilterLog: GetIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

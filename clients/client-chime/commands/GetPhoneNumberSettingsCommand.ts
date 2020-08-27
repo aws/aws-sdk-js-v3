@@ -45,6 +45,10 @@ export class GetPhoneNumberSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getPhoneNumberSettings",
+      inputFilterLog: (input) => input,
+      outputFilterLog: GetPhoneNumberSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

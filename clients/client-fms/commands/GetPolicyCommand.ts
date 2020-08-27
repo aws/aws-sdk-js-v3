@@ -38,6 +38,10 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "getPolicy",
+      inputFilterLog: GetPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

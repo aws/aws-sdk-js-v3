@@ -47,6 +47,10 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "listBucketMetricsConfigurations",
+      inputFilterLog: ListBucketMetricsConfigurationsRequest.filterSensitiveLog,
+      outputFilterLog: ListBucketMetricsConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ModifyEventSubscriptionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Neptune",
+      clientName: "modifyEventSubscription",
+      inputFilterLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: ModifyEventSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

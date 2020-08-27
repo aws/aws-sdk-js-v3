@@ -45,6 +45,10 @@ export class CreateFlowDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "createFlowDefinition",
+      inputFilterLog: CreateFlowDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: CreateFlowDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

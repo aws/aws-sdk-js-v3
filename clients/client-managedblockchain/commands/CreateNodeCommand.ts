@@ -49,6 +49,10 @@ export class CreateNodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "createNode",
+      inputFilterLog: CreateNodeInput.filterSensitiveLog,
+      outputFilterLog: CreateNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

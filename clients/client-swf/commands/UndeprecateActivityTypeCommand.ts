@@ -45,6 +45,10 @@ export class UndeprecateActivityTypeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "undeprecateActivityType",
+      inputFilterLog: UndeprecateActivityTypeInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

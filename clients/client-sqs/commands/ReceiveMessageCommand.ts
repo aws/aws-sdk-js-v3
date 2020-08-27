@@ -47,6 +47,10 @@ export class ReceiveMessageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "receiveMessage",
+      inputFilterLog: ReceiveMessageRequest.filterSensitiveLog,
+      outputFilterLog: ReceiveMessageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

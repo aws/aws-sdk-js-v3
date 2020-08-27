@@ -38,6 +38,10 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "sign",
+      inputFilterLog: SignRequest.filterSensitiveLog,
+      outputFilterLog: SignResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

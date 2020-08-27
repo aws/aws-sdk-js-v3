@@ -45,6 +45,10 @@ export class InitializeClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudHSMV2",
+      clientName: "initializeCluster",
+      inputFilterLog: InitializeClusterRequest.filterSensitiveLog,
+      outputFilterLog: InitializeClusterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "createUnreferencedMergeCommit",
+      inputFilterLog: CreateUnreferencedMergeCommitInput.filterSensitiveLog,
+      outputFilterLog: CreateUnreferencedMergeCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

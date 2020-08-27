@@ -42,6 +42,10 @@ export class GetFolderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "getFolder",
+      inputFilterLog: GetFolderInput.filterSensitiveLog,
+      outputFilterLog: GetFolderOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

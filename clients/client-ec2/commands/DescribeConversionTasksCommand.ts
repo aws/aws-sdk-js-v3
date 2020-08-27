@@ -45,6 +45,10 @@ export class DescribeConversionTasksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeConversionTasks",
+      inputFilterLog: DescribeConversionTasksRequest.filterSensitiveLog,
+      outputFilterLog: DescribeConversionTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

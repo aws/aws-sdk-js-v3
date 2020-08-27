@@ -49,6 +49,10 @@ export class ListByoipCidrsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GlobalAccelerator",
+      clientName: "listByoipCidrs",
+      inputFilterLog: ListByoipCidrsRequest.filterSensitiveLog,
+      outputFilterLog: ListByoipCidrsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListVPCEConfigurationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "listVPCEConfigurations",
+      inputFilterLog: ListVPCEConfigurationsRequest.filterSensitiveLog,
+      outputFilterLog: ListVPCEConfigurationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeClassicLinkInstances",
+      inputFilterLog: DescribeClassicLinkInstancesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeClassicLinkInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

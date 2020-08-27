@@ -45,6 +45,10 @@ export class GetApplicationRevisionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "getApplicationRevision",
+      inputFilterLog: GetApplicationRevisionInput.filterSensitiveLog,
+      outputFilterLog: GetApplicationRevisionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

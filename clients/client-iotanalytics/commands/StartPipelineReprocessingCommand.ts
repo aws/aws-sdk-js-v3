@@ -45,6 +45,10 @@ export class StartPipelineReprocessingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "startPipelineReprocessing",
+      inputFilterLog: StartPipelineReprocessingRequest.filterSensitiveLog,
+      outputFilterLog: StartPipelineReprocessingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

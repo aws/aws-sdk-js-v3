@@ -45,6 +45,10 @@ export class DeleteLoggerDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "deleteLoggerDefinition",
+      inputFilterLog: DeleteLoggerDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLoggerDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

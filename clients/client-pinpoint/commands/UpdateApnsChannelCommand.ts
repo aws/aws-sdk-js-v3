@@ -45,6 +45,10 @@ export class UpdateApnsChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "updateApnsChannel",
+      inputFilterLog: UpdateApnsChannelRequest.filterSensitiveLog,
+      outputFilterLog: UpdateApnsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

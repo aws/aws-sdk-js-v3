@@ -45,6 +45,10 @@ export class DeregisterTransitGatewayCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "deregisterTransitGateway",
+      inputFilterLog: DeregisterTransitGatewayRequest.filterSensitiveLog,
+      outputFilterLog: DeregisterTransitGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

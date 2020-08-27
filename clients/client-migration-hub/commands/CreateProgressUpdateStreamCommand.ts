@@ -45,6 +45,10 @@ export class CreateProgressUpdateStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MigrationHub",
+      clientName: "createProgressUpdateStream",
+      inputFilterLog: CreateProgressUpdateStreamRequest.filterSensitiveLog,
+      outputFilterLog: CreateProgressUpdateStreamResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

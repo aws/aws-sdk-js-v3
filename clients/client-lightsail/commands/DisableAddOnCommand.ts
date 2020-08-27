@@ -45,6 +45,10 @@ export class DisableAddOnCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "disableAddOn",
+      inputFilterLog: DisableAddOnRequest.filterSensitiveLog,
+      outputFilterLog: DisableAddOnResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

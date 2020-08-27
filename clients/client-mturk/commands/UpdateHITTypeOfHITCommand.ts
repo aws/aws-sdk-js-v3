@@ -45,6 +45,10 @@ export class UpdateHITTypeOfHITCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "updateHITTypeOfHIT",
+      inputFilterLog: UpdateHITTypeOfHITRequest.filterSensitiveLog,
+      outputFilterLog: UpdateHITTypeOfHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

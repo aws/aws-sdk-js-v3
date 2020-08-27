@@ -45,6 +45,10 @@ export class DeleteAccessPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTSiteWise",
+      clientName: "deleteAccessPolicy",
+      inputFilterLog: DeleteAccessPolicyRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAccessPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

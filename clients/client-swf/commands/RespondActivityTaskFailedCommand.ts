@@ -45,6 +45,10 @@ export class RespondActivityTaskFailedCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SWF",
+      clientName: "respondActivityTaskFailed",
+      inputFilterLog: RespondActivityTaskFailedInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

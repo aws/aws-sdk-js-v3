@@ -45,6 +45,10 @@ export class DeleteByteMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAF",
+      clientName: "deleteByteMatchSet",
+      inputFilterLog: DeleteByteMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteByteMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

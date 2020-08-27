@@ -45,6 +45,10 @@ export class DescribeRobotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RoboMaker",
+      clientName: "describeRobot",
+      inputFilterLog: DescribeRobotRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRobotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

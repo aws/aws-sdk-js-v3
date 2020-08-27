@@ -47,6 +47,10 @@ export class GetObjectLegalHoldCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "getObjectLegalHold",
+      inputFilterLog: GetObjectLegalHoldRequest.filterSensitiveLog,
+      outputFilterLog: GetObjectLegalHoldOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

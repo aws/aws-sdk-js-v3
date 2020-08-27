@@ -42,6 +42,10 @@ export class GetDisksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getDisks",
+      inputFilterLog: GetDisksRequest.filterSensitiveLog,
+      outputFilterLog: GetDisksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

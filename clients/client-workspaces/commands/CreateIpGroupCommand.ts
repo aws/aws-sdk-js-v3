@@ -45,6 +45,10 @@ export class CreateIpGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "createIpGroup",
+      inputFilterLog: CreateIpGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateIpGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

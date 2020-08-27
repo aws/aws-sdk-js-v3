@@ -45,6 +45,10 @@ export class DescribeTransitGatewayRouteTablesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeTransitGatewayRouteTables",
+      inputFilterLog: DescribeTransitGatewayRouteTablesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTransitGatewayRouteTablesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

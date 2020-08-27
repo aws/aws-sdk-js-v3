@@ -45,6 +45,10 @@ export class ListKeyPoliciesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "listKeyPolicies",
+      inputFilterLog: ListKeyPoliciesRequest.filterSensitiveLog,
+      outputFilterLog: ListKeyPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

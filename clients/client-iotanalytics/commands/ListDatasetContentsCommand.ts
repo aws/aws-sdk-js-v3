@@ -45,6 +45,10 @@ export class ListDatasetContentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTAnalytics",
+      clientName: "listDatasetContents",
+      inputFilterLog: ListDatasetContentsRequest.filterSensitiveLog,
+      outputFilterLog: ListDatasetContentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

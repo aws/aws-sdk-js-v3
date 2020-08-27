@@ -45,6 +45,10 @@ export class UpdatePackagingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackageVod",
+      clientName: "updatePackagingGroup",
+      inputFilterLog: UpdatePackagingGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePackagingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

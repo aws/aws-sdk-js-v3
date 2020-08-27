@@ -49,6 +49,10 @@ export class InitiateDeviceClaimCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT1ClickDevicesService",
+      clientName: "initiateDeviceClaim",
+      inputFilterLog: InitiateDeviceClaimRequest.filterSensitiveLog,
+      outputFilterLog: InitiateDeviceClaimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteDeploymentStrategyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppConfig",
+      clientName: "deleteDeploymentStrategy",
+      inputFilterLog: DeleteDeploymentStrategyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeSuggestersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "describeSuggesters",
+      inputFilterLog: DescribeSuggestersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSuggestersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

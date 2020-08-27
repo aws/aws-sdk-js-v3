@@ -45,6 +45,10 @@ export class ModifyClientVpnEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "modifyClientVpnEndpoint",
+      inputFilterLog: ModifyClientVpnEndpointRequest.filterSensitiveLog,
+      outputFilterLog: ModifyClientVpnEndpointResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

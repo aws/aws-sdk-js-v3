@@ -45,6 +45,10 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "listCuratedEnvironmentImages",
+      inputFilterLog: ListCuratedEnvironmentImagesInput.filterSensitiveLog,
+      outputFilterLog: ListCuratedEnvironmentImagesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

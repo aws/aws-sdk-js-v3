@@ -38,6 +38,10 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getTags",
+      inputFilterLog: GetTagsRequest.filterSensitiveLog,
+      outputFilterLog: GetTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

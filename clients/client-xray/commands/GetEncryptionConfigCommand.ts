@@ -45,6 +45,10 @@ export class GetEncryptionConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "getEncryptionConfig",
+      inputFilterLog: GetEncryptionConfigRequest.filterSensitiveLog,
+      outputFilterLog: GetEncryptionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateVariableCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FraudDetector",
+      clientName: "createVariable",
+      inputFilterLog: CreateVariableRequest.filterSensitiveLog,
+      outputFilterLog: CreateVariableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

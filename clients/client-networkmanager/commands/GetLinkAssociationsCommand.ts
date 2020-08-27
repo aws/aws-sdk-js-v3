@@ -45,6 +45,10 @@ export class GetLinkAssociationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "NetworkManager",
+      clientName: "getLinkAssociations",
+      inputFilterLog: GetLinkAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: GetLinkAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

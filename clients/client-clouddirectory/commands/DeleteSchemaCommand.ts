@@ -45,6 +45,10 @@ export class DeleteSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "deleteSchema",
+      inputFilterLog: DeleteSchemaRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

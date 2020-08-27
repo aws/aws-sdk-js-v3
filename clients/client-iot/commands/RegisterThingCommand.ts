@@ -45,6 +45,10 @@ export class RegisterThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "registerThing",
+      inputFilterLog: RegisterThingRequest.filterSensitiveLog,
+      outputFilterLog: RegisterThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteApiKeyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppSync",
+      clientName: "deleteApiKey",
+      inputFilterLog: DeleteApiKeyRequest.filterSensitiveLog,
+      outputFilterLog: DeleteApiKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

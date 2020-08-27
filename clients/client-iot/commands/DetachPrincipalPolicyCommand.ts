@@ -45,6 +45,10 @@ export class DetachPrincipalPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "detachPrincipalPolicy",
+      inputFilterLog: DetachPrincipalPolicyRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

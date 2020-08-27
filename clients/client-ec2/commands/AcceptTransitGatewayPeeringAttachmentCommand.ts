@@ -49,6 +49,10 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "acceptTransitGatewayPeeringAttachment",
+      inputFilterLog: AcceptTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
+      outputFilterLog: AcceptTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetPolicyVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "getPolicyVersion",
+      inputFilterLog: GetPolicyVersionRequest.filterSensitiveLog,
+      outputFilterLog: GetPolicyVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

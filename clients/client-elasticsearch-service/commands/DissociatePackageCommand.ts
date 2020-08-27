@@ -49,6 +49,10 @@ export class DissociatePackageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "dissociatePackage",
+      inputFilterLog: DissociatePackageRequest.filterSensitiveLog,
+      outputFilterLog: DissociatePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

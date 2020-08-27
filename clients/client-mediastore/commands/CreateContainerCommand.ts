@@ -45,6 +45,10 @@ export class CreateContainerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaStore",
+      clientName: "createContainer",
+      inputFilterLog: CreateContainerInput.filterSensitiveLog,
+      outputFilterLog: CreateContainerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

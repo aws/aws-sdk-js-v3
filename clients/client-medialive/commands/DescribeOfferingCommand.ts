@@ -45,6 +45,10 @@ export class DescribeOfferingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "describeOffering",
+      inputFilterLog: DescribeOfferingRequest.filterSensitiveLog,
+      outputFilterLog: DescribeOfferingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeRegistryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "describeRegistry",
+      inputFilterLog: DescribeRegistryRequest.filterSensitiveLog,
+      outputFilterLog: DescribeRegistryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

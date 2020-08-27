@@ -45,6 +45,10 @@ export class PutConferencePreferenceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "putConferencePreference",
+      inputFilterLog: PutConferencePreferenceRequest.filterSensitiveLog,
+      outputFilterLog: PutConferencePreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

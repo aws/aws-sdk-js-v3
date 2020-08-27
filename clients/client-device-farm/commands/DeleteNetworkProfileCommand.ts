@@ -45,6 +45,10 @@ export class DeleteNetworkProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "deleteNetworkProfile",
+      inputFilterLog: DeleteNetworkProfileRequest.filterSensitiveLog,
+      outputFilterLog: DeleteNetworkProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

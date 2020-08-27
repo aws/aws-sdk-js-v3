@@ -45,6 +45,10 @@ export class UpdateFileSystemCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "updateFileSystem",
+      inputFilterLog: UpdateFileSystemRequest.filterSensitiveLog,
+      outputFilterLog: FileSystemDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

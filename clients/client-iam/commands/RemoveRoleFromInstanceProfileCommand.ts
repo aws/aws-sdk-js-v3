@@ -45,6 +45,10 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "removeRoleFromInstanceProfile",
+      inputFilterLog: RemoveRoleFromInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

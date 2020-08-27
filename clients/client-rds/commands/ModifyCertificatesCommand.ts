@@ -45,6 +45,10 @@ export class ModifyCertificatesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "modifyCertificates",
+      inputFilterLog: ModifyCertificatesMessage.filterSensitiveLog,
+      outputFilterLog: ModifyCertificatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

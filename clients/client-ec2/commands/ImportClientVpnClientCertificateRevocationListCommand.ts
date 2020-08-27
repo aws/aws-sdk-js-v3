@@ -52,6 +52,10 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "importClientVpnClientCertificateRevocationList",
+      inputFilterLog: ImportClientVpnClientCertificateRevocationListRequest.filterSensitiveLog,
+      outputFilterLog: ImportClientVpnClientCertificateRevocationListResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

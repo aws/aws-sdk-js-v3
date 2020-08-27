@@ -45,6 +45,10 @@ export class DescribeByoipCidrsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "describeByoipCidrs",
+      inputFilterLog: DescribeByoipCidrsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeByoipCidrsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DeleteDistributionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteDistribution",
+      inputFilterLog: DeleteDistributionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

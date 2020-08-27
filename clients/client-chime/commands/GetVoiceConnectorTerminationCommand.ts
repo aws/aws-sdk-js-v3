@@ -45,6 +45,10 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "getVoiceConnectorTermination",
+      inputFilterLog: GetVoiceConnectorTerminationRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceConnectorTerminationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListLedgersCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QLDB",
+      clientName: "listLedgers",
+      inputFilterLog: ListLedgersRequest.filterSensitiveLog,
+      outputFilterLog: ListLedgersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class CreateLabelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkDocs",
+      clientName: "createLabels",
+      inputFilterLog: CreateLabelsRequest.filterSensitiveLog,
+      outputFilterLog: CreateLabelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RDS",
+      clientName: "describeDBInstanceAutomatedBackups",
+      inputFilterLog: DescribeDBInstanceAutomatedBackupsMessage.filterSensitiveLog,
+      outputFilterLog: DBInstanceAutomatedBackupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListTagsForDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "listTagsForDomain",
+      inputFilterLog: ListTagsForDomainRequest.filterSensitiveLog,
+      outputFilterLog: ListTagsForDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

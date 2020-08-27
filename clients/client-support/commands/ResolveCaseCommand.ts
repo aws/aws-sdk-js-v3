@@ -45,6 +45,10 @@ export class ResolveCaseCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Support",
+      clientName: "resolveCase",
+      inputFilterLog: ResolveCaseRequest.filterSensitiveLog,
+      outputFilterLog: ResolveCaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

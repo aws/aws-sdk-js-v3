@@ -45,6 +45,10 @@ export class DissociateEntityFromThingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "dissociateEntityFromThing",
+      inputFilterLog: DissociateEntityFromThingRequest.filterSensitiveLog,
+      outputFilterLog: DissociateEntityFromThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class UpdateDeploymentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "APIGateway",
+      clientName: "updateDeployment",
+      inputFilterLog: UpdateDeploymentRequest.filterSensitiveLog,
+      outputFilterLog: Deployment.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

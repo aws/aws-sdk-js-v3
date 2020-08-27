@@ -42,6 +42,10 @@ export class ImportKeyPairCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "importKeyPair",
+      inputFilterLog: ImportKeyPairRequest.filterSensitiveLog,
+      outputFilterLog: ImportKeyPairResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

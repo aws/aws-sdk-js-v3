@@ -45,6 +45,10 @@ export class PutConfigurationRecorderCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "putConfigurationRecorder",
+      inputFilterLog: PutConfigurationRecorderRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

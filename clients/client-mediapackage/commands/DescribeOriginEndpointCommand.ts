@@ -45,6 +45,10 @@ export class DescribeOriginEndpointCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackage",
+      clientName: "describeOriginEndpoint",
+      inputFilterLog: DescribeOriginEndpointRequest.filterSensitiveLog,
+      outputFilterLog: DescribeOriginEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

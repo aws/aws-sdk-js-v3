@@ -45,6 +45,10 @@ export class GetAdmChannelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getAdmChannel",
+      inputFilterLog: GetAdmChannelRequest.filterSensitiveLog,
+      outputFilterLog: GetAdmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

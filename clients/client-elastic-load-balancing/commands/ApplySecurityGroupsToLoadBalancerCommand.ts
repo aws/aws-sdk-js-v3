@@ -49,6 +49,10 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticLoadBalancing",
+      clientName: "applySecurityGroupsToLoadBalancer",
+      inputFilterLog: ApplySecurityGroupsToLoadBalancerInput.filterSensitiveLog,
+      outputFilterLog: ApplySecurityGroupsToLoadBalancerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

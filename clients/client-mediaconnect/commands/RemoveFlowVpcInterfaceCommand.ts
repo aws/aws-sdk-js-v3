@@ -45,6 +45,10 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConnect",
+      clientName: "removeFlowVpcInterface",
+      inputFilterLog: RemoveFlowVpcInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: RemoveFlowVpcInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

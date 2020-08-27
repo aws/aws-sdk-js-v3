@@ -45,6 +45,10 @@ export class DeleteDataCatalogCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Athena",
+      clientName: "deleteDataCatalog",
+      inputFilterLog: DeleteDataCatalogInput.filterSensitiveLog,
+      outputFilterLog: DeleteDataCatalogOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

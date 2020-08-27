@@ -45,6 +45,10 @@ export class DescribeParameterGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DAX",
+      clientName: "describeParameterGroups",
+      inputFilterLog: DescribeParameterGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeParameterGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

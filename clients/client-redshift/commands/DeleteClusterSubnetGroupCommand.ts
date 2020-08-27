@@ -45,6 +45,10 @@ export class DeleteClusterSubnetGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "deleteClusterSubnetGroup",
+      inputFilterLog: DeleteClusterSubnetGroupMessage.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

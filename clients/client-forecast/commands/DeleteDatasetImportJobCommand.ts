@@ -45,6 +45,10 @@ export class DeleteDatasetImportJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Forecast",
+      clientName: "deleteDatasetImportJob",
+      inputFilterLog: DeleteDatasetImportJobRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class PollForJobsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodePipeline",
+      clientName: "pollForJobs",
+      inputFilterLog: PollForJobsInput.filterSensitiveLog,
+      outputFilterLog: PollForJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

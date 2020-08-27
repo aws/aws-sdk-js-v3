@@ -45,6 +45,10 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EFS",
+      clientName: "modifyMountTargetSecurityGroups",
+      inputFilterLog: ModifyMountTargetSecurityGroupsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

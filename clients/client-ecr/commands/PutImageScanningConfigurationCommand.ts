@@ -45,6 +45,10 @@ export class PutImageScanningConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "putImageScanningConfiguration",
+      inputFilterLog: PutImageScanningConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutImageScanningConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

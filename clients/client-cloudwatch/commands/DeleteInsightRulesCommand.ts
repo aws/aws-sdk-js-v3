@@ -45,6 +45,10 @@ export class DeleteInsightRulesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "deleteInsightRules",
+      inputFilterLog: DeleteInsightRulesInput.filterSensitiveLog,
+      outputFilterLog: DeleteInsightRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

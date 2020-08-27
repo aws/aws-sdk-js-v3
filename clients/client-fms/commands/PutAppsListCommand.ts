@@ -45,6 +45,10 @@ export class PutAppsListCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "FMS",
+      clientName: "putAppsList",
+      inputFilterLog: PutAppsListRequest.filterSensitiveLog,
+      outputFilterLog: PutAppsListResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

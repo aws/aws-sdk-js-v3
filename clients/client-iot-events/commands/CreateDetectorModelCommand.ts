@@ -45,6 +45,10 @@ export class CreateDetectorModelCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTEvents",
+      clientName: "createDetectorModel",
+      inputFilterLog: CreateDetectorModelRequest.filterSensitiveLog,
+      outputFilterLog: CreateDetectorModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

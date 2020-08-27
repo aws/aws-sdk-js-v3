@@ -45,6 +45,10 @@ export class CreatePartitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "createPartition",
+      inputFilterLog: CreatePartitionRequest.filterSensitiveLog,
+      outputFilterLog: CreatePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

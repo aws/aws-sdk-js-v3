@@ -45,6 +45,10 @@ export class TagDeliveryStreamCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Firehose",
+      clientName: "tagDeliveryStream",
+      inputFilterLog: TagDeliveryStreamInput.filterSensitiveLog,
+      outputFilterLog: TagDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

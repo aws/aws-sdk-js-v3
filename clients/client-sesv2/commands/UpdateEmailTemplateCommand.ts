@@ -45,6 +45,10 @@ export class UpdateEmailTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "updateEmailTemplate",
+      inputFilterLog: UpdateEmailTemplateRequest.filterSensitiveLog,
+      outputFilterLog: UpdateEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

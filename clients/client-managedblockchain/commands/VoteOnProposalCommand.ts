@@ -49,6 +49,10 @@ export class VoteOnProposalCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ManagedBlockchain",
+      clientName: "voteOnProposal",
+      inputFilterLog: VoteOnProposalInput.filterSensitiveLog,
+      outputFilterLog: VoteOnProposalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

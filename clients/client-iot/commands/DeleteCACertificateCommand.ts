@@ -45,6 +45,10 @@ export class DeleteCACertificateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "deleteCACertificate",
+      inputFilterLog: DeleteCACertificateRequest.filterSensitiveLog,
+      outputFilterLog: DeleteCACertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

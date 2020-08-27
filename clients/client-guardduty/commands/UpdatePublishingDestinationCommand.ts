@@ -45,6 +45,10 @@ export class UpdatePublishingDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "GuardDuty",
+      clientName: "updatePublishingDestination",
+      inputFilterLog: UpdatePublishingDestinationRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePublishingDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

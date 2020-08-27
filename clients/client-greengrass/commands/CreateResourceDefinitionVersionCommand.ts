@@ -45,6 +45,10 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "createResourceDefinitionVersion",
+      inputFilterLog: CreateResourceDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterLog: CreateResourceDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

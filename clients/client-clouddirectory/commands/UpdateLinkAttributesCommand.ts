@@ -45,6 +45,10 @@ export class UpdateLinkAttributesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudDirectory",
+      clientName: "updateLinkAttributes",
+      inputFilterLog: UpdateLinkAttributesRequest.filterSensitiveLog,
+      outputFilterLog: UpdateLinkAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

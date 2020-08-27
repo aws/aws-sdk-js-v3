@@ -45,6 +45,10 @@ export class GetDistributionMetricDataCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "getDistributionMetricData",
+      inputFilterLog: GetDistributionMetricDataRequest.filterSensitiveLog,
+      outputFilterLog: GetDistributionMetricDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

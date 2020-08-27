@@ -45,6 +45,10 @@ export class AttachSecurityProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "attachSecurityProfile",
+      inputFilterLog: AttachSecurityProfileRequest.filterSensitiveLog,
+      outputFilterLog: AttachSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

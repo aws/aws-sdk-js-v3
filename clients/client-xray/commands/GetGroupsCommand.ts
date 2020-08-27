@@ -45,6 +45,10 @@ export class GetGroupsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "getGroups",
+      inputFilterLog: GetGroupsRequest.filterSensitiveLog,
+      outputFilterLog: GetGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

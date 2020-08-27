@@ -49,6 +49,10 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "promoteResourceShareCreatedFromPolicy",
+      inputFilterLog: PromoteResourceShareCreatedFromPolicyRequest.filterSensitiveLog,
+      outputFilterLog: PromoteResourceShareCreatedFromPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

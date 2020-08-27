@@ -45,6 +45,10 @@ export class ListTemplateAliasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "listTemplateAliases",
+      inputFilterLog: ListTemplateAliasesRequest.filterSensitiveLog,
+      outputFilterLog: ListTemplateAliasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

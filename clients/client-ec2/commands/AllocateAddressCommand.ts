@@ -42,6 +42,10 @@ export class AllocateAddressCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "allocateAddress",
+      inputFilterLog: AllocateAddressRequest.filterSensitiveLog,
+      outputFilterLog: AllocateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class SearchFacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "searchFaces",
+      inputFilterLog: SearchFacesRequest.filterSensitiveLog,
+      outputFilterLog: SearchFacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

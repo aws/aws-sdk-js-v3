@@ -45,6 +45,10 @@ export class DeleteInvitationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SecurityHub",
+      clientName: "deleteInvitations",
+      inputFilterLog: DeleteInvitationsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

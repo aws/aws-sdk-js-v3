@@ -45,6 +45,10 @@ export class CreateThingGroupCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "createThingGroup",
+      inputFilterLog: CreateThingGroupRequest.filterSensitiveLog,
+      outputFilterLog: CreateThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

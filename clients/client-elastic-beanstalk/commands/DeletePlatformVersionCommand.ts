@@ -45,6 +45,10 @@ export class DeletePlatformVersionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticBeanstalk",
+      clientName: "deletePlatformVersion",
+      inputFilterLog: DeletePlatformVersionRequest.filterSensitiveLog,
+      outputFilterLog: DeletePlatformVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

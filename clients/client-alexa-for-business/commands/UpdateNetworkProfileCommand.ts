@@ -45,6 +45,10 @@ export class UpdateNetworkProfileCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "updateNetworkProfile",
+      inputFilterLog: UpdateNetworkProfileRequest.filterSensitiveLog,
+      outputFilterLog: UpdateNetworkProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetVaultAccessPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glacier",
+      clientName: "getVaultAccessPolicy",
+      inputFilterLog: GetVaultAccessPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetVaultAccessPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

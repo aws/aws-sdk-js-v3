@@ -45,6 +45,10 @@ export class DescribeEventSubscriptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeEventSubscriptions",
+      inputFilterLog: DescribeEventSubscriptionsMessage.filterSensitiveLog,
+      outputFilterLog: EventSubscriptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

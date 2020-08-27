@@ -49,6 +49,10 @@ export class DescribeScheduledActionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ApplicationAutoScaling",
+      clientName: "describeScheduledActions",
+      inputFilterLog: DescribeScheduledActionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeScheduledActionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

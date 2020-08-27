@@ -52,6 +52,10 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Domains",
+      clientName: "cancelDomainTransferToAnotherAwsAccount",
+      inputFilterLog: CancelDomainTransferToAnotherAwsAccountRequest.filterSensitiveLog,
+      outputFilterLog: CancelDomainTransferToAnotherAwsAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

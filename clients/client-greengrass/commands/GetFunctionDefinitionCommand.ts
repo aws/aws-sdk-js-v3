@@ -45,6 +45,10 @@ export class GetFunctionDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "getFunctionDefinition",
+      inputFilterLog: GetFunctionDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: GetFunctionDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

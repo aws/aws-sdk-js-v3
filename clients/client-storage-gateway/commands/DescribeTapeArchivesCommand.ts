@@ -45,6 +45,10 @@ export class DescribeTapeArchivesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeTapeArchives",
+      inputFilterLog: DescribeTapeArchivesInput.filterSensitiveLog,
+      outputFilterLog: DescribeTapeArchivesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

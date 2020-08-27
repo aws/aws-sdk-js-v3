@@ -45,6 +45,10 @@ export class DeleteTriggerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "deleteTrigger",
+      inputFilterLog: DeleteTriggerRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTriggerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

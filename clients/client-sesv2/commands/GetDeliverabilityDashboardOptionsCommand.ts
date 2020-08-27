@@ -46,6 +46,10 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SESv2",
+      clientName: "getDeliverabilityDashboardOptions",
+      inputFilterLog: GetDeliverabilityDashboardOptionsRequest.filterSensitiveLog,
+      outputFilterLog: GetDeliverabilityDashboardOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

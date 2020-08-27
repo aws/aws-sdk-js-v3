@@ -45,6 +45,10 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteLocalGatewayRoute",
+      inputFilterLog: DeleteLocalGatewayRouteRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLocalGatewayRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

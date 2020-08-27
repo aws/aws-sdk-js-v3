@@ -45,6 +45,10 @@ export class GetMacieSessionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Macie2",
+      clientName: "getMacieSession",
+      inputFilterLog: GetMacieSessionRequest.filterSensitiveLog,
+      outputFilterLog: GetMacieSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

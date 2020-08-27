@@ -45,6 +45,10 @@ export class ListReservationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "listReservations",
+      inputFilterLog: ListReservationsRequest.filterSensitiveLog,
+      outputFilterLog: ListReservationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

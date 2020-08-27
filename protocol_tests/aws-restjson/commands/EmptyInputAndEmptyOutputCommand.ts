@@ -45,6 +45,10 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestJsonProtocol",
+      clientName: "emptyInputAndEmptyOutput",
+      inputFilterLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
+      outputFilterLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

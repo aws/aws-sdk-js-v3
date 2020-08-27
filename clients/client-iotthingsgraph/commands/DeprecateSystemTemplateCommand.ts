@@ -45,6 +45,10 @@ export class DeprecateSystemTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "deprecateSystemTemplate",
+      inputFilterLog: DeprecateSystemTemplateRequest.filterSensitiveLog,
+      outputFilterLog: DeprecateSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

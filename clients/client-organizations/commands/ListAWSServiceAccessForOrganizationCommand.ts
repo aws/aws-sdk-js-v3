@@ -49,6 +49,10 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listAWSServiceAccessForOrganization",
+      inputFilterLog: ListAWSServiceAccessForOrganizationRequest.filterSensitiveLog,
+      outputFilterLog: ListAWSServiceAccessForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

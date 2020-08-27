@@ -45,6 +45,10 @@ export class DeleteReservationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "deleteReservation",
+      inputFilterLog: DeleteReservationRequest.filterSensitiveLog,
+      outputFilterLog: DeleteReservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

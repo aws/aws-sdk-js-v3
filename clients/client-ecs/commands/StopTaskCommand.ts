@@ -38,6 +38,10 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECS",
+      clientName: "stopTask",
+      inputFilterLog: StopTaskRequest.filterSensitiveLog,
+      outputFilterLog: StopTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

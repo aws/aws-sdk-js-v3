@@ -45,6 +45,10 @@ export class DeleteDevicePoolCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "deleteDevicePool",
+      inputFilterLog: DeleteDevicePoolRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDevicePoolResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

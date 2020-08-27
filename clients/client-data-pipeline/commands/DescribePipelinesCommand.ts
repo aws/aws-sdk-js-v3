@@ -45,6 +45,10 @@ export class DescribePipelinesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataPipeline",
+      clientName: "describePipelines",
+      inputFilterLog: DescribePipelinesInput.filterSensitiveLog,
+      outputFilterLog: DescribePipelinesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

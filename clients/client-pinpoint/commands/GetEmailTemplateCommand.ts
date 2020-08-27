@@ -45,6 +45,10 @@ export class GetEmailTemplateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Pinpoint",
+      clientName: "getEmailTemplate",
+      inputFilterLog: GetEmailTemplateRequest.filterSensitiveLog,
+      outputFilterLog: GetEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

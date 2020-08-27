@@ -45,6 +45,10 @@ export class UpdateTableCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "updateTable",
+      inputFilterLog: UpdateTableRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

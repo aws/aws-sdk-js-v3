@@ -45,6 +45,10 @@ export class GetAuthorizationTokenCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "getAuthorizationToken",
+      inputFilterLog: GetAuthorizationTokenRequest.filterSensitiveLog,
+      outputFilterLog: GetAuthorizationTokenResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

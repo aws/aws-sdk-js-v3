@@ -45,6 +45,10 @@ export class CreateBusinessReportScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AlexaForBusiness",
+      clientName: "createBusinessReportSchedule",
+      inputFilterLog: CreateBusinessReportScheduleRequest.filterSensitiveLog,
+      outputFilterLog: CreateBusinessReportScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

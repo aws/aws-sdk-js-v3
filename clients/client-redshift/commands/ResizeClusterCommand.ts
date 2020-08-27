@@ -45,6 +45,10 @@ export class ResizeClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "resizeCluster",
+      inputFilterLog: ResizeClusterMessage.filterSensitiveLog,
+      outputFilterLog: ResizeClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

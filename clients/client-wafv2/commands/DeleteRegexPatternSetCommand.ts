@@ -45,6 +45,10 @@ export class DeleteRegexPatternSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFV2",
+      clientName: "deleteRegexPatternSet",
+      inputFilterLog: DeleteRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

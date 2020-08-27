@@ -45,6 +45,10 @@ export class AssociateDhcpOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "associateDhcpOptions",
+      inputFilterLog: AssociateDhcpOptionsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

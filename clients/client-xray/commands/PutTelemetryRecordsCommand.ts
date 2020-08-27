@@ -45,6 +45,10 @@ export class PutTelemetryRecordsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "XRay",
+      clientName: "putTelemetryRecords",
+      inputFilterLog: PutTelemetryRecordsRequest.filterSensitiveLog,
+      outputFilterLog: PutTelemetryRecordsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

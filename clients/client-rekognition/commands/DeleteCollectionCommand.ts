@@ -45,6 +45,10 @@ export class DeleteCollectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Rekognition",
+      clientName: "deleteCollection",
+      inputFilterLog: DeleteCollectionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteCollectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

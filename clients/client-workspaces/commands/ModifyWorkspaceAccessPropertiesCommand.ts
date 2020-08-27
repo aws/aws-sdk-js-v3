@@ -45,6 +45,10 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "modifyWorkspaceAccessProperties",
+      inputFilterLog: ModifyWorkspaceAccessPropertiesRequest.filterSensitiveLog,
+      outputFilterLog: ModifyWorkspaceAccessPropertiesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

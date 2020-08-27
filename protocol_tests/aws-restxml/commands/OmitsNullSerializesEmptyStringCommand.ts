@@ -45,6 +45,10 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "omitsNullSerializesEmptyString",
+      inputFilterLog: OmitsNullSerializesEmptyStringInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

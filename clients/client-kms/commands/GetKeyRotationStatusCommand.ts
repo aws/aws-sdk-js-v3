@@ -45,6 +45,10 @@ export class GetKeyRotationStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "getKeyRotationStatus",
+      inputFilterLog: GetKeyRotationStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetKeyRotationStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

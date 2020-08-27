@@ -45,6 +45,10 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteTransitGatewayVpcAttachment",
+      inputFilterLog: DeleteTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
+      outputFilterLog: DeleteTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

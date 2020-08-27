@@ -45,6 +45,10 @@ export class UpdateDestinationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Firehose",
+      clientName: "updateDestination",
+      inputFilterLog: UpdateDestinationInput.filterSensitiveLog,
+      outputFilterLog: UpdateDestinationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

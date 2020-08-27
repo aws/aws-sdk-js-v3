@@ -45,6 +45,10 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "acceptReservedNodeExchange",
+      inputFilterLog: AcceptReservedNodeExchangeInputMessage.filterSensitiveLog,
+      outputFilterLog: AcceptReservedNodeExchangeOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

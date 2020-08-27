@@ -49,6 +49,10 @@ export class TestConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "testConnection",
+      inputFilterLog: TestConnectionMessage.filterSensitiveLog,
+      outputFilterLog: TestConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

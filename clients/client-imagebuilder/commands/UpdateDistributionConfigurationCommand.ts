@@ -45,6 +45,10 @@ export class UpdateDistributionConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "updateDistributionConfiguration",
+      inputFilterLog: UpdateDistributionConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDistributionConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

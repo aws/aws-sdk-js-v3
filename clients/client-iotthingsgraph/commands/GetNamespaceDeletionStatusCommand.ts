@@ -45,6 +45,10 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTThingsGraph",
+      clientName: "getNamespaceDeletionStatus",
+      inputFilterLog: GetNamespaceDeletionStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetNamespaceDeletionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

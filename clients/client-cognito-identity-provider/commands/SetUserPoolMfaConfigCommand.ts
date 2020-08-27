@@ -49,6 +49,10 @@ export class SetUserPoolMfaConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "setUserPoolMfaConfig",
+      inputFilterLog: SetUserPoolMfaConfigRequest.filterSensitiveLog,
+      outputFilterLog: SetUserPoolMfaConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,6 +47,10 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "deleteQueryLoggingConfig",
+      inputFilterLog: DeleteQueryLoggingConfigRequest.filterSensitiveLog,
+      outputFilterLog: DeleteQueryLoggingConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

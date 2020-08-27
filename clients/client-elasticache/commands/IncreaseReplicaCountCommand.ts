@@ -45,6 +45,10 @@ export class IncreaseReplicaCountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "increaseReplicaCount",
+      inputFilterLog: IncreaseReplicaCountMessage.filterSensitiveLog,
+      outputFilterLog: IncreaseReplicaCountResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

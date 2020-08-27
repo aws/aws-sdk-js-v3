@@ -45,6 +45,10 @@ export class BatchGetImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ECR",
+      clientName: "batchGetImage",
+      inputFilterLog: BatchGetImageRequest.filterSensitiveLog,
+      outputFilterLog: BatchGetImageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

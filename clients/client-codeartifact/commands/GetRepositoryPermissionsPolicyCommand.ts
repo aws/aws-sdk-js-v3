@@ -45,6 +45,10 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Codeartifact",
+      clientName: "getRepositoryPermissionsPolicy",
+      inputFilterLog: GetRepositoryPermissionsPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetRepositoryPermissionsPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

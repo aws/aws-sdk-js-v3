@@ -45,6 +45,10 @@ export class GetResourceMetricsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PI",
+      clientName: "getResourceMetrics",
+      inputFilterLog: GetResourceMetricsRequest.filterSensitiveLog,
+      outputFilterLog: GetResourceMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -56,6 +56,10 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DatabaseMigrationService",
+      clientName: "describeReplicationTaskAssessmentResults",
+      inputFilterLog: DescribeReplicationTaskAssessmentResultsMessage.filterSensitiveLog,
+      outputFilterLog: DescribeReplicationTaskAssessmentResultsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

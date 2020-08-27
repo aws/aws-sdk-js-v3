@@ -45,6 +45,10 @@ export class CreateExperimentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SageMaker",
+      clientName: "createExperiment",
+      inputFilterLog: CreateExperimentRequest.filterSensitiveLog,
+      outputFilterLog: CreateExperimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

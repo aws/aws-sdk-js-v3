@@ -49,6 +49,10 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "getUserAttributeVerificationCode",
+      inputFilterLog: GetUserAttributeVerificationCodeRequest.filterSensitiveLog,
+      outputFilterLog: GetUserAttributeVerificationCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

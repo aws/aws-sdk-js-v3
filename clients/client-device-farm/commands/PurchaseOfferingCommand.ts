@@ -45,6 +45,10 @@ export class PurchaseOfferingCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DeviceFarm",
+      clientName: "purchaseOffering",
+      inputFilterLog: PurchaseOfferingRequest.filterSensitiveLog,
+      outputFilterLog: PurchaseOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

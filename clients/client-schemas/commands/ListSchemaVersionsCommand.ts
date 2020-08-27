@@ -45,6 +45,10 @@ export class ListSchemaVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "listSchemaVersions",
+      inputFilterLog: ListSchemaVersionsRequest.filterSensitiveLog,
+      outputFilterLog: ListSchemaVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class GetDedicatedIpCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "PinpointEmail",
+      clientName: "getDedicatedIp",
+      inputFilterLog: GetDedicatedIpRequest.filterSensitiveLog,
+      outputFilterLog: GetDedicatedIpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

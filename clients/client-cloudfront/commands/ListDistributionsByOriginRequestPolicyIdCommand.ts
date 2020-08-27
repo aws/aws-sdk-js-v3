@@ -52,6 +52,10 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "listDistributionsByOriginRequestPolicyId",
+      inputFilterLog: ListDistributionsByOriginRequestPolicyIdRequest.filterSensitiveLog,
+      outputFilterLog: ListDistributionsByOriginRequestPolicyIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

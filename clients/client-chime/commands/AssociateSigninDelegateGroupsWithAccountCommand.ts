@@ -52,6 +52,10 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "associateSigninDelegateGroupsWithAccount",
+      inputFilterLog: AssociateSigninDelegateGroupsWithAccountRequest.filterSensitiveLog,
+      outputFilterLog: AssociateSigninDelegateGroupsWithAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

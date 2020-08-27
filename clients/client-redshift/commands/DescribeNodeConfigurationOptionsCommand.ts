@@ -45,6 +45,10 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "describeNodeConfigurationOptions",
+      inputFilterLog: DescribeNodeConfigurationOptionsMessage.filterSensitiveLog,
+      outputFilterLog: NodeConfigurationOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

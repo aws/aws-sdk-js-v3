@@ -45,6 +45,10 @@ export class StartMigrationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElastiCache",
+      clientName: "startMigration",
+      inputFilterLog: StartMigrationMessage.filterSensitiveLog,
+      outputFilterLog: StartMigrationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

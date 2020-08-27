@@ -49,6 +49,10 @@ export class DeleteUserPoolDomainCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "deleteUserPoolDomain",
+      inputFilterLog: DeleteUserPoolDomainRequest.filterSensitiveLog,
+      outputFilterLog: DeleteUserPoolDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

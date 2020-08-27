@@ -45,6 +45,10 @@ export class MergeBranchesByFastForwardCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "mergeBranchesByFastForward",
+      inputFilterLog: MergeBranchesByFastForwardInput.filterSensitiveLog,
+      outputFilterLog: MergeBranchesByFastForwardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -49,6 +49,10 @@ export class SetUserSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CognitoIdentityProvider",
+      clientName: "setUserSettings",
+      inputFilterLog: SetUserSettingsRequest.filterSensitiveLog,
+      outputFilterLog: SetUserSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

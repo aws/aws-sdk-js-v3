@@ -45,6 +45,10 @@ export class CreateWorkspacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WorkSpaces",
+      clientName: "createWorkspaces",
+      inputFilterLog: CreateWorkspacesRequest.filterSensitiveLog,
+      outputFilterLog: CreateWorkspacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

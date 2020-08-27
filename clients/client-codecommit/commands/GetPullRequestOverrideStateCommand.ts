@@ -45,6 +45,10 @@ export class GetPullRequestOverrideStateCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "getPullRequestOverrideState",
+      inputFilterLog: GetPullRequestOverrideStateInput.filterSensitiveLog,
+      outputFilterLog: GetPullRequestOverrideStateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

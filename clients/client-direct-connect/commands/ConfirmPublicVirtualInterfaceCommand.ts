@@ -45,6 +45,10 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DirectConnect",
+      clientName: "confirmPublicVirtualInterface",
+      inputFilterLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

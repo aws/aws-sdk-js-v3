@@ -45,6 +45,10 @@ export class GetQueueCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaConvert",
+      clientName: "getQueue",
+      inputFilterLog: GetQueueRequest.filterSensitiveLog,
+      outputFilterLog: GetQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

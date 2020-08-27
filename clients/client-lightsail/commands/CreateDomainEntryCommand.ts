@@ -45,6 +45,10 @@ export class CreateDomainEntryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "createDomainEntry",
+      inputFilterLog: CreateDomainEntryRequest.filterSensitiveLog,
+      outputFilterLog: CreateDomainEntryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

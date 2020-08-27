@@ -45,6 +45,10 @@ export class DeleteAnalysisSchemeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudSearch",
+      clientName: "deleteAnalysisScheme",
+      inputFilterLog: DeleteAnalysisSchemeRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAnalysisSchemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

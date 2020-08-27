@@ -46,6 +46,10 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MTurk",
+      clientName: "createAdditionalAssignmentsForHIT",
+      inputFilterLog: CreateAdditionalAssignmentsForHITRequest.filterSensitiveLog,
+      outputFilterLog: CreateAdditionalAssignmentsForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

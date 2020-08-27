@@ -45,6 +45,10 @@ export class UpdateRegistryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "updateRegistry",
+      inputFilterLog: UpdateRegistryRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRegistryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

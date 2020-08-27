@@ -45,6 +45,10 @@ export class CreateLocationS3Command extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "createLocationS3",
+      inputFilterLog: CreateLocationS3Request.filterSensitiveLog,
+      outputFilterLog: CreateLocationS3Response.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

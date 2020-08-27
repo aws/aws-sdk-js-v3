@@ -47,6 +47,10 @@ export class PutObjectLegalHoldCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "putObjectLegalHold",
+      inputFilterLog: PutObjectLegalHoldRequest.filterSensitiveLog,
+      outputFilterLog: PutObjectLegalHoldOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

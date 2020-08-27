@@ -45,6 +45,10 @@ export class GetKeyPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "KMS",
+      clientName: "getKeyPolicy",
+      inputFilterLog: GetKeyPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetKeyPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListSnapshotBlocksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EBS",
+      clientName: "listSnapshotBlocks",
+      inputFilterLog: ListSnapshotBlocksRequest.filterSensitiveLog,
+      outputFilterLog: ListSnapshotBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

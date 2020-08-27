@@ -45,6 +45,10 @@ export class ListBackupPlansCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Backup",
+      clientName: "listBackupPlans",
+      inputFilterLog: ListBackupPlansInput.filterSensitiveLog,
+      outputFilterLog: ListBackupPlansOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class ListPublicKeysCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudTrail",
+      clientName: "listPublicKeys",
+      inputFilterLog: ListPublicKeysRequest.filterSensitiveLog,
+      outputFilterLog: ListPublicKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

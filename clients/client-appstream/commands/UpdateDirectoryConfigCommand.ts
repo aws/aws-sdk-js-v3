@@ -45,6 +45,10 @@ export class UpdateDirectoryConfigCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "AppStream",
+      clientName: "updateDirectoryConfig",
+      inputFilterLog: UpdateDirectoryConfigRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDirectoryConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeDocumentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SSM",
+      clientName: "describeDocument",
+      inputFilterLog: DescribeDocumentRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDocumentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,6 +48,10 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeCommit",
+      clientName: "associateApprovalRuleTemplateWithRepository",
+      inputFilterLog: AssociateApprovalRuleTemplateWithRepositoryInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

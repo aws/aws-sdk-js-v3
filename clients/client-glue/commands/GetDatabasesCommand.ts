@@ -45,6 +45,10 @@ export class GetDatabasesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Glue",
+      clientName: "getDatabases",
+      inputFilterLog: GetDatabasesRequest.filterSensitiveLog,
+      outputFilterLog: GetDatabasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

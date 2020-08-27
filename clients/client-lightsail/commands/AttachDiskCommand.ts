@@ -45,6 +45,10 @@ export class AttachDiskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "attachDisk",
+      inputFilterLog: AttachDiskRequest.filterSensitiveLog,
+      outputFilterLog: AttachDiskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

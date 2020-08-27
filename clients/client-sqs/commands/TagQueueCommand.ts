@@ -38,6 +38,10 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SQS",
+      clientName: "tagQueue",
+      inputFilterLog: TagQueueRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

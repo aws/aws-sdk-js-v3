@@ -45,6 +45,10 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Comprehend",
+      clientName: "stopDominantLanguageDetectionJob",
+      inputFilterLog: StopDominantLanguageDetectionJobRequest.filterSensitiveLog,
+      outputFilterLog: StopDominantLanguageDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

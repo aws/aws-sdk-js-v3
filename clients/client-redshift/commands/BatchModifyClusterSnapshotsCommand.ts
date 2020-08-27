@@ -45,6 +45,10 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "batchModifyClusterSnapshots",
+      inputFilterLog: BatchModifyClusterSnapshotsMessage.filterSensitiveLog,
+      outputFilterLog: BatchModifyClusterSnapshotsOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

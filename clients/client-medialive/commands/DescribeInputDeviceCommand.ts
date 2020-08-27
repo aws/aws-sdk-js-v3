@@ -45,6 +45,10 @@ export class DescribeInputDeviceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "describeInputDevice",
+      inputFilterLog: DescribeInputDeviceRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInputDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

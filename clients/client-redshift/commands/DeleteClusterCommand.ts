@@ -45,6 +45,10 @@ export class DeleteClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "deleteCluster",
+      inputFilterLog: DeleteClusterMessage.filterSensitiveLog,
+      outputFilterLog: DeleteClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

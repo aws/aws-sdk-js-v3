@@ -45,6 +45,10 @@ export class UpdateThingShadowCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoTDataPlane",
+      clientName: "updateThingShadow",
+      inputFilterLog: UpdateThingShadowRequest.filterSensitiveLog,
+      outputFilterLog: UpdateThingShadowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

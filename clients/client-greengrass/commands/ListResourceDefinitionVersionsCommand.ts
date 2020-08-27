@@ -45,6 +45,10 @@ export class ListResourceDefinitionVersionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "listResourceDefinitionVersions",
+      inputFilterLog: ListResourceDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterLog: ListResourceDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

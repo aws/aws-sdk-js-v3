@@ -42,6 +42,10 @@ export class BundleInstanceCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "bundleInstance",
+      inputFilterLog: BundleInstanceRequest.filterSensitiveLog,
+      outputFilterLog: BundleInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

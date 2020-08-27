@@ -45,6 +45,10 @@ export class DeleteRemediationExceptionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ConfigService",
+      clientName: "deleteRemediationExceptions",
+      inputFilterLog: DeleteRemediationExceptionsRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRemediationExceptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

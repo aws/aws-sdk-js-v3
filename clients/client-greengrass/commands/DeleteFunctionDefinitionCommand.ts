@@ -45,6 +45,10 @@ export class DeleteFunctionDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "deleteFunctionDefinition",
+      inputFilterLog: DeleteFunctionDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteFunctionDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

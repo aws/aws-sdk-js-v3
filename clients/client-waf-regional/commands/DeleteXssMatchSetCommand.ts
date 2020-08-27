@@ -45,6 +45,10 @@ export class DeleteXssMatchSetCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "WAFRegional",
+      clientName: "deleteXssMatchSet",
+      inputFilterLog: DeleteXssMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteXssMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

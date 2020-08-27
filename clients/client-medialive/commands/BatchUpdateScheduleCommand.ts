@@ -45,6 +45,10 @@ export class BatchUpdateScheduleCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaLive",
+      clientName: "batchUpdateSchedule",
+      inputFilterLog: BatchUpdateScheduleRequest.filterSensitiveLog,
+      outputFilterLog: BatchUpdateScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

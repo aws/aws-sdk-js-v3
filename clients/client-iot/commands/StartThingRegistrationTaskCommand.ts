@@ -45,6 +45,10 @@ export class StartThingRegistrationTaskCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IoT",
+      clientName: "startThingRegistrationTask",
+      inputFilterLog: StartThingRegistrationTaskRequest.filterSensitiveLog,
+      outputFilterLog: StartThingRegistrationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

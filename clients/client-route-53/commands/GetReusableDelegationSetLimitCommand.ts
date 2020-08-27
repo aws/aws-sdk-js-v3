@@ -47,6 +47,10 @@ export class GetReusableDelegationSetLimitCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53",
+      clientName: "getReusableDelegationSetLimit",
+      inputFilterLog: GetReusableDelegationSetLimitRequest.filterSensitiveLog,
+      outputFilterLog: GetReusableDelegationSetLimitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

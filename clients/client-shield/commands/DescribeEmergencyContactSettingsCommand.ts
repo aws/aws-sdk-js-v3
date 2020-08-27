@@ -45,6 +45,10 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Shield",
+      clientName: "describeEmergencyContactSettings",
+      inputFilterLog: DescribeEmergencyContactSettingsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEmergencyContactSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

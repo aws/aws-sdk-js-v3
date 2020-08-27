@@ -45,6 +45,10 @@ export class PutAppLaunchConfigurationCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "SMS",
+      clientName: "putAppLaunchConfiguration",
+      inputFilterLog: PutAppLaunchConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: PutAppLaunchConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

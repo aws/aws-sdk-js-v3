@@ -45,6 +45,10 @@ export class GetComponentPolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Imagebuilder",
+      clientName: "getComponentPolicy",
+      inputFilterLog: GetComponentPolicyRequest.filterSensitiveLog,
+      outputFilterLog: GetComponentPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

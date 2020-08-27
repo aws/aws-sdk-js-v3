@@ -42,6 +42,10 @@ export class XmlNamespacesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2Protocol",
+      clientName: "xmlNamespaces",
+      inputFilterLog: (input) => input,
+      outputFilterLog: XmlNamespacesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

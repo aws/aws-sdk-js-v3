@@ -45,6 +45,10 @@ export class UpdateLoggerDefinitionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Greengrass",
+      clientName: "updateLoggerDefinition",
+      inputFilterLog: UpdateLoggerDefinitionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateLoggerDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

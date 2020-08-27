@@ -49,6 +49,10 @@ export class GetUpgradeStatusCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ElasticsearchService",
+      clientName: "getUpgradeStatus",
+      inputFilterLog: GetUpgradeStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetUpgradeStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

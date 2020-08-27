@@ -45,6 +45,10 @@ export class GetMetricWidgetImageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudWatch",
+      clientName: "getMetricWidgetImage",
+      inputFilterLog: GetMetricWidgetImageInput.filterSensitiveLog,
+      outputFilterLog: GetMetricWidgetImageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

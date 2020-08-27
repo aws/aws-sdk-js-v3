@@ -49,6 +49,10 @@ export class HeadObjectCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "S3",
+      clientName: "headObject",
+      inputFilterLog: HeadObjectRequest.filterSensitiveLog,
+      outputFilterLog: HeadObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

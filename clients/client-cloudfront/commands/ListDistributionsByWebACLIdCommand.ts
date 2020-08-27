@@ -45,6 +45,10 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "listDistributionsByWebACLId",
+      inputFilterLog: ListDistributionsByWebACLIdRequest.filterSensitiveLog,
+      outputFilterLog: ListDistributionsByWebACLIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

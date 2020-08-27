@@ -45,6 +45,10 @@ export class DeleteClusterCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EKS",
+      clientName: "deleteCluster",
+      inputFilterLog: DeleteClusterRequest.filterSensitiveLog,
+      outputFilterLog: DeleteClusterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

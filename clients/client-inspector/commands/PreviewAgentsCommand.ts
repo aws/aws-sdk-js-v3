@@ -45,6 +45,10 @@ export class PreviewAgentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Inspector",
+      clientName: "previewAgents",
+      inputFilterLog: PreviewAgentsRequest.filterSensitiveLog,
+      outputFilterLog: PreviewAgentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

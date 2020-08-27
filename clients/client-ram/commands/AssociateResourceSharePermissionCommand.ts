@@ -45,6 +45,10 @@ export class AssociateResourceSharePermissionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RAM",
+      clientName: "associateResourceSharePermission",
+      inputFilterLog: AssociateResourceSharePermissionRequest.filterSensitiveLog,
+      outputFilterLog: AssociateResourceSharePermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

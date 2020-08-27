@@ -45,6 +45,10 @@ export class ListChangedBlocksCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EBS",
+      clientName: "listChangedBlocks",
+      inputFilterLog: ListChangedBlocksRequest.filterSensitiveLog,
+      outputFilterLog: ListChangedBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

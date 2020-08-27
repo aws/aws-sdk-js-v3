@@ -49,6 +49,10 @@ export class ListApplicationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "ServerlessApplicationRepository",
+      clientName: "listApplications",
+      inputFilterLog: ListApplicationsRequest.filterSensitiveLog,
+      outputFilterLog: ListApplicationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

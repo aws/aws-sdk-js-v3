@@ -45,6 +45,10 @@ export class CreateLocationObjectStorageCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "createLocationObjectStorage",
+      inputFilterLog: CreateLocationObjectStorageRequest.filterSensitiveLog,
+      outputFilterLog: CreateLocationObjectStorageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

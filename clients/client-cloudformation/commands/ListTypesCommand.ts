@@ -42,6 +42,10 @@ export class ListTypesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFormation",
+      clientName: "listTypes",
+      inputFilterLog: ListTypesInput.filterSensitiveLog,
+      outputFilterLog: ListTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

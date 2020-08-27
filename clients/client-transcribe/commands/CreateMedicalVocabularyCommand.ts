@@ -45,6 +45,10 @@ export class CreateMedicalVocabularyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transcribe",
+      clientName: "createMedicalVocabulary",
+      inputFilterLog: CreateMedicalVocabularyRequest.filterSensitiveLog,
+      outputFilterLog: CreateMedicalVocabularyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

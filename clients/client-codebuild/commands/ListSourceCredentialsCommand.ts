@@ -45,6 +45,10 @@ export class ListSourceCredentialsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeBuild",
+      clientName: "listSourceCredentials",
+      inputFilterLog: ListSourceCredentialsInput.filterSensitiveLog,
+      outputFilterLog: ListSourceCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

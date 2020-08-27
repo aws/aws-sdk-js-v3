@@ -52,6 +52,10 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "registerTransitGatewayMulticastGroupMembers",
+      inputFilterLog: RegisterTransitGatewayMulticastGroupMembersRequest.filterSensitiveLog,
+      outputFilterLog: RegisterTransitGatewayMulticastGroupMembersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

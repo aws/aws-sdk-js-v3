@@ -38,6 +38,10 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "IAM",
+      clientName: "tagUser",
+      inputFilterLog: TagUserRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

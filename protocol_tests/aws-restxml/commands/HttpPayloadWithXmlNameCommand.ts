@@ -45,6 +45,10 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "RestXmlProtocol",
+      clientName: "httpPayloadWithXmlName",
+      inputFilterLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
+      outputFilterLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

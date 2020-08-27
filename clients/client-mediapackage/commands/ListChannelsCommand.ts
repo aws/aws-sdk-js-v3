@@ -45,6 +45,10 @@ export class ListChannelsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "MediaPackage",
+      clientName: "listChannels",
+      inputFilterLog: ListChannelsRequest.filterSensitiveLog,
+      outputFilterLog: ListChannelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

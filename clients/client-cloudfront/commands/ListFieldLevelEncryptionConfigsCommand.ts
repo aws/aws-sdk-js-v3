@@ -45,6 +45,10 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CloudFront",
+      clientName: "listFieldLevelEncryptionConfigs",
+      inputFilterLog: ListFieldLevelEncryptionConfigsRequest.filterSensitiveLog,
+      outputFilterLog: ListFieldLevelEncryptionConfigsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

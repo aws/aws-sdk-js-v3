@@ -45,6 +45,10 @@ export class PutResolverRulePolicyCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Route53Resolver",
+      clientName: "putResolverRulePolicy",
+      inputFilterLog: PutResolverRulePolicyRequest.filterSensitiveLog,
+      outputFilterLog: PutResolverRulePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

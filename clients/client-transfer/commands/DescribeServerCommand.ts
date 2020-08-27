@@ -45,6 +45,10 @@ export class DescribeServerCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Transfer",
+      clientName: "describeServer",
+      inputFilterLog: DescribeServerRequest.filterSensitiveLog,
+      outputFilterLog: DescribeServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

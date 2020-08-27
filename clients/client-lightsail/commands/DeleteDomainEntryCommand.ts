@@ -45,6 +45,10 @@ export class DeleteDomainEntryCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Lightsail",
+      clientName: "deleteDomainEntry",
+      inputFilterLog: DeleteDomainEntryRequest.filterSensitiveLog,
+      outputFilterLog: DeleteDomainEntryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

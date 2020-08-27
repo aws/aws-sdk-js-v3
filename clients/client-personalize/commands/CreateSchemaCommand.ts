@@ -45,6 +45,10 @@ export class CreateSchemaCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Personalize",
+      clientName: "createSchema",
+      inputFilterLog: CreateSchemaRequest.filterSensitiveLog,
+      outputFilterLog: CreateSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

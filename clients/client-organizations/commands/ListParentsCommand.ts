@@ -45,6 +45,10 @@ export class ListParentsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Organizations",
+      clientName: "listParents",
+      inputFilterLog: ListParentsRequest.filterSensitiveLog,
+      outputFilterLog: ListParentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

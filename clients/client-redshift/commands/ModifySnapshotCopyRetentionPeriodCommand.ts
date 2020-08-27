@@ -45,6 +45,10 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Redshift",
+      clientName: "modifySnapshotCopyRetentionPeriod",
+      inputFilterLog: ModifySnapshotCopyRetentionPeriodMessage.filterSensitiveLog,
+      outputFilterLog: ModifySnapshotCopyRetentionPeriodResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,6 +45,10 @@ export class DescribeVTLDevicesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "StorageGateway",
+      clientName: "describeVTLDevices",
+      inputFilterLog: DescribeVTLDevicesInput.filterSensitiveLog,
+      outputFilterLog: DescribeVTLDevicesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

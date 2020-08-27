@@ -45,6 +45,10 @@ export class StopDiscovererCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Schemas",
+      clientName: "stopDiscoverer",
+      inputFilterLog: StopDiscovererRequest.filterSensitiveLog,
+      outputFilterLog: StopDiscovererResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

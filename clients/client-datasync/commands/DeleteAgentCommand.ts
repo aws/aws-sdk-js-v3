@@ -45,6 +45,10 @@ export class DeleteAgentCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "DataSync",
+      clientName: "deleteAgent",
+      inputFilterLog: DeleteAgentRequest.filterSensitiveLog,
+      outputFilterLog: DeleteAgentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

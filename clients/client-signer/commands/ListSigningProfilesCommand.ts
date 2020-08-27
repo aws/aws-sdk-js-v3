@@ -45,6 +45,10 @@ export class ListSigningProfilesCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Signer",
+      clientName: "listSigningProfiles",
+      inputFilterLog: ListSigningProfilesRequest.filterSensitiveLog,
+      outputFilterLog: ListSigningProfilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

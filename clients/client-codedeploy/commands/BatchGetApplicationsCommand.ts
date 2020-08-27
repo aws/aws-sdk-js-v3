@@ -45,6 +45,10 @@ export class BatchGetApplicationsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "CodeDeploy",
+      clientName: "batchGetApplications",
+      inputFilterLog: BatchGetApplicationsInput.filterSensitiveLog,
+      outputFilterLog: BatchGetApplicationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

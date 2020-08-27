@@ -45,6 +45,10 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "EC2",
+      clientName: "deleteVpcPeeringConnection",
+      inputFilterLog: DeleteVpcPeeringConnectionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteVpcPeeringConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

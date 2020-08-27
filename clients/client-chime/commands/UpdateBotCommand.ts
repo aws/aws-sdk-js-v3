@@ -45,6 +45,10 @@ export class UpdateBotCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "Chime",
+      clientName: "updateBot",
+      inputFilterLog: UpdateBotRequest.filterSensitiveLog,
+      outputFilterLog: UpdateBotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

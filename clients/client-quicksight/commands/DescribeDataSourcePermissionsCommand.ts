@@ -45,6 +45,10 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "describeDataSourcePermissions",
+      inputFilterLog: DescribeDataSourcePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDataSourcePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

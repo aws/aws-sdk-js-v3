@@ -45,6 +45,10 @@ export class CreateThemeCommand extends $Command<
 
     const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any,
+      clientName: "QuickSight",
+      clientName: "createTheme",
+      inputFilterLog: CreateThemeRequest.filterSensitiveLog,
+      outputFilterLog: CreateThemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
