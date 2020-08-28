@@ -43,8 +43,11 @@ export class UpdateDomainEntryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDomainEntryRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainEntryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

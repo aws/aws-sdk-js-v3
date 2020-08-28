@@ -43,8 +43,11 @@ export class DescribePatchGroupStateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribePatchGroupStateRequest.filterSensitiveLog,
+      outputFilterLog: DescribePatchGroupStateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

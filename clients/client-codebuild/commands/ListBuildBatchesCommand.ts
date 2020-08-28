@@ -43,8 +43,11 @@ export class ListBuildBatchesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListBuildBatchesInput.filterSensitiveLog,
+      outputFilterLog: ListBuildBatchesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

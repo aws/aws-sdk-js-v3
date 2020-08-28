@@ -45,8 +45,11 @@ export class ListHostedZonesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListHostedZonesRequest.filterSensitiveLog,
+      outputFilterLog: ListHostedZonesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

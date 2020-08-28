@@ -43,8 +43,11 @@ export class DeleteSizeConstraintSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteSizeConstraintSetRequest.filterSensitiveLog,
+      outputFilterLog: DeleteSizeConstraintSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

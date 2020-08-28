@@ -43,8 +43,11 @@ export class DescribeUserStackAssociationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeUserStackAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeUserStackAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

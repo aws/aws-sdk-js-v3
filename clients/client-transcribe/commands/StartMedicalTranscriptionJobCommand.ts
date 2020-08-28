@@ -43,8 +43,11 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: StartMedicalTranscriptionJobRequest.filterSensitiveLog,
+      outputFilterLog: StartMedicalTranscriptionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

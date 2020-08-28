@@ -43,8 +43,11 @@ export class CreateBGPPeerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateBGPPeerRequest.filterSensitiveLog,
+      outputFilterLog: CreateBGPPeerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

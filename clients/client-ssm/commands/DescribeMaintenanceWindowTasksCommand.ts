@@ -43,8 +43,11 @@ export class DescribeMaintenanceWindowTasksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeMaintenanceWindowTasksRequest.filterSensitiveLog,
+      outputFilterLog: DescribeMaintenanceWindowTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

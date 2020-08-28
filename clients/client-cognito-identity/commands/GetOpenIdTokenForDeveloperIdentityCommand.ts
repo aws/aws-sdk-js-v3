@@ -46,8 +46,11 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetOpenIdTokenForDeveloperIdentityInput.filterSensitiveLog,
+      outputFilterLog: GetOpenIdTokenForDeveloperIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

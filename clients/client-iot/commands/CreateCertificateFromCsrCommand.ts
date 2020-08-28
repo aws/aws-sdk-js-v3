@@ -43,8 +43,11 @@ export class CreateCertificateFromCsrCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateCertificateFromCsrRequest.filterSensitiveLog,
+      outputFilterLog: CreateCertificateFromCsrResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

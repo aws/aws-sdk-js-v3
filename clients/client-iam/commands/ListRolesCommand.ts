@@ -36,8 +36,11 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListRolesRequest.filterSensitiveLog,
+      outputFilterLog: ListRolesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

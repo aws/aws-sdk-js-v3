@@ -43,8 +43,11 @@ export class UpdateEndpointsBatchCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateEndpointsBatchRequest.filterSensitiveLog,
+      outputFilterLog: UpdateEndpointsBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

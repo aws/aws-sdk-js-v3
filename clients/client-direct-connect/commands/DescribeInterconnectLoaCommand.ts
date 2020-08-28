@@ -43,8 +43,11 @@ export class DescribeInterconnectLoaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeInterconnectLoaRequest.filterSensitiveLog,
+      outputFilterLog: DescribeInterconnectLoaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

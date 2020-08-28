@@ -43,8 +43,11 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateInstancesFromSnapshotRequest.filterSensitiveLog,
+      outputFilterLog: CreateInstancesFromSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

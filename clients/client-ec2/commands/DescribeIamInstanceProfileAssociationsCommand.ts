@@ -47,8 +47,11 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeIamInstanceProfileAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeIamInstanceProfileAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

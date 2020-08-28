@@ -43,8 +43,11 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateSMBSecurityStrategyInput.filterSensitiveLog,
+      outputFilterLog: UpdateSMBSecurityStrategyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

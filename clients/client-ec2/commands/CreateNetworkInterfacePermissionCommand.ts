@@ -43,8 +43,11 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateNetworkInterfacePermissionRequest.filterSensitiveLog,
+      outputFilterLog: CreateNetworkInterfacePermissionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

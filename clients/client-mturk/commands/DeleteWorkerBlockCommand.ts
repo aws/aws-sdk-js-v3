@@ -43,8 +43,11 @@ export class DeleteWorkerBlockCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteWorkerBlockRequest.filterSensitiveLog,
+      outputFilterLog: DeleteWorkerBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

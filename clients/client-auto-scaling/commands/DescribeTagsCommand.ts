@@ -40,8 +40,11 @@ export class DescribeTagsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeTagsType.filterSensitiveLog,
+      outputFilterLog: TagsType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

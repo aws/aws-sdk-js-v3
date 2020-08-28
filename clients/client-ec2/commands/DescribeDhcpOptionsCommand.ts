@@ -43,8 +43,11 @@ export class DescribeDhcpOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeDhcpOptionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDhcpOptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

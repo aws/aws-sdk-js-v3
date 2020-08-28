@@ -43,8 +43,11 @@ export class InvalidateProjectCacheCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: InvalidateProjectCacheInput.filterSensitiveLog,
+      outputFilterLog: InvalidateProjectCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

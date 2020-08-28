@@ -47,8 +47,11 @@ export class ConfirmDeviceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ConfirmDeviceRequest.filterSensitiveLog,
+      outputFilterLog: ConfirmDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

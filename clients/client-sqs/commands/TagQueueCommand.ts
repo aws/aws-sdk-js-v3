@@ -36,8 +36,11 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: TagQueueRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

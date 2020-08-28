@@ -47,8 +47,11 @@ export class VoteOnProposalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: VoteOnProposalInput.filterSensitiveLog,
+      outputFilterLog: VoteOnProposalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

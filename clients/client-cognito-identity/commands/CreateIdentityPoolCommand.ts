@@ -45,8 +45,11 @@ export class CreateIdentityPoolCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateIdentityPoolInput.filterSensitiveLog,
+      outputFilterLog: IdentityPool.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

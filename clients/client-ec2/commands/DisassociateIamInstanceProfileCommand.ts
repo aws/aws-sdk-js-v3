@@ -43,8 +43,11 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociateIamInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateIamInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

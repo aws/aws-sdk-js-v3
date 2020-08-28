@@ -47,8 +47,11 @@ export class DeleteLoadBalancerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteLoadBalancerInput.filterSensitiveLog,
+      outputFilterLog: DeleteLoadBalancerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

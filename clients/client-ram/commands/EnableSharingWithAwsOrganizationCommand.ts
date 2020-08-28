@@ -43,8 +43,11 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: EnableSharingWithAwsOrganizationRequest.filterSensitiveLog,
+      outputFilterLog: EnableSharingWithAwsOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

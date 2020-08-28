@@ -43,8 +43,11 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateSqlInjectionMatchSetRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSqlInjectionMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

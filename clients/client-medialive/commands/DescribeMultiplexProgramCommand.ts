@@ -43,8 +43,11 @@ export class DescribeMultiplexProgramCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeMultiplexProgramRequest.filterSensitiveLog,
+      outputFilterLog: DescribeMultiplexProgramResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

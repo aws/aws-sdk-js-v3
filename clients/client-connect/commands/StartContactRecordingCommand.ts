@@ -43,8 +43,11 @@ export class StartContactRecordingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: StartContactRecordingRequest.filterSensitiveLog,
+      outputFilterLog: StartContactRecordingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

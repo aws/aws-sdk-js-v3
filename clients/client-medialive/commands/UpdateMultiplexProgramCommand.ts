@@ -43,8 +43,11 @@ export class UpdateMultiplexProgramCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateMultiplexProgramRequest.filterSensitiveLog,
+      outputFilterLog: UpdateMultiplexProgramResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

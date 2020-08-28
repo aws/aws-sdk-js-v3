@@ -43,8 +43,11 @@ export class BatchDetectEntitiesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: BatchDetectEntitiesRequest.filterSensitiveLog,
+      outputFilterLog: BatchDetectEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

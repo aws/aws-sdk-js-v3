@@ -43,8 +43,11 @@ export class CreateLocationS3Command extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateLocationS3Request.filterSensitiveLog,
+      outputFilterLog: CreateLocationS3Response.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

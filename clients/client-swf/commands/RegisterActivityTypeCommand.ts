@@ -43,8 +43,11 @@ export class RegisterActivityTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: RegisterActivityTypeInput.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

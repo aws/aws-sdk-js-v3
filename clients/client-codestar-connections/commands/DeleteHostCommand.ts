@@ -47,8 +47,11 @@ export class DeleteHostCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteHostInput.filterSensitiveLog,
+      outputFilterLog: DeleteHostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

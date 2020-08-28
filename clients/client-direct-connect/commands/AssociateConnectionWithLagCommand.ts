@@ -43,8 +43,11 @@ export class AssociateConnectionWithLagCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AssociateConnectionWithLagRequest.filterSensitiveLog,
+      outputFilterLog: Connection.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

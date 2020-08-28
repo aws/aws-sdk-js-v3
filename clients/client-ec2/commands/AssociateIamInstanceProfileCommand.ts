@@ -43,8 +43,11 @@ export class AssociateIamInstanceProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AssociateIamInstanceProfileRequest.filterSensitiveLog,
+      outputFilterLog: AssociateIamInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

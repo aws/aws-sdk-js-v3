@@ -43,8 +43,11 @@ export class CheckCapacityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CheckCapacityRequest.filterSensitiveLog,
+      outputFilterLog: CheckCapacityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

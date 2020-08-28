@@ -43,8 +43,11 @@ export class AddApplicationOutputCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AddApplicationOutputRequest.filterSensitiveLog,
+      outputFilterLog: AddApplicationOutputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

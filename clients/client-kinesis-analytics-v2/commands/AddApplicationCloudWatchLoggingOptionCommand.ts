@@ -51,8 +51,11 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AddApplicationCloudWatchLoggingOptionRequest.filterSensitiveLog,
+      outputFilterLog: AddApplicationCloudWatchLoggingOptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

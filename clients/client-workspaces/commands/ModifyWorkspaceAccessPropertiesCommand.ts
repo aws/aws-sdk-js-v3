@@ -43,8 +43,11 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ModifyWorkspaceAccessPropertiesRequest.filterSensitiveLog,
+      outputFilterLog: ModifyWorkspaceAccessPropertiesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

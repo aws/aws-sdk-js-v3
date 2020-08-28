@@ -43,8 +43,11 @@ export class PurchaseScheduledInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PurchaseScheduledInstancesRequest.filterSensitiveLog,
+      outputFilterLog: PurchaseScheduledInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class RemoveTagsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: RemoveTagsRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

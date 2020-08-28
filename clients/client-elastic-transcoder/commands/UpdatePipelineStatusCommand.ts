@@ -47,8 +47,11 @@ export class UpdatePipelineStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdatePipelineStatusRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePipelineStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

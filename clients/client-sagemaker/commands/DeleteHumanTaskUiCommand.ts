@@ -43,8 +43,11 @@ export class DeleteHumanTaskUiCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteHumanTaskUiRequest.filterSensitiveLog,
+      outputFilterLog: DeleteHumanTaskUiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

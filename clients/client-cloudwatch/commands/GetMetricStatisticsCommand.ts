@@ -43,8 +43,11 @@ export class GetMetricStatisticsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetMetricStatisticsInput.filterSensitiveLog,
+      outputFilterLog: GetMetricStatisticsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

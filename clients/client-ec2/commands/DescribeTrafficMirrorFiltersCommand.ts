@@ -43,8 +43,11 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeTrafficMirrorFiltersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeTrafficMirrorFiltersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

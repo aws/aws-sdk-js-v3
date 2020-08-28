@@ -44,8 +44,11 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AssociateResolverEndpointIpAddressRequest.filterSensitiveLog,
+      outputFilterLog: AssociateResolverEndpointIpAddressResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

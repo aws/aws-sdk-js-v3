@@ -45,8 +45,11 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

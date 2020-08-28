@@ -43,8 +43,11 @@ export class ModifyLaunchTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ModifyLaunchTemplateRequest.filterSensitiveLog,
+      outputFilterLog: ModifyLaunchTemplateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutDataCatalogEncryptionSettingsRequest.filterSensitiveLog,
+      outputFilterLog: PutDataCatalogEncryptionSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

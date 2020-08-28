@@ -43,8 +43,11 @@ export class SetIdentityDkimEnabledCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SetIdentityDkimEnabledRequest.filterSensitiveLog,
+      outputFilterLog: SetIdentityDkimEnabledResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

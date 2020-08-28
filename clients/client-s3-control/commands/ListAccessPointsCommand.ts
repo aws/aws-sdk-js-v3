@@ -43,8 +43,11 @@ export class ListAccessPointsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListAccessPointsRequest.filterSensitiveLog,
+      outputFilterLog: ListAccessPointsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

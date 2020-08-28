@@ -43,8 +43,11 @@ export class SearchProductsAsAdminCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SearchProductsAsAdminInput.filterSensitiveLog,
+      outputFilterLog: SearchProductsAsAdminOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

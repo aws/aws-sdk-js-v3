@@ -45,8 +45,11 @@ export class InvokeAsyncCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: InvokeAsyncRequest.filterSensitiveLog,
+      outputFilterLog: InvokeAsyncResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

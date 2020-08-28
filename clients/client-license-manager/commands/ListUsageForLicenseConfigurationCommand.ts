@@ -43,8 +43,11 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListUsageForLicenseConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: ListUsageForLicenseConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

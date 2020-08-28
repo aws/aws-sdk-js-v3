@@ -43,8 +43,11 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDataSourcePermissionsRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDataSourcePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

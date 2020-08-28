@@ -43,8 +43,11 @@ export class DescribeBackupPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeBackupPolicyRequest.filterSensitiveLog,
+      outputFilterLog: BackupPolicyDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

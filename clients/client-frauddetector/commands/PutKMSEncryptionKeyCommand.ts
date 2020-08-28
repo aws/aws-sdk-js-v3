@@ -43,8 +43,11 @@ export class PutKMSEncryptionKeyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutKMSEncryptionKeyRequest.filterSensitiveLog,
+      outputFilterLog: PutKMSEncryptionKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

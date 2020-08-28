@@ -50,8 +50,11 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeAggregateComplianceByConfigRulesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAggregateComplianceByConfigRulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

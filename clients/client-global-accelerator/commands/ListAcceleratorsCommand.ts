@@ -47,8 +47,11 @@ export class ListAcceleratorsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListAcceleratorsRequest.filterSensitiveLog,
+      outputFilterLog: ListAcceleratorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

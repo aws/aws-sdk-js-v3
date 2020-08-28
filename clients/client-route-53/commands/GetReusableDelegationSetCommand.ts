@@ -45,8 +45,11 @@ export class GetReusableDelegationSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetReusableDelegationSetRequest.filterSensitiveLog,
+      outputFilterLog: GetReusableDelegationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

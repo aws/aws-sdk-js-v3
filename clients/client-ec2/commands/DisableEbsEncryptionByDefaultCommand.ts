@@ -43,8 +43,11 @@ export class DisableEbsEncryptionByDefaultCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisableEbsEncryptionByDefaultRequest.filterSensitiveLog,
+      outputFilterLog: DisableEbsEncryptionByDefaultResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetThirdPartyJobDetailsInput.filterSensitiveLog,
+      outputFilterLog: GetThirdPartyJobDetailsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

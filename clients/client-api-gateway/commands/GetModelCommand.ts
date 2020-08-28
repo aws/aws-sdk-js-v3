@@ -43,8 +43,11 @@ export class GetModelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetModelRequest.filterSensitiveLog,
+      outputFilterLog: Model.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

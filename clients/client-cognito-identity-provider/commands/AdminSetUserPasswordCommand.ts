@@ -47,8 +47,11 @@ export class AdminSetUserPasswordCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AdminSetUserPasswordRequest.filterSensitiveLog,
+      outputFilterLog: AdminSetUserPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

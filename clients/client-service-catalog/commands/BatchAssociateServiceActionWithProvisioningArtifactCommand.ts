@@ -50,8 +50,11 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: BatchAssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterLog: BatchAssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

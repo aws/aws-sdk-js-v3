@@ -50,8 +50,11 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetServiceQuotaIncreaseRequestFromTemplateRequest.filterSensitiveLog,
+      outputFilterLog: GetServiceQuotaIncreaseRequestFromTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

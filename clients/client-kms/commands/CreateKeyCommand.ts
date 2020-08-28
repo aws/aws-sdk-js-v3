@@ -36,8 +36,11 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateKeyRequest.filterSensitiveLog,
+      outputFilterLog: CreateKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetContactReachabilityStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetContactReachabilityStatusRequest.filterSensitiveLog,
+      outputFilterLog: GetContactReachabilityStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

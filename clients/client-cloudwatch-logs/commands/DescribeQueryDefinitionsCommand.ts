@@ -43,8 +43,11 @@ export class DescribeQueryDefinitionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeQueryDefinitionsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeQueryDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

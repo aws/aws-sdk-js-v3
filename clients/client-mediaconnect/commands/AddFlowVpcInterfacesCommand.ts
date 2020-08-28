@@ -43,8 +43,11 @@ export class AddFlowVpcInterfacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AddFlowVpcInterfacesRequest.filterSensitiveLog,
+      outputFilterLog: AddFlowVpcInterfacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

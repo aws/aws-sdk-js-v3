@@ -43,8 +43,11 @@ export class HttpPayloadWithStructureCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: HttpPayloadWithStructureInputOutput.filterSensitiveLog,
+      outputFilterLog: HttpPayloadWithStructureInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

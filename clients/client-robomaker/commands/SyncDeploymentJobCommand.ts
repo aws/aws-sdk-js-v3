@@ -43,8 +43,11 @@ export class SyncDeploymentJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SyncDeploymentJobRequest.filterSensitiveLog,
+      outputFilterLog: SyncDeploymentJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

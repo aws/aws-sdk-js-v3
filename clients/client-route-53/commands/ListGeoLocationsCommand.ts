@@ -43,8 +43,11 @@ export class ListGeoLocationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListGeoLocationsRequest.filterSensitiveLog,
+      outputFilterLog: ListGeoLocationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

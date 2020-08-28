@@ -43,8 +43,11 @@ export class SendVoiceMessageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SendVoiceMessageRequest.filterSensitiveLog,
+      outputFilterLog: SendVoiceMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

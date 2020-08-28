@@ -47,8 +47,11 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateCloudFrontOriginAccessIdentityRequest.filterSensitiveLog,
+      outputFilterLog: CreateCloudFrontOriginAccessIdentityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

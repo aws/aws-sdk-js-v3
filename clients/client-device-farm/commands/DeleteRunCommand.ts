@@ -40,8 +40,11 @@ export class DeleteRunCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteRunRequest.filterSensitiveLog,
+      outputFilterLog: DeleteRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

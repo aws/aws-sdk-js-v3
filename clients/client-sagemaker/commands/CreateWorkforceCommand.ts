@@ -43,8 +43,11 @@ export class CreateWorkforceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateWorkforceRequest.filterSensitiveLog,
+      outputFilterLog: CreateWorkforceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdatePortalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdatePortalRequest.filterSensitiveLog,
+      outputFilterLog: UpdatePortalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

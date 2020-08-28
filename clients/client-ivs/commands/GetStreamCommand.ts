@@ -39,8 +39,11 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetStreamRequest.filterSensitiveLog,
+      outputFilterLog: GetStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

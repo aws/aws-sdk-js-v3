@@ -43,8 +43,11 @@ export class GetSecretValueCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetSecretValueRequest.filterSensitiveLog,
+      outputFilterLog: GetSecretValueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

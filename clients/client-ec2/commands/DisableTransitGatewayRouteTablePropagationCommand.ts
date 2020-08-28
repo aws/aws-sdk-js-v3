@@ -50,8 +50,11 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisableTransitGatewayRouteTablePropagationRequest.filterSensitiveLog,
+      outputFilterLog: DisableTransitGatewayRouteTablePropagationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

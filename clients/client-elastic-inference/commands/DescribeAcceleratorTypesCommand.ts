@@ -43,8 +43,11 @@ export class DescribeAcceleratorTypesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeAcceleratorTypesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAcceleratorTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

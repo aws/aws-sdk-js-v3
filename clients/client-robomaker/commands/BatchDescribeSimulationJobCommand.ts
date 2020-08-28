@@ -43,8 +43,11 @@ export class BatchDescribeSimulationJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: BatchDescribeSimulationJobRequest.filterSensitiveLog,
+      outputFilterLog: BatchDescribeSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class AcceptVpcPeeringConnectionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AcceptVpcPeeringConnectionRequest.filterSensitiveLog,
+      outputFilterLog: AcceptVpcPeeringConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

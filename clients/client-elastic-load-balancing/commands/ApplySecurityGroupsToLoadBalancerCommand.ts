@@ -47,8 +47,11 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ApplySecurityGroupsToLoadBalancerInput.filterSensitiveLog,
+      outputFilterLog: ApplySecurityGroupsToLoadBalancerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

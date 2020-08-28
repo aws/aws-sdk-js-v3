@@ -43,8 +43,11 @@ export class CreateVirtualMFADeviceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateVirtualMFADeviceRequest.filterSensitiveLog,
+      outputFilterLog: CreateVirtualMFADeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

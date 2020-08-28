@@ -43,8 +43,11 @@ export class BulkPublishCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: BulkPublishRequest.filterSensitiveLog,
+      outputFilterLog: BulkPublishResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

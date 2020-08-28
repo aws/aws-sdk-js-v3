@@ -47,8 +47,11 @@ export class CreateHostCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateHostInput.filterSensitiveLog,
+      outputFilterLog: CreateHostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

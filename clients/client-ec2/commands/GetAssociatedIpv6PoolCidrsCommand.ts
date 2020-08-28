@@ -43,8 +43,11 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetAssociatedIpv6PoolCidrsRequest.filterSensitiveLog,
+      outputFilterLog: GetAssociatedIpv6PoolCidrsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociatePhoneNumberFromUserRequest.filterSensitiveLog,
+      outputFilterLog: DisassociatePhoneNumberFromUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

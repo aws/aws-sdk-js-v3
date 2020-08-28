@@ -43,8 +43,11 @@ export class TerminateProvisionedProductCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: TerminateProvisionedProductInput.filterSensitiveLog,
+      outputFilterLog: TerminateProvisionedProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

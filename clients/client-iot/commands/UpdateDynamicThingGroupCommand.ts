@@ -43,8 +43,11 @@ export class UpdateDynamicThingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDynamicThingGroupRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDynamicThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

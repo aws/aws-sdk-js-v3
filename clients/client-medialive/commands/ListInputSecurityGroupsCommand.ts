@@ -43,8 +43,11 @@ export class ListInputSecurityGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListInputSecurityGroupsRequest.filterSensitiveLog,
+      outputFilterLog: ListInputSecurityGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

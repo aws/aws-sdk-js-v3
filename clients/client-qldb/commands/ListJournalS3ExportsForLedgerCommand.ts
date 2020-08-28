@@ -43,8 +43,11 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListJournalS3ExportsForLedgerRequest.filterSensitiveLog,
+      outputFilterLog: ListJournalS3ExportsForLedgerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

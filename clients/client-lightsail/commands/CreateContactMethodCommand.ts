@@ -43,8 +43,11 @@ export class CreateContactMethodCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateContactMethodRequest.filterSensitiveLog,
+      outputFilterLog: CreateContactMethodResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

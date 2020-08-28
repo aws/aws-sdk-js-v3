@@ -43,8 +43,11 @@ export class ListOfferingPromotionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListOfferingPromotionsRequest.filterSensitiveLog,
+      outputFilterLog: ListOfferingPromotionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

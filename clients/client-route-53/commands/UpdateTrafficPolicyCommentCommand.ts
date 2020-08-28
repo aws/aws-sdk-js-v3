@@ -45,8 +45,11 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateTrafficPolicyCommentRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTrafficPolicyCommentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

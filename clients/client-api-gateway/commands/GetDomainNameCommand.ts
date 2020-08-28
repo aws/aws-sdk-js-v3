@@ -43,8 +43,11 @@ export class GetDomainNameCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetDomainNameRequest.filterSensitiveLog,
+      outputFilterLog: DomainName.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class PromoteReadReplicaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PromoteReadReplicaMessage.filterSensitiveLog,
+      outputFilterLog: PromoteReadReplicaResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

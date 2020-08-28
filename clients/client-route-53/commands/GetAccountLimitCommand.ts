@@ -43,8 +43,11 @@ export class GetAccountLimitCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetAccountLimitRequest.filterSensitiveLog,
+      outputFilterLog: GetAccountLimitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

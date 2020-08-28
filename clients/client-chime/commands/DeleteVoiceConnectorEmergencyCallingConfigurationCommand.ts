@@ -46,8 +46,11 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: (output) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

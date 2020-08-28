@@ -47,8 +47,11 @@ export class UnclaimDeviceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UnclaimDeviceRequest.filterSensitiveLog,
+      outputFilterLog: UnclaimDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

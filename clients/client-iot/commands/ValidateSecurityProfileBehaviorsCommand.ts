@@ -43,8 +43,11 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ValidateSecurityProfileBehaviorsRequest.filterSensitiveLog,
+      outputFilterLog: ValidateSecurityProfileBehaviorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

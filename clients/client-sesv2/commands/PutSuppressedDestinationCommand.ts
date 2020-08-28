@@ -43,8 +43,11 @@ export class PutSuppressedDestinationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutSuppressedDestinationRequest.filterSensitiveLog,
+      outputFilterLog: PutSuppressedDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

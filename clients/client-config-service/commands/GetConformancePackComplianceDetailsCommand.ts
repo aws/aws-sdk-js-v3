@@ -47,8 +47,11 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetConformancePackComplianceDetailsRequest.filterSensitiveLog,
+      outputFilterLog: GetConformancePackComplianceDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteTapeArchiveCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteTapeArchiveInput.filterSensitiveLog,
+      outputFilterLog: DeleteTapeArchiveOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

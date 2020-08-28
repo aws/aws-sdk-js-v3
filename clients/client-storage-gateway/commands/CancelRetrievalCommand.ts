@@ -43,8 +43,11 @@ export class CancelRetrievalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CancelRetrievalInput.filterSensitiveLog,
+      outputFilterLog: CancelRetrievalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

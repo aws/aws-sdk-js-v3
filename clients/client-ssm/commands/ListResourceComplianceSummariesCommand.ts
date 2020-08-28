@@ -43,8 +43,11 @@ export class ListResourceComplianceSummariesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListResourceComplianceSummariesRequest.filterSensitiveLog,
+      outputFilterLog: ListResourceComplianceSummariesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,11 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: IncreaseNodeGroupsInGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterLog: IncreaseNodeGroupsInGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

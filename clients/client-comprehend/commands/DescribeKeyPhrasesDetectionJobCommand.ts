@@ -43,8 +43,11 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeKeyPhrasesDetectionJobRequest.filterSensitiveLog,
+      outputFilterLog: DescribeKeyPhrasesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

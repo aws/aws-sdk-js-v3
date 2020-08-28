@@ -47,8 +47,11 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetAssociationForServiceQuotaTemplateRequest.filterSensitiveLog,
+      outputFilterLog: GetAssociationForServiceQuotaTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,8 +45,11 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociateVPCFromHostedZoneRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateVPCFromHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

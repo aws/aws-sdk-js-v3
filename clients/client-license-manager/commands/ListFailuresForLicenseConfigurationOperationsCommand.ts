@@ -50,8 +50,11 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListFailuresForLicenseConfigurationOperationsRequest.filterSensitiveLog,
+      outputFilterLog: ListFailuresForLicenseConfigurationOperationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

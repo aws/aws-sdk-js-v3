@@ -43,8 +43,11 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetBackupVaultAccessPolicyInput.filterSensitiveLog,
+      outputFilterLog: GetBackupVaultAccessPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

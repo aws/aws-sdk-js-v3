@@ -45,8 +45,11 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: MergeDeveloperIdentitiesInput.filterSensitiveLog,
+      outputFilterLog: MergeDeveloperIdentitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeImportImageTasksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeImportImageTasksRequest.filterSensitiveLog,
+      outputFilterLog: DescribeImportImageTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

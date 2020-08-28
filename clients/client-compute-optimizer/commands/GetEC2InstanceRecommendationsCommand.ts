@@ -43,8 +43,11 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetEC2InstanceRecommendationsRequest.filterSensitiveLog,
+      outputFilterLog: GetEC2InstanceRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

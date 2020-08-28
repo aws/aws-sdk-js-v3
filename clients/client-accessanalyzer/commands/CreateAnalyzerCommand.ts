@@ -43,8 +43,11 @@ export class CreateAnalyzerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateAnalyzerRequest.filterSensitiveLog,
+      outputFilterLog: CreateAnalyzerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

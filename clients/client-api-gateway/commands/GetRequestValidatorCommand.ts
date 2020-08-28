@@ -43,8 +43,11 @@ export class GetRequestValidatorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetRequestValidatorRequest.filterSensitiveLog,
+      outputFilterLog: RequestValidator.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

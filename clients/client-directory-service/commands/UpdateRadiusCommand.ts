@@ -43,8 +43,11 @@ export class UpdateRadiusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateRadiusRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRadiusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

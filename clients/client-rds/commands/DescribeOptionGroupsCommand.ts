@@ -43,8 +43,11 @@ export class DescribeOptionGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeOptionGroupsMessage.filterSensitiveLog,
+      outputFilterLog: OptionGroups.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

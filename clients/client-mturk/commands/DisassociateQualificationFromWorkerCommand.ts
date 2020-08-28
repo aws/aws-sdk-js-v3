@@ -47,8 +47,11 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociateQualificationFromWorkerRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateQualificationFromWorkerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

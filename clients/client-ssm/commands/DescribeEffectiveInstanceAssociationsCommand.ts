@@ -47,8 +47,11 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeEffectiveInstanceAssociationsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEffectiveInstanceAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeEventBusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeEventBusRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEventBusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

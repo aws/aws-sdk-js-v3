@@ -43,8 +43,11 @@ export class GetHostnameSuggestionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetHostnameSuggestionRequest.filterSensitiveLog,
+      outputFilterLog: GetHostnameSuggestionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

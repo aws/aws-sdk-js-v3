@@ -43,8 +43,11 @@ export class DeleteResourceDataSyncCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterLog: DeleteResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

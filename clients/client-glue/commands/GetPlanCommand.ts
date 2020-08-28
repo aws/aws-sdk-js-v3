@@ -36,8 +36,11 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetPlanRequest.filterSensitiveLog,
+      outputFilterLog: GetPlanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

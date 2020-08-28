@@ -47,8 +47,11 @@ export class SubscribeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SubscribeRequest.filterSensitiveLog,
+      outputFilterLog: SubscribeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

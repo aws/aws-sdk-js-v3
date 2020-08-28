@@ -43,8 +43,11 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeSpotFleetRequestHistoryRequest.filterSensitiveLog,
+      outputFilterLog: DescribeSpotFleetRequestHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

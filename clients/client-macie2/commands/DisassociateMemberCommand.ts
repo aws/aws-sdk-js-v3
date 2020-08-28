@@ -43,8 +43,11 @@ export class DisassociateMemberCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociateMemberRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateMemberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class SearchAddressBooksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SearchAddressBooksRequest.filterSensitiveLog,
+      outputFilterLog: SearchAddressBooksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

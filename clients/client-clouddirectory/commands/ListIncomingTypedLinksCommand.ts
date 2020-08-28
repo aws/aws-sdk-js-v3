@@ -43,8 +43,11 @@ export class ListIncomingTypedLinksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListIncomingTypedLinksRequest.filterSensitiveLog,
+      outputFilterLog: ListIncomingTypedLinksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

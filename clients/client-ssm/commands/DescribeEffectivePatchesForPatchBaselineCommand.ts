@@ -50,8 +50,11 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeEffectivePatchesForPatchBaselineRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEffectivePatchesForPatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

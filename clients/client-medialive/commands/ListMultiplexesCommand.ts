@@ -43,8 +43,11 @@ export class ListMultiplexesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListMultiplexesRequest.filterSensitiveLog,
+      outputFilterLog: ListMultiplexesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

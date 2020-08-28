@@ -43,8 +43,11 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: InitiateDocumentVersionUploadRequest.filterSensitiveLog,
+      outputFilterLog: InitiateDocumentVersionUploadResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

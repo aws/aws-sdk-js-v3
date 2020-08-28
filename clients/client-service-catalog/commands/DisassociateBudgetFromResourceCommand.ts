@@ -43,8 +43,11 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociateBudgetFromResourceInput.filterSensitiveLog,
+      outputFilterLog: DisassociateBudgetFromResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

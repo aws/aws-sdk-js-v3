@@ -43,8 +43,11 @@ export class DescribeHumanTaskUiCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeHumanTaskUiRequest.filterSensitiveLog,
+      outputFilterLog: DescribeHumanTaskUiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

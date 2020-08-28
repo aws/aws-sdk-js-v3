@@ -43,8 +43,11 @@ export class GetDistributionBundlesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetDistributionBundlesRequest.filterSensitiveLog,
+      outputFilterLog: GetDistributionBundlesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

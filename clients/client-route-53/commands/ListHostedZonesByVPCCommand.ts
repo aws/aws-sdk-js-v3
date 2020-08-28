@@ -43,8 +43,11 @@ export class ListHostedZonesByVPCCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListHostedZonesByVPCRequest.filterSensitiveLog,
+      outputFilterLog: ListHostedZonesByVPCResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

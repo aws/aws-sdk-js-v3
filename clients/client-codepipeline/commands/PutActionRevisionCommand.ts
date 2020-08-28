@@ -43,8 +43,11 @@ export class PutActionRevisionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutActionRevisionInput.filterSensitiveLog,
+      outputFilterLog: PutActionRevisionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

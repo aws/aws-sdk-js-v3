@@ -43,8 +43,11 @@ export class ListSnapshotBlocksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListSnapshotBlocksRequest.filterSensitiveLog,
+      outputFilterLog: ListSnapshotBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

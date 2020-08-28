@@ -43,8 +43,11 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeEnvironmentMembershipsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeEnvironmentMembershipsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

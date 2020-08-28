@@ -43,8 +43,11 @@ export class ListResourceDefinitionVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListResourceDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterLog: ListResourceDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

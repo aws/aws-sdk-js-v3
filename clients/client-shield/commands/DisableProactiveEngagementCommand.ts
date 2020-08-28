@@ -43,8 +43,11 @@ export class DisableProactiveEngagementCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisableProactiveEngagementRequest.filterSensitiveLog,
+      outputFilterLog: DisableProactiveEngagementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

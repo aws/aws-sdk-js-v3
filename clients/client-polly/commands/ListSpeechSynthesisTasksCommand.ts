@@ -43,8 +43,11 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListSpeechSynthesisTasksInput.filterSensitiveLog,
+      outputFilterLog: ListSpeechSynthesisTasksOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

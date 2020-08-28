@@ -43,8 +43,11 @@ export class DescribeUploadBufferCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeUploadBufferInput.filterSensitiveLog,
+      outputFilterLog: DescribeUploadBufferOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

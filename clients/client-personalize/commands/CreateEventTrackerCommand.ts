@@ -43,8 +43,11 @@ export class CreateEventTrackerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateEventTrackerRequest.filterSensitiveLog,
+      outputFilterLog: CreateEventTrackerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

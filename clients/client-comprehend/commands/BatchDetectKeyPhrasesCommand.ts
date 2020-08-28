@@ -43,8 +43,11 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: BatchDetectKeyPhrasesRequest.filterSensitiveLog,
+      outputFilterLog: BatchDetectKeyPhrasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

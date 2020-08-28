@@ -43,8 +43,11 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListFunctionDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterLog: ListFunctionDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

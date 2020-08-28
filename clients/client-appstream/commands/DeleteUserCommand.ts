@@ -43,8 +43,11 @@ export class DeleteUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteUserRequest.filterSensitiveLog,
+      outputFilterLog: DeleteUserResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

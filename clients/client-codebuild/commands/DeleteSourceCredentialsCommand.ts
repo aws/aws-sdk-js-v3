@@ -43,8 +43,11 @@ export class DeleteSourceCredentialsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteSourceCredentialsInput.filterSensitiveLog,
+      outputFilterLog: DeleteSourceCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

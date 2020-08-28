@@ -43,8 +43,11 @@ export class DescribeActivityTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeActivityTypeInput.filterSensitiveLog,
+      outputFilterLog: ActivityTypeDetail.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

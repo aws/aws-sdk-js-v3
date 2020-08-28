@@ -43,8 +43,11 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDevicePolicyConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDevicePolicyConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

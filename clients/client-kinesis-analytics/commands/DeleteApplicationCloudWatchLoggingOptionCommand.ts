@@ -50,8 +50,11 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteApplicationCloudWatchLoggingOptionRequest.filterSensitiveLog,
+      outputFilterLog: DeleteApplicationCloudWatchLoggingOptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

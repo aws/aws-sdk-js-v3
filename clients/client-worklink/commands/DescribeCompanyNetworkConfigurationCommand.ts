@@ -47,8 +47,11 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeCompanyNetworkConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

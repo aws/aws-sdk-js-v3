@@ -43,8 +43,11 @@ export class CreateModelPackageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateModelPackageInput.filterSensitiveLog,
+      outputFilterLog: CreateModelPackageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

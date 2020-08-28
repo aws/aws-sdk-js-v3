@@ -43,8 +43,11 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeCacheSecurityGroupsMessage.filterSensitiveLog,
+      outputFilterLog: CacheSecurityGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

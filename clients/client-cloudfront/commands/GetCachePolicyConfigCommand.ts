@@ -43,8 +43,11 @@ export class GetCachePolicyConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetCachePolicyConfigRequest.filterSensitiveLog,
+      outputFilterLog: GetCachePolicyConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

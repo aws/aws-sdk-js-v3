@@ -43,8 +43,11 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetDistributionLatestCacheResetRequest.filterSensitiveLog,
+      outputFilterLog: GetDistributionLatestCacheResetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

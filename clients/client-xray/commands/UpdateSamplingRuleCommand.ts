@@ -43,8 +43,11 @@ export class UpdateSamplingRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateSamplingRuleRequest.filterSensitiveLog,
+      outputFilterLog: UpdateSamplingRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,11 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterLog: AssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

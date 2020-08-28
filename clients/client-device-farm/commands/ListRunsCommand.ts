@@ -40,8 +40,11 @@ export class ListRunsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListRunsRequest.filterSensitiveLog,
+      outputFilterLog: ListRunsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

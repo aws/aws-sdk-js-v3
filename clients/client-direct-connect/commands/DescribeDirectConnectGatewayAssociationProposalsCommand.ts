@@ -50,8 +50,11 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeDirectConnectGatewayAssociationProposalsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDirectConnectGatewayAssociationProposalsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

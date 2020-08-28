@@ -47,8 +47,11 @@ export class ListHumanLoopsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListHumanLoopsRequest.filterSensitiveLog,
+      outputFilterLog: ListHumanLoopsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

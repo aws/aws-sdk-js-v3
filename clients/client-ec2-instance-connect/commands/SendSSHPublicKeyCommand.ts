@@ -47,8 +47,11 @@ export class SendSSHPublicKeyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SendSSHPublicKeyRequest.filterSensitiveLog,
+      outputFilterLog: SendSSHPublicKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

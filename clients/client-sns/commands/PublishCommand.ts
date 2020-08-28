@@ -36,8 +36,11 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PublishInput.filterSensitiveLog,
+      outputFilterLog: PublishResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateExpirationForHITCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateExpirationForHITRequest.filterSensitiveLog,
+      outputFilterLog: UpdateExpirationForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

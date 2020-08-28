@@ -43,8 +43,11 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetVoiceConnectorOriginationRequest.filterSensitiveLog,
+      outputFilterLog: GetVoiceConnectorOriginationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

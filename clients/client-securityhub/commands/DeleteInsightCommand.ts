@@ -43,8 +43,11 @@ export class DeleteInsightCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteInsightRequest.filterSensitiveLog,
+      outputFilterLog: DeleteInsightResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeNotificationsForBudgetRequest.filterSensitiveLog,
+      outputFilterLog: DescribeNotificationsForBudgetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

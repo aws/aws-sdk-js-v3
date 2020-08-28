@@ -43,8 +43,11 @@ export class GetSdkTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetSdkTypeRequest.filterSensitiveLog,
+      outputFilterLog: SdkType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

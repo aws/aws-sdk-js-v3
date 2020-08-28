@@ -43,8 +43,11 @@ export class CreateKeysAndCertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateKeysAndCertificateRequest.filterSensitiveLog,
+      outputFilterLog: CreateKeysAndCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

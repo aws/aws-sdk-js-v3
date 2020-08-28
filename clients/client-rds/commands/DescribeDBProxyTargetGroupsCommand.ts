@@ -43,8 +43,11 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeDBProxyTargetGroupsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDBProxyTargetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

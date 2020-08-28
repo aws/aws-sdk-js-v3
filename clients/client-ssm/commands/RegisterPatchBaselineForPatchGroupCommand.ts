@@ -44,8 +44,11 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: RegisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
+      outputFilterLog: RegisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

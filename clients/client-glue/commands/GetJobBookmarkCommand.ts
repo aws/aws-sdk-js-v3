@@ -43,8 +43,11 @@ export class GetJobBookmarkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetJobBookmarkRequest.filterSensitiveLog,
+      outputFilterLog: GetJobBookmarkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

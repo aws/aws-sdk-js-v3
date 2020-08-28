@@ -50,8 +50,11 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociateSigninDelegateGroupsFromAccountRequest.filterSensitiveLog,
+      outputFilterLog: DisassociateSigninDelegateGroupsFromAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

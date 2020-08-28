@@ -47,8 +47,11 @@ export class GetProposalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetProposalInput.filterSensitiveLog,
+      outputFilterLog: GetProposalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

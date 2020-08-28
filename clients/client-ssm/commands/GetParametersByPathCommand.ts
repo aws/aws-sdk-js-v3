@@ -43,8 +43,11 @@ export class GetParametersByPathCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetParametersByPathRequest.filterSensitiveLog,
+      outputFilterLog: GetParametersByPathResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

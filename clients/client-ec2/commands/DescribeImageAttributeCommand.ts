@@ -43,8 +43,11 @@ export class DescribeImageAttributeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeImageAttributeRequest.filterSensitiveLog,
+      outputFilterLog: ImageAttribute.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

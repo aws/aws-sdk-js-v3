@@ -44,8 +44,11 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AssociateDeviceWithNetworkProfileRequest.filterSensitiveLog,
+      outputFilterLog: AssociateDeviceWithNetworkProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

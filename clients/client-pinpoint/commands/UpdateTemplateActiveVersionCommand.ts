@@ -43,8 +43,11 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateTemplateActiveVersionRequest.filterSensitiveLog,
+      outputFilterLog: UpdateTemplateActiveVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -36,8 +36,11 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PeerVpcRequest.filterSensitiveLog,
+      outputFilterLog: PeerVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

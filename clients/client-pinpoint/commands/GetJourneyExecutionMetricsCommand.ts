@@ -43,8 +43,11 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetJourneyExecutionMetricsRequest.filterSensitiveLog,
+      outputFilterLog: GetJourneyExecutionMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeClusterTracksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeClusterTracksMessage.filterSensitiveLog,
+      outputFilterLog: TrackListMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

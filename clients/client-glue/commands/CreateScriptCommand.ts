@@ -43,8 +43,11 @@ export class CreateScriptCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateScriptRequest.filterSensitiveLog,
+      outputFilterLog: CreateScriptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

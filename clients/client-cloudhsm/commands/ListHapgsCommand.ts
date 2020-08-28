@@ -40,8 +40,11 @@ export class ListHapgsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListHapgsRequest.filterSensitiveLog,
+      outputFilterLog: ListHapgsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

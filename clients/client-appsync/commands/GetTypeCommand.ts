@@ -39,8 +39,11 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetTypeRequest.filterSensitiveLog,
+      outputFilterLog: GetTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

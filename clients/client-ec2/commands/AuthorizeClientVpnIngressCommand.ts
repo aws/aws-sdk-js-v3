@@ -43,8 +43,11 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AuthorizeClientVpnIngressRequest.filterSensitiveLog,
+      outputFilterLog: AuthorizeClientVpnIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

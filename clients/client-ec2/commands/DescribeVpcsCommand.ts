@@ -40,8 +40,11 @@ export class DescribeVpcsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeVpcsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeVpcsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

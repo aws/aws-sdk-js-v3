@@ -43,8 +43,11 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SearchAvailablePhoneNumbersRequest.filterSensitiveLog,
+      outputFilterLog: SearchAvailablePhoneNumbersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

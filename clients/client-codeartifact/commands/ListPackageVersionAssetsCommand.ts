@@ -43,8 +43,11 @@ export class ListPackageVersionAssetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListPackageVersionAssetsRequest.filterSensitiveLog,
+      outputFilterLog: ListPackageVersionAssetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

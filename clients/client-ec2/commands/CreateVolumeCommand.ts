@@ -40,8 +40,11 @@ export class CreateVolumeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateVolumeRequest.filterSensitiveLog,
+      outputFilterLog: Volume.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

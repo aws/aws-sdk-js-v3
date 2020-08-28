@@ -43,8 +43,11 @@ export class CreateUsagePlanKeyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateUsagePlanKeyRequest.filterSensitiveLog,
+      outputFilterLog: UsagePlanKey.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

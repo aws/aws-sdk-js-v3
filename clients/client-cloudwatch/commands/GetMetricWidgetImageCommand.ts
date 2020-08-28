@@ -43,8 +43,11 @@ export class GetMetricWidgetImageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetMetricWidgetImageInput.filterSensitiveLog,
+      outputFilterLog: GetMetricWidgetImageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

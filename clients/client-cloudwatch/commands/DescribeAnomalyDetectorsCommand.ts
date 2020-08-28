@@ -43,8 +43,11 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeAnomalyDetectorsInput.filterSensitiveLog,
+      outputFilterLog: DescribeAnomalyDetectorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

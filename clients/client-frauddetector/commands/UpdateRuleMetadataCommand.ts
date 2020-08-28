@@ -43,8 +43,11 @@ export class UpdateRuleMetadataCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateRuleMetadataRequest.filterSensitiveLog,
+      outputFilterLog: UpdateRuleMetadataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

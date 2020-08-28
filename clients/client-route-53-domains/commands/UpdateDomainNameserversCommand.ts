@@ -43,8 +43,11 @@ export class UpdateDomainNameserversCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDomainNameserversRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainNameserversResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

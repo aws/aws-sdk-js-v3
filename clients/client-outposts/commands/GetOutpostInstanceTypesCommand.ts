@@ -43,8 +43,11 @@ export class GetOutpostInstanceTypesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetOutpostInstanceTypesInput.filterSensitiveLog,
+      outputFilterLog: GetOutpostInstanceTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

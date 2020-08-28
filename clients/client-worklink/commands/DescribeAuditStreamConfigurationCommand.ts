@@ -43,8 +43,11 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeAuditStreamConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAuditStreamConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

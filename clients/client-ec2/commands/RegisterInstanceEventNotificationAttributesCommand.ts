@@ -50,8 +50,11 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: RegisterInstanceEventNotificationAttributesRequest.filterSensitiveLog,
+      outputFilterLog: RegisterInstanceEventNotificationAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

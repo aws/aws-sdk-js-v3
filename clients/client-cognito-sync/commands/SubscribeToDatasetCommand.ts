@@ -43,8 +43,11 @@ export class SubscribeToDatasetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SubscribeToDatasetRequest.filterSensitiveLog,
+      outputFilterLog: SubscribeToDatasetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

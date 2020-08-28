@@ -43,8 +43,11 @@ export class ListRemoteAccessSessionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListRemoteAccessSessionsRequest.filterSensitiveLog,
+      outputFilterLog: ListRemoteAccessSessionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

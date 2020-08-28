@@ -43,8 +43,11 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListSqlInjectionMatchSetsRequest.filterSensitiveLog,
+      outputFilterLog: ListSqlInjectionMatchSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
+      outputFilterLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListOrganizationalUnitsForParentRequest.filterSensitiveLog,
+      outputFilterLog: ListOrganizationalUnitsForParentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

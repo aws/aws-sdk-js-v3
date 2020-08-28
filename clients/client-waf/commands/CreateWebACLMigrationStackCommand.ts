@@ -43,8 +43,11 @@ export class CreateWebACLMigrationStackCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateWebACLMigrationStackRequest.filterSensitiveLog,
+      outputFilterLog: CreateWebACLMigrationStackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

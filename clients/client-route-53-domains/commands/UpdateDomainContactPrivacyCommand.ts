@@ -43,8 +43,11 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDomainContactPrivacyRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainContactPrivacyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

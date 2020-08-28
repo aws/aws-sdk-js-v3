@@ -39,8 +39,11 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListBotsRequest.filterSensitiveLog,
+      outputFilterLog: ListBotsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

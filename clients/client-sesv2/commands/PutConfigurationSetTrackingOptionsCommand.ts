@@ -44,8 +44,11 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterLog: PutConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

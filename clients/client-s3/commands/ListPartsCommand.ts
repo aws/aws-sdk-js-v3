@@ -38,8 +38,11 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListPartsRequest.filterSensitiveLog,
+      outputFilterLog: ListPartsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

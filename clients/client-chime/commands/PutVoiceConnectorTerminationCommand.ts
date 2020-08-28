@@ -43,8 +43,11 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutVoiceConnectorTerminationRequest.filterSensitiveLog,
+      outputFilterLog: PutVoiceConnectorTerminationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

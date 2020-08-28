@@ -45,8 +45,11 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetBucketAnalyticsConfigurationRequest.filterSensitiveLog,
+      outputFilterLog: GetBucketAnalyticsConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

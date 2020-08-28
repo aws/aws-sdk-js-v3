@@ -43,8 +43,11 @@ export class SendContactMethodVerificationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: SendContactMethodVerificationRequest.filterSensitiveLog,
+      outputFilterLog: SendContactMethodVerificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class PutOrganizationConfigRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutOrganizationConfigRuleRequest.filterSensitiveLog,
+      outputFilterLog: PutOrganizationConfigRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -44,8 +44,11 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeStackProvisioningParametersRequest.filterSensitiveLog,
+      outputFilterLog: DescribeStackProvisioningParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

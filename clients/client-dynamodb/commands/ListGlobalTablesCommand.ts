@@ -43,8 +43,11 @@ export class ListGlobalTablesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListGlobalTablesInput.filterSensitiveLog,
+      outputFilterLog: ListGlobalTablesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

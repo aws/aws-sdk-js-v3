@@ -43,8 +43,11 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetSamplingStatisticSummariesRequest.filterSensitiveLog,
+      outputFilterLog: GetSamplingStatisticSummariesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

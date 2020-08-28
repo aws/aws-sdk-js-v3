@@ -36,8 +36,11 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UntagInput.filterSensitiveLog,
+      outputFilterLog: UntagOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

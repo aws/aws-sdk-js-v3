@@ -43,8 +43,11 @@ export class UpdateModelVersionStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateModelVersionStatusRequest.filterSensitiveLog,
+      outputFilterLog: UpdateModelVersionStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

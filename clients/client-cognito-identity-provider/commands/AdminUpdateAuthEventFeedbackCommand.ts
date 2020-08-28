@@ -47,8 +47,11 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AdminUpdateAuthEventFeedbackRequest.filterSensitiveLog,
+      outputFilterLog: AdminUpdateAuthEventFeedbackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

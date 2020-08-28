@@ -43,8 +43,11 @@ export class GetIntegrationResponsesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: GetIntegrationResponsesRequest.filterSensitiveLog,
+      outputFilterLog: GetIntegrationResponsesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ReleaseStaticIpCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ReleaseStaticIpRequest.filterSensitiveLog,
+      outputFilterLog: ReleaseStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -36,8 +36,11 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: InvocationRequest.filterSensitiveLog,
+      outputFilterLog: InvocationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

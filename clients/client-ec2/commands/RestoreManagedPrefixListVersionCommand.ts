@@ -43,8 +43,11 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: RestoreManagedPrefixListVersionRequest.filterSensitiveLog,
+      outputFilterLog: RestoreManagedPrefixListVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

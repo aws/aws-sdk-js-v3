@@ -43,8 +43,11 @@ export class DescribeAvailabilityZonesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeAvailabilityZonesRequest.filterSensitiveLog,
+      outputFilterLog: DescribeAvailabilityZonesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeJournalKinesisStreamRequest.filterSensitiveLog,
+      outputFilterLog: DescribeJournalKinesisStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

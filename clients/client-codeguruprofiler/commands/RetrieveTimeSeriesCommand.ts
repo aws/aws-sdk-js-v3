@@ -43,8 +43,11 @@ export class RetrieveTimeSeriesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: RetrieveTimeSeriesRequest.filterSensitiveLog,
+      outputFilterLog: RetrieveTimeSeriesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

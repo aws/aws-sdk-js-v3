@@ -43,8 +43,11 @@ export class UpdateDomainMetadataCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateDomainMetadataRequest.filterSensitiveLog,
+      outputFilterLog: UpdateDomainMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

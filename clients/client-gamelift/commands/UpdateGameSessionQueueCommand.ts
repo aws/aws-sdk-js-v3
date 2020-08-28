@@ -43,8 +43,11 @@ export class UpdateGameSessionQueueCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateGameSessionQueueInput.filterSensitiveLog,
+      outputFilterLog: UpdateGameSessionQueueOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

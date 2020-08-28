@@ -43,8 +43,11 @@ export class DescribeDeliveryChannelsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DescribeDeliveryChannelsRequest.filterSensitiveLog,
+      outputFilterLog: DescribeDeliveryChannelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

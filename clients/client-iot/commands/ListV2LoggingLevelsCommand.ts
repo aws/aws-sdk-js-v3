@@ -43,8 +43,11 @@ export class ListV2LoggingLevelsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListV2LoggingLevelsRequest.filterSensitiveLog,
+      outputFilterLog: ListV2LoggingLevelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

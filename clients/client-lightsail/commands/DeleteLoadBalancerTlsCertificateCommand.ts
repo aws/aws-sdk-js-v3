@@ -43,8 +43,11 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DeleteLoadBalancerTlsCertificateRequest.filterSensitiveLog,
+      outputFilterLog: DeleteLoadBalancerTlsCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

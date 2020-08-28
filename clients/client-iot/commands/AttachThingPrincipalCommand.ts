@@ -43,8 +43,11 @@ export class AttachThingPrincipalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: AttachThingPrincipalRequest.filterSensitiveLog,
+      outputFilterLog: AttachThingPrincipalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

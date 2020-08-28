@@ -46,8 +46,11 @@ export class ChangeResourceRecordSetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ChangeResourceRecordSetsRequest.filterSensitiveLog,
+      outputFilterLog: ChangeResourceRecordSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

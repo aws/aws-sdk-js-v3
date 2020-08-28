@@ -43,8 +43,11 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: ListResolverEndpointIpAddressesRequest.filterSensitiveLog,
+      outputFilterLog: ListResolverEndpointIpAddressesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

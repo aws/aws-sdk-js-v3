@@ -43,8 +43,11 @@ export class StartCelebrityRecognitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: StartCelebrityRecognitionRequest.filterSensitiveLog,
+      outputFilterLog: StartCelebrityRecognitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

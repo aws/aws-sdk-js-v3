@@ -43,8 +43,11 @@ export class CreateMicrosoftADCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: CreateMicrosoftADRequest.filterSensitiveLog,
+      outputFilterLog: CreateMicrosoftADResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

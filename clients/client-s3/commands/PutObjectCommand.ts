@@ -42,8 +42,11 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PutObjectRequest.filterSensitiveLog,
+      outputFilterLog: PutObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

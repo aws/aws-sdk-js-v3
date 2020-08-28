@@ -43,8 +43,11 @@ export class UpdateTimeToLiveCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: UpdateTimeToLiveInput.filterSensitiveLog,
+      outputFilterLog: UpdateTimeToLiveOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

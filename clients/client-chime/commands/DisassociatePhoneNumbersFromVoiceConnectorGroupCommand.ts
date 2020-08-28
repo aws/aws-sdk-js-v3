@@ -50,8 +50,11 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest.filterSensitiveLog,
+      outputFilterLog: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

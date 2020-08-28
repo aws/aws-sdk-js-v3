@@ -43,8 +43,11 @@ export class PostCommentForPullRequestCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: PostCommentForPullRequestInput.filterSensitiveLog,
+      outputFilterLog: PostCommentForPullRequestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

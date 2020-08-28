@@ -43,8 +43,11 @@ export class BeginTransactionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterLog: BeginTransactionRequest.filterSensitiveLog,
+      outputFilterLog: BeginTransactionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
