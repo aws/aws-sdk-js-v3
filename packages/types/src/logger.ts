@@ -21,8 +21,8 @@ export interface LoggerOptions {
  * throughout the middleware stack.
  */
 export interface Logger {
-  log(content: string): void;
-  info(content: string): void;
-  warn(content: string): void;
-  error(content: string): void;
+  debug(content: object): void;
+  info(content: object): void;
+  warn(content: object): void;
+  error(content: object): void;
 }

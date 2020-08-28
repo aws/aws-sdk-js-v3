@@ -15,8 +15,36 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
 ): FinalizeHandler<any, Output> => async (
   args: FinalizeHandlerArguments<any>
 ): Promise<FinalizeHandlerOutput<Output>> => {
-  // TODO: use and call context.logger once it's available
-  return next(args);
+  const { logger, inputFilterSensitiveLog, outputFilterSensitiveLog } = context;
+
+  const response = await next(args);
+
+  if (!logger) {
+    return response;
+  }
+
+  const {
+    output: { $metadata, ...outputWithoutMetadata },
+  } = response;
+
+  if (typeof logger.debug === "function") {
+    logger.debug({
+      httpRequest: { ...(args.request as any), body: "examine input under info" },
+    });
+    logger.debug({
+      httpResponse: { ...(response.response as any), body: "examine output under info" },
+    });
+  }
+
+  if (typeof logger.info === "function") {
+    logger.info({
+      $metadata,
+      input: inputFilterSensitiveLog(args.input),
+      output: outputFilterSensitiveLog(outputWithoutMetadata),
+    });
+  }
+
+  return response;
 };
 
 export const loggerMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
