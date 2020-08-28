@@ -53,8 +53,8 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTrainingJobsForHyperParameterTuningJobRequest.filterSensitiveLog,
-      outputFilterLog: ListTrainingJobsForHyperParameterTuningJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTrainingJobsForHyperParameterTuningJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTrainingJobsForHyperParameterTuningJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

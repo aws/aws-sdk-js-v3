@@ -46,8 +46,8 @@ export class ModifyInstanceFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyInstanceFleetInput.filterSensitiveLog,
-      outputFilterLog: (output: any) => output,
+      inputFilterSensitiveLog: ModifyInstanceFleetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

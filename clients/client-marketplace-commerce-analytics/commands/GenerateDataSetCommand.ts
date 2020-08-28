@@ -50,8 +50,8 @@ export class GenerateDataSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateDataSetRequest.filterSensitiveLog,
-      outputFilterLog: GenerateDataSetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateDataSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataSetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

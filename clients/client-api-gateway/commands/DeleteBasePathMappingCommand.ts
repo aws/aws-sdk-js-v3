@@ -46,8 +46,8 @@ export class DeleteBasePathMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBasePathMappingRequest.filterSensitiveLog,
-      outputFilterLog: (output: any) => output,
+      inputFilterSensitiveLog: DeleteBasePathMappingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

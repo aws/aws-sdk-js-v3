@@ -46,8 +46,8 @@ export class GetRegistrationCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRegistrationCodeRequest.filterSensitiveLog,
-      outputFilterLog: GetRegistrationCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRegistrationCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRegistrationCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

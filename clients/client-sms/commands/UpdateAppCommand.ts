@@ -39,8 +39,8 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAppRequest.filterSensitiveLog,
-      outputFilterLog: UpdateAppResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAppRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

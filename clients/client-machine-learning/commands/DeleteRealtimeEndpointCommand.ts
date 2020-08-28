@@ -46,8 +46,8 @@ export class DeleteRealtimeEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRealtimeEndpointInput.filterSensitiveLog,
-      outputFilterLog: DeleteRealtimeEndpointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRealtimeEndpointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRealtimeEndpointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

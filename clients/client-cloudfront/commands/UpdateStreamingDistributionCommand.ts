@@ -46,8 +46,8 @@ export class UpdateStreamingDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateStreamingDistributionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateStreamingDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStreamingDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStreamingDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

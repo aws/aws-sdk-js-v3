@@ -47,8 +47,8 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutEmailIdentityMailFromAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutEmailIdentityMailFromAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEmailIdentityMailFromAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityMailFromAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

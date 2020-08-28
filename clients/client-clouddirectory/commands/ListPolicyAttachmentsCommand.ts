@@ -46,8 +46,8 @@ export class ListPolicyAttachmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPolicyAttachmentsRequest.filterSensitiveLog,
-      outputFilterLog: ListPolicyAttachmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPolicyAttachmentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPolicyAttachmentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

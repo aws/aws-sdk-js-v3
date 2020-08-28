@@ -46,8 +46,8 @@ export class ListPublicKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPublicKeysRequest.filterSensitiveLog,
-      outputFilterLog: ListPublicKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPublicKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPublicKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

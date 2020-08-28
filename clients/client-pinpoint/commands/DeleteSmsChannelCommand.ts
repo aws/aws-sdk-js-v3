@@ -46,8 +46,8 @@ export class DeleteSmsChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSmsChannelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSmsChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSmsChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSmsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

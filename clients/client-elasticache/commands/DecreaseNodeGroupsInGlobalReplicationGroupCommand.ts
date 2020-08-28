@@ -53,8 +53,8 @@ export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DecreaseNodeGroupsInGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: DecreaseNodeGroupsInGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DecreaseNodeGroupsInGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DecreaseNodeGroupsInGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

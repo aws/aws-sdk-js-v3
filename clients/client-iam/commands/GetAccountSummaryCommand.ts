@@ -46,8 +46,8 @@ export class GetAccountSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: GetAccountSummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GetAccountSummaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

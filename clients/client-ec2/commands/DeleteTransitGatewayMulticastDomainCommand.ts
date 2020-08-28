@@ -47,8 +47,8 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTransitGatewayMulticastDomainRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTransitGatewayMulticastDomainResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTransitGatewayMulticastDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayMulticastDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

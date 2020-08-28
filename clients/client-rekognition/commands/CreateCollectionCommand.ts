@@ -46,8 +46,8 @@ export class CreateCollectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCollectionRequest.filterSensitiveLog,
-      outputFilterLog: CreateCollectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCollectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCollectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

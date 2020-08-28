@@ -46,8 +46,8 @@ export class UpdateBuildCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateBuildInput.filterSensitiveLog,
-      outputFilterLog: UpdateBuildOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBuildInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBuildOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

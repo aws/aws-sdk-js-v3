@@ -50,8 +50,8 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeIamInstanceProfileAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeIamInstanceProfileAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIamInstanceProfileAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIamInstanceProfileAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

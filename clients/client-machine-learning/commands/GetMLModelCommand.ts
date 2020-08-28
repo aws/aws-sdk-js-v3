@@ -46,8 +46,8 @@ export class GetMLModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMLModelInput.filterSensitiveLog,
-      outputFilterLog: GetMLModelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMLModelInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMLModelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

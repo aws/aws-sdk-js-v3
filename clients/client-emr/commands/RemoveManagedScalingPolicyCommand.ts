@@ -46,8 +46,8 @@ export class RemoveManagedScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveManagedScalingPolicyInput.filterSensitiveLog,
-      outputFilterLog: RemoveManagedScalingPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveManagedScalingPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveManagedScalingPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

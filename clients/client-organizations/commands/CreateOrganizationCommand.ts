@@ -46,8 +46,8 @@ export class CreateOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateOrganizationRequest.filterSensitiveLog,
-      outputFilterLog: CreateOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

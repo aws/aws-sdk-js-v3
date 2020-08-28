@@ -46,8 +46,8 @@ export class ImportInstallationMediaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ImportInstallationMediaMessage.filterSensitiveLog,
-      outputFilterLog: InstallationMedia.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportInstallationMediaMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: InstallationMedia.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

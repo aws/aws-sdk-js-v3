@@ -46,8 +46,8 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RespondDecisionTaskCompletedInput.filterSensitiveLog,
-      outputFilterLog: (output: any) => output,
+      inputFilterSensitiveLog: RespondDecisionTaskCompletedInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

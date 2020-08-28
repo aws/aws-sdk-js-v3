@@ -46,8 +46,8 @@ export class UpdateContainerAgentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateContainerAgentRequest.filterSensitiveLog,
-      outputFilterLog: UpdateContainerAgentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContainerAgentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContainerAgentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

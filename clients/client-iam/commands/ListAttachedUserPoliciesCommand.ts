@@ -46,8 +46,8 @@ export class ListAttachedUserPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAttachedUserPoliciesRequest.filterSensitiveLog,
-      outputFilterLog: ListAttachedUserPoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAttachedUserPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAttachedUserPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

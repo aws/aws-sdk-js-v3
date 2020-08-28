@@ -46,8 +46,8 @@ export class CreateParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateParameterGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateParameterGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateParameterGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateParameterGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

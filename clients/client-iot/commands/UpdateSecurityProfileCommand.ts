@@ -46,8 +46,8 @@ export class UpdateSecurityProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSecurityProfileRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSecurityProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecurityProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

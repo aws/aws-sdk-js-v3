@@ -43,8 +43,8 @@ export class GetDashboardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDashboardInput.filterSensitiveLog,
-      outputFilterLog: GetDashboardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDashboardInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDashboardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

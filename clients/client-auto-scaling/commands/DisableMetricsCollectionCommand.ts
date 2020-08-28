@@ -46,8 +46,8 @@ export class DisableMetricsCollectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableMetricsCollectionQuery.filterSensitiveLog,
-      outputFilterLog: (output: any) => output,
+      inputFilterSensitiveLog: DisableMetricsCollectionQuery.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

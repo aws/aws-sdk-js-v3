@@ -46,8 +46,8 @@ export class GetFacetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFacetRequest.filterSensitiveLog,
-      outputFilterLog: GetFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

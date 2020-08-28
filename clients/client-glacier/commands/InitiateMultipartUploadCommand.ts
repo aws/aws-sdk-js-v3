@@ -46,8 +46,8 @@ export class InitiateMultipartUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InitiateMultipartUploadInput.filterSensitiveLog,
-      outputFilterLog: InitiateMultipartUploadOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: InitiateMultipartUploadInput.filterSensitiveLog,
+      outputFilterSensitiveLog: InitiateMultipartUploadOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

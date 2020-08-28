@@ -50,8 +50,8 @@ export class ListApplicationSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListApplicationSnapshotsRequest.filterSensitiveLog,
-      outputFilterLog: ListApplicationSnapshotsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListApplicationSnapshotsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListApplicationSnapshotsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

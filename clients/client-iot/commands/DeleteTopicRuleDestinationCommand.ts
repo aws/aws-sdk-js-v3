@@ -46,8 +46,8 @@ export class DeleteTopicRuleDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTopicRuleDestinationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTopicRuleDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTopicRuleDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTopicRuleDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

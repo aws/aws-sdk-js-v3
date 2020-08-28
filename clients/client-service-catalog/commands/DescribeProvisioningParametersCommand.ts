@@ -46,8 +46,8 @@ export class DescribeProvisioningParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeProvisioningParametersInput.filterSensitiveLog,
-      outputFilterLog: DescribeProvisioningParametersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProvisioningParametersInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProvisioningParametersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

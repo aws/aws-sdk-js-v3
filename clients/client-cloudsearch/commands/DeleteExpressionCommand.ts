@@ -46,8 +46,8 @@ export class DeleteExpressionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteExpressionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteExpressionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteExpressionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteExpressionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

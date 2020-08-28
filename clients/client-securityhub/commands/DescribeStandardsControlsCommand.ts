@@ -46,8 +46,8 @@ export class DescribeStandardsControlsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeStandardsControlsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeStandardsControlsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStandardsControlsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStandardsControlsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

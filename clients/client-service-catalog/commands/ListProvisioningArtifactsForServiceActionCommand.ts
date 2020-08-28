@@ -53,8 +53,8 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProvisioningArtifactsForServiceActionInput.filterSensitiveLog,
-      outputFilterLog: ListProvisioningArtifactsForServiceActionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

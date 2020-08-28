@@ -50,8 +50,8 @@ export class ListNetworksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListNetworksInput.filterSensitiveLog,
-      outputFilterLog: ListNetworksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNetworksInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNetworksOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

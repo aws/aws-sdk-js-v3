@@ -46,8 +46,8 @@ export class DescribeAuditFindingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAuditFindingRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAuditFindingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAuditFindingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAuditFindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

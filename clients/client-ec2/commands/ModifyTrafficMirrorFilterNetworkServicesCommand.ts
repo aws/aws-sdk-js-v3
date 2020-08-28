@@ -53,8 +53,8 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyTrafficMirrorFilterNetworkServicesRequest.filterSensitiveLog,
-      outputFilterLog: ModifyTrafficMirrorFilterNetworkServicesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyTrafficMirrorFilterNetworkServicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyTrafficMirrorFilterNetworkServicesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

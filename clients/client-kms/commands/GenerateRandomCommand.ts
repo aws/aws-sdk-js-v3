@@ -46,8 +46,8 @@ export class GenerateRandomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateRandomRequest.filterSensitiveLog,
-      outputFilterLog: GenerateRandomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateRandomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateRandomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

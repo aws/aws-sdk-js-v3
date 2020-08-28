@@ -46,8 +46,8 @@ export class ListKeyPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListKeyPoliciesRequest.filterSensitiveLog,
-      outputFilterLog: ListKeyPoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListKeyPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListKeyPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

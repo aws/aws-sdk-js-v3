@@ -53,8 +53,8 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEnvironmentManagedActionHistoryRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEnvironmentManagedActionHistoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEnvironmentManagedActionHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEnvironmentManagedActionHistoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

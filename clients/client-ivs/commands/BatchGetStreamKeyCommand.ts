@@ -46,8 +46,8 @@ export class BatchGetStreamKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchGetStreamKeyRequest.filterSensitiveLog,
-      outputFilterLog: BatchGetStreamKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetStreamKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetStreamKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

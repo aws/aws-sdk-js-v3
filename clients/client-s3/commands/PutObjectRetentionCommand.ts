@@ -48,8 +48,8 @@ export class PutObjectRetentionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutObjectRetentionRequest.filterSensitiveLog,
-      outputFilterLog: PutObjectRetentionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectRetentionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectRetentionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

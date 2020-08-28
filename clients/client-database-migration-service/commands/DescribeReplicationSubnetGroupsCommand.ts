@@ -50,8 +50,8 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReplicationSubnetGroupsMessage.filterSensitiveLog,
-      outputFilterLog: DescribeReplicationSubnetGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReplicationSubnetGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReplicationSubnetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterTaskFromMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterTaskFromMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTaskFromMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTaskFromMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

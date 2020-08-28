@@ -46,8 +46,8 @@ export class DeleteServiceActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteServiceActionInput.filterSensitiveLog,
-      outputFilterLog: DeleteServiceActionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServiceActionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServiceActionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

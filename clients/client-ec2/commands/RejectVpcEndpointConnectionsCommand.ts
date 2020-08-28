@@ -46,8 +46,8 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RejectVpcEndpointConnectionsRequest.filterSensitiveLog,
-      outputFilterLog: RejectVpcEndpointConnectionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectVpcEndpointConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectVpcEndpointConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

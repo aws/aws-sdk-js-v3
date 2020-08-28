@@ -46,8 +46,8 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeOrderableClusterOptionsMessage.filterSensitiveLog,
-      outputFilterLog: OrderableClusterOptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrderableClusterOptionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: OrderableClusterOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

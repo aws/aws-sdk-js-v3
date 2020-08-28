@@ -46,8 +46,8 @@ export class StopFleetActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopFleetActionsInput.filterSensitiveLog,
-      outputFilterLog: StopFleetActionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopFleetActionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopFleetActionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

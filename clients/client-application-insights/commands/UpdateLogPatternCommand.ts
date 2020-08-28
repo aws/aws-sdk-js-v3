@@ -50,8 +50,8 @@ export class UpdateLogPatternCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLogPatternRequest.filterSensitiveLog,
-      outputFilterLog: UpdateLogPatternResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLogPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLogPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

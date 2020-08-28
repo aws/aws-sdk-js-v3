@@ -48,8 +48,8 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDBInstanceReadReplicaMessage.filterSensitiveLog,
-      outputFilterLog: CreateDBInstanceReadReplicaResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBInstanceReadReplicaMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBInstanceReadReplicaResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

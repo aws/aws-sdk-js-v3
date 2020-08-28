@@ -46,8 +46,8 @@ export class DefineIndexFieldCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DefineIndexFieldRequest.filterSensitiveLog,
-      outputFilterLog: DefineIndexFieldResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DefineIndexFieldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DefineIndexFieldResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

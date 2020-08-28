@@ -46,8 +46,8 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AllocateTransitVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: AllocateTransitVirtualInterfaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateTransitVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AllocateTransitVirtualInterfaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

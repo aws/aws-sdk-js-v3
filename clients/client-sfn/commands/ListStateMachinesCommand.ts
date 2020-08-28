@@ -46,8 +46,8 @@ export class ListStateMachinesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListStateMachinesInput.filterSensitiveLog,
-      outputFilterLog: ListStateMachinesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStateMachinesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListStateMachinesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

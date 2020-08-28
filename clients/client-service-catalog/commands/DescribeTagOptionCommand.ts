@@ -46,8 +46,8 @@ export class DescribeTagOptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTagOptionInput.filterSensitiveLog,
-      outputFilterLog: DescribeTagOptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTagOptionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTagOptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

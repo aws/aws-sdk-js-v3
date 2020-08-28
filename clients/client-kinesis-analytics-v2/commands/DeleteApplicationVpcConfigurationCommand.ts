@@ -51,8 +51,8 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApplicationVpcConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApplicationVpcConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationVpcConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationVpcConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

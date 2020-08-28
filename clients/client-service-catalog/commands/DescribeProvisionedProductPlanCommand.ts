@@ -46,8 +46,8 @@ export class DescribeProvisionedProductPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeProvisionedProductPlanInput.filterSensitiveLog,
-      outputFilterLog: DescribeProvisionedProductPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProvisionedProductPlanInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProvisionedProductPlanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

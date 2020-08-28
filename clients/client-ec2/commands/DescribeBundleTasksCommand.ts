@@ -46,8 +46,8 @@ export class DescribeBundleTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBundleTasksRequest.filterSensitiveLog,
-      outputFilterLog: DescribeBundleTasksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBundleTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBundleTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

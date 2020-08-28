@@ -46,8 +46,8 @@ export class BatchStopUpdateActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchStopUpdateActionMessage.filterSensitiveLog,
-      outputFilterLog: UpdateActionResultsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchStopUpdateActionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateActionResultsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class GetHomeRegionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHomeRegionRequest.filterSensitiveLog,
-      outputFilterLog: GetHomeRegionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHomeRegionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHomeRegionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

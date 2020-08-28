@@ -46,8 +46,8 @@ export class DisassociateHealthCheckCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateHealthCheckRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateHealthCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateHealthCheckRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateHealthCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

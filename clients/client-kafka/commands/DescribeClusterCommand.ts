@@ -46,8 +46,8 @@ export class DescribeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeClusterRequest.filterSensitiveLog,
-      outputFilterLog: DescribeClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClusterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

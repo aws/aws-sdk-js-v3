@@ -50,8 +50,8 @@ export class CreateListenerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateListenerInput.filterSensitiveLog,
-      outputFilterLog: CreateListenerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateListenerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateListenerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

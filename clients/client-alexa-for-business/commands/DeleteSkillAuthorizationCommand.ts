@@ -46,8 +46,8 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSkillAuthorizationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSkillAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSkillAuthorizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSkillAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

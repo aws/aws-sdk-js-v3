@@ -46,8 +46,8 @@ export class AssociateDRTLogBucketCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDRTLogBucketRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDRTLogBucketResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDRTLogBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDRTLogBucketResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

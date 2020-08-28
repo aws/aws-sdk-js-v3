@@ -46,8 +46,8 @@ export class ListSizeConstraintSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSizeConstraintSetsRequest.filterSensitiveLog,
-      outputFilterLog: ListSizeConstraintSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSizeConstraintSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSizeConstraintSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

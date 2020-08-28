@@ -46,8 +46,8 @@ export class UpdateChannelClassCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateChannelClassRequest.filterSensitiveLog,
-      outputFilterLog: UpdateChannelClassResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateChannelClassRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateChannelClassResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

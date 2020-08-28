@@ -50,8 +50,8 @@ export class ListHumanLoopsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHumanLoopsRequest.filterSensitiveLog,
-      outputFilterLog: ListHumanLoopsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHumanLoopsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHumanLoopsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

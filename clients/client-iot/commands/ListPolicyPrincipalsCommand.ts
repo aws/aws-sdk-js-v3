@@ -46,8 +46,8 @@ export class ListPolicyPrincipalsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPolicyPrincipalsRequest.filterSensitiveLog,
-      outputFilterLog: ListPolicyPrincipalsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPolicyPrincipalsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPolicyPrincipalsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

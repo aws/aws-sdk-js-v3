@@ -46,8 +46,8 @@ export class DescribeCapacityProvidersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCapacityProvidersRequest.filterSensitiveLog,
-      outputFilterLog: DescribeCapacityProvidersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCapacityProvidersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCapacityProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

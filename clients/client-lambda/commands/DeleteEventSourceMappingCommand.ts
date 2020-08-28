@@ -46,8 +46,8 @@ export class DeleteEventSourceMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteEventSourceMappingRequest.filterSensitiveLog,
-      outputFilterLog: EventSourceMappingConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEventSourceMappingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EventSourceMappingConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

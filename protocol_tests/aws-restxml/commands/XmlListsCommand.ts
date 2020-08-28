@@ -43,8 +43,8 @@ export class XmlListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: XmlListsInputOutput.filterSensitiveLog,
-      outputFilterLog: XmlListsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlListsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlListsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

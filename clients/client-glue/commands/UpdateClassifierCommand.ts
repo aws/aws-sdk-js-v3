@@ -46,8 +46,8 @@ export class UpdateClassifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateClassifierRequest.filterSensitiveLog,
-      outputFilterLog: UpdateClassifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClassifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

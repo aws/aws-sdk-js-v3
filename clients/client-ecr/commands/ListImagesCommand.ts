@@ -46,8 +46,8 @@ export class ListImagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListImagesRequest.filterSensitiveLog,
-      outputFilterLog: ListImagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListImagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListImagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

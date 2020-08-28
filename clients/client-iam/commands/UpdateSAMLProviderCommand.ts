@@ -46,8 +46,8 @@ export class UpdateSAMLProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSAMLProviderRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSAMLProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSAMLProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSAMLProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

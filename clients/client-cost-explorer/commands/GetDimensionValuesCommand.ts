@@ -46,8 +46,8 @@ export class GetDimensionValuesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDimensionValuesRequest.filterSensitiveLog,
-      outputFilterLog: GetDimensionValuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDimensionValuesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDimensionValuesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

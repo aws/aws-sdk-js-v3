@@ -46,8 +46,8 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAccountSuppressionAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutAccountSuppressionAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountSuppressionAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountSuppressionAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

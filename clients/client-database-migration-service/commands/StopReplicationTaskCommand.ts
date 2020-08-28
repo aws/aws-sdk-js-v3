@@ -50,8 +50,8 @@ export class StopReplicationTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopReplicationTaskMessage.filterSensitiveLog,
-      outputFilterLog: StopReplicationTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopReplicationTaskMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StopReplicationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

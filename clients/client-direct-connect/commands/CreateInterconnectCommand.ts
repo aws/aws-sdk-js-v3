@@ -46,8 +46,8 @@ export class CreateInterconnectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateInterconnectRequest.filterSensitiveLog,
-      outputFilterLog: Interconnect.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInterconnectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Interconnect.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

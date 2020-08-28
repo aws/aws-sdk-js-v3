@@ -46,8 +46,8 @@ export class UpdateRoleAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRoleAliasRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRoleAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoleAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRoleAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

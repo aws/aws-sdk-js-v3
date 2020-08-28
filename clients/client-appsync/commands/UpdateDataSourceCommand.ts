@@ -46,8 +46,8 @@ export class UpdateDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDataSourceRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

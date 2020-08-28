@@ -52,8 +52,8 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTrafficPolicyInstancesByHostedZoneRequest.filterSensitiveLog,
-      outputFilterLog: ListTrafficPolicyInstancesByHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

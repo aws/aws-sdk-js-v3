@@ -46,8 +46,8 @@ export class DeleteIndexFieldCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteIndexFieldRequest.filterSensitiveLog,
-      outputFilterLog: DeleteIndexFieldResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIndexFieldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIndexFieldResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

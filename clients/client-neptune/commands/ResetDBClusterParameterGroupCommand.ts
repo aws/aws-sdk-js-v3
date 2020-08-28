@@ -46,8 +46,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateResourceShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateResourceShareRequest.filterSensitiveLog,
-      outputFilterLog: CreateResourceShareResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResourceShareRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateResourceShareResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateJourneyStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateJourneyStateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateJourneyStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateJourneyStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJourneyStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

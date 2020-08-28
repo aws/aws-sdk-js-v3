@@ -46,8 +46,8 @@ export class RevokePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: RevokePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

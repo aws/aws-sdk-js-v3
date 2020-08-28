@@ -46,8 +46,8 @@ export class GetCommentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCommentInput.filterSensitiveLog,
-      outputFilterLog: GetCommentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCommentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCommentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListNetworkProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListNetworkProfilesRequest.filterSensitiveLog,
-      outputFilterLog: ListNetworkProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNetworkProfilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNetworkProfilesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

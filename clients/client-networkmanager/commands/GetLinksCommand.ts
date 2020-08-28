@@ -46,8 +46,8 @@ export class GetLinksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLinksRequest.filterSensitiveLog,
-      outputFilterLog: GetLinksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLinksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLinksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

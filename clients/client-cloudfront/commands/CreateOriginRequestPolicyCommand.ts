@@ -46,8 +46,8 @@ export class CreateOriginRequestPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateOriginRequestPolicyRequest.filterSensitiveLog,
-      outputFilterLog: CreateOriginRequestPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOriginRequestPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateOriginRequestPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

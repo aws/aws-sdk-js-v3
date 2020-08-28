@@ -46,8 +46,8 @@ export class DeleteMessageBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMessageBatchRequest.filterSensitiveLog,
-      outputFilterLog: DeleteMessageBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMessageBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMessageBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateSamplingRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSamplingRuleRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSamplingRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSamplingRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSamplingRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

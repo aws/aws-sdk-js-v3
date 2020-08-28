@@ -46,8 +46,8 @@ export class StopDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopDeploymentInput.filterSensitiveLog,
-      outputFilterLog: StopDeploymentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDeploymentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopDeploymentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

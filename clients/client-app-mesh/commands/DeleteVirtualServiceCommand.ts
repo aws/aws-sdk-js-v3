@@ -46,8 +46,8 @@ export class DeleteVirtualServiceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVirtualServiceInput.filterSensitiveLog,
-      outputFilterLog: DeleteVirtualServiceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVirtualServiceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

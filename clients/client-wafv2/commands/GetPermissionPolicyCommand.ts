@@ -46,8 +46,8 @@ export class GetPermissionPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPermissionPolicyRequest.filterSensitiveLog,
-      outputFilterLog: GetPermissionPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPermissionPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPermissionPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

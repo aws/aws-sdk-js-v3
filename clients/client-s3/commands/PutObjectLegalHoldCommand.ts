@@ -48,8 +48,8 @@ export class PutObjectLegalHoldCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutObjectLegalHoldRequest.filterSensitiveLog,
-      outputFilterLog: PutObjectLegalHoldOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectLegalHoldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectLegalHoldOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

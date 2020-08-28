@@ -46,8 +46,8 @@ export class ListSatellitesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSatellitesRequest.filterSensitiveLog,
-      outputFilterLog: ListSatellitesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSatellitesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSatellitesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

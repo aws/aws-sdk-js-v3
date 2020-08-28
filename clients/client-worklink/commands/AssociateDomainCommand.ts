@@ -46,8 +46,8 @@ export class AssociateDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDomainRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

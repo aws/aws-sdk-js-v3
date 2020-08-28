@@ -46,8 +46,8 @@ export class GetAttributeValuesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAttributeValuesRequest.filterSensitiveLog,
-      outputFilterLog: GetAttributeValuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAttributeValuesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAttributeValuesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

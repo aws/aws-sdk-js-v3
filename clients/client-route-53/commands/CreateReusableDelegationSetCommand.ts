@@ -48,8 +48,8 @@ export class CreateReusableDelegationSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateReusableDelegationSetRequest.filterSensitiveLog,
-      outputFilterLog: CreateReusableDelegationSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateReusableDelegationSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReusableDelegationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

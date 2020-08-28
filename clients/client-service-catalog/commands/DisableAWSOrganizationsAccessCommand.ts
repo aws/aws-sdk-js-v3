@@ -46,8 +46,8 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableAWSOrganizationsAccessInput.filterSensitiveLog,
-      outputFilterLog: DisableAWSOrganizationsAccessOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableAWSOrganizationsAccessInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableAWSOrganizationsAccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

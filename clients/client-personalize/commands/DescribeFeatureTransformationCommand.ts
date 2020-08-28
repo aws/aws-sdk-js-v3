@@ -46,8 +46,8 @@ export class DescribeFeatureTransformationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeFeatureTransformationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeFeatureTransformationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFeatureTransformationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFeatureTransformationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListDataSourceSyncJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDataSourceSyncJobsRequest.filterSensitiveLog,
-      outputFilterLog: ListDataSourceSyncJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDataSourceSyncJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDataSourceSyncJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

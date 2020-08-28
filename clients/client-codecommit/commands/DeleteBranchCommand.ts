@@ -46,8 +46,8 @@ export class DeleteBranchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBranchInput.filterSensitiveLog,
-      outputFilterLog: DeleteBranchOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBranchInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBranchOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

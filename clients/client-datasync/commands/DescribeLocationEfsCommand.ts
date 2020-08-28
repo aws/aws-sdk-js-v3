@@ -46,8 +46,8 @@ export class DescribeLocationEfsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLocationEfsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLocationEfsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocationEfsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationEfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

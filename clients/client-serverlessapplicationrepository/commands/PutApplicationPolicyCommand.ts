@@ -50,8 +50,8 @@ export class PutApplicationPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutApplicationPolicyRequest.filterSensitiveLog,
-      outputFilterLog: PutApplicationPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutApplicationPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutApplicationPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

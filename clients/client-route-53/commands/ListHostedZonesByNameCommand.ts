@@ -48,8 +48,8 @@ export class ListHostedZonesByNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHostedZonesByNameRequest.filterSensitiveLog,
-      outputFilterLog: ListHostedZonesByNameResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHostedZonesByNameRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHostedZonesByNameResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

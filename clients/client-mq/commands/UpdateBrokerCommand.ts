@@ -46,8 +46,8 @@ export class UpdateBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateBrokerRequest.filterSensitiveLog,
-      outputFilterLog: UpdateBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBrokerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBrokerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

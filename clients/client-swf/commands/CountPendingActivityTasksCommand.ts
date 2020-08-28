@@ -46,8 +46,8 @@ export class CountPendingActivityTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CountPendingActivityTasksInput.filterSensitiveLog,
-      outputFilterLog: PendingTaskCount.filterSensitiveLog,
+      inputFilterSensitiveLog: CountPendingActivityTasksInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PendingTaskCount.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

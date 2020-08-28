@@ -46,8 +46,8 @@ export class PutCodeBindingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutCodeBindingRequest.filterSensitiveLog,
-      outputFilterLog: PutCodeBindingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutCodeBindingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutCodeBindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

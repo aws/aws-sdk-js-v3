@@ -46,8 +46,8 @@ export class PutLifecyclePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutLifecyclePolicyInput.filterSensitiveLog,
-      outputFilterLog: PutLifecyclePolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutLifecyclePolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutLifecyclePolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

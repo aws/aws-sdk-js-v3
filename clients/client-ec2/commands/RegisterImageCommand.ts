@@ -43,8 +43,8 @@ export class RegisterImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterImageRequest.filterSensitiveLog,
-      outputFilterLog: RegisterImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

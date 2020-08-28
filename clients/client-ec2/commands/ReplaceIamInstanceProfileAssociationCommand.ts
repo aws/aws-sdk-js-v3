@@ -50,8 +50,8 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReplaceIamInstanceProfileAssociationRequest.filterSensitiveLog,
-      outputFilterLog: ReplaceIamInstanceProfileAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ReplaceIamInstanceProfileAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReplaceIamInstanceProfileAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

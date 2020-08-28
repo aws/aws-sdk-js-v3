@@ -50,8 +50,8 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEntitiesDetectionV2JobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEntitiesDetectionV2JobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEntitiesDetectionV2JobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEntitiesDetectionV2JobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

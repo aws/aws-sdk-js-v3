@@ -46,8 +46,8 @@ export class DeleteClusterSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteClusterSnapshotMessage.filterSensitiveLog,
-      outputFilterLog: DeleteClusterSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

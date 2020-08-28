@@ -46,8 +46,8 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListActivatedRulesInRuleGroupRequest.filterSensitiveLog,
-      outputFilterLog: ListActivatedRulesInRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListActivatedRulesInRuleGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListActivatedRulesInRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

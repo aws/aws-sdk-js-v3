@@ -48,8 +48,8 @@ export class DeleteIdentitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteIdentitiesInput.filterSensitiveLog,
-      outputFilterLog: DeleteIdentitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIdentitiesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIdentitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

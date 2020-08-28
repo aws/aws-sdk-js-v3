@@ -46,8 +46,8 @@ export class DisableDomainTransferLockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableDomainTransferLockRequest.filterSensitiveLog,
-      outputFilterLog: DisableDomainTransferLockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableDomainTransferLockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableDomainTransferLockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

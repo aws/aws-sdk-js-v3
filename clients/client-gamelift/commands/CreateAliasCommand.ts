@@ -46,8 +46,8 @@ export class CreateAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAliasInput.filterSensitiveLog,
-      outputFilterLog: CreateAliasOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAliasInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAliasOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

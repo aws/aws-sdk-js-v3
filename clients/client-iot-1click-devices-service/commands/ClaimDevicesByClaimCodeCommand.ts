@@ -50,8 +50,8 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ClaimDevicesByClaimCodeRequest.filterSensitiveLog,
-      outputFilterLog: ClaimDevicesByClaimCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ClaimDevicesByClaimCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ClaimDevicesByClaimCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

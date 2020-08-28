@@ -46,8 +46,8 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTypedLinkFacetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTypedLinkFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTypedLinkFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTypedLinkFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

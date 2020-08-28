@@ -46,8 +46,8 @@ export class DescribeManagedRuleGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeManagedRuleGroupRequest.filterSensitiveLog,
-      outputFilterLog: DescribeManagedRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeManagedRuleGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeManagedRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

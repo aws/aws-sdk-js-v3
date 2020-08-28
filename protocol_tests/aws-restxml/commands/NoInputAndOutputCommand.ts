@@ -46,8 +46,8 @@ export class NoInputAndOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: NoInputAndOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

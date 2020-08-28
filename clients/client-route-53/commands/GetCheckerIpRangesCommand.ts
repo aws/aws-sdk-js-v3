@@ -46,8 +46,8 @@ export class GetCheckerIpRangesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCheckerIpRangesRequest.filterSensitiveLog,
-      outputFilterLog: GetCheckerIpRangesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCheckerIpRangesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCheckerIpRangesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

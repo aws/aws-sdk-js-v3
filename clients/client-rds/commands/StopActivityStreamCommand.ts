@@ -46,8 +46,8 @@ export class StopActivityStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopActivityStreamRequest.filterSensitiveLog,
-      outputFilterLog: StopActivityStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopActivityStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopActivityStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

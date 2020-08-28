@@ -46,8 +46,8 @@ export class ListEnabledProductsForImportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListEnabledProductsForImportRequest.filterSensitiveLog,
-      outputFilterLog: ListEnabledProductsForImportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEnabledProductsForImportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEnabledProductsForImportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

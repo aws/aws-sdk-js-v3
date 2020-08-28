@@ -46,8 +46,8 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSnapshotCopyGrantsMessage.filterSensitiveLog,
-      outputFilterLog: SnapshotCopyGrantMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSnapshotCopyGrantsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: SnapshotCopyGrantMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateCompanyNetworkConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateCompanyNetworkConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCompanyNetworkConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

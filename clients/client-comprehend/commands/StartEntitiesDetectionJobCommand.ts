@@ -46,8 +46,8 @@ export class StartEntitiesDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartEntitiesDetectionJobRequest.filterSensitiveLog,
-      outputFilterLog: StartEntitiesDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartEntitiesDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartEntitiesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

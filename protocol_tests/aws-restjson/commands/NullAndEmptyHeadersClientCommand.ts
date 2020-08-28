@@ -46,8 +46,8 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: NullAndEmptyHeadersIO.filterSensitiveLog,
-      outputFilterLog: NullAndEmptyHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
+      outputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

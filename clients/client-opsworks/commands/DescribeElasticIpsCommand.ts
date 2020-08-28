@@ -46,8 +46,8 @@ export class DescribeElasticIpsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeElasticIpsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeElasticIpsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticIpsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticIpsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

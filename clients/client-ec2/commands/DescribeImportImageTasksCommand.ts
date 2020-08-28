@@ -46,8 +46,8 @@ export class DescribeImportImageTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeImportImageTasksRequest.filterSensitiveLog,
-      outputFilterLog: DescribeImportImageTasksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeImportImageTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImportImageTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

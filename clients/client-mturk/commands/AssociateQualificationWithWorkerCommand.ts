@@ -46,8 +46,8 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateQualificationWithWorkerRequest.filterSensitiveLog,
-      outputFilterLog: AssociateQualificationWithWorkerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateQualificationWithWorkerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateQualificationWithWorkerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

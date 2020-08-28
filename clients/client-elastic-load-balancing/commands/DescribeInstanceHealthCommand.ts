@@ -50,8 +50,8 @@ export class DescribeInstanceHealthCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEndPointStateInput.filterSensitiveLog,
-      outputFilterLog: DescribeEndPointStateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEndPointStateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEndPointStateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

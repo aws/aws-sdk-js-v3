@@ -46,8 +46,8 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AuthorizeDBSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterLog: AuthorizeDBSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

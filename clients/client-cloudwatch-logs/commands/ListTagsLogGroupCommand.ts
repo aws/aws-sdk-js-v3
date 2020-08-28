@@ -46,8 +46,8 @@ export class ListTagsLogGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTagsLogGroupRequest.filterSensitiveLog,
-      outputFilterLog: ListTagsLogGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsLogGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsLogGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

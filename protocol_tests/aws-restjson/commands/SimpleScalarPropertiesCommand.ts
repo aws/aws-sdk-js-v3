@@ -46,8 +46,8 @@ export class SimpleScalarPropertiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
-      outputFilterLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

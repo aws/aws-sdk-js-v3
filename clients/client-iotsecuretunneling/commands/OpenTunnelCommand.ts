@@ -50,8 +50,8 @@ export class OpenTunnelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: OpenTunnelRequest.filterSensitiveLog,
-      outputFilterLog: OpenTunnelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: OpenTunnelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: OpenTunnelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

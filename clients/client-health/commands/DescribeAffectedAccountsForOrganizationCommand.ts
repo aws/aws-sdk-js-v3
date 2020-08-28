@@ -53,8 +53,8 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAffectedAccountsForOrganizationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAffectedAccountsForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAffectedAccountsForOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAffectedAccountsForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

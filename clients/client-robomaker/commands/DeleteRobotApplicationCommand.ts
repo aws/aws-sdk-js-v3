@@ -46,8 +46,8 @@ export class DeleteRobotApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRobotApplicationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRobotApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRobotApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRobotApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class ListProblemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProblemsRequest.filterSensitiveLog,
-      outputFilterLog: ListProblemsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProblemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProblemsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

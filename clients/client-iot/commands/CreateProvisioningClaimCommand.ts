@@ -46,8 +46,8 @@ export class CreateProvisioningClaimCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProvisioningClaimRequest.filterSensitiveLog,
-      outputFilterLog: CreateProvisioningClaimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProvisioningClaimRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProvisioningClaimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,8 +48,8 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: (output: any) => output,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

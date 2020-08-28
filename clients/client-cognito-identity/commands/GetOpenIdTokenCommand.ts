@@ -46,8 +46,8 @@ export class GetOpenIdTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOpenIdTokenInput.filterSensitiveLog,
-      outputFilterLog: GetOpenIdTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOpenIdTokenInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOpenIdTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

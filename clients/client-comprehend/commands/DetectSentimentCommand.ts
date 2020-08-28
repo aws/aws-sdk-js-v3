@@ -46,8 +46,8 @@ export class DetectSentimentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetectSentimentRequest.filterSensitiveLog,
-      outputFilterLog: DetectSentimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectSentimentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectSentimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

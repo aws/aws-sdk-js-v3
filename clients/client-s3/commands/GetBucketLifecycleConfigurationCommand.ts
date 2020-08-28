@@ -48,8 +48,8 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

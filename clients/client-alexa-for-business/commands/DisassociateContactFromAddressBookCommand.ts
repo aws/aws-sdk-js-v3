@@ -47,8 +47,8 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateContactFromAddressBookRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateContactFromAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateContactFromAddressBookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateContactFromAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

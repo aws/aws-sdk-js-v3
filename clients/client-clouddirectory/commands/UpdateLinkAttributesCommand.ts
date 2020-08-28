@@ -46,8 +46,8 @@ export class UpdateLinkAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLinkAttributesRequest.filterSensitiveLog,
-      outputFilterLog: UpdateLinkAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLinkAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLinkAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

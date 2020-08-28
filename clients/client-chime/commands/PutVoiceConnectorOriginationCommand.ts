@@ -46,8 +46,8 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutVoiceConnectorOriginationRequest.filterSensitiveLog,
-      outputFilterLog: PutVoiceConnectorOriginationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutVoiceConnectorOriginationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutVoiceConnectorOriginationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

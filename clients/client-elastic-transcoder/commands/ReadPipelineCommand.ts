@@ -50,8 +50,8 @@ export class ReadPipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReadPipelineRequest.filterSensitiveLog,
-      outputFilterLog: ReadPipelineResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReadPipelineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReadPipelineResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

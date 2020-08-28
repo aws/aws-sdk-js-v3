@@ -46,8 +46,8 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApnsSandboxChannelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApnsSandboxChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApnsSandboxChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApnsSandboxChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

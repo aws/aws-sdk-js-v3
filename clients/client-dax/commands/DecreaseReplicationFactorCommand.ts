@@ -46,8 +46,8 @@ export class DecreaseReplicationFactorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DecreaseReplicationFactorRequest.filterSensitiveLog,
-      outputFilterLog: DecreaseReplicationFactorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DecreaseReplicationFactorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DecreaseReplicationFactorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

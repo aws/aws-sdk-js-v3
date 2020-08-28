@@ -46,8 +46,8 @@ export class CopyPackageVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyPackageVersionsRequest.filterSensitiveLog,
-      outputFilterLog: CopyPackageVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyPackageVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyPackageVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

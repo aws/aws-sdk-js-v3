@@ -50,8 +50,8 @@ export class PutIntentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutIntentRequest.filterSensitiveLog,
-      outputFilterLog: PutIntentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutIntentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutIntentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

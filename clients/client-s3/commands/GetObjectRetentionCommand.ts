@@ -48,8 +48,8 @@ export class GetObjectRetentionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectRetentionRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectRetentionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectRetentionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectRetentionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

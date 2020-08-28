@@ -46,8 +46,8 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTypedLinkFacetAttributesRequest.filterSensitiveLog,
-      outputFilterLog: ListTypedLinkFacetAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTypedLinkFacetAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTypedLinkFacetAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

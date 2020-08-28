@@ -46,8 +46,8 @@ export class UpdateModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateModelRequest.filterSensitiveLog,
-      outputFilterLog: Model.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Model.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

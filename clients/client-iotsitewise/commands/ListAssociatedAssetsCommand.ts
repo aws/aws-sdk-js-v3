@@ -46,8 +46,8 @@ export class ListAssociatedAssetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAssociatedAssetsRequest.filterSensitiveLog,
-      outputFilterLog: ListAssociatedAssetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssociatedAssetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociatedAssetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

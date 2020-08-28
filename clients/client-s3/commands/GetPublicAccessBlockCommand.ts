@@ -48,8 +48,8 @@ export class GetPublicAccessBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPublicAccessBlockRequest.filterSensitiveLog,
-      outputFilterLog: GetPublicAccessBlockOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPublicAccessBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPublicAccessBlockOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

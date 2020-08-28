@@ -46,8 +46,8 @@ export class DeleteSuggesterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSuggesterRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSuggesterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSuggesterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSuggesterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

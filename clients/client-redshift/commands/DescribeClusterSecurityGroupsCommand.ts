@@ -46,8 +46,8 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeClusterSecurityGroupsMessage.filterSensitiveLog,
-      outputFilterLog: ClusterSecurityGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterSecurityGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterSecurityGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

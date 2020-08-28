@@ -46,8 +46,8 @@ export class AssociateIpGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateIpGroupsRequest.filterSensitiveLog,
-      outputFilterLog: AssociateIpGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateIpGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

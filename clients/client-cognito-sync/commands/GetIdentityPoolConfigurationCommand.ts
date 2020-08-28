@@ -46,8 +46,8 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIdentityPoolConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetIdentityPoolConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdentityPoolConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityPoolConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

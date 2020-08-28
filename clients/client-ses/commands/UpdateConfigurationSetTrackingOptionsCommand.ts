@@ -50,8 +50,8 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
-      outputFilterLog: UpdateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

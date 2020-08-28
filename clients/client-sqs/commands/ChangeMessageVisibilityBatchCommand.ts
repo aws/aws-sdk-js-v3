@@ -46,8 +46,8 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ChangeMessageVisibilityBatchRequest.filterSensitiveLog,
-      outputFilterLog: ChangeMessageVisibilityBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ChangeMessageVisibilityBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ChangeMessageVisibilityBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

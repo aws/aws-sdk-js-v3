@@ -46,8 +46,8 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterLog: UpdateProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

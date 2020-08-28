@@ -50,8 +50,8 @@ export class DescribeChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeChangeSetRequest.filterSensitiveLog,
-      outputFilterLog: DescribeChangeSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeChangeSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

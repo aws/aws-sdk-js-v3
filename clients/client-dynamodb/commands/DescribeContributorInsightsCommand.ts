@@ -46,8 +46,8 @@ export class DescribeContributorInsightsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeContributorInsightsInput.filterSensitiveLog,
-      outputFilterLog: DescribeContributorInsightsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeContributorInsightsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeContributorInsightsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

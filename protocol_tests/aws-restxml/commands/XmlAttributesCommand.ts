@@ -46,8 +46,8 @@ export class XmlAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: XmlAttributesInputOutput.filterSensitiveLog,
-      outputFilterLog: XmlAttributesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlAttributesInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlAttributesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

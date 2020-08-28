@@ -46,8 +46,8 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAccessKeyLastUsedRequest.filterSensitiveLog,
-      outputFilterLog: GetAccessKeyLastUsedResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessKeyLastUsedRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessKeyLastUsedResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

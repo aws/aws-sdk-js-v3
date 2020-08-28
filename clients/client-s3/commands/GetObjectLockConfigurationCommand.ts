@@ -48,8 +48,8 @@ export class GetObjectLockConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectLockConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectLockConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectLockConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectLockConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

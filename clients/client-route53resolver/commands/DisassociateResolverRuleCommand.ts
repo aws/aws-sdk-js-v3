@@ -46,8 +46,8 @@ export class DisassociateResolverRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateResolverRuleRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateResolverRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateResolverRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

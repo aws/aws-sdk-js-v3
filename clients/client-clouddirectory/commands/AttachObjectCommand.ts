@@ -46,8 +46,8 @@ export class AttachObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachObjectRequest.filterSensitiveLog,
-      outputFilterLog: AttachObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

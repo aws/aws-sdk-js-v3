@@ -46,8 +46,8 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListIAMPolicyAssignmentsRequest.filterSensitiveLog,
-      outputFilterLog: ListIAMPolicyAssignmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIAMPolicyAssignmentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIAMPolicyAssignmentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateModelPackageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateModelPackageInput.filterSensitiveLog,
-      outputFilterLog: CreateModelPackageOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateModelPackageInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateModelPackageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

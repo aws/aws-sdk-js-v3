@@ -39,8 +39,8 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DecryptRequest.filterSensitiveLog,
-      outputFilterLog: DecryptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DecryptRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DecryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

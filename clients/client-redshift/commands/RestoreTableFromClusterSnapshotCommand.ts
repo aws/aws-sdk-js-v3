@@ -46,8 +46,8 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreTableFromClusterSnapshotMessage.filterSensitiveLog,
-      outputFilterLog: RestoreTableFromClusterSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreTableFromClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreTableFromClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

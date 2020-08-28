@@ -46,8 +46,8 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteServiceLinkedRoleRequest.filterSensitiveLog,
-      outputFilterLog: DeleteServiceLinkedRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServiceLinkedRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServiceLinkedRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

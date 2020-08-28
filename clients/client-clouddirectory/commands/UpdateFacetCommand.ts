@@ -46,8 +46,8 @@ export class UpdateFacetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateFacetRequest.filterSensitiveLog,
-      outputFilterLog: UpdateFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

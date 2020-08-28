@@ -46,8 +46,8 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableFastSnapshotRestoresRequest.filterSensitiveLog,
-      outputFilterLog: DisableFastSnapshotRestoresResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableFastSnapshotRestoresRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableFastSnapshotRestoresResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

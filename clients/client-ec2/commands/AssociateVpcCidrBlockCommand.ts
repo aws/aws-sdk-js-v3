@@ -46,8 +46,8 @@ export class AssociateVpcCidrBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateVpcCidrBlockRequest.filterSensitiveLog,
-      outputFilterLog: AssociateVpcCidrBlockResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateVpcCidrBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateVpcCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class TestEventPatternCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestEventPatternRequest.filterSensitiveLog,
-      outputFilterLog: TestEventPatternResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestEventPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestEventPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

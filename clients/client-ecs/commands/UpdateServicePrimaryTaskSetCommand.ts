@@ -46,8 +46,8 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateServicePrimaryTaskSetRequest.filterSensitiveLog,
-      outputFilterLog: UpdateServicePrimaryTaskSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServicePrimaryTaskSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServicePrimaryTaskSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

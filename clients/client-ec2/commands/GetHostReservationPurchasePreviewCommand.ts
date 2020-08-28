@@ -46,8 +46,8 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHostReservationPurchasePreviewRequest.filterSensitiveLog,
-      outputFilterLog: GetHostReservationPurchasePreviewResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHostReservationPurchasePreviewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHostReservationPurchasePreviewResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

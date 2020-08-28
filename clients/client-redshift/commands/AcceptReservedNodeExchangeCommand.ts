@@ -46,8 +46,8 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcceptReservedNodeExchangeInputMessage.filterSensitiveLog,
-      outputFilterLog: AcceptReservedNodeExchangeOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptReservedNodeExchangeInputMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptReservedNodeExchangeOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

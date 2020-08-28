@@ -46,8 +46,8 @@ export class DeleteGlobalNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteGlobalNetworkRequest.filterSensitiveLog,
-      outputFilterLog: DeleteGlobalNetworkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGlobalNetworkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGlobalNetworkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

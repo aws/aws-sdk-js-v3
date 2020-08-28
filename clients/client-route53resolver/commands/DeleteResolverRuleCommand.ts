@@ -46,8 +46,8 @@ export class DeleteResolverRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteResolverRuleRequest.filterSensitiveLog,
-      outputFilterLog: DeleteResolverRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResolverRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

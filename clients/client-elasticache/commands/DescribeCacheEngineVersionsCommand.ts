@@ -46,8 +46,8 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCacheEngineVersionsMessage.filterSensitiveLog,
-      outputFilterLog: CacheEngineVersionMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCacheEngineVersionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheEngineVersionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeOrderableDBInstanceOptionsMessage.filterSensitiveLog,
-      outputFilterLog: OrderableDBInstanceOptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrderableDBInstanceOptionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: OrderableDBInstanceOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

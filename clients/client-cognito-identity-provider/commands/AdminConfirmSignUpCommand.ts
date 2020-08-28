@@ -50,8 +50,8 @@ export class AdminConfirmSignUpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminConfirmSignUpRequest.filterSensitiveLog,
-      outputFilterLog: AdminConfirmSignUpResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminConfirmSignUpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminConfirmSignUpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

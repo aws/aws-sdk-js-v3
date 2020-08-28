@@ -43,8 +43,8 @@ export class EnterStandbyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EnterStandbyQuery.filterSensitiveLog,
-      outputFilterLog: EnterStandbyAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: EnterStandbyQuery.filterSensitiveLog,
+      outputFilterSensitiveLog: EnterStandbyAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

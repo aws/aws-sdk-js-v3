@@ -46,8 +46,8 @@ export class PutFunctionConcurrencyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutFunctionConcurrencyRequest.filterSensitiveLog,
-      outputFilterLog: Concurrency.filterSensitiveLog,
+      inputFilterSensitiveLog: PutFunctionConcurrencyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Concurrency.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

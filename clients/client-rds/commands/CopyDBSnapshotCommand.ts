@@ -48,8 +48,8 @@ export class CopyDBSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyDBSnapshotMessage.filterSensitiveLog,
-      outputFilterLog: CopyDBSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyDBSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

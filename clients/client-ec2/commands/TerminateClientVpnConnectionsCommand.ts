@@ -46,8 +46,8 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TerminateClientVpnConnectionsRequest.filterSensitiveLog,
-      outputFilterLog: TerminateClientVpnConnectionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateClientVpnConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TerminateClientVpnConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

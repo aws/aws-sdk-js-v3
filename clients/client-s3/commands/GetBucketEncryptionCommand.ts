@@ -48,8 +48,8 @@ export class GetBucketEncryptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketEncryptionRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketEncryptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketEncryptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketEncryptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

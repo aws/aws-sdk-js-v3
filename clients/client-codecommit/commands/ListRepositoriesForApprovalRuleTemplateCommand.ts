@@ -53,8 +53,8 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRepositoriesForApprovalRuleTemplateInput.filterSensitiveLog,
-      outputFilterLog: ListRepositoriesForApprovalRuleTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRepositoriesForApprovalRuleTemplateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRepositoriesForApprovalRuleTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

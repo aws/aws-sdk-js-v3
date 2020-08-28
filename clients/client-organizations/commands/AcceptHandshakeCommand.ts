@@ -46,8 +46,8 @@ export class AcceptHandshakeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcceptHandshakeRequest.filterSensitiveLog,
-      outputFilterLog: AcceptHandshakeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptHandshakeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

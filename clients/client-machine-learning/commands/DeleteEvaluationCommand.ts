@@ -46,8 +46,8 @@ export class DeleteEvaluationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteEvaluationInput.filterSensitiveLog,
-      outputFilterLog: DeleteEvaluationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEvaluationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEvaluationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

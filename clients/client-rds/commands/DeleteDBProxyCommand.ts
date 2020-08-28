@@ -46,8 +46,8 @@ export class DeleteDBProxyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDBProxyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDBProxyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBProxyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBProxyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

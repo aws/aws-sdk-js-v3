@@ -48,8 +48,8 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateVPCFromHostedZoneRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateVPCFromHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateVPCFromHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateVPCFromHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

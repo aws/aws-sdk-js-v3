@@ -46,8 +46,8 @@ export class GetBasePathMappingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBasePathMappingsRequest.filterSensitiveLog,
-      outputFilterLog: BasePathMappings.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBasePathMappingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BasePathMappings.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

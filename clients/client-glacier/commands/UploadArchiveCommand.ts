@@ -48,8 +48,8 @@ export class UploadArchiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UploadArchiveInput.filterSensitiveLog,
-      outputFilterLog: ArchiveCreationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadArchiveInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ArchiveCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

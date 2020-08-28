@@ -46,8 +46,8 @@ export class GetGeoLocationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGeoLocationRequest.filterSensitiveLog,
-      outputFilterLog: GetGeoLocationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGeoLocationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGeoLocationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

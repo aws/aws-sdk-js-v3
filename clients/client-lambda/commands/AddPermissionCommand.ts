@@ -46,8 +46,8 @@ export class AddPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddPermissionRequest.filterSensitiveLog,
-      outputFilterLog: AddPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddPermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

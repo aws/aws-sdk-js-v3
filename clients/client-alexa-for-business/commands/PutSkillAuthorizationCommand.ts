@@ -46,8 +46,8 @@ export class PutSkillAuthorizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSkillAuthorizationRequest.filterSensitiveLog,
-      outputFilterLog: PutSkillAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSkillAuthorizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSkillAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

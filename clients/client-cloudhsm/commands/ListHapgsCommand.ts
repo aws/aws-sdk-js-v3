@@ -43,8 +43,8 @@ export class ListHapgsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHapgsRequest.filterSensitiveLog,
-      outputFilterLog: ListHapgsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHapgsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHapgsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

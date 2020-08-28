@@ -46,8 +46,8 @@ export class CreateFolderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateFolderRequest.filterSensitiveLog,
-      outputFilterLog: CreateFolderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFolderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFolderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDashboardPublishedVersionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDashboardPublishedVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDashboardPublishedVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDashboardPublishedVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

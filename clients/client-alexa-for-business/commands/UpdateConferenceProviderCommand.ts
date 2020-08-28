@@ -46,8 +46,8 @@ export class UpdateConferenceProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateConferenceProviderRequest.filterSensitiveLog,
-      outputFilterLog: UpdateConferenceProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConferenceProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConferenceProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

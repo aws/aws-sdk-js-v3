@@ -50,8 +50,8 @@ export class VerifyUserAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: VerifyUserAttributeRequest.filterSensitiveLog,
-      outputFilterLog: VerifyUserAttributeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyUserAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VerifyUserAttributeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

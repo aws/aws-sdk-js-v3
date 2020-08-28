@@ -46,8 +46,8 @@ export class PurchaseOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PurchaseOfferingRequest.filterSensitiveLog,
-      outputFilterLog: PurchaseOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseOfferingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

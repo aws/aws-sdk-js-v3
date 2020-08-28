@@ -50,8 +50,8 @@ export class DescribeTunnelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTunnelRequest.filterSensitiveLog,
-      outputFilterLog: DescribeTunnelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTunnelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTunnelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

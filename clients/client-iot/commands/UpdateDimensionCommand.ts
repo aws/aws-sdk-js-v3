@@ -46,8 +46,8 @@ export class UpdateDimensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDimensionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDimensionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDimensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDimensionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

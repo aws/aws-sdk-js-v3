@@ -39,8 +39,8 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RunTaskRequest.filterSensitiveLog,
-      outputFilterLog: RunTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RunTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RunTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

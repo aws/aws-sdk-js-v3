@@ -50,8 +50,8 @@ export class GetBuiltinIntentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBuiltinIntentRequest.filterSensitiveLog,
-      outputFilterLog: GetBuiltinIntentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBuiltinIntentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBuiltinIntentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

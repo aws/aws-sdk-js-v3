@@ -46,8 +46,8 @@ export class GetMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMappingRequest.filterSensitiveLog,
-      outputFilterLog: GetMappingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMappingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMappingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

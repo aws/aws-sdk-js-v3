@@ -46,8 +46,8 @@ export class ListVirtualMFADevicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
-      outputFilterLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

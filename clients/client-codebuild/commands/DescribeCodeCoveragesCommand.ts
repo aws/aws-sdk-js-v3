@@ -46,8 +46,8 @@ export class DescribeCodeCoveragesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCodeCoveragesInput.filterSensitiveLog,
-      outputFilterLog: DescribeCodeCoveragesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCodeCoveragesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCodeCoveragesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

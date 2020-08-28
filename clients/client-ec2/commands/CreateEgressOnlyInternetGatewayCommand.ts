@@ -46,8 +46,8 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEgressOnlyInternetGatewayRequest.filterSensitiveLog,
-      outputFilterLog: CreateEgressOnlyInternetGatewayResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEgressOnlyInternetGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEgressOnlyInternetGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

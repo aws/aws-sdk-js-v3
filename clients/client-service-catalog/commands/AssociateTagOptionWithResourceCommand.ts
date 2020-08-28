@@ -46,8 +46,8 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateTagOptionWithResourceInput.filterSensitiveLog,
-      outputFilterLog: AssociateTagOptionWithResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateTagOptionWithResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTagOptionWithResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

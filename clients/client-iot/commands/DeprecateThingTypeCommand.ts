@@ -46,8 +46,8 @@ export class DeprecateThingTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeprecateThingTypeRequest.filterSensitiveLog,
-      outputFilterLog: DeprecateThingTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeprecateThingTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeprecateThingTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetFaceDetectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFaceDetectionRequest.filterSensitiveLog,
-      outputFilterLog: GetFaceDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFaceDetectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFaceDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

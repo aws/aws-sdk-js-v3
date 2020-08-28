@@ -46,8 +46,8 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PurchaseScheduledInstancesRequest.filterSensitiveLog,
-      outputFilterLog: PurchaseScheduledInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseScheduledInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseScheduledInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

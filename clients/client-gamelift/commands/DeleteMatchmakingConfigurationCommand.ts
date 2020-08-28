@@ -46,8 +46,8 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMatchmakingConfigurationInput.filterSensitiveLog,
-      outputFilterLog: DeleteMatchmakingConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMatchmakingConfigurationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMatchmakingConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class JsonEnumsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: JsonEnumsInputOutput.filterSensitiveLog,
-      outputFilterLog: JsonEnumsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonEnumsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonEnumsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

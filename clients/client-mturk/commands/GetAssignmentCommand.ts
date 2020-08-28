@@ -46,8 +46,8 @@ export class GetAssignmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAssignmentRequest.filterSensitiveLog,
-      outputFilterLog: GetAssignmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssignmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListClusterOperationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListClusterOperationsRequest.filterSensitiveLog,
-      outputFilterLog: ListClusterOperationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListClusterOperationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListClusterOperationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

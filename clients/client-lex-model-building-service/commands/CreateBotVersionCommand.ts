@@ -50,8 +50,8 @@ export class CreateBotVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBotVersionRequest.filterSensitiveLog,
-      outputFilterLog: CreateBotVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBotVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBotVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

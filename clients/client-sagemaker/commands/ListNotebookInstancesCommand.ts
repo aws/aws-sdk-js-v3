@@ -46,8 +46,8 @@ export class ListNotebookInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListNotebookInstancesInput.filterSensitiveLog,
-      outputFilterLog: ListNotebookInstancesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNotebookInstancesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNotebookInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

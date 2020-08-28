@@ -46,8 +46,8 @@ export class CreateLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLinkRequest.filterSensitiveLog,
-      outputFilterLog: CreateLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

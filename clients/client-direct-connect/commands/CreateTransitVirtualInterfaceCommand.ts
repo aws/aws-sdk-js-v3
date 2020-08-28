@@ -46,8 +46,8 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTransitVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: CreateTransitVirtualInterfaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTransitVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTransitVirtualInterfaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

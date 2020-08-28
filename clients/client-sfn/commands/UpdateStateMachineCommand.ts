@@ -46,8 +46,8 @@ export class UpdateStateMachineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateStateMachineInput.filterSensitiveLog,
-      outputFilterLog: UpdateStateMachineOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStateMachineInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStateMachineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

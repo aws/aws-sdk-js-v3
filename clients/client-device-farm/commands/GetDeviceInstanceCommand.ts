@@ -46,8 +46,8 @@ export class GetDeviceInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDeviceInstanceRequest.filterSensitiveLog,
-      outputFilterLog: GetDeviceInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeviceInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDeviceInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

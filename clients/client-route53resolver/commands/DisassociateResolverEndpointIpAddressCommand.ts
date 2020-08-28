@@ -50,8 +50,8 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateResolverEndpointIpAddressRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateResolverEndpointIpAddressResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateResolverEndpointIpAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateResolverEndpointIpAddressResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

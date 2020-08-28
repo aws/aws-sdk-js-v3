@@ -46,8 +46,8 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHITsForQualificationTypeRequest.filterSensitiveLog,
-      outputFilterLog: ListHITsForQualificationTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHITsForQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHITsForQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

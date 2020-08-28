@@ -46,8 +46,8 @@ export class DeleteApiCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApiCacheRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApiCacheResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApiCacheRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApiCacheResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

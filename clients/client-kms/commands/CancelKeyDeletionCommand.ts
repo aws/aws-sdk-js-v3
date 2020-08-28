@@ -46,8 +46,8 @@ export class CancelKeyDeletionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelKeyDeletionRequest.filterSensitiveLog,
-      outputFilterLog: CancelKeyDeletionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelKeyDeletionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelKeyDeletionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

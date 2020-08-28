@@ -46,8 +46,8 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterWebhookWithThirdPartyInput.filterSensitiveLog,
-      outputFilterLog: RegisterWebhookWithThirdPartyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterWebhookWithThirdPartyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterWebhookWithThirdPartyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

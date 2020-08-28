@@ -46,8 +46,8 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyInstanceEventStartTimeRequest.filterSensitiveLog,
-      outputFilterLog: ModifyInstanceEventStartTimeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceEventStartTimeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceEventStartTimeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

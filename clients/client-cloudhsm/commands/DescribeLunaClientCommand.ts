@@ -46,8 +46,8 @@ export class DescribeLunaClientCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLunaClientRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLunaClientResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLunaClientRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLunaClientResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

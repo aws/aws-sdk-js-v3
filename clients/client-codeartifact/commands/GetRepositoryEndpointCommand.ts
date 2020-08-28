@@ -46,8 +46,8 @@ export class GetRepositoryEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRepositoryEndpointRequest.filterSensitiveLog,
-      outputFilterLog: GetRepositoryEndpointResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRepositoryEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRepositoryEndpointResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

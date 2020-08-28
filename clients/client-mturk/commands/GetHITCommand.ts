@@ -39,8 +39,8 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHITRequest.filterSensitiveLog,
-      outputFilterLog: GetHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

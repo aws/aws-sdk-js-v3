@@ -46,8 +46,8 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAutoScalingInstancesType.filterSensitiveLog,
-      outputFilterLog: AutoScalingInstancesType.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAutoScalingInstancesType.filterSensitiveLog,
+      outputFilterSensitiveLog: AutoScalingInstancesType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteSystemTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSystemTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSystemTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSystemTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

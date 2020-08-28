@@ -46,8 +46,8 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDomainEndpointOptionsRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDomainEndpointOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainEndpointOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainEndpointOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

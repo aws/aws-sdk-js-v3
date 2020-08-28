@@ -46,8 +46,8 @@ export class DeleteSmsTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSmsTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSmsTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSmsTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSmsTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

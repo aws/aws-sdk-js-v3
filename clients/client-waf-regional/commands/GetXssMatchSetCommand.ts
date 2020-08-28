@@ -46,8 +46,8 @@ export class GetXssMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetXssMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: GetXssMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetXssMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetXssMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

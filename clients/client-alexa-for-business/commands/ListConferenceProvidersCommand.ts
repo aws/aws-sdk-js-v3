@@ -46,8 +46,8 @@ export class ListConferenceProvidersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListConferenceProvidersRequest.filterSensitiveLog,
-      outputFilterLog: ListConferenceProvidersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConferenceProvidersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListConferenceProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

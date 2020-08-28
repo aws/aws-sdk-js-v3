@@ -46,8 +46,8 @@ export class SearchFacesByImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchFacesByImageRequest.filterSensitiveLog,
-      outputFilterLog: SearchFacesByImageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchFacesByImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchFacesByImageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

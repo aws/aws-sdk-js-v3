@@ -46,8 +46,8 @@ export class CreateNodegroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateNodegroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateNodegroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNodegroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNodegroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

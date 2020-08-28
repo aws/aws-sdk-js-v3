@@ -46,8 +46,8 @@ export class GetDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: GetDirectoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDirectoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

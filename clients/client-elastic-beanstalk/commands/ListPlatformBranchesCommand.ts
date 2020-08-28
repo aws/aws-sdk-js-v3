@@ -46,8 +46,8 @@ export class ListPlatformBranchesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPlatformBranchesRequest.filterSensitiveLog,
-      outputFilterLog: ListPlatformBranchesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPlatformBranchesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPlatformBranchesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

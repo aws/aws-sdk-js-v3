@@ -46,8 +46,8 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ClearDefaultAuthorizerRequest.filterSensitiveLog,
-      outputFilterLog: ClearDefaultAuthorizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ClearDefaultAuthorizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ClearDefaultAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

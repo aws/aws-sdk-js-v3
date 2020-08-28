@@ -46,8 +46,8 @@ export class ApproveSkillCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ApproveSkillRequest.filterSensitiveLog,
-      outputFilterLog: ApproveSkillResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ApproveSkillRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApproveSkillResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

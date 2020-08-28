@@ -46,8 +46,8 @@ export class ScheduleKeyDeletionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ScheduleKeyDeletionRequest.filterSensitiveLog,
-      outputFilterLog: ScheduleKeyDeletionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ScheduleKeyDeletionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ScheduleKeyDeletionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

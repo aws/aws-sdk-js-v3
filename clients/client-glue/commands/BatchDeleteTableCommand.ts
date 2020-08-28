@@ -46,8 +46,8 @@ export class BatchDeleteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDeleteTableRequest.filterSensitiveLog,
-      outputFilterLog: BatchDeleteTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

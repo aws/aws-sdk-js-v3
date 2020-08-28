@@ -46,8 +46,8 @@ export class UpdateProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateProjectRequest.filterSensitiveLog,
-      outputFilterLog: UpdateProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

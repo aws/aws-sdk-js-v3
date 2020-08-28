@@ -46,8 +46,8 @@ export class GetClientCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetClientCertificateRequest.filterSensitiveLog,
-      outputFilterLog: ClientCertificate.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClientCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ClientCertificate.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

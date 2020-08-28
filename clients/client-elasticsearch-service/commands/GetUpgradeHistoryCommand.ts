@@ -50,8 +50,8 @@ export class GetUpgradeHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUpgradeHistoryRequest.filterSensitiveLog,
-      outputFilterLog: GetUpgradeHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUpgradeHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUpgradeHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

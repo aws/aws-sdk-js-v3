@@ -46,8 +46,8 @@ export class GetSubscriptionAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSubscriptionAttributesInput.filterSensitiveLog,
-      outputFilterLog: GetSubscriptionAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSubscriptionAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSubscriptionAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

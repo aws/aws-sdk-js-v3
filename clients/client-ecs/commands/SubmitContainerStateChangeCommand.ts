@@ -46,8 +46,8 @@ export class SubmitContainerStateChangeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SubmitContainerStateChangeRequest.filterSensitiveLog,
-      outputFilterLog: SubmitContainerStateChangeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubmitContainerStateChangeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SubmitContainerStateChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

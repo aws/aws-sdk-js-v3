@@ -46,8 +46,8 @@ export class CreateAnalyzerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAnalyzerRequest.filterSensitiveLog,
-      outputFilterLog: CreateAnalyzerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAnalyzerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAnalyzerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

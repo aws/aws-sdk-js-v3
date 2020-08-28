@@ -46,8 +46,8 @@ export class DescribeBucketsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBucketsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeBucketsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBucketsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBucketsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

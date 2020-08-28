@@ -46,8 +46,8 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociatePhoneNumberWithUserRequest.filterSensitiveLog,
-      outputFilterLog: AssociatePhoneNumberWithUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePhoneNumberWithUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePhoneNumberWithUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

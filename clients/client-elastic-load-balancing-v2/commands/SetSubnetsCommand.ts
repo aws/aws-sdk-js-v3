@@ -47,8 +47,8 @@ export class SetSubnetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetSubnetsInput.filterSensitiveLog,
-      outputFilterLog: SetSubnetsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetSubnetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetSubnetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

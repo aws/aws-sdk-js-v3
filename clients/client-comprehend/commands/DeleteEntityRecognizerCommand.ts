@@ -46,8 +46,8 @@ export class DeleteEntityRecognizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteEntityRecognizerRequest.filterSensitiveLog,
-      outputFilterLog: DeleteEntityRecognizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEntityRecognizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEntityRecognizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

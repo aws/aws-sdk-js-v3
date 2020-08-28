@@ -48,8 +48,8 @@ export class PutObjectLockConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutObjectLockConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: PutObjectLockConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectLockConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectLockConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

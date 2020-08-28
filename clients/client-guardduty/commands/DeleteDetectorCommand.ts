@@ -46,8 +46,8 @@ export class DeleteDetectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDetectorRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDetectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDetectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDetectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

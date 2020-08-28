@@ -46,8 +46,8 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDBInstanceAutomatedBackupsMessage.filterSensitiveLog,
-      outputFilterLog: DBInstanceAutomatedBackupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBInstanceAutomatedBackupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBInstanceAutomatedBackupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

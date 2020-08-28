@@ -46,8 +46,8 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyInstanceCreditSpecificationRequest.filterSensitiveLog,
-      outputFilterLog: ModifyInstanceCreditSpecificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceCreditSpecificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceCreditSpecificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

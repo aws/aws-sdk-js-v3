@@ -50,8 +50,8 @@ export class CloseTunnelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CloseTunnelRequest.filterSensitiveLog,
-      outputFilterLog: CloseTunnelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CloseTunnelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CloseTunnelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

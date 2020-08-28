@@ -50,8 +50,8 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddAvailabilityZonesInput.filterSensitiveLog,
-      outputFilterLog: AddAvailabilityZonesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddAvailabilityZonesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddAvailabilityZonesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

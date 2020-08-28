@@ -46,8 +46,8 @@ export class DeleteClientVpnRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteClientVpnRouteRequest.filterSensitiveLog,
-      outputFilterLog: DeleteClientVpnRouteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteClientVpnRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteClientVpnRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

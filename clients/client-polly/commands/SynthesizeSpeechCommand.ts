@@ -46,8 +46,8 @@ export class SynthesizeSpeechCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SynthesizeSpeechInput.filterSensitiveLog,
-      outputFilterLog: SynthesizeSpeechOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SynthesizeSpeechInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SynthesizeSpeechOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

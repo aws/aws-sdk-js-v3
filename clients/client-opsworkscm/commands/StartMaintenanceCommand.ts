@@ -46,8 +46,8 @@ export class StartMaintenanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartMaintenanceRequest.filterSensitiveLog,
-      outputFilterLog: StartMaintenanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMaintenanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMaintenanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

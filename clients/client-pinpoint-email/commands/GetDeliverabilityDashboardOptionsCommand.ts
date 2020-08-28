@@ -47,8 +47,8 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDeliverabilityDashboardOptionsRequest.filterSensitiveLog,
-      outputFilterLog: GetDeliverabilityDashboardOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeliverabilityDashboardOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDeliverabilityDashboardOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

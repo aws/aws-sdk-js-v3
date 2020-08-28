@@ -46,8 +46,8 @@ export class CancelInstanceRefreshCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelInstanceRefreshType.filterSensitiveLog,
-      outputFilterLog: CancelInstanceRefreshAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelInstanceRefreshType.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelInstanceRefreshAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

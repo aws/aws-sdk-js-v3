@@ -46,8 +46,8 @@ export class PutEncryptionConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutEncryptionConfigRequest.filterSensitiveLog,
-      outputFilterLog: PutEncryptionConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEncryptionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEncryptionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateBGPPeerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBGPPeerRequest.filterSensitiveLog,
-      outputFilterLog: CreateBGPPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBGPPeerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBGPPeerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

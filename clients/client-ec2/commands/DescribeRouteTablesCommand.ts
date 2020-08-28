@@ -46,8 +46,8 @@ export class DescribeRouteTablesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRouteTablesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeRouteTablesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRouteTablesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRouteTablesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

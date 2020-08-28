@@ -50,8 +50,8 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCustomVerificationEmailTemplatesRequest.filterSensitiveLog,
-      outputFilterLog: ListCustomVerificationEmailTemplatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCustomVerificationEmailTemplatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCustomVerificationEmailTemplatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

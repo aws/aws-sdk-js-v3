@@ -46,8 +46,8 @@ export class CreateRobotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRobotRequest.filterSensitiveLog,
-      outputFilterLog: CreateRobotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRobotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRobotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

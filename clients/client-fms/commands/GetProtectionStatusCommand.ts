@@ -46,8 +46,8 @@ export class GetProtectionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetProtectionStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetProtectionStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProtectionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetProtectionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

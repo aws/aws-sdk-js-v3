@@ -46,8 +46,8 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReservedInstancesExchangeQuoteRequest.filterSensitiveLog,
-      outputFilterLog: GetReservedInstancesExchangeQuoteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservedInstancesExchangeQuoteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservedInstancesExchangeQuoteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

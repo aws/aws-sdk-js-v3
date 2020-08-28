@@ -46,8 +46,8 @@ export class CreateDimensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDimensionRequest.filterSensitiveLog,
-      outputFilterLog: CreateDimensionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDimensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDimensionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

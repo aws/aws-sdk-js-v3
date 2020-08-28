@@ -46,8 +46,8 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetContextKeysForCustomPolicyRequest.filterSensitiveLog,
-      outputFilterLog: GetContextKeysForPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContextKeysForCustomPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetContextKeysForPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

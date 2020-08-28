@@ -46,8 +46,8 @@ export class ResetJobBookmarkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResetJobBookmarkRequest.filterSensitiveLog,
-      outputFilterLog: ResetJobBookmarkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetJobBookmarkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetJobBookmarkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

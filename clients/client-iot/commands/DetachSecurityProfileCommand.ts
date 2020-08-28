@@ -46,8 +46,8 @@ export class DetachSecurityProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachSecurityProfileRequest.filterSensitiveLog,
-      outputFilterLog: DetachSecurityProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachSecurityProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

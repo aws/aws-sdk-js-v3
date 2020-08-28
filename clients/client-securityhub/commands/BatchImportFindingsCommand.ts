@@ -46,8 +46,8 @@ export class BatchImportFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchImportFindingsRequest.filterSensitiveLog,
-      outputFilterLog: BatchImportFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchImportFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchImportFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

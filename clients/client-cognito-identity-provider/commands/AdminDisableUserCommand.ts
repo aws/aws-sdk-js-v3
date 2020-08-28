@@ -50,8 +50,8 @@ export class AdminDisableUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminDisableUserRequest.filterSensitiveLog,
-      outputFilterLog: AdminDisableUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminDisableUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminDisableUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateQueueRequest.filterSensitiveLog,
-      outputFilterLog: UpdateQueueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQueueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

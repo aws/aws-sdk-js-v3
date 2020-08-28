@@ -46,8 +46,8 @@ export class SuspendContactRecordingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SuspendContactRecordingRequest.filterSensitiveLog,
-      outputFilterLog: SuspendContactRecordingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SuspendContactRecordingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SuspendContactRecordingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

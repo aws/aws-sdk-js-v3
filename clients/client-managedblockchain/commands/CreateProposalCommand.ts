@@ -50,8 +50,8 @@ export class CreateProposalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProposalInput.filterSensitiveLog,
-      outputFilterLog: CreateProposalOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProposalInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProposalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

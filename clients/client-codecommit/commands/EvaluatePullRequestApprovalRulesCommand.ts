@@ -46,8 +46,8 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EvaluatePullRequestApprovalRulesInput.filterSensitiveLog,
-      outputFilterLog: EvaluatePullRequestApprovalRulesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EvaluatePullRequestApprovalRulesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EvaluatePullRequestApprovalRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateSigninDelegateGroupsWithAccountRequest.filterSensitiveLog,
-      outputFilterLog: AssociateSigninDelegateGroupsWithAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSigninDelegateGroupsWithAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSigninDelegateGroupsWithAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

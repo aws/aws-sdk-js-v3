@@ -46,8 +46,8 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCostCategoryDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteCostCategoryDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCostCategoryDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCostCategoryDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

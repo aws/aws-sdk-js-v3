@@ -46,8 +46,8 @@ export class ListRepositoryAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRepositoryAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: ListRepositoryAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRepositoryAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRepositoryAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

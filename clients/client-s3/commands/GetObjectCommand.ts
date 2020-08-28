@@ -43,8 +43,8 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

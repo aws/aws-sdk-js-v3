@@ -46,8 +46,8 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
-      outputFilterLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

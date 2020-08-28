@@ -46,8 +46,8 @@ export class GetArchiveRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetArchiveRuleRequest.filterSensitiveLog,
-      outputFilterLog: GetArchiveRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetArchiveRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetArchiveRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

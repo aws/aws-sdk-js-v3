@@ -46,8 +46,8 @@ export class GetMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMemberRequest.filterSensitiveLog,
-      outputFilterLog: GetMemberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMemberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMemberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

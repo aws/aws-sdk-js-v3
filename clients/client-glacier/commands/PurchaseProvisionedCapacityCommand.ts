@@ -46,8 +46,8 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PurchaseProvisionedCapacityInput.filterSensitiveLog,
-      outputFilterLog: PurchaseProvisionedCapacityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseProvisionedCapacityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseProvisionedCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

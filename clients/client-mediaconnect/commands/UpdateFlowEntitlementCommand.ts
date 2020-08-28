@@ -46,8 +46,8 @@ export class UpdateFlowEntitlementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateFlowEntitlementRequest.filterSensitiveLog,
-      outputFilterLog: UpdateFlowEntitlementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFlowEntitlementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFlowEntitlementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

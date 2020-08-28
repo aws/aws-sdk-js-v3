@@ -46,8 +46,8 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAcceleratorTypesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAcceleratorTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAcceleratorTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAcceleratorTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

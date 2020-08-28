@@ -50,8 +50,8 @@ export class GetNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetNetworkInput.filterSensitiveLog,
-      outputFilterLog: GetNetworkOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

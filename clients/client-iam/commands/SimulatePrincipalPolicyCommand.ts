@@ -46,8 +46,8 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SimulatePrincipalPolicyRequest.filterSensitiveLog,
-      outputFilterLog: SimulatePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SimulatePrincipalPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SimulatePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetActivityTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetActivityTaskInput.filterSensitiveLog,
-      outputFilterLog: GetActivityTaskOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetActivityTaskInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetActivityTaskOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

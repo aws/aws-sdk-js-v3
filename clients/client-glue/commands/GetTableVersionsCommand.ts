@@ -46,8 +46,8 @@ export class GetTableVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTableVersionsRequest.filterSensitiveLog,
-      outputFilterLog: GetTableVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTableVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTableVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

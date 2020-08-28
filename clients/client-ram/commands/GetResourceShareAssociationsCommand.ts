@@ -46,8 +46,8 @@ export class GetResourceShareAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetResourceShareAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: GetResourceShareAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceShareAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceShareAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

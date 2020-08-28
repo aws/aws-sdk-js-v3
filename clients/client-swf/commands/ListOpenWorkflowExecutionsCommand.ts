@@ -46,8 +46,8 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListOpenWorkflowExecutionsInput.filterSensitiveLog,
-      outputFilterLog: WorkflowExecutionInfos.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOpenWorkflowExecutionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowExecutionInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

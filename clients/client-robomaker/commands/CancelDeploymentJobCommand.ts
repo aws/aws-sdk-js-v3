@@ -46,8 +46,8 @@ export class CancelDeploymentJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelDeploymentJobRequest.filterSensitiveLog,
-      outputFilterLog: CancelDeploymentJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelDeploymentJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelDeploymentJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

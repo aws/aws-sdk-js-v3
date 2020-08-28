@@ -46,8 +46,8 @@ export class DisableEnhancedMonitoringCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableEnhancedMonitoringInput.filterSensitiveLog,
-      outputFilterLog: EnhancedMonitoringOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableEnhancedMonitoringInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EnhancedMonitoringOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

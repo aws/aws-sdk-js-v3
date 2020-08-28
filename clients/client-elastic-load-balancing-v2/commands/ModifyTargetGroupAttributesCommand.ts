@@ -50,8 +50,8 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyTargetGroupAttributesInput.filterSensitiveLog,
-      outputFilterLog: ModifyTargetGroupAttributesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyTargetGroupAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyTargetGroupAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListDirectoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDirectoriesRequest.filterSensitiveLog,
-      outputFilterLog: ListDirectoriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDirectoriesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDirectoriesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

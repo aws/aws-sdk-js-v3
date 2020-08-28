@@ -46,8 +46,8 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListOriginRequestPoliciesRequest.filterSensitiveLog,
-      outputFilterLog: ListOriginRequestPoliciesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOriginRequestPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListOriginRequestPoliciesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

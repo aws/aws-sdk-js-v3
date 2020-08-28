@@ -46,8 +46,8 @@ export class CreateHsmConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateHsmConfigurationMessage.filterSensitiveLog,
-      outputFilterLog: CreateHsmConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHsmConfigurationMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHsmConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

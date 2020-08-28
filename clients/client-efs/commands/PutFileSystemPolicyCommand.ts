@@ -46,8 +46,8 @@ export class PutFileSystemPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutFileSystemPolicyRequest.filterSensitiveLog,
-      outputFilterLog: FileSystemPolicyDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: PutFileSystemPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FileSystemPolicyDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: DisassociateGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

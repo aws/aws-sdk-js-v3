@@ -53,8 +53,8 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListVoiceConnectorTerminationCredentialsRequest.filterSensitiveLog,
-      outputFilterLog: ListVoiceConnectorTerminationCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

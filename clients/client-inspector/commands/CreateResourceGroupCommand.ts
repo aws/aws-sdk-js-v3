@@ -46,8 +46,8 @@ export class CreateResourceGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateResourceGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateResourceGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResourceGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateResourceGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

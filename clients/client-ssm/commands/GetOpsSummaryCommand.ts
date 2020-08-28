@@ -46,8 +46,8 @@ export class GetOpsSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOpsSummaryRequest.filterSensitiveLog,
-      outputFilterLog: GetOpsSummaryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOpsSummaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOpsSummaryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

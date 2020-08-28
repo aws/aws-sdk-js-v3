@@ -46,8 +46,8 @@ export class DescribeMatchmakingConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeMatchmakingConfigurationsInput.filterSensitiveLog,
-      outputFilterLog: DescribeMatchmakingConfigurationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMatchmakingConfigurationsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMatchmakingConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

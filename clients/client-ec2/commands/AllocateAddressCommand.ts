@@ -43,8 +43,8 @@ export class AllocateAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AllocateAddressRequest.filterSensitiveLog,
-      outputFilterLog: AllocateAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AllocateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

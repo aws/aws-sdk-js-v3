@@ -46,8 +46,8 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateTransitGatewayRouteTableRequest.filterSensitiveLog,
-      outputFilterLog: AssociateTransitGatewayRouteTableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateTransitGatewayRouteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTransitGatewayRouteTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

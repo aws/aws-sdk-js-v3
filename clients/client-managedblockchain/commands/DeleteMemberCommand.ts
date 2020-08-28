@@ -50,8 +50,8 @@ export class DeleteMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMemberInput.filterSensitiveLog,
-      outputFilterLog: DeleteMemberOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMemberInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMemberOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

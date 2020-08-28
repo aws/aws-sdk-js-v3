@@ -46,8 +46,8 @@ export class UpdateUsagePlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateUsagePlanRequest.filterSensitiveLog,
-      outputFilterLog: UsagePlan.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUsagePlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UsagePlan.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

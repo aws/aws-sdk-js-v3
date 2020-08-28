@@ -50,8 +50,8 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEC2RecommendationProjectedMetricsRequest.filterSensitiveLog,
-      outputFilterLog: GetEC2RecommendationProjectedMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class SearchIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchIndexRequest.filterSensitiveLog,
-      outputFilterLog: SearchIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchIndexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

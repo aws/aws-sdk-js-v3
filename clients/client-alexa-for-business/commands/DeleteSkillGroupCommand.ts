@@ -46,8 +46,8 @@ export class DeleteSkillGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSkillGroupRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSkillGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSkillGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

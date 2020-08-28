@@ -46,8 +46,8 @@ export class DeleteGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteGameServerGroupInput.filterSensitiveLog,
-      outputFilterLog: DeleteGameServerGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGameServerGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGameServerGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

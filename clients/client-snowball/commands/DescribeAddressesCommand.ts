@@ -46,8 +46,8 @@ export class DescribeAddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAddressesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAddressesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class GetExportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetExportRequest.filterSensitiveLog,
-      outputFilterLog: GetExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetExportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetExportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

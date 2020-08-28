@@ -46,8 +46,8 @@ export class StopContactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopContactRequest.filterSensitiveLog,
-      outputFilterLog: StopContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

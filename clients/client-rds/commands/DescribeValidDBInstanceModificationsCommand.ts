@@ -50,8 +50,8 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeValidDBInstanceModificationsMessage.filterSensitiveLog,
-      outputFilterLog: DescribeValidDBInstanceModificationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

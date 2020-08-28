@@ -46,8 +46,8 @@ export class UpdateWorkteamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateWorkteamRequest.filterSensitiveLog,
-      outputFilterLog: UpdateWorkteamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWorkteamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWorkteamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteBaiduChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBaiduChannelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteBaiduChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBaiduChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBaiduChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeOrganizationalUnitRequest.filterSensitiveLog,
-      outputFilterLog: DescribeOrganizationalUnitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrganizationalUnitRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOrganizationalUnitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

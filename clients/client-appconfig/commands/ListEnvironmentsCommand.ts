@@ -46,8 +46,8 @@ export class ListEnvironmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListEnvironmentsRequest.filterSensitiveLog,
-      outputFilterLog: Environments.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEnvironmentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Environments.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

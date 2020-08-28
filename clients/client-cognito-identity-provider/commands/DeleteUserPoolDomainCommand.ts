@@ -50,8 +50,8 @@ export class DeleteUserPoolDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteUserPoolDomainRequest.filterSensitiveLog,
-      outputFilterLog: DeleteUserPoolDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserPoolDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserPoolDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

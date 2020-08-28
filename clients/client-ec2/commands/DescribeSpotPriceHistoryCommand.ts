@@ -46,8 +46,8 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSpotPriceHistoryRequest.filterSensitiveLog,
-      outputFilterLog: DescribeSpotPriceHistoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSpotPriceHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSpotPriceHistoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

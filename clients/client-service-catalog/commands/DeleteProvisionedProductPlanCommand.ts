@@ -46,8 +46,8 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteProvisionedProductPlanInput.filterSensitiveLog,
-      outputFilterLog: DeleteProvisionedProductPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProvisionedProductPlanInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisionedProductPlanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

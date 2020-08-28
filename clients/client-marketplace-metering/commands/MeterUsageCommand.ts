@@ -50,8 +50,8 @@ export class MeterUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MeterUsageRequest.filterSensitiveLog,
-      outputFilterLog: MeterUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: MeterUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MeterUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class CreateAppCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAppRequest.filterSensitiveLog,
-      outputFilterLog: CreateAppResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAppRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAppResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

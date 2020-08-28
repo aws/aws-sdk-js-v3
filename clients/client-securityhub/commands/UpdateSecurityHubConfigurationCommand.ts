@@ -46,8 +46,8 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSecurityHubConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSecurityHubConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecurityHubConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityHubConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

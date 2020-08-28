@@ -43,8 +43,8 @@ export class GetDisksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDisksRequest.filterSensitiveLog,
-      outputFilterLog: GetDisksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDisksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDisksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

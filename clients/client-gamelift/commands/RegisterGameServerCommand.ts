@@ -46,8 +46,8 @@ export class RegisterGameServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterGameServerInput.filterSensitiveLog,
-      outputFilterLog: RegisterGameServerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterGameServerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterGameServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

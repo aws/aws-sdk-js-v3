@@ -46,8 +46,8 @@ export class ListProfileTimesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProfileTimesRequest.filterSensitiveLog,
-      outputFilterLog: ListProfileTimesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProfileTimesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProfileTimesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

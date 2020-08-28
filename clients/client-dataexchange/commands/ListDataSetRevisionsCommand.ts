@@ -46,8 +46,8 @@ export class ListDataSetRevisionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDataSetRevisionsRequest.filterSensitiveLog,
-      outputFilterLog: ListDataSetRevisionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDataSetRevisionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDataSetRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

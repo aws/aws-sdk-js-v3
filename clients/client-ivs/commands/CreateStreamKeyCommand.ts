@@ -46,8 +46,8 @@ export class CreateStreamKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateStreamKeyRequest.filterSensitiveLog,
-      outputFilterLog: CreateStreamKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStreamKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateStackSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateStackSetInput.filterSensitiveLog,
-      outputFilterLog: UpdateStackSetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStackSetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStackSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

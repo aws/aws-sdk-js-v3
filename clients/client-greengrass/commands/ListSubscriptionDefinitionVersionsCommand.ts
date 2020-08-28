@@ -47,8 +47,8 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSubscriptionDefinitionVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListSubscriptionDefinitionVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSubscriptionDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSubscriptionDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
-      outputFilterLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
+      outputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class AttachStaticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachStaticIpRequest.filterSensitiveLog,
-      outputFilterLog: AttachStaticIpResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachStaticIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

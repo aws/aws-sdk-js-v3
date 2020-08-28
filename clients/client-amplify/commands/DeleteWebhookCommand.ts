@@ -46,8 +46,8 @@ export class DeleteWebhookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteWebhookRequest.filterSensitiveLog,
-      outputFilterLog: DeleteWebhookResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWebhookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWebhookResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateClientVpnTargetNetworkRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateClientVpnTargetNetworkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateClientVpnTargetNetworkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateClientVpnTargetNetworkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

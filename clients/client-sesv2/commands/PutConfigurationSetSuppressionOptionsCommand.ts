@@ -50,8 +50,8 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutConfigurationSetSuppressionOptionsRequest.filterSensitiveLog,
-      outputFilterLog: PutConfigurationSetSuppressionOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetSampledRequestsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSampledRequestsRequest.filterSensitiveLog,
-      outputFilterLog: GetSampledRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSampledRequestsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSampledRequestsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

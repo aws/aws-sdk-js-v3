@@ -46,8 +46,8 @@ export class PutPartnerEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutPartnerEventsRequest.filterSensitiveLog,
-      outputFilterLog: PutPartnerEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPartnerEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPartnerEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

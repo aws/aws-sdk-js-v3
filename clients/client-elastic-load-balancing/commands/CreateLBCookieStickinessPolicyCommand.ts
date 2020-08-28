@@ -50,8 +50,8 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLBCookieStickinessPolicyInput.filterSensitiveLog,
-      outputFilterLog: CreateLBCookieStickinessPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLBCookieStickinessPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLBCookieStickinessPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

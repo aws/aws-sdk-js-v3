@@ -46,8 +46,8 @@ export class UpdateServiceSettingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateServiceSettingRequest.filterSensitiveLog,
-      outputFilterLog: UpdateServiceSettingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServiceSettingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServiceSettingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

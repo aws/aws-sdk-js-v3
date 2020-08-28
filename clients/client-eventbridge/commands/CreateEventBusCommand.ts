@@ -46,8 +46,8 @@ export class CreateEventBusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEventBusRequest.filterSensitiveLog,
-      outputFilterLog: CreateEventBusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEventBusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEventBusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

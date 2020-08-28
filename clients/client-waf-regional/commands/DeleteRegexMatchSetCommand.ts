@@ -46,8 +46,8 @@ export class DeleteRegexMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRegexMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRegexMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRegexMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRegexMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

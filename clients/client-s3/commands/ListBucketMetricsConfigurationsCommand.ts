@@ -48,8 +48,8 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBucketMetricsConfigurationsRequest.filterSensitiveLog,
-      outputFilterLog: ListBucketMetricsConfigurationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBucketMetricsConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBucketMetricsConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

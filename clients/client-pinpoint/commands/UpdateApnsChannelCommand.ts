@@ -46,8 +46,8 @@ export class UpdateApnsChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateApnsChannelRequest.filterSensitiveLog,
-      outputFilterLog: UpdateApnsChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApnsChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApnsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLoadBalancerTargetGroupsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLoadBalancerTargetGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

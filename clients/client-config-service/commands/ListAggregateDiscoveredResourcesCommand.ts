@@ -46,8 +46,8 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAggregateDiscoveredResourcesRequest.filterSensitiveLog,
-      outputFilterLog: ListAggregateDiscoveredResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAggregateDiscoveredResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAggregateDiscoveredResourcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

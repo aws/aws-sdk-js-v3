@@ -50,8 +50,8 @@ export class PutSlotTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSlotTypeRequest.filterSensitiveLog,
-      outputFilterLog: PutSlotTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSlotTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSlotTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

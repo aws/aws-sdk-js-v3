@@ -46,8 +46,8 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeGameSessionPlacementInput.filterSensitiveLog,
-      outputFilterLog: DescribeGameSessionPlacementOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGameSessionPlacementInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGameSessionPlacementOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

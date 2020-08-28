@@ -50,8 +50,8 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLicenseSpecificationsForResourceRequest.filterSensitiveLog,
-      outputFilterLog: UpdateLicenseSpecificationsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateImagePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateImagePipelineRequest.filterSensitiveLog,
-      outputFilterLog: UpdateImagePipelineResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateImagePipelineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateImagePipelineResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

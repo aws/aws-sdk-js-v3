@@ -43,8 +43,8 @@ export class ListHsmsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHsmsRequest.filterSensitiveLog,
-      outputFilterLog: ListHsmsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHsmsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHsmsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

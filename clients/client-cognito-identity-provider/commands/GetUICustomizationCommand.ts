@@ -50,8 +50,8 @@ export class GetUICustomizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUICustomizationRequest.filterSensitiveLog,
-      outputFilterLog: GetUICustomizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUICustomizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUICustomizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

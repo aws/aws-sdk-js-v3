@@ -46,8 +46,8 @@ export class GetApiMappingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetApiMappingsRequest.filterSensitiveLog,
-      outputFilterLog: GetApiMappingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApiMappingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApiMappingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

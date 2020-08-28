@@ -53,8 +53,8 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcceptDomainTransferFromAnotherAwsAccountRequest.filterSensitiveLog,
-      outputFilterLog: AcceptDomainTransferFromAnotherAwsAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptDomainTransferFromAnotherAwsAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptDomainTransferFromAnotherAwsAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

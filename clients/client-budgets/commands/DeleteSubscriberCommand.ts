@@ -46,8 +46,8 @@ export class DeleteSubscriberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSubscriberRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSubscriberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSubscriberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSubscriberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

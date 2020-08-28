@@ -46,8 +46,8 @@ export class RestoreServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreServerRequest.filterSensitiveLog,
-      outputFilterLog: RestoreServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreServerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

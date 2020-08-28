@@ -46,8 +46,8 @@ export class SyncDeploymentJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SyncDeploymentJobRequest.filterSensitiveLog,
-      outputFilterLog: SyncDeploymentJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SyncDeploymentJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SyncDeploymentJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

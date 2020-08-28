@@ -46,8 +46,8 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBusinessReportSchedulesRequest.filterSensitiveLog,
-      outputFilterLog: ListBusinessReportSchedulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBusinessReportSchedulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBusinessReportSchedulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetCelebrityInfoCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCelebrityInfoRequest.filterSensitiveLog,
-      outputFilterLog: GetCelebrityInfoResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCelebrityInfoRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCelebrityInfoResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

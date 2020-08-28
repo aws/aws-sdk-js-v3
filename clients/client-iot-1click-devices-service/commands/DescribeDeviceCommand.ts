@@ -50,8 +50,8 @@ export class DescribeDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDeviceRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

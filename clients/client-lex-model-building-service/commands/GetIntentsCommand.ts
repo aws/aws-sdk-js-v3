@@ -50,8 +50,8 @@ export class GetIntentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIntentsRequest.filterSensitiveLog,
-      outputFilterLog: GetIntentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIntentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

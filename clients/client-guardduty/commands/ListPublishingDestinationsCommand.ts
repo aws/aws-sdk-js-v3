@@ -46,8 +46,8 @@ export class ListPublishingDestinationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPublishingDestinationsRequest.filterSensitiveLog,
-      outputFilterLog: ListPublishingDestinationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPublishingDestinationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPublishingDestinationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

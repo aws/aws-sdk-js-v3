@@ -46,8 +46,8 @@ export class CancelContactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelContactRequest.filterSensitiveLog,
-      outputFilterLog: ContactIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ContactIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

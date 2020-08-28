@@ -46,8 +46,8 @@ export class SearchUsersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchUsersRequest.filterSensitiveLog,
-      outputFilterLog: SearchUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchUsersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

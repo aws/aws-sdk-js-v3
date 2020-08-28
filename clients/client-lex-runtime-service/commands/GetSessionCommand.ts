@@ -50,8 +50,8 @@ export class GetSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSessionRequest.filterSensitiveLog,
-      outputFilterLog: GetSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

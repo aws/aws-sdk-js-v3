@@ -46,8 +46,8 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPrincipalsForPortfolioInput.filterSensitiveLog,
-      outputFilterLog: ListPrincipalsForPortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPrincipalsForPortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPrincipalsForPortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

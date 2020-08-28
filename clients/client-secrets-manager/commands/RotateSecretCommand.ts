@@ -46,8 +46,8 @@ export class RotateSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RotateSecretRequest.filterSensitiveLog,
-      outputFilterLog: RotateSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RotateSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RotateSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

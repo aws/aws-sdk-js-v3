@@ -50,8 +50,8 @@ export class DescribeReportCreationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReportCreationInput.filterSensitiveLog,
-      outputFilterLog: DescribeReportCreationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReportCreationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReportCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

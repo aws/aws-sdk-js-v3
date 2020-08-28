@@ -46,8 +46,8 @@ export class ListProvisionedCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProvisionedCapacityInput.filterSensitiveLog,
-      outputFilterLog: ListProvisionedCapacityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProvisionedCapacityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProvisionedCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

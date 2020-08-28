@@ -46,8 +46,8 @@ export class GetBaiduChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBaiduChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetBaiduChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBaiduChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBaiduChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

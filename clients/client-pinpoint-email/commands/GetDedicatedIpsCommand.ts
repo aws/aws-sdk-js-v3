@@ -46,8 +46,8 @@ export class GetDedicatedIpsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDedicatedIpsRequest.filterSensitiveLog,
-      outputFilterLog: GetDedicatedIpsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDedicatedIpsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDedicatedIpsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

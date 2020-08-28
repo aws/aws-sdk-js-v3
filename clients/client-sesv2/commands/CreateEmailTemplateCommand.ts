@@ -46,8 +46,8 @@ export class CreateEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEmailTemplateRequest.filterSensitiveLog,
-      outputFilterLog: CreateEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEmailTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ConnectDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConnectDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: ConnectDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ConnectDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConnectDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

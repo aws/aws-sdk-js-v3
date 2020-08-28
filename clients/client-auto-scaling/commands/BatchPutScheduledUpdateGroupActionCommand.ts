@@ -47,8 +47,8 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchPutScheduledUpdateGroupActionType.filterSensitiveLog,
-      outputFilterLog: BatchPutScheduledUpdateGroupActionAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionType.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

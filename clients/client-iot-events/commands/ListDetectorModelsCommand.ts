@@ -46,8 +46,8 @@ export class ListDetectorModelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDetectorModelsRequest.filterSensitiveLog,
-      outputFilterLog: ListDetectorModelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDetectorModelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDetectorModelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterTransitGatewayMulticastGroupSourcesRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterTransitGatewayMulticastGroupSourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTransitGatewayMulticastGroupSourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTransitGatewayMulticastGroupSourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

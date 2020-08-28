@@ -46,8 +46,8 @@ export class DescribeCodeBindingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCodeBindingRequest.filterSensitiveLog,
-      outputFilterLog: DescribeCodeBindingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCodeBindingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCodeBindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLoadBalancerMetricDataRequest.filterSensitiveLog,
-      outputFilterLog: GetLoadBalancerMetricDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLoadBalancerMetricDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLoadBalancerMetricDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

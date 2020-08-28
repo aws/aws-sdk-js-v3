@@ -46,8 +46,8 @@ export class RevokeFlowEntitlementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeFlowEntitlementRequest.filterSensitiveLog,
-      outputFilterLog: RevokeFlowEntitlementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeFlowEntitlementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeFlowEntitlementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

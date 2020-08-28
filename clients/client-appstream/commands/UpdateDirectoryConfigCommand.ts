@@ -46,8 +46,8 @@ export class UpdateDirectoryConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDirectoryConfigRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDirectoryConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDirectoryConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDirectoryConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

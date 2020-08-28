@@ -50,8 +50,8 @@ export class CreateLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLoadBalancerInput.filterSensitiveLog,
-      outputFilterLog: CreateLoadBalancerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLoadBalancerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoadBalancerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

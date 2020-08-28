@@ -46,8 +46,8 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetStreamingDistributionConfigRequest.filterSensitiveLog,
-      outputFilterLog: GetStreamingDistributionConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStreamingDistributionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetStreamingDistributionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

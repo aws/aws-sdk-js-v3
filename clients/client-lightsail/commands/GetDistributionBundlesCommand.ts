@@ -46,8 +46,8 @@ export class GetDistributionBundlesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDistributionBundlesRequest.filterSensitiveLog,
-      outputFilterLog: GetDistributionBundlesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDistributionBundlesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDistributionBundlesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

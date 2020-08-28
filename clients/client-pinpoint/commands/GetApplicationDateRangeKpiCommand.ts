@@ -46,8 +46,8 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetApplicationDateRangeKpiRequest.filterSensitiveLog,
-      outputFilterLog: GetApplicationDateRangeKpiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApplicationDateRangeKpiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApplicationDateRangeKpiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

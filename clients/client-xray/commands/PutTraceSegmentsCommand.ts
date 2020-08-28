@@ -46,8 +46,8 @@ export class PutTraceSegmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutTraceSegmentsRequest.filterSensitiveLog,
-      outputFilterLog: PutTraceSegmentsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutTraceSegmentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutTraceSegmentsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

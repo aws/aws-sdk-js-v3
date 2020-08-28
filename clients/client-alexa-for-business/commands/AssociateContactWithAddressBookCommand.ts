@@ -46,8 +46,8 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateContactWithAddressBookRequest.filterSensitiveLog,
-      outputFilterLog: AssociateContactWithAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateContactWithAddressBookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateContactWithAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

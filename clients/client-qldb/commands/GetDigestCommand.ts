@@ -46,8 +46,8 @@ export class GetDigestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDigestRequest.filterSensitiveLog,
-      outputFilterLog: GetDigestResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDigestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDigestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

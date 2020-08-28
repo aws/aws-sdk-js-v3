@@ -46,8 +46,8 @@ export class UpdateObjectAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateObjectAttributesRequest.filterSensitiveLog,
-      outputFilterLog: UpdateObjectAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateObjectAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateObjectAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

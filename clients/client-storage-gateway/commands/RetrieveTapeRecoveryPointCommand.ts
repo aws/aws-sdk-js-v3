@@ -46,8 +46,8 @@ export class RetrieveTapeRecoveryPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RetrieveTapeRecoveryPointInput.filterSensitiveLog,
-      outputFilterLog: RetrieveTapeRecoveryPointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RetrieveTapeRecoveryPointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RetrieveTapeRecoveryPointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

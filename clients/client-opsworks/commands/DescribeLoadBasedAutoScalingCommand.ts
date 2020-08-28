@@ -46,8 +46,8 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLoadBasedAutoScalingRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLoadBasedAutoScalingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLoadBasedAutoScalingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBasedAutoScalingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

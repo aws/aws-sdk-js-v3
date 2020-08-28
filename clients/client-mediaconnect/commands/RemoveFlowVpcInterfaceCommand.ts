@@ -46,8 +46,8 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveFlowVpcInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: RemoveFlowVpcInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFlowVpcInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFlowVpcInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCertificateAuthorityAuditReportRequest.filterSensitiveLog,
-      outputFilterLog: DescribeCertificateAuthorityAuditReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCertificateAuthorityAuditReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCertificateAuthorityAuditReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class TestRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestRoleRequest.filterSensitiveLog,
-      outputFilterLog: TestRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

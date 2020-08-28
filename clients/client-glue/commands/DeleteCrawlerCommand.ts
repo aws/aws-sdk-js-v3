@@ -46,8 +46,8 @@ export class DeleteCrawlerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCrawlerRequest.filterSensitiveLog,
-      outputFilterLog: DeleteCrawlerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCrawlerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCrawlerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateVTLDeviceTypeInput.filterSensitiveLog,
-      outputFilterLog: UpdateVTLDeviceTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVTLDeviceTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVTLDeviceTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

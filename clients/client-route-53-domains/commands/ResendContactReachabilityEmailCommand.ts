@@ -46,8 +46,8 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResendContactReachabilityEmailRequest.filterSensitiveLog,
-      outputFilterLog: ResendContactReachabilityEmailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResendContactReachabilityEmailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResendContactReachabilityEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

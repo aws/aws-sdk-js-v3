@@ -46,8 +46,8 @@ export class DescribeWorkteamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeWorkteamRequest.filterSensitiveLog,
-      outputFilterLog: DescribeWorkteamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkteamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkteamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

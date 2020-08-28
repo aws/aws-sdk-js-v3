@@ -47,8 +47,8 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAppReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAppReplicationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppReplicationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppReplicationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterWorkspaceDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterWorkspaceDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterWorkspaceDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterWorkspaceDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

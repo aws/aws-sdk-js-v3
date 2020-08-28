@@ -46,8 +46,8 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateWebACLMigrationStackRequest.filterSensitiveLog,
-      outputFilterLog: CreateWebACLMigrationStackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWebACLMigrationStackRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWebACLMigrationStackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

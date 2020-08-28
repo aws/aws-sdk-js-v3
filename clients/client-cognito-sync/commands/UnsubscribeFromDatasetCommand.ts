@@ -46,8 +46,8 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UnsubscribeFromDatasetRequest.filterSensitiveLog,
-      outputFilterLog: UnsubscribeFromDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UnsubscribeFromDatasetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnsubscribeFromDatasetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

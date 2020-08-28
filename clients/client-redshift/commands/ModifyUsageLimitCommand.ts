@@ -46,8 +46,8 @@ export class ModifyUsageLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyUsageLimitMessage.filterSensitiveLog,
-      outputFilterLog: UsageLimit.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyUsageLimitMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: UsageLimit.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

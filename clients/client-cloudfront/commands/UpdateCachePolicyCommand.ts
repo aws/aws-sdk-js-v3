@@ -46,8 +46,8 @@ export class UpdateCachePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateCachePolicyRequest.filterSensitiveLog,
-      outputFilterLog: UpdateCachePolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCachePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCachePolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class TimestampFormatHeadersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TimestampFormatHeadersIO.filterSensitiveLog,
-      outputFilterLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

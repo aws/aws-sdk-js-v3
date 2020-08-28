@@ -50,8 +50,8 @@ export class GetCloudFormationTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCloudFormationTemplateRequest.filterSensitiveLog,
-      outputFilterLog: GetCloudFormationTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCloudFormationTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCloudFormationTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

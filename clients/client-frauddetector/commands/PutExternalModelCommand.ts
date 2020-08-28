@@ -46,8 +46,8 @@ export class PutExternalModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutExternalModelRequest.filterSensitiveLog,
-      outputFilterLog: PutExternalModelResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutExternalModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutExternalModelResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateHITTypeOfHITRequest.filterSensitiveLog,
-      outputFilterLog: UpdateHITTypeOfHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateHITTypeOfHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHITTypeOfHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateCustomerGatewayRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateCustomerGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateCustomerGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateCustomerGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

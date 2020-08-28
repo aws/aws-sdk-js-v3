@@ -46,8 +46,8 @@ export class CreateClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateClusterRequest.filterSensitiveLog,
-      outputFilterLog: CreateClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateClusterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

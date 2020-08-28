@@ -46,8 +46,8 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateCreatedArtifactRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateCreatedArtifactResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateCreatedArtifactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateCreatedArtifactResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

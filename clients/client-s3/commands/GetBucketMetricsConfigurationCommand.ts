@@ -48,8 +48,8 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketMetricsConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketMetricsConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketMetricsConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketMetricsConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

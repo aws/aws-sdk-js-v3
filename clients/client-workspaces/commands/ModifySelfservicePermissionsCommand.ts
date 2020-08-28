@@ -46,8 +46,8 @@ export class ModifySelfservicePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifySelfservicePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: ModifySelfservicePermissionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySelfservicePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifySelfservicePermissionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

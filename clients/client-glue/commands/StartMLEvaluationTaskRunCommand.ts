@@ -46,8 +46,8 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartMLEvaluationTaskRunRequest.filterSensitiveLog,
-      outputFilterLog: StartMLEvaluationTaskRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMLEvaluationTaskRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMLEvaluationTaskRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

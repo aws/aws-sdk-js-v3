@@ -50,8 +50,8 @@ export class RejectInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RejectInvitationInput.filterSensitiveLog,
-      outputFilterLog: RejectInvitationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectInvitationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectInvitationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RegisterDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterDomainRequest.filterSensitiveLog,
-      outputFilterLog: RegisterDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

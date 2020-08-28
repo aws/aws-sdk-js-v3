@@ -46,8 +46,8 @@ export class GetEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEmailTemplateRequest.filterSensitiveLog,
-      outputFilterLog: GetEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEmailTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

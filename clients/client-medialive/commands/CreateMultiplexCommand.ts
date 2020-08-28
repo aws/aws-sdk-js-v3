@@ -46,8 +46,8 @@ export class CreateMultiplexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateMultiplexRequest.filterSensitiveLog,
-      outputFilterLog: CreateMultiplexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMultiplexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

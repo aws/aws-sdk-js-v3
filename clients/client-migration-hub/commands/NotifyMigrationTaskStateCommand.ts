@@ -46,8 +46,8 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: NotifyMigrationTaskStateRequest.filterSensitiveLog,
-      outputFilterLog: NotifyMigrationTaskStateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyMigrationTaskStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: NotifyMigrationTaskStateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

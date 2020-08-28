@@ -46,8 +46,8 @@ export class ListThingPrincipalsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListThingPrincipalsRequest.filterSensitiveLog,
-      outputFilterLog: ListThingPrincipalsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListThingPrincipalsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListThingPrincipalsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachLoadBalancerFromSubnetsInput.filterSensitiveLog,
-      outputFilterLog: DetachLoadBalancerFromSubnetsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachLoadBalancerFromSubnetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachLoadBalancerFromSubnetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

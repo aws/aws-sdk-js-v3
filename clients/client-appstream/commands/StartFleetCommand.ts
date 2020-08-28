@@ -46,8 +46,8 @@ export class StartFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartFleetRequest.filterSensitiveLog,
-      outputFilterLog: StartFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartFleetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetVoiceConnectorStreamingConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetVoiceConnectorStreamingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVoiceConnectorStreamingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceConnectorStreamingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

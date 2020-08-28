@@ -46,8 +46,8 @@ export class UpdateS3ResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateS3ResourcesRequest.filterSensitiveLog,
-      outputFilterLog: UpdateS3ResourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateS3ResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateS3ResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

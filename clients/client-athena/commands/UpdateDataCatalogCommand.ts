@@ -46,8 +46,8 @@ export class UpdateDataCatalogCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDataCatalogInput.filterSensitiveLog,
-      outputFilterLog: UpdateDataCatalogOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataCatalogInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataCatalogOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

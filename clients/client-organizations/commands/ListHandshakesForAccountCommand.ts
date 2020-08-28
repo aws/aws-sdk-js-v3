@@ -46,8 +46,8 @@ export class ListHandshakesForAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHandshakesForAccountRequest.filterSensitiveLog,
-      outputFilterLog: ListHandshakesForAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHandshakesForAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHandshakesForAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetGcmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGcmChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetGcmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGcmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGcmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCompanyNetworkConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeCompanyNetworkConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCompanyNetworkConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

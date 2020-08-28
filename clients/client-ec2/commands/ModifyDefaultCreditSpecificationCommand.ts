@@ -46,8 +46,8 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyDefaultCreditSpecificationRequest.filterSensitiveLog,
-      outputFilterLog: ModifyDefaultCreditSpecificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyDefaultCreditSpecificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDefaultCreditSpecificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

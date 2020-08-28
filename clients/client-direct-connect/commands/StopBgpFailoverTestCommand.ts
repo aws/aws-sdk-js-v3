@@ -46,8 +46,8 @@ export class StopBgpFailoverTestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopBgpFailoverTestRequest.filterSensitiveLog,
-      outputFilterLog: StopBgpFailoverTestResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBgpFailoverTestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopBgpFailoverTestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

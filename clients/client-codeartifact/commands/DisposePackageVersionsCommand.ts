@@ -46,8 +46,8 @@ export class DisposePackageVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisposePackageVersionsRequest.filterSensitiveLog,
-      outputFilterLog: DisposePackageVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisposePackageVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisposePackageVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

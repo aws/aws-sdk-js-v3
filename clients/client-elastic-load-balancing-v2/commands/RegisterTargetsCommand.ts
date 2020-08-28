@@ -50,8 +50,8 @@ export class RegisterTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterTargetsInput.filterSensitiveLog,
-      outputFilterLog: RegisterTargetsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterTargetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTargetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

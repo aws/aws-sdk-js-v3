@@ -46,8 +46,8 @@ export class DeletePlatformVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePlatformVersionRequest.filterSensitiveLog,
-      outputFilterLog: DeletePlatformVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlatformVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePlatformVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

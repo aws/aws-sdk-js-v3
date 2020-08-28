@@ -46,8 +46,8 @@ export class DescribeVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVaultInput.filterSensitiveLog,
-      outputFilterLog: DescribeVaultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVaultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVaultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

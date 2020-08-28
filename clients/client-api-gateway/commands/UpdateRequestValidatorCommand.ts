@@ -46,8 +46,8 @@ export class UpdateRequestValidatorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRequestValidatorRequest.filterSensitiveLog,
-      outputFilterLog: RequestValidator.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRequestValidatorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestValidator.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

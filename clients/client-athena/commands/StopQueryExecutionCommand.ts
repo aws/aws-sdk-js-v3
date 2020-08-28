@@ -46,8 +46,8 @@ export class StopQueryExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopQueryExecutionInput.filterSensitiveLog,
-      outputFilterLog: StopQueryExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopQueryExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopQueryExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

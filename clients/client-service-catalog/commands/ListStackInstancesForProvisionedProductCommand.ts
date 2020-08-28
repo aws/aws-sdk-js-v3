@@ -53,8 +53,8 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListStackInstancesForProvisionedProductInput.filterSensitiveLog,
-      outputFilterLog: ListStackInstancesForProvisionedProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStackInstancesForProvisionedProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListStackInstancesForProvisionedProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

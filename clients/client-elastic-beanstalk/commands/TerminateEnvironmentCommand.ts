@@ -46,8 +46,8 @@ export class TerminateEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TerminateEnvironmentMessage.filterSensitiveLog,
-      outputFilterLog: EnvironmentDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateEnvironmentMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

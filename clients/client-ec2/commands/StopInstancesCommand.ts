@@ -43,8 +43,8 @@ export class StopInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopInstancesRequest.filterSensitiveLog,
-      outputFilterLog: StopInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

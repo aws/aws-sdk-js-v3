@@ -46,8 +46,8 @@ export class DeleteOutpostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteOutpostInput.filterSensitiveLog,
-      outputFilterLog: DeleteOutpostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteOutpostInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOutpostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

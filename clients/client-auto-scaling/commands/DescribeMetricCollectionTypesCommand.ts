@@ -46,8 +46,8 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: DescribeMetricCollectionTypesAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: DescribeMetricCollectionTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

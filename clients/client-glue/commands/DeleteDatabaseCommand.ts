@@ -46,8 +46,8 @@ export class DeleteDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDatabaseRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDatabaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDatabaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

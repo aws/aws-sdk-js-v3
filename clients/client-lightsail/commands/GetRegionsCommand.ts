@@ -46,8 +46,8 @@ export class GetRegionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRegionsRequest.filterSensitiveLog,
-      outputFilterLog: GetRegionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRegionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRegionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

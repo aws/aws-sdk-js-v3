@@ -46,8 +46,8 @@ export class DeleteProjectVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteProjectVersionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteProjectVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProjectVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProjectVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

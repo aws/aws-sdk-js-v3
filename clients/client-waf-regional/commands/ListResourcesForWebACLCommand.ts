@@ -46,8 +46,8 @@ export class ListResourcesForWebACLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListResourcesForWebACLRequest.filterSensitiveLog,
-      outputFilterLog: ListResourcesForWebACLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourcesForWebACLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResourcesForWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

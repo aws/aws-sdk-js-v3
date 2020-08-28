@@ -46,8 +46,8 @@ export class GetNamedQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetNamedQueryInput.filterSensitiveLog,
-      outputFilterLog: GetNamedQueryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNamedQueryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetNamedQueryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartContentModerationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartContentModerationRequest.filterSensitiveLog,
-      outputFilterLog: StartContentModerationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartContentModerationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartContentModerationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

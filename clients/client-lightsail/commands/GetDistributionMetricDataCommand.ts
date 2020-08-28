@@ -46,8 +46,8 @@ export class GetDistributionMetricDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDistributionMetricDataRequest.filterSensitiveLog,
-      outputFilterLog: GetDistributionMetricDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDistributionMetricDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDistributionMetricDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

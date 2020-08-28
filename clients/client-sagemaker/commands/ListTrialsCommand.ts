@@ -46,8 +46,8 @@ export class ListTrialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTrialsRequest.filterSensitiveLog,
-      outputFilterLog: ListTrialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTrialsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTrialsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

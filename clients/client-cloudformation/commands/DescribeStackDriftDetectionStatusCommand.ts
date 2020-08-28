@@ -46,8 +46,8 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeStackDriftDetectionStatusInput.filterSensitiveLog,
-      outputFilterLog: DescribeStackDriftDetectionStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStackDriftDetectionStatusInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackDriftDetectionStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

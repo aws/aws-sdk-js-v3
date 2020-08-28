@@ -46,8 +46,8 @@ export class CreateProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProductInput.filterSensitiveLog,
-      outputFilterLog: CreateProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

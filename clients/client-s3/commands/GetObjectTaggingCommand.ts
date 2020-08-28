@@ -48,8 +48,8 @@ export class GetObjectTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectTaggingRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectTaggingOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectTaggingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectTaggingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

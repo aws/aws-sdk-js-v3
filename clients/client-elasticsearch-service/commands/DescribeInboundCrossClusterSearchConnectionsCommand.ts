@@ -57,8 +57,8 @@ export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Comman
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeInboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

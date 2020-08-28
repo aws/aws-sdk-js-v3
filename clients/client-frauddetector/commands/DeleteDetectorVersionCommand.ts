@@ -46,8 +46,8 @@ export class DeleteDetectorVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDetectorVersionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDetectorVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDetectorVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDetectorVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

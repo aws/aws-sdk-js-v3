@@ -46,8 +46,8 @@ export class StartSigningJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartSigningJobRequest.filterSensitiveLog,
-      outputFilterLog: StartSigningJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSigningJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSigningJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

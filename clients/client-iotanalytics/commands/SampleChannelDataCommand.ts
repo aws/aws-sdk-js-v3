@@ -46,8 +46,8 @@ export class SampleChannelDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SampleChannelDataRequest.filterSensitiveLog,
-      outputFilterLog: SampleChannelDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SampleChannelDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SampleChannelDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

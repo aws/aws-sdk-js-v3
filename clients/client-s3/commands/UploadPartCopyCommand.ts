@@ -50,8 +50,8 @@ export class UploadPartCopyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UploadPartCopyRequest.filterSensitiveLog,
-      outputFilterLog: UploadPartCopyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadPartCopyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadPartCopyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

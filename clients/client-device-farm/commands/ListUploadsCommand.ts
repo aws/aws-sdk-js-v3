@@ -46,8 +46,8 @@ export class ListUploadsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListUploadsRequest.filterSensitiveLog,
-      outputFilterLog: ListUploadsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUploadsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUploadsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

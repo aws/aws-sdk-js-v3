@@ -43,8 +43,8 @@ export class BundleInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BundleInstanceRequest.filterSensitiveLog,
-      outputFilterLog: BundleInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BundleInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BundleInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ModifyReservedInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyReservedInstancesRequest.filterSensitiveLog,
-      outputFilterLog: ModifyReservedInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReservedInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReservedInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

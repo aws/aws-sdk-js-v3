@@ -46,8 +46,8 @@ export class GetOTAUpdateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOTAUpdateRequest.filterSensitiveLog,
-      outputFilterLog: GetOTAUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOTAUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOTAUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

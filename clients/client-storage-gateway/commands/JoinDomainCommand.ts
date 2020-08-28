@@ -46,8 +46,8 @@ export class JoinDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: JoinDomainInput.filterSensitiveLog,
-      outputFilterLog: JoinDomainOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JoinDomainInput.filterSensitiveLog,
+      outputFilterSensitiveLog: JoinDomainOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

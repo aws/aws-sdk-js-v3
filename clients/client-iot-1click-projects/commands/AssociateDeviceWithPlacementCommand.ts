@@ -50,8 +50,8 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDeviceWithPlacementRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDeviceWithPlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDeviceWithPlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDeviceWithPlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

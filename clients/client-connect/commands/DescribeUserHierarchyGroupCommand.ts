@@ -46,8 +46,8 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeUserHierarchyGroupRequest.filterSensitiveLog,
-      outputFilterLog: DescribeUserHierarchyGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserHierarchyGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserHierarchyGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

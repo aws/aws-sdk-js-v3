@@ -46,8 +46,8 @@ export class InviteMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InviteMembersRequest.filterSensitiveLog,
-      outputFilterLog: InviteMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InviteMembersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InviteMembersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteTrustCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTrustRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTrustResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrustRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrustResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

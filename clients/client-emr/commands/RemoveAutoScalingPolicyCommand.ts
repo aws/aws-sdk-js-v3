@@ -46,8 +46,8 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveAutoScalingPolicyInput.filterSensitiveLog,
-      outputFilterLog: RemoveAutoScalingPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAutoScalingPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAutoScalingPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StopRemoteAccessSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopRemoteAccessSessionRequest.filterSensitiveLog,
-      outputFilterLog: StopRemoteAccessSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopRemoteAccessSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopRemoteAccessSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

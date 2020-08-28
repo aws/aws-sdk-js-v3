@@ -46,8 +46,8 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBrokerEngineTypesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeBrokerEngineTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBrokerEngineTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBrokerEngineTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdatePortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePortfolioInput.filterSensitiveLog,
-      outputFilterLog: UpdatePortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

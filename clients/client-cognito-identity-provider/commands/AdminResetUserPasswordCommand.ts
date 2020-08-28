@@ -50,8 +50,8 @@ export class AdminResetUserPasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminResetUserPasswordRequest.filterSensitiveLog,
-      outputFilterLog: AdminResetUserPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminResetUserPasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminResetUserPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

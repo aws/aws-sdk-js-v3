@@ -46,8 +46,8 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCostCategoryDefinitionsRequest.filterSensitiveLog,
-      outputFilterLog: ListCostCategoryDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCostCategoryDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCostCategoryDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

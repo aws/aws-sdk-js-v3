@@ -46,8 +46,8 @@ export class GetGraphqlApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGraphqlApiRequest.filterSensitiveLog,
-      outputFilterLog: GetGraphqlApiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGraphqlApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePresignedNotebookInstanceUrlInput.filterSensitiveLog,
-      outputFilterLog: CreatePresignedNotebookInstanceUrlOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

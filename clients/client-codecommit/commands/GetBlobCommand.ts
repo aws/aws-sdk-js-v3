@@ -43,8 +43,8 @@ export class GetBlobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBlobInput.filterSensitiveLog,
-      outputFilterLog: GetBlobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBlobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

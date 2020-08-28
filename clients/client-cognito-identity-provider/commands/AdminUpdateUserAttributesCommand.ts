@@ -50,8 +50,8 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminUpdateUserAttributesRequest.filterSensitiveLog,
-      outputFilterLog: AdminUpdateUserAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminUpdateUserAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminUpdateUserAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

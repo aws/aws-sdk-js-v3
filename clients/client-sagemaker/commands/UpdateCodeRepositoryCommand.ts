@@ -46,8 +46,8 @@ export class UpdateCodeRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateCodeRepositoryInput.filterSensitiveLog,
-      outputFilterLog: UpdateCodeRepositoryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCodeRepositoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCodeRepositoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

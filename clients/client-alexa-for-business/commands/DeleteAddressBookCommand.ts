@@ -46,8 +46,8 @@ export class DeleteAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAddressBookRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAddressBookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

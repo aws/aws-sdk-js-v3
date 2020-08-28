@@ -46,8 +46,8 @@ export class UpdateMethodResponseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMethodResponseRequest.filterSensitiveLog,
-      outputFilterLog: MethodResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMethodResponseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MethodResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

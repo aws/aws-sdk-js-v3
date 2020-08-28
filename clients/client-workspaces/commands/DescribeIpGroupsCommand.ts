@@ -46,8 +46,8 @@ export class DescribeIpGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeIpGroupsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeIpGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIpGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

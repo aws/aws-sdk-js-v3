@@ -46,8 +46,8 @@ export class SetIdentityDkimEnabledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetIdentityDkimEnabledRequest.filterSensitiveLog,
-      outputFilterLog: SetIdentityDkimEnabledResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityDkimEnabledRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityDkimEnabledResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

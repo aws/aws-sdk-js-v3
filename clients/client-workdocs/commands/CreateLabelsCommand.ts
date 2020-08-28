@@ -46,8 +46,8 @@ export class CreateLabelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLabelsRequest.filterSensitiveLog,
-      outputFilterLog: CreateLabelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLabelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLabelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

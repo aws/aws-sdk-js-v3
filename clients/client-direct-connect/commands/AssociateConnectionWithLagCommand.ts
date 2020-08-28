@@ -46,8 +46,8 @@ export class AssociateConnectionWithLagCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateConnectionWithLagRequest.filterSensitiveLog,
-      outputFilterLog: Connection.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateConnectionWithLagRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

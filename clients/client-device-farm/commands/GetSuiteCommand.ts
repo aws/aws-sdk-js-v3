@@ -43,8 +43,8 @@ export class GetSuiteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSuiteRequest.filterSensitiveLog,
-      outputFilterLog: GetSuiteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSuiteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSuiteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

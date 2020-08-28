@@ -50,8 +50,8 @@ export class GetTranscriptCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTranscriptRequest.filterSensitiveLog,
-      outputFilterLog: GetTranscriptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTranscriptRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTranscriptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

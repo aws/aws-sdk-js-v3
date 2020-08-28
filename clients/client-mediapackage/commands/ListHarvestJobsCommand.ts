@@ -46,8 +46,8 @@ export class ListHarvestJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHarvestJobsRequest.filterSensitiveLog,
-      outputFilterLog: ListHarvestJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHarvestJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHarvestJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

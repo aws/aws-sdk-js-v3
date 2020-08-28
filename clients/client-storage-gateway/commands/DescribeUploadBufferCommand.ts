@@ -46,8 +46,8 @@ export class DescribeUploadBufferCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeUploadBufferInput.filterSensitiveLog,
-      outputFilterLog: DescribeUploadBufferOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUploadBufferInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUploadBufferOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

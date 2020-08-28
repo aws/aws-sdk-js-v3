@@ -46,8 +46,8 @@ export class CreateConfigurationSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateConfigurationSetRequest.filterSensitiveLog,
-      outputFilterLog: CreateConfigurationSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConfigurationSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConfigurationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetRemoteAccessSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRemoteAccessSessionRequest.filterSensitiveLog,
-      outputFilterLog: GetRemoteAccessSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRemoteAccessSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRemoteAccessSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

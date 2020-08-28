@@ -46,8 +46,8 @@ export class TestIdentityProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestIdentityProviderRequest.filterSensitiveLog,
-      outputFilterLog: TestIdentityProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestIdentityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestIdentityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

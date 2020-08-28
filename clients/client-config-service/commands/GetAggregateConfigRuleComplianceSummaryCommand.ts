@@ -53,8 +53,8 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAggregateConfigRuleComplianceSummaryRequest.filterSensitiveLog,
-      outputFilterLog: GetAggregateConfigRuleComplianceSummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

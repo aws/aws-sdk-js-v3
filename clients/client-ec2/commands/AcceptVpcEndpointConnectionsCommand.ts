@@ -46,8 +46,8 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcceptVpcEndpointConnectionsRequest.filterSensitiveLog,
-      outputFilterLog: AcceptVpcEndpointConnectionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptVpcEndpointConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptVpcEndpointConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

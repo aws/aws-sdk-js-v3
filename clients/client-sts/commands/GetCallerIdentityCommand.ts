@@ -46,8 +46,8 @@ export class GetCallerIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCallerIdentityRequest.filterSensitiveLog,
-      outputFilterLog: GetCallerIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCallerIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCallerIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

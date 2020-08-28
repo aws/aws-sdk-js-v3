@@ -46,8 +46,8 @@ export class BeginTransactionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BeginTransactionRequest.filterSensitiveLog,
-      outputFilterLog: BeginTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BeginTransactionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BeginTransactionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

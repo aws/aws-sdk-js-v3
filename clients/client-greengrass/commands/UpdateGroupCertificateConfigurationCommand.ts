@@ -50,8 +50,8 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGroupCertificateConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateGroupCertificateConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGroupCertificateConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGroupCertificateConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

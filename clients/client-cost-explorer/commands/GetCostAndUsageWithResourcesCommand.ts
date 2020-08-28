@@ -46,8 +46,8 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCostAndUsageWithResourcesRequest.filterSensitiveLog,
-      outputFilterLog: GetCostAndUsageWithResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCostAndUsageWithResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCostAndUsageWithResourcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

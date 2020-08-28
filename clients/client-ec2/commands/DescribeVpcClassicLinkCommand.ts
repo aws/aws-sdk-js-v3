@@ -46,8 +46,8 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVpcClassicLinkRequest.filterSensitiveLog,
-      outputFilterLog: DescribeVpcClassicLinkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcClassicLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcClassicLinkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,8 +48,8 @@ export class GetBucketReplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketReplicationRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketReplicationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketReplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketReplicationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

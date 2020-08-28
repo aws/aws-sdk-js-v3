@@ -46,8 +46,8 @@ export class ListDelegatedAdministratorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDelegatedAdministratorsRequest.filterSensitiveLog,
-      outputFilterLog: ListDelegatedAdministratorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDelegatedAdministratorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDelegatedAdministratorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

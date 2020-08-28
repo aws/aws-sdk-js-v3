@@ -46,8 +46,8 @@ export class InvokeScreenAutomationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InvokeScreenAutomationRequest.filterSensitiveLog,
-      outputFilterLog: InvokeScreenAutomationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: InvokeScreenAutomationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InvokeScreenAutomationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

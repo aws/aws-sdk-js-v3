@@ -50,8 +50,8 @@ export class DeleteReplicationInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteReplicationInstanceMessage.filterSensitiveLog,
-      outputFilterLog: DeleteReplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

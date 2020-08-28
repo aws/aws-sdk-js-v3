@@ -46,8 +46,8 @@ export class StopCanaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopCanaryRequest.filterSensitiveLog,
-      outputFilterLog: StopCanaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopCanaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopCanaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

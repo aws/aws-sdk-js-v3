@@ -46,8 +46,8 @@ export class DeleteSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSchemaRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

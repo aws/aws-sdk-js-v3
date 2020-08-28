@@ -53,8 +53,8 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEffectivePatchesForPatchBaselineRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEffectivePatchesForPatchBaselineResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEffectivePatchesForPatchBaselineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEffectivePatchesForPatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

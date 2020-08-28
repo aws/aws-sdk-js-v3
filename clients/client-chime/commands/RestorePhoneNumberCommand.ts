@@ -46,8 +46,8 @@ export class RestorePhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestorePhoneNumberRequest.filterSensitiveLog,
-      outputFilterLog: RestorePhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RestorePhoneNumberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestorePhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

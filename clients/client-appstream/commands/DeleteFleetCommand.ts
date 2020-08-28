@@ -46,8 +46,8 @@ export class DeleteFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFleetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFleetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

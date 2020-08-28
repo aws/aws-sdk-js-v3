@@ -46,8 +46,8 @@ export class DeleteDiskSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDiskSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDiskSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDiskSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDiskSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

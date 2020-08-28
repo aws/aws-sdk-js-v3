@@ -46,8 +46,8 @@ export class ListSqlInjectionMatchSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSqlInjectionMatchSetsRequest.filterSensitiveLog,
-      outputFilterLog: ListSqlInjectionMatchSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSqlInjectionMatchSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSqlInjectionMatchSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

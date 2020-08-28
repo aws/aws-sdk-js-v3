@@ -50,8 +50,8 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApplicationSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApplicationSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationSnapshotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

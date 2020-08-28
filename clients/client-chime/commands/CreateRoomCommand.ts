@@ -46,8 +46,8 @@ export class CreateRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRoomRequest.filterSensitiveLog,
-      outputFilterLog: CreateRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

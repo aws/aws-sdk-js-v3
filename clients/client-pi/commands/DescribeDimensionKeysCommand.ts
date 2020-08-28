@@ -46,8 +46,8 @@ export class DescribeDimensionKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDimensionKeysRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDimensionKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDimensionKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDimensionKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

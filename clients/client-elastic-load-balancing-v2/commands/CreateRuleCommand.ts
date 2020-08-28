@@ -47,8 +47,8 @@ export class CreateRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRuleInput.filterSensitiveLog,
-      outputFilterLog: CreateRuleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRuleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

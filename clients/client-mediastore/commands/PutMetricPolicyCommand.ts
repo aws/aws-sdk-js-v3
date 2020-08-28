@@ -46,8 +46,8 @@ export class PutMetricPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutMetricPolicyInput.filterSensitiveLog,
-      outputFilterLog: PutMetricPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutMetricPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutMetricPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

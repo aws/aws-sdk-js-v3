@@ -50,8 +50,8 @@ export class DescribeSchemasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSchemasMessage.filterSensitiveLog,
-      outputFilterLog: DescribeSchemasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSchemasMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSchemasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

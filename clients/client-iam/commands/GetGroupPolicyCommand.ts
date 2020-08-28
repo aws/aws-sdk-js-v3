@@ -46,8 +46,8 @@ export class GetGroupPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGroupPolicyRequest.filterSensitiveLog,
-      outputFilterLog: GetGroupPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGroupPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

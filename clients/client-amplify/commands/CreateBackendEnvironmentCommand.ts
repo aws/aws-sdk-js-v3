@@ -46,8 +46,8 @@ export class CreateBackendEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBackendEnvironmentRequest.filterSensitiveLog,
-      outputFilterLog: CreateBackendEnvironmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBackendEnvironmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBackendEnvironmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

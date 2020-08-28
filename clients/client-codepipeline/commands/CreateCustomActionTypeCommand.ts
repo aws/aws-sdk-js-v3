@@ -46,8 +46,8 @@ export class CreateCustomActionTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCustomActionTypeInput.filterSensitiveLog,
-      outputFilterLog: CreateCustomActionTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomActionTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomActionTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

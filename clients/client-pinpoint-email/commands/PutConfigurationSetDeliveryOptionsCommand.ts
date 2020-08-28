@@ -47,8 +47,8 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutConfigurationSetDeliveryOptionsRequest.filterSensitiveLog,
-      outputFilterLog: PutConfigurationSetDeliveryOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

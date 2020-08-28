@@ -48,8 +48,8 @@ export class UpdateIdentityPoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: IdentityPool.filterSensitiveLog,
-      outputFilterLog: IdentityPool.filterSensitiveLog,
+      inputFilterSensitiveLog: IdentityPool.filterSensitiveLog,
+      outputFilterSensitiveLog: IdentityPool.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

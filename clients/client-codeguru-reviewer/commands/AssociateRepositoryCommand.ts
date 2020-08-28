@@ -46,8 +46,8 @@ export class AssociateRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateRepositoryRequest.filterSensitiveLog,
-      outputFilterLog: AssociateRepositoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateRepositoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateRepositoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

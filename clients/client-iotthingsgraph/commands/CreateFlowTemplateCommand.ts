@@ -46,8 +46,8 @@ export class CreateFlowTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateFlowTemplateRequest.filterSensitiveLog,
-      outputFilterLog: CreateFlowTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFlowTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFlowTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

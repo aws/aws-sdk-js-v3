@@ -47,8 +47,8 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeWorkspacesConnectionStatusRequest.filterSensitiveLog,
-      outputFilterLog: DescribeWorkspacesConnectionStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkspacesConnectionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspacesConnectionStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

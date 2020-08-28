@@ -46,8 +46,8 @@ export class DetachVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachVolumeInput.filterSensitiveLog,
-      outputFilterLog: DetachVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachVolumeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

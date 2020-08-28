@@ -50,8 +50,8 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListElasticsearchInstanceTypesRequest.filterSensitiveLog,
-      outputFilterLog: ListElasticsearchInstanceTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListElasticsearchInstanceTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListElasticsearchInstanceTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

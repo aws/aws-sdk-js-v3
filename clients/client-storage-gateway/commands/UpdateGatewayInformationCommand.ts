@@ -46,8 +46,8 @@ export class UpdateGatewayInformationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGatewayInformationInput.filterSensitiveLog,
-      outputFilterLog: UpdateGatewayInformationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGatewayInformationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewayInformationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

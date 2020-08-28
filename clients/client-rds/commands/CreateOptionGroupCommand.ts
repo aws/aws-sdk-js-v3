@@ -46,8 +46,8 @@ export class CreateOptionGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateOptionGroupMessage.filterSensitiveLog,
-      outputFilterLog: CreateOptionGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOptionGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateOptionGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

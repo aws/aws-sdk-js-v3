@@ -48,8 +48,8 @@ export class GetReusableDelegationSetLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReusableDelegationSetLimitRequest.filterSensitiveLog,
-      outputFilterLog: GetReusableDelegationSetLimitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReusableDelegationSetLimitRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReusableDelegationSetLimitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

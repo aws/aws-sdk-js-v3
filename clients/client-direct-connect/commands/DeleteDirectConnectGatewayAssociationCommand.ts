@@ -50,8 +50,8 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDirectConnectGatewayAssociationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDirectConnectGatewayAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

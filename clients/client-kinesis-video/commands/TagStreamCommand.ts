@@ -46,8 +46,8 @@ export class TagStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TagStreamInput.filterSensitiveLog,
-      outputFilterLog: TagStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TagStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

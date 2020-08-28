@@ -47,8 +47,8 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutEmailIdentityFeedbackAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutEmailIdentityFeedbackAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateQualificationTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateQualificationTypeRequest.filterSensitiveLog,
-      outputFilterLog: CreateQualificationTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

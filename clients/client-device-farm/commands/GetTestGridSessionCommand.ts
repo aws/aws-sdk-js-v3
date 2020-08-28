@@ -46,8 +46,8 @@ export class GetTestGridSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTestGridSessionRequest.filterSensitiveLog,
-      outputFilterLog: GetTestGridSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTestGridSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTestGridSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

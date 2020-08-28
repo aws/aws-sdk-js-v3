@@ -50,8 +50,8 @@ export class GetSigningCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSigningCertificateRequest.filterSensitiveLog,
-      outputFilterLog: GetSigningCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSigningCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSigningCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

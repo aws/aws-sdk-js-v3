@@ -46,8 +46,8 @@ export class ResolveAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResolveAliasInput.filterSensitiveLog,
-      outputFilterLog: ResolveAliasOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveAliasInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ResolveAliasOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

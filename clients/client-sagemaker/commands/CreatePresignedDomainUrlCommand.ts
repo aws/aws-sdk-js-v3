@@ -46,8 +46,8 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePresignedDomainUrlRequest.filterSensitiveLog,
-      outputFilterLog: CreatePresignedDomainUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePresignedDomainUrlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresignedDomainUrlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

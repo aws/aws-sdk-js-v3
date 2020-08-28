@@ -46,8 +46,8 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAccountAuthorizationDetailsRequest.filterSensitiveLog,
-      outputFilterLog: GetAccountAuthorizationDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccountAuthorizationDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountAuthorizationDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

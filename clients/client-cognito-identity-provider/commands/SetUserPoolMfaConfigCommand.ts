@@ -50,8 +50,8 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetUserPoolMfaConfigRequest.filterSensitiveLog,
-      outputFilterLog: SetUserPoolMfaConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetUserPoolMfaConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetUserPoolMfaConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

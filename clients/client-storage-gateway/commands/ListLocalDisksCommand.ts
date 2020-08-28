@@ -46,8 +46,8 @@ export class ListLocalDisksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListLocalDisksInput.filterSensitiveLog,
-      outputFilterLog: ListLocalDisksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLocalDisksInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLocalDisksOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

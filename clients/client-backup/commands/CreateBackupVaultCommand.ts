@@ -46,8 +46,8 @@ export class CreateBackupVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBackupVaultInput.filterSensitiveLog,
-      outputFilterLog: CreateBackupVaultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBackupVaultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBackupVaultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

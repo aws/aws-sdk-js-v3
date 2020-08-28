@@ -46,8 +46,8 @@ export class ListOnPremisesInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListOnPremisesInstancesInput.filterSensitiveLog,
-      outputFilterLog: ListOnPremisesInstancesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOnPremisesInstancesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListOnPremisesInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

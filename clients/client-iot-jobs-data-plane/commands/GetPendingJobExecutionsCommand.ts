@@ -46,8 +46,8 @@ export class GetPendingJobExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPendingJobExecutionsRequest.filterSensitiveLog,
-      outputFilterLog: GetPendingJobExecutionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPendingJobExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPendingJobExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

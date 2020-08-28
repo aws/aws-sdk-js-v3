@@ -46,8 +46,8 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RejectTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
-      outputFilterLog: RejectTransitGatewayVpcAttachmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

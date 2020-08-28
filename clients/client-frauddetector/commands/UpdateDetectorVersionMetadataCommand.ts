@@ -46,8 +46,8 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDetectorVersionMetadataRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDetectorVersionMetadataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDetectorVersionMetadataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDetectorVersionMetadataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListObjectChildrenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListObjectChildrenRequest.filterSensitiveLog,
-      outputFilterLog: ListObjectChildrenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListObjectChildrenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListObjectChildrenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

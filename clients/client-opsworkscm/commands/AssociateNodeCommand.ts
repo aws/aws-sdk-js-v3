@@ -46,8 +46,8 @@ export class AssociateNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateNodeRequest.filterSensitiveLog,
-      outputFilterLog: AssociateNodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateNodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateNodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

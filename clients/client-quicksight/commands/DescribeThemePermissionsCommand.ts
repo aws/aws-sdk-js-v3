@@ -46,8 +46,8 @@ export class DescribeThemePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeThemePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeThemePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeThemePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeThemePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

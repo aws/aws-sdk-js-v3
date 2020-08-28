@@ -46,8 +46,8 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopTrainingEntityRecognizerRequest.filterSensitiveLog,
-      outputFilterLog: StopTrainingEntityRecognizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopTrainingEntityRecognizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopTrainingEntityRecognizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

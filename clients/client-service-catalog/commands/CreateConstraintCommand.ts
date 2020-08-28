@@ -46,8 +46,8 @@ export class CreateConstraintCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateConstraintInput.filterSensitiveLog,
-      outputFilterLog: CreateConstraintOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConstraintInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConstraintOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

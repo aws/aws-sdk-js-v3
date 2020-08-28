@@ -46,8 +46,8 @@ export class ListRoomMembershipsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRoomMembershipsRequest.filterSensitiveLog,
-      outputFilterLog: ListRoomMembershipsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRoomMembershipsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRoomMembershipsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

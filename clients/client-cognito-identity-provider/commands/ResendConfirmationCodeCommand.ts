@@ -50,8 +50,8 @@ export class ResendConfirmationCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResendConfirmationCodeRequest.filterSensitiveLog,
-      outputFilterLog: ResendConfirmationCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResendConfirmationCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResendConfirmationCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

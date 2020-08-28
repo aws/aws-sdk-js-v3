@@ -46,8 +46,8 @@ export class GetAutoSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAutoSnapshotsRequest.filterSensitiveLog,
-      outputFilterLog: GetAutoSnapshotsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAutoSnapshotsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAutoSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetSegmentExportJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSegmentExportJobsRequest.filterSensitiveLog,
-      outputFilterLog: GetSegmentExportJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSegmentExportJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSegmentExportJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

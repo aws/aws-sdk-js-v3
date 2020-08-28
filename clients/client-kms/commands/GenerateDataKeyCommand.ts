@@ -46,8 +46,8 @@ export class GenerateDataKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateDataKeyRequest.filterSensitiveLog,
-      outputFilterLog: GenerateDataKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateDataKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

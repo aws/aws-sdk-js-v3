@@ -48,8 +48,8 @@ export class GetObjectLegalHoldCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectLegalHoldRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectLegalHoldOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectLegalHoldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectLegalHoldOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

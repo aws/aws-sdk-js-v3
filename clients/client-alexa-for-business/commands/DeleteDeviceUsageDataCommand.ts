@@ -46,8 +46,8 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDeviceUsageDataRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDeviceUsageDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeviceUsageDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeviceUsageDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

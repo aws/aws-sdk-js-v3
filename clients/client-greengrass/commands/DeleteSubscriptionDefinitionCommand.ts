@@ -46,8 +46,8 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSubscriptionDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSubscriptionDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSubscriptionDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSubscriptionDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

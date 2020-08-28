@@ -47,8 +47,8 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePullRequestApprovalRuleContentInput.filterSensitiveLog,
-      outputFilterLog: UpdatePullRequestApprovalRuleContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class CreateTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTopicInput.filterSensitiveLog,
-      outputFilterLog: CreateTopicResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTopicInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTopicResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

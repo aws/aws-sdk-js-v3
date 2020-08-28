@@ -53,8 +53,8 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterTransitGatewayMulticastGroupSourcesRequest.filterSensitiveLog,
-      outputFilterLog: RegisterTransitGatewayMulticastGroupSourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

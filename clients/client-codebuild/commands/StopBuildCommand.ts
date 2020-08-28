@@ -43,8 +43,8 @@ export class StopBuildCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopBuildInput.filterSensitiveLog,
-      outputFilterLog: StopBuildOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBuildInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopBuildOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

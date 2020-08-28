@@ -50,8 +50,8 @@ export class AssociateSoftwareTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
-      outputFilterLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

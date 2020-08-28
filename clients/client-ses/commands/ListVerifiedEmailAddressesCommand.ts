@@ -46,8 +46,8 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: ListVerifiedEmailAddressesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: ListVerifiedEmailAddressesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

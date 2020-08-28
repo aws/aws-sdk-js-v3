@@ -46,8 +46,8 @@ export class DescribeWorkflowTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeWorkflowTypeInput.filterSensitiveLog,
-      outputFilterLog: WorkflowTypeDetail.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkflowTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowTypeDetail.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

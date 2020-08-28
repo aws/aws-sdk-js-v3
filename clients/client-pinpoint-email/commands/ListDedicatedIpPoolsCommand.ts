@@ -46,8 +46,8 @@ export class ListDedicatedIpPoolsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDedicatedIpPoolsRequest.filterSensitiveLog,
-      outputFilterLog: ListDedicatedIpPoolsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDedicatedIpPoolsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDedicatedIpPoolsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

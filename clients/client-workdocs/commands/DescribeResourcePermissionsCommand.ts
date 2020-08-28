@@ -46,8 +46,8 @@ export class DescribeResourcePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeResourcePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeResourcePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeResourcePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeResourcePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

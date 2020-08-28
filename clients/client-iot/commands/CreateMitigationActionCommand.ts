@@ -46,8 +46,8 @@ export class CreateMitigationActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateMitigationActionRequest.filterSensitiveLog,
-      outputFilterLog: CreateMitigationActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMitigationActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMitigationActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

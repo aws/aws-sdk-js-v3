@@ -46,8 +46,8 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDisassociateProjectAssetsRequest.filterSensitiveLog,
-      outputFilterLog: BatchDisassociateProjectAssetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDisassociateProjectAssetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDisassociateProjectAssetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

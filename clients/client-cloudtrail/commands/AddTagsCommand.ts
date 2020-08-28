@@ -43,8 +43,8 @@ export class AddTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddTagsRequest.filterSensitiveLog,
-      outputFilterLog: AddTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

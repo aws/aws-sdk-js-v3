@@ -46,8 +46,8 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateSkillGroupFromRoomRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateSkillGroupFromRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateSkillGroupFromRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateSkillGroupFromRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

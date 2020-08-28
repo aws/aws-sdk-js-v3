@@ -46,8 +46,8 @@ export class CreateCustomMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCustomMetadataRequest.filterSensitiveLog,
-      outputFilterLog: CreateCustomMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomMetadataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

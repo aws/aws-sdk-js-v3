@@ -46,8 +46,8 @@ export class DeleteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTableRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

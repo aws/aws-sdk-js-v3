@@ -46,8 +46,8 @@ export class GetCampaignCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCampaignRequest.filterSensitiveLog,
-      outputFilterLog: GetCampaignResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCampaignRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCampaignResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

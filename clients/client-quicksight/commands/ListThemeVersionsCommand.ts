@@ -46,8 +46,8 @@ export class ListThemeVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListThemeVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListThemeVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListThemeVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListThemeVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

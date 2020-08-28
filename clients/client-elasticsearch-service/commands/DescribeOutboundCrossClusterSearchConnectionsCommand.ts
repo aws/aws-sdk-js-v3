@@ -57,8 +57,8 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeOutboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeOutboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

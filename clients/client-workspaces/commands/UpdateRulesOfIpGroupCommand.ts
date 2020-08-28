@@ -46,8 +46,8 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRulesOfIpGroupRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRulesOfIpGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRulesOfIpGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRulesOfIpGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteWorkflowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteWorkflowRequest.filterSensitiveLog,
-      outputFilterLog: DeleteWorkflowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkflowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkflowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

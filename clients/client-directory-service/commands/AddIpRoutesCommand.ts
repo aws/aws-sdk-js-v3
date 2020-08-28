@@ -46,8 +46,8 @@ export class AddIpRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddIpRoutesRequest.filterSensitiveLog,
-      outputFilterLog: AddIpRoutesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AddIpRoutesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddIpRoutesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

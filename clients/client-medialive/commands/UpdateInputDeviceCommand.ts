@@ -46,8 +46,8 @@ export class UpdateInputDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateInputDeviceRequest.filterSensitiveLog,
-      outputFilterLog: UpdateInputDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateInputDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateInputDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

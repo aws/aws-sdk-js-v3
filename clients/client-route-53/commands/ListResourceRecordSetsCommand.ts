@@ -48,8 +48,8 @@ export class ListResourceRecordSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListResourceRecordSetsRequest.filterSensitiveLog,
-      outputFilterLog: ListResourceRecordSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceRecordSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceRecordSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

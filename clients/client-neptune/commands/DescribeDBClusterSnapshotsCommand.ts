@@ -46,8 +46,8 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDBClusterSnapshotsMessage.filterSensitiveLog,
-      outputFilterLog: DBClusterSnapshotMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBClusterSnapshotsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterSnapshotMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

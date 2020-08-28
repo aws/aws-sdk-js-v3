@@ -46,8 +46,8 @@ export class DetachDiskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachDiskRequest.filterSensitiveLog,
-      outputFilterLog: DetachDiskResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachDiskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachDiskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

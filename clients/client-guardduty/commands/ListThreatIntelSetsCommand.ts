@@ -46,8 +46,8 @@ export class ListThreatIntelSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListThreatIntelSetsRequest.filterSensitiveLog,
-      outputFilterLog: ListThreatIntelSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListThreatIntelSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListThreatIntelSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

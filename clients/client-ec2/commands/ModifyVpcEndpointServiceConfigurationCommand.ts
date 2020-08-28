@@ -50,8 +50,8 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyVpcEndpointServiceConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: ModifyVpcEndpointServiceConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyVpcEndpointServiceConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyVpcEndpointServiceConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

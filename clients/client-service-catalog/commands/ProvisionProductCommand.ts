@@ -46,8 +46,8 @@ export class ProvisionProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ProvisionProductInput.filterSensitiveLog,
-      outputFilterLog: ProvisionProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ProvisionProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ProvisionProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

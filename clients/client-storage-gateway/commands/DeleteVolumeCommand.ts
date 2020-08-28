@@ -46,8 +46,8 @@ export class DeleteVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVolumeInput.filterSensitiveLog,
-      outputFilterLog: DeleteVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVolumeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

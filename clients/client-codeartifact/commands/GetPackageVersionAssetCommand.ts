@@ -46,8 +46,8 @@ export class GetPackageVersionAssetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPackageVersionAssetRequest.filterSensitiveLog,
-      outputFilterLog: GetPackageVersionAssetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPackageVersionAssetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPackageVersionAssetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

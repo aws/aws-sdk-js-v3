@@ -46,8 +46,8 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListWorkersWithQualificationTypeRequest.filterSensitiveLog,
-      outputFilterLog: ListWorkersWithQualificationTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListWorkersWithQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWorkersWithQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

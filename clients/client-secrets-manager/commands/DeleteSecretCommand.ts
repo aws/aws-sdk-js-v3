@@ -46,8 +46,8 @@ export class DeleteSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSecretRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

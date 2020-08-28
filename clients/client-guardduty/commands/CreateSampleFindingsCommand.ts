@@ -46,8 +46,8 @@ export class CreateSampleFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSampleFindingsRequest.filterSensitiveLog,
-      outputFilterLog: CreateSampleFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSampleFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSampleFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

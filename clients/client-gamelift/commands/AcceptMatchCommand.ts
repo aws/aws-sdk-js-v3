@@ -46,8 +46,8 @@ export class AcceptMatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcceptMatchInput.filterSensitiveLog,
-      outputFilterLog: AcceptMatchOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptMatchInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptMatchOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

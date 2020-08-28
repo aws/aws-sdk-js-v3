@@ -46,8 +46,8 @@ export class GetActiveNamesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetActiveNamesRequest.filterSensitiveLog,
-      outputFilterLog: GetActiveNamesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetActiveNamesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetActiveNamesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

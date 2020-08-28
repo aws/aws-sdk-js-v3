@@ -46,8 +46,8 @@ export class UpdateHITReviewStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateHITReviewStatusRequest.filterSensitiveLog,
-      outputFilterLog: UpdateHITReviewStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateHITReviewStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHITReviewStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

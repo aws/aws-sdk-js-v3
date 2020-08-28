@@ -50,8 +50,8 @@ export class DissociatePackageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DissociatePackageRequest.filterSensitiveLog,
-      outputFilterLog: DissociatePackageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DissociatePackageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DissociatePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

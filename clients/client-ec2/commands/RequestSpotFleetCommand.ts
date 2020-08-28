@@ -46,8 +46,8 @@ export class RequestSpotFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RequestSpotFleetRequest.filterSensitiveLog,
-      outputFilterLog: RequestSpotFleetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RequestSpotFleetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestSpotFleetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

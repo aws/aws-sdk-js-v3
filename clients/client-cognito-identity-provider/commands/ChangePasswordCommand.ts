@@ -50,8 +50,8 @@ export class ChangePasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ChangePasswordRequest.filterSensitiveLog,
-      outputFilterLog: ChangePasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ChangePasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ChangePasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

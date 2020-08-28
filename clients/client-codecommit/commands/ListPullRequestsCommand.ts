@@ -46,8 +46,8 @@ export class ListPullRequestsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPullRequestsInput.filterSensitiveLog,
-      outputFilterLog: ListPullRequestsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPullRequestsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPullRequestsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

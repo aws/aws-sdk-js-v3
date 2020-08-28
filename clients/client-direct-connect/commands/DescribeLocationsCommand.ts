@@ -46,8 +46,8 @@ export class DescribeLocationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: Locations.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: Locations.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetAssetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAssetRequest.filterSensitiveLog,
-      outputFilterLog: GetAssetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAssetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachLoadBalancerTargetGroupsType.filterSensitiveLog,
-      outputFilterLog: DetachLoadBalancerTargetGroupsResultType.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachLoadBalancerTargetGroupsType.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachLoadBalancerTargetGroupsResultType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

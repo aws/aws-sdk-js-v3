@@ -46,8 +46,8 @@ export class GetDiscoveredSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDiscoveredSchemaRequest.filterSensitiveLog,
-      outputFilterLog: GetDiscoveredSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDiscoveredSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDiscoveredSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

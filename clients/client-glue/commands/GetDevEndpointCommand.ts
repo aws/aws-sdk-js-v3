@@ -46,8 +46,8 @@ export class GetDevEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDevEndpointRequest.filterSensitiveLog,
-      outputFilterLog: GetDevEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDevEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDevEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

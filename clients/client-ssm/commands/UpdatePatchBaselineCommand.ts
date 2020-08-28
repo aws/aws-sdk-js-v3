@@ -46,8 +46,8 @@ export class UpdatePatchBaselineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePatchBaselineRequest.filterSensitiveLog,
-      outputFilterLog: UpdatePatchBaselineResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePatchBaselineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

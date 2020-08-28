@@ -46,8 +46,8 @@ export class ListPhoneNumberOrdersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPhoneNumberOrdersRequest.filterSensitiveLog,
-      outputFilterLog: ListPhoneNumberOrdersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPhoneNumberOrdersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPhoneNumberOrdersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

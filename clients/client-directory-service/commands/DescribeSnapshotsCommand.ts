@@ -46,8 +46,8 @@ export class DescribeSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSnapshotsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeSnapshotsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSnapshotsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

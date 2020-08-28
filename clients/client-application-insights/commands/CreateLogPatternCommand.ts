@@ -50,8 +50,8 @@ export class CreateLogPatternCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLogPatternRequest.filterSensitiveLog,
-      outputFilterLog: CreateLogPatternResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLogPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLogPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

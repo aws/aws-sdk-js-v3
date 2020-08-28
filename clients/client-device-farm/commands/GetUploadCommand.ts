@@ -43,8 +43,8 @@ export class GetUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUploadRequest.filterSensitiveLog,
-      outputFilterLog: GetUploadResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUploadRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUploadResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

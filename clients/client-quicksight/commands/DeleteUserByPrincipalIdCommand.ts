@@ -46,8 +46,8 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteUserByPrincipalIdRequest.filterSensitiveLog,
-      outputFilterLog: DeleteUserByPrincipalIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserByPrincipalIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserByPrincipalIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

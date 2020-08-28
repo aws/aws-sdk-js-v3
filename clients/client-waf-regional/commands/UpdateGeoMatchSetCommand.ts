@@ -46,8 +46,8 @@ export class UpdateGeoMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGeoMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: UpdateGeoMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

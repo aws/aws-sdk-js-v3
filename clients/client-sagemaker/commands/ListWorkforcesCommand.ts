@@ -46,8 +46,8 @@ export class ListWorkforcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListWorkforcesRequest.filterSensitiveLog,
-      outputFilterLog: ListWorkforcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListWorkforcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWorkforcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

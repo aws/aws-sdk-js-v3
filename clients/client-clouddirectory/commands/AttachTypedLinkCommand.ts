@@ -46,8 +46,8 @@ export class AttachTypedLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachTypedLinkRequest.filterSensitiveLog,
-      outputFilterLog: AttachTypedLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachTypedLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachTypedLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

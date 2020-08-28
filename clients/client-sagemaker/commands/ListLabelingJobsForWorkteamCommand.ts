@@ -46,8 +46,8 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListLabelingJobsForWorkteamRequest.filterSensitiveLog,
-      outputFilterLog: ListLabelingJobsForWorkteamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLabelingJobsForWorkteamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLabelingJobsForWorkteamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

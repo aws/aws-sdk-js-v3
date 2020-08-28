@@ -46,8 +46,8 @@ export class CreateTapesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTapesInput.filterSensitiveLog,
-      outputFilterLog: CreateTapesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTapesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTapesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

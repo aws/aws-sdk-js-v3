@@ -46,8 +46,8 @@ export class CreateSubscriberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSubscriberRequest.filterSensitiveLog,
-      outputFilterLog: CreateSubscriberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSubscriberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSubscriberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

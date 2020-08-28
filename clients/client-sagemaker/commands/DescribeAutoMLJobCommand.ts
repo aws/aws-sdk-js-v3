@@ -46,8 +46,8 @@ export class DescribeAutoMLJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAutoMLJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAutoMLJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAutoMLJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAutoMLJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateColumnStatisticsForTableRequest.filterSensitiveLog,
-      outputFilterLog: UpdateColumnStatisticsForTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

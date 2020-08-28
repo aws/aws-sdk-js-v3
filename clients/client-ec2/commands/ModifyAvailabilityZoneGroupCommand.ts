@@ -46,8 +46,8 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyAvailabilityZoneGroupRequest.filterSensitiveLog,
-      outputFilterLog: ModifyAvailabilityZoneGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyAvailabilityZoneGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyAvailabilityZoneGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

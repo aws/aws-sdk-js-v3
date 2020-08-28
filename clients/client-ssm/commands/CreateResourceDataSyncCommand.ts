@@ -46,8 +46,8 @@ export class CreateResourceDataSyncCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateResourceDataSyncRequest.filterSensitiveLog,
-      outputFilterLog: CreateResourceDataSyncResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

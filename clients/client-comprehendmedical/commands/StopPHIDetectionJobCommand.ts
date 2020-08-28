@@ -50,8 +50,8 @@ export class StopPHIDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopPHIDetectionJobRequest.filterSensitiveLog,
-      outputFilterLog: StopPHIDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopPHIDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopPHIDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -57,8 +57,8 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartElasticsearchServiceSoftwareUpdateRequest.filterSensitiveLog,
-      outputFilterLog: StartElasticsearchServiceSoftwareUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateReservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateReservationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateReservationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateReservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

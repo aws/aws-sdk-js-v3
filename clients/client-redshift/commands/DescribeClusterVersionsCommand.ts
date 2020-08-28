@@ -46,8 +46,8 @@ export class DescribeClusterVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeClusterVersionsMessage.filterSensitiveLog,
-      outputFilterLog: ClusterVersionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterVersionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterVersionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

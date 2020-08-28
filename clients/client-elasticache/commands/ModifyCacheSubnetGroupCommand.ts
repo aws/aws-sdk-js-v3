@@ -46,8 +46,8 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyCacheSubnetGroupMessage.filterSensitiveLog,
-      outputFilterLog: ModifyCacheSubnetGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyCacheSubnetGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyCacheSubnetGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

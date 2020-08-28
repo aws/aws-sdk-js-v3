@@ -46,8 +46,8 @@ export class AssociateEntityToThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateEntityToThingRequest.filterSensitiveLog,
-      outputFilterLog: AssociateEntityToThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateEntityToThingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateEntityToThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

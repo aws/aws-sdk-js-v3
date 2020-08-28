@@ -46,8 +46,8 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRepositoryPermissionsPolicyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRepositoryPermissionsPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRepositoryPermissionsPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRepositoryPermissionsPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

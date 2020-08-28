@@ -46,8 +46,8 @@ export class PutApprovalResultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutApprovalResultInput.filterSensitiveLog,
-      outputFilterLog: PutApprovalResultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutApprovalResultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutApprovalResultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

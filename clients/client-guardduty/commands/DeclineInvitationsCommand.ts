@@ -46,8 +46,8 @@ export class DeclineInvitationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeclineInvitationsRequest.filterSensitiveLog,
-      outputFilterLog: DeclineInvitationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeclineInvitationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeclineInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

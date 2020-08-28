@@ -46,8 +46,8 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartAvailabilityMonitorTestInput.filterSensitiveLog,
-      outputFilterLog: StartAvailabilityMonitorTestOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartAvailabilityMonitorTestInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartAvailabilityMonitorTestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

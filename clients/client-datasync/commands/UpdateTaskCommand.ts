@@ -46,8 +46,8 @@ export class UpdateTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTaskRequest.filterSensitiveLog,
-      outputFilterLog: UpdateTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

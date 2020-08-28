@@ -46,8 +46,8 @@ export class GetEmailIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEmailIdentityRequest.filterSensitiveLog,
-      outputFilterLog: GetEmailIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEmailIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEmailIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

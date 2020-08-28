@@ -46,8 +46,8 @@ export class GetJourneyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetJourneyRequest.filterSensitiveLog,
-      outputFilterLog: GetJourneyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJourneyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetJourneyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

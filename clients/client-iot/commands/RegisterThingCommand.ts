@@ -46,8 +46,8 @@ export class RegisterThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterThingRequest.filterSensitiveLog,
-      outputFilterLog: RegisterThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterThingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

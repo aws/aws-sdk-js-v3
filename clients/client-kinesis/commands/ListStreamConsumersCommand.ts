@@ -46,8 +46,8 @@ export class ListStreamConsumersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListStreamConsumersInput.filterSensitiveLog,
-      outputFilterLog: ListStreamConsumersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStreamConsumersInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListStreamConsumersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

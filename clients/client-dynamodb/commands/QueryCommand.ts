@@ -39,8 +39,8 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: QueryInput.filterSensitiveLog,
-      outputFilterLog: QueryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: QueryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

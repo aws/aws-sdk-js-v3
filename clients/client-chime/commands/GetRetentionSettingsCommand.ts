@@ -46,8 +46,8 @@ export class GetRetentionSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRetentionSettingsRequest.filterSensitiveLog,
-      outputFilterLog: GetRetentionSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRetentionSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRetentionSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

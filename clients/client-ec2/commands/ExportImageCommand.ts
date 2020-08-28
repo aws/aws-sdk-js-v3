@@ -43,8 +43,8 @@ export class ExportImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExportImageRequest.filterSensitiveLog,
-      outputFilterLog: ExportImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeletePortfolioShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePortfolioShareInput.filterSensitiveLog,
-      outputFilterLog: DeletePortfolioShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePortfolioShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePortfolioShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

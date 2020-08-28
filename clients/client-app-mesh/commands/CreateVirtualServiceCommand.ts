@@ -46,8 +46,8 @@ export class CreateVirtualServiceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVirtualServiceInput.filterSensitiveLog,
-      outputFilterLog: CreateVirtualServiceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVirtualServiceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

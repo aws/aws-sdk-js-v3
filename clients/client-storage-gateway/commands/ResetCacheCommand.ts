@@ -46,8 +46,8 @@ export class ResetCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResetCacheInput.filterSensitiveLog,
-      outputFilterLog: ResetCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetCacheInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

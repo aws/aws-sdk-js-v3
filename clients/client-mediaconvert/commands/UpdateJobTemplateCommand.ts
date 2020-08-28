@@ -46,8 +46,8 @@ export class UpdateJobTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateJobTemplateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateJobTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateJobTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJobTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

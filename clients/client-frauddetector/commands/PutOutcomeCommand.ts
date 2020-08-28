@@ -46,8 +46,8 @@ export class PutOutcomeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutOutcomeRequest.filterSensitiveLog,
-      outputFilterLog: PutOutcomeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutOutcomeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutOutcomeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

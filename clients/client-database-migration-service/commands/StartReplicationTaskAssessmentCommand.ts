@@ -50,8 +50,8 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartReplicationTaskAssessmentMessage.filterSensitiveLog,
-      outputFilterLog: StartReplicationTaskAssessmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartReplicationTaskAssessmentMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StartReplicationTaskAssessmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateSamplingRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSamplingRuleRequest.filterSensitiveLog,
-      outputFilterLog: CreateSamplingRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSamplingRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSamplingRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

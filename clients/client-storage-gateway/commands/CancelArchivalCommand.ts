@@ -46,8 +46,8 @@ export class CancelArchivalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelArchivalInput.filterSensitiveLog,
-      outputFilterLog: CancelArchivalOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelArchivalInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelArchivalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

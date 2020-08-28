@@ -46,8 +46,8 @@ export class ClaimGameServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ClaimGameServerInput.filterSensitiveLog,
-      outputFilterLog: ClaimGameServerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ClaimGameServerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ClaimGameServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

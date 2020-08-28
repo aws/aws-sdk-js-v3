@@ -43,8 +43,8 @@ export class SendBonusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendBonusRequest.filterSensitiveLog,
-      outputFilterLog: SendBonusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendBonusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendBonusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

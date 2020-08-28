@@ -46,8 +46,8 @@ export class SearchProvisionedProductsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchProvisionedProductsInput.filterSensitiveLog,
-      outputFilterLog: SearchProvisionedProductsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchProvisionedProductsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchProvisionedProductsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

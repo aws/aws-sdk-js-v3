@@ -46,8 +46,8 @@ export class NotifyWhenUploadedCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: NotifyWhenUploadedInput.filterSensitiveLog,
-      outputFilterLog: NotifyWhenUploadedOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyWhenUploadedInput.filterSensitiveLog,
+      outputFilterSensitiveLog: NotifyWhenUploadedOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

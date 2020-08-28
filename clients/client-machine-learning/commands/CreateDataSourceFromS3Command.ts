@@ -46,8 +46,8 @@ export class CreateDataSourceFromS3Command extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDataSourceFromS3Input.filterSensitiveLog,
-      outputFilterLog: CreateDataSourceFromS3Output.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDataSourceFromS3Input.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataSourceFromS3Output.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

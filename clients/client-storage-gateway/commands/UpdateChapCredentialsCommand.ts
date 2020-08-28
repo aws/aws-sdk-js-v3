@@ -46,8 +46,8 @@ export class UpdateChapCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateChapCredentialsInput.filterSensitiveLog,
-      outputFilterLog: UpdateChapCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateChapCredentialsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateChapCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DetachPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachPolicyRequest.filterSensitiveLog,
-      outputFilterLog: DetachPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

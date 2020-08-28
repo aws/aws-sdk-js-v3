@@ -46,8 +46,8 @@ export class DescribeNetworkAclsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeNetworkAclsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeNetworkAclsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNetworkAclsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNetworkAclsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

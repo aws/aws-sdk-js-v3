@@ -42,8 +42,8 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUserRequest.filterSensitiveLog,
-      outputFilterLog: GetUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

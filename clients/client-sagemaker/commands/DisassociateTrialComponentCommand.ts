@@ -46,8 +46,8 @@ export class DisassociateTrialComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateTrialComponentRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateTrialComponentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

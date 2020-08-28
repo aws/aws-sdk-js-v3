@@ -46,8 +46,8 @@ export class DisassociateFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateFleetRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateFleetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

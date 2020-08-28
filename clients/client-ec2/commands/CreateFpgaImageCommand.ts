@@ -43,8 +43,8 @@ export class CreateFpgaImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateFpgaImageRequest.filterSensitiveLog,
-      outputFilterLog: CreateFpgaImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFpgaImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFpgaImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

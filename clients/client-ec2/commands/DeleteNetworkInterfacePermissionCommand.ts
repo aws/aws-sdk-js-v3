@@ -46,8 +46,8 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteNetworkInterfacePermissionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteNetworkInterfacePermissionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNetworkInterfacePermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNetworkInterfacePermissionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

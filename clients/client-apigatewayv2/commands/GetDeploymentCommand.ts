@@ -46,8 +46,8 @@ export class GetDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDeploymentRequest.filterSensitiveLog,
-      outputFilterLog: GetDeploymentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeploymentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDeploymentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

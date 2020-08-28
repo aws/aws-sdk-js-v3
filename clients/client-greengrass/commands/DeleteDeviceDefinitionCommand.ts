@@ -46,8 +46,8 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDeviceDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDeviceDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeviceDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeviceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

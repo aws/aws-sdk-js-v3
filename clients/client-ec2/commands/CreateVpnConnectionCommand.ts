@@ -46,8 +46,8 @@ export class CreateVpnConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVpnConnectionRequest.filterSensitiveLog,
-      outputFilterLog: CreateVpnConnectionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVpnConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVpnConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

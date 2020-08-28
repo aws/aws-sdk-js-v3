@@ -46,8 +46,8 @@ export class GetMetricPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMetricPolicyInput.filterSensitiveLog,
-      outputFilterLog: GetMetricPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMetricPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

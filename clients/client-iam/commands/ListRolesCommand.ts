@@ -39,8 +39,8 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRolesRequest.filterSensitiveLog,
-      outputFilterLog: ListRolesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRolesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRolesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class AssignIpv6AddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssignIpv6AddressesRequest.filterSensitiveLog,
-      outputFilterLog: AssignIpv6AddressesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssignIpv6AddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssignIpv6AddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

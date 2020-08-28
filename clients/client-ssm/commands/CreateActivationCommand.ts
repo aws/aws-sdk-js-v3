@@ -46,8 +46,8 @@ export class CreateActivationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateActivationRequest.filterSensitiveLog,
-      outputFilterLog: CreateActivationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateActivationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateActivationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

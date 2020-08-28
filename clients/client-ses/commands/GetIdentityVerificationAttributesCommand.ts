@@ -47,8 +47,8 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIdentityVerificationAttributesRequest.filterSensitiveLog,
-      outputFilterLog: GetIdentityVerificationAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdentityVerificationAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityVerificationAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

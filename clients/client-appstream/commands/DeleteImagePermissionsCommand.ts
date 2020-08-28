@@ -46,8 +46,8 @@ export class DeleteImagePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteImagePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: DeleteImagePermissionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteImagePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteImagePermissionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

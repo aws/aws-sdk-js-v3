@@ -50,8 +50,8 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTargetGroupAttributesInput.filterSensitiveLog,
-      outputFilterLog: DescribeTargetGroupAttributesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTargetGroupAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTargetGroupAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

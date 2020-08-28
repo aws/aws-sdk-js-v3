@@ -46,8 +46,8 @@ export class CreateSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSchemaRequest.filterSensitiveLog,
-      outputFilterLog: CreateSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

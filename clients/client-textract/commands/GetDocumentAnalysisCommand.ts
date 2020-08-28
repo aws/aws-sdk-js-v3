@@ -46,8 +46,8 @@ export class GetDocumentAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDocumentAnalysisRequest.filterSensitiveLog,
-      outputFilterLog: GetDocumentAnalysisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDocumentAnalysisRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDocumentAnalysisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

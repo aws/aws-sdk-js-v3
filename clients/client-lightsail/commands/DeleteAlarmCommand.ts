@@ -46,8 +46,8 @@ export class DeleteAlarmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAlarmRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAlarmResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAlarmRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAlarmResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateWorkspacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateWorkspacesRequest.filterSensitiveLog,
-      outputFilterLog: CreateWorkspacesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWorkspacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWorkspacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutAnomalyDetectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAnomalyDetectorInput.filterSensitiveLog,
-      outputFilterLog: PutAnomalyDetectorOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAnomalyDetectorInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAnomalyDetectorOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

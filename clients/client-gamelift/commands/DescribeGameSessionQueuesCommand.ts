@@ -46,8 +46,8 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeGameSessionQueuesInput.filterSensitiveLog,
-      outputFilterLog: DescribeGameSessionQueuesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGameSessionQueuesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGameSessionQueuesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

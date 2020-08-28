@@ -46,8 +46,8 @@ export class DeregisterEventTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterEventTopicRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterEventTopicResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterEventTopicRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterEventTopicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

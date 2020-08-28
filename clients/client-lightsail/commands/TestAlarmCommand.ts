@@ -43,8 +43,8 @@ export class TestAlarmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestAlarmRequest.filterSensitiveLog,
-      outputFilterLog: TestAlarmResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TestAlarmRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestAlarmResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

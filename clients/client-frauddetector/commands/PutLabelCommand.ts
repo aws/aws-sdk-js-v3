@@ -43,8 +43,8 @@ export class PutLabelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutLabelRequest.filterSensitiveLog,
-      outputFilterLog: PutLabelResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutLabelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutLabelResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

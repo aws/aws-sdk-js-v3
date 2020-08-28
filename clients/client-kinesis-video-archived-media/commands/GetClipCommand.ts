@@ -50,8 +50,8 @@ export class GetClipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetClipInput.filterSensitiveLog,
-      outputFilterLog: GetClipOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClipInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetClipOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class BatchGetPartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchGetPartitionRequest.filterSensitiveLog,
-      outputFilterLog: BatchGetPartitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetPartitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetPartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class DeregisterScalableTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterScalableTargetRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterScalableTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterScalableTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterScalableTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

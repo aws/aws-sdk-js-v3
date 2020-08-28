@@ -46,8 +46,8 @@ export class ListMeetingTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListMeetingTagsRequest.filterSensitiveLog,
-      outputFilterLog: ListMeetingTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMeetingTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMeetingTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

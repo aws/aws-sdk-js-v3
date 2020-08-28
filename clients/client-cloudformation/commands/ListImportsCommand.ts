@@ -43,8 +43,8 @@ export class ListImportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListImportsInput.filterSensitiveLog,
-      outputFilterLog: ListImportsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListImportsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListImportsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

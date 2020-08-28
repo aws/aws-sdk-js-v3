@@ -46,8 +46,8 @@ export class ListAssociationVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAssociationVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListAssociationVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssociationVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociationVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

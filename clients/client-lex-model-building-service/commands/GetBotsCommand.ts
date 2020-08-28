@@ -50,8 +50,8 @@ export class GetBotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBotsRequest.filterSensitiveLog,
-      outputFilterLog: GetBotsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBotsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBotsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

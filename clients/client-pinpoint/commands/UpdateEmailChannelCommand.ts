@@ -46,8 +46,8 @@ export class UpdateEmailChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateEmailChannelRequest.filterSensitiveLog,
-      outputFilterLog: UpdateEmailChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEmailChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEmailChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

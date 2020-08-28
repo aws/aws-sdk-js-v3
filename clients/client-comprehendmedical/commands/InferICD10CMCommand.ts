@@ -50,8 +50,8 @@ export class InferICD10CMCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InferICD10CMRequest.filterSensitiveLog,
-      outputFilterLog: InferICD10CMResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InferICD10CMRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InferICD10CMResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

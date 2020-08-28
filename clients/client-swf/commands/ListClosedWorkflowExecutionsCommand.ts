@@ -46,8 +46,8 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListClosedWorkflowExecutionsInput.filterSensitiveLog,
-      outputFilterLog: WorkflowExecutionInfos.filterSensitiveLog,
+      inputFilterSensitiveLog: ListClosedWorkflowExecutionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowExecutionInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

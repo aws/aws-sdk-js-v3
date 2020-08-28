@@ -46,8 +46,8 @@ export class DeleteGeoMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteGeoMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteGeoMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

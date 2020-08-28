@@ -50,8 +50,8 @@ export class ListInvitationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListInvitationsInput.filterSensitiveLog,
-      outputFilterLog: ListInvitationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInvitationsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInvitationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

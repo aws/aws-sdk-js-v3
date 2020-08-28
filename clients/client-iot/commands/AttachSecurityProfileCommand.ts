@@ -46,8 +46,8 @@ export class AttachSecurityProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachSecurityProfileRequest.filterSensitiveLog,
-      outputFilterLog: AttachSecurityProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachSecurityProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetClusterCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetClusterCredentialsMessage.filterSensitiveLog,
-      outputFilterLog: ClusterCredentials.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClusterCredentialsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterCredentials.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

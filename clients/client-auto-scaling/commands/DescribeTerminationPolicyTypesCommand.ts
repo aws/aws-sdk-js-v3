@@ -46,8 +46,8 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: DescribeTerminationPolicyTypesAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: DescribeTerminationPolicyTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

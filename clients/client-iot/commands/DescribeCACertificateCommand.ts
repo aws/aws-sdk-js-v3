@@ -46,8 +46,8 @@ export class DescribeCACertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCACertificateRequest.filterSensitiveLog,
-      outputFilterLog: DescribeCACertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCACertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCACertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

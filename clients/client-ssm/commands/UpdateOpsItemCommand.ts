@@ -46,8 +46,8 @@ export class UpdateOpsItemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateOpsItemRequest.filterSensitiveLog,
-      outputFilterLog: UpdateOpsItemResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOpsItemRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOpsItemResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

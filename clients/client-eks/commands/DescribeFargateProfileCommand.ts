@@ -46,8 +46,8 @@ export class DescribeFargateProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeFargateProfileRequest.filterSensitiveLog,
-      outputFilterLog: DescribeFargateProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFargateProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFargateProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

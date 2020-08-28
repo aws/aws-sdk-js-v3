@@ -46,8 +46,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
-      outputFilterLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

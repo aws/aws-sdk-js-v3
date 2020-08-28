@@ -46,8 +46,8 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PurchaseReservedNodeOfferingMessage.filterSensitiveLog,
-      outputFilterLog: PurchaseReservedNodeOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedNodeOfferingMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedNodeOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

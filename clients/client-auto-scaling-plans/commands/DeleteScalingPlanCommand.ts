@@ -46,8 +46,8 @@ export class DeleteScalingPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteScalingPlanRequest.filterSensitiveLog,
-      outputFilterLog: DeleteScalingPlanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScalingPlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteScalingPlanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListResolverRuleAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: ListResolverRuleAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResolverRuleAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResolverRuleAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

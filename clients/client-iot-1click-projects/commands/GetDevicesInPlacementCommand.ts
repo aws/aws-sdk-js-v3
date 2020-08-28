@@ -50,8 +50,8 @@ export class GetDevicesInPlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDevicesInPlacementRequest.filterSensitiveLog,
-      outputFilterLog: GetDevicesInPlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDevicesInPlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDevicesInPlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

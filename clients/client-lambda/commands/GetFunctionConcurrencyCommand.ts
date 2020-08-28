@@ -46,8 +46,8 @@ export class GetFunctionConcurrencyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFunctionConcurrencyRequest.filterSensitiveLog,
-      outputFilterLog: GetFunctionConcurrencyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFunctionConcurrencyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFunctionConcurrencyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

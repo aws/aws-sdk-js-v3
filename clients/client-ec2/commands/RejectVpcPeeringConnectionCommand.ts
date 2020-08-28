@@ -46,8 +46,8 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RejectVpcPeeringConnectionRequest.filterSensitiveLog,
-      outputFilterLog: RejectVpcPeeringConnectionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectVpcPeeringConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectVpcPeeringConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

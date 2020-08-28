@@ -46,8 +46,8 @@ export class PutSuppressedDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSuppressedDestinationRequest.filterSensitiveLog,
-      outputFilterLog: PutSuppressedDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSuppressedDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSuppressedDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

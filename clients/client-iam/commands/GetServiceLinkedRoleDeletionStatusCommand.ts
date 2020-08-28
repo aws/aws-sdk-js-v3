@@ -47,8 +47,8 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetServiceLinkedRoleDeletionStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetServiceLinkedRoleDeletionStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceLinkedRoleDeletionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceLinkedRoleDeletionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

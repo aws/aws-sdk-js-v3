@@ -46,8 +46,8 @@ export class DeleteNodegroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteNodegroupRequest.filterSensitiveLog,
-      outputFilterLog: DeleteNodegroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNodegroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNodegroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

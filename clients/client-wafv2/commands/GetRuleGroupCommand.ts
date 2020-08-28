@@ -46,8 +46,8 @@ export class GetRuleGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRuleGroupRequest.filterSensitiveLog,
-      outputFilterLog: GetRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRuleGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

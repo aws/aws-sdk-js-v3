@@ -46,8 +46,8 @@ export class DeregisterResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterResourceRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class SendTestEventNotificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendTestEventNotificationRequest.filterSensitiveLog,
-      outputFilterLog: SendTestEventNotificationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendTestEventNotificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendTestEventNotificationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

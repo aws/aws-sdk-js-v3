@@ -46,8 +46,8 @@ export class DeleteProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteProductInput.filterSensitiveLog,
-      outputFilterLog: DeleteProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

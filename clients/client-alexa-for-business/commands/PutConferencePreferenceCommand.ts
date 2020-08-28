@@ -46,8 +46,8 @@ export class PutConferencePreferenceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutConferencePreferenceRequest.filterSensitiveLog,
-      outputFilterLog: PutConferencePreferenceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConferencePreferenceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConferencePreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

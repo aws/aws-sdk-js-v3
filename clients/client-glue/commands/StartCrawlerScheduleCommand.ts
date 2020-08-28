@@ -46,8 +46,8 @@ export class StartCrawlerScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartCrawlerScheduleRequest.filterSensitiveLog,
-      outputFilterLog: StartCrawlerScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartCrawlerScheduleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartCrawlerScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

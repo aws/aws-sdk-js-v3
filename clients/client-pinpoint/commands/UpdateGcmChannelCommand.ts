@@ -46,8 +46,8 @@ export class UpdateGcmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGcmChannelRequest.filterSensitiveLog,
-      outputFilterLog: UpdateGcmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGcmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGcmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

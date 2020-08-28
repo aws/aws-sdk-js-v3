@@ -46,8 +46,8 @@ export class UpdateNodegroupVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateNodegroupVersionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateNodegroupVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNodegroupVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNodegroupVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

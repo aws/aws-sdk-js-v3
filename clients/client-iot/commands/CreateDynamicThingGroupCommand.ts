@@ -46,8 +46,8 @@ export class CreateDynamicThingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDynamicThingGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateDynamicThingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDynamicThingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDynamicThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

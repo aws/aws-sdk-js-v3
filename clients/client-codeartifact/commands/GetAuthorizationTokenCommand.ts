@@ -46,8 +46,8 @@ export class GetAuthorizationTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAuthorizationTokenRequest.filterSensitiveLog,
-      outputFilterLog: GetAuthorizationTokenResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAuthorizationTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAuthorizationTokenResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

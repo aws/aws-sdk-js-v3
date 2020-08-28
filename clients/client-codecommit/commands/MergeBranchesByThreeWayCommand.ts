@@ -46,8 +46,8 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MergeBranchesByThreeWayInput.filterSensitiveLog,
-      outputFilterLog: MergeBranchesByThreeWayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergeBranchesByThreeWayInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergeBranchesByThreeWayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

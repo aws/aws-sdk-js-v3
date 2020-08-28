@@ -43,8 +43,8 @@ export class XmlBlobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: XmlBlobsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: XmlBlobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

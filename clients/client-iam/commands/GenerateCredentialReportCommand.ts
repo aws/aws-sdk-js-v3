@@ -46,8 +46,8 @@ export class GenerateCredentialReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: GenerateCredentialReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GenerateCredentialReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

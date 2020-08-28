@@ -48,8 +48,8 @@ export class GetBucketVersioningCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketVersioningRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketVersioningOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketVersioningRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketVersioningOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

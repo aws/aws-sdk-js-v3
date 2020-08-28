@@ -50,8 +50,8 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExportAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
-      outputFilterLog: ExportAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

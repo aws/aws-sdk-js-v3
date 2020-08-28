@@ -46,8 +46,8 @@ export class GetFindingStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFindingStatisticsRequest.filterSensitiveLog,
-      outputFilterLog: GetFindingStatisticsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFindingStatisticsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFindingStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

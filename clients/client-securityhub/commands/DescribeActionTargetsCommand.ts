@@ -46,8 +46,8 @@ export class DescribeActionTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeActionTargetsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeActionTargetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeActionTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeActionTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

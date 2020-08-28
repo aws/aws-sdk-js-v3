@@ -46,8 +46,8 @@ export class CreateGameSessionQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateGameSessionQueueInput.filterSensitiveLog,
-      outputFilterLog: CreateGameSessionQueueOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGameSessionQueueInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGameSessionQueueOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

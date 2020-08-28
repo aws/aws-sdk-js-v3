@@ -46,8 +46,8 @@ export class DeleteRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRoomRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

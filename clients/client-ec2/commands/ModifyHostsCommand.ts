@@ -43,8 +43,8 @@ export class ModifyHostsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyHostsRequest.filterSensitiveLog,
-      outputFilterLog: ModifyHostsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyHostsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyHostsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

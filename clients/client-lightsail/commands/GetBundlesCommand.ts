@@ -46,8 +46,8 @@ export class GetBundlesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBundlesRequest.filterSensitiveLog,
-      outputFilterLog: GetBundlesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBundlesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBundlesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

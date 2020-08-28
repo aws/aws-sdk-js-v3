@@ -46,8 +46,8 @@ export class AssociateCreatedArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateCreatedArtifactRequest.filterSensitiveLog,
-      outputFilterLog: AssociateCreatedArtifactResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateCreatedArtifactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateCreatedArtifactResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

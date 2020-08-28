@@ -46,8 +46,8 @@ export class GetPartitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPartitionsRequest.filterSensitiveLog,
-      outputFilterLog: GetPartitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPartitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPartitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

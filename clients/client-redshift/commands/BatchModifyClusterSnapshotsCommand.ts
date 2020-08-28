@@ -46,8 +46,8 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchModifyClusterSnapshotsMessage.filterSensitiveLog,
-      outputFilterLog: BatchModifyClusterSnapshotsOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchModifyClusterSnapshotsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchModifyClusterSnapshotsOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMaintenanceStartTimeInput.filterSensitiveLog,
-      outputFilterLog: UpdateMaintenanceStartTimeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMaintenanceStartTimeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMaintenanceStartTimeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

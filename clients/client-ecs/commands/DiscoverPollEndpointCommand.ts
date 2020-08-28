@@ -46,8 +46,8 @@ export class DiscoverPollEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DiscoverPollEndpointRequest.filterSensitiveLog,
-      outputFilterLog: DiscoverPollEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DiscoverPollEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DiscoverPollEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

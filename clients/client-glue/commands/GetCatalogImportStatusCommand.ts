@@ -46,8 +46,8 @@ export class GetCatalogImportStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCatalogImportStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetCatalogImportStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCatalogImportStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCatalogImportStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

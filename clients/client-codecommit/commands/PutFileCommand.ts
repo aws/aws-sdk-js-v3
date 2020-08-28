@@ -43,8 +43,8 @@ export class PutFileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutFileInput.filterSensitiveLog,
-      outputFilterLog: PutFileOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutFileInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutFileOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

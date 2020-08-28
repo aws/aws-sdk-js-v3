@@ -46,8 +46,8 @@ export class RenderUiTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RenderUiTemplateRequest.filterSensitiveLog,
-      outputFilterLog: RenderUiTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RenderUiTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RenderUiTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

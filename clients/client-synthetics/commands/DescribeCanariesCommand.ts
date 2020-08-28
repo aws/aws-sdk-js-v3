@@ -46,8 +46,8 @@ export class DescribeCanariesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCanariesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeCanariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCanariesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCanariesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

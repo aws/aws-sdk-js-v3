@@ -46,8 +46,8 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDistributionLatestCacheResetRequest.filterSensitiveLog,
-      outputFilterLog: GetDistributionLatestCacheResetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDistributionLatestCacheResetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDistributionLatestCacheResetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

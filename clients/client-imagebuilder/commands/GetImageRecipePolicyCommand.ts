@@ -46,8 +46,8 @@ export class GetImageRecipePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetImageRecipePolicyRequest.filterSensitiveLog,
-      outputFilterLog: GetImageRecipePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetImageRecipePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetImageRecipePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

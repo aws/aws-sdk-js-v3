@@ -46,8 +46,8 @@ export class DeleteQueryDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteQueryDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteQueryDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQueryDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQueryDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

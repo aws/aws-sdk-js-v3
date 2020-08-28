@@ -43,8 +43,8 @@ export class PauseClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PauseClusterMessage.filterSensitiveLog,
-      outputFilterLog: PauseClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PauseClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PauseClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

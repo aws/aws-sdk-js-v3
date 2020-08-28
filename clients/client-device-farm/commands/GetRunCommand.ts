@@ -39,8 +39,8 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRunRequest.filterSensitiveLog,
-      outputFilterLog: GetRunResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

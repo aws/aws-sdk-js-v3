@@ -46,8 +46,8 @@ export class PollForThirdPartyJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PollForThirdPartyJobsInput.filterSensitiveLog,
-      outputFilterLog: PollForThirdPartyJobsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PollForThirdPartyJobsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PollForThirdPartyJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

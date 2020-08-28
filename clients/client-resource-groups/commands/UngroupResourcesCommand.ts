@@ -46,8 +46,8 @@ export class UngroupResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UngroupResourcesInput.filterSensitiveLog,
-      outputFilterLog: UngroupResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UngroupResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UngroupResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

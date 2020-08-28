@@ -46,8 +46,8 @@ export class GetSchemaAsJsonCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSchemaAsJsonRequest.filterSensitiveLog,
-      outputFilterLog: GetSchemaAsJsonResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSchemaAsJsonRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSchemaAsJsonResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

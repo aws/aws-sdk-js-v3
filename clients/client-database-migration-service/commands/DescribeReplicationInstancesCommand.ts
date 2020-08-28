@@ -50,8 +50,8 @@ export class DescribeReplicationInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReplicationInstancesMessage.filterSensitiveLog,
-      outputFilterLog: DescribeReplicationInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReplicationInstancesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReplicationInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

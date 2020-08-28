@@ -46,8 +46,8 @@ export class GetArtifactUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetArtifactUrlRequest.filterSensitiveLog,
-      outputFilterLog: GetArtifactUrlResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetArtifactUrlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetArtifactUrlResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

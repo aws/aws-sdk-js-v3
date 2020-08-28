@@ -57,8 +57,8 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateConfigurationItemsFromApplicationRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateConfigurationItemsFromApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

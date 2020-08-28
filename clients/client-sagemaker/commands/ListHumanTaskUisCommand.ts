@@ -46,8 +46,8 @@ export class ListHumanTaskUisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHumanTaskUisRequest.filterSensitiveLog,
-      outputFilterLog: ListHumanTaskUisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHumanTaskUisRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHumanTaskUisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

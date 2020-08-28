@@ -46,8 +46,8 @@ export class UpdateEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateEmailTemplateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEmailTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

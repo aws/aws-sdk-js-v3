@@ -46,8 +46,8 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateGroupCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterLog: CreateGroupCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGroupCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGroupCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteFargateProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFargateProfileRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFargateProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFargateProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFargateProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

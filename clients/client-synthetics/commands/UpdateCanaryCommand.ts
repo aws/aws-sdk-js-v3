@@ -46,8 +46,8 @@ export class UpdateCanaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateCanaryRequest.filterSensitiveLog,
-      outputFilterLog: UpdateCanaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCanaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCanaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

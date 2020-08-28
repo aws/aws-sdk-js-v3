@@ -46,8 +46,8 @@ export class DescribeAvailablePatchesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAvailablePatchesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAvailablePatchesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAvailablePatchesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailablePatchesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

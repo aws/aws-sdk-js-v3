@@ -43,8 +43,8 @@ export class CancelResizeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelResizeMessage.filterSensitiveLog,
-      outputFilterLog: ResizeProgressMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelResizeMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ResizeProgressMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

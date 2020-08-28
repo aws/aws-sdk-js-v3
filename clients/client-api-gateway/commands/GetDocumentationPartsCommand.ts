@@ -46,8 +46,8 @@ export class GetDocumentationPartsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDocumentationPartsRequest.filterSensitiveLog,
-      outputFilterLog: DocumentationParts.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDocumentationPartsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DocumentationParts.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateUsagePlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateUsagePlanRequest.filterSensitiveLog,
-      outputFilterLog: UsagePlan.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUsagePlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UsagePlan.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

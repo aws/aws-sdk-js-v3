@@ -46,8 +46,8 @@ export class ListConfigurationRevisionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListConfigurationRevisionsRequest.filterSensitiveLog,
-      outputFilterLog: ListConfigurationRevisionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConfigurationRevisionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListConfigurationRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

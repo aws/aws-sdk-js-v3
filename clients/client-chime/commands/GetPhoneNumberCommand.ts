@@ -46,8 +46,8 @@ export class GetPhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPhoneNumberRequest.filterSensitiveLog,
-      outputFilterLog: GetPhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPhoneNumberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

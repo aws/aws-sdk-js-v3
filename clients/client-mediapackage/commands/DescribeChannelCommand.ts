@@ -46,8 +46,8 @@ export class DescribeChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeChannelRequest.filterSensitiveLog,
-      outputFilterLog: DescribeChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

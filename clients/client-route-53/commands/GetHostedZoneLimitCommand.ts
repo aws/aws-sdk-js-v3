@@ -48,8 +48,8 @@ export class GetHostedZoneLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHostedZoneLimitRequest.filterSensitiveLog,
-      outputFilterLog: GetHostedZoneLimitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHostedZoneLimitRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHostedZoneLimitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class TerminateProvisionedProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TerminateProvisionedProductInput.filterSensitiveLog,
-      outputFilterLog: TerminateProvisionedProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateProvisionedProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TerminateProvisionedProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeLocationNfsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLocationNfsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLocationNfsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocationNfsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationNfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

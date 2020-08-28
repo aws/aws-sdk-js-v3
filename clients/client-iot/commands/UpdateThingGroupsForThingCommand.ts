@@ -46,8 +46,8 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateThingGroupsForThingRequest.filterSensitiveLog,
-      outputFilterLog: UpdateThingGroupsForThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateThingGroupsForThingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThingGroupsForThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

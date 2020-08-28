@@ -50,8 +50,8 @@ export class GetTagKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTagKeysInput.filterSensitiveLog,
-      outputFilterLog: GetTagKeysOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTagKeysInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTagKeysOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

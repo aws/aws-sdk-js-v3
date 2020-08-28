@@ -46,8 +46,8 @@ export class CheckDNSAvailabilityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CheckDNSAvailabilityMessage.filterSensitiveLog,
-      outputFilterLog: CheckDNSAvailabilityResultMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckDNSAvailabilityMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CheckDNSAvailabilityResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

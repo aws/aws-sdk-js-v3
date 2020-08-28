@@ -50,8 +50,8 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGatewayCapabilityConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateGatewayCapabilityConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

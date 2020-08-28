@@ -46,8 +46,8 @@ export class UploadServerCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UploadServerCertificateRequest.filterSensitiveLog,
-      outputFilterLog: UploadServerCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadServerCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadServerCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

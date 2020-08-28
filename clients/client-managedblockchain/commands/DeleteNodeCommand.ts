@@ -50,8 +50,8 @@ export class DeleteNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteNodeInput.filterSensitiveLog,
-      outputFilterLog: DeleteNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

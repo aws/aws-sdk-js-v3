@@ -54,8 +54,8 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApplicationReferenceDataSourceRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApplicationReferenceDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationReferenceDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationReferenceDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

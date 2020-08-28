@@ -50,8 +50,8 @@ export class GetImportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetImportRequest.filterSensitiveLog,
-      outputFilterLog: GetImportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetImportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetImportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

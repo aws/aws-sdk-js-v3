@@ -46,8 +46,8 @@ export class CreateCompilationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCompilationJobRequest.filterSensitiveLog,
-      outputFilterLog: CreateCompilationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCompilationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCompilationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDiscoveredResourceRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDiscoveredResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDiscoveredResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDiscoveredResourceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

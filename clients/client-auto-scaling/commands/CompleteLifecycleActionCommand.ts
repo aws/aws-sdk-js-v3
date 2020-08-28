@@ -46,8 +46,8 @@ export class CompleteLifecycleActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CompleteLifecycleActionType.filterSensitiveLog,
-      outputFilterLog: CompleteLifecycleActionAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteLifecycleActionType.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteLifecycleActionAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyEbsDefaultKmsKeyIdRequest.filterSensitiveLog,
-      outputFilterLog: ModifyEbsDefaultKmsKeyIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetContainerPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetContainerPolicyInput.filterSensitiveLog,
-      outputFilterLog: GetContainerPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContainerPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetContainerPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

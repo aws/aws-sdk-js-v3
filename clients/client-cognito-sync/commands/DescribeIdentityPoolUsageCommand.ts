@@ -46,8 +46,8 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeIdentityPoolUsageRequest.filterSensitiveLog,
-      outputFilterLog: DescribeIdentityPoolUsageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIdentityPoolUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityPoolUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

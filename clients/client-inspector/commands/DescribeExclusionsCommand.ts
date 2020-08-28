@@ -46,8 +46,8 @@ export class DescribeExclusionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeExclusionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeExclusionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeExclusionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExclusionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

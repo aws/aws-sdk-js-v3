@@ -46,8 +46,8 @@ export class CreateWorkerBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateWorkerBlockRequest.filterSensitiveLog,
-      outputFilterLog: CreateWorkerBlockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWorkerBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWorkerBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

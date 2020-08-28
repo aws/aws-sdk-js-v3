@@ -46,8 +46,8 @@ export class UpdateConstraintCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateConstraintInput.filterSensitiveLog,
-      outputFilterLog: UpdateConstraintOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConstraintInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConstraintOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

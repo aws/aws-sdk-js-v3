@@ -46,8 +46,8 @@ export class GetFolderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFolderRequest.filterSensitiveLog,
-      outputFilterLog: GetFolderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFolderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFolderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class UnpeerVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UnpeerVpcRequest.filterSensitiveLog,
-      outputFilterLog: UnpeerVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UnpeerVpcRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnpeerVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

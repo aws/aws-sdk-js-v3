@@ -46,8 +46,8 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteInstanceSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: DeleteInstanceSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInstanceSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInstanceSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReservedInstancesModificationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeReservedInstancesModificationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReservedInstancesModificationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReservedInstancesModificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

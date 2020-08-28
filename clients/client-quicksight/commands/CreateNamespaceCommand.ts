@@ -46,8 +46,8 @@ export class CreateNamespaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateNamespaceRequest.filterSensitiveLog,
-      outputFilterLog: CreateNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNamespaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class AssociateProductWithPortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateProductWithPortfolioInput.filterSensitiveLog,
-      outputFilterLog: AssociateProductWithPortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateProductWithPortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateProductWithPortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

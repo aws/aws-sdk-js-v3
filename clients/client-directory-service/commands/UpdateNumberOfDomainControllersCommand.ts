@@ -46,8 +46,8 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateNumberOfDomainControllersRequest.filterSensitiveLog,
-      outputFilterLog: UpdateNumberOfDomainControllersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNumberOfDomainControllersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNumberOfDomainControllersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

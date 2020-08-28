@@ -46,8 +46,8 @@ export class DeleteBackupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBackupInput.filterSensitiveLog,
-      outputFilterLog: DeleteBackupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBackupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBackupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

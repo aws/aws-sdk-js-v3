@@ -46,8 +46,8 @@ export class PutWebhookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutWebhookInput.filterSensitiveLog,
-      outputFilterLog: PutWebhookOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutWebhookInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutWebhookOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

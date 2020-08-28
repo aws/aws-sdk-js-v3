@@ -46,8 +46,8 @@ export class UpdateGraphqlApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGraphqlApiRequest.filterSensitiveLog,
-      outputFilterLog: UpdateGraphqlApiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGraphqlApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

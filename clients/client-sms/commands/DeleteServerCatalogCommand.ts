@@ -46,8 +46,8 @@ export class DeleteServerCatalogCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteServerCatalogRequest.filterSensitiveLog,
-      outputFilterLog: DeleteServerCatalogResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServerCatalogRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServerCatalogResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

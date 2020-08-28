@@ -48,8 +48,8 @@ export class TestDNSAnswerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestDNSAnswerRequest.filterSensitiveLog,
-      outputFilterLog: TestDNSAnswerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestDNSAnswerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestDNSAnswerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetServiceGraphCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetServiceGraphRequest.filterSensitiveLog,
-      outputFilterLog: GetServiceGraphResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceGraphRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceGraphResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

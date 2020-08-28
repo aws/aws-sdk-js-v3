@@ -50,8 +50,8 @@ export class RemoveListenerCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveListenerCertificatesInput.filterSensitiveLog,
-      outputFilterLog: RemoveListenerCertificatesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveListenerCertificatesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveListenerCertificatesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

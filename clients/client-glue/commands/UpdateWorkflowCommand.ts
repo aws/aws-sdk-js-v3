@@ -46,8 +46,8 @@ export class UpdateWorkflowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateWorkflowRequest.filterSensitiveLog,
-      outputFilterLog: UpdateWorkflowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWorkflowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWorkflowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

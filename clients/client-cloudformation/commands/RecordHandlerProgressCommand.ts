@@ -46,8 +46,8 @@ export class RecordHandlerProgressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RecordHandlerProgressInput.filterSensitiveLog,
-      outputFilterLog: RecordHandlerProgressOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RecordHandlerProgressInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RecordHandlerProgressOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

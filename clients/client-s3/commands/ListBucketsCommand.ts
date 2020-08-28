@@ -46,8 +46,8 @@ export class ListBucketsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: ListBucketsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: ListBucketsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

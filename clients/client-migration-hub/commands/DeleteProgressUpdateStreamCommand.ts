@@ -46,8 +46,8 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteProgressUpdateStreamRequest.filterSensitiveLog,
-      outputFilterLog: DeleteProgressUpdateStreamResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProgressUpdateStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProgressUpdateStreamResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

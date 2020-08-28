@@ -46,8 +46,8 @@ export class AttachThingPrincipalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachThingPrincipalRequest.filterSensitiveLog,
-      outputFilterLog: AttachThingPrincipalResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachThingPrincipalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachThingPrincipalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

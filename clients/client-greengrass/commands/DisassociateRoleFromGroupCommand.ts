@@ -46,8 +46,8 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateRoleFromGroupRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateRoleFromGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateRoleFromGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateRoleFromGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

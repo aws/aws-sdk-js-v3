@@ -46,8 +46,8 @@ export class UpdateSubnetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSubnetGroupRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSubnetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSubnetGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

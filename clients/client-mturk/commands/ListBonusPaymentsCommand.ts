@@ -46,8 +46,8 @@ export class ListBonusPaymentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBonusPaymentsRequest.filterSensitiveLog,
-      outputFilterLog: ListBonusPaymentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBonusPaymentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBonusPaymentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

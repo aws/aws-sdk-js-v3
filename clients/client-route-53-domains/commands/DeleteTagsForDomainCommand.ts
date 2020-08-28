@@ -46,8 +46,8 @@ export class DeleteTagsForDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTagsForDomainRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTagsForDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTagsForDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTagsForDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class AllocateHostsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AllocateHostsRequest.filterSensitiveLog,
-      outputFilterLog: AllocateHostsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateHostsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AllocateHostsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListHoursOfOperationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHoursOfOperationsRequest.filterSensitiveLog,
-      outputFilterLog: ListHoursOfOperationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHoursOfOperationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHoursOfOperationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

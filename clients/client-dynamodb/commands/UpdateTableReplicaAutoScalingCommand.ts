@@ -46,8 +46,8 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTableReplicaAutoScalingInput.filterSensitiveLog,
-      outputFilterLog: UpdateTableReplicaAutoScalingOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTableReplicaAutoScalingInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTableReplicaAutoScalingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

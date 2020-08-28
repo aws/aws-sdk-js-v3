@@ -46,8 +46,8 @@ export class UpdateMLTransformCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMLTransformRequest.filterSensitiveLog,
-      outputFilterLog: UpdateMLTransformResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMLTransformRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMLTransformResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

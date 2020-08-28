@@ -46,8 +46,8 @@ export class GetDomainAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDomainAssociationRequest.filterSensitiveLog,
-      outputFilterLog: GetDomainAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDomainAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

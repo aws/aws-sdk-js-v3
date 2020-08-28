@@ -46,8 +46,8 @@ export class BatchGrantPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchGrantPermissionsRequest.filterSensitiveLog,
-      outputFilterLog: BatchGrantPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGrantPermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGrantPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

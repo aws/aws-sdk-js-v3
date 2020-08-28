@@ -46,8 +46,8 @@ export class BatchExecuteStatementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchExecuteStatementRequest.filterSensitiveLog,
-      outputFilterLog: BatchExecuteStatementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchExecuteStatementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchExecuteStatementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

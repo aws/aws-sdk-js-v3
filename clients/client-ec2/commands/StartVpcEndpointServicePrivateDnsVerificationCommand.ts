@@ -53,8 +53,8 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartVpcEndpointServicePrivateDnsVerificationRequest.filterSensitiveLog,
-      outputFilterLog: StartVpcEndpointServicePrivateDnsVerificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

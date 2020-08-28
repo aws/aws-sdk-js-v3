@@ -46,8 +46,8 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteUsageReportSubscriptionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteUsageReportSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUsageReportSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUsageReportSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class XmlMapsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: XmlMapsInputOutput.filterSensitiveLog,
-      outputFilterLog: XmlMapsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlMapsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlMapsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

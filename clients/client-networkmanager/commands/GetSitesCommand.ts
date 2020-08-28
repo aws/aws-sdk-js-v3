@@ -46,8 +46,8 @@ export class GetSitesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSitesRequest.filterSensitiveLog,
-      outputFilterLog: GetSitesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSitesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSitesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

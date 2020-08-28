@@ -46,8 +46,8 @@ export class UpdateRobotApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRobotApplicationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRobotApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRobotApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRobotApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListDatabasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDatabasesInput.filterSensitiveLog,
-      outputFilterLog: ListDatabasesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDatabasesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDatabasesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

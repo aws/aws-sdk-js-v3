@@ -46,8 +46,8 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartLifecyclePolicyPreviewRequest.filterSensitiveLog,
-      outputFilterLog: StartLifecyclePolicyPreviewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartLifecyclePolicyPreviewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartLifecyclePolicyPreviewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

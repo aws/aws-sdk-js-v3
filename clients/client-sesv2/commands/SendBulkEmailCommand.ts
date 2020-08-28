@@ -46,8 +46,8 @@ export class SendBulkEmailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendBulkEmailRequest.filterSensitiveLog,
-      outputFilterLog: SendBulkEmailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendBulkEmailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendBulkEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

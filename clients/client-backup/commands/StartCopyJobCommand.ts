@@ -46,8 +46,8 @@ export class StartCopyJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartCopyJobInput.filterSensitiveLog,
-      outputFilterLog: StartCopyJobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartCopyJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartCopyJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RestoreTableToPointInTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreTableToPointInTimeInput.filterSensitiveLog,
-      outputFilterLog: RestoreTableToPointInTimeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreTableToPointInTimeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreTableToPointInTimeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

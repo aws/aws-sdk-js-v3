@@ -46,8 +46,8 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetInfrastructureConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetInfrastructureConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInfrastructureConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInfrastructureConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

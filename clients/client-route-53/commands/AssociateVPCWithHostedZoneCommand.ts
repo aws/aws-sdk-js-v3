@@ -48,8 +48,8 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateVPCWithHostedZoneRequest.filterSensitiveLog,
-      outputFilterLog: AssociateVPCWithHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateVPCWithHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateVPCWithHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

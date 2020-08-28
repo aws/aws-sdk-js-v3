@@ -46,8 +46,8 @@ export class JsonBlobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: JsonBlobsInputOutput.filterSensitiveLog,
-      outputFilterLog: JsonBlobsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonBlobsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonBlobsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

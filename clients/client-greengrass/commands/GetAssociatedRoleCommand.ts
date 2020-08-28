@@ -46,8 +46,8 @@ export class GetAssociatedRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAssociatedRoleRequest.filterSensitiveLog,
-      outputFilterLog: GetAssociatedRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssociatedRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAssociatedRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartDeviceSyncCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartDeviceSyncRequest.filterSensitiveLog,
-      outputFilterLog: StartDeviceSyncResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDeviceSyncRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDeviceSyncResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

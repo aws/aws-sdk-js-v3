@@ -46,8 +46,8 @@ export class DeleteVpcLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVpcLinkRequest.filterSensitiveLog,
-      outputFilterLog: DeleteVpcLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVpcLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVpcLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

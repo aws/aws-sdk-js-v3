@@ -46,8 +46,8 @@ export class ResetClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResetClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterLog: ClusterParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DisassociateIpGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateIpGroupsRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateIpGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateIpGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteWorkforceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteWorkforceRequest.filterSensitiveLog,
-      outputFilterLog: DeleteWorkforceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkforceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkforceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

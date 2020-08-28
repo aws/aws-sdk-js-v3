@@ -46,8 +46,8 @@ export class AttachCertificateToDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachCertificateToDistributionRequest.filterSensitiveLog,
-      outputFilterLog: AttachCertificateToDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachCertificateToDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachCertificateToDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

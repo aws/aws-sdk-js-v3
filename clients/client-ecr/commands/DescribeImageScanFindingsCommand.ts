@@ -46,8 +46,8 @@ export class DescribeImageScanFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeImageScanFindingsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeImageScanFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeImageScanFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImageScanFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

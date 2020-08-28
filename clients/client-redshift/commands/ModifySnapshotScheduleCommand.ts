@@ -46,8 +46,8 @@ export class ModifySnapshotScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifySnapshotScheduleMessage.filterSensitiveLog,
-      outputFilterLog: SnapshotSchedule.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySnapshotScheduleMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: SnapshotSchedule.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

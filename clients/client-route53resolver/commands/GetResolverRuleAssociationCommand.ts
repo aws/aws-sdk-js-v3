@@ -46,8 +46,8 @@ export class GetResolverRuleAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetResolverRuleAssociationRequest.filterSensitiveLog,
-      outputFilterLog: GetResolverRuleAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResolverRuleAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResolverRuleAssociationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

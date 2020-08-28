@@ -47,8 +47,8 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDeviceWithNetworkProfileRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDeviceWithNetworkProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDeviceWithNetworkProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDeviceWithNetworkProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

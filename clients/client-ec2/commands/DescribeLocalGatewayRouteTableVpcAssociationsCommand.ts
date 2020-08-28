@@ -53,8 +53,8 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLocalGatewayRouteTableVpcAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLocalGatewayRouteTableVpcAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

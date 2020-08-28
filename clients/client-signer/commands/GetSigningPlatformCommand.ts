@@ -46,8 +46,8 @@ export class GetSigningPlatformCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSigningPlatformRequest.filterSensitiveLog,
-      outputFilterLog: GetSigningPlatformResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSigningPlatformRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSigningPlatformResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

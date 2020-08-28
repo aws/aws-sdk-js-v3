@@ -46,8 +46,8 @@ export class ListCompatibleImagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCompatibleImagesRequest.filterSensitiveLog,
-      outputFilterLog: ListCompatibleImagesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCompatibleImagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCompatibleImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

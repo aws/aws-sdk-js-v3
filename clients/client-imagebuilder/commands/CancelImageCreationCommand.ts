@@ -46,8 +46,8 @@ export class CancelImageCreationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelImageCreationRequest.filterSensitiveLog,
-      outputFilterLog: CancelImageCreationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelImageCreationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelImageCreationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

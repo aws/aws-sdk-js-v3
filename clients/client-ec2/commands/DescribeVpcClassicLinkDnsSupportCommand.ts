@@ -46,8 +46,8 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
-      outputFilterLog: DescribeVpcClassicLinkDnsSupportResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

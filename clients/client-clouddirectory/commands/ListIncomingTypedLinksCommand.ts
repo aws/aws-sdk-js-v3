@@ -46,8 +46,8 @@ export class ListIncomingTypedLinksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListIncomingTypedLinksRequest.filterSensitiveLog,
-      outputFilterLog: ListIncomingTypedLinksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIncomingTypedLinksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIncomingTypedLinksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

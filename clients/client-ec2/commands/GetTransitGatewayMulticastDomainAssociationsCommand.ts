@@ -53,8 +53,8 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTransitGatewayMulticastDomainAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: GetTransitGatewayMulticastDomainAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTransitGatewayMulticastDomainAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayMulticastDomainAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

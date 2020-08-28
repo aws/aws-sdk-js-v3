@@ -50,8 +50,8 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutConfigurationSetReputationOptionsRequest.filterSensitiveLog,
-      outputFilterLog: PutConfigurationSetReputationOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationSetReputationOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetReputationOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

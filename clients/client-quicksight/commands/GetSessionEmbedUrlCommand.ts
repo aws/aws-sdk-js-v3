@@ -46,8 +46,8 @@ export class GetSessionEmbedUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSessionEmbedUrlRequest.filterSensitiveLog,
-      outputFilterLog: GetSessionEmbedUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSessionEmbedUrlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSessionEmbedUrlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

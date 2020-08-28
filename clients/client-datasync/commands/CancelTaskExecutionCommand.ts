@@ -46,8 +46,8 @@ export class CancelTaskExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelTaskExecutionRequest.filterSensitiveLog,
-      outputFilterLog: CancelTaskExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelTaskExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelTaskExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

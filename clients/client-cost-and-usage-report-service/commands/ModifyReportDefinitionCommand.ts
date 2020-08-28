@@ -50,8 +50,8 @@ export class ModifyReportDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyReportDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: ModifyReportDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReportDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReportDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

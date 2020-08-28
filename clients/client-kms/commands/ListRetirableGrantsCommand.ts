@@ -46,8 +46,8 @@ export class ListRetirableGrantsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRetirableGrantsRequest.filterSensitiveLog,
-      outputFilterLog: ListGrantsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRetirableGrantsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListGrantsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

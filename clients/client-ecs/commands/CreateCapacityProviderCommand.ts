@@ -46,8 +46,8 @@ export class CreateCapacityProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCapacityProviderRequest.filterSensitiveLog,
-      outputFilterLog: CreateCapacityProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCapacityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCapacityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

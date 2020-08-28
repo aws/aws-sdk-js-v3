@@ -46,8 +46,8 @@ export class SetTaskStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetTaskStatusInput.filterSensitiveLog,
-      outputFilterLog: SetTaskStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetTaskStatusInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetTaskStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

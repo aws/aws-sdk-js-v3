@@ -46,8 +46,8 @@ export class GetBlueprintsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBlueprintsRequest.filterSensitiveLog,
-      outputFilterLog: GetBlueprintsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlueprintsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBlueprintsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

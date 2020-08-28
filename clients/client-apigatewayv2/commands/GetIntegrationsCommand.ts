@@ -46,8 +46,8 @@ export class GetIntegrationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIntegrationsRequest.filterSensitiveLog,
-      outputFilterLog: GetIntegrationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntegrationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIntegrationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

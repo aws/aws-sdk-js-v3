@@ -50,8 +50,8 @@ export class AddCustomAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddCustomAttributesRequest.filterSensitiveLog,
-      outputFilterLog: AddCustomAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddCustomAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddCustomAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

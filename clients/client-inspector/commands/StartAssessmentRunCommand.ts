@@ -46,8 +46,8 @@ export class StartAssessmentRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartAssessmentRunRequest.filterSensitiveLog,
-      outputFilterLog: StartAssessmentRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartAssessmentRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartAssessmentRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

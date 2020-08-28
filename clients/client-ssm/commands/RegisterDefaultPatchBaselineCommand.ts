@@ -46,8 +46,8 @@ export class RegisterDefaultPatchBaselineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterDefaultPatchBaselineRequest.filterSensitiveLog,
-      outputFilterLog: RegisterDefaultPatchBaselineResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterDefaultPatchBaselineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterDefaultPatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

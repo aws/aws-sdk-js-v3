@@ -46,8 +46,8 @@ export class BatchGetWorkflowsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchGetWorkflowsRequest.filterSensitiveLog,
-      outputFilterLog: BatchGetWorkflowsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetWorkflowsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetWorkflowsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

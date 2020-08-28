@@ -46,8 +46,8 @@ export class UpdateDeploymentGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDeploymentGroupInput.filterSensitiveLog,
-      outputFilterLog: UpdateDeploymentGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDeploymentGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDeploymentGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

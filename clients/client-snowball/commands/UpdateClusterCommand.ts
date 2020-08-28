@@ -46,8 +46,8 @@ export class UpdateClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateClusterRequest.filterSensitiveLog,
-      outputFilterLog: UpdateClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClusterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

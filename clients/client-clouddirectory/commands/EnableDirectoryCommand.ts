@@ -46,8 +46,8 @@ export class EnableDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EnableDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: EnableDirectoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableDirectoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

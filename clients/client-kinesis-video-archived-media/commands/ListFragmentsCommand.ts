@@ -50,8 +50,8 @@ export class ListFragmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListFragmentsInput.filterSensitiveLog,
-      outputFilterLog: ListFragmentsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFragmentsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFragmentsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

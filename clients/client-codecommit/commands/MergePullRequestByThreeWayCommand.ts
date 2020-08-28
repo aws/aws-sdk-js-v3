@@ -46,8 +46,8 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MergePullRequestByThreeWayInput.filterSensitiveLog,
-      outputFilterLog: MergePullRequestByThreeWayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergePullRequestByThreeWayInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestByThreeWayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

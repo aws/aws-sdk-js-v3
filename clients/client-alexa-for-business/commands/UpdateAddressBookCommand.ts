@@ -46,8 +46,8 @@ export class UpdateAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAddressBookRequest.filterSensitiveLog,
-      outputFilterLog: UpdateAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAddressBookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

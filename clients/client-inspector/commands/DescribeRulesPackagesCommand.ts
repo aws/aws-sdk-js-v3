@@ -46,8 +46,8 @@ export class DescribeRulesPackagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRulesPackagesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeRulesPackagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRulesPackagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRulesPackagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

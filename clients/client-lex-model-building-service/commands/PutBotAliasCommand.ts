@@ -50,8 +50,8 @@ export class PutBotAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutBotAliasRequest.filterSensitiveLog,
-      outputFilterLog: PutBotAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBotAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutBotAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

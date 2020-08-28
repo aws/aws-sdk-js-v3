@@ -46,8 +46,8 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: ListAvailableSolutionStacksResultMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: ListAvailableSolutionStacksResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

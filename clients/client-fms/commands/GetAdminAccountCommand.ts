@@ -46,8 +46,8 @@ export class GetAdminAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAdminAccountRequest.filterSensitiveLog,
-      outputFilterLog: GetAdminAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAdminAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAdminAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

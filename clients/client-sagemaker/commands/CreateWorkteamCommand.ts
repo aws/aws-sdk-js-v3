@@ -46,8 +46,8 @@ export class CreateWorkteamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateWorkteamRequest.filterSensitiveLog,
-      outputFilterLog: CreateWorkteamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWorkteamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWorkteamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

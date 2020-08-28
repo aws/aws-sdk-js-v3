@@ -46,8 +46,8 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRemoteAccessSessionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRemoteAccessSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRemoteAccessSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRemoteAccessSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

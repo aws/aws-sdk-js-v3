@@ -46,8 +46,8 @@ export class GetContactMethodsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetContactMethodsRequest.filterSensitiveLog,
-      outputFilterLog: GetContactMethodsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContactMethodsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetContactMethodsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

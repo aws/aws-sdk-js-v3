@@ -46,8 +46,8 @@ export class DeleteFacetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFacetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

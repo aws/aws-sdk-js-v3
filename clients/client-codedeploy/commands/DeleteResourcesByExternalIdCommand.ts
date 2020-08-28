@@ -46,8 +46,8 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteResourcesByExternalIdInput.filterSensitiveLog,
-      outputFilterLog: DeleteResourcesByExternalIdOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcesByExternalIdInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourcesByExternalIdOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteTableVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTableVersionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTableVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTableVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTableVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

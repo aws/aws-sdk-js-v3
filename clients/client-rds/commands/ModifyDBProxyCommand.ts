@@ -46,8 +46,8 @@ export class ModifyDBProxyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyDBProxyRequest.filterSensitiveLog,
-      outputFilterLog: ModifyDBProxyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyDBProxyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDBProxyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

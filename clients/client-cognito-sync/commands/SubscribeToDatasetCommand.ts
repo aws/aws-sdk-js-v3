@@ -46,8 +46,8 @@ export class SubscribeToDatasetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SubscribeToDatasetRequest.filterSensitiveLog,
-      outputFilterLog: SubscribeToDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubscribeToDatasetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SubscribeToDatasetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

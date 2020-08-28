@@ -46,8 +46,8 @@ export class GetHostedConfigurationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHostedConfigurationVersionRequest.filterSensitiveLog,
-      outputFilterLog: HostedConfigurationVersion.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHostedConfigurationVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: HostedConfigurationVersion.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

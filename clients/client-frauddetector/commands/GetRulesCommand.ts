@@ -43,8 +43,8 @@ export class GetRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRulesRequest.filterSensitiveLog,
-      outputFilterLog: GetRulesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

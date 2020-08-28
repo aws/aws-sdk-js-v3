@@ -46,8 +46,8 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeDBSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterLog: RevokeDBSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeDBSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

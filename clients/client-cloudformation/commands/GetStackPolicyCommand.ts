@@ -46,8 +46,8 @@ export class GetStackPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetStackPolicyInput.filterSensitiveLog,
-      outputFilterLog: GetStackPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStackPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetStackPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

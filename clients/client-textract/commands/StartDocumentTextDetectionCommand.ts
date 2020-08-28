@@ -46,8 +46,8 @@ export class StartDocumentTextDetectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartDocumentTextDetectionRequest.filterSensitiveLog,
-      outputFilterLog: StartDocumentTextDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDocumentTextDetectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDocumentTextDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

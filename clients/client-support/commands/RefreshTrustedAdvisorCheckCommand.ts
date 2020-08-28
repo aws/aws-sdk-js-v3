@@ -46,8 +46,8 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RefreshTrustedAdvisorCheckRequest.filterSensitiveLog,
-      outputFilterLog: RefreshTrustedAdvisorCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RefreshTrustedAdvisorCheckRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RefreshTrustedAdvisorCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

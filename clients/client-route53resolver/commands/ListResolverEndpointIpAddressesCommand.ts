@@ -46,8 +46,8 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListResolverEndpointIpAddressesRequest.filterSensitiveLog,
-      outputFilterLog: ListResolverEndpointIpAddressesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResolverEndpointIpAddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResolverEndpointIpAddressesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

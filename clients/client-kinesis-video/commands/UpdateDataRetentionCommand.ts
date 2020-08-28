@@ -46,8 +46,8 @@ export class UpdateDataRetentionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDataRetentionInput.filterSensitiveLog,
-      outputFilterLog: UpdateDataRetentionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataRetentionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataRetentionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

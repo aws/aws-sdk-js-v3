@@ -46,8 +46,8 @@ export class ArchiveFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ArchiveFindingsRequest.filterSensitiveLog,
-      outputFilterLog: ArchiveFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ArchiveFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ArchiveFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

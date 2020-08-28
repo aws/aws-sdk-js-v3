@@ -46,8 +46,8 @@ export class DeleteRegexPatternSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRegexPatternSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRegexPatternSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

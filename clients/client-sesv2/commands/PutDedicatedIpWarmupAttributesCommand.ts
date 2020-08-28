@@ -46,8 +46,8 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

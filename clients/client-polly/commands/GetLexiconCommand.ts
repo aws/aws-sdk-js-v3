@@ -46,8 +46,8 @@ export class GetLexiconCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLexiconInput.filterSensitiveLog,
-      outputFilterLog: GetLexiconOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLexiconInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListTaskDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTaskDefinitionsRequest.filterSensitiveLog,
-      outputFilterLog: ListTaskDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTaskDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTaskDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

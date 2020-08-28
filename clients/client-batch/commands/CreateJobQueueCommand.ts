@@ -46,8 +46,8 @@ export class CreateJobQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateJobQueueRequest.filterSensitiveLog,
-      outputFilterLog: CreateJobQueueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateJobQueueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateJobQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

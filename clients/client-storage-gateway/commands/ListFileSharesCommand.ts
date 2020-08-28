@@ -46,8 +46,8 @@ export class ListFileSharesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListFileSharesInput.filterSensitiveLog,
-      outputFilterLog: ListFileSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFileSharesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFileSharesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInputSecurityGroupRequest.filterSensitiveLog,
-      outputFilterLog: DescribeInputSecurityGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInputSecurityGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInputSecurityGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

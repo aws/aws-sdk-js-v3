@@ -46,8 +46,8 @@ export class GetClassifiersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetClassifiersRequest.filterSensitiveLog,
-      outputFilterLog: GetClassifiersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClassifiersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetClassifiersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

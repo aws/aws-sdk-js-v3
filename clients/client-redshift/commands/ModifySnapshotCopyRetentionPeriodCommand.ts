@@ -46,8 +46,8 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifySnapshotCopyRetentionPeriodMessage.filterSensitiveLog,
-      outputFilterLog: ModifySnapshotCopyRetentionPeriodResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

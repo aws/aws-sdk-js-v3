@@ -46,8 +46,8 @@ export class DescribeDefaultParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDefaultParametersRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDefaultParametersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDefaultParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDefaultParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

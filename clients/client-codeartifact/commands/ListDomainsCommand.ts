@@ -46,8 +46,8 @@ export class ListDomainsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDomainsRequest.filterSensitiveLog,
-      outputFilterLog: ListDomainsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDomainsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDomainsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

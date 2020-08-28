@@ -46,8 +46,8 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateServiceLinkedRoleRequest.filterSensitiveLog,
-      outputFilterLog: CreateServiceLinkedRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateServiceLinkedRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateServiceLinkedRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

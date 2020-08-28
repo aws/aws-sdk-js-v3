@@ -46,8 +46,8 @@ export class ListPresetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPresetsRequest.filterSensitiveLog,
-      outputFilterLog: ListPresetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPresetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPresetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

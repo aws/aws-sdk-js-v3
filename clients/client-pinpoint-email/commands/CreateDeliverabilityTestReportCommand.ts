@@ -46,8 +46,8 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDeliverabilityTestReportRequest.filterSensitiveLog,
-      outputFilterLog: CreateDeliverabilityTestReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeliverabilityTestReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeliverabilityTestReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

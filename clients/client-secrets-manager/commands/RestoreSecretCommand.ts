@@ -46,8 +46,8 @@ export class RestoreSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreSecretRequest.filterSensitiveLog,
-      outputFilterLog: RestoreSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

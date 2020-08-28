@@ -46,8 +46,8 @@ export class CompleteSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CompleteSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: CompleteSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteSnapshotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetFileUploadURLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFileUploadURLRequest.filterSensitiveLog,
-      outputFilterLog: GetFileUploadURLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFileUploadURLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFileUploadURLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

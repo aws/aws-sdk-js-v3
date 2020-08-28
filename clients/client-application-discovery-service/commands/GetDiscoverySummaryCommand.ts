@@ -50,8 +50,8 @@ export class GetDiscoverySummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDiscoverySummaryRequest.filterSensitiveLog,
-      outputFilterLog: GetDiscoverySummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDiscoverySummaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDiscoverySummaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

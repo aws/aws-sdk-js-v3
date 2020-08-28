@@ -53,8 +53,8 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociatePhoneNumbersFromVoiceConnectorRequest.filterSensitiveLog,
-      outputFilterLog: DisassociatePhoneNumbersFromVoiceConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

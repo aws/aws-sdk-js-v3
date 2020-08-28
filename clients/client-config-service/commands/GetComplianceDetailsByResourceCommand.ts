@@ -46,8 +46,8 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetComplianceDetailsByResourceRequest.filterSensitiveLog,
-      outputFilterLog: GetComplianceDetailsByResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetComplianceDetailsByResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceDetailsByResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

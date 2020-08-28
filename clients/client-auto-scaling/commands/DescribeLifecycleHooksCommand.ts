@@ -46,8 +46,8 @@ export class DescribeLifecycleHooksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLifecycleHooksType.filterSensitiveLog,
-      outputFilterLog: DescribeLifecycleHooksAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLifecycleHooksType.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLifecycleHooksAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

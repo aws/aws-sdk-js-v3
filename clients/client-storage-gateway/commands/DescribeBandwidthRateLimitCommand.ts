@@ -46,8 +46,8 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBandwidthRateLimitInput.filterSensitiveLog,
-      outputFilterLog: DescribeBandwidthRateLimitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBandwidthRateLimitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBandwidthRateLimitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

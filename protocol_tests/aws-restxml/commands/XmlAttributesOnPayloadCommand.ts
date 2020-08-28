@@ -46,8 +46,8 @@ export class XmlAttributesOnPayloadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
-      outputFilterLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

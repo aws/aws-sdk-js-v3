@@ -46,8 +46,8 @@ export class GetSAMLProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSAMLProviderRequest.filterSensitiveLog,
-      outputFilterLog: GetSAMLProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSAMLProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSAMLProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

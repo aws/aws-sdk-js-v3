@@ -46,8 +46,8 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTrustedAdvisorChecksRequest.filterSensitiveLog,
-      outputFilterLog: DescribeTrustedAdvisorChecksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrustedAdvisorChecksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustedAdvisorChecksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

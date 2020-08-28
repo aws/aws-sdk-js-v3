@@ -46,8 +46,8 @@ export class CreateBranchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBranchRequest.filterSensitiveLog,
-      outputFilterLog: CreateBranchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBranchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBranchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

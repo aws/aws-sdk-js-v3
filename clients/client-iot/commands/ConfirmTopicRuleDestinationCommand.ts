@@ -46,8 +46,8 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConfirmTopicRuleDestinationRequest.filterSensitiveLog,
-      outputFilterLog: ConfirmTopicRuleDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmTopicRuleDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmTopicRuleDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

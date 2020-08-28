@@ -46,8 +46,8 @@ export class DeleteJourneyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteJourneyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteJourneyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteJourneyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteJourneyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

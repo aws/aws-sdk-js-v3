@@ -46,8 +46,8 @@ export class UpdateMitigationActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMitigationActionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateMitigationActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMitigationActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMitigationActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

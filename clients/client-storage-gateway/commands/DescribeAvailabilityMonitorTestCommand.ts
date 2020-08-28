@@ -46,8 +46,8 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAvailabilityMonitorTestInput.filterSensitiveLog,
-      outputFilterLog: DescribeAvailabilityMonitorTestOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAvailabilityMonitorTestInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityMonitorTestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

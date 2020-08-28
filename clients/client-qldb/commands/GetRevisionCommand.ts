@@ -46,8 +46,8 @@ export class GetRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRevisionRequest.filterSensitiveLog,
-      outputFilterLog: GetRevisionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRevisionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

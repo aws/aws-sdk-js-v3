@@ -46,8 +46,8 @@ export class TestCustomDataIdentifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestCustomDataIdentifierRequest.filterSensitiveLog,
-      outputFilterLog: TestCustomDataIdentifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestCustomDataIdentifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestCustomDataIdentifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

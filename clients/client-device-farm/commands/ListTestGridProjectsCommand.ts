@@ -46,8 +46,8 @@ export class ListTestGridProjectsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTestGridProjectsRequest.filterSensitiveLog,
-      outputFilterLog: ListTestGridProjectsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTestGridProjectsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTestGridProjectsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

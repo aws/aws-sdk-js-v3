@@ -46,8 +46,8 @@ export class DisassociateTeamMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateTeamMemberRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateTeamMemberResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTeamMemberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTeamMemberResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

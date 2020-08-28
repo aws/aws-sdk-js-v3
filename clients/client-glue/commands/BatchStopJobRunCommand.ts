@@ -46,8 +46,8 @@ export class BatchStopJobRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchStopJobRunRequest.filterSensitiveLog,
-      outputFilterLog: BatchStopJobRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchStopJobRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchStopJobRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,8 +48,8 @@ export class GetBucketPolicyStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketPolicyStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketPolicyStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketPolicyStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketPolicyStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

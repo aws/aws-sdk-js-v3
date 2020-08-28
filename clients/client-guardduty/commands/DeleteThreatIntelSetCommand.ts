@@ -46,8 +46,8 @@ export class DeleteThreatIntelSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteThreatIntelSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteThreatIntelSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteThreatIntelSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteThreatIntelSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

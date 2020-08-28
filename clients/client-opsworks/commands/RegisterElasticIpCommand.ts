@@ -46,8 +46,8 @@ export class RegisterElasticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterElasticIpRequest.filterSensitiveLog,
-      outputFilterLog: RegisterElasticIpResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterElasticIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterElasticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

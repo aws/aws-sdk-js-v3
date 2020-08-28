@@ -50,8 +50,8 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDominantLanguageDetectionJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDominantLanguageDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDominantLanguageDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDominantLanguageDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

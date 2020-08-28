@@ -46,8 +46,8 @@ export class StopEntitiesDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopEntitiesDetectionJobRequest.filterSensitiveLog,
-      outputFilterLog: StopEntitiesDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopEntitiesDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopEntitiesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

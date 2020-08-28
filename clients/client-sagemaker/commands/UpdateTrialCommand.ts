@@ -46,8 +46,8 @@ export class UpdateTrialCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTrialRequest.filterSensitiveLog,
-      outputFilterLog: UpdateTrialResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTrialRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTrialResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

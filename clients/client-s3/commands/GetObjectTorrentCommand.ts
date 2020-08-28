@@ -48,8 +48,8 @@ export class GetObjectTorrentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectTorrentRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectTorrentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectTorrentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectTorrentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

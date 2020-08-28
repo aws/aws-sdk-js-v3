@@ -46,8 +46,8 @@ export class BatchUpdateUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchUpdateUserRequest.filterSensitiveLog,
-      outputFilterLog: BatchUpdateUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdateUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdateUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

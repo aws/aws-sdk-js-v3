@@ -46,8 +46,8 @@ export class DisableInsightRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableInsightRulesInput.filterSensitiveLog,
-      outputFilterLog: DisableInsightRulesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableInsightRulesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableInsightRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

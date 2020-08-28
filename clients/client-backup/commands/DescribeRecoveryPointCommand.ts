@@ -46,8 +46,8 @@ export class DescribeRecoveryPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRecoveryPointInput.filterSensitiveLog,
-      outputFilterLog: DescribeRecoveryPointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRecoveryPointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRecoveryPointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

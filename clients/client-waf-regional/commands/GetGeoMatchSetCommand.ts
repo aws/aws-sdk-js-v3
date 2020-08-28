@@ -46,8 +46,8 @@ export class GetGeoMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGeoMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: GetGeoMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

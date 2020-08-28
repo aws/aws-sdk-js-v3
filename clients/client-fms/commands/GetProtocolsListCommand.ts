@@ -46,8 +46,8 @@ export class GetProtocolsListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetProtocolsListRequest.filterSensitiveLog,
-      outputFilterLog: GetProtocolsListResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProtocolsListRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetProtocolsListResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

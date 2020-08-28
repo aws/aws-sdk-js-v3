@@ -46,8 +46,8 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEnvironmentMembershipsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEnvironmentMembershipsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEnvironmentMembershipsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEnvironmentMembershipsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

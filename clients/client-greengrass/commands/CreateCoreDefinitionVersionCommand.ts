@@ -46,8 +46,8 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCoreDefinitionVersionRequest.filterSensitiveLog,
-      outputFilterLog: CreateCoreDefinitionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCoreDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCoreDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

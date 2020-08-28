@@ -46,8 +46,8 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCuratedEnvironmentImagesInput.filterSensitiveLog,
-      outputFilterLog: ListCuratedEnvironmentImagesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCuratedEnvironmentImagesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCuratedEnvironmentImagesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

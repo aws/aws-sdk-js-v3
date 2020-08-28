@@ -46,8 +46,8 @@ export class AddInstanceGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddInstanceGroupsInput.filterSensitiveLog,
-      outputFilterLog: AddInstanceGroupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddInstanceGroupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddInstanceGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

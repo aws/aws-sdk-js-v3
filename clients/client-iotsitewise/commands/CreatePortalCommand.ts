@@ -46,8 +46,8 @@ export class CreatePortalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePortalRequest.filterSensitiveLog,
-      outputFilterLog: CreatePortalResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePortalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePortalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeEventAggregatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEventAggregatesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEventAggregatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventAggregatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventAggregatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

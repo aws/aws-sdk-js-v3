@@ -46,8 +46,8 @@ export class ListVolumeInitiatorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListVolumeInitiatorsInput.filterSensitiveLog,
-      outputFilterLog: ListVolumeInitiatorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVolumeInitiatorsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVolumeInitiatorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

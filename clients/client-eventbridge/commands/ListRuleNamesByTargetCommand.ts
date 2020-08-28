@@ -46,8 +46,8 @@ export class ListRuleNamesByTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRuleNamesByTargetRequest.filterSensitiveLog,
-      outputFilterLog: ListRuleNamesByTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRuleNamesByTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRuleNamesByTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

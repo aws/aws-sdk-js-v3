@@ -46,8 +46,8 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCustomDataIdentifierRequest.filterSensitiveLog,
-      outputFilterLog: DeleteCustomDataIdentifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomDataIdentifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomDataIdentifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

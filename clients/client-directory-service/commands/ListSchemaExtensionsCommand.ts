@@ -46,8 +46,8 @@ export class ListSchemaExtensionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSchemaExtensionsRequest.filterSensitiveLog,
-      outputFilterLog: ListSchemaExtensionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSchemaExtensionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSchemaExtensionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

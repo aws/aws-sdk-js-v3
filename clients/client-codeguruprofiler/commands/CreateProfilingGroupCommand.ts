@@ -46,8 +46,8 @@ export class CreateProfilingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProfilingGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateProfilingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProfilingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProfilingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

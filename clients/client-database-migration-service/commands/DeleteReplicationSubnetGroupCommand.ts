@@ -50,8 +50,8 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteReplicationSubnetGroupMessage.filterSensitiveLog,
-      outputFilterLog: DeleteReplicationSubnetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationSubnetGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -57,8 +57,8 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetLoadBalancerPoliciesForBackendServerInput.filterSensitiveLog,
-      outputFilterLog: SetLoadBalancerPoliciesForBackendServerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class MoveAddressToVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MoveAddressToVpcRequest.filterSensitiveLog,
-      outputFilterLog: MoveAddressToVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: MoveAddressToVpcRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MoveAddressToVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

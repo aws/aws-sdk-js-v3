@@ -46,8 +46,8 @@ export class CompareFacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CompareFacesRequest.filterSensitiveLog,
-      outputFilterLog: CompareFacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CompareFacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CompareFacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

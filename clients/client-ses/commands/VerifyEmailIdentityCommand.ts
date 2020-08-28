@@ -46,8 +46,8 @@ export class VerifyEmailIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: VerifyEmailIdentityRequest.filterSensitiveLog,
-      outputFilterLog: VerifyEmailIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyEmailIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VerifyEmailIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateDistributionBundleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDistributionBundleRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDistributionBundleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDistributionBundleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDistributionBundleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

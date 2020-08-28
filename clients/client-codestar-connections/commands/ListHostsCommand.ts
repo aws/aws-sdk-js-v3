@@ -47,8 +47,8 @@ export class ListHostsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHostsInput.filterSensitiveLog,
-      outputFilterLog: ListHostsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHostsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHostsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

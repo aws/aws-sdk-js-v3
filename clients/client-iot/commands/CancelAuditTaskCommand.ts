@@ -46,8 +46,8 @@ export class CancelAuditTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelAuditTaskRequest.filterSensitiveLog,
-      outputFilterLog: CancelAuditTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelAuditTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelAuditTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

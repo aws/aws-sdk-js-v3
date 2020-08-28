@@ -46,8 +46,8 @@ export class DetachStaticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachStaticIpRequest.filterSensitiveLog,
-      outputFilterLog: DetachStaticIpResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachStaticIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

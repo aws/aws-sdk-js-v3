@@ -50,8 +50,8 @@ export class ListPipelinesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPipelinesRequest.filterSensitiveLog,
-      outputFilterLog: ListPipelinesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPipelinesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPipelinesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

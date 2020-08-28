@@ -48,8 +48,8 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBucketInventoryConfigurationsRequest.filterSensitiveLog,
-      outputFilterLog: ListBucketInventoryConfigurationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBucketInventoryConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBucketInventoryConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

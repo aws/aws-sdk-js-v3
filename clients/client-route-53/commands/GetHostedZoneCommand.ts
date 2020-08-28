@@ -48,8 +48,8 @@ export class GetHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHostedZoneRequest.filterSensitiveLog,
-      outputFilterLog: GetHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

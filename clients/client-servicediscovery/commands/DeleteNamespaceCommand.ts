@@ -46,8 +46,8 @@ export class DeleteNamespaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteNamespaceRequest.filterSensitiveLog,
-      outputFilterLog: DeleteNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNamespaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

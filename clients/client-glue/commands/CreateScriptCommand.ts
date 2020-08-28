@@ -46,8 +46,8 @@ export class CreateScriptCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateScriptRequest.filterSensitiveLog,
-      outputFilterLog: CreateScriptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateScriptRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateScriptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeClusterDbRevisionsMessage.filterSensitiveLog,
-      outputFilterLog: ClusterDbRevisionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterDbRevisionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterDbRevisionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

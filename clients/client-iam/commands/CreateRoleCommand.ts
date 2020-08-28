@@ -43,8 +43,8 @@ export class CreateRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRoleRequest.filterSensitiveLog,
-      outputFilterLog: CreateRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateSkillGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSkillGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateSkillGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSkillGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

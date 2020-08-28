@@ -50,8 +50,8 @@ export class GetMediaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMediaInput.filterSensitiveLog,
-      outputFilterLog: GetMediaOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMediaInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMediaOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

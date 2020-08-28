@@ -46,8 +46,8 @@ export class ResetPersonalPINCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResetPersonalPINRequest.filterSensitiveLog,
-      outputFilterLog: ResetPersonalPINResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetPersonalPINRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetPersonalPINResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

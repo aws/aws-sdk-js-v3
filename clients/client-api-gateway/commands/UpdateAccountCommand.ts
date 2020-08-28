@@ -46,8 +46,8 @@ export class UpdateAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAccountRequest.filterSensitiveLog,
-      outputFilterLog: Account.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Account.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

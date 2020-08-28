@@ -46,8 +46,8 @@ export class GetAttendeeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAttendeeRequest.filterSensitiveLog,
-      outputFilterLog: GetAttendeeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAttendeeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAttendeeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

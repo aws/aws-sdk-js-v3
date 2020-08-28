@@ -46,8 +46,8 @@ export class CreateVariableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVariableRequest.filterSensitiveLog,
-      outputFilterLog: CreateVariableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVariableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVariableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

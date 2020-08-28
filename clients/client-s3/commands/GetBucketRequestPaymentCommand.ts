@@ -48,8 +48,8 @@ export class GetBucketRequestPaymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketRequestPaymentRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketRequestPaymentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketRequestPaymentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketRequestPaymentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

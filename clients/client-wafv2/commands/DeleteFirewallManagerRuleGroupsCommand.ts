@@ -46,8 +46,8 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFirewallManagerRuleGroupsRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFirewallManagerRuleGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFirewallManagerRuleGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFirewallManagerRuleGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateStorediSCSIVolumeInput.filterSensitiveLog,
-      outputFilterLog: CreateStorediSCSIVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStorediSCSIVolumeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStorediSCSIVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

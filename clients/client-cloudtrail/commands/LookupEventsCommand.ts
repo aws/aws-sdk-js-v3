@@ -46,8 +46,8 @@ export class LookupEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: LookupEventsRequest.filterSensitiveLog,
-      outputFilterLog: LookupEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LookupEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LookupEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

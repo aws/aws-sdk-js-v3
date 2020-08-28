@@ -46,8 +46,8 @@ export class PutRetentionSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutRetentionSettingsRequest.filterSensitiveLog,
-      outputFilterLog: PutRetentionSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRetentionSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutRetentionSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

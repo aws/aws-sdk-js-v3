@@ -50,8 +50,8 @@ export class DeletePlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePlacementRequest.filterSensitiveLog,
-      outputFilterLog: DeletePlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

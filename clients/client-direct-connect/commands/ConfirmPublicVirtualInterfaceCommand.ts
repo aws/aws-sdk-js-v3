@@ -46,8 +46,8 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

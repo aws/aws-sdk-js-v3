@@ -46,8 +46,8 @@ export class UpdateAssetModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAssetModelRequest.filterSensitiveLog,
-      outputFilterLog: UpdateAssetModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAssetModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssetModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

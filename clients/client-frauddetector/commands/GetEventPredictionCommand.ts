@@ -46,8 +46,8 @@ export class GetEventPredictionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEventPredictionRequest.filterSensitiveLog,
-      outputFilterLog: GetEventPredictionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventPredictionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEventPredictionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

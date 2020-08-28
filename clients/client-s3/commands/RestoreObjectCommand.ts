@@ -48,8 +48,8 @@ export class RestoreObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreObjectRequest.filterSensitiveLog,
-      outputFilterLog: RestoreObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

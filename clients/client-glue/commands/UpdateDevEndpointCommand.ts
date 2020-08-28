@@ -46,8 +46,8 @@ export class UpdateDevEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDevEndpointRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDevEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDevEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDevEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

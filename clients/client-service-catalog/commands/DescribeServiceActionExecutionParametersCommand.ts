@@ -53,8 +53,8 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeServiceActionExecutionParametersInput.filterSensitiveLog,
-      outputFilterLog: DescribeServiceActionExecutionParametersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeServiceActionExecutionParametersInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeServiceActionExecutionParametersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

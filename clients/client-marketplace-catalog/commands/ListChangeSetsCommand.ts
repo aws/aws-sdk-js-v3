@@ -50,8 +50,8 @@ export class ListChangeSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListChangeSetsRequest.filterSensitiveLog,
-      outputFilterLog: ListChangeSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListChangeSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListChangeSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateTagOptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTagOptionInput.filterSensitiveLog,
-      outputFilterLog: UpdateTagOptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTagOptionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTagOptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

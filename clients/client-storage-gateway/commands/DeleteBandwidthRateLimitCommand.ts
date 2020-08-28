@@ -46,8 +46,8 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBandwidthRateLimitInput.filterSensitiveLog,
-      outputFilterLog: DeleteBandwidthRateLimitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBandwidthRateLimitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBandwidthRateLimitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

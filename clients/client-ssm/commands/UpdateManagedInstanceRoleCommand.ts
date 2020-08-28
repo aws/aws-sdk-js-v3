@@ -46,8 +46,8 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateManagedInstanceRoleRequest.filterSensitiveLog,
-      outputFilterLog: UpdateManagedInstanceRoleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateManagedInstanceRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateManagedInstanceRoleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

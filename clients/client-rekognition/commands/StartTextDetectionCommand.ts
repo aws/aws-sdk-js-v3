@@ -46,8 +46,8 @@ export class StartTextDetectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartTextDetectionRequest.filterSensitiveLog,
-      outputFilterLog: StartTextDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTextDetectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartTextDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

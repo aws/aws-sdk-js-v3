@@ -46,8 +46,8 @@ export class ModifyClusterSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyClusterSnapshotMessage.filterSensitiveLog,
-      outputFilterLog: ModifyClusterSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

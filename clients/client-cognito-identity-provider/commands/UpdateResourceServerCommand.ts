@@ -50,8 +50,8 @@ export class UpdateResourceServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateResourceServerRequest.filterSensitiveLog,
-      outputFilterLog: UpdateResourceServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateResourceServerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResourceServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

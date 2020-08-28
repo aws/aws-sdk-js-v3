@@ -46,8 +46,8 @@ export class GetVoiceChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetVoiceChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetVoiceChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVoiceChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

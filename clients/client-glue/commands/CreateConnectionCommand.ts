@@ -46,8 +46,8 @@ export class CreateConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateConnectionRequest.filterSensitiveLog,
-      outputFilterLog: CreateConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

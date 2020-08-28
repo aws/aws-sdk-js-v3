@@ -46,8 +46,8 @@ export class GetIntrospectionSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIntrospectionSchemaRequest.filterSensitiveLog,
-      outputFilterLog: GetIntrospectionSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntrospectionSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIntrospectionSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

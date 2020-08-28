@@ -53,8 +53,8 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateWebsiteCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateWebsiteCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

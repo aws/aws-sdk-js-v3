@@ -46,8 +46,8 @@ export class CreateAgentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAgentRequest.filterSensitiveLog,
-      outputFilterLog: CreateAgentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAgentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAgentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

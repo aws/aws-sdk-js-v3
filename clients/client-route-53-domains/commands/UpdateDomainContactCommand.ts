@@ -46,8 +46,8 @@ export class UpdateDomainContactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDomainContactRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDomainContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

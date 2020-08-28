@@ -46,8 +46,8 @@ export class AssociateTrialComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateTrialComponentRequest.filterSensitiveLog,
-      outputFilterLog: AssociateTrialComponentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAccountAuditConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAccountAuditConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccountAuditConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccountAuditConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateIdentityProviderConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateIdentityProviderConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIdentityProviderConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIdentityProviderConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

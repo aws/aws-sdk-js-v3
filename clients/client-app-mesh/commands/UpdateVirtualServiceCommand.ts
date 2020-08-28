@@ -46,8 +46,8 @@ export class UpdateVirtualServiceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateVirtualServiceInput.filterSensitiveLog,
-      outputFilterLog: UpdateVirtualServiceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVirtualServiceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListTypeVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTypeVersionsInput.filterSensitiveLog,
-      outputFilterLog: ListTypeVersionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTypeVersionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTypeVersionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteUserProfileRequest.filterSensitiveLog,
-      outputFilterLog: DeleteUserProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

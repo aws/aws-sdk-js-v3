@@ -46,8 +46,8 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAutomaticTapeCreationPoliciesInput.filterSensitiveLog,
-      outputFilterLog: ListAutomaticTapeCreationPoliciesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAutomaticTapeCreationPoliciesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAutomaticTapeCreationPoliciesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutInstancePublicPortsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutInstancePublicPortsRequest.filterSensitiveLog,
-      outputFilterLog: PutInstancePublicPortsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutInstancePublicPortsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutInstancePublicPortsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAggregateIdFormatRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAggregateIdFormatResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAggregateIdFormatRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAggregateIdFormatResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

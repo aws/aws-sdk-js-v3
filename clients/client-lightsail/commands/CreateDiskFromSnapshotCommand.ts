@@ -46,8 +46,8 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDiskFromSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: CreateDiskFromSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDiskFromSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDiskFromSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

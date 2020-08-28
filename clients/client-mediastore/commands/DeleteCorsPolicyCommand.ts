@@ -46,8 +46,8 @@ export class DeleteCorsPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCorsPolicyInput.filterSensitiveLog,
-      outputFilterLog: DeleteCorsPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCorsPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCorsPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

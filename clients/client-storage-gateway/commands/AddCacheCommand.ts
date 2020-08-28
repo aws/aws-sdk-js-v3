@@ -43,8 +43,8 @@ export class AddCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddCacheInput.filterSensitiveLog,
-      outputFilterLog: AddCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddCacheInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

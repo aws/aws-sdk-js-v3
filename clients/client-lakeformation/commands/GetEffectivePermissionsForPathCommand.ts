@@ -46,8 +46,8 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEffectivePermissionsForPathRequest.filterSensitiveLog,
-      outputFilterLog: GetEffectivePermissionsForPathResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEffectivePermissionsForPathRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEffectivePermissionsForPathResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

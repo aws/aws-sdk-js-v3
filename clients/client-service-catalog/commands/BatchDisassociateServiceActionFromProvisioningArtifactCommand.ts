@@ -53,8 +53,8 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterLog: BatchDisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

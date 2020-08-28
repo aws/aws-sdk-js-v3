@@ -46,8 +46,8 @@ export class CreatePushTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePushTemplateRequest.filterSensitiveLog,
-      outputFilterLog: CreatePushTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePushTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePushTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

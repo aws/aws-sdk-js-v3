@@ -43,8 +43,8 @@ export class ListMetricsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListMetricsInput.filterSensitiveLog,
-      outputFilterLog: ListMetricsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMetricsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMetricsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

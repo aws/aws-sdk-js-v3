@@ -50,8 +50,8 @@ export class CreatePlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePlacementRequest.filterSensitiveLog,
-      outputFilterLog: CreatePlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

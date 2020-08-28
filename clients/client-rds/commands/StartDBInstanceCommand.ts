@@ -46,8 +46,8 @@ export class StartDBInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartDBInstanceMessage.filterSensitiveLog,
-      outputFilterLog: StartDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

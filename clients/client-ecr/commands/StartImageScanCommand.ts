@@ -46,8 +46,8 @@ export class StartImageScanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartImageScanRequest.filterSensitiveLog,
-      outputFilterLog: StartImageScanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartImageScanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartImageScanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

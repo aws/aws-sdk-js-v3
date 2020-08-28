@@ -46,8 +46,8 @@ export class AssociateResolverRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateResolverRuleRequest.filterSensitiveLog,
-      outputFilterLog: AssociateResolverRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateResolverRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetTextDetectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTextDetectionRequest.filterSensitiveLog,
-      outputFilterLog: GetTextDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTextDetectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTextDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

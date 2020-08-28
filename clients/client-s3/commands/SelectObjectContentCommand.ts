@@ -51,8 +51,8 @@ export class SelectObjectContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SelectObjectContentRequest.filterSensitiveLog,
-      outputFilterLog: SelectObjectContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SelectObjectContentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SelectObjectContentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

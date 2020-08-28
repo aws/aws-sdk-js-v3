@@ -46,8 +46,8 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateProvisioningTemplateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateProvisioningTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProvisioningTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProvisioningTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

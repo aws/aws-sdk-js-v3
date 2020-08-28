@@ -50,8 +50,8 @@ export class VoteOnProposalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: VoteOnProposalInput.filterSensitiveLog,
-      outputFilterLog: VoteOnProposalOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: VoteOnProposalInput.filterSensitiveLog,
+      outputFilterSensitiveLog: VoteOnProposalOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

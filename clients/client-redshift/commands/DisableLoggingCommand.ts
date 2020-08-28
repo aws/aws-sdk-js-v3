@@ -46,8 +46,8 @@ export class DisableLoggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableLoggingMessage.filterSensitiveLog,
-      outputFilterLog: LoggingStatus.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableLoggingMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: LoggingStatus.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

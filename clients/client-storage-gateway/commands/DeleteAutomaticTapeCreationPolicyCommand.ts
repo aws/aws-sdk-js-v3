@@ -46,8 +46,8 @@ export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAutomaticTapeCreationPolicyInput.filterSensitiveLog,
-      outputFilterLog: DeleteAutomaticTapeCreationPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAutomaticTapeCreationPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAutomaticTapeCreationPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

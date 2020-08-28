@@ -46,8 +46,8 @@ export class DeleteReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: DeleteReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

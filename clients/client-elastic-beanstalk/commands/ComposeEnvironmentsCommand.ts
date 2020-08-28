@@ -46,8 +46,8 @@ export class ComposeEnvironmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ComposeEnvironmentsMessage.filterSensitiveLog,
-      outputFilterLog: EnvironmentDescriptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ComposeEnvironmentsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentDescriptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

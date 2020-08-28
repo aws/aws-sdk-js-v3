@@ -46,8 +46,8 @@ export class SearchSystemInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchSystemInstancesRequest.filterSensitiveLog,
-      outputFilterLog: SearchSystemInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchSystemInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchSystemInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

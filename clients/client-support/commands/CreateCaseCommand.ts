@@ -46,8 +46,8 @@ export class CreateCaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCaseRequest.filterSensitiveLog,
-      outputFilterLog: CreateCaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

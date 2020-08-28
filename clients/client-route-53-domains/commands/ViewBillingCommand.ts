@@ -46,8 +46,8 @@ export class ViewBillingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ViewBillingRequest.filterSensitiveLog,
-      outputFilterLog: ViewBillingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ViewBillingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ViewBillingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

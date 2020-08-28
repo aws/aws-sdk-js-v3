@@ -46,8 +46,8 @@ export class DisassociateConnectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateConnectorRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateConnectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateConnectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

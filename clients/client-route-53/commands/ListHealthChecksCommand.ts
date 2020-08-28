@@ -46,8 +46,8 @@ export class ListHealthChecksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHealthChecksRequest.filterSensitiveLog,
-      outputFilterLog: ListHealthChecksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHealthChecksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHealthChecksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

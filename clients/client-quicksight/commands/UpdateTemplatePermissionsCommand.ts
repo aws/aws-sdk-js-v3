@@ -46,8 +46,8 @@ export class UpdateTemplatePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTemplatePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: UpdateTemplatePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTemplatePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTemplatePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

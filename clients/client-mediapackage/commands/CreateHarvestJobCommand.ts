@@ -46,8 +46,8 @@ export class CreateHarvestJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateHarvestJobRequest.filterSensitiveLog,
-      outputFilterLog: CreateHarvestJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHarvestJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHarvestJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

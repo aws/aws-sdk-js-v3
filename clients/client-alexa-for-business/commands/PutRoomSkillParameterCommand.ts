@@ -46,8 +46,8 @@ export class PutRoomSkillParameterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutRoomSkillParameterRequest.filterSensitiveLog,
-      outputFilterLog: PutRoomSkillParameterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRoomSkillParameterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutRoomSkillParameterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

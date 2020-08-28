@@ -46,8 +46,8 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAppLaunchConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetAppLaunchConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppLaunchConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAppLaunchConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

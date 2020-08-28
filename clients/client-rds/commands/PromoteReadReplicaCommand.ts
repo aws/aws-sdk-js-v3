@@ -46,8 +46,8 @@ export class PromoteReadReplicaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PromoteReadReplicaMessage.filterSensitiveLog,
-      outputFilterLog: PromoteReadReplicaResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PromoteReadReplicaMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PromoteReadReplicaResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

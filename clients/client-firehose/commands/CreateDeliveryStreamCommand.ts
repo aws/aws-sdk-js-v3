@@ -46,8 +46,8 @@ export class CreateDeliveryStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDeliveryStreamInput.filterSensitiveLog,
-      outputFilterLog: CreateDeliveryStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeliveryStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

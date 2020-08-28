@@ -46,8 +46,8 @@ export class AssociateAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateAddressRequest.filterSensitiveLog,
-      outputFilterLog: AssociateAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

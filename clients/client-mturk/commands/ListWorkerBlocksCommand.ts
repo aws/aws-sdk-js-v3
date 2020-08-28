@@ -46,8 +46,8 @@ export class ListWorkerBlocksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListWorkerBlocksRequest.filterSensitiveLog,
-      outputFilterLog: ListWorkerBlocksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListWorkerBlocksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWorkerBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

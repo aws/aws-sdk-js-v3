@@ -46,8 +46,8 @@ export class ListBackupSelectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBackupSelectionsInput.filterSensitiveLog,
-      outputFilterLog: ListBackupSelectionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBackupSelectionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBackupSelectionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

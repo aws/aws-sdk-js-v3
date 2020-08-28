@@ -46,8 +46,8 @@ export class UntagStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UntagStreamInput.filterSensitiveLog,
-      outputFilterLog: UntagStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UntagStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

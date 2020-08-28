@@ -46,8 +46,8 @@ export class EnableRadiusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EnableRadiusRequest.filterSensitiveLog,
-      outputFilterLog: EnableRadiusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableRadiusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableRadiusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

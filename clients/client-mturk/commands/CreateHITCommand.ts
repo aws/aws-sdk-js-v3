@@ -43,8 +43,8 @@ export class CreateHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateHITRequest.filterSensitiveLog,
-      outputFilterLog: CreateHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

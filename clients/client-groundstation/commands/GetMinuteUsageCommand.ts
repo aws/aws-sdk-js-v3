@@ -46,8 +46,8 @@ export class GetMinuteUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMinuteUsageRequest.filterSensitiveLog,
-      outputFilterLog: GetMinuteUsageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMinuteUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMinuteUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

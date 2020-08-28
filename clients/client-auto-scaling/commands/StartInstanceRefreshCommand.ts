@@ -46,8 +46,8 @@ export class StartInstanceRefreshCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartInstanceRefreshType.filterSensitiveLog,
-      outputFilterLog: StartInstanceRefreshAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: StartInstanceRefreshType.filterSensitiveLog,
+      outputFilterSensitiveLog: StartInstanceRefreshAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

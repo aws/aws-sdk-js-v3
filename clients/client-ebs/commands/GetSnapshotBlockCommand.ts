@@ -46,8 +46,8 @@ export class GetSnapshotBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSnapshotBlockRequest.filterSensitiveLog,
-      outputFilterLog: GetSnapshotBlockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSnapshotBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSnapshotBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

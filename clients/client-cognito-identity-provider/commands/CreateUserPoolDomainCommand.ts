@@ -50,8 +50,8 @@ export class CreateUserPoolDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateUserPoolDomainRequest.filterSensitiveLog,
-      outputFilterLog: CreateUserPoolDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUserPoolDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUserPoolDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

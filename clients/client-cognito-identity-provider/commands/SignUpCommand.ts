@@ -47,8 +47,8 @@ export class SignUpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SignUpRequest.filterSensitiveLog,
-      outputFilterLog: SignUpResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SignUpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SignUpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

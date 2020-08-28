@@ -43,8 +43,8 @@ export class GetFileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFileInput.filterSensitiveLog,
-      outputFilterLog: GetFileOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFileInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFileOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

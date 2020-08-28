@@ -43,8 +43,8 @@ export class GetPasswordDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPasswordDataRequest.filterSensitiveLog,
-      outputFilterLog: GetPasswordDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPasswordDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPasswordDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

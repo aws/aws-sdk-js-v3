@@ -46,8 +46,8 @@ export class TestRenderEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestRenderEmailTemplateRequest.filterSensitiveLog,
-      outputFilterLog: TestRenderEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestRenderEmailTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestRenderEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

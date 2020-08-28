@@ -46,8 +46,8 @@ export class GetSoftwareUpdatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSoftwareUpdatesRequest.filterSensitiveLog,
-      outputFilterLog: GetSoftwareUpdatesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSoftwareUpdatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSoftwareUpdatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

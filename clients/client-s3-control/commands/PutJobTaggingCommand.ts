@@ -46,8 +46,8 @@ export class PutJobTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutJobTaggingRequest.filterSensitiveLog,
-      outputFilterLog: PutJobTaggingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutJobTaggingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutJobTaggingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

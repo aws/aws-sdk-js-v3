@@ -46,8 +46,8 @@ export class DeleteSignalingChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSignalingChannelInput.filterSensitiveLog,
-      outputFilterLog: DeleteSignalingChannelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSignalingChannelInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSignalingChannelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

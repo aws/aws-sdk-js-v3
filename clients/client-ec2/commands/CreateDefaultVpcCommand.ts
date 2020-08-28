@@ -46,8 +46,8 @@ export class CreateDefaultVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDefaultVpcRequest.filterSensitiveLog,
-      outputFilterLog: CreateDefaultVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDefaultVpcRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDefaultVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListTagsForCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTagsForCertificateRequest.filterSensitiveLog,
-      outputFilterLog: ListTagsForCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

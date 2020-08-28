@@ -43,8 +43,8 @@ export class DeleteLagCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteLagRequest.filterSensitiveLog,
-      outputFilterLog: Lag.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLagRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Lag.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

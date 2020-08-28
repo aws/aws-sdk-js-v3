@@ -46,8 +46,8 @@ export class StartAssociationsOnceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartAssociationsOnceRequest.filterSensitiveLog,
-      outputFilterLog: StartAssociationsOnceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartAssociationsOnceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartAssociationsOnceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSubscribedRuleGroupsRequest.filterSensitiveLog,
-      outputFilterLog: ListSubscribedRuleGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSubscribedRuleGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSubscribedRuleGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

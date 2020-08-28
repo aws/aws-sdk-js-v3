@@ -46,8 +46,8 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteUserDefinedFunctionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteUserDefinedFunctionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserDefinedFunctionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserDefinedFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

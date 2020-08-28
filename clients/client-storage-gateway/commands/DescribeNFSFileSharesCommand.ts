@@ -46,8 +46,8 @@ export class DescribeNFSFileSharesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeNFSFileSharesInput.filterSensitiveLog,
-      outputFilterLog: DescribeNFSFileSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNFSFileSharesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNFSFileSharesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSubscribedWorkteamsRequest.filterSensitiveLog,
-      outputFilterLog: ListSubscribedWorkteamsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSubscribedWorkteamsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSubscribedWorkteamsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

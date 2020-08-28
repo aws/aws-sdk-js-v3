@@ -46,8 +46,8 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReorderReceiptRuleSetRequest.filterSensitiveLog,
-      outputFilterLog: ReorderReceiptRuleSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReorderReceiptRuleSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReorderReceiptRuleSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

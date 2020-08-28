@@ -46,8 +46,8 @@ export class ResolveRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResolveRoomRequest.filterSensitiveLog,
-      outputFilterLog: ResolveRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResolveRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

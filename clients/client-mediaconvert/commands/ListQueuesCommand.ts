@@ -46,8 +46,8 @@ export class ListQueuesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListQueuesRequest.filterSensitiveLog,
-      outputFilterLog: ListQueuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListQueuesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListQueuesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

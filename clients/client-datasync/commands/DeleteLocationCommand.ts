@@ -46,8 +46,8 @@ export class DeleteLocationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteLocationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteLocationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLocationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLocationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

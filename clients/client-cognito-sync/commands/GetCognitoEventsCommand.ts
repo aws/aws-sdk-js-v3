@@ -46,8 +46,8 @@ export class GetCognitoEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCognitoEventsRequest.filterSensitiveLog,
-      outputFilterLog: GetCognitoEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCognitoEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCognitoEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

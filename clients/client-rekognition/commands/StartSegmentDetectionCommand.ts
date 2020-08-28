@@ -46,8 +46,8 @@ export class StartSegmentDetectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartSegmentDetectionRequest.filterSensitiveLog,
-      outputFilterLog: StartSegmentDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSegmentDetectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSegmentDetectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

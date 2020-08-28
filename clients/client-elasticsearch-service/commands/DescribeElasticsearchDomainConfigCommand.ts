@@ -51,8 +51,8 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeElasticsearchDomainConfigRequest.filterSensitiveLog,
-      outputFilterLog: DescribeElasticsearchDomainConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticsearchDomainConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticsearchDomainConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

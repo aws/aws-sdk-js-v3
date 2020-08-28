@@ -46,8 +46,8 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateContainerInstancesStateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateContainerInstancesStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContainerInstancesStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContainerInstancesStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

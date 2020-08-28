@@ -46,8 +46,8 @@ export class ExportServerEngineAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExportServerEngineAttributeRequest.filterSensitiveLog,
-      outputFilterLog: ExportServerEngineAttributeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportServerEngineAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportServerEngineAttributeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

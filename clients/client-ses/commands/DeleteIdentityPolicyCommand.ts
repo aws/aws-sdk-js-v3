@@ -46,8 +46,8 @@ export class DeleteIdentityPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteIdentityPolicyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteIdentityPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIdentityPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIdentityPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

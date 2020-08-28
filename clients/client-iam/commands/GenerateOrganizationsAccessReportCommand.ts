@@ -47,8 +47,8 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateOrganizationsAccessReportRequest.filterSensitiveLog,
-      outputFilterLog: GenerateOrganizationsAccessReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateOrganizationsAccessReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateOrganizationsAccessReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

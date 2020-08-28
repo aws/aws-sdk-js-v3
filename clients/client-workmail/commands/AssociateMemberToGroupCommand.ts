@@ -46,8 +46,8 @@ export class AssociateMemberToGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateMemberToGroupRequest.filterSensitiveLog,
-      outputFilterLog: AssociateMemberToGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateMemberToGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateMemberToGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

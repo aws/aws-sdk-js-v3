@@ -46,8 +46,8 @@ export class StopImageBuilderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopImageBuilderRequest.filterSensitiveLog,
-      outputFilterLog: StopImageBuilderResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopImageBuilderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopImageBuilderResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

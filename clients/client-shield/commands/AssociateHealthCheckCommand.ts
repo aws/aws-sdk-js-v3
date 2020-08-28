@@ -46,8 +46,8 @@ export class AssociateHealthCheckCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateHealthCheckRequest.filterSensitiveLog,
-      outputFilterLog: AssociateHealthCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateHealthCheckRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateHealthCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

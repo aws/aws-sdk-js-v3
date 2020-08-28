@@ -46,8 +46,8 @@ export class DeleteDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDistributionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLoadBalancerTlsCertificateRequest.filterSensitiveLog,
-      outputFilterLog: CreateLoadBalancerTlsCertificateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLoadBalancerTlsCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoadBalancerTlsCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

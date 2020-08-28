@@ -46,8 +46,8 @@ export class DeleteChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteChangeSetInput.filterSensitiveLog,
-      outputFilterLog: DeleteChangeSetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteChangeSetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteChangeSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

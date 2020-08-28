@@ -46,8 +46,8 @@ export class GetReservationCoverageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReservationCoverageRequest.filterSensitiveLog,
-      outputFilterLog: GetReservationCoverageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservationCoverageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservationCoverageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

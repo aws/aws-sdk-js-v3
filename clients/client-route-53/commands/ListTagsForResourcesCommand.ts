@@ -46,8 +46,8 @@ export class ListTagsForResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTagsForResourcesRequest.filterSensitiveLog,
-      outputFilterLog: ListTagsForResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

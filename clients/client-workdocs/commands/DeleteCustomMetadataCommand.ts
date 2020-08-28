@@ -46,8 +46,8 @@ export class DeleteCustomMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCustomMetadataRequest.filterSensitiveLog,
-      outputFilterLog: DeleteCustomMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomMetadataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

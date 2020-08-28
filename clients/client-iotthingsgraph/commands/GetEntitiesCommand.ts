@@ -46,8 +46,8 @@ export class GetEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEntitiesRequest.filterSensitiveLog,
-      outputFilterLog: GetEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

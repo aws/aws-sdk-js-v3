@@ -46,8 +46,8 @@ export class CheckDomainAvailabilityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CheckDomainAvailabilityRequest.filterSensitiveLog,
-      outputFilterLog: CheckDomainAvailabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckDomainAvailabilityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CheckDomainAvailabilityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

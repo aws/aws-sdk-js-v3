@@ -54,8 +54,8 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeOrderableReplicationInstancesMessage.filterSensitiveLog,
-      outputFilterLog: DescribeOrderableReplicationInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrderableReplicationInstancesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOrderableReplicationInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetPresetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPresetRequest.filterSensitiveLog,
-      outputFilterLog: GetPresetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPresetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeregisterFromWorkMailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterFromWorkMailRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterFromWorkMailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterFromWorkMailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterFromWorkMailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

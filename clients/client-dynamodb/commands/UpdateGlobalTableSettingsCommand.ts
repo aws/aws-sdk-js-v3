@@ -46,8 +46,8 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGlobalTableSettingsInput.filterSensitiveLog,
-      outputFilterLog: UpdateGlobalTableSettingsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGlobalTableSettingsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGlobalTableSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

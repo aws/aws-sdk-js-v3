@@ -46,8 +46,8 @@ export class ListDimensionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDimensionsRequest.filterSensitiveLog,
-      outputFilterLog: ListDimensionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDimensionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDimensionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

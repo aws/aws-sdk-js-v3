@@ -46,8 +46,8 @@ export class CreateRealtimeEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRealtimeEndpointInput.filterSensitiveLog,
-      outputFilterLog: CreateRealtimeEndpointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRealtimeEndpointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRealtimeEndpointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class OpenInstancePublicPortsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: OpenInstancePublicPortsRequest.filterSensitiveLog,
-      outputFilterLog: OpenInstancePublicPortsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: OpenInstancePublicPortsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: OpenInstancePublicPortsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

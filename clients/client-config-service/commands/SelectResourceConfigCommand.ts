@@ -46,8 +46,8 @@ export class SelectResourceConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SelectResourceConfigRequest.filterSensitiveLog,
-      outputFilterLog: SelectResourceConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SelectResourceConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SelectResourceConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

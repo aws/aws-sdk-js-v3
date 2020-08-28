@@ -50,8 +50,8 @@ export class DescribeAgentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAgentsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAgentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAgentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAgentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

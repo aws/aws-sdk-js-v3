@@ -46,8 +46,8 @@ export class UpdateDataSetPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDataSetPermissionsRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDataSetPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataSetPermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataSetPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutSigningProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSigningProfileRequest.filterSensitiveLog,
-      outputFilterLog: PutSigningProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSigningProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSigningProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

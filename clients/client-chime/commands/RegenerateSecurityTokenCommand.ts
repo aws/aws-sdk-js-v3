@@ -46,8 +46,8 @@ export class RegenerateSecurityTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegenerateSecurityTokenRequest.filterSensitiveLog,
-      outputFilterLog: RegenerateSecurityTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegenerateSecurityTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegenerateSecurityTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

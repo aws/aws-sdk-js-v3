@@ -50,8 +50,8 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeWebsiteCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterLog: DescribeWebsiteCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

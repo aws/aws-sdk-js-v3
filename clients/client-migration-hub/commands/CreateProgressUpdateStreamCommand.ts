@@ -46,8 +46,8 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProgressUpdateStreamRequest.filterSensitiveLog,
-      outputFilterLog: CreateProgressUpdateStreamResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProgressUpdateStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProgressUpdateStreamResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

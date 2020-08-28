@@ -46,8 +46,8 @@ export class SignOutUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SignOutUserRequest.filterSensitiveLog,
-      outputFilterLog: SignOutUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SignOutUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SignOutUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

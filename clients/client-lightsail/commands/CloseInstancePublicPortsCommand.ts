@@ -46,8 +46,8 @@ export class CloseInstancePublicPortsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CloseInstancePublicPortsRequest.filterSensitiveLog,
-      outputFilterLog: CloseInstancePublicPortsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CloseInstancePublicPortsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CloseInstancePublicPortsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

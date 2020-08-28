@@ -46,8 +46,8 @@ export class DetachInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachInstancesQuery.filterSensitiveLog,
-      outputFilterLog: DetachInstancesAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachInstancesQuery.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachInstancesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

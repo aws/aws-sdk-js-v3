@@ -46,8 +46,8 @@ export class DescribeGlobalTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeGlobalTableInput.filterSensitiveLog,
-      outputFilterLog: DescribeGlobalTableOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGlobalTableInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGlobalTableOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

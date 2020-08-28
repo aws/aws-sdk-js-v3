@@ -50,8 +50,8 @@ export class DeleteSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSessionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

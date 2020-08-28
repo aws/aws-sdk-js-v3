@@ -46,8 +46,8 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteEgressOnlyInternetGatewayRequest.filterSensitiveLog,
-      outputFilterLog: DeleteEgressOnlyInternetGatewayResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEgressOnlyInternetGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEgressOnlyInternetGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

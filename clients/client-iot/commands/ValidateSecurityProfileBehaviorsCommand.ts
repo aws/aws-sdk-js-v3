@@ -46,8 +46,8 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ValidateSecurityProfileBehaviorsRequest.filterSensitiveLog,
-      outputFilterLog: ValidateSecurityProfileBehaviorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ValidateSecurityProfileBehaviorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ValidateSecurityProfileBehaviorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

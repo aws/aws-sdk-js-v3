@@ -46,8 +46,8 @@ export class StopPipelineExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopPipelineExecutionInput.filterSensitiveLog,
-      outputFilterLog: StopPipelineExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopPipelineExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopPipelineExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

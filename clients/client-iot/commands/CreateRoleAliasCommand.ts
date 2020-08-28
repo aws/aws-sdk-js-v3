@@ -46,8 +46,8 @@ export class CreateRoleAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRoleAliasRequest.filterSensitiveLog,
-      outputFilterLog: CreateRoleAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRoleAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoleAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

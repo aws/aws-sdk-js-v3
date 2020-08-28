@@ -46,8 +46,8 @@ export class CreateSiteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSiteRequest.filterSensitiveLog,
-      outputFilterLog: CreateSiteResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSiteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSiteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

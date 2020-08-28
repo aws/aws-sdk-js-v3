@@ -50,8 +50,8 @@ export class HeadObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: HeadObjectRequest.filterSensitiveLog,
-      outputFilterLog: HeadObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HeadObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: HeadObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

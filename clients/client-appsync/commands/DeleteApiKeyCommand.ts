@@ -46,8 +46,8 @@ export class DeleteApiKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApiKeyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApiKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApiKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApiKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

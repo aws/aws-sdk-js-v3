@@ -46,8 +46,8 @@ export class GetUsageTotalsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUsageTotalsRequest.filterSensitiveLog,
-      outputFilterLog: GetUsageTotalsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUsageTotalsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUsageTotalsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

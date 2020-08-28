@@ -46,8 +46,8 @@ export class CancelSchemaExtensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelSchemaExtensionRequest.filterSensitiveLog,
-      outputFilterLog: CancelSchemaExtensionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelSchemaExtensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelSchemaExtensionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

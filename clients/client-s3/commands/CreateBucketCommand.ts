@@ -48,8 +48,8 @@ export class CreateBucketCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBucketRequest.filterSensitiveLog,
-      outputFilterLog: CreateBucketOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBucketOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

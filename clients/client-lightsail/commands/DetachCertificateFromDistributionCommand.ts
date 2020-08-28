@@ -46,8 +46,8 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachCertificateFromDistributionRequest.filterSensitiveLog,
-      outputFilterLog: DetachCertificateFromDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachCertificateFromDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachCertificateFromDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

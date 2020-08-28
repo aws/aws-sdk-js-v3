@@ -50,8 +50,8 @@ export class ModifyReplicationInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyReplicationInstanceMessage.filterSensitiveLog,
-      outputFilterLog: ModifyReplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

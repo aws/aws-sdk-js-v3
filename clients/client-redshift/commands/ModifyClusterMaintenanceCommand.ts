@@ -46,8 +46,8 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyClusterMaintenanceMessage.filterSensitiveLog,
-      outputFilterLog: ModifyClusterMaintenanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterMaintenanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterMaintenanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

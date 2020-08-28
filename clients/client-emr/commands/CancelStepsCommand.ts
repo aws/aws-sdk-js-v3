@@ -46,8 +46,8 @@ export class CancelStepsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelStepsInput.filterSensitiveLog,
-      outputFilterLog: CancelStepsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelStepsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelStepsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

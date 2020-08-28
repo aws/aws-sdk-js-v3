@@ -46,8 +46,8 @@ export class CancelSpotFleetRequestsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelSpotFleetRequestsRequest.filterSensitiveLog,
-      outputFilterLog: CancelSpotFleetRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelSpotFleetRequestsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelSpotFleetRequestsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

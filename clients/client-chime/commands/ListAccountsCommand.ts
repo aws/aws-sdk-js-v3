@@ -46,8 +46,8 @@ export class ListAccountsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAccountsRequest.filterSensitiveLog,
-      outputFilterLog: ListAccountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccountsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAccountsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

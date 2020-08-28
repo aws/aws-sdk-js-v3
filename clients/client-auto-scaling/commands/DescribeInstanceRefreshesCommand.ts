@@ -46,8 +46,8 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInstanceRefreshesType.filterSensitiveLog,
-      outputFilterLog: DescribeInstanceRefreshesAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceRefreshesType.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceRefreshesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

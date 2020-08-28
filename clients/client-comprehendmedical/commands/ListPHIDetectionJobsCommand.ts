@@ -50,8 +50,8 @@ export class ListPHIDetectionJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPHIDetectionJobsRequest.filterSensitiveLog,
-      outputFilterLog: ListPHIDetectionJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPHIDetectionJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPHIDetectionJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

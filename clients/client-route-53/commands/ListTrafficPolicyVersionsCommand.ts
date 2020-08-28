@@ -48,8 +48,8 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTrafficPolicyVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListTrafficPolicyVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTrafficPolicyVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTrafficPolicyVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

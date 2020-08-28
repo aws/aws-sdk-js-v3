@@ -46,8 +46,8 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDistributionsByWebACLIdRequest.filterSensitiveLog,
-      outputFilterLog: ListDistributionsByWebACLIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDistributionsByWebACLIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByWebACLIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

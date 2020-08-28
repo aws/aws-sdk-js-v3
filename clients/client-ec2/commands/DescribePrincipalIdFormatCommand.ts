@@ -46,8 +46,8 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribePrincipalIdFormatRequest.filterSensitiveLog,
-      outputFilterLog: DescribePrincipalIdFormatResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePrincipalIdFormatRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePrincipalIdFormatResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

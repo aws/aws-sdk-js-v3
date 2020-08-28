@@ -46,8 +46,8 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MergePullRequestByFastForwardInput.filterSensitiveLog,
-      outputFilterLog: MergePullRequestByFastForwardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergePullRequestByFastForwardInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestByFastForwardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

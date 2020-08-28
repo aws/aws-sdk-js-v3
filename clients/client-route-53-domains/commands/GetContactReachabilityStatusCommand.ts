@@ -46,8 +46,8 @@ export class GetContactReachabilityStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetContactReachabilityStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetContactReachabilityStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContactReachabilityStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetContactReachabilityStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

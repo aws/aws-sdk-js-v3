@@ -39,8 +39,8 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartTaskRequest.filterSensitiveLog,
-      outputFilterLog: StartTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

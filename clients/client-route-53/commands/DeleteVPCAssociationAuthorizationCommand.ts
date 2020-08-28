@@ -49,8 +49,8 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVPCAssociationAuthorizationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteVPCAssociationAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVPCAssociationAuthorizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVPCAssociationAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

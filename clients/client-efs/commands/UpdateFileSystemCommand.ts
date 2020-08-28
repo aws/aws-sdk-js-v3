@@ -46,8 +46,8 @@ export class UpdateFileSystemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateFileSystemRequest.filterSensitiveLog,
-      outputFilterLog: FileSystemDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFileSystemRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FileSystemDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

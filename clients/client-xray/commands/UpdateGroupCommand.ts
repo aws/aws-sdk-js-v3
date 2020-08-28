@@ -46,8 +46,8 @@ export class UpdateGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGroupRequest.filterSensitiveLog,
-      outputFilterLog: UpdateGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

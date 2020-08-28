@@ -46,8 +46,8 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartImportLabelsTaskRunRequest.filterSensitiveLog,
-      outputFilterLog: StartImportLabelsTaskRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartImportLabelsTaskRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartImportLabelsTaskRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

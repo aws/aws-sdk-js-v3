@@ -46,8 +46,8 @@ export class InvalidateProjectCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InvalidateProjectCacheInput.filterSensitiveLog,
-      outputFilterLog: InvalidateProjectCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: InvalidateProjectCacheInput.filterSensitiveLog,
+      outputFilterSensitiveLog: InvalidateProjectCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

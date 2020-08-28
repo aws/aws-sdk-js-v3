@@ -46,8 +46,8 @@ export class GetGatewayGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGatewayGroupRequest.filterSensitiveLog,
-      outputFilterLog: GetGatewayGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGatewayGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGatewayGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

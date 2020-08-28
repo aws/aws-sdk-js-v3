@@ -46,8 +46,8 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateDataKeyWithoutPlaintextRequest.filterSensitiveLog,
-      outputFilterLog: GenerateDataKeyWithoutPlaintextResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

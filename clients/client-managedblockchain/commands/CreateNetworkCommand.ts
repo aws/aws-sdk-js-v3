@@ -50,8 +50,8 @@ export class CreateNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateNetworkInput.filterSensitiveLog,
-      outputFilterLog: CreateNetworkOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNetworkInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNetworkOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

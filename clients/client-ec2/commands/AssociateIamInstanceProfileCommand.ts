@@ -46,8 +46,8 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateIamInstanceProfileRequest.filterSensitiveLog,
-      outputFilterLog: AssociateIamInstanceProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateIamInstanceProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateIamInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

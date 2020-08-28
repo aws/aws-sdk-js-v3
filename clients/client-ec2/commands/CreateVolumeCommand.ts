@@ -43,8 +43,8 @@ export class CreateVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVolumeRequest.filterSensitiveLog,
-      outputFilterLog: Volume.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVolumeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Volume.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetRequestValidatorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRequestValidatorsRequest.filterSensitiveLog,
-      outputFilterLog: RequestValidators.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRequestValidatorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestValidators.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

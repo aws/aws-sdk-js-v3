@@ -46,8 +46,8 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLocationFsxWindowsRequest.filterSensitiveLog,
-      outputFilterLog: CreateLocationFsxWindowsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationFsxWindowsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationFsxWindowsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

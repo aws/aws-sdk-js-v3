@@ -46,8 +46,8 @@ export class GetComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetComponentRequest.filterSensitiveLog,
-      outputFilterLog: GetComponentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ModifyHapgCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyHapgRequest.filterSensitiveLog,
-      outputFilterLog: ModifyHapgResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyHapgRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyHapgResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

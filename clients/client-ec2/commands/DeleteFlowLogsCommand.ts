@@ -43,8 +43,8 @@ export class DeleteFlowLogsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFlowLogsRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFlowLogsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFlowLogsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFlowLogsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

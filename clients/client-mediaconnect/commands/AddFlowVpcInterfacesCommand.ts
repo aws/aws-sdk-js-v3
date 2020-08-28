@@ -46,8 +46,8 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddFlowVpcInterfacesRequest.filterSensitiveLog,
-      outputFilterLog: AddFlowVpcInterfacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddFlowVpcInterfacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddFlowVpcInterfacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

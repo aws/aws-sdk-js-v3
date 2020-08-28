@@ -46,8 +46,8 @@ export class GetDevicePoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDevicePoolRequest.filterSensitiveLog,
-      outputFilterLog: GetDevicePoolResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDevicePoolRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDevicePoolResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

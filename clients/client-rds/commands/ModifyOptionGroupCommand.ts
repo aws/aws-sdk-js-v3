@@ -46,8 +46,8 @@ export class ModifyOptionGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyOptionGroupMessage.filterSensitiveLog,
-      outputFilterLog: ModifyOptionGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyOptionGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyOptionGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

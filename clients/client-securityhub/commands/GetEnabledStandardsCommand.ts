@@ -46,8 +46,8 @@ export class GetEnabledStandardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEnabledStandardsRequest.filterSensitiveLog,
-      outputFilterLog: GetEnabledStandardsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnabledStandardsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEnabledStandardsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

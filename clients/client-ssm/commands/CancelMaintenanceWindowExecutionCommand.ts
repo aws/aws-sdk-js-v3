@@ -46,8 +46,8 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelMaintenanceWindowExecutionRequest.filterSensitiveLog,
-      outputFilterLog: CancelMaintenanceWindowExecutionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelMaintenanceWindowExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelMaintenanceWindowExecutionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLoadBalancerAttributeRequest.filterSensitiveLog,
-      outputFilterLog: UpdateLoadBalancerAttributeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLoadBalancerAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLoadBalancerAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

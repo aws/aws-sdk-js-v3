@@ -50,8 +50,8 @@ export class GetRawMessageContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRawMessageContentRequest.filterSensitiveLog,
-      outputFilterLog: GetRawMessageContentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRawMessageContentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRawMessageContentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

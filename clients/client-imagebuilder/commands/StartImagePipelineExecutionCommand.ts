@@ -46,8 +46,8 @@ export class StartImagePipelineExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartImagePipelineExecutionRequest.filterSensitiveLog,
-      outputFilterLog: StartImagePipelineExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartImagePipelineExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartImagePipelineExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

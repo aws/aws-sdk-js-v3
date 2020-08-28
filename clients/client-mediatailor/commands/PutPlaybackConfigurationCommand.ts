@@ -46,8 +46,8 @@ export class PutPlaybackConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutPlaybackConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: PutPlaybackConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPlaybackConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPlaybackConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

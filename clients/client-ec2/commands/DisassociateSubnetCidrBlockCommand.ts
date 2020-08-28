@@ -46,8 +46,8 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateSubnetCidrBlockRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateSubnetCidrBlockResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateSubnetCidrBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateSubnetCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

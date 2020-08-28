@@ -46,8 +46,8 @@ export class GetEmailChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEmailChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetEmailChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEmailChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEmailChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

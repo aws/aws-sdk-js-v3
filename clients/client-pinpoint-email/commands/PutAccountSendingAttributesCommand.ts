@@ -46,8 +46,8 @@ export class PutAccountSendingAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAccountSendingAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutAccountSendingAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountSendingAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountSendingAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

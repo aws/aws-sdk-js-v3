@@ -46,8 +46,8 @@ export class GetInvitationsCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetInvitationsCountRequest.filterSensitiveLog,
-      outputFilterLog: GetInvitationsCountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInvitationsCountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInvitationsCountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

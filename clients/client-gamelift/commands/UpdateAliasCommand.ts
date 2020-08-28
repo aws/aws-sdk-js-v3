@@ -46,8 +46,8 @@ export class UpdateAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAliasInput.filterSensitiveLog,
-      outputFilterLog: UpdateAliasOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAliasInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAliasOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

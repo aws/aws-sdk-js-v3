@@ -46,8 +46,8 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeUsageReportSubscriptionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeUsageReportSubscriptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUsageReportSubscriptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUsageReportSubscriptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

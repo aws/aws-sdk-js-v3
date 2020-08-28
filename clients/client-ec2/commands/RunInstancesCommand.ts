@@ -43,8 +43,8 @@ export class RunInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RunInstancesRequest.filterSensitiveLog,
-      outputFilterLog: Reservation.filterSensitiveLog,
+      inputFilterSensitiveLog: RunInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Reservation.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

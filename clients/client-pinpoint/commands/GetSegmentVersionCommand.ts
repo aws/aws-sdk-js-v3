@@ -46,8 +46,8 @@ export class GetSegmentVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSegmentVersionRequest.filterSensitiveLog,
-      outputFilterLog: GetSegmentVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSegmentVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSegmentVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

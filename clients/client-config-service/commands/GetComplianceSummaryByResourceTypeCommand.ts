@@ -47,8 +47,8 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetComplianceSummaryByResourceTypeRequest.filterSensitiveLog,
-      outputFilterLog: GetComplianceSummaryByResourceTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetComplianceSummaryByResourceTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceSummaryByResourceTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartNextPendingJobExecutionRequest.filterSensitiveLog,
-      outputFilterLog: StartNextPendingJobExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartNextPendingJobExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartNextPendingJobExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeDhcpOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDhcpOptionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDhcpOptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDhcpOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDhcpOptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

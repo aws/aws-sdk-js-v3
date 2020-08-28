@@ -46,8 +46,8 @@ export class CreateReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: CreateReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

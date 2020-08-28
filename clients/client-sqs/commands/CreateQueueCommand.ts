@@ -43,8 +43,8 @@ export class CreateQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateQueueRequest.filterSensitiveLog,
-      outputFilterLog: CreateQueueResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateQueueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateQueueResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

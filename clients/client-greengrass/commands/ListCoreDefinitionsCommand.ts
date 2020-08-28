@@ -46,8 +46,8 @@ export class ListCoreDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCoreDefinitionsRequest.filterSensitiveLog,
-      outputFilterLog: ListCoreDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCoreDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCoreDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

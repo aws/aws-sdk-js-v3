@@ -46,8 +46,8 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMedicalTranscriptionJobRequest.filterSensitiveLog,
-      outputFilterLog: GetMedicalTranscriptionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMedicalTranscriptionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMedicalTranscriptionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DownloadDBLogFilePortionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DownloadDBLogFilePortionMessage.filterSensitiveLog,
-      outputFilterLog: DownloadDBLogFilePortionDetails.filterSensitiveLog,
+      inputFilterSensitiveLog: DownloadDBLogFilePortionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DownloadDBLogFilePortionDetails.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

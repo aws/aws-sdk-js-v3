@@ -50,8 +50,8 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInstanceCreditSpecificationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeInstanceCreditSpecificationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceCreditSpecificationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceCreditSpecificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

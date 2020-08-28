@@ -50,8 +50,8 @@ export class DeleteScheduledActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteScheduledActionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteScheduledActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScheduledActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteScheduledActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRecoveryPointsByResourceInput.filterSensitiveLog,
-      outputFilterLog: ListRecoveryPointsByResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRecoveryPointsByResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRecoveryPointsByResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

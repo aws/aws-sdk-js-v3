@@ -46,8 +46,8 @@ export class RemoveAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveAttributesRequest.filterSensitiveLog,
-      outputFilterLog: RemoveAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

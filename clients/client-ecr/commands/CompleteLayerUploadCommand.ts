@@ -46,8 +46,8 @@ export class CompleteLayerUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CompleteLayerUploadRequest.filterSensitiveLog,
-      outputFilterLog: CompleteLayerUploadResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteLayerUploadRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteLayerUploadResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

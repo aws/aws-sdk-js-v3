@@ -53,8 +53,8 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAffectedEntitiesForOrganizationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAffectedEntitiesForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAffectedEntitiesForOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAffectedEntitiesForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

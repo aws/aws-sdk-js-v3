@@ -46,8 +46,8 @@ export class GetCalendarStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCalendarStateRequest.filterSensitiveLog,
-      outputFilterLog: GetCalendarStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCalendarStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCalendarStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

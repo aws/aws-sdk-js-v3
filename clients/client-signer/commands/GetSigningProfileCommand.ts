@@ -46,8 +46,8 @@ export class GetSigningProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSigningProfileRequest.filterSensitiveLog,
-      outputFilterLog: GetSigningProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSigningProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSigningProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

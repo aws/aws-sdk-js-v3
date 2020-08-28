@@ -46,8 +46,8 @@ export class RenewOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RenewOfferingRequest.filterSensitiveLog,
-      outputFilterLog: RenewOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RenewOfferingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RenewOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListIndicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListIndicesRequest.filterSensitiveLog,
-      outputFilterLog: ListIndicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIndicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIndicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ApplySecurityGroupsToClientVpnTargetNetworkRequest.filterSensitiveLog,
-      outputFilterLog: ApplySecurityGroupsToClientVpnTargetNetworkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

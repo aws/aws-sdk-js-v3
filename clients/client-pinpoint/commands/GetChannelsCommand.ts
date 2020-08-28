@@ -46,8 +46,8 @@ export class GetChannelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetChannelsRequest.filterSensitiveLog,
-      outputFilterLog: GetChannelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetChannelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetChannelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

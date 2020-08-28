@@ -46,8 +46,8 @@ export class GetDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDataSourceInput.filterSensitiveLog,
-      outputFilterLog: GetDataSourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataSourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataSourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

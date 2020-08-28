@@ -46,8 +46,8 @@ export class QueryForecastCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: QueryForecastRequest.filterSensitiveLog,
-      outputFilterLog: QueryForecastResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryForecastRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: QueryForecastResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

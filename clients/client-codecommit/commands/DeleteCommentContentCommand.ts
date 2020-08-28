@@ -46,8 +46,8 @@ export class DeleteCommentContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCommentContentInput.filterSensitiveLog,
-      outputFilterLog: DeleteCommentContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCommentContentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCommentContentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

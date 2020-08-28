@@ -46,8 +46,8 @@ export class DescribeNatGatewaysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeNatGatewaysRequest.filterSensitiveLog,
-      outputFilterLog: DescribeNatGatewaysResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNatGatewaysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNatGatewaysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

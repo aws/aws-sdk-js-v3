@@ -46,8 +46,8 @@ export class DeleteGameSessionQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteGameSessionQueueInput.filterSensitiveLog,
-      outputFilterLog: DeleteGameSessionQueueOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGameSessionQueueInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGameSessionQueueOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

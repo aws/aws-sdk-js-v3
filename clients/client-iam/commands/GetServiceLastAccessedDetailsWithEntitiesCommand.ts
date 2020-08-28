@@ -53,8 +53,8 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetServiceLastAccessedDetailsWithEntitiesRequest.filterSensitiveLog,
-      outputFilterLog: GetServiceLastAccessedDetailsWithEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceLastAccessedDetailsWithEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceLastAccessedDetailsWithEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateTestGridProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTestGridProjectRequest.filterSensitiveLog,
-      outputFilterLog: CreateTestGridProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTestGridProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTestGridProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

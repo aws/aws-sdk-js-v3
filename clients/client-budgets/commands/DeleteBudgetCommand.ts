@@ -46,8 +46,8 @@ export class DeleteBudgetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBudgetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteBudgetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBudgetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBudgetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

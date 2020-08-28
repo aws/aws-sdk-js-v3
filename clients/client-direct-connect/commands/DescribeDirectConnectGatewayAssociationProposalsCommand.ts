@@ -53,8 +53,8 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDirectConnectGatewayAssociationProposalsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDirectConnectGatewayAssociationProposalsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

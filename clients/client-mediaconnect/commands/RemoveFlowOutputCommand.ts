@@ -46,8 +46,8 @@ export class RemoveFlowOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveFlowOutputRequest.filterSensitiveLog,
-      outputFilterLog: RemoveFlowOutputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFlowOutputRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFlowOutputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class ListByoipCidrsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListByoipCidrsRequest.filterSensitiveLog,
-      outputFilterLog: ListByoipCidrsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListByoipCidrsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListByoipCidrsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

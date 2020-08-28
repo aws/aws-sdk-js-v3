@@ -46,8 +46,8 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDBSecurityGroupsMessage.filterSensitiveLog,
-      outputFilterLog: DBSecurityGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBSecurityGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBSecurityGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

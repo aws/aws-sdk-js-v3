@@ -50,8 +50,8 @@ export class DescribeRiskConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRiskConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeRiskConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRiskConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRiskConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class BulkPublishCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BulkPublishRequest.filterSensitiveLog,
-      outputFilterLog: BulkPublishResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BulkPublishRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BulkPublishResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

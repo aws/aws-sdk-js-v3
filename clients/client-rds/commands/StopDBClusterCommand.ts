@@ -46,8 +46,8 @@ export class StopDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopDBClusterMessage.filterSensitiveLog,
-      outputFilterLog: StopDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDBClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StopDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

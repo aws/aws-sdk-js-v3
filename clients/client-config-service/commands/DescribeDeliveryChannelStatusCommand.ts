@@ -46,8 +46,8 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDeliveryChannelStatusRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDeliveryChannelStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDeliveryChannelStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDeliveryChannelStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

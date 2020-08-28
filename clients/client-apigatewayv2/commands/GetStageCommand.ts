@@ -46,8 +46,8 @@ export class GetStageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetStageRequest.filterSensitiveLog,
-      outputFilterLog: GetStageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetStageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

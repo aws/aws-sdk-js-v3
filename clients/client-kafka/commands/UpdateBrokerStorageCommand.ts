@@ -46,8 +46,8 @@ export class UpdateBrokerStorageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateBrokerStorageRequest.filterSensitiveLog,
-      outputFilterLog: UpdateBrokerStorageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBrokerStorageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBrokerStorageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

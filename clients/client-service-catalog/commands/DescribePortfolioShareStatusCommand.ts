@@ -46,8 +46,8 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribePortfolioShareStatusInput.filterSensitiveLog,
-      outputFilterLog: DescribePortfolioShareStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePortfolioShareStatusInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePortfolioShareStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

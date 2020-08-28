@@ -46,8 +46,8 @@ export class ListInventoryEntriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListInventoryEntriesRequest.filterSensitiveLog,
-      outputFilterLog: ListInventoryEntriesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInventoryEntriesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInventoryEntriesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

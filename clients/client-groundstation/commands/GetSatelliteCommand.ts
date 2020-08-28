@@ -46,8 +46,8 @@ export class GetSatelliteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSatelliteRequest.filterSensitiveLog,
-      outputFilterLog: GetSatelliteResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSatelliteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSatelliteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

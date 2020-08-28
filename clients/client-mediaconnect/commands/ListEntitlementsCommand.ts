@@ -46,8 +46,8 @@ export class ListEntitlementsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListEntitlementsRequest.filterSensitiveLog,
-      outputFilterLog: ListEntitlementsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEntitlementsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEntitlementsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

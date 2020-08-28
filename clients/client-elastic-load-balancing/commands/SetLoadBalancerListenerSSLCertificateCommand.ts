@@ -54,8 +54,8 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetLoadBalancerListenerSSLCertificateInput.filterSensitiveLog,
-      outputFilterLog: SetLoadBalancerListenerSSLCertificateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetLoadBalancerListenerSSLCertificateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetLoadBalancerListenerSSLCertificateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

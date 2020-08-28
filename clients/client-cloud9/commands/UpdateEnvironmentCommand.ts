@@ -46,8 +46,8 @@ export class UpdateEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateEnvironmentRequest.filterSensitiveLog,
-      outputFilterLog: UpdateEnvironmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEnvironmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEnvironmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

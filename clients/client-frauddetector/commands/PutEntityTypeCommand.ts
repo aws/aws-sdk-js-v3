@@ -46,8 +46,8 @@ export class PutEntityTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutEntityTypeRequest.filterSensitiveLog,
-      outputFilterLog: PutEntityTypeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEntityTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEntityTypeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

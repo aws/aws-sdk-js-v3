@@ -43,8 +43,8 @@ export class CreateLagCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLagRequest.filterSensitiveLog,
-      outputFilterLog: Lag.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLagRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Lag.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

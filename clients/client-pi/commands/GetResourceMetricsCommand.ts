@@ -46,8 +46,8 @@ export class GetResourceMetricsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetResourceMetricsRequest.filterSensitiveLog,
-      outputFilterLog: GetResourceMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceMetricsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

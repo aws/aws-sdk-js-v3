@@ -46,8 +46,8 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutEmailIdentityDkimAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutEmailIdentityDkimAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEmailIdentityDkimAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityDkimAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

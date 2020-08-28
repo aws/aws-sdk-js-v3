@@ -50,8 +50,8 @@ export class CreateHostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateHostInput.filterSensitiveLog,
-      outputFilterLog: CreateHostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHostInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

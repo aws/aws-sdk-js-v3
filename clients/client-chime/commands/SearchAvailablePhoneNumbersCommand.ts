@@ -46,8 +46,8 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchAvailablePhoneNumbersRequest.filterSensitiveLog,
-      outputFilterLog: SearchAvailablePhoneNumbersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

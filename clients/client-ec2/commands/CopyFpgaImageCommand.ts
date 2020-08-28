@@ -43,8 +43,8 @@ export class CopyFpgaImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyFpgaImageRequest.filterSensitiveLog,
-      outputFilterLog: CopyFpgaImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyFpgaImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyFpgaImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

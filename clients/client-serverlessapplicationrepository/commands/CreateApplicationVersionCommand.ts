@@ -50,8 +50,8 @@ export class CreateApplicationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateApplicationVersionRequest.filterSensitiveLog,
-      outputFilterLog: CreateApplicationVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApplicationVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

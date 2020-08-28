@@ -48,8 +48,8 @@ export class DeleteHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteHostedZoneRequest.filterSensitiveLog,
-      outputFilterLog: DeleteHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartMonitoringMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartMonitoringMembersRequest.filterSensitiveLog,
-      outputFilterLog: StartMonitoringMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMonitoringMembersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMonitoringMembersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

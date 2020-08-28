@@ -46,8 +46,8 @@ export class ListProvisionedProductPlansCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProvisionedProductPlansInput.filterSensitiveLog,
-      outputFilterLog: ListProvisionedProductPlansOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProvisionedProductPlansInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProvisionedProductPlansOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

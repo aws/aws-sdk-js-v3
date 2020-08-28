@@ -50,8 +50,8 @@ export class GetComplianceSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetComplianceSummaryInput.filterSensitiveLog,
-      outputFilterLog: GetComplianceSummaryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetComplianceSummaryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceSummaryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

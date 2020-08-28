@@ -47,8 +47,8 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProvisioningTemplateVersionRequest.filterSensitiveLog,
-      outputFilterLog: CreateProvisioningTemplateVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProvisioningTemplateVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProvisioningTemplateVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetBulkPublishDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBulkPublishDetailsRequest.filterSensitiveLog,
-      outputFilterLog: GetBulkPublishDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBulkPublishDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBulkPublishDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

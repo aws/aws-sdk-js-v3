@@ -46,8 +46,8 @@ export class UpdateFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateFleetRequest.filterSensitiveLog,
-      outputFilterLog: UpdateFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFleetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

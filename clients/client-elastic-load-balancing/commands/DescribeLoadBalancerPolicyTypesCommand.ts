@@ -50,8 +50,8 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLoadBalancerPolicyTypesInput.filterSensitiveLog,
-      outputFilterLog: DescribeLoadBalancerPolicyTypesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLoadBalancerPolicyTypesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerPolicyTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

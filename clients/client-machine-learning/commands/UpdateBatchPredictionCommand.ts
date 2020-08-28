@@ -46,8 +46,8 @@ export class UpdateBatchPredictionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateBatchPredictionInput.filterSensitiveLog,
-      outputFilterLog: UpdateBatchPredictionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBatchPredictionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBatchPredictionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

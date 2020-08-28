@@ -47,8 +47,8 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDevicePolicyConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDevicePolicyConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDevicePolicyConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDevicePolicyConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

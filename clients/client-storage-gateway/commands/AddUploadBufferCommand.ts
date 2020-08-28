@@ -46,8 +46,8 @@ export class AddUploadBufferCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddUploadBufferInput.filterSensitiveLog,
-      outputFilterLog: AddUploadBufferOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddUploadBufferInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddUploadBufferOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateMacieSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMacieSessionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateMacieSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMacieSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMacieSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

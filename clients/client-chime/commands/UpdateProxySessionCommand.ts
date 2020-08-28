@@ -46,8 +46,8 @@ export class UpdateProxySessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateProxySessionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateProxySessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProxySessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProxySessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

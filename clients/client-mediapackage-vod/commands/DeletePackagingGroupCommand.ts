@@ -46,8 +46,8 @@ export class DeletePackagingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePackagingGroupRequest.filterSensitiveLog,
-      outputFilterLog: DeletePackagingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePackagingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePackagingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

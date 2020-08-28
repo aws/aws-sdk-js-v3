@@ -46,8 +46,8 @@ export class UpdateRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRuleRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

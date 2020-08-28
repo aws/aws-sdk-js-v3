@@ -46,8 +46,8 @@ export class DeregisterTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterTypeInput.filterSensitiveLog,
-      outputFilterLog: DeregisterTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

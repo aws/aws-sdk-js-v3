@@ -46,8 +46,8 @@ export class UpdateClientCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateClientCertificateRequest.filterSensitiveLog,
-      outputFilterLog: ClientCertificate.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClientCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ClientCertificate.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

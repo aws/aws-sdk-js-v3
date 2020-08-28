@@ -46,8 +46,8 @@ export class StopAutomationExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopAutomationExecutionRequest.filterSensitiveLog,
-      outputFilterLog: StopAutomationExecutionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopAutomationExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopAutomationExecutionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

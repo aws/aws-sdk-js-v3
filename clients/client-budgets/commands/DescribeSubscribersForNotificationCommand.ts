@@ -47,8 +47,8 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSubscribersForNotificationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeSubscribersForNotificationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSubscribersForNotificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubscribersForNotificationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

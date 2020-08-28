@@ -46,8 +46,8 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveFromGlobalClusterMessage.filterSensitiveLog,
-      outputFilterLog: RemoveFromGlobalClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFromGlobalClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFromGlobalClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

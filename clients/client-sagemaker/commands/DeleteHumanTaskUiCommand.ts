@@ -46,8 +46,8 @@ export class DeleteHumanTaskUiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteHumanTaskUiRequest.filterSensitiveLog,
-      outputFilterLog: DeleteHumanTaskUiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHumanTaskUiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHumanTaskUiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyClusterSubnetGroupMessage.filterSensitiveLog,
-      outputFilterLog: ModifyClusterSubnetGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterSubnetGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterSubnetGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

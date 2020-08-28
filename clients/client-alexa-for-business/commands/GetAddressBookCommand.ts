@@ -46,8 +46,8 @@ export class GetAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAddressBookRequest.filterSensitiveLog,
-      outputFilterLog: GetAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAddressBookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAddressBookResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

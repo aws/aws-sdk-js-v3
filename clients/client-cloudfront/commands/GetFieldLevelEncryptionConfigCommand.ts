@@ -46,8 +46,8 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFieldLevelEncryptionConfigRequest.filterSensitiveLog,
-      outputFilterLog: GetFieldLevelEncryptionConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFieldLevelEncryptionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFieldLevelEncryptionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

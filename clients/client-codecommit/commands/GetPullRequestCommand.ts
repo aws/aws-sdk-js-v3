@@ -46,8 +46,8 @@ export class GetPullRequestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPullRequestInput.filterSensitiveLog,
-      outputFilterLog: GetPullRequestOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPullRequestInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPullRequestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

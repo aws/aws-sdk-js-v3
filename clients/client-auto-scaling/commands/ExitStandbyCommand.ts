@@ -43,8 +43,8 @@ export class ExitStandbyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExitStandbyQuery.filterSensitiveLog,
-      outputFilterLog: ExitStandbyAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: ExitStandbyQuery.filterSensitiveLog,
+      outputFilterSensitiveLog: ExitStandbyAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

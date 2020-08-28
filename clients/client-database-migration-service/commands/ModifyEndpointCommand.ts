@@ -50,8 +50,8 @@ export class ModifyEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyEndpointMessage.filterSensitiveLog,
-      outputFilterLog: ModifyEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyEndpointMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

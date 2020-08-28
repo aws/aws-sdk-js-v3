@@ -48,8 +48,8 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTrafficPolicyInstanceRequest.filterSensitiveLog,
-      outputFilterLog: GetTrafficPolicyInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTrafficPolicyInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTrafficPolicyInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

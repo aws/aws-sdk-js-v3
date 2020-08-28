@@ -53,8 +53,8 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyInstanceCapacityReservationAttributesRequest.filterSensitiveLog,
-      outputFilterLog: ModifyInstanceCapacityReservationAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceCapacityReservationAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceCapacityReservationAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

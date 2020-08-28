@@ -46,8 +46,8 @@ export class PublishVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PublishVersionRequest.filterSensitiveLog,
-      outputFilterLog: FunctionConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FunctionConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

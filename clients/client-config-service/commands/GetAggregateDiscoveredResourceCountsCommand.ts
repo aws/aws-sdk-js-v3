@@ -50,8 +50,8 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAggregateDiscoveredResourceCountsRequest.filterSensitiveLog,
-      outputFilterLog: GetAggregateDiscoveredResourceCountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

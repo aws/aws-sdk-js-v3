@@ -46,8 +46,8 @@ export class CreateTrainingJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTrainingJobRequest.filterSensitiveLog,
-      outputFilterLog: CreateTrainingJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTrainingJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTrainingJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

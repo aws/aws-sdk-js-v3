@@ -46,8 +46,8 @@ export class ReportTaskProgressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReportTaskProgressInput.filterSensitiveLog,
-      outputFilterLog: ReportTaskProgressOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ReportTaskProgressInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ReportTaskProgressOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

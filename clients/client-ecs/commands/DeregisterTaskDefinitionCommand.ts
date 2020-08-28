@@ -46,8 +46,8 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterTaskDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterTaskDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTaskDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTaskDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

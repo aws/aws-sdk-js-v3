@@ -43,8 +43,8 @@ export class ImportInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ImportInstanceRequest.filterSensitiveLog,
-      outputFilterLog: ImportInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ImportInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

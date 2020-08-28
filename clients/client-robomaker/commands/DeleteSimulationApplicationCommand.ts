@@ -46,8 +46,8 @@ export class DeleteSimulationApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSimulationApplicationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSimulationApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSimulationApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSimulationApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

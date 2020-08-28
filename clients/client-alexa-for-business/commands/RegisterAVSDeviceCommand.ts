@@ -46,8 +46,8 @@ export class RegisterAVSDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterAVSDeviceRequest.filterSensitiveLog,
-      outputFilterLog: RegisterAVSDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterAVSDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterAVSDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

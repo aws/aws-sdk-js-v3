@@ -46,8 +46,8 @@ export class CreateIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateIPSetRequest.filterSensitiveLog,
-      outputFilterLog: CreateIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIPSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

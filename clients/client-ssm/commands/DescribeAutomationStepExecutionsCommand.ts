@@ -46,8 +46,8 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAutomationStepExecutionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAutomationStepExecutionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAutomationStepExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAutomationStepExecutionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

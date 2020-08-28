@@ -46,8 +46,8 @@ export class CreateDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDomainRequest.filterSensitiveLog,
-      outputFilterLog: CreateDomainResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

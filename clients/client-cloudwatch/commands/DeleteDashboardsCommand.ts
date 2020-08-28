@@ -46,8 +46,8 @@ export class DeleteDashboardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDashboardsInput.filterSensitiveLog,
-      outputFilterLog: DeleteDashboardsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDashboardsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDashboardsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

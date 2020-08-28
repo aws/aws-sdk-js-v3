@@ -50,8 +50,8 @@ export class DescribeListenerCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeListenerCertificatesInput.filterSensitiveLog,
-      outputFilterLog: DescribeListenerCertificatesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeListenerCertificatesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeListenerCertificatesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

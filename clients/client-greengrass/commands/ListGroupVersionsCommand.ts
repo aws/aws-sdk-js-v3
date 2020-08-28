@@ -46,8 +46,8 @@ export class ListGroupVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListGroupVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListGroupVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGroupVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListGroupVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class ListRunsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRunsRequest.filterSensitiveLog,
-      outputFilterLog: ListRunsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRunsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRunsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

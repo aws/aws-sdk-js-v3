@@ -50,8 +50,8 @@ export class PutClassificationExportConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutClassificationExportConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: PutClassificationExportConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutClassificationExportConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutClassificationExportConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

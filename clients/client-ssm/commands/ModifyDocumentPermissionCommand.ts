@@ -46,8 +46,8 @@ export class ModifyDocumentPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyDocumentPermissionRequest.filterSensitiveLog,
-      outputFilterLog: ModifyDocumentPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyDocumentPermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDocumentPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

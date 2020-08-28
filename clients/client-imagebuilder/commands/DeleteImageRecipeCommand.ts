@@ -46,8 +46,8 @@ export class DeleteImageRecipeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteImageRecipeRequest.filterSensitiveLog,
-      outputFilterLog: DeleteImageRecipeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteImageRecipeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteImageRecipeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

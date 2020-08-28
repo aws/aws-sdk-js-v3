@@ -53,8 +53,8 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOrganizationConformancePackDetailedStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetOrganizationConformancePackDetailedStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOrganizationConformancePackDetailedStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationConformancePackDetailedStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

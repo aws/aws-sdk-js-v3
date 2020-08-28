@@ -50,8 +50,8 @@ export class DescribeScalableTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeScalableTargetsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeScalableTargetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScalableTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScalableTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDistributionRequest.filterSensitiveLog,
-      outputFilterLog: CreateDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

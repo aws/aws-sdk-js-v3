@@ -46,8 +46,8 @@ export class DescribeBatchPredictionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBatchPredictionsInput.filterSensitiveLog,
-      outputFilterLog: DescribeBatchPredictionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBatchPredictionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBatchPredictionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

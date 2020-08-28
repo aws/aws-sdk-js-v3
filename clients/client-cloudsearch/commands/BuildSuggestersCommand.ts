@@ -46,8 +46,8 @@ export class BuildSuggestersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BuildSuggestersRequest.filterSensitiveLog,
-      outputFilterLog: BuildSuggestersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BuildSuggestersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BuildSuggestersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

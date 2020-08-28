@@ -46,8 +46,8 @@ export class DeleteBatchPredictionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBatchPredictionInput.filterSensitiveLog,
-      outputFilterLog: DeleteBatchPredictionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBatchPredictionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBatchPredictionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

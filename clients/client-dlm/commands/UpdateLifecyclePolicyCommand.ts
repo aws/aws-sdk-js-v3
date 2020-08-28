@@ -46,8 +46,8 @@ export class UpdateLifecyclePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLifecyclePolicyRequest.filterSensitiveLog,
-      outputFilterLog: UpdateLifecyclePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLifecyclePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLifecyclePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

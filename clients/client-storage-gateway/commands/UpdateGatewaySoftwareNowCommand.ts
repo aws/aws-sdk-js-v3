@@ -46,8 +46,8 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGatewaySoftwareNowInput.filterSensitiveLog,
-      outputFilterLog: UpdateGatewaySoftwareNowOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGatewaySoftwareNowInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewaySoftwareNowOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

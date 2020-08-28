@@ -50,8 +50,8 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateApplicationResourceLifecycleMessage.filterSensitiveLog,
-      outputFilterLog: ApplicationResourceLifecycleDescriptionMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApplicationResourceLifecycleMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplicationResourceLifecycleDescriptionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

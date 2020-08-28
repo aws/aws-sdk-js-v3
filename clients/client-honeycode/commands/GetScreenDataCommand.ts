@@ -46,8 +46,8 @@ export class GetScreenDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetScreenDataRequest.filterSensitiveLog,
-      outputFilterLog: GetScreenDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetScreenDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetScreenDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

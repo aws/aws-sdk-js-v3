@@ -46,8 +46,8 @@ export class DecreaseReplicaCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DecreaseReplicaCountMessage.filterSensitiveLog,
-      outputFilterLog: DecreaseReplicaCountResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DecreaseReplicaCountMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DecreaseReplicaCountResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

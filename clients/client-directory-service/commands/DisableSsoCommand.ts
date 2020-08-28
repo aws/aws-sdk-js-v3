@@ -46,8 +46,8 @@ export class DisableSsoCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableSsoRequest.filterSensitiveLog,
-      outputFilterLog: DisableSsoResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableSsoRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableSsoResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

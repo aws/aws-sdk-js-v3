@@ -46,8 +46,8 @@ export class DeleteWorkspaceImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteWorkspaceImageRequest.filterSensitiveLog,
-      outputFilterLog: DeleteWorkspaceImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkspaceImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkspaceImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

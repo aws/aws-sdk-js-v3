@@ -46,8 +46,8 @@ export class UpdateSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSecretRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

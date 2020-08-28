@@ -50,8 +50,8 @@ export class DeleteReportDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteReportDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteReportDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReportDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReportDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

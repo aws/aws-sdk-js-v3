@@ -46,8 +46,8 @@ export class CreateTransformJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTransformJobRequest.filterSensitiveLog,
-      outputFilterLog: CreateTransformJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTransformJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTransformJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

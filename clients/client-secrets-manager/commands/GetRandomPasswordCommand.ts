@@ -46,8 +46,8 @@ export class GetRandomPasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRandomPasswordRequest.filterSensitiveLog,
-      outputFilterLog: GetRandomPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRandomPasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRandomPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

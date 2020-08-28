@@ -46,8 +46,8 @@ export class RotateEncryptionKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RotateEncryptionKeyMessage.filterSensitiveLog,
-      outputFilterLog: RotateEncryptionKeyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RotateEncryptionKeyMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RotateEncryptionKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminUserGlobalSignOutRequest.filterSensitiveLog,
-      outputFilterLog: AdminUserGlobalSignOutResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminUserGlobalSignOutRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminUserGlobalSignOutResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

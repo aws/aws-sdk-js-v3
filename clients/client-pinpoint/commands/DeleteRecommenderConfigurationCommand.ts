@@ -46,8 +46,8 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRecommenderConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRecommenderConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRecommenderConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRecommenderConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

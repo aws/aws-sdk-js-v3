@@ -46,8 +46,8 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVpcPeeringConnectionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeVpcPeeringConnectionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcPeeringConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcPeeringConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

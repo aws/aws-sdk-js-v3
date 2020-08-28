@@ -46,8 +46,8 @@ export class RemovePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemovePermissionRequest.filterSensitiveLog,
-      outputFilterLog: RemovePermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemovePermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemovePermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

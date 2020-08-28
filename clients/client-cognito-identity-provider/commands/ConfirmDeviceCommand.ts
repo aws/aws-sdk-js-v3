@@ -50,8 +50,8 @@ export class ConfirmDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConfirmDeviceRequest.filterSensitiveLog,
-      outputFilterLog: ConfirmDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class ListUserPoolsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListUserPoolsRequest.filterSensitiveLog,
-      outputFilterLog: ListUserPoolsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUserPoolsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUserPoolsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

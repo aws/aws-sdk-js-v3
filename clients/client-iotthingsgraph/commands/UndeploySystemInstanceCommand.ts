@@ -46,8 +46,8 @@ export class UndeploySystemInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UndeploySystemInstanceRequest.filterSensitiveLog,
-      outputFilterLog: UndeploySystemInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UndeploySystemInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UndeploySystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchTransitGatewayMulticastGroupsRequest.filterSensitiveLog,
-      outputFilterLog: SearchTransitGatewayMulticastGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

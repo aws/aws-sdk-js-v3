@@ -46,8 +46,8 @@ export class GetCurrentUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCurrentUserRequest.filterSensitiveLog,
-      outputFilterLog: GetCurrentUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCurrentUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCurrentUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

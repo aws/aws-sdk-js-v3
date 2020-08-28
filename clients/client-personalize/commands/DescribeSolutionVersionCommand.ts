@@ -46,8 +46,8 @@ export class DescribeSolutionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSolutionVersionRequest.filterSensitiveLog,
-      outputFilterLog: DescribeSolutionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSolutionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSolutionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

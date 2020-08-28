@@ -46,8 +46,8 @@ export class GetNamespaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetNamespaceRequest.filterSensitiveLog,
-      outputFilterLog: GetNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNamespaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateSimulationApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSimulationApplicationRequest.filterSensitiveLog,
-      outputFilterLog: CreateSimulationApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSimulationApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSimulationApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

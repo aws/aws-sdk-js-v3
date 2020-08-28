@@ -46,8 +46,8 @@ export class ListApiKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListApiKeysRequest.filterSensitiveLog,
-      outputFilterLog: ListApiKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListApiKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListApiKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

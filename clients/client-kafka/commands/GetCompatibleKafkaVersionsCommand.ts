@@ -46,8 +46,8 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCompatibleKafkaVersionsRequest.filterSensitiveLog,
-      outputFilterLog: GetCompatibleKafkaVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCompatibleKafkaVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCompatibleKafkaVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

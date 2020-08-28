@@ -46,8 +46,8 @@ export class DescribeContinuousBackupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeContinuousBackupsInput.filterSensitiveLog,
-      outputFilterLog: DescribeContinuousBackupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeContinuousBackupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeContinuousBackupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

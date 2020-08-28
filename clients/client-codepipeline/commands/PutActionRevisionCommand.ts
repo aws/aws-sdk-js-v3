@@ -46,8 +46,8 @@ export class PutActionRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutActionRevisionInput.filterSensitiveLog,
-      outputFilterLog: PutActionRevisionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutActionRevisionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutActionRevisionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

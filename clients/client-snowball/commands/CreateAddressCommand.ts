@@ -46,8 +46,8 @@ export class CreateAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAddressRequest.filterSensitiveLog,
-      outputFilterLog: CreateAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

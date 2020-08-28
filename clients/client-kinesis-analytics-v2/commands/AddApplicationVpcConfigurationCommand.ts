@@ -50,8 +50,8 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddApplicationVpcConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: AddApplicationVpcConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationVpcConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationVpcConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

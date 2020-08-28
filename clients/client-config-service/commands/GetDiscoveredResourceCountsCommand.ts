@@ -46,8 +46,8 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDiscoveredResourceCountsRequest.filterSensitiveLog,
-      outputFilterLog: GetDiscoveredResourceCountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDiscoveredResourceCountsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDiscoveredResourceCountsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

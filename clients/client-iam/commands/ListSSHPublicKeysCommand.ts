@@ -46,8 +46,8 @@ export class ListSSHPublicKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSSHPublicKeysRequest.filterSensitiveLog,
-      outputFilterLog: ListSSHPublicKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSSHPublicKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSSHPublicKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

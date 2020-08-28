@@ -50,8 +50,8 @@ export class AddApplicationOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddApplicationOutputRequest.filterSensitiveLog,
-      outputFilterLog: AddApplicationOutputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationOutputRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationOutputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartConfigRulesEvaluationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartConfigRulesEvaluationRequest.filterSensitiveLog,
-      outputFilterLog: StartConfigRulesEvaluationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartConfigRulesEvaluationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartConfigRulesEvaluationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteGcmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteGcmChannelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteGcmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGcmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGcmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

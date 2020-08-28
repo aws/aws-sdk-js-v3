@@ -46,8 +46,8 @@ export class RegisterEcsClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterEcsClusterRequest.filterSensitiveLog,
-      outputFilterLog: RegisterEcsClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterEcsClusterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterEcsClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

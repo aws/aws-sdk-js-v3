@@ -46,8 +46,8 @@ export class CreateRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRepositoryInput.filterSensitiveLog,
-      outputFilterLog: CreateRepositoryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRepositoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRepositoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

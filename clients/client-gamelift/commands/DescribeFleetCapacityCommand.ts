@@ -46,8 +46,8 @@ export class DescribeFleetCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeFleetCapacityInput.filterSensitiveLog,
-      outputFilterLog: DescribeFleetCapacityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFleetCapacityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

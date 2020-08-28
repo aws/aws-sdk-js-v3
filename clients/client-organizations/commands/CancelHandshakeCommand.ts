@@ -46,8 +46,8 @@ export class CancelHandshakeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelHandshakeRequest.filterSensitiveLog,
-      outputFilterLog: CancelHandshakeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelHandshakeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

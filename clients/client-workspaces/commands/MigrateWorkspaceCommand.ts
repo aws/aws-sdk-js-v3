@@ -46,8 +46,8 @@ export class MigrateWorkspaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MigrateWorkspaceRequest.filterSensitiveLog,
-      outputFilterLog: MigrateWorkspaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: MigrateWorkspaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MigrateWorkspaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateProvisionedProductPlanInput.filterSensitiveLog,
-      outputFilterLog: CreateProvisionedProductPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProvisionedProductPlanInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProvisionedProductPlanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

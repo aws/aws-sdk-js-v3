@@ -46,8 +46,8 @@ export class DescribeDBProxiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDBProxiesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDBProxiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBProxiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDBProxiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

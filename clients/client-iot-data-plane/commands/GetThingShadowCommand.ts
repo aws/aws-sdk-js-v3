@@ -46,8 +46,8 @@ export class GetThingShadowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetThingShadowRequest.filterSensitiveLog,
-      outputFilterLog: GetThingShadowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetThingShadowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetThingShadowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

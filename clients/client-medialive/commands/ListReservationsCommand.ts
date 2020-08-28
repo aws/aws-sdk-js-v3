@@ -46,8 +46,8 @@ export class ListReservationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListReservationsRequest.filterSensitiveLog,
-      outputFilterLog: ListReservationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListReservationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReservationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

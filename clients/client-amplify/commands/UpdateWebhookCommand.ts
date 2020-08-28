@@ -46,8 +46,8 @@ export class UpdateWebhookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateWebhookRequest.filterSensitiveLog,
-      outputFilterLog: UpdateWebhookResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWebhookRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWebhookResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

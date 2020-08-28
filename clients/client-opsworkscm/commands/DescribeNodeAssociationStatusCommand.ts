@@ -46,8 +46,8 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
-      outputFilterLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

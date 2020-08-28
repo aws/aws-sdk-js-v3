@@ -46,8 +46,8 @@ export class GetRelationalDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRelationalDatabaseRequest.filterSensitiveLog,
-      outputFilterLog: GetRelationalDatabaseResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DisassociateLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateLinkRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

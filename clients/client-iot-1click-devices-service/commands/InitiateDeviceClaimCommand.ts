@@ -50,8 +50,8 @@ export class InitiateDeviceClaimCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InitiateDeviceClaimRequest.filterSensitiveLog,
-      outputFilterLog: InitiateDeviceClaimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InitiateDeviceClaimRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InitiateDeviceClaimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

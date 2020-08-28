@@ -46,8 +46,8 @@ export class DescribeRootFoldersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRootFoldersRequest.filterSensitiveLog,
-      outputFilterLog: DescribeRootFoldersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRootFoldersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRootFoldersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

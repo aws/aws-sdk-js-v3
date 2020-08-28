@@ -46,8 +46,8 @@ export class DeleteNamedQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteNamedQueryInput.filterSensitiveLog,
-      outputFilterLog: DeleteNamedQueryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNamedQueryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNamedQueryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

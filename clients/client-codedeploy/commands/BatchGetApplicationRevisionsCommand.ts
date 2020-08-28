@@ -46,8 +46,8 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchGetApplicationRevisionsInput.filterSensitiveLog,
-      outputFilterLog: BatchGetApplicationRevisionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetApplicationRevisionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetApplicationRevisionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

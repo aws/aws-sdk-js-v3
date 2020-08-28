@@ -46,8 +46,8 @@ export class ListCodeReviewsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCodeReviewsRequest.filterSensitiveLog,
-      outputFilterLog: ListCodeReviewsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCodeReviewsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCodeReviewsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

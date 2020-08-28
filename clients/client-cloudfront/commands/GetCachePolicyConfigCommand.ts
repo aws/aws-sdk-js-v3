@@ -46,8 +46,8 @@ export class GetCachePolicyConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCachePolicyConfigRequest.filterSensitiveLog,
-      outputFilterLog: GetCachePolicyConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCachePolicyConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCachePolicyConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

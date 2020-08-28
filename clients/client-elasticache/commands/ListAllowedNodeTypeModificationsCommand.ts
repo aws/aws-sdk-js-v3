@@ -46,8 +46,8 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAllowedNodeTypeModificationsMessage.filterSensitiveLog,
-      outputFilterLog: AllowedNodeTypeModificationsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAllowedNodeTypeModificationsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AllowedNodeTypeModificationsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSamplingStatisticSummariesRequest.filterSensitiveLog,
-      outputFilterLog: GetSamplingStatisticSummariesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSamplingStatisticSummariesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSamplingStatisticSummariesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

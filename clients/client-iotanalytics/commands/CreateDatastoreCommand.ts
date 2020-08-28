@@ -46,8 +46,8 @@ export class CreateDatastoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDatastoreRequest.filterSensitiveLog,
-      outputFilterLog: CreateDatastoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDatastoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatastoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetResolverCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetResolverRequest.filterSensitiveLog,
-      outputFilterLog: GetResolverResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResolverRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResolverResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

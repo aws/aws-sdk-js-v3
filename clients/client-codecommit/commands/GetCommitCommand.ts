@@ -43,8 +43,8 @@ export class GetCommitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCommitInput.filterSensitiveLog,
-      outputFilterLog: GetCommitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCommitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -39,8 +39,8 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EncryptRequest.filterSensitiveLog,
-      outputFilterLog: EncryptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EncryptRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EncryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

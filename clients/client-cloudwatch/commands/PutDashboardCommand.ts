@@ -43,8 +43,8 @@ export class PutDashboardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutDashboardInput.filterSensitiveLog,
-      outputFilterLog: PutDashboardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDashboardInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDashboardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

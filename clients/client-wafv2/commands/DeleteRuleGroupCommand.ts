@@ -46,8 +46,8 @@ export class DeleteRuleGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRuleGroupRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRuleGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

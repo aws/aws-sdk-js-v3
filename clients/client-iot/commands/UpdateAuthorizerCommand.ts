@@ -46,8 +46,8 @@ export class UpdateAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAuthorizerRequest.filterSensitiveLog,
-      outputFilterLog: UpdateAuthorizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAuthorizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

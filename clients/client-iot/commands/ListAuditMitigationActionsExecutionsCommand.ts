@@ -50,8 +50,8 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAuditMitigationActionsExecutionsRequest.filterSensitiveLog,
-      outputFilterLog: ListAuditMitigationActionsExecutionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAuditMitigationActionsExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAuditMitigationActionsExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

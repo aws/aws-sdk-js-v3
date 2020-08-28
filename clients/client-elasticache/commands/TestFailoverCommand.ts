@@ -43,8 +43,8 @@ export class TestFailoverCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestFailoverMessage.filterSensitiveLog,
-      outputFilterLog: TestFailoverResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TestFailoverMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: TestFailoverResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

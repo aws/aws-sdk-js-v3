@@ -50,8 +50,8 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLoadBalancerAttributesInput.filterSensitiveLog,
-      outputFilterLog: DescribeLoadBalancerAttributesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLoadBalancerAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

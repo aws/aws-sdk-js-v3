@@ -46,8 +46,8 @@ export class DeleteDevEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDevEndpointRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDevEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDevEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDevEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

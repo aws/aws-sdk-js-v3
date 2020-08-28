@@ -46,8 +46,8 @@ export class BatchPutMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchPutMessageRequest.filterSensitiveLog,
-      outputFilterLog: BatchPutMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchPutMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchPutMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

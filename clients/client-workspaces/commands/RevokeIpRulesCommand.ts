@@ -46,8 +46,8 @@ export class RevokeIpRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeIpRulesRequest.filterSensitiveLog,
-      outputFilterLog: RevokeIpRulesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeIpRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeIpRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

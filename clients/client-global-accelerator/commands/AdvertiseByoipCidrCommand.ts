@@ -50,8 +50,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdvertiseByoipCidrRequest.filterSensitiveLog,
-      outputFilterLog: AdvertiseByoipCidrResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdvertiseByoipCidrRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdvertiseByoipCidrResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

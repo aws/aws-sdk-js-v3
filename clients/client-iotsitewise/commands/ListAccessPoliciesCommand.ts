@@ -46,8 +46,8 @@ export class ListAccessPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAccessPoliciesRequest.filterSensitiveLog,
-      outputFilterLog: ListAccessPoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccessPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAccessPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

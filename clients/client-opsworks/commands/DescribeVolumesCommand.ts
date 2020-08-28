@@ -46,8 +46,8 @@ export class DescribeVolumesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVolumesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeVolumesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVolumesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVolumesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

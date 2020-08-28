@@ -46,8 +46,8 @@ export class DeleteContactMethodCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteContactMethodRequest.filterSensitiveLog,
-      outputFilterLog: DeleteContactMethodResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteContactMethodRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteContactMethodResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

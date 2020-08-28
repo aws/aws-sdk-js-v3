@@ -46,8 +46,8 @@ export class IncreaseReplicationFactorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: IncreaseReplicationFactorRequest.filterSensitiveLog,
-      outputFilterLog: IncreaseReplicationFactorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: IncreaseReplicationFactorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: IncreaseReplicationFactorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

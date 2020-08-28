@@ -46,8 +46,8 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateFunctionEventInvokeConfigRequest.filterSensitiveLog,
-      outputFilterLog: FunctionEventInvokeConfig.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFunctionEventInvokeConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FunctionEventInvokeConfig.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

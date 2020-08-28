@@ -46,8 +46,8 @@ export class CreateWebhookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateWebhookInput.filterSensitiveLog,
-      outputFilterLog: CreateWebhookOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWebhookInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWebhookOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

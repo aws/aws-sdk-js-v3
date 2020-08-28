@@ -46,8 +46,8 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAvailabilityOptionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAvailabilityOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAvailabilityOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

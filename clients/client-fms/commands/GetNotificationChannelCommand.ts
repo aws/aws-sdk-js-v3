@@ -46,8 +46,8 @@ export class GetNotificationChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetNotificationChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetNotificationChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNotificationChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetNotificationChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

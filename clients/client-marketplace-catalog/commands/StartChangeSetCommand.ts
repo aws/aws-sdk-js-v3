@@ -50,8 +50,8 @@ export class StartChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartChangeSetRequest.filterSensitiveLog,
-      outputFilterLog: StartChangeSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartChangeSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

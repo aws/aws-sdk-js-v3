@@ -46,8 +46,8 @@ export class BatchDetectEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDetectEntitiesRequest.filterSensitiveLog,
-      outputFilterLog: BatchDetectEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDetectEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDetectEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSubscriptionDefinitionVersionRequest.filterSensitiveLog,
-      outputFilterLog: CreateSubscriptionDefinitionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSubscriptionDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSubscriptionDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

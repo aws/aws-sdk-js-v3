@@ -46,8 +46,8 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateAvailabilityOptionsRequest.filterSensitiveLog,
-      outputFilterLog: UpdateAvailabilityOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAvailabilityOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAvailabilityOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

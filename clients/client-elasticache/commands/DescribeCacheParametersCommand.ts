@@ -46,8 +46,8 @@ export class DescribeCacheParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCacheParametersMessage.filterSensitiveLog,
-      outputFilterLog: CacheParameterGroupDetails.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCacheParametersMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheParameterGroupDetails.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

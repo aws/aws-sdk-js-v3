@@ -50,8 +50,8 @@ export class DescribeScalingActivitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeScalingActivitiesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeScalingActivitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScalingActivitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScalingActivitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

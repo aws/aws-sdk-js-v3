@@ -50,8 +50,8 @@ export class CreateNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateNodeInput.filterSensitiveLog,
-      outputFilterLog: CreateNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

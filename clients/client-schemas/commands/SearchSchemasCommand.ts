@@ -46,8 +46,8 @@ export class SearchSchemasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchSchemasRequest.filterSensitiveLog,
-      outputFilterLog: SearchSchemasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchSchemasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchSchemasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

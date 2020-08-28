@@ -46,8 +46,8 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCloudFormationStackRecordsRequest.filterSensitiveLog,
-      outputFilterLog: GetCloudFormationStackRecordsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCloudFormationStackRecordsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCloudFormationStackRecordsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

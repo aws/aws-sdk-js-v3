@@ -46,8 +46,8 @@ export class StartMigrationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartMigrationMessage.filterSensitiveLog,
-      outputFilterLog: StartMigrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMigrationMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMigrationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

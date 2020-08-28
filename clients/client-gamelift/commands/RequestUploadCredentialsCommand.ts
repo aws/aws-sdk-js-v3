@@ -46,8 +46,8 @@ export class RequestUploadCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RequestUploadCredentialsInput.filterSensitiveLog,
-      outputFilterLog: RequestUploadCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RequestUploadCredentialsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestUploadCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

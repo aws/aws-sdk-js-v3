@@ -46,8 +46,8 @@ export class UpdateClusterVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateClusterVersionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateClusterVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClusterVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

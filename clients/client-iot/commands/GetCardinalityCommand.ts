@@ -46,8 +46,8 @@ export class GetCardinalityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCardinalityRequest.filterSensitiveLog,
-      outputFilterLog: GetCardinalityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCardinalityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCardinalityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

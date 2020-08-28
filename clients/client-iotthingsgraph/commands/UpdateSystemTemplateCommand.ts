@@ -46,8 +46,8 @@ export class UpdateSystemTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSystemTemplateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSystemTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSystemTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

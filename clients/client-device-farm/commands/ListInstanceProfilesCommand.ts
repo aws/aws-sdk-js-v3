@@ -46,8 +46,8 @@ export class ListInstanceProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListInstanceProfilesRequest.filterSensitiveLog,
-      outputFilterLog: ListInstanceProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInstanceProfilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInstanceProfilesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

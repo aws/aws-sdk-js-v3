@@ -46,8 +46,8 @@ export class DeleteKnownHostKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteKnownHostKeysRequest.filterSensitiveLog,
-      outputFilterLog: DeleteKnownHostKeysResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteKnownHostKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteKnownHostKeysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

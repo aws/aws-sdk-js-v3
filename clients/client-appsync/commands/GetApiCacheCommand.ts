@@ -46,8 +46,8 @@ export class GetApiCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetApiCacheRequest.filterSensitiveLog,
-      outputFilterLog: GetApiCacheResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApiCacheRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApiCacheResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

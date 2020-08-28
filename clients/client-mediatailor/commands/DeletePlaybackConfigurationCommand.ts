@@ -46,8 +46,8 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePlaybackConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeletePlaybackConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlaybackConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePlaybackConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class AddWorkingStorageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddWorkingStorageInput.filterSensitiveLog,
-      outputFilterLog: AddWorkingStorageOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddWorkingStorageInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddWorkingStorageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

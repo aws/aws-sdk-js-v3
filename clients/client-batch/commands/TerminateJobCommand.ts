@@ -46,8 +46,8 @@ export class TerminateJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TerminateJobRequest.filterSensitiveLog,
-      outputFilterLog: TerminateJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TerminateJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

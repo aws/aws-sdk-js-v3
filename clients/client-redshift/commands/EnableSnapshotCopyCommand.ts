@@ -46,8 +46,8 @@ export class EnableSnapshotCopyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EnableSnapshotCopyMessage.filterSensitiveLog,
-      outputFilterLog: EnableSnapshotCopyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableSnapshotCopyMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableSnapshotCopyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

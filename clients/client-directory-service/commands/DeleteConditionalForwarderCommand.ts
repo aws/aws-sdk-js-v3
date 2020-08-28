@@ -46,8 +46,8 @@ export class DeleteConditionalForwarderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteConditionalForwarderRequest.filterSensitiveLog,
-      outputFilterLog: DeleteConditionalForwarderResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConditionalForwarderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConditionalForwarderResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

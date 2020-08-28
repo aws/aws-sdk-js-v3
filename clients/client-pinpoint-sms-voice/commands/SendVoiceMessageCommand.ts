@@ -46,8 +46,8 @@ export class SendVoiceMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendVoiceMessageRequest.filterSensitiveLog,
-      outputFilterLog: SendVoiceMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendVoiceMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendVoiceMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEmailIdentityPolicyRequest.filterSensitiveLog,
-      outputFilterLog: CreateEmailIdentityPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEmailIdentityPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEmailIdentityPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

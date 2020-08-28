@@ -46,8 +46,8 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRepositoryAssociationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeRepositoryAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRepositoryAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRepositoryAssociationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMatchmakingConfigurationInput.filterSensitiveLog,
-      outputFilterLog: UpdateMatchmakingConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMatchmakingConfigurationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMatchmakingConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

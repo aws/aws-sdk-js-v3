@@ -50,8 +50,8 @@ export class GetIceServerConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIceServerConfigRequest.filterSensitiveLog,
-      outputFilterLog: GetIceServerConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIceServerConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIceServerConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

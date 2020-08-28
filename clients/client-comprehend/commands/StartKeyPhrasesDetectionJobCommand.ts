@@ -46,8 +46,8 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartKeyPhrasesDetectionJobRequest.filterSensitiveLog,
-      outputFilterLog: StartKeyPhrasesDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartKeyPhrasesDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartKeyPhrasesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

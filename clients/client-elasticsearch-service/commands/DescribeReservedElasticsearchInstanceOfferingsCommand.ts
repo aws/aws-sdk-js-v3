@@ -57,8 +57,8 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReservedElasticsearchInstanceOfferingsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeReservedElasticsearchInstanceOfferingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReservedElasticsearchInstanceOfferingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReservedElasticsearchInstanceOfferingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

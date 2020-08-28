@@ -46,8 +46,8 @@ export class StopWorkflowRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopWorkflowRunRequest.filterSensitiveLog,
-      outputFilterLog: StopWorkflowRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopWorkflowRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopWorkflowRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

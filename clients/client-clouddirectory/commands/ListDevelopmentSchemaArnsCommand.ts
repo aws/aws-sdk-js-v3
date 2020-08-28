@@ -46,8 +46,8 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDevelopmentSchemaArnsRequest.filterSensitiveLog,
-      outputFilterLog: ListDevelopmentSchemaArnsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDevelopmentSchemaArnsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDevelopmentSchemaArnsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

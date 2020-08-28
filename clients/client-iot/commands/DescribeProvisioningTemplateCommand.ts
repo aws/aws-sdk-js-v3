@@ -46,8 +46,8 @@ export class DescribeProvisioningTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeProvisioningTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DescribeProvisioningTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProvisioningTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProvisioningTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

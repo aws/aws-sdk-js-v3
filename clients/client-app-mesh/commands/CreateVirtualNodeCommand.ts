@@ -46,8 +46,8 @@ export class CreateVirtualNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVirtualNodeInput.filterSensitiveLog,
-      outputFilterLog: CreateVirtualNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVirtualNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

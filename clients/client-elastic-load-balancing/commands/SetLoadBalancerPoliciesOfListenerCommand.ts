@@ -50,8 +50,8 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetLoadBalancerPoliciesOfListenerInput.filterSensitiveLog,
-      outputFilterLog: SetLoadBalancerPoliciesOfListenerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetLoadBalancerPoliciesOfListenerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetLoadBalancerPoliciesOfListenerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

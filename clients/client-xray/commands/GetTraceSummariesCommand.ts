@@ -46,8 +46,8 @@ export class GetTraceSummariesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTraceSummariesRequest.filterSensitiveLog,
-      outputFilterLog: GetTraceSummariesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTraceSummariesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTraceSummariesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

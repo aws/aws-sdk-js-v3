@@ -46,8 +46,8 @@ export class GetAdmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAdmChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetAdmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAdmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAdmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

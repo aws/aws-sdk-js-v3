@@ -46,8 +46,8 @@ export class PutComplianceItemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutComplianceItemsRequest.filterSensitiveLog,
-      outputFilterLog: PutComplianceItemsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

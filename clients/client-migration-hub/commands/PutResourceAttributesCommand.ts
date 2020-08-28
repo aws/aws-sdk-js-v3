@@ -46,8 +46,8 @@ export class PutResourceAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutResourceAttributesRequest.filterSensitiveLog,
-      outputFilterLog: PutResourceAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutResourceAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutResourceAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

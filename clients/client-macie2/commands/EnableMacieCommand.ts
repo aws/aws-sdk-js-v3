@@ -46,8 +46,8 @@ export class EnableMacieCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EnableMacieRequest.filterSensitiveLog,
-      outputFilterLog: EnableMacieResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableMacieRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableMacieResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

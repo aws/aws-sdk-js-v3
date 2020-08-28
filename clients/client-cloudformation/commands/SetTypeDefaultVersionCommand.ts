@@ -46,8 +46,8 @@ export class SetTypeDefaultVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetTypeDefaultVersionInput.filterSensitiveLog,
-      outputFilterLog: SetTypeDefaultVersionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetTypeDefaultVersionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetTypeDefaultVersionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

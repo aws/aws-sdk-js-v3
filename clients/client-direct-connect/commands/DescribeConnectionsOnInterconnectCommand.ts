@@ -46,8 +46,8 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeConnectionsOnInterconnectRequest.filterSensitiveLog,
-      outputFilterLog: Connections.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConnectionsOnInterconnectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Connections.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

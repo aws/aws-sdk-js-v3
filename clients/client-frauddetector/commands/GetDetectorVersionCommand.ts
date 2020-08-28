@@ -46,8 +46,8 @@ export class GetDetectorVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDetectorVersionRequest.filterSensitiveLog,
-      outputFilterLog: GetDetectorVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDetectorVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDetectorVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

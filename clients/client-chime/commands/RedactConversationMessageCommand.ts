@@ -46,8 +46,8 @@ export class RedactConversationMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RedactConversationMessageRequest.filterSensitiveLog,
-      outputFilterLog: RedactConversationMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RedactConversationMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RedactConversationMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

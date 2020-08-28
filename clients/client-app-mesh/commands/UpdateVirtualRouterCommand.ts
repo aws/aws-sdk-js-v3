@@ -46,8 +46,8 @@ export class UpdateVirtualRouterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateVirtualRouterInput.filterSensitiveLog,
-      outputFilterLog: UpdateVirtualRouterOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVirtualRouterInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

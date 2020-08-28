@@ -50,8 +50,8 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminSetUserMFAPreferenceRequest.filterSensitiveLog,
-      outputFilterLog: AdminSetUserMFAPreferenceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

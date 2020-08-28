@@ -46,8 +46,8 @@ export class DeleteLifecycleHookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteLifecycleHookType.filterSensitiveLog,
-      outputFilterLog: DeleteLifecycleHookAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLifecycleHookType.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLifecycleHookAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

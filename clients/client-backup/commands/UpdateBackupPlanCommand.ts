@@ -46,8 +46,8 @@ export class UpdateBackupPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateBackupPlanInput.filterSensitiveLog,
-      outputFilterLog: UpdateBackupPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBackupPlanInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBackupPlanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

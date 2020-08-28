@@ -46,8 +46,8 @@ export class GetLayerVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLayerVersionRequest.filterSensitiveLog,
-      outputFilterLog: GetLayerVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLayerVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

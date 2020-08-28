@@ -47,8 +47,8 @@ export class ModifyRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyRuleInput.filterSensitiveLog,
-      outputFilterLog: ModifyRuleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyRuleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

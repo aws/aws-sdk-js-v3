@@ -46,8 +46,8 @@ export class DissociateEntityFromThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DissociateEntityFromThingRequest.filterSensitiveLog,
-      outputFilterLog: DissociateEntityFromThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DissociateEntityFromThingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DissociateEntityFromThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

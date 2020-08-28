@@ -46,8 +46,8 @@ export class CreateDBSecurityGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDBSecurityGroupMessage.filterSensitiveLog,
-      outputFilterLog: CreateDBSecurityGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBSecurityGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBSecurityGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

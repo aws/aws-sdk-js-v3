@@ -46,8 +46,8 @@ export class StopDiscovererCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopDiscovererRequest.filterSensitiveLog,
-      outputFilterLog: StopDiscovererResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDiscovererRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopDiscovererResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

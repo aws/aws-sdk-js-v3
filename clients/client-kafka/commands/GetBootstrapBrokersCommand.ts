@@ -46,8 +46,8 @@ export class GetBootstrapBrokersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBootstrapBrokersRequest.filterSensitiveLog,
-      outputFilterLog: GetBootstrapBrokersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBootstrapBrokersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBootstrapBrokersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

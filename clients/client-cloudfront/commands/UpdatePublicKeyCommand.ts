@@ -46,8 +46,8 @@ export class UpdatePublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePublicKeyRequest.filterSensitiveLog,
-      outputFilterLog: UpdatePublicKeyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePublicKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePublicKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

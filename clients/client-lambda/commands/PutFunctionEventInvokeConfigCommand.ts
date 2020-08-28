@@ -46,8 +46,8 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutFunctionEventInvokeConfigRequest.filterSensitiveLog,
-      outputFilterLog: FunctionEventInvokeConfig.filterSensitiveLog,
+      inputFilterSensitiveLog: PutFunctionEventInvokeConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FunctionEventInvokeConfig.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: FailoverGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: FailoverGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: FailoverGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: FailoverGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

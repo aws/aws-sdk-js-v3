@@ -50,8 +50,8 @@ export class PostTextCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PostTextRequest.filterSensitiveLog,
-      outputFilterLog: PostTextResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PostTextRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PostTextResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReservedNodeExchangeOfferingsInputMessage.filterSensitiveLog,
-      outputFilterLog: GetReservedNodeExchangeOfferingsOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservedNodeExchangeOfferingsInputMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservedNodeExchangeOfferingsOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

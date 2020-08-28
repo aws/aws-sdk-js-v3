@@ -46,8 +46,8 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDirectoryConfigsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDirectoryConfigsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDirectoryConfigsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDirectoryConfigsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

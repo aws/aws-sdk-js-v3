@@ -46,8 +46,8 @@ export class GetRegexPatternSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRegexPatternSetRequest.filterSensitiveLog,
-      outputFilterLog: GetRegexPatternSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

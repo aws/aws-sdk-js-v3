@@ -46,8 +46,8 @@ export class AssociateCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateCertificateRequest.filterSensitiveLog,
-      outputFilterLog: AssociateCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

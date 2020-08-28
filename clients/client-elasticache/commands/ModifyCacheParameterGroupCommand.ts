@@ -46,8 +46,8 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyCacheParameterGroupMessage.filterSensitiveLog,
-      outputFilterLog: CacheParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyCacheParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

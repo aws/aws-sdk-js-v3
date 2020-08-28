@@ -46,8 +46,8 @@ export class DeleteWorkGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteWorkGroupInput.filterSensitiveLog,
-      outputFilterLog: DeleteWorkGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

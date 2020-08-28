@@ -46,8 +46,8 @@ export class GetAccountSendingEnabledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: GetAccountSendingEnabledResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GetAccountSendingEnabledResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

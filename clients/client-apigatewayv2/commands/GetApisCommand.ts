@@ -46,8 +46,8 @@ export class GetApisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetApisRequest.filterSensitiveLog,
-      outputFilterLog: GetApisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApisRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

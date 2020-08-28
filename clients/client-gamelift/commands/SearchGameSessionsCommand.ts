@@ -46,8 +46,8 @@ export class SearchGameSessionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchGameSessionsInput.filterSensitiveLog,
-      outputFilterLog: SearchGameSessionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchGameSessionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchGameSessionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

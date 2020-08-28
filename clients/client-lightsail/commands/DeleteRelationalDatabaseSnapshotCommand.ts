@@ -46,8 +46,8 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRelationalDatabaseSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRelationalDatabaseSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRelationalDatabaseSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRelationalDatabaseSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PublishLayerVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PublishLayerVersionRequest.filterSensitiveLog,
-      outputFilterLog: PublishLayerVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishLayerVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PublishLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

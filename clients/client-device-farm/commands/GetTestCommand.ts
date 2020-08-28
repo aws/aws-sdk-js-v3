@@ -43,8 +43,8 @@ export class GetTestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTestRequest.filterSensitiveLog,
-      outputFilterLog: GetTestResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTestResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcceptDirectConnectGatewayAssociationProposalRequest.filterSensitiveLog,
-      outputFilterLog: AcceptDirectConnectGatewayAssociationProposalResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptDirectConnectGatewayAssociationProposalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptDirectConnectGatewayAssociationProposalResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

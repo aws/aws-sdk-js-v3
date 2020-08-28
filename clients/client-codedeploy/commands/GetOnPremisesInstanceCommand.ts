@@ -46,8 +46,8 @@ export class GetOnPremisesInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOnPremisesInstanceInput.filterSensitiveLog,
-      outputFilterLog: GetOnPremisesInstanceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOnPremisesInstanceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOnPremisesInstanceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeAcceleratorOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAcceleratorOfferingsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAcceleratorOfferingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAcceleratorOfferingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAcceleratorOfferingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

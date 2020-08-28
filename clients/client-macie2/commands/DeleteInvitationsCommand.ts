@@ -46,8 +46,8 @@ export class DeleteInvitationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteInvitationsRequest.filterSensitiveLog,
-      outputFilterLog: DeleteInvitationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInvitationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

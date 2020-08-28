@@ -50,8 +50,8 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetHLSStreamingSessionURLInput.filterSensitiveLog,
-      outputFilterLog: GetHLSStreamingSessionURLOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHLSStreamingSessionURLInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHLSStreamingSessionURLOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

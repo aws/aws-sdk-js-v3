@@ -46,8 +46,8 @@ export class CreateAccountCustomizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAccountCustomizationRequest.filterSensitiveLog,
-      outputFilterLog: CreateAccountCustomizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAccountCustomizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAccountCustomizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

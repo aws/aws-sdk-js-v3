@@ -46,8 +46,8 @@ export class CreateAssociationBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAssociationBatchRequest.filterSensitiveLog,
-      outputFilterLog: CreateAssociationBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAssociationBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssociationBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class SearchContactsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchContactsRequest.filterSensitiveLog,
-      outputFilterLog: SearchContactsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchContactsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchContactsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

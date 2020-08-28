@@ -46,8 +46,8 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelJournalKinesisStreamRequest.filterSensitiveLog,
-      outputFilterLog: CancelJournalKinesisStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelJournalKinesisStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelJournalKinesisStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

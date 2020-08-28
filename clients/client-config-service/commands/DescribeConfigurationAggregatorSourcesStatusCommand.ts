@@ -53,8 +53,8 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeConfigurationAggregatorSourcesStatusRequest.filterSensitiveLog,
-      outputFilterLog: DescribeConfigurationAggregatorSourcesStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConfigurationAggregatorSourcesStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationAggregatorSourcesStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

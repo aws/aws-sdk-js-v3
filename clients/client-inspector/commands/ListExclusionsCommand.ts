@@ -46,8 +46,8 @@ export class ListExclusionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListExclusionsRequest.filterSensitiveLog,
-      outputFilterLog: ListExclusionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListExclusionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListExclusionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

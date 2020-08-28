@@ -46,8 +46,8 @@ export class PutDataLakeSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutDataLakeSettingsRequest.filterSensitiveLog,
-      outputFilterLog: PutDataLakeSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDataLakeSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDataLakeSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

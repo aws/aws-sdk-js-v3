@@ -46,8 +46,8 @@ export class DeleteDomainConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDomainConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDomainConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

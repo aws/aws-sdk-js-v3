@@ -46,8 +46,8 @@ export class GetPackageVersionReadmeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPackageVersionReadmeRequest.filterSensitiveLog,
-      outputFilterLog: GetPackageVersionReadmeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPackageVersionReadmeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPackageVersionReadmeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutInvitationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutInvitationConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: PutInvitationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutInvitationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutInvitationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutQueryDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutQueryDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: PutQueryDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutQueryDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutQueryDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

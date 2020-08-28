@@ -46,8 +46,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateOrganizationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

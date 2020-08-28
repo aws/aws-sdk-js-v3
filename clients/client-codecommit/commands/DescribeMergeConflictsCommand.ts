@@ -46,8 +46,8 @@ export class DescribeMergeConflictsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeMergeConflictsInput.filterSensitiveLog,
-      outputFilterLog: DescribeMergeConflictsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMergeConflictsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMergeConflictsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

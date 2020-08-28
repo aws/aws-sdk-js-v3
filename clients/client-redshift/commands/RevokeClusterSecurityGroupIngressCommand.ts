@@ -46,8 +46,8 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeClusterSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterLog: RevokeClusterSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeClusterSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeClusterSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

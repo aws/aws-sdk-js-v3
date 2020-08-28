@@ -46,8 +46,8 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPullRequestOverrideStateInput.filterSensitiveLog,
-      outputFilterLog: GetPullRequestOverrideStateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPullRequestOverrideStateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPullRequestOverrideStateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

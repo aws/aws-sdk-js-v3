@@ -46,8 +46,8 @@ export class ListMonitoringSchedulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListMonitoringSchedulesRequest.filterSensitiveLog,
-      outputFilterLog: ListMonitoringSchedulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMonitoringSchedulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMonitoringSchedulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

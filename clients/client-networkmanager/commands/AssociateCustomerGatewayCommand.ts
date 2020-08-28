@@ -46,8 +46,8 @@ export class AssociateCustomerGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateCustomerGatewayRequest.filterSensitiveLog,
-      outputFilterLog: AssociateCustomerGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateCustomerGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateCustomerGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

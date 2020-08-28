@@ -46,8 +46,8 @@ export class GetJobBookmarkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetJobBookmarkRequest.filterSensitiveLog,
-      outputFilterLog: GetJobBookmarkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobBookmarkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetJobBookmarkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

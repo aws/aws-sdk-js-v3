@@ -46,8 +46,8 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
-      outputFilterLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeScheduledAuditCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeScheduledAuditRequest.filterSensitiveLog,
-      outputFilterLog: DescribeScheduledAuditResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScheduledAuditRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScheduledAuditResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

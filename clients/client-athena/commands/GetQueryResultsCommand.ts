@@ -46,8 +46,8 @@ export class GetQueryResultsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetQueryResultsInput.filterSensitiveLog,
-      outputFilterLog: GetQueryResultsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQueryResultsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQueryResultsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

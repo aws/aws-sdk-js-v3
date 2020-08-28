@@ -46,8 +46,8 @@ export class ListReportGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListReportGroupsInput.filterSensitiveLog,
-      outputFilterLog: ListReportGroupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListReportGroupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReportGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

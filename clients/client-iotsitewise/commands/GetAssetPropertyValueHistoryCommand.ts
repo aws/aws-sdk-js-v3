@@ -46,8 +46,8 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAssetPropertyValueHistoryRequest.filterSensitiveLog,
-      outputFilterLog: GetAssetPropertyValueHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssetPropertyValueHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAssetPropertyValueHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

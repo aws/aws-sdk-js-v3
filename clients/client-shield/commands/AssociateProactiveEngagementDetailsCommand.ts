@@ -50,8 +50,8 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateProactiveEngagementDetailsRequest.filterSensitiveLog,
-      outputFilterLog: AssociateProactiveEngagementDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateProactiveEngagementDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateProactiveEngagementDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

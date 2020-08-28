@@ -46,8 +46,8 @@ export class UpdateScalingPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateScalingPlanRequest.filterSensitiveLog,
-      outputFilterLog: UpdateScalingPlanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateScalingPlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScalingPlanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

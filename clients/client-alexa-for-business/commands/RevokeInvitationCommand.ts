@@ -46,8 +46,8 @@ export class RevokeInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeInvitationRequest.filterSensitiveLog,
-      outputFilterLog: RevokeInvitationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

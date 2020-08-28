@@ -46,8 +46,8 @@ export class DeletePatchBaselineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePatchBaselineRequest.filterSensitiveLog,
-      outputFilterLog: DeletePatchBaselineResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePatchBaselineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

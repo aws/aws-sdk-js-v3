@@ -46,8 +46,8 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInputDeviceThumbnailRequest.filterSensitiveLog,
-      outputFilterLog: DescribeInputDeviceThumbnailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

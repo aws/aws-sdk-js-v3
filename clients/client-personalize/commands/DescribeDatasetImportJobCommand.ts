@@ -46,8 +46,8 @@ export class DescribeDatasetImportJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDatasetImportJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDatasetImportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDatasetImportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDatasetImportJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutOrganizationConfigRuleRequest.filterSensitiveLog,
-      outputFilterLog: PutOrganizationConfigRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutOrganizationConfigRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutOrganizationConfigRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -48,8 +48,8 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateHostedZoneCommentRequest.filterSensitiveLog,
-      outputFilterLog: UpdateHostedZoneCommentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateHostedZoneCommentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHostedZoneCommentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

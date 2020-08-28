@@ -46,8 +46,8 @@ export class UpdateConnectivityInfoCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateConnectivityInfoRequest.filterSensitiveLog,
-      outputFilterLog: UpdateConnectivityInfoResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConnectivityInfoRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConnectivityInfoResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribePlacementGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribePlacementGroupsRequest.filterSensitiveLog,
-      outputFilterLog: DescribePlacementGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePlacementGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePlacementGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

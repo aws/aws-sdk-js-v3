@@ -46,8 +46,8 @@ export class UpdateDomainNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDomainNameRequest.filterSensitiveLog,
-      outputFilterLog: DomainName.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainNameRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DomainName.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

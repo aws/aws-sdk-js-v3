@@ -46,8 +46,8 @@ export class GetSecurityConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSecurityConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetSecurityConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSecurityConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSecurityConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetSMSAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSMSAttributesInput.filterSensitiveLog,
-      outputFilterLog: GetSMSAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSMSAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSMSAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetCapacityReservationUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCapacityReservationUsageRequest.filterSensitiveLog,
-      outputFilterLog: GetCapacityReservationUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCapacityReservationUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCapacityReservationUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

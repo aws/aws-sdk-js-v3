@@ -46,8 +46,8 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
-      outputFilterLog: ModifyTransitGatewayVpcAttachmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetPolicyVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPolicyVersionRequest.filterSensitiveLog,
-      outputFilterLog: GetPolicyVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPolicyVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPolicyVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

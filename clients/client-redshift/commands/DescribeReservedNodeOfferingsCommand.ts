@@ -46,8 +46,8 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReservedNodeOfferingsMessage.filterSensitiveLog,
-      outputFilterLog: ReservedNodeOfferingsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReservedNodeOfferingsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ReservedNodeOfferingsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

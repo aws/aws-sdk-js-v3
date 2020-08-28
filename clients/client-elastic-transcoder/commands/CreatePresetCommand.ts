@@ -50,8 +50,8 @@ export class CreatePresetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePresetRequest.filterSensitiveLog,
-      outputFilterLog: CreatePresetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePresetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class AssociatePackageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociatePackageRequest.filterSensitiveLog,
-      outputFilterLog: AssociatePackageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePackageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSubscriptionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSubscriptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

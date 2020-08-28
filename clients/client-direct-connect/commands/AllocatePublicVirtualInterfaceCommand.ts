@@ -46,8 +46,8 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AllocatePublicVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: VirtualInterface.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocatePublicVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

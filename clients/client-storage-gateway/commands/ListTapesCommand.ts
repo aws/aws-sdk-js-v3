@@ -43,8 +43,8 @@ export class ListTapesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTapesInput.filterSensitiveLog,
-      outputFilterLog: ListTapesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTapesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTapesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

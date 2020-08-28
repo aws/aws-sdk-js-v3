@@ -50,8 +50,8 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
-      outputFilterLog: AssociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

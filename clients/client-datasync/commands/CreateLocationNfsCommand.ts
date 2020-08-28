@@ -46,8 +46,8 @@ export class CreateLocationNfsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLocationNfsRequest.filterSensitiveLog,
-      outputFilterLog: CreateLocationNfsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationNfsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationNfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListPredictorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPredictorsRequest.filterSensitiveLog,
-      outputFilterLog: ListPredictorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPredictorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPredictorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

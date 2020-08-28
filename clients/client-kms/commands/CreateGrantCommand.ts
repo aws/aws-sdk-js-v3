@@ -46,8 +46,8 @@ export class CreateGrantCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateGrantRequest.filterSensitiveLog,
-      outputFilterLog: CreateGrantResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGrantRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGrantResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

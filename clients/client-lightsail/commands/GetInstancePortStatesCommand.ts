@@ -46,8 +46,8 @@ export class GetInstancePortStatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetInstancePortStatesRequest.filterSensitiveLog,
-      outputFilterLog: GetInstancePortStatesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstancePortStatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInstancePortStatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

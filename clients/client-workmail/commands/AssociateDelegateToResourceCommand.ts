@@ -46,8 +46,8 @@ export class AssociateDelegateToResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDelegateToResourceRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDelegateToResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDelegateToResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDelegateToResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

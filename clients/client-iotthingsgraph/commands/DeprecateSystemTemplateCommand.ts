@@ -46,8 +46,8 @@ export class DeprecateSystemTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeprecateSystemTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeprecateSystemTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeprecateSystemTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeprecateSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

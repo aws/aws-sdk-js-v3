@@ -46,8 +46,8 @@ export class ListProxySessionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProxySessionsRequest.filterSensitiveLog,
-      outputFilterLog: ListProxySessionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProxySessionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProxySessionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetRateBasedRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRateBasedRuleRequest.filterSensitiveLog,
-      outputFilterLog: GetRateBasedRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

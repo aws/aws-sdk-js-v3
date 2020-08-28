@@ -46,8 +46,8 @@ export class ListJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListJobsInput.filterSensitiveLog,
-      outputFilterLog: ListJobsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListJobsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateVirtualInterfaceAttributesRequest.filterSensitiveLog,
-      outputFilterLog: VirtualInterface.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVirtualInterfaceAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

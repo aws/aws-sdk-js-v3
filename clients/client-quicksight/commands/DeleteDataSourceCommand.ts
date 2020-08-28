@@ -46,8 +46,8 @@ export class DeleteDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDataSourceRequest.filterSensitiveLog,
-      outputFilterLog: DeleteDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

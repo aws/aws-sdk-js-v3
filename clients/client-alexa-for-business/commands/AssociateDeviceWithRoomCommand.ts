@@ -46,8 +46,8 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDeviceWithRoomRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDeviceWithRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDeviceWithRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDeviceWithRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteTrailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTrailRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTrailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

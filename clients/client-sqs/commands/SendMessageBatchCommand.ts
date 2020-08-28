@@ -48,8 +48,8 @@ export class SendMessageBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendMessageBatchRequest.filterSensitiveLog,
-      outputFilterLog: SendMessageBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendMessageBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendMessageBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

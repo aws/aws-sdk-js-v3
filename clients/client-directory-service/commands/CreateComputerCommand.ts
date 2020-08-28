@@ -46,8 +46,8 @@ export class CreateComputerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateComputerRequest.filterSensitiveLog,
-      outputFilterLog: CreateComputerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateComputerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateComputerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

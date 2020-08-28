@@ -57,8 +57,8 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReplicationTaskIndividualAssessmentsMessage.filterSensitiveLog,
-      outputFilterLog: DescribeReplicationTaskIndividualAssessmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReplicationTaskIndividualAssessmentsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReplicationTaskIndividualAssessmentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDataSourceRequest.filterSensitiveLog,
-      outputFilterLog: CreateDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

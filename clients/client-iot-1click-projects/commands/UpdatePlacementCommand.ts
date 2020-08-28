@@ -50,8 +50,8 @@ export class UpdatePlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePlacementRequest.filterSensitiveLog,
-      outputFilterLog: UpdatePlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

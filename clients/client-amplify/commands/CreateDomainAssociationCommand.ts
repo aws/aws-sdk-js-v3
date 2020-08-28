@@ -46,8 +46,8 @@ export class CreateDomainAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDomainAssociationRequest.filterSensitiveLog,
-      outputFilterLog: CreateDomainAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDomainAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

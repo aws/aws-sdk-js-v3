@@ -46,8 +46,8 @@ export class ListOTAUpdatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListOTAUpdatesRequest.filterSensitiveLog,
-      outputFilterLog: ListOTAUpdatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOTAUpdatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListOTAUpdatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

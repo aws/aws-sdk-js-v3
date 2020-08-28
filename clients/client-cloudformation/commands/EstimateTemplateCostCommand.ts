@@ -46,8 +46,8 @@ export class EstimateTemplateCostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EstimateTemplateCostInput.filterSensitiveLog,
-      outputFilterLog: EstimateTemplateCostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EstimateTemplateCostInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EstimateTemplateCostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

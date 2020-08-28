@@ -43,8 +43,8 @@ export class GetRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRoomRequest.filterSensitiveLog,
-      outputFilterLog: GetRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

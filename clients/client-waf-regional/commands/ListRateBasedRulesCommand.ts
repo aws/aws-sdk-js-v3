@@ -46,8 +46,8 @@ export class ListRateBasedRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRateBasedRulesRequest.filterSensitiveLog,
-      outputFilterLog: ListRateBasedRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRateBasedRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRateBasedRulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

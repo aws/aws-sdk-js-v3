@@ -53,8 +53,8 @@ export class StartStreamTranscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartStreamTranscriptionRequest.filterSensitiveLog,
-      outputFilterLog: StartStreamTranscriptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartStreamTranscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartStreamTranscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

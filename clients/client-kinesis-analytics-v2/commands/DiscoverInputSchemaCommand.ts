@@ -50,8 +50,8 @@ export class DiscoverInputSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DiscoverInputSchemaRequest.filterSensitiveLog,
-      outputFilterLog: DiscoverInputSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DiscoverInputSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DiscoverInputSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

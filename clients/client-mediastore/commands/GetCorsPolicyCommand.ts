@@ -46,8 +46,8 @@ export class GetCorsPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCorsPolicyInput.filterSensitiveLog,
-      outputFilterLog: GetCorsPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCorsPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCorsPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

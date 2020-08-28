@@ -46,8 +46,8 @@ export class DescribeHumanTaskUiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeHumanTaskUiRequest.filterSensitiveLog,
-      outputFilterLog: DescribeHumanTaskUiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeHumanTaskUiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHumanTaskUiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

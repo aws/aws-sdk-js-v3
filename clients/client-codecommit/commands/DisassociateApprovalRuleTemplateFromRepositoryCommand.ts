@@ -49,8 +49,8 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateApprovalRuleTemplateFromRepositoryInput.filterSensitiveLog,
-      outputFilterLog: (output: any) => output,
+      inputFilterSensitiveLog: DisassociateApprovalRuleTemplateFromRepositoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

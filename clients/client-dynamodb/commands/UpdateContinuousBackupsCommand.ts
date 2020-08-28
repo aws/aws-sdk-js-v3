@@ -46,8 +46,8 @@ export class UpdateContinuousBackupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateContinuousBackupsInput.filterSensitiveLog,
-      outputFilterLog: UpdateContinuousBackupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContinuousBackupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContinuousBackupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTrafficMirrorSessionRequest.filterSensitiveLog,
-      outputFilterLog: CreateTrafficMirrorSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTrafficMirrorSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTrafficMirrorSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

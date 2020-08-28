@@ -46,8 +46,8 @@ export class UpdateExpirationForHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateExpirationForHITRequest.filterSensitiveLog,
-      outputFilterLog: UpdateExpirationForHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateExpirationForHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateExpirationForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

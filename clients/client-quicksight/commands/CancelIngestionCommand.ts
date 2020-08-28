@@ -46,8 +46,8 @@ export class CancelIngestionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelIngestionRequest.filterSensitiveLog,
-      outputFilterLog: CancelIngestionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelIngestionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelIngestionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateStandardsControlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateStandardsControlRequest.filterSensitiveLog,
-      outputFilterLog: UpdateStandardsControlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStandardsControlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStandardsControlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

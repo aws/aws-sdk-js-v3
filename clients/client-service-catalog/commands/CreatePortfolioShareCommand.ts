@@ -46,8 +46,8 @@ export class CreatePortfolioShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePortfolioShareInput.filterSensitiveLog,
-      outputFilterLog: CreatePortfolioShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePortfolioShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePortfolioShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

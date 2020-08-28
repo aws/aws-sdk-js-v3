@@ -46,8 +46,8 @@ export class StartSchemaExtensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartSchemaExtensionRequest.filterSensitiveLog,
-      outputFilterLog: StartSchemaExtensionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSchemaExtensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSchemaExtensionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

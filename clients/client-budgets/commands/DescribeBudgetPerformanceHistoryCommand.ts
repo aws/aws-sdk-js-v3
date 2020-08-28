@@ -46,8 +46,8 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBudgetPerformanceHistoryRequest.filterSensitiveLog,
-      outputFilterLog: DescribeBudgetPerformanceHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBudgetPerformanceHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBudgetPerformanceHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

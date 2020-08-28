@@ -46,8 +46,8 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDataflowEndpointGroupRequest.filterSensitiveLog,
-      outputFilterLog: GetDataflowEndpointGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataflowEndpointGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataflowEndpointGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

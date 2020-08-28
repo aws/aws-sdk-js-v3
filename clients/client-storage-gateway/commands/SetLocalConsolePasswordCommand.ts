@@ -46,8 +46,8 @@ export class SetLocalConsolePasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetLocalConsolePasswordInput.filterSensitiveLog,
-      outputFilterLog: SetLocalConsolePasswordOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetLocalConsolePasswordInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetLocalConsolePasswordOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

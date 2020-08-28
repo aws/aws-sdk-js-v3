@@ -39,8 +39,8 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetGroupRequest.filterSensitiveLog,
-      outputFilterLog: GetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

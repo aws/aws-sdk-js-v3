@@ -46,8 +46,8 @@ export class ModifyWorkspaceStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyWorkspaceStateRequest.filterSensitiveLog,
-      outputFilterLog: ModifyWorkspaceStateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyWorkspaceStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyWorkspaceStateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

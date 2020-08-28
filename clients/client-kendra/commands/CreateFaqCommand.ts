@@ -43,8 +43,8 @@ export class CreateFaqCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateFaqRequest.filterSensitiveLog,
-      outputFilterLog: CreateFaqResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFaqRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFaqResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

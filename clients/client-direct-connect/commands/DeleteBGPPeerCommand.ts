@@ -46,8 +46,8 @@ export class DeleteBGPPeerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBGPPeerRequest.filterSensitiveLog,
-      outputFilterLog: DeleteBGPPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBGPPeerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBGPPeerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

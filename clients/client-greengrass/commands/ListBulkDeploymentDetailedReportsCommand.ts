@@ -47,8 +47,8 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBulkDeploymentDetailedReportsRequest.filterSensitiveLog,
-      outputFilterLog: ListBulkDeploymentDetailedReportsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBulkDeploymentDetailedReportsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBulkDeploymentDetailedReportsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -53,8 +53,8 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApplicationInputProcessingConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteApplicationInputProcessingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationInputProcessingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationInputProcessingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

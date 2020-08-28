@@ -46,8 +46,8 @@ export class DeleteResourcePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteResourcePolicyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteResourcePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourcePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

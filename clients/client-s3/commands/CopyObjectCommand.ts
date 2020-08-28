@@ -50,8 +50,8 @@ export class CopyObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyObjectRequest.filterSensitiveLog,
-      outputFilterLog: CopyObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

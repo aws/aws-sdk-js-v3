@@ -46,8 +46,8 @@ export class DeleteAdmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAdmChannelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAdmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAdmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAdmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

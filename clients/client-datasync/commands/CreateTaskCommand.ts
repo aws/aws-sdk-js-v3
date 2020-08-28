@@ -46,8 +46,8 @@ export class CreateTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTaskRequest.filterSensitiveLog,
-      outputFilterLog: CreateTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

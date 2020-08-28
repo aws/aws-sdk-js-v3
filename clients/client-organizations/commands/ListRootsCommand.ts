@@ -43,8 +43,8 @@ export class ListRootsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRootsRequest.filterSensitiveLog,
-      outputFilterLog: ListRootsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRootsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRootsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

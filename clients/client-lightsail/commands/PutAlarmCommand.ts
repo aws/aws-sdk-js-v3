@@ -43,8 +43,8 @@ export class PutAlarmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAlarmRequest.filterSensitiveLog,
-      outputFilterLog: PutAlarmResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAlarmRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAlarmResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEbsEncryptionByDefaultRequest.filterSensitiveLog,
-      outputFilterLog: GetEbsEncryptionByDefaultResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEbsEncryptionByDefaultRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEbsEncryptionByDefaultResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

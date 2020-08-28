@@ -46,8 +46,8 @@ export class DisassociateDRTLogBucketCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateDRTLogBucketRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateDRTLogBucketResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDRTLogBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDRTLogBucketResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

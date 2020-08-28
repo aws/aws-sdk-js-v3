@@ -50,8 +50,8 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterTargetFromMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterTargetFromMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTargetFromMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTargetFromMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

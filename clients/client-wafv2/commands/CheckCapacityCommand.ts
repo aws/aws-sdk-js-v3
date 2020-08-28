@@ -46,8 +46,8 @@ export class CheckCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CheckCapacityRequest.filterSensitiveLog,
-      outputFilterLog: CheckCapacityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckCapacityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CheckCapacityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RefreshCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RefreshCacheInput.filterSensitiveLog,
-      outputFilterLog: RefreshCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RefreshCacheInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RefreshCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

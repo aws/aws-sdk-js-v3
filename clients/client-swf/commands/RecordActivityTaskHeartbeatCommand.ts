@@ -46,8 +46,8 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RecordActivityTaskHeartbeatInput.filterSensitiveLog,
-      outputFilterLog: ActivityTaskStatus.filterSensitiveLog,
+      inputFilterSensitiveLog: RecordActivityTaskHeartbeatInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivityTaskStatus.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

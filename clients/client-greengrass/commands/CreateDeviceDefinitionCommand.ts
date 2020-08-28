@@ -46,8 +46,8 @@ export class CreateDeviceDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDeviceDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: CreateDeviceDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeviceDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeviceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

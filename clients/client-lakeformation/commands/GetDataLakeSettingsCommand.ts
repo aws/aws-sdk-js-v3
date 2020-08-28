@@ -46,8 +46,8 @@ export class GetDataLakeSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDataLakeSettingsRequest.filterSensitiveLog,
-      outputFilterLog: GetDataLakeSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataLakeSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataLakeSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

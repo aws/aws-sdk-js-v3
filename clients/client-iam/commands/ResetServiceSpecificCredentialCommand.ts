@@ -46,8 +46,8 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResetServiceSpecificCredentialRequest.filterSensitiveLog,
-      outputFilterLog: ResetServiceSpecificCredentialResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetServiceSpecificCredentialRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetServiceSpecificCredentialResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

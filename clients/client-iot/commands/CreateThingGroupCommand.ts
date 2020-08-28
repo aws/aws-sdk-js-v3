@@ -46,8 +46,8 @@ export class CreateThingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateThingGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateThingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateThingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

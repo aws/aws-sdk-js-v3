@@ -46,8 +46,8 @@ export class RedactRoomMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RedactRoomMessageRequest.filterSensitiveLog,
-      outputFilterLog: RedactRoomMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RedactRoomMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RedactRoomMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

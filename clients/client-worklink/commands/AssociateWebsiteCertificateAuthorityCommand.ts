@@ -50,8 +50,8 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateWebsiteCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterLog: AssociateWebsiteCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

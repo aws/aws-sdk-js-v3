@@ -46,8 +46,8 @@ export class DeleteAccessPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAccessPolicyRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAccessPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccessPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccessPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

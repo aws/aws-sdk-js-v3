@@ -46,8 +46,8 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAvailabilityZonesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAvailabilityZonesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAvailabilityZonesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityZonesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

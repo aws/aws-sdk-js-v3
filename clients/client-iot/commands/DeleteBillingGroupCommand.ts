@@ -46,8 +46,8 @@ export class DeleteBillingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteBillingGroupRequest.filterSensitiveLog,
-      outputFilterLog: DeleteBillingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBillingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBillingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

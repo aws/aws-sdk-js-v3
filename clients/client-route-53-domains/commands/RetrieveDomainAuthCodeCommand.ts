@@ -46,8 +46,8 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RetrieveDomainAuthCodeRequest.filterSensitiveLog,
-      outputFilterLog: RetrieveDomainAuthCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RetrieveDomainAuthCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RetrieveDomainAuthCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

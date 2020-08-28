@@ -46,8 +46,8 @@ export class BacktrackDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BacktrackDBClusterMessage.filterSensitiveLog,
-      outputFilterLog: DBClusterBacktrack.filterSensitiveLog,
+      inputFilterSensitiveLog: BacktrackDBClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterBacktrack.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

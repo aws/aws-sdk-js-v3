@@ -46,8 +46,8 @@ export class RestoreWorkspaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreWorkspaceRequest.filterSensitiveLog,
-      outputFilterLog: RestoreWorkspaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreWorkspaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreWorkspaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

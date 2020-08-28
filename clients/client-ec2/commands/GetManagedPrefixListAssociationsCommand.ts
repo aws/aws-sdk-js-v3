@@ -46,8 +46,8 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetManagedPrefixListAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: GetManagedPrefixListAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetManagedPrefixListAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetManagedPrefixListAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class IndexDocumentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: IndexDocumentsRequest.filterSensitiveLog,
-      outputFilterLog: IndexDocumentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: IndexDocumentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: IndexDocumentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

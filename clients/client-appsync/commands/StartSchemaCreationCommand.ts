@@ -46,8 +46,8 @@ export class StartSchemaCreationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartSchemaCreationRequest.filterSensitiveLog,
-      outputFilterLog: StartSchemaCreationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSchemaCreationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSchemaCreationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

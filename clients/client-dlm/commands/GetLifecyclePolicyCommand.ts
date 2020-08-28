@@ -46,8 +46,8 @@ export class GetLifecyclePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLifecyclePolicyRequest.filterSensitiveLog,
-      outputFilterLog: GetLifecyclePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLifecyclePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLifecyclePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

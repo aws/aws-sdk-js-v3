@@ -50,8 +50,8 @@ export class ConfirmForgotPasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConfirmForgotPasswordRequest.filterSensitiveLog,
-      outputFilterLog: ConfirmForgotPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmForgotPasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmForgotPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

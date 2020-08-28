@@ -46,8 +46,8 @@ export class PutRepositoryTriggersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutRepositoryTriggersInput.filterSensitiveLog,
-      outputFilterLog: PutRepositoryTriggersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRepositoryTriggersInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutRepositoryTriggersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

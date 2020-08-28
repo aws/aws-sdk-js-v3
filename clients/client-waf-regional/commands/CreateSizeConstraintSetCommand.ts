@@ -46,8 +46,8 @@ export class CreateSizeConstraintSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSizeConstraintSetRequest.filterSensitiveLog,
-      outputFilterLog: CreateSizeConstraintSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSizeConstraintSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSizeConstraintSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateCoreDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCoreDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: CreateCoreDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCoreDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCoreDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

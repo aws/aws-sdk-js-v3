@@ -46,8 +46,8 @@ export class DescribeProductAsAdminCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeProductAsAdminInput.filterSensitiveLog,
-      outputFilterLog: DescribeProductAsAdminOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProductAsAdminInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProductAsAdminOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

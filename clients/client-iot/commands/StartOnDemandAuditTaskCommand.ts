@@ -46,8 +46,8 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartOnDemandAuditTaskRequest.filterSensitiveLog,
-      outputFilterLog: StartOnDemandAuditTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartOnDemandAuditTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartOnDemandAuditTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

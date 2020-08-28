@@ -46,8 +46,8 @@ export class GetEventSelectorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEventSelectorsRequest.filterSensitiveLog,
-      outputFilterLog: GetEventSelectorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventSelectorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEventSelectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

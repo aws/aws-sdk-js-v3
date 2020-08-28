@@ -50,8 +50,8 @@ export class RebootReplicationInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RebootReplicationInstanceMessage.filterSensitiveLog,
-      outputFilterLog: RebootReplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

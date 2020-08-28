@@ -46,8 +46,8 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTrafficMirrorFilterRuleRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTrafficMirrorFilterRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrafficMirrorFilterRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrafficMirrorFilterRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

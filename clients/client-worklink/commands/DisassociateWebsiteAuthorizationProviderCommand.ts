@@ -53,8 +53,8 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

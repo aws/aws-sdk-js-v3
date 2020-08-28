@@ -47,8 +47,8 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribePendingAggregationRequestsRequest.filterSensitiveLog,
-      outputFilterLog: DescribePendingAggregationRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePendingAggregationRequestsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePendingAggregationRequestsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

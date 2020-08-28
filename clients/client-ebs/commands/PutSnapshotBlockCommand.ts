@@ -48,8 +48,8 @@ export class PutSnapshotBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSnapshotBlockRequest.filterSensitiveLog,
-      outputFilterLog: PutSnapshotBlockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSnapshotBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSnapshotBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

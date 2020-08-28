@@ -46,8 +46,8 @@ export class CreateEventSourceMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEventSourceMappingRequest.filterSensitiveLog,
-      outputFilterLog: EventSourceMappingConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEventSourceMappingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EventSourceMappingConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

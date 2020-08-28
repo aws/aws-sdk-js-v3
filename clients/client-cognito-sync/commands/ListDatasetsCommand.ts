@@ -46,8 +46,8 @@ export class ListDatasetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDatasetsRequest.filterSensitiveLog,
-      outputFilterLog: ListDatasetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDatasetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDatasetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

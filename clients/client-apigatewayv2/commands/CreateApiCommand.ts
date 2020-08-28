@@ -46,8 +46,8 @@ export class CreateApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateApiRequest.filterSensitiveLog,
-      outputFilterLog: CreateApiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

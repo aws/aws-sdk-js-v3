@@ -46,8 +46,8 @@ export class DeleteRateBasedRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRateBasedRuleRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRateBasedRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

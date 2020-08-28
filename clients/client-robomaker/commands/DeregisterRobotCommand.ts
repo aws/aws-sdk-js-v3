@@ -46,8 +46,8 @@ export class DeregisterRobotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterRobotRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterRobotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterRobotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterRobotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

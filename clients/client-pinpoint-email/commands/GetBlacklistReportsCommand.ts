@@ -46,8 +46,8 @@ export class GetBlacklistReportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBlacklistReportsRequest.filterSensitiveLog,
-      outputFilterLog: GetBlacklistReportsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlacklistReportsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBlacklistReportsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

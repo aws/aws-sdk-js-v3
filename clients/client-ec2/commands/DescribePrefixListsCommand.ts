@@ -46,8 +46,8 @@ export class DescribePrefixListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribePrefixListsRequest.filterSensitiveLog,
-      outputFilterLog: DescribePrefixListsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePrefixListsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePrefixListsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

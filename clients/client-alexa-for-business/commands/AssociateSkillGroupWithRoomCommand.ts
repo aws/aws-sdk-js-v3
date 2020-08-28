@@ -46,8 +46,8 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateSkillGroupWithRoomRequest.filterSensitiveLog,
-      outputFilterLog: AssociateSkillGroupWithRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSkillGroupWithRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSkillGroupWithRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

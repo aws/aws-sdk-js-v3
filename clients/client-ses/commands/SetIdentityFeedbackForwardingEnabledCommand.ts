@@ -50,8 +50,8 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetIdentityFeedbackForwardingEnabledRequest.filterSensitiveLog,
-      outputFilterLog: SetIdentityFeedbackForwardingEnabledResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

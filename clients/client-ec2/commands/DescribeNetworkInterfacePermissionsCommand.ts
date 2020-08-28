@@ -47,8 +47,8 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeNetworkInterfacePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeNetworkInterfacePermissionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNetworkInterfacePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNetworkInterfacePermissionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachInstancesFromLoadBalancerRequest.filterSensitiveLog,
-      outputFilterLog: DetachInstancesFromLoadBalancerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachInstancesFromLoadBalancerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachInstancesFromLoadBalancerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

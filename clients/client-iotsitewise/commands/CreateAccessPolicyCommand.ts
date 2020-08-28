@@ -46,8 +46,8 @@ export class CreateAccessPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAccessPolicyRequest.filterSensitiveLog,
-      outputFilterLog: CreateAccessPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAccessPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAccessPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

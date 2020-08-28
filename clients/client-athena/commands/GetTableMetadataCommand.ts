@@ -46,8 +46,8 @@ export class GetTableMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTableMetadataInput.filterSensitiveLog,
-      outputFilterLog: GetTableMetadataOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTableMetadataInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTableMetadataOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

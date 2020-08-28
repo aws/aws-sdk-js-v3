@@ -46,8 +46,8 @@ export class CreateAccessPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAccessPointRequest.filterSensitiveLog,
-      outputFilterLog: AccessPointDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AccessPointDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

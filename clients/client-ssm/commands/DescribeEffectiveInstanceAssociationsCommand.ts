@@ -50,8 +50,8 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEffectiveInstanceAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEffectiveInstanceAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEffectiveInstanceAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEffectiveInstanceAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

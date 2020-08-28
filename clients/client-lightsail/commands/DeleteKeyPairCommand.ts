@@ -46,8 +46,8 @@ export class DeleteKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteKeyPairRequest.filterSensitiveLog,
-      outputFilterLog: DeleteKeyPairResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteKeyPairRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteKeyPairResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

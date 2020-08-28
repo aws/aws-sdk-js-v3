@@ -46,8 +46,8 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSqlInjectionMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSqlInjectionMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSqlInjectionMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSqlInjectionMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

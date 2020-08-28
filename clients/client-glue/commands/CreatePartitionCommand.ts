@@ -46,8 +46,8 @@ export class CreatePartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePartitionRequest.filterSensitiveLog,
-      outputFilterLog: CreatePartitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePartitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

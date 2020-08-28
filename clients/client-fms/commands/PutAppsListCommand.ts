@@ -46,8 +46,8 @@ export class PutAppsListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAppsListRequest.filterSensitiveLog,
-      outputFilterLog: PutAppsListResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAppsListRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAppsListResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

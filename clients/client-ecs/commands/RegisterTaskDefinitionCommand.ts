@@ -46,8 +46,8 @@ export class RegisterTaskDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterTaskDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: RegisterTaskDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterTaskDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTaskDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

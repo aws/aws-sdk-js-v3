@@ -46,8 +46,8 @@ export class DeleteMitigationActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMitigationActionRequest.filterSensitiveLog,
-      outputFilterLog: DeleteMitigationActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMitigationActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMitigationActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CancelClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelClusterRequest.filterSensitiveLog,
-      outputFilterLog: CancelClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelClusterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

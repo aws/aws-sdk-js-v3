@@ -46,8 +46,8 @@ export class DescribeFileSystemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeFileSystemsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeFileSystemsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFileSystemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFileSystemsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

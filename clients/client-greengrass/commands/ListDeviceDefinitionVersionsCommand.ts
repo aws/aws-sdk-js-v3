@@ -46,8 +46,8 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDeviceDefinitionVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListDeviceDefinitionVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDeviceDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDeviceDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

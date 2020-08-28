@@ -50,8 +50,8 @@ export class DescribeSSLPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSSLPoliciesInput.filterSensitiveLog,
-      outputFilterLog: DescribeSSLPoliciesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSSLPoliciesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSSLPoliciesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

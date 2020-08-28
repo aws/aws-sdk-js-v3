@@ -46,8 +46,8 @@ export class CreateIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateIndexRequest.filterSensitiveLog,
-      outputFilterLog: CreateIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIndexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

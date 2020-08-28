@@ -46,8 +46,8 @@ export class CreateVoiceConnectorGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVoiceConnectorGroupRequest.filterSensitiveLog,
-      outputFilterLog: CreateVoiceConnectorGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVoiceConnectorGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVoiceConnectorGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeHyperParameterTuningJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeHyperParameterTuningJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeHyperParameterTuningJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHyperParameterTuningJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

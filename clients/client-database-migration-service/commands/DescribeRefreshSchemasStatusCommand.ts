@@ -50,8 +50,8 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRefreshSchemasStatusMessage.filterSensitiveLog,
-      outputFilterLog: DescribeRefreshSchemasStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRefreshSchemasStatusMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRefreshSchemasStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

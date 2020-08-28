@@ -46,8 +46,8 @@ export class CreateLocationEfsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLocationEfsRequest.filterSensitiveLog,
-      outputFilterLog: CreateLocationEfsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationEfsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationEfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

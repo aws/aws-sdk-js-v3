@@ -46,8 +46,8 @@ export class AttachVpnGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachVpnGatewayRequest.filterSensitiveLog,
-      outputFilterLog: AttachVpnGatewayResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachVpnGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachVpnGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

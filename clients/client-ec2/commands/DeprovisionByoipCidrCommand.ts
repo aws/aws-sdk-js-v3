@@ -46,8 +46,8 @@ export class DeprovisionByoipCidrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeprovisionByoipCidrRequest.filterSensitiveLog,
-      outputFilterLog: DeprovisionByoipCidrResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeprovisionByoipCidrRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeprovisionByoipCidrResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetApprovalRuleTemplateInput.filterSensitiveLog,
-      outputFilterLog: GetApprovalRuleTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApprovalRuleTemplateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApprovalRuleTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

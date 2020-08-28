@@ -46,8 +46,8 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartOnDemandReplicationRunRequest.filterSensitiveLog,
-      outputFilterLog: StartOnDemandReplicationRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartOnDemandReplicationRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartOnDemandReplicationRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

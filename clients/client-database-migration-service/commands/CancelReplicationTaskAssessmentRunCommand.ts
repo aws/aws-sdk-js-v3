@@ -51,8 +51,8 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelReplicationTaskAssessmentRunMessage.filterSensitiveLog,
-      outputFilterLog: CancelReplicationTaskAssessmentRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelReplicationTaskAssessmentRunMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelReplicationTaskAssessmentRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

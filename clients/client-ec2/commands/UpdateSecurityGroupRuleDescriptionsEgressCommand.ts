@@ -53,8 +53,8 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSecurityGroupRuleDescriptionsEgressRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSecurityGroupRuleDescriptionsEgressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

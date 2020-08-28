@@ -46,8 +46,8 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDefaultClusterParametersMessage.filterSensitiveLog,
-      outputFilterLog: DescribeDefaultClusterParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDefaultClusterParametersMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDefaultClusterParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateHITTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateHITTypeRequest.filterSensitiveLog,
-      outputFilterLog: CreateHITTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHITTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHITTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

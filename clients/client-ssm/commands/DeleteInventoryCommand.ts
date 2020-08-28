@@ -46,8 +46,8 @@ export class DeleteInventoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteInventoryRequest.filterSensitiveLog,
-      outputFilterLog: DeleteInventoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInventoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInventoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

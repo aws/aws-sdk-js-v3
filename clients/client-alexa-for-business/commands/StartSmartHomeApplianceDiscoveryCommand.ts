@@ -46,8 +46,8 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartSmartHomeApplianceDiscoveryRequest.filterSensitiveLog,
-      outputFilterLog: StartSmartHomeApplianceDiscoveryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSmartHomeApplianceDiscoveryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSmartHomeApplianceDiscoveryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

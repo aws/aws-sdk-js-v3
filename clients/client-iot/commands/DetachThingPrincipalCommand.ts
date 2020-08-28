@@ -46,8 +46,8 @@ export class DetachThingPrincipalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachThingPrincipalRequest.filterSensitiveLog,
-      outputFilterLog: DetachThingPrincipalResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachThingPrincipalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachThingPrincipalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

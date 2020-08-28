@@ -46,8 +46,8 @@ export class ListComponentBuildVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListComponentBuildVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListComponentBuildVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListComponentBuildVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListComponentBuildVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAccountRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

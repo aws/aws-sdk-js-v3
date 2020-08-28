@@ -46,8 +46,8 @@ export class PublishSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PublishSchemaRequest.filterSensitiveLog,
-      outputFilterLog: PublishSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PublishSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

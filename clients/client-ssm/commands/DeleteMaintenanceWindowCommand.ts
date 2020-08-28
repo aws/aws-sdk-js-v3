@@ -46,8 +46,8 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterLog: DeleteMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

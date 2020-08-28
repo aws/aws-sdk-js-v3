@@ -47,8 +47,8 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutput.filterSensitiveLog,
-      outputFilterLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

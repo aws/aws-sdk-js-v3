@@ -46,8 +46,8 @@ export class DescribeFleetEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeFleetEventsInput.filterSensitiveLog,
-      outputFilterLog: DescribeFleetEventsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFleetEventsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetEventsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

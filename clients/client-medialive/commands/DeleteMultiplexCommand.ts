@@ -46,8 +46,8 @@ export class DeleteMultiplexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMultiplexRequest.filterSensitiveLog,
-      outputFilterLog: DeleteMultiplexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMultiplexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

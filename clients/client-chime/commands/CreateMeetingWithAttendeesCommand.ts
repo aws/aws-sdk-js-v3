@@ -46,8 +46,8 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateMeetingWithAttendeesRequest.filterSensitiveLog,
-      outputFilterLog: CreateMeetingWithAttendeesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMeetingWithAttendeesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMeetingWithAttendeesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

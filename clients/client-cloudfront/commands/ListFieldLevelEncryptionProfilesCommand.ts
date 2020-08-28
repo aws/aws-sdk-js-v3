@@ -46,8 +46,8 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListFieldLevelEncryptionProfilesRequest.filterSensitiveLog,
-      outputFilterLog: ListFieldLevelEncryptionProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFieldLevelEncryptionProfilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFieldLevelEncryptionProfilesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

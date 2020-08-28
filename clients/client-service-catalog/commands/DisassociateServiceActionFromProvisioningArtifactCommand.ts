@@ -53,8 +53,8 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterLog: DisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

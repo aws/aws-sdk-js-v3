@@ -46,8 +46,8 @@ export class ResumeGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResumeGameServerGroupInput.filterSensitiveLog,
-      outputFilterLog: ResumeGameServerGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeGameServerGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ResumeGameServerGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

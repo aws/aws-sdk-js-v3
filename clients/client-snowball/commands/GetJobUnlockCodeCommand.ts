@@ -46,8 +46,8 @@ export class GetJobUnlockCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetJobUnlockCodeRequest.filterSensitiveLog,
-      outputFilterLog: GetJobUnlockCodeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobUnlockCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetJobUnlockCodeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

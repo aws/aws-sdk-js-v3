@@ -46,8 +46,8 @@ export class GetUsageStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUsageStatisticsRequest.filterSensitiveLog,
-      outputFilterLog: GetUsageStatisticsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUsageStatisticsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUsageStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

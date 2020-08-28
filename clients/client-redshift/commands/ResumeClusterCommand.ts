@@ -46,8 +46,8 @@ export class ResumeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResumeClusterMessage.filterSensitiveLog,
-      outputFilterLog: ResumeClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ResumeClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

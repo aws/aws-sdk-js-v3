@@ -46,8 +46,8 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListAttachedGroupPoliciesRequest.filterSensitiveLog,
-      outputFilterLog: ListAttachedGroupPoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAttachedGroupPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAttachedGroupPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

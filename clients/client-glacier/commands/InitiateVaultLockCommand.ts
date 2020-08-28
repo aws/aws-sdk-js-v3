@@ -46,8 +46,8 @@ export class InitiateVaultLockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InitiateVaultLockInput.filterSensitiveLog,
-      outputFilterLog: InitiateVaultLockOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: InitiateVaultLockInput.filterSensitiveLog,
+      outputFilterSensitiveLog: InitiateVaultLockOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

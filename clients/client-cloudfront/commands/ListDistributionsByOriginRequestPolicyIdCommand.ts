@@ -53,8 +53,8 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDistributionsByOriginRequestPolicyIdRequest.filterSensitiveLog,
-      outputFilterLog: ListDistributionsByOriginRequestPolicyIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

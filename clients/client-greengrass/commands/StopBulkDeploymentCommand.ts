@@ -46,8 +46,8 @@ export class StopBulkDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopBulkDeploymentRequest.filterSensitiveLog,
-      outputFilterLog: StopBulkDeploymentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBulkDeploymentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopBulkDeploymentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

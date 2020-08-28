@@ -46,8 +46,8 @@ export class PutImageTagMutabilityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutImageTagMutabilityRequest.filterSensitiveLog,
-      outputFilterLog: PutImageTagMutabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutImageTagMutabilityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutImageTagMutabilityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateResourceShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateResourceShareRequest.filterSensitiveLog,
-      outputFilterLog: UpdateResourceShareResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateResourceShareRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResourceShareResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

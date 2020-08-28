@@ -46,8 +46,8 @@ export class PutLifecycleConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutLifecycleConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: LifecycleConfigurationDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: PutLifecycleConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LifecycleConfigurationDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListV2LoggingLevelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListV2LoggingLevelsRequest.filterSensitiveLog,
-      outputFilterLog: ListV2LoggingLevelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListV2LoggingLevelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListV2LoggingLevelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

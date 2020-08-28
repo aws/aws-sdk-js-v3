@@ -46,8 +46,8 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DownloadDefaultKeyPairRequest.filterSensitiveLog,
-      outputFilterLog: DownloadDefaultKeyPairResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DownloadDefaultKeyPairRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DownloadDefaultKeyPairResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

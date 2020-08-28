@@ -43,8 +43,8 @@ export class GetTrailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTrailRequest.filterSensitiveLog,
-      outputFilterLog: GetTrailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTrailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTrailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

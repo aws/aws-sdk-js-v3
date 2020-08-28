@@ -46,8 +46,8 @@ export class PhoneNumberValidateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PhoneNumberValidateRequest.filterSensitiveLog,
-      outputFilterLog: PhoneNumberValidateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PhoneNumberValidateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PhoneNumberValidateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

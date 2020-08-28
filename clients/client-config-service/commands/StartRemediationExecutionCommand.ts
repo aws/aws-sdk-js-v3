@@ -46,8 +46,8 @@ export class StartRemediationExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartRemediationExecutionRequest.filterSensitiveLog,
-      outputFilterLog: StartRemediationExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartRemediationExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartRemediationExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

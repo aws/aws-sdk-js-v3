@@ -46,8 +46,8 @@ export class PollForJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PollForJobsInput.filterSensitiveLog,
-      outputFilterLog: PollForJobsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PollForJobsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PollForJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

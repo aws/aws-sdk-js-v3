@@ -46,8 +46,8 @@ export class ListDashboardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDashboardsInput.filterSensitiveLog,
-      outputFilterLog: ListDashboardsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDashboardsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDashboardsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

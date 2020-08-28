@@ -46,8 +46,8 @@ export class GetChangeTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetChangeTokenRequest.filterSensitiveLog,
-      outputFilterLog: GetChangeTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetChangeTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetChangeTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

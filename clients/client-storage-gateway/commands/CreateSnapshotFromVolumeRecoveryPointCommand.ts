@@ -50,8 +50,8 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSnapshotFromVolumeRecoveryPointInput.filterSensitiveLog,
-      outputFilterLog: CreateSnapshotFromVolumeRecoveryPointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

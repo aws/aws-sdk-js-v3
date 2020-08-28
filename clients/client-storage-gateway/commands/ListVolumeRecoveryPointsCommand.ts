@@ -46,8 +46,8 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListVolumeRecoveryPointsInput.filterSensitiveLog,
-      outputFilterLog: ListVolumeRecoveryPointsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVolumeRecoveryPointsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVolumeRecoveryPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class VerifySoftwareTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: VerifySoftwareTokenRequest.filterSensitiveLog,
-      outputFilterLog: VerifySoftwareTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifySoftwareTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VerifySoftwareTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

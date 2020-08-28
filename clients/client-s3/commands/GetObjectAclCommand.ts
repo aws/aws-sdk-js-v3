@@ -48,8 +48,8 @@ export class GetObjectAclCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetObjectAclRequest.filterSensitiveLog,
-      outputFilterLog: GetObjectAclOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectAclRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectAclOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

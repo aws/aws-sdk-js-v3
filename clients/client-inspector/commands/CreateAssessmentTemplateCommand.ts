@@ -46,8 +46,8 @@ export class CreateAssessmentTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAssessmentTemplateRequest.filterSensitiveLog,
-      outputFilterLog: CreateAssessmentTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAssessmentTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssessmentTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

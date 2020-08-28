@@ -46,8 +46,8 @@ export class ListTagsForVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTagsForVaultInput.filterSensitiveLog,
-      outputFilterLog: ListTagsForVaultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForVaultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForVaultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateQualificationTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateQualificationTypeRequest.filterSensitiveLog,
-      outputFilterLog: UpdateQualificationTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

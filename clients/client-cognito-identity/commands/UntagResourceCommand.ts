@@ -48,8 +48,8 @@ export class UntagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UntagResourceInput.filterSensitiveLog,
-      outputFilterLog: UntagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

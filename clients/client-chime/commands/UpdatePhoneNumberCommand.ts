@@ -46,8 +46,8 @@ export class UpdatePhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePhoneNumberRequest.filterSensitiveLog,
-      outputFilterLog: UpdatePhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePhoneNumberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

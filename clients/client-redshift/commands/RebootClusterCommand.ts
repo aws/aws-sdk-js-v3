@@ -46,8 +46,8 @@ export class RebootClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RebootClusterMessage.filterSensitiveLog,
-      outputFilterLog: RebootClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

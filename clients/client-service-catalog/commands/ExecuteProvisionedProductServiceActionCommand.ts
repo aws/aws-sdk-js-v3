@@ -50,8 +50,8 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExecuteProvisionedProductServiceActionInput.filterSensitiveLog,
-      outputFilterLog: ExecuteProvisionedProductServiceActionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteProvisionedProductServiceActionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteProvisionedProductServiceActionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

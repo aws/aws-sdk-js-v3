@@ -46,8 +46,8 @@ export class CreateEnvironmentEC2Command extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEnvironmentEC2Request.filterSensitiveLog,
-      outputFilterLog: CreateEnvironmentEC2Result.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEnvironmentEC2Request.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEnvironmentEC2Result.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

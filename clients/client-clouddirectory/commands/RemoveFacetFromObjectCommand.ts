@@ -46,8 +46,8 @@ export class RemoveFacetFromObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveFacetFromObjectRequest.filterSensitiveLog,
-      outputFilterLog: RemoveFacetFromObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFacetFromObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFacetFromObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

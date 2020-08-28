@@ -46,8 +46,8 @@ export class UpdateScalingParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateScalingParametersRequest.filterSensitiveLog,
-      outputFilterLog: UpdateScalingParametersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateScalingParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScalingParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

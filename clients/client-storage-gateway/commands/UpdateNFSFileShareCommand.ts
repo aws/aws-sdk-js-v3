@@ -46,8 +46,8 @@ export class UpdateNFSFileShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateNFSFileShareInput.filterSensitiveLog,
-      outputFilterLog: UpdateNFSFileShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNFSFileShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNFSFileShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

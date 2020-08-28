@@ -46,8 +46,8 @@ export class DescribeChapCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeChapCredentialsInput.filterSensitiveLog,
-      outputFilterLog: DescribeChapCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeChapCredentialsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChapCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

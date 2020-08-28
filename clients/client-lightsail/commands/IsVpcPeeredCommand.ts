@@ -46,8 +46,8 @@ export class IsVpcPeeredCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: IsVpcPeeredRequest.filterSensitiveLog,
-      outputFilterLog: IsVpcPeeredResult.filterSensitiveLog,
+      inputFilterSensitiveLog: IsVpcPeeredRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: IsVpcPeeredResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

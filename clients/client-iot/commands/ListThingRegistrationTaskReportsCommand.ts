@@ -46,8 +46,8 @@ export class ListThingRegistrationTaskReportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListThingRegistrationTaskReportsRequest.filterSensitiveLog,
-      outputFilterLog: ListThingRegistrationTaskReportsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListThingRegistrationTaskReportsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListThingRegistrationTaskReportsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

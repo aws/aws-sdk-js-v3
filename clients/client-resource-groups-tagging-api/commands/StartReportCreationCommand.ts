@@ -50,8 +50,8 @@ export class StartReportCreationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartReportCreationInput.filterSensitiveLog,
-      outputFilterLog: StartReportCreationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartReportCreationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartReportCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class FinalizeDeviceClaimCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: FinalizeDeviceClaimRequest.filterSensitiveLog,
-      outputFilterLog: FinalizeDeviceClaimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: FinalizeDeviceClaimRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FinalizeDeviceClaimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CancelCapacityReservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelCapacityReservationRequest.filterSensitiveLog,
-      outputFilterLog: CancelCapacityReservationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelCapacityReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelCapacityReservationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

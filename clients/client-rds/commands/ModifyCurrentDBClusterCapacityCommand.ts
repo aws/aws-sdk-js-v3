@@ -46,8 +46,8 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyCurrentDBClusterCapacityMessage.filterSensitiveLog,
-      outputFilterLog: DBClusterCapacityInfo.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyCurrentDBClusterCapacityMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterCapacityInfo.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

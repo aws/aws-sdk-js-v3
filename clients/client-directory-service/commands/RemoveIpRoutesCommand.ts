@@ -46,8 +46,8 @@ export class RemoveIpRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RemoveIpRoutesRequest.filterSensitiveLog,
-      outputFilterLog: RemoveIpRoutesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveIpRoutesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveIpRoutesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

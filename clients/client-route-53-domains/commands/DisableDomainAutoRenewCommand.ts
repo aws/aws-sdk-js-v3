@@ -46,8 +46,8 @@ export class DisableDomainAutoRenewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableDomainAutoRenewRequest.filterSensitiveLog,
-      outputFilterLog: DisableDomainAutoRenewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableDomainAutoRenewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableDomainAutoRenewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

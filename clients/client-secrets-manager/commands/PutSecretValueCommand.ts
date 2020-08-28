@@ -46,8 +46,8 @@ export class PutSecretValueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSecretValueRequest.filterSensitiveLog,
-      outputFilterLog: PutSecretValueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSecretValueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSecretValueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

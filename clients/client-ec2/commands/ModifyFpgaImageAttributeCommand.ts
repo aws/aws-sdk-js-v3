@@ -46,8 +46,8 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyFpgaImageAttributeRequest.filterSensitiveLog,
-      outputFilterLog: ModifyFpgaImageAttributeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyFpgaImageAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyFpgaImageAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

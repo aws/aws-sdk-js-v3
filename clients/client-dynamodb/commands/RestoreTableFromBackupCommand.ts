@@ -46,8 +46,8 @@ export class RestoreTableFromBackupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreTableFromBackupInput.filterSensitiveLog,
-      outputFilterLog: RestoreTableFromBackupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreTableFromBackupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreTableFromBackupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

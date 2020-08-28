@@ -46,8 +46,8 @@ export class DeleteJobTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteJobTaggingRequest.filterSensitiveLog,
-      outputFilterLog: DeleteJobTaggingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteJobTaggingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteJobTaggingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

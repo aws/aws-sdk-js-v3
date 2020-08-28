@@ -46,8 +46,8 @@ export class BatchPutAssetPropertyValueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchPutAssetPropertyValueRequest.filterSensitiveLog,
-      outputFilterLog: BatchPutAssetPropertyValueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchPutAssetPropertyValueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchPutAssetPropertyValueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateEndpointsBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateEndpointsBatchRequest.filterSensitiveLog,
-      outputFilterLog: UpdateEndpointsBatchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEndpointsBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointsBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

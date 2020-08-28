@@ -46,8 +46,8 @@ export class CopyBackupToRegionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyBackupToRegionRequest.filterSensitiveLog,
-      outputFilterLog: CopyBackupToRegionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyBackupToRegionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyBackupToRegionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

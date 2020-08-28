@@ -46,8 +46,8 @@ export class ModifyClientPropertiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyClientPropertiesRequest.filterSensitiveLog,
-      outputFilterLog: ModifyClientPropertiesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClientPropertiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClientPropertiesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateDomainAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDomainAssociationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDomainAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

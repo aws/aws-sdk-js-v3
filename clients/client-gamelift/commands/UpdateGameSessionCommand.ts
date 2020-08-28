@@ -46,8 +46,8 @@ export class UpdateGameSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateGameSessionInput.filterSensitiveLog,
-      outputFilterLog: UpdateGameSessionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGameSessionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGameSessionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

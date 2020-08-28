@@ -46,8 +46,8 @@ export class AttachVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachVolumeInput.filterSensitiveLog,
-      outputFilterLog: AttachVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachVolumeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

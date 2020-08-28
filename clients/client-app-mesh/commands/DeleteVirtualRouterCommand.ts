@@ -46,8 +46,8 @@ export class DeleteVirtualRouterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVirtualRouterInput.filterSensitiveLog,
-      outputFilterLog: DeleteVirtualRouterOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVirtualRouterInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class BatchUnsuspendUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchUnsuspendUserRequest.filterSensitiveLog,
-      outputFilterLog: BatchUnsuspendUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUnsuspendUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchUnsuspendUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

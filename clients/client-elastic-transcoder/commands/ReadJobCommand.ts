@@ -50,8 +50,8 @@ export class ReadJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReadJobRequest.filterSensitiveLog,
-      outputFilterLog: ReadJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReadJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReadJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateServiceRoleFromAccountRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateServiceRoleFromAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateServiceRoleFromAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceRoleFromAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

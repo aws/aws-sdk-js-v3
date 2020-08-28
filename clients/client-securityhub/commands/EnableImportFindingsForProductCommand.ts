@@ -46,8 +46,8 @@ export class EnableImportFindingsForProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: EnableImportFindingsForProductRequest.filterSensitiveLog,
-      outputFilterLog: EnableImportFindingsForProductResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableImportFindingsForProductRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableImportFindingsForProductResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

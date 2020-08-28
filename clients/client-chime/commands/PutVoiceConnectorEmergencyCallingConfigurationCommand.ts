@@ -53,8 +53,8 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: PutVoiceConnectorEmergencyCallingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutVoiceConnectorEmergencyCallingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

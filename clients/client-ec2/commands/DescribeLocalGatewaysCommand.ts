@@ -46,8 +46,8 @@ export class DescribeLocalGatewaysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLocalGatewaysRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLocalGatewaysResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocalGatewaysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewaysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

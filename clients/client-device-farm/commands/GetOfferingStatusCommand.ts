@@ -46,8 +46,8 @@ export class GetOfferingStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOfferingStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetOfferingStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOfferingStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOfferingStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

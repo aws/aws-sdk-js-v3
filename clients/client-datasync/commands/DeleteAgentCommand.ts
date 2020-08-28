@@ -46,8 +46,8 @@ export class DeleteAgentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAgentRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAgentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAgentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAgentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

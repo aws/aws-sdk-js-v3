@@ -46,8 +46,8 @@ export class RegisterEventTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterEventTopicRequest.filterSensitiveLog,
-      outputFilterLog: RegisterEventTopicResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterEventTopicRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterEventTopicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCustomAvailabilityZoneMessage.filterSensitiveLog,
-      outputFilterLog: DeleteCustomAvailabilityZoneResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomAvailabilityZoneMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomAvailabilityZoneResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

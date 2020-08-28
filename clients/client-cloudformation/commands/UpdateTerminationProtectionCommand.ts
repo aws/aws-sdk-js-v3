@@ -46,8 +46,8 @@ export class UpdateTerminationProtectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTerminationProtectionInput.filterSensitiveLog,
-      outputFilterLog: UpdateTerminationProtectionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTerminationProtectionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTerminationProtectionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

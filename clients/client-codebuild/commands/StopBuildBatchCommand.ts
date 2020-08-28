@@ -46,8 +46,8 @@ export class StopBuildBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopBuildBatchInput.filterSensitiveLog,
-      outputFilterLog: StopBuildBatchOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBuildBatchInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopBuildBatchOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

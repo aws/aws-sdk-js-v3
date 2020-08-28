@@ -46,8 +46,8 @@ export class GetMethodResponseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMethodResponseRequest.filterSensitiveLog,
-      outputFilterLog: MethodResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMethodResponseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MethodResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

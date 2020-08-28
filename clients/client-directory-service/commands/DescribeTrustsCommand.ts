@@ -46,8 +46,8 @@ export class DescribeTrustsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTrustsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeTrustsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrustsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeMaintenanceStartTimeInput.filterSensitiveLog,
-      outputFilterLog: DescribeMaintenanceStartTimeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMaintenanceStartTimeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMaintenanceStartTimeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateDelegateFromResourceRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateDelegateFromResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDelegateFromResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDelegateFromResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class SearchDashboardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchDashboardsRequest.filterSensitiveLog,
-      outputFilterLog: SearchDashboardsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchDashboardsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchDashboardsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

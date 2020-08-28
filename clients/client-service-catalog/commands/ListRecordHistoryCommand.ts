@@ -46,8 +46,8 @@ export class ListRecordHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRecordHistoryInput.filterSensitiveLog,
-      outputFilterLog: ListRecordHistoryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRecordHistoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRecordHistoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

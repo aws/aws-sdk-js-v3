@@ -46,8 +46,8 @@ export class UpdateResourceDataSyncCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateResourceDataSyncRequest.filterSensitiveLog,
-      outputFilterLog: UpdateResourceDataSyncResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

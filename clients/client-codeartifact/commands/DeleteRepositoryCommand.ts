@@ -46,8 +46,8 @@ export class DeleteRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRepositoryRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRepositoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRepositoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRepositoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

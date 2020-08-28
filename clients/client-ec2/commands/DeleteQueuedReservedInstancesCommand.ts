@@ -46,8 +46,8 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteQueuedReservedInstancesRequest.filterSensitiveLog,
-      outputFilterLog: DeleteQueuedReservedInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQueuedReservedInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQueuedReservedInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

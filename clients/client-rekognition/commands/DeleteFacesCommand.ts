@@ -46,8 +46,8 @@ export class DeleteFacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFacesRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

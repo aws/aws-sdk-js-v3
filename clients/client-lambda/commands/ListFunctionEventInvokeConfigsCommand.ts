@@ -46,8 +46,8 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListFunctionEventInvokeConfigsRequest.filterSensitiveLog,
-      outputFilterLog: ListFunctionEventInvokeConfigsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFunctionEventInvokeConfigsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFunctionEventInvokeConfigsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

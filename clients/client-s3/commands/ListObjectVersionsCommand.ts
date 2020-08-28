@@ -48,8 +48,8 @@ export class ListObjectVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListObjectVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListObjectVersionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListObjectVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListObjectVersionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

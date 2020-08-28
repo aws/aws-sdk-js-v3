@@ -46,8 +46,8 @@ export class DescribeTrailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTrailsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeTrailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

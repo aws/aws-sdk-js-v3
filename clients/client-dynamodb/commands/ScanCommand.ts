@@ -39,8 +39,8 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ScanInput.filterSensitiveLog,
-      outputFilterLog: ScanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ScanInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ScanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

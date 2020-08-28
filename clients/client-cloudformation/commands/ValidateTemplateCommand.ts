@@ -46,8 +46,8 @@ export class ValidateTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ValidateTemplateInput.filterSensitiveLog,
-      outputFilterLog: ValidateTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ValidateTemplateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ValidateTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

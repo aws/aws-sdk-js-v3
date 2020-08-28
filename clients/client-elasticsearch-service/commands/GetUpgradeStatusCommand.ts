@@ -50,8 +50,8 @@ export class GetUpgradeStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUpgradeStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetUpgradeStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUpgradeStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUpgradeStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

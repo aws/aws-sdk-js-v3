@@ -46,8 +46,8 @@ export class ModifyGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: ModifyGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

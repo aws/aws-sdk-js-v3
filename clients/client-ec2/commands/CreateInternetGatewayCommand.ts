@@ -46,8 +46,8 @@ export class CreateInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateInternetGatewayRequest.filterSensitiveLog,
-      outputFilterLog: CreateInternetGatewayResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInternetGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateInternetGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateSignalingChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSignalingChannelInput.filterSensitiveLog,
-      outputFilterLog: CreateSignalingChannelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSignalingChannelInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSignalingChannelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSavingsPlansCoverageRequest.filterSensitiveLog,
-      outputFilterLog: GetSavingsPlansCoverageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSavingsPlansCoverageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSavingsPlansCoverageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

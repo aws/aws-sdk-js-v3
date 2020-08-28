@@ -46,8 +46,8 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConfirmPrivateVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: ConfirmPrivateVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmPrivateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmPrivateVirtualInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

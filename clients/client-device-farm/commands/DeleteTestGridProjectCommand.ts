@@ -46,8 +46,8 @@ export class DeleteTestGridProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTestGridProjectRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTestGridProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTestGridProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTestGridProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

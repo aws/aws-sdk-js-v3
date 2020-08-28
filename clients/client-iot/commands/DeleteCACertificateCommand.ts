@@ -46,8 +46,8 @@ export class DeleteCACertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCACertificateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteCACertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCACertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCACertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class BatchCreateAttendeeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchCreateAttendeeRequest.filterSensitiveLog,
-      outputFilterLog: BatchCreateAttendeeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchCreateAttendeeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateAttendeeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

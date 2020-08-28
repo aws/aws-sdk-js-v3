@@ -46,8 +46,8 @@ export class DescribeBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeBrokerRequest.filterSensitiveLog,
-      outputFilterLog: DescribeBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBrokerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBrokerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

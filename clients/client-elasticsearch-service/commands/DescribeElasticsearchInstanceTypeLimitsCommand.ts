@@ -57,8 +57,8 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeElasticsearchInstanceTypeLimitsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeElasticsearchInstanceTypeLimitsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticsearchInstanceTypeLimitsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticsearchInstanceTypeLimitsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

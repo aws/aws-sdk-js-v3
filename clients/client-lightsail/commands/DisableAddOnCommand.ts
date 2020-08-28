@@ -46,8 +46,8 @@ export class DisableAddOnCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableAddOnRequest.filterSensitiveLog,
-      outputFilterLog: DisableAddOnResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableAddOnRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableAddOnResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

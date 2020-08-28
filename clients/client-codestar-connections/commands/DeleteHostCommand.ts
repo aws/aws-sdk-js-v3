@@ -50,8 +50,8 @@ export class DeleteHostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteHostInput.filterSensitiveLog,
-      outputFilterLog: DeleteHostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHostInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

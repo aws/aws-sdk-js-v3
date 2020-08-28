@@ -46,8 +46,8 @@ export class DescribeLoaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLoaRequest.filterSensitiveLog,
-      outputFilterLog: Loa.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLoaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Loa.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

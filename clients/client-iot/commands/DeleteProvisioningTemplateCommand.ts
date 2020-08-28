@@ -46,8 +46,8 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteProvisioningTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteProvisioningTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProvisioningTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisioningTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

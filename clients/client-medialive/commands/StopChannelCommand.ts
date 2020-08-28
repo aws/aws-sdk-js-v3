@@ -46,8 +46,8 @@ export class StopChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopChannelRequest.filterSensitiveLog,
-      outputFilterLog: StopChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

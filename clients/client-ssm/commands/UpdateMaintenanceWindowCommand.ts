@@ -46,8 +46,8 @@ export class UpdateMaintenanceWindowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterLog: UpdateMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

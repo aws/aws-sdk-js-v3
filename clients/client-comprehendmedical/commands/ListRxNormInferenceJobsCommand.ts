@@ -50,8 +50,8 @@ export class ListRxNormInferenceJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRxNormInferenceJobsRequest.filterSensitiveLog,
-      outputFilterLog: ListRxNormInferenceJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRxNormInferenceJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRxNormInferenceJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

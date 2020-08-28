@@ -46,8 +46,8 @@ export class GetMailboxDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMailboxDetailsRequest.filterSensitiveLog,
-      outputFilterLog: GetMailboxDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMailboxDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMailboxDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

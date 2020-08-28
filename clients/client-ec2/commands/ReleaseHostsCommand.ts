@@ -43,8 +43,8 @@ export class ReleaseHostsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReleaseHostsRequest.filterSensitiveLog,
-      outputFilterLog: ReleaseHostsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ReleaseHostsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReleaseHostsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class AssociateSkillWithUsersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateSkillWithUsersRequest.filterSensitiveLog,
-      outputFilterLog: AssociateSkillWithUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSkillWithUsersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSkillWithUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

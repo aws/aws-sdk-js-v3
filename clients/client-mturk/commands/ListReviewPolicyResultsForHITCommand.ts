@@ -46,8 +46,8 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListReviewPolicyResultsForHITRequest.filterSensitiveLog,
-      outputFilterLog: ListReviewPolicyResultsForHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListReviewPolicyResultsForHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReviewPolicyResultsForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

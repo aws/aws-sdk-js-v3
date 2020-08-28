@@ -46,8 +46,8 @@ export class DescribeThemeAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeThemeAliasRequest.filterSensitiveLog,
-      outputFilterLog: DescribeThemeAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeThemeAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeThemeAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

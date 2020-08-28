@@ -46,8 +46,8 @@ export class PutRecordBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutRecordBatchInput.filterSensitiveLog,
-      outputFilterLog: PutRecordBatchOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRecordBatchInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutRecordBatchOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

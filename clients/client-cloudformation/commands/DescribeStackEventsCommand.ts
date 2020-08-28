@@ -46,8 +46,8 @@ export class DescribeStackEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeStackEventsInput.filterSensitiveLog,
-      outputFilterLog: DescribeStackEventsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStackEventsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackEventsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -39,8 +39,8 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListUsersRequest.filterSensitiveLog,
-      outputFilterLog: ListUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUsersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

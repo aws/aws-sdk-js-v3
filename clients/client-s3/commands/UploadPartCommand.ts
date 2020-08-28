@@ -52,8 +52,8 @@ export class UploadPartCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UploadPartRequest.filterSensitiveLog,
-      outputFilterLog: UploadPartOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadPartRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadPartOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

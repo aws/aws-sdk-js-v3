@@ -51,8 +51,8 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteReplicationTaskAssessmentRunMessage.filterSensitiveLog,
-      outputFilterLog: DeleteReplicationTaskAssessmentRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

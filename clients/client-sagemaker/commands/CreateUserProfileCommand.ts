@@ -46,8 +46,8 @@ export class CreateUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateUserProfileRequest.filterSensitiveLog,
-      outputFilterLog: CreateUserProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUserProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUserProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

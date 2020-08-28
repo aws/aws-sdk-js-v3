@@ -46,8 +46,8 @@ export class DeleteChapCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteChapCredentialsInput.filterSensitiveLog,
-      outputFilterLog: DeleteChapCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteChapCredentialsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteChapCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

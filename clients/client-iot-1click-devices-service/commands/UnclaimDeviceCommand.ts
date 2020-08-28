@@ -50,8 +50,8 @@ export class UnclaimDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UnclaimDeviceRequest.filterSensitiveLog,
-      outputFilterLog: UnclaimDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UnclaimDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnclaimDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutAggregationAuthorizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAggregationAuthorizationRequest.filterSensitiveLog,
-      outputFilterLog: PutAggregationAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAggregationAuthorizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAggregationAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

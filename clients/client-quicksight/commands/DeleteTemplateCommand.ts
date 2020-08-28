@@ -46,8 +46,8 @@ export class DeleteTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

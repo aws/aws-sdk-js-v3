@@ -46,8 +46,8 @@ export class CreateTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateTableRequest.filterSensitiveLog,
-      outputFilterLog: CreateTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

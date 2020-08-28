@@ -47,8 +47,8 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCertificateAuthorityCertificateRequest.filterSensitiveLog,
-      outputFilterLog: GetCertificateAuthorityCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCertificateAuthorityCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCertificateAuthorityCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

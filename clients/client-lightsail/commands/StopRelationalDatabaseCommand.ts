@@ -46,8 +46,8 @@ export class StopRelationalDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopRelationalDatabaseRequest.filterSensitiveLog,
-      outputFilterLog: StopRelationalDatabaseResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

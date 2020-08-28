@@ -50,8 +50,8 @@ export class GetSlotTypeVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSlotTypeVersionsRequest.filterSensitiveLog,
-      outputFilterLog: GetSlotTypeVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSlotTypeVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSlotTypeVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

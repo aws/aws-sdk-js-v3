@@ -46,8 +46,8 @@ export class UnarchiveFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UnarchiveFindingsRequest.filterSensitiveLog,
-      outputFilterLog: UnarchiveFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UnarchiveFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnarchiveFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

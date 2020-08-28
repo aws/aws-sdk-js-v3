@@ -46,8 +46,8 @@ export class DisassociateResourceShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateResourceShareRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateResourceShareResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateResourceShareRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateResourceShareResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

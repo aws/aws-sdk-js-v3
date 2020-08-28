@@ -50,8 +50,8 @@ export class AdminListDevicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminListDevicesRequest.filterSensitiveLog,
-      outputFilterLog: AdminListDevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminListDevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminListDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

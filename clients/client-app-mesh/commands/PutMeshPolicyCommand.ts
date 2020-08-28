@@ -46,8 +46,8 @@ export class PutMeshPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutMeshPolicyInput.filterSensitiveLog,
-      outputFilterLog: PutMeshPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutMeshPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutMeshPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

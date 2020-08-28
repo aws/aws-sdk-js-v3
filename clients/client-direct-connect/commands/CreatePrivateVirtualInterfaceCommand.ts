@@ -46,8 +46,8 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePrivateVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: VirtualInterface.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePrivateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

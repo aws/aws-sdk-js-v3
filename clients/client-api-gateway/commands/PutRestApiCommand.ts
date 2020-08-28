@@ -46,8 +46,8 @@ export class PutRestApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutRestApiRequest.filterSensitiveLog,
-      outputFilterLog: RestApi.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRestApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestApi.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

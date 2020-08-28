@@ -46,8 +46,8 @@ export class ApproveAssignmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ApproveAssignmentRequest.filterSensitiveLog,
-      outputFilterLog: ApproveAssignmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ApproveAssignmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApproveAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

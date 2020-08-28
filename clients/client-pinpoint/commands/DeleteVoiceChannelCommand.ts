@@ -46,8 +46,8 @@ export class DeleteVoiceChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVoiceChannelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteVoiceChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVoiceChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVoiceChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

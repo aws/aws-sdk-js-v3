@@ -46,8 +46,8 @@ export class AddLayerVersionPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddLayerVersionPermissionRequest.filterSensitiveLog,
-      outputFilterLog: AddLayerVersionPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddLayerVersionPermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddLayerVersionPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class GetUtterancesViewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUtterancesViewRequest.filterSensitiveLog,
-      outputFilterLog: GetUtterancesViewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUtterancesViewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUtterancesViewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

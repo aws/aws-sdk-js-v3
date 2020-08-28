@@ -46,8 +46,8 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetThirdPartyJobDetailsInput.filterSensitiveLog,
-      outputFilterLog: GetThirdPartyJobDetailsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetThirdPartyJobDetailsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetThirdPartyJobDetailsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

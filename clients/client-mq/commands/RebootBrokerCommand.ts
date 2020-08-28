@@ -46,8 +46,8 @@ export class RebootBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RebootBrokerRequest.filterSensitiveLog,
-      outputFilterLog: RebootBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootBrokerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootBrokerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

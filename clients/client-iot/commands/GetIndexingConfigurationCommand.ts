@@ -46,8 +46,8 @@ export class GetIndexingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIndexingConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetIndexingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIndexingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIndexingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SearchTransitGatewayRoutesRequest.filterSensitiveLog,
-      outputFilterLog: SearchTransitGatewayRoutesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchTransitGatewayRoutesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchTransitGatewayRoutesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

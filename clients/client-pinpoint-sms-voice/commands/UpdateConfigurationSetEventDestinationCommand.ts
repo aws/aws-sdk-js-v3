@@ -50,8 +50,8 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateConfigurationSetEventDestinationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateConfigurationSetEventDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConfigurationSetEventDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConfigurationSetEventDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

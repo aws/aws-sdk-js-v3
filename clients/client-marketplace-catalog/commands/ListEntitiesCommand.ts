@@ -50,8 +50,8 @@ export class ListEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListEntitiesRequest.filterSensitiveLog,
-      outputFilterLog: ListEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

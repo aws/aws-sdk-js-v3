@@ -46,8 +46,8 @@ export class GetOpenIDConnectProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOpenIDConnectProviderRequest.filterSensitiveLog,
-      outputFilterLog: GetOpenIDConnectProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOpenIDConnectProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOpenIDConnectProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

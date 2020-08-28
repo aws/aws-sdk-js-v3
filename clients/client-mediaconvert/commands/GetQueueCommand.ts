@@ -46,8 +46,8 @@ export class GetQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetQueueRequest.filterSensitiveLog,
-      outputFilterLog: GetQueueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQueueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

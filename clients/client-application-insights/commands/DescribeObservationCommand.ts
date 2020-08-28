@@ -50,8 +50,8 @@ export class DescribeObservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeObservationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeObservationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeObservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeObservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

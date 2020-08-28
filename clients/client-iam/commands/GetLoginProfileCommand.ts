@@ -46,8 +46,8 @@ export class GetLoginProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLoginProfileRequest.filterSensitiveLog,
-      outputFilterLog: GetLoginProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLoginProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLoginProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

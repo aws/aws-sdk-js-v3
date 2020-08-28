@@ -46,8 +46,8 @@ export class StopStackSetOperationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopStackSetOperationInput.filterSensitiveLog,
-      outputFilterLog: StopStackSetOperationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopStackSetOperationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopStackSetOperationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

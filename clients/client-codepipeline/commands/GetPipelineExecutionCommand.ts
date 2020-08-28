@@ -46,8 +46,8 @@ export class GetPipelineExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPipelineExecutionInput.filterSensitiveLog,
-      outputFilterLog: GetPipelineExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPipelineExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPipelineExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

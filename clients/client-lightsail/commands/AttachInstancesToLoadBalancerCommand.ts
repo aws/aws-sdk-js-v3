@@ -46,8 +46,8 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachInstancesToLoadBalancerRequest.filterSensitiveLog,
-      outputFilterLog: AttachInstancesToLoadBalancerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachInstancesToLoadBalancerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachInstancesToLoadBalancerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

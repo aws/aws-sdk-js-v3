@@ -46,8 +46,8 @@ export class GetUsagePlanKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUsagePlanKeyRequest.filterSensitiveLog,
-      outputFilterLog: UsagePlanKey.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUsagePlanKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UsagePlanKey.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

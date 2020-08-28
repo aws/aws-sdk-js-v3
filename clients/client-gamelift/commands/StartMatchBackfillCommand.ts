@@ -46,8 +46,8 @@ export class StartMatchBackfillCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartMatchBackfillInput.filterSensitiveLog,
-      outputFilterLog: StartMatchBackfillOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMatchBackfillInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMatchBackfillOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class FlushApiCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: FlushApiCacheRequest.filterSensitiveLog,
-      outputFilterLog: FlushApiCacheResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: FlushApiCacheRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FlushApiCacheResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

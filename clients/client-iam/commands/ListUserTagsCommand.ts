@@ -43,8 +43,8 @@ export class ListUserTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListUserTagsRequest.filterSensitiveLog,
-      outputFilterLog: ListUserTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUserTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUserTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

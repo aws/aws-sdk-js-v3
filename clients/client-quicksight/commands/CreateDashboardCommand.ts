@@ -46,8 +46,8 @@ export class CreateDashboardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDashboardRequest.filterSensitiveLog,
-      outputFilterLog: CreateDashboardResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDashboardRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDashboardResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetReplicationJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReplicationJobsRequest.filterSensitiveLog,
-      outputFilterLog: GetReplicationJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReplicationJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReplicationJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

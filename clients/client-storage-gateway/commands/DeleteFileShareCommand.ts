@@ -46,8 +46,8 @@ export class DeleteFileShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFileShareInput.filterSensitiveLog,
-      outputFilterLog: DeleteFileShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFileShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFileShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

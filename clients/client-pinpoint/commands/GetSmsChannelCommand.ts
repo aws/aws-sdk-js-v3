@@ -46,8 +46,8 @@ export class GetSmsChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSmsChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetSmsChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSmsChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSmsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

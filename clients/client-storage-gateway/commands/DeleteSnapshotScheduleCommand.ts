@@ -46,8 +46,8 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSnapshotScheduleInput.filterSensitiveLog,
-      outputFilterLog: DeleteSnapshotScheduleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSnapshotScheduleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSnapshotScheduleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

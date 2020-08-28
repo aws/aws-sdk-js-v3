@@ -46,8 +46,8 @@ export class ListUniqueProblemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListUniqueProblemsRequest.filterSensitiveLog,
-      outputFilterLog: ListUniqueProblemsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUniqueProblemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUniqueProblemsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

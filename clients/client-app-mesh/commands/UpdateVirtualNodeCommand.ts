@@ -46,8 +46,8 @@ export class UpdateVirtualNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateVirtualNodeInput.filterSensitiveLog,
-      outputFilterLog: UpdateVirtualNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVirtualNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

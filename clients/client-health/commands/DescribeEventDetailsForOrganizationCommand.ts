@@ -50,8 +50,8 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEventDetailsForOrganizationRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEventDetailsForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventDetailsForOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventDetailsForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

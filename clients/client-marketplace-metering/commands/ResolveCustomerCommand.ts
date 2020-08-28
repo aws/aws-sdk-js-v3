@@ -50,8 +50,8 @@ export class ResolveCustomerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResolveCustomerRequest.filterSensitiveLog,
-      outputFilterLog: ResolveCustomerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveCustomerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResolveCustomerResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

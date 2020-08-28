@@ -39,8 +39,8 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: LaunchAppRequest.filterSensitiveLog,
-      outputFilterLog: LaunchAppResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LaunchAppRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LaunchAppResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRouteInput.filterSensitiveLog,
-      outputFilterLog: DeleteRouteOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRouteInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRouteOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

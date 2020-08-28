@@ -46,8 +46,8 @@ export class ListGraphqlApisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListGraphqlApisRequest.filterSensitiveLog,
-      outputFilterLog: ListGraphqlApisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGraphqlApisRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListGraphqlApisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

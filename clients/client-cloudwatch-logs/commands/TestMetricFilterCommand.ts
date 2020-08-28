@@ -46,8 +46,8 @@ export class TestMetricFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TestMetricFilterRequest.filterSensitiveLog,
-      outputFilterLog: TestMetricFilterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestMetricFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestMetricFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetCredentialsForIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCredentialsForIdentityInput.filterSensitiveLog,
-      outputFilterLog: GetCredentialsForIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCredentialsForIdentityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCredentialsForIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateThemeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateThemeRequest.filterSensitiveLog,
-      outputFilterLog: UpdateThemeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateThemeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

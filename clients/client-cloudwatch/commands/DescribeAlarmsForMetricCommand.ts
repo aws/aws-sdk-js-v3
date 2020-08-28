@@ -46,8 +46,8 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAlarmsForMetricInput.filterSensitiveLog,
-      outputFilterLog: DescribeAlarmsForMetricOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAlarmsForMetricInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAlarmsForMetricOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

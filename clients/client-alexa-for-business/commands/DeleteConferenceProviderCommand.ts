@@ -46,8 +46,8 @@ export class DeleteConferenceProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteConferenceProviderRequest.filterSensitiveLog,
-      outputFilterLog: DeleteConferenceProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConferenceProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConferenceProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateBillingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateBillingGroupRequest.filterSensitiveLog,
-      outputFilterLog: UpdateBillingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBillingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBillingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

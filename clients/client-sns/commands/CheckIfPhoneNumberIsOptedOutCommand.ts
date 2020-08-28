@@ -46,8 +46,8 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CheckIfPhoneNumberIsOptedOutInput.filterSensitiveLog,
-      outputFilterLog: CheckIfPhoneNumberIsOptedOutResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckIfPhoneNumberIsOptedOutInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CheckIfPhoneNumberIsOptedOutResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

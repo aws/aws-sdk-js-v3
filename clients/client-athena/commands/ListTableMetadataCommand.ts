@@ -46,8 +46,8 @@ export class ListTableMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTableMetadataInput.filterSensitiveLog,
-      outputFilterLog: ListTableMetadataOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTableMetadataInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTableMetadataOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteTrialCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteTrialRequest.filterSensitiveLog,
-      outputFilterLog: DeleteTrialResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrialRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrialResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

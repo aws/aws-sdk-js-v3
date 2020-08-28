@@ -47,8 +47,8 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeConfigRuleEvaluationStatusRequest.filterSensitiveLog,
-      outputFilterLog: DescribeConfigRuleEvaluationStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConfigRuleEvaluationStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigRuleEvaluationStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

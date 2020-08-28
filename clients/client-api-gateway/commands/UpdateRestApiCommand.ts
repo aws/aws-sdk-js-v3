@@ -46,8 +46,8 @@ export class UpdateRestApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRestApiRequest.filterSensitiveLog,
-      outputFilterLog: RestApi.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRestApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestApi.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

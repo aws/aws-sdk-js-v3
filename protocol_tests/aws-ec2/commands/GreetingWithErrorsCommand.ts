@@ -46,8 +46,8 @@ export class GreetingWithErrorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: GreetingWithErrorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GreetingWithErrorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

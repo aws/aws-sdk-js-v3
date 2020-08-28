@@ -46,8 +46,8 @@ export class CompleteMigrationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CompleteMigrationMessage.filterSensitiveLog,
-      outputFilterLog: CompleteMigrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteMigrationMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteMigrationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

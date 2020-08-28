@@ -48,8 +48,8 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateQueryLoggingConfigRequest.filterSensitiveLog,
-      outputFilterLog: CreateQueryLoggingConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateQueryLoggingConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateQueryLoggingConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

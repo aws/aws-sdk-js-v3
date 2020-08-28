@@ -46,8 +46,8 @@ export class DescribeSMBSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSMBSettingsInput.filterSensitiveLog,
-      outputFilterLog: DescribeSMBSettingsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSMBSettingsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSMBSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeInterconnectLoaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInterconnectLoaRequest.filterSensitiveLog,
-      outputFilterLog: DescribeInterconnectLoaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInterconnectLoaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInterconnectLoaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

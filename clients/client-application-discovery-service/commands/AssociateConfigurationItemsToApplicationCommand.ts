@@ -57,8 +57,8 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateConfigurationItemsToApplicationRequest.filterSensitiveLog,
-      outputFilterLog: AssociateConfigurationItemsToApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateConfigurationItemsToApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateConfigurationItemsToApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLifecycleConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: LifecycleConfigurationDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLifecycleConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LifecycleConfigurationDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

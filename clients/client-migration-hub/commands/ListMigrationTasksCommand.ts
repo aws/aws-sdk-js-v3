@@ -46,8 +46,8 @@ export class ListMigrationTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListMigrationTasksRequest.filterSensitiveLog,
-      outputFilterLog: ListMigrationTasksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMigrationTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMigrationTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

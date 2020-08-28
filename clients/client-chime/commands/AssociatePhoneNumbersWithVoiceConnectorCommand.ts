@@ -53,8 +53,8 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
-      outputFilterLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

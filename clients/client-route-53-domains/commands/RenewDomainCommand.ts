@@ -46,8 +46,8 @@ export class RenewDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RenewDomainRequest.filterSensitiveLog,
-      outputFilterLog: RenewDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RenewDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RenewDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

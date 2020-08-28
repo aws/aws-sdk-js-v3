@@ -46,8 +46,8 @@ export class ListSuppressedDestinationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSuppressedDestinationsRequest.filterSensitiveLog,
-      outputFilterLog: ListSuppressedDestinationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSuppressedDestinationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSuppressedDestinationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

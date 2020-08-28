@@ -46,8 +46,8 @@ export class AuthorizeIpRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AuthorizeIpRulesRequest.filterSensitiveLog,
-      outputFilterLog: AuthorizeIpRulesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeIpRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeIpRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

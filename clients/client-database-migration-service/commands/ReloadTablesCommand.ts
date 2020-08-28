@@ -50,8 +50,8 @@ export class ReloadTablesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReloadTablesMessage.filterSensitiveLog,
-      outputFilterLog: ReloadTablesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReloadTablesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ReloadTablesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

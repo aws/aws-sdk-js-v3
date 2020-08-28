@@ -45,8 +45,8 @@ export class GetChangeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetChangeRequest.filterSensitiveLog,
-      outputFilterLog: GetChangeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetChangeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

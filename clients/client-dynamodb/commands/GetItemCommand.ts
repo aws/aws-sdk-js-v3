@@ -39,8 +39,8 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetItemInput.filterSensitiveLog,
-      outputFilterLog: GetItemOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetItemInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetItemOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

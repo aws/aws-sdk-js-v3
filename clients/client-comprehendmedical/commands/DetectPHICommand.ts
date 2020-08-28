@@ -47,8 +47,8 @@ export class DetectPHICommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetectPHIRequest.filterSensitiveLog,
-      outputFilterLog: DetectPHIResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectPHIRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectPHIResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

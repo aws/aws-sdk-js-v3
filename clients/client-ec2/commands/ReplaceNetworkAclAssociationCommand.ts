@@ -46,8 +46,8 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReplaceNetworkAclAssociationRequest.filterSensitiveLog,
-      outputFilterLog: ReplaceNetworkAclAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ReplaceNetworkAclAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReplaceNetworkAclAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

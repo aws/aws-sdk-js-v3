@@ -46,8 +46,8 @@ export class CreateVirtualMFADeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateVirtualMFADeviceRequest.filterSensitiveLog,
-      outputFilterLog: CreateVirtualMFADeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVirtualMFADeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVirtualMFADeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class PutScheduledActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutScheduledActionRequest.filterSensitiveLog,
-      outputFilterLog: PutScheduledActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutScheduledActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutScheduledActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

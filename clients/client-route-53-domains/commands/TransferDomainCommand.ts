@@ -46,8 +46,8 @@ export class TransferDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TransferDomainRequest.filterSensitiveLog,
-      outputFilterLog: TransferDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TransferDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TransferDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

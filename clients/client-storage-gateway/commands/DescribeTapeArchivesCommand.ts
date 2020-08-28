@@ -46,8 +46,8 @@ export class DescribeTapeArchivesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTapeArchivesInput.filterSensitiveLog,
-      outputFilterLog: DescribeTapeArchivesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTapeArchivesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTapeArchivesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

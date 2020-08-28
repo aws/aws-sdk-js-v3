@@ -46,8 +46,8 @@ export class ListLayersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListLayersRequest.filterSensitiveLog,
-      outputFilterLog: ListLayersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLayersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLayersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

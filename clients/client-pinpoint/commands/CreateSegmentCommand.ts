@@ -46,8 +46,8 @@ export class CreateSegmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSegmentRequest.filterSensitiveLog,
-      outputFilterLog: CreateSegmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSegmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSegmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

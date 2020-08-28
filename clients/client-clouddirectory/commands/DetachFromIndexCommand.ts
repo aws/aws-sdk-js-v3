@@ -46,8 +46,8 @@ export class DetachFromIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetachFromIndexRequest.filterSensitiveLog,
-      outputFilterLog: DetachFromIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachFromIndexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachFromIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

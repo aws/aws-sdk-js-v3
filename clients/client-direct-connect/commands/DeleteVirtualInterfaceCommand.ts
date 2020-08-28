@@ -46,8 +46,8 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterLog: DeleteVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

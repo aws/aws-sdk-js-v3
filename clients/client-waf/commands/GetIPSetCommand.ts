@@ -39,8 +39,8 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIPSetRequest.filterSensitiveLog,
-      outputFilterLog: GetIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIPSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

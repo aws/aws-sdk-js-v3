@@ -46,8 +46,8 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AcknowledgeThirdPartyJobInput.filterSensitiveLog,
-      outputFilterLog: AcknowledgeThirdPartyJobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AcknowledgeThirdPartyJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

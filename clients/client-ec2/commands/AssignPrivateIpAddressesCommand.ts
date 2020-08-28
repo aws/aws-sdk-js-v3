@@ -46,8 +46,8 @@ export class AssignPrivateIpAddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssignPrivateIpAddressesRequest.filterSensitiveLog,
-      outputFilterLog: AssignPrivateIpAddressesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssignPrivateIpAddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssignPrivateIpAddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

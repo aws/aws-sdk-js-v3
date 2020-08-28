@@ -46,8 +46,8 @@ export class GetReservationUtilizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReservationUtilizationRequest.filterSensitiveLog,
-      outputFilterLog: GetReservationUtilizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservationUtilizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservationUtilizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDataSetPermissionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDataSetPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDataSetPermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDataSetPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

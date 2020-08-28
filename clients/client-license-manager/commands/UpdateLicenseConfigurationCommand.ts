@@ -46,8 +46,8 @@ export class UpdateLicenseConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLicenseConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateLicenseConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLicenseConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLicenseConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

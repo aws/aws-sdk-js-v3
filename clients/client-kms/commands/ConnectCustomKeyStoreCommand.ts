@@ -46,8 +46,8 @@ export class ConnectCustomKeyStoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConnectCustomKeyStoreRequest.filterSensitiveLog,
-      outputFilterLog: ConnectCustomKeyStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConnectCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConnectCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

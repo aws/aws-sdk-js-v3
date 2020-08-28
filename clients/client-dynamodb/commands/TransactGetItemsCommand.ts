@@ -46,8 +46,8 @@ export class TransactGetItemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TransactGetItemsInput.filterSensitiveLog,
-      outputFilterLog: TransactGetItemsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TransactGetItemsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TransactGetItemsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

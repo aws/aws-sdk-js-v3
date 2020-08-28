@@ -46,8 +46,8 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DecodeAuthorizationMessageRequest.filterSensitiveLog,
-      outputFilterLog: DecodeAuthorizationMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DecodeAuthorizationMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DecodeAuthorizationMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

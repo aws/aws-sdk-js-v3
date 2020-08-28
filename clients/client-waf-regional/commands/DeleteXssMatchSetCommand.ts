@@ -46,8 +46,8 @@ export class DeleteXssMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteXssMatchSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteXssMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteXssMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteXssMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

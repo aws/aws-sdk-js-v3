@@ -46,8 +46,8 @@ export class DeleteResourceDataSyncCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteResourceDataSyncRequest.filterSensitiveLog,
-      outputFilterLog: DeleteResourceDataSyncResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

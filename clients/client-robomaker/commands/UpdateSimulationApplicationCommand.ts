@@ -46,8 +46,8 @@ export class UpdateSimulationApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSimulationApplicationRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSimulationApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSimulationApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSimulationApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

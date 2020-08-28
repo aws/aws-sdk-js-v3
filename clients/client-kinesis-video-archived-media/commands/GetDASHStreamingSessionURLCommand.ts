@@ -50,8 +50,8 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDASHStreamingSessionURLInput.filterSensitiveLog,
-      outputFilterLog: GetDASHStreamingSessionURLOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDASHStreamingSessionURLInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDASHStreamingSessionURLOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

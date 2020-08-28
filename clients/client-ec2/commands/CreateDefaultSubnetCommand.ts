@@ -46,8 +46,8 @@ export class CreateDefaultSubnetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDefaultSubnetRequest.filterSensitiveLog,
-      outputFilterLog: CreateDefaultSubnetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDefaultSubnetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDefaultSubnetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

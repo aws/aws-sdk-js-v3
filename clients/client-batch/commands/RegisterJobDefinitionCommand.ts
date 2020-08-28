@@ -46,8 +46,8 @@ export class RegisterJobDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterJobDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: RegisterJobDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterJobDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterJobDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

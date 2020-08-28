@@ -46,8 +46,8 @@ export class AssociateS3ResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateS3ResourcesRequest.filterSensitiveLog,
-      outputFilterLog: AssociateS3ResourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateS3ResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateS3ResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

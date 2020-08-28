@@ -48,8 +48,8 @@ export class GetBucketCorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketCorsRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketCorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketCorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketCorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

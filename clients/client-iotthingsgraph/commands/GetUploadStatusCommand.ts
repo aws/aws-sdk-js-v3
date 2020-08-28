@@ -46,8 +46,8 @@ export class GetUploadStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetUploadStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetUploadStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUploadStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUploadStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

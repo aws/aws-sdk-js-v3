@@ -46,8 +46,8 @@ export class PurchaseHostReservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PurchaseHostReservationRequest.filterSensitiveLog,
-      outputFilterLog: PurchaseHostReservationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseHostReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseHostReservationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

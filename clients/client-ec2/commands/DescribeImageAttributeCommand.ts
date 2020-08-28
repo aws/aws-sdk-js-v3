@@ -46,8 +46,8 @@ export class DescribeImageAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeImageAttributeRequest.filterSensitiveLog,
-      outputFilterLog: ImageAttribute.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeImageAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ImageAttribute.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

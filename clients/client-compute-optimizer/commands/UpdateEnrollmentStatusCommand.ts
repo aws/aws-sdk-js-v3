@@ -46,8 +46,8 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateEnrollmentStatusRequest.filterSensitiveLog,
-      outputFilterLog: UpdateEnrollmentStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEnrollmentStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEnrollmentStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

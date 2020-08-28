@@ -46,8 +46,8 @@ export class ListNamedShadowsForThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
-      outputFilterLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

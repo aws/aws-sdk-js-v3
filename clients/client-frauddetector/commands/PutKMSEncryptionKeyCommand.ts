@@ -46,8 +46,8 @@ export class PutKMSEncryptionKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutKMSEncryptionKeyRequest.filterSensitiveLog,
-      outputFilterLog: PutKMSEncryptionKeyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutKMSEncryptionKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutKMSEncryptionKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

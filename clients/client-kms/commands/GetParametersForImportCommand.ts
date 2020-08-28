@@ -46,8 +46,8 @@ export class GetParametersForImportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetParametersForImportRequest.filterSensitiveLog,
-      outputFilterLog: GetParametersForImportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetParametersForImportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetParametersForImportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

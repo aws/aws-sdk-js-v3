@@ -46,8 +46,8 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateUnreferencedMergeCommitInput.filterSensitiveLog,
-      outputFilterLog: CreateUnreferencedMergeCommitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUnreferencedMergeCommitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUnreferencedMergeCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

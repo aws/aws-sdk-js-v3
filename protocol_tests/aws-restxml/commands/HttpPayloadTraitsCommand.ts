@@ -46,8 +46,8 @@ export class HttpPayloadTraitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: HttpPayloadTraitsInputOutput.filterSensitiveLog,
-      outputFilterLog: HttpPayloadTraitsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPayloadTraitsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: HttpPayloadTraitsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

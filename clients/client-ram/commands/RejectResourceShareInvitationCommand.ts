@@ -46,8 +46,8 @@ export class RejectResourceShareInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RejectResourceShareInvitationRequest.filterSensitiveLog,
-      outputFilterLog: RejectResourceShareInvitationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectResourceShareInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectResourceShareInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

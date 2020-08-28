@@ -46,8 +46,8 @@ export class TransactWriteItemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: TransactWriteItemsInput.filterSensitiveLog,
-      outputFilterLog: TransactWriteItemsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TransactWriteItemsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TransactWriteItemsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

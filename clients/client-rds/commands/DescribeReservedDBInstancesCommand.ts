@@ -46,8 +46,8 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeReservedDBInstancesMessage.filterSensitiveLog,
-      outputFilterLog: ReservedDBInstanceMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReservedDBInstancesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ReservedDBInstanceMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

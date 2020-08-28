@@ -46,8 +46,8 @@ export class KitchenSinkOperationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: KitchenSink.filterSensitiveLog,
-      outputFilterLog: KitchenSink.filterSensitiveLog,
+      inputFilterSensitiveLog: KitchenSink.filterSensitiveLog,
+      outputFilterSensitiveLog: KitchenSink.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

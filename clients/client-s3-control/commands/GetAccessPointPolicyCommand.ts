@@ -46,8 +46,8 @@ export class GetAccessPointPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAccessPointPolicyRequest.filterSensitiveLog,
-      outputFilterLog: GetAccessPointPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessPointPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessPointPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

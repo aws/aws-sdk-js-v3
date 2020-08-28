@@ -46,8 +46,8 @@ export class VerifyDomainDkimCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: VerifyDomainDkimRequest.filterSensitiveLog,
-      outputFilterLog: VerifyDomainDkimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyDomainDkimRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VerifyDomainDkimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

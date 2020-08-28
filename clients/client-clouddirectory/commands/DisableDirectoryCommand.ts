@@ -46,8 +46,8 @@ export class DisableDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: DisableDirectoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableDirectoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

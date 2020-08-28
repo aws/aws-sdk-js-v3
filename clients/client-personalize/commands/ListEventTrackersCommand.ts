@@ -46,8 +46,8 @@ export class ListEventTrackersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListEventTrackersRequest.filterSensitiveLog,
-      outputFilterLog: ListEventTrackersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEventTrackersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEventTrackersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

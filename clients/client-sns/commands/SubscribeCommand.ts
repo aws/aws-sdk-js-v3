@@ -39,8 +39,8 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SubscribeInput.filterSensitiveLog,
-      outputFilterLog: SubscribeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubscribeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SubscribeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

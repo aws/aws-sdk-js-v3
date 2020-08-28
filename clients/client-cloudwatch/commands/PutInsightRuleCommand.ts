@@ -46,8 +46,8 @@ export class PutInsightRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutInsightRuleInput.filterSensitiveLog,
-      outputFilterLog: PutInsightRuleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutInsightRuleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutInsightRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

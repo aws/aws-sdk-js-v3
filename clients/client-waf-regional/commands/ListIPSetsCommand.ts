@@ -46,8 +46,8 @@ export class ListIPSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListIPSetsRequest.filterSensitiveLog,
-      outputFilterLog: ListIPSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIPSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIPSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

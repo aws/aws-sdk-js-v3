@@ -46,8 +46,8 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetIdentityNotificationTopicRequest.filterSensitiveLog,
-      outputFilterLog: SetIdentityNotificationTopicResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityNotificationTopicRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityNotificationTopicResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteLaunchTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteLaunchTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteLaunchTemplateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLaunchTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLaunchTemplateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

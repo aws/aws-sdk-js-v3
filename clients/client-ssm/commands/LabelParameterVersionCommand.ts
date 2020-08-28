@@ -46,8 +46,8 @@ export class LabelParameterVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: LabelParameterVersionRequest.filterSensitiveLog,
-      outputFilterLog: LabelParameterVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: LabelParameterVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LabelParameterVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetTerminologyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTerminologyRequest.filterSensitiveLog,
-      outputFilterLog: GetTerminologyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTerminologyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTerminologyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

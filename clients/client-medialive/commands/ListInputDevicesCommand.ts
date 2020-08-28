@@ -46,8 +46,8 @@ export class ListInputDevicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListInputDevicesRequest.filterSensitiveLog,
-      outputFilterLog: ListInputDevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInputDevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInputDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

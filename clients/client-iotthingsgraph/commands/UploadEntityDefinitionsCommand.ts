@@ -46,8 +46,8 @@ export class UploadEntityDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UploadEntityDefinitionsRequest.filterSensitiveLog,
-      outputFilterLog: UploadEntityDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadEntityDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadEntityDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeThingRegistrationTaskRequest.filterSensitiveLog,
-      outputFilterLog: DescribeThingRegistrationTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeThingRegistrationTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeThingRegistrationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

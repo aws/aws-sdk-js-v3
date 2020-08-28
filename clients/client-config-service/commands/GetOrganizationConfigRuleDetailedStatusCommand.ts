@@ -53,8 +53,8 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOrganizationConfigRuleDetailedStatusRequest.filterSensitiveLog,
-      outputFilterLog: GetOrganizationConfigRuleDetailedStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOrganizationConfigRuleDetailedStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationConfigRuleDetailedStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

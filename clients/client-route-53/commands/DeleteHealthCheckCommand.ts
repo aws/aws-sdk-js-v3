@@ -46,8 +46,8 @@ export class DeleteHealthCheckCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteHealthCheckRequest.filterSensitiveLog,
-      outputFilterLog: DeleteHealthCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHealthCheckRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHealthCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

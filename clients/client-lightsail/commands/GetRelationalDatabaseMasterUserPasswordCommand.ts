@@ -53,8 +53,8 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRelationalDatabaseMasterUserPasswordRequest.filterSensitiveLog,
-      outputFilterLog: GetRelationalDatabaseMasterUserPasswordResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRelationalDatabaseMasterUserPasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRelationalDatabaseMasterUserPasswordResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

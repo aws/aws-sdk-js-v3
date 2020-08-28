@@ -46,8 +46,8 @@ export class CopyOptionGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyOptionGroupMessage.filterSensitiveLog,
-      outputFilterLog: CopyOptionGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyOptionGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyOptionGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

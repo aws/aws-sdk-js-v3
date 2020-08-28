@@ -46,8 +46,8 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateDeviceFromRoomRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateDeviceFromRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDeviceFromRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDeviceFromRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

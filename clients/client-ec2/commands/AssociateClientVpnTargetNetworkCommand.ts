@@ -46,8 +46,8 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateClientVpnTargetNetworkRequest.filterSensitiveLog,
-      outputFilterLog: AssociateClientVpnTargetNetworkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateClientVpnTargetNetworkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateClientVpnTargetNetworkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateStreamingDistributionWithTagsRequest.filterSensitiveLog,
-      outputFilterLog: CreateStreamingDistributionWithTagsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStreamingDistributionWithTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamingDistributionWithTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

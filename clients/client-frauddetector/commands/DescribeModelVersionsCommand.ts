@@ -46,8 +46,8 @@ export class DescribeModelVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeModelVersionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeModelVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeModelVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeModelVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class ModifyHsmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyHsmRequest.filterSensitiveLog,
-      outputFilterLog: ModifyHsmResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyHsmRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyHsmResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

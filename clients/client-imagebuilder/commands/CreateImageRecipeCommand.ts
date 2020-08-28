@@ -46,8 +46,8 @@ export class CreateImageRecipeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateImageRecipeRequest.filterSensitiveLog,
-      outputFilterLog: CreateImageRecipeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateImageRecipeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateImageRecipeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

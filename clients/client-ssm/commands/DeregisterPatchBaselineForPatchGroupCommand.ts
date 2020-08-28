@@ -50,8 +50,8 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeregisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
-      outputFilterLog: DeregisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

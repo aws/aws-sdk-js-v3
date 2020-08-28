@@ -53,8 +53,8 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetIdentityHeadersInNotificationsEnabledRequest.filterSensitiveLog,
-      outputFilterLog: SetIdentityHeadersInNotificationsEnabledResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityHeadersInNotificationsEnabledRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityHeadersInNotificationsEnabledResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

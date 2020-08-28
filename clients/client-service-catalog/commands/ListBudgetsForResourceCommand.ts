@@ -46,8 +46,8 @@ export class ListBudgetsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBudgetsForResourceInput.filterSensitiveLog,
-      outputFilterLog: ListBudgetsForResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBudgetsForResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBudgetsForResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

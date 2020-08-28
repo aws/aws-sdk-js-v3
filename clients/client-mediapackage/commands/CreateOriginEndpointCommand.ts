@@ -46,8 +46,8 @@ export class CreateOriginEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateOriginEndpointRequest.filterSensitiveLog,
-      outputFilterLog: CreateOriginEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOriginEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateOriginEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

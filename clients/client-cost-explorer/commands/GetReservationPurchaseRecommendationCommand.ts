@@ -50,8 +50,8 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetReservationPurchaseRecommendationRequest.filterSensitiveLog,
-      outputFilterLog: GetReservationPurchaseRecommendationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservationPurchaseRecommendationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservationPurchaseRecommendationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

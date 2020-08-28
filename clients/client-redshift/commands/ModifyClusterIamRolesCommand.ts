@@ -46,8 +46,8 @@ export class ModifyClusterIamRolesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyClusterIamRolesMessage.filterSensitiveLog,
-      outputFilterLog: ModifyClusterIamRolesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterIamRolesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterIamRolesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

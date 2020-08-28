@@ -46,8 +46,8 @@ export class DeleteEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteEnvironmentRequest.filterSensitiveLog,
-      outputFilterLog: DeleteEnvironmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEnvironmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

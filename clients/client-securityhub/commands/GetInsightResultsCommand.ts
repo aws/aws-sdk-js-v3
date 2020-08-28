@@ -46,8 +46,8 @@ export class GetInsightResultsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetInsightResultsRequest.filterSensitiveLog,
-      outputFilterLog: GetInsightResultsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInsightResultsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInsightResultsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

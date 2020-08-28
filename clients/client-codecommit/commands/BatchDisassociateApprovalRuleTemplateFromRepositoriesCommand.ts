@@ -53,8 +53,8 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput.filterSensitiveLog,
-      outputFilterLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

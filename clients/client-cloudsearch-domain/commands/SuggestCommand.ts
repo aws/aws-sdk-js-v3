@@ -50,8 +50,8 @@ export class SuggestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SuggestRequest.filterSensitiveLog,
-      outputFilterLog: SuggestResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SuggestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SuggestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

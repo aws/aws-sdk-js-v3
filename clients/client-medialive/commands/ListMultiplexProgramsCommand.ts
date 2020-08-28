@@ -46,8 +46,8 @@ export class ListMultiplexProgramsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListMultiplexProgramsRequest.filterSensitiveLog,
-      outputFilterLog: ListMultiplexProgramsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMultiplexProgramsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMultiplexProgramsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

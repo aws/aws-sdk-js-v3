@@ -50,8 +50,8 @@ export class CancelChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelChangeSetRequest.filterSensitiveLog,
-      outputFilterLog: CancelChangeSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelChangeSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

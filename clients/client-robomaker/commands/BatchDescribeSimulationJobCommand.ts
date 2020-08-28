@@ -46,8 +46,8 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDescribeSimulationJobRequest.filterSensitiveLog,
-      outputFilterLog: BatchDescribeSimulationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDescribeSimulationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDescribeSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

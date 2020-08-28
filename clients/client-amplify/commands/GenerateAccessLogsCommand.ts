@@ -46,8 +46,8 @@ export class GenerateAccessLogsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateAccessLogsRequest.filterSensitiveLog,
-      outputFilterLog: GenerateAccessLogsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateAccessLogsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateAccessLogsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

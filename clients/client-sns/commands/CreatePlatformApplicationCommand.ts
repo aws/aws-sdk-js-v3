@@ -46,8 +46,8 @@ export class CreatePlatformApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePlatformApplicationInput.filterSensitiveLog,
-      outputFilterLog: CreatePlatformApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePlatformApplicationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePlatformApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

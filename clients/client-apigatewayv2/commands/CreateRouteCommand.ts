@@ -46,8 +46,8 @@ export class CreateRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateRouteRequest.filterSensitiveLog,
-      outputFilterLog: CreateRouteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

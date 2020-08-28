@@ -46,8 +46,8 @@ export class CreateLabelingJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLabelingJobRequest.filterSensitiveLog,
-      outputFilterLog: CreateLabelingJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLabelingJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLabelingJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

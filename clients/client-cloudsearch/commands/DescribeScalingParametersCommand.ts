@@ -46,8 +46,8 @@ export class DescribeScalingParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeScalingParametersRequest.filterSensitiveLog,
-      outputFilterLog: DescribeScalingParametersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScalingParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScalingParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

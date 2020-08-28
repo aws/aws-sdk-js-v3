@@ -50,8 +50,8 @@ export class ReadPresetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReadPresetRequest.filterSensitiveLog,
-      outputFilterLog: ReadPresetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReadPresetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReadPresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

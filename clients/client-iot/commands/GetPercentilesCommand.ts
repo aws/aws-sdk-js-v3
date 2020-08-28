@@ -46,8 +46,8 @@ export class GetPercentilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPercentilesRequest.filterSensitiveLog,
-      outputFilterLog: GetPercentilesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPercentilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPercentilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

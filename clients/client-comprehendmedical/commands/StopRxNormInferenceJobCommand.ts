@@ -50,8 +50,8 @@ export class StopRxNormInferenceJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopRxNormInferenceJobRequest.filterSensitiveLog,
-      outputFilterLog: StopRxNormInferenceJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopRxNormInferenceJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopRxNormInferenceJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

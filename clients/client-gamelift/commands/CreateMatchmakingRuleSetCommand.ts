@@ -46,8 +46,8 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateMatchmakingRuleSetInput.filterSensitiveLog,
-      outputFilterLog: CreateMatchmakingRuleSetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMatchmakingRuleSetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMatchmakingRuleSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateIPSetRequest.filterSensitiveLog,
-      outputFilterLog: UpdateIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIPSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

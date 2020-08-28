@@ -46,8 +46,8 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAppReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: PutAppReplicationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAppReplicationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAppReplicationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RegisterCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterCertificateRequest.filterSensitiveLog,
-      outputFilterLog: RegisterCertificateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

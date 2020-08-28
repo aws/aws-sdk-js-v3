@@ -46,8 +46,8 @@ export class CreateDocumentClassifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDocumentClassifierRequest.filterSensitiveLog,
-      outputFilterLog: CreateDocumentClassifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDocumentClassifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDocumentClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

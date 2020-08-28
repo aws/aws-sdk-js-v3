@@ -46,8 +46,8 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPendingInvitationResourcesRequest.filterSensitiveLog,
-      outputFilterLog: ListPendingInvitationResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPendingInvitationResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPendingInvitationResourcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

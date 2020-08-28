@@ -46,8 +46,8 @@ export class ListConnectorDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListConnectorDefinitionsRequest.filterSensitiveLog,
-      outputFilterLog: ListConnectorDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConnectorDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListConnectorDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

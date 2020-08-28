@@ -46,8 +46,8 @@ export class RevokeDomainAccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeDomainAccessRequest.filterSensitiveLog,
-      outputFilterLog: RevokeDomainAccessResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeDomainAccessRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeDomainAccessResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

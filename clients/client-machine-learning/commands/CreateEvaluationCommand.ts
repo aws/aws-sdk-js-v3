@@ -46,8 +46,8 @@ export class CreateEvaluationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateEvaluationInput.filterSensitiveLog,
-      outputFilterLog: CreateEvaluationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEvaluationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEvaluationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

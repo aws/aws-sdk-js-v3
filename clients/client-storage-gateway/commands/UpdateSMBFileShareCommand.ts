@@ -46,8 +46,8 @@ export class UpdateSMBFileShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSMBFileShareInput.filterSensitiveLog,
-      outputFilterLog: UpdateSMBFileShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSMBFileShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSMBFileShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

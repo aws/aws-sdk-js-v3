@@ -46,8 +46,8 @@ export class DisableImportFindingsForProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisableImportFindingsForProductRequest.filterSensitiveLog,
-      outputFilterLog: DisableImportFindingsForProductResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableImportFindingsForProductRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableImportFindingsForProductResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

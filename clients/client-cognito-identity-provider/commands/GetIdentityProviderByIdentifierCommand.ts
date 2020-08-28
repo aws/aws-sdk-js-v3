@@ -50,8 +50,8 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetIdentityProviderByIdentifierRequest.filterSensitiveLog,
-      outputFilterLog: GetIdentityProviderByIdentifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdentityProviderByIdentifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityProviderByIdentifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

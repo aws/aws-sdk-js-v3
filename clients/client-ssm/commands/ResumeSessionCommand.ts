@@ -46,8 +46,8 @@ export class ResumeSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResumeSessionRequest.filterSensitiveLog,
-      outputFilterLog: ResumeSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResumeSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

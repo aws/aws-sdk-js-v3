@@ -47,8 +47,8 @@ export class PutBotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutBotRequest.filterSensitiveLog,
-      outputFilterLog: PutBotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutBotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

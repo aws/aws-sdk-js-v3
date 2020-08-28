@@ -46,8 +46,8 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateBusinessReportScheduleRequest.filterSensitiveLog,
-      outputFilterLog: CreateBusinessReportScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBusinessReportScheduleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBusinessReportScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

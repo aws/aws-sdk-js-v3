@@ -48,8 +48,8 @@ export class ReceiveMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ReceiveMessageRequest.filterSensitiveLog,
-      outputFilterLog: ReceiveMessageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ReceiveMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReceiveMessageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

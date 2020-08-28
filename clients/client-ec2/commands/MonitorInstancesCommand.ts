@@ -46,8 +46,8 @@ export class MonitorInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MonitorInstancesRequest.filterSensitiveLog,
-      outputFilterLog: MonitorInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: MonitorInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MonitorInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

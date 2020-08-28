@@ -46,8 +46,8 @@ export class GetSegmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSegmentsRequest.filterSensitiveLog,
-      outputFilterLog: GetSegmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSegmentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSegmentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

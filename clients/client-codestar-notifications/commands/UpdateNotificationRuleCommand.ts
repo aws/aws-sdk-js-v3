@@ -50,8 +50,8 @@ export class UpdateNotificationRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateNotificationRuleRequest.filterSensitiveLog,
-      outputFilterLog: UpdateNotificationRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNotificationRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

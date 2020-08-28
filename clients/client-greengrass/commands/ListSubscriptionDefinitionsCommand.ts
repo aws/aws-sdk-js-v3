@@ -46,8 +46,8 @@ export class ListSubscriptionDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSubscriptionDefinitionsRequest.filterSensitiveLog,
-      outputFilterLog: ListSubscriptionDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSubscriptionDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSubscriptionDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

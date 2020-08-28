@@ -46,8 +46,8 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteApprovalRuleTemplateInput.filterSensitiveLog,
-      outputFilterLog: DeleteApprovalRuleTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApprovalRuleTemplateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApprovalRuleTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDataSourceFromRedshiftInput.filterSensitiveLog,
-      outputFilterLog: CreateDataSourceFromRedshiftOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDataSourceFromRedshiftInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataSourceFromRedshiftOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

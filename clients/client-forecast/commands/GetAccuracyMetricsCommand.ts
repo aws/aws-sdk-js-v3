@@ -46,8 +46,8 @@ export class GetAccuracyMetricsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetAccuracyMetricsRequest.filterSensitiveLog,
-      outputFilterLog: GetAccuracyMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccuracyMetricsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccuracyMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

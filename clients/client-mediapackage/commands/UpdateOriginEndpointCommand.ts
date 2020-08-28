@@ -46,8 +46,8 @@ export class UpdateOriginEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateOriginEndpointRequest.filterSensitiveLog,
-      outputFilterLog: UpdateOriginEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOriginEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOriginEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

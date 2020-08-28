@@ -46,8 +46,8 @@ export class AddFacetToObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddFacetToObjectRequest.filterSensitiveLog,
-      outputFilterLog: AddFacetToObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddFacetToObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddFacetToObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

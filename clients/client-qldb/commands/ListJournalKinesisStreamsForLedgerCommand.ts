@@ -47,8 +47,8 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListJournalKinesisStreamsForLedgerRequest.filterSensitiveLog,
-      outputFilterLog: ListJournalKinesisStreamsForLedgerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

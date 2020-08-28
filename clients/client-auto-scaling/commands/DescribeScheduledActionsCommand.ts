@@ -46,8 +46,8 @@ export class DescribeScheduledActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeScheduledActionsType.filterSensitiveLog,
-      outputFilterLog: ScheduledActionsType.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScheduledActionsType.filterSensitiveLog,
+      outputFilterSensitiveLog: ScheduledActionsType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeEventSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEventSourceRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEventSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

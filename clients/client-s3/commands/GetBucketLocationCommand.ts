@@ -48,8 +48,8 @@ export class GetBucketLocationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketLocationRequest.filterSensitiveLog,
-      outputFilterLog: GetBucketLocationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketLocationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketLocationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetDomainSuggestionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDomainSuggestionsRequest.filterSensitiveLog,
-      outputFilterLog: GetDomainSuggestionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDomainSuggestionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainSuggestionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

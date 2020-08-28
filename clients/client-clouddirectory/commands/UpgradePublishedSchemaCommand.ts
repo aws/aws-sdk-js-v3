@@ -46,8 +46,8 @@ export class UpgradePublishedSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpgradePublishedSchemaRequest.filterSensitiveLog,
-      outputFilterLog: UpgradePublishedSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpgradePublishedSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpgradePublishedSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

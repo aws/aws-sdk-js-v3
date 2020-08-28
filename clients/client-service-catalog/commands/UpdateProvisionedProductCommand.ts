@@ -46,8 +46,8 @@ export class UpdateProvisionedProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateProvisionedProductInput.filterSensitiveLog,
-      outputFilterLog: UpdateProvisionedProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProvisionedProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProvisionedProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

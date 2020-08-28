@@ -46,8 +46,8 @@ export class GenerateChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateChangeSetRequest.filterSensitiveLog,
-      outputFilterLog: GenerateChangeSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateChangeSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

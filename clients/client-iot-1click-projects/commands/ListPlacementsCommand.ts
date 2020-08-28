@@ -50,8 +50,8 @@ export class ListPlacementsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListPlacementsRequest.filterSensitiveLog,
-      outputFilterLog: ListPlacementsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPlacementsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPlacementsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

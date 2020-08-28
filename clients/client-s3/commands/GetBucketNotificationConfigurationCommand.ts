@@ -48,8 +48,8 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBucketNotificationConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: NotificationConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketNotificationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: NotificationConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

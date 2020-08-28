@@ -46,8 +46,8 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEnvironmentResourcesMessage.filterSensitiveLog,
-      outputFilterLog: EnvironmentResourceDescriptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEnvironmentResourcesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentResourceDescriptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

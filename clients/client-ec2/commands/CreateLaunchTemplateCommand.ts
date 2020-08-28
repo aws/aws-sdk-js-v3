@@ -46,8 +46,8 @@ export class CreateLaunchTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLaunchTemplateRequest.filterSensitiveLog,
-      outputFilterLog: CreateLaunchTemplateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLaunchTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLaunchTemplateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

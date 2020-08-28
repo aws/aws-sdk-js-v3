@@ -50,8 +50,8 @@ export class PutSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutSessionRequest.filterSensitiveLog,
-      outputFilterLog: PutSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

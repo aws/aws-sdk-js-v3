@@ -46,8 +46,8 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListGitHubAccountTokenNamesInput.filterSensitiveLog,
-      outputFilterLog: ListGitHubAccountTokenNamesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGitHubAccountTokenNamesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListGitHubAccountTokenNamesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

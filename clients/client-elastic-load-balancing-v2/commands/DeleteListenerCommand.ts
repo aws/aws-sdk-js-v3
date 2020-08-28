@@ -50,8 +50,8 @@ export class DeleteListenerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteListenerInput.filterSensitiveLog,
-      outputFilterLog: DeleteListenerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteListenerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteListenerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

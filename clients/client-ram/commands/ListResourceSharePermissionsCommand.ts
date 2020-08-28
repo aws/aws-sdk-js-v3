@@ -46,8 +46,8 @@ export class ListResourceSharePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListResourceSharePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: ListResourceSharePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceSharePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceSharePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

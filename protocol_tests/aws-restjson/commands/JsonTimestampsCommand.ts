@@ -46,8 +46,8 @@ export class JsonTimestampsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: JsonTimestampsInputOutput.filterSensitiveLog,
-      outputFilterLog: JsonTimestampsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

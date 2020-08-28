@@ -46,8 +46,8 @@ export class SendContactMethodVerificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendContactMethodVerificationRequest.filterSensitiveLog,
-      outputFilterLog: SendContactMethodVerificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendContactMethodVerificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendContactMethodVerificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

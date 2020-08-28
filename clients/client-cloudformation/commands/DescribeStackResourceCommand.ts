@@ -46,8 +46,8 @@ export class DescribeStackResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeStackResourceInput.filterSensitiveLog,
-      outputFilterLog: DescribeStackResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStackResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

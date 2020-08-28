@@ -50,8 +50,8 @@ export class GetBotAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetBotAliasRequest.filterSensitiveLog,
-      outputFilterLog: GetBotAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBotAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBotAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

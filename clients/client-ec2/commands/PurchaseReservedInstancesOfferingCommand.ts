@@ -46,8 +46,8 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PurchaseReservedInstancesOfferingRequest.filterSensitiveLog,
-      outputFilterLog: PurchaseReservedInstancesOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedInstancesOfferingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedInstancesOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

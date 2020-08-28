@@ -50,8 +50,8 @@ export class StartContinuousExportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartContinuousExportRequest.filterSensitiveLog,
-      outputFilterLog: StartContinuousExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartContinuousExportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartContinuousExportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

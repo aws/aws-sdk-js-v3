@@ -46,8 +46,8 @@ export class LookupPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: LookupPolicyRequest.filterSensitiveLog,
-      outputFilterLog: LookupPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LookupPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LookupPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,8 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteInfrastructureConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteInfrastructureConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInfrastructureConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInfrastructureConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

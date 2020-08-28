@@ -46,8 +46,8 @@ export class DescribeInternetGatewaysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeInternetGatewaysRequest.filterSensitiveLog,
-      outputFilterLog: DescribeInternetGatewaysResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInternetGatewaysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInternetGatewaysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class NotifyWorkersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: NotifyWorkersRequest.filterSensitiveLog,
-      outputFilterLog: NotifyWorkersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyWorkersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: NotifyWorkersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

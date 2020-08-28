@@ -50,8 +50,8 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteLoadBalancerPolicyInput.filterSensitiveLog,
-      outputFilterLog: DeleteLoadBalancerPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLoadBalancerPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLoadBalancerPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

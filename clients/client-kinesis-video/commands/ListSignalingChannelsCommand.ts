@@ -46,8 +46,8 @@ export class ListSignalingChannelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSignalingChannelsInput.filterSensitiveLog,
-      outputFilterLog: ListSignalingChannelsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSignalingChannelsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSignalingChannelsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListNamedQueriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListNamedQueriesInput.filterSensitiveLog,
-      outputFilterLog: ListNamedQueriesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNamedQueriesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNamedQueriesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

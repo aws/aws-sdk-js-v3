@@ -46,8 +46,8 @@ export class StartTriggerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartTriggerRequest.filterSensitiveLog,
-      outputFilterLog: StartTriggerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTriggerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartTriggerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

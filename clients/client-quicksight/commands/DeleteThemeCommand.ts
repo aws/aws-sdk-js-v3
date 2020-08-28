@@ -46,8 +46,8 @@ export class DeleteThemeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteThemeRequest.filterSensitiveLog,
-      outputFilterLog: DeleteThemeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteThemeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteThemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

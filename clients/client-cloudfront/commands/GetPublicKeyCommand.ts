@@ -46,8 +46,8 @@ export class GetPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPublicKeyRequest.filterSensitiveLog,
-      outputFilterLog: GetPublicKeyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPublicKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPublicKeyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

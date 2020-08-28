@@ -46,8 +46,8 @@ export class ValidatePipelineDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ValidatePipelineDefinitionInput.filterSensitiveLog,
-      outputFilterLog: ValidatePipelineDefinitionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ValidatePipelineDefinitionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ValidatePipelineDefinitionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

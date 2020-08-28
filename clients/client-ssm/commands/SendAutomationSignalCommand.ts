@@ -46,8 +46,8 @@ export class SendAutomationSignalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendAutomationSignalRequest.filterSensitiveLog,
-      outputFilterLog: SendAutomationSignalResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendAutomationSignalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendAutomationSignalResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

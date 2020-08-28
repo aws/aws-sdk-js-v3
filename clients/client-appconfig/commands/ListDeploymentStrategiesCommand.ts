@@ -46,8 +46,8 @@ export class ListDeploymentStrategiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListDeploymentStrategiesRequest.filterSensitiveLog,
-      outputFilterLog: DeploymentStrategies.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDeploymentStrategiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeploymentStrategies.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

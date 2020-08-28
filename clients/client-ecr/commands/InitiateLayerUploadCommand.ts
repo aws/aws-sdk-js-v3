@@ -46,8 +46,8 @@ export class InitiateLayerUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: InitiateLayerUploadRequest.filterSensitiveLog,
-      outputFilterLog: InitiateLayerUploadResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InitiateLayerUploadRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InitiateLayerUploadResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DisassociateRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateRepositoryRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateRepositoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateRepositoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateRepositoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

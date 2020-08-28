@@ -46,8 +46,8 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetVoiceConnectorTerminationRequest.filterSensitiveLog,
-      outputFilterLog: GetVoiceConnectorTerminationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVoiceConnectorTerminationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceConnectorTerminationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

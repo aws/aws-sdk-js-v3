@@ -46,8 +46,8 @@ export class DescribeContactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeContactRequest.filterSensitiveLog,
-      outputFilterLog: DescribeContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

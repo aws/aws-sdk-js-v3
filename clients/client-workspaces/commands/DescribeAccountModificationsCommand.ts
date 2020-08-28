@@ -46,8 +46,8 @@ export class DescribeAccountModificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAccountModificationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeAccountModificationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccountModificationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountModificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

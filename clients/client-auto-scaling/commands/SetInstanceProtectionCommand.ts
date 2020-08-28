@@ -46,8 +46,8 @@ export class SetInstanceProtectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetInstanceProtectionQuery.filterSensitiveLog,
-      outputFilterLog: SetInstanceProtectionAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: SetInstanceProtectionQuery.filterSensitiveLog,
+      outputFilterSensitiveLog: SetInstanceProtectionAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

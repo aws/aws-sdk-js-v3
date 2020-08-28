@@ -46,8 +46,8 @@ export class AssociateTargetsWithJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateTargetsWithJobRequest.filterSensitiveLog,
-      outputFilterLog: AssociateTargetsWithJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateTargetsWithJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTargetsWithJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RegisterStreamConsumerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterStreamConsumerInput.filterSensitiveLog,
-      outputFilterLog: RegisterStreamConsumerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterStreamConsumerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterStreamConsumerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

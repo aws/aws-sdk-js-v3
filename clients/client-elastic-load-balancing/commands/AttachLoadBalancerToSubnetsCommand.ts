@@ -50,8 +50,8 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachLoadBalancerToSubnetsInput.filterSensitiveLog,
-      outputFilterLog: AttachLoadBalancerToSubnetsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachLoadBalancerToSubnetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachLoadBalancerToSubnetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

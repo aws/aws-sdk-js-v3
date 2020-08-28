@@ -46,8 +46,8 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RetrieveEnvironmentInfoMessage.filterSensitiveLog,
-      outputFilterLog: RetrieveEnvironmentInfoResultMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: RetrieveEnvironmentInfoMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RetrieveEnvironmentInfoResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

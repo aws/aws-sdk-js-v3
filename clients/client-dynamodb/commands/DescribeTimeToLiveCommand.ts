@@ -46,8 +46,8 @@ export class DescribeTimeToLiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTimeToLiveInput.filterSensitiveLog,
-      outputFilterLog: DescribeTimeToLiveOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTimeToLiveInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTimeToLiveOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

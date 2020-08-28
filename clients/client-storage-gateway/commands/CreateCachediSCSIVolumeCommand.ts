@@ -46,8 +46,8 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCachediSCSIVolumeInput.filterSensitiveLog,
-      outputFilterLog: CreateCachediSCSIVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCachediSCSIVolumeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCachediSCSIVolumeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

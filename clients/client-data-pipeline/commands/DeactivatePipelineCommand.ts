@@ -46,8 +46,8 @@ export class DeactivatePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeactivatePipelineInput.filterSensitiveLog,
-      outputFilterLog: DeactivatePipelineOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeactivatePipelineInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeactivatePipelineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

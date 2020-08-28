@@ -50,8 +50,8 @@ export class CreateAcceleratorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateAcceleratorRequest.filterSensitiveLog,
-      outputFilterLog: CreateAcceleratorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAcceleratorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAcceleratorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

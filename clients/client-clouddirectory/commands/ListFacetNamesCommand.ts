@@ -46,8 +46,8 @@ export class ListFacetNamesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListFacetNamesRequest.filterSensitiveLog,
-      outputFilterLog: ListFacetNamesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFacetNamesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFacetNamesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

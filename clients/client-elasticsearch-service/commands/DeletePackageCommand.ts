@@ -50,8 +50,8 @@ export class DeletePackageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePackageRequest.filterSensitiveLog,
-      outputFilterLog: DeletePackageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePackageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

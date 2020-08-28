@@ -46,8 +46,8 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeMaintenanceWindowScheduleRequest.filterSensitiveLog,
-      outputFilterLog: DescribeMaintenanceWindowScheduleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMaintenanceWindowScheduleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMaintenanceWindowScheduleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListActiveViolationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListActiveViolationsRequest.filterSensitiveLog,
-      outputFilterLog: ListActiveViolationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListActiveViolationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListActiveViolationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

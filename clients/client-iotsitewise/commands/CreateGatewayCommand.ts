@@ -46,8 +46,8 @@ export class CreateGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateGatewayRequest.filterSensitiveLog,
-      outputFilterLog: CreateGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

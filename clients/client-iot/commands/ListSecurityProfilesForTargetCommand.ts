@@ -46,8 +46,8 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSecurityProfilesForTargetRequest.filterSensitiveLog,
-      outputFilterLog: ListSecurityProfilesForTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSecurityProfilesForTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSecurityProfilesForTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartOutboundVoiceContactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartOutboundVoiceContactRequest.filterSensitiveLog,
-      outputFilterLog: StartOutboundVoiceContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartOutboundVoiceContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartOutboundVoiceContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

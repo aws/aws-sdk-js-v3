@@ -46,8 +46,8 @@ export class RevokeSnapshotAccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RevokeSnapshotAccessMessage.filterSensitiveLog,
-      outputFilterLog: RevokeSnapshotAccessResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeSnapshotAccessMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeSnapshotAccessResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

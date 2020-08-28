@@ -46,8 +46,8 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CopyDBClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterLog: CopyDBClusterParameterGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBClusterParameterGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

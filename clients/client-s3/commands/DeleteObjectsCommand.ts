@@ -50,8 +50,8 @@ export class DeleteObjectsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteObjectsRequest.filterSensitiveLog,
-      outputFilterLog: DeleteObjectsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteObjectsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteObjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

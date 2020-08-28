@@ -46,8 +46,8 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input: any) => input,
-      outputFilterLog: ProcessesType.filterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: ProcessesType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

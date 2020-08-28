@@ -53,8 +53,8 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateTransitGatewayMulticastDomainRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateTransitGatewayMulticastDomainResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTransitGatewayMulticastDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTransitGatewayMulticastDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

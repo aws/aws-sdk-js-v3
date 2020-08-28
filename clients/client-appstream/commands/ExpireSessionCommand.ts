@@ -46,8 +46,8 @@ export class ExpireSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExpireSessionRequest.filterSensitiveLog,
-      outputFilterLog: ExpireSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ExpireSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExpireSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

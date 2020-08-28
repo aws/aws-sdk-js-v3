@@ -50,8 +50,8 @@ export class SetUserSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetUserSettingsRequest.filterSensitiveLog,
-      outputFilterLog: SetUserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetUserSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetUserSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

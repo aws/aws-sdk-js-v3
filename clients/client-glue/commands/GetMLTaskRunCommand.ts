@@ -46,8 +46,8 @@ export class GetMLTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMLTaskRunRequest.filterSensitiveLog,
-      outputFilterLog: GetMLTaskRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMLTaskRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMLTaskRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

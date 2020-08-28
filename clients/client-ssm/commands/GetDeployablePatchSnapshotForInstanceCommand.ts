@@ -50,8 +50,8 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDeployablePatchSnapshotForInstanceRequest.filterSensitiveLog,
-      outputFilterLog: GetDeployablePatchSnapshotForInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

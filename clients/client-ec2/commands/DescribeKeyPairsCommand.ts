@@ -46,8 +46,8 @@ export class DescribeKeyPairsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeKeyPairsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeKeyPairsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeKeyPairsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeKeyPairsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

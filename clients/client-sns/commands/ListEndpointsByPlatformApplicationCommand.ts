@@ -47,8 +47,8 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
-      outputFilterLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

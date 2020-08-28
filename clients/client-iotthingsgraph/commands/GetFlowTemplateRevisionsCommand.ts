@@ -46,8 +46,8 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFlowTemplateRevisionsRequest.filterSensitiveLog,
-      outputFilterLog: GetFlowTemplateRevisionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFlowTemplateRevisionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFlowTemplateRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

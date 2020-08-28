@@ -50,8 +50,8 @@ export class DescribeExportConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeExportConfigurationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeExportConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeExportConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExportConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

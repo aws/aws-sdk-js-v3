@@ -46,8 +46,8 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteLaunchTemplateVersionsRequest.filterSensitiveLog,
-      outputFilterLog: DeleteLaunchTemplateVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLaunchTemplateVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLaunchTemplateVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

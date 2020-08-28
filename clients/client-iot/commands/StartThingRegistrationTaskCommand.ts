@@ -46,8 +46,8 @@ export class StartThingRegistrationTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartThingRegistrationTaskRequest.filterSensitiveLog,
-      outputFilterLog: StartThingRegistrationTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartThingRegistrationTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartThingRegistrationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

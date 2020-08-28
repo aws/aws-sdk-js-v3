@@ -46,8 +46,8 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetPatchBaselineForPatchGroupRequest.filterSensitiveLog,
-      outputFilterLog: GetPatchBaselineForPatchGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPatchBaselineForPatchGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

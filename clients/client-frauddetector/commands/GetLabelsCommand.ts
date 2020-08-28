@@ -43,8 +43,8 @@ export class GetLabelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLabelsRequest.filterSensitiveLog,
-      outputFilterLog: GetLabelsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLabelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLabelsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

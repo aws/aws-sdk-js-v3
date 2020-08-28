@@ -46,8 +46,8 @@ export class RetryStageExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RetryStageExecutionInput.filterSensitiveLog,
-      outputFilterLog: RetryStageExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RetryStageExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RetryStageExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

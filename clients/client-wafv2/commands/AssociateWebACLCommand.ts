@@ -46,8 +46,8 @@ export class AssociateWebACLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateWebACLRequest.filterSensitiveLog,
-      outputFilterLog: AssociateWebACLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateWebACLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

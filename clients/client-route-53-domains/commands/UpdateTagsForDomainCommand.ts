@@ -46,8 +46,8 @@ export class UpdateTagsForDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTagsForDomainRequest.filterSensitiveLog,
-      outputFilterLog: UpdateTagsForDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTagsForDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTagsForDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

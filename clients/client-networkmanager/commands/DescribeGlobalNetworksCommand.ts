@@ -46,8 +46,8 @@ export class DescribeGlobalNetworksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeGlobalNetworksRequest.filterSensitiveLog,
-      outputFilterLog: DescribeGlobalNetworksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGlobalNetworksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGlobalNetworksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

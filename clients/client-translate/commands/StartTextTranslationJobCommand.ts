@@ -46,8 +46,8 @@ export class StartTextTranslationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartTextTranslationJobRequest.filterSensitiveLog,
-      outputFilterLog: StartTextTranslationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTextTranslationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartTextTranslationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

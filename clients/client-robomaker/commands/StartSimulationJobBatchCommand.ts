@@ -46,8 +46,8 @@ export class StartSimulationJobBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartSimulationJobBatchRequest.filterSensitiveLog,
-      outputFilterLog: StartSimulationJobBatchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSimulationJobBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSimulationJobBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetDomainStatisticsReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDomainStatisticsReportRequest.filterSensitiveLog,
-      outputFilterLog: GetDomainStatisticsReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDomainStatisticsReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainStatisticsReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class UpdateConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateConnectionRequest.filterSensitiveLog,
-      outputFilterLog: UpdateConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

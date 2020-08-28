@@ -46,8 +46,8 @@ export class PutDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutDestinationRequest.filterSensitiveLog,
-      outputFilterLog: PutDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

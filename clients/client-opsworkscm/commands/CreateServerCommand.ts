@@ -46,8 +46,8 @@ export class CreateServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateServerRequest.filterSensitiveLog,
-      outputFilterLog: CreateServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateServerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

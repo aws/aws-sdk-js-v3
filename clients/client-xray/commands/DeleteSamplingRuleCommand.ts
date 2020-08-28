@@ -46,8 +46,8 @@ export class DeleteSamplingRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteSamplingRuleRequest.filterSensitiveLog,
-      outputFilterLog: DeleteSamplingRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSamplingRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSamplingRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

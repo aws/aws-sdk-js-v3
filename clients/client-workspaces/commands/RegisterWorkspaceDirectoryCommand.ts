@@ -46,8 +46,8 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterWorkspaceDirectoryRequest.filterSensitiveLog,
-      outputFilterLog: RegisterWorkspaceDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterWorkspaceDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterWorkspaceDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

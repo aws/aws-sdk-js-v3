@@ -46,8 +46,8 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEnvironmentHealthRequest.filterSensitiveLog,
-      outputFilterLog: DescribeEnvironmentHealthResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEnvironmentHealthRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEnvironmentHealthResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

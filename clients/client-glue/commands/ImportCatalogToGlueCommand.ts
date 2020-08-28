@@ -46,8 +46,8 @@ export class ImportCatalogToGlueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ImportCatalogToGlueRequest.filterSensitiveLog,
-      outputFilterLog: ImportCatalogToGlueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportCatalogToGlueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ImportCatalogToGlueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

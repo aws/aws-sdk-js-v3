@@ -46,8 +46,8 @@ export class GetTopicRuleDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTopicRuleDestinationRequest.filterSensitiveLog,
-      outputFilterLog: GetTopicRuleDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTopicRuleDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTopicRuleDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

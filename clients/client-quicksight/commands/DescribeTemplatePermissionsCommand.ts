@@ -46,8 +46,8 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTemplatePermissionsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeTemplatePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTemplatePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTemplatePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

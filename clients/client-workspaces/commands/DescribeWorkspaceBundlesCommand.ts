@@ -46,8 +46,8 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeWorkspaceBundlesRequest.filterSensitiveLog,
-      outputFilterLog: DescribeWorkspaceBundlesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkspaceBundlesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspaceBundlesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSmartHomeAppliancesRequest.filterSensitiveLog,
-      outputFilterLog: ListSmartHomeAppliancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSmartHomeAppliancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSmartHomeAppliancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

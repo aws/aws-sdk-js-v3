@@ -46,8 +46,8 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: FlattenedXmlMapWithXmlNameInputOutput.filterSensitiveLog,
-      outputFilterLog: FlattenedXmlMapWithXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: FlattenedXmlMapWithXmlNameInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: FlattenedXmlMapWithXmlNameInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

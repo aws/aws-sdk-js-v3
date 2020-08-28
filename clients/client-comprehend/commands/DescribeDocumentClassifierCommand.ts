@@ -46,8 +46,8 @@ export class DescribeDocumentClassifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeDocumentClassifierRequest.filterSensitiveLog,
-      outputFilterLog: DescribeDocumentClassifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDocumentClassifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDocumentClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

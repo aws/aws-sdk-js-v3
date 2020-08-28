@@ -46,8 +46,8 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteRemediationConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: DeleteRemediationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRemediationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRemediationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

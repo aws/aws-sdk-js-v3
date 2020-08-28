@@ -46,8 +46,8 @@ export class CreateUsageLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateUsageLimitMessage.filterSensitiveLog,
-      outputFilterLog: UsageLimit.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUsageLimitMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: UsageLimit.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

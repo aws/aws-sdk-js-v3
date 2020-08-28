@@ -46,8 +46,8 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeEC2InstanceLimitsInput.filterSensitiveLog,
-      outputFilterLog: DescribeEC2InstanceLimitsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEC2InstanceLimitsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEC2InstanceLimitsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreatePullRequestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePullRequestInput.filterSensitiveLog,
-      outputFilterLog: CreatePullRequestOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePullRequestInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePullRequestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

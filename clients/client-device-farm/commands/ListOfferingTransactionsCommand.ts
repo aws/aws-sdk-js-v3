@@ -46,8 +46,8 @@ export class ListOfferingTransactionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListOfferingTransactionsRequest.filterSensitiveLog,
-      outputFilterLog: ListOfferingTransactionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOfferingTransactionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListOfferingTransactionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

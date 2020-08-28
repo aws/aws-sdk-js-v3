@@ -46,8 +46,8 @@ export class RestoreFromSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreFromSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: RestoreFromSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreFromSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreFromSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

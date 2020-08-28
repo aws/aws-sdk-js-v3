@@ -50,8 +50,8 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendAlexaOfferToMasterRequest.filterSensitiveLog,
-      outputFilterLog: SendAlexaOfferToMasterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendAlexaOfferToMasterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendAlexaOfferToMasterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

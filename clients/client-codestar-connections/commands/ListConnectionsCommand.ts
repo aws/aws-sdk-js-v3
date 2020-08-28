@@ -50,8 +50,8 @@ export class ListConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListConnectionsInput.filterSensitiveLog,
-      outputFilterLog: ListConnectionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConnectionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListConnectionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

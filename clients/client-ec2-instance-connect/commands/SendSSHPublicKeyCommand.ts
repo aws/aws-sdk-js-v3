@@ -50,8 +50,8 @@ export class SendSSHPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendSSHPublicKeyRequest.filterSensitiveLog,
-      outputFilterLog: SendSSHPublicKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendSSHPublicKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendSSHPublicKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

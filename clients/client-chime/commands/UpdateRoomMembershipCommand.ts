@@ -46,8 +46,8 @@ export class UpdateRoomMembershipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRoomMembershipRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRoomMembershipResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoomMembershipRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRoomMembershipResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

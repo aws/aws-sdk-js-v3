@@ -46,8 +46,8 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SimpleStruct.filterSensitiveLog,
-      outputFilterLog: SimpleStruct.filterSensitiveLog,
+      inputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
+      outputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

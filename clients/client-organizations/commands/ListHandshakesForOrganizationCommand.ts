@@ -46,8 +46,8 @@ export class ListHandshakesForOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListHandshakesForOrganizationRequest.filterSensitiveLog,
-      outputFilterLog: ListHandshakesForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHandshakesForOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHandshakesForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

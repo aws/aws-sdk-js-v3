@@ -57,8 +57,8 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CancelElasticsearchServiceSoftwareUpdateRequest.filterSensitiveLog,
-      outputFilterLog: CancelElasticsearchServiceSoftwareUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelElasticsearchServiceSoftwareUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelElasticsearchServiceSoftwareUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

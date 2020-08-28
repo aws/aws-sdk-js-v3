@@ -46,8 +46,8 @@ export class CreatePolicyVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePolicyVersionRequest.filterSensitiveLog,
-      outputFilterLog: CreatePolicyVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePolicyVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePolicyVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

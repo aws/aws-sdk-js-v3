@@ -53,8 +53,8 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyReplicationGroupShardConfigurationMessage.filterSensitiveLog,
-      outputFilterLog: ModifyReplicationGroupShardConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReplicationGroupShardConfigurationMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReplicationGroupShardConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

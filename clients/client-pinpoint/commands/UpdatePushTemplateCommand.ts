@@ -46,8 +46,8 @@ export class UpdatePushTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePushTemplateRequest.filterSensitiveLog,
-      outputFilterLog: UpdatePushTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePushTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePushTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

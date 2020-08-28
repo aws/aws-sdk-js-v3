@@ -46,8 +46,8 @@ export class GetQualificationScoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetQualificationScoreRequest.filterSensitiveLog,
-      outputFilterLog: GetQualificationScoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQualificationScoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQualificationScoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

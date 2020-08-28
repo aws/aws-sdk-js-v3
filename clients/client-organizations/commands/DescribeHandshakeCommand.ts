@@ -46,8 +46,8 @@ export class DescribeHandshakeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeHandshakeRequest.filterSensitiveLog,
-      outputFilterLog: DescribeHandshakeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeHandshakeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

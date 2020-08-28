@@ -46,8 +46,8 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeLocationObjectStorageRequest.filterSensitiveLog,
-      outputFilterLog: DescribeLocationObjectStorageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocationObjectStorageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationObjectStorageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RestoreAddressToClassicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RestoreAddressToClassicRequest.filterSensitiveLog,
-      outputFilterLog: RestoreAddressToClassicResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreAddressToClassicRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreAddressToClassicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

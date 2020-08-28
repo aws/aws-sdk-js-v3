@@ -46,8 +46,8 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteInputSecurityGroupRequest.filterSensitiveLog,
-      outputFilterLog: DeleteInputSecurityGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInputSecurityGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInputSecurityGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class UpdateUserPoolClientCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateUserPoolClientRequest.filterSensitiveLog,
-      outputFilterLog: UpdateUserPoolClientResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserPoolClientRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUserPoolClientResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

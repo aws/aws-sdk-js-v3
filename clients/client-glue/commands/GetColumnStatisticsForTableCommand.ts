@@ -46,8 +46,8 @@ export class GetColumnStatisticsForTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetColumnStatisticsForTableRequest.filterSensitiveLog,
-      outputFilterLog: GetColumnStatisticsForTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetColumnStatisticsForTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetColumnStatisticsForTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

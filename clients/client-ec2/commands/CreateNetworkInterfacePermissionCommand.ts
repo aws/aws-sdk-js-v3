@@ -46,8 +46,8 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateNetworkInterfacePermissionRequest.filterSensitiveLog,
-      outputFilterLog: CreateNetworkInterfacePermissionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNetworkInterfacePermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNetworkInterfacePermissionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

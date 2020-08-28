@@ -46,8 +46,8 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchUpdatePhoneNumberRequest.filterSensitiveLog,
-      outputFilterLog: BatchUpdatePhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdatePhoneNumberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdatePhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

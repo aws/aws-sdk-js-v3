@@ -46,8 +46,8 @@ export class CommitTransactionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CommitTransactionRequest.filterSensitiveLog,
-      outputFilterLog: CommitTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CommitTransactionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CommitTransactionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

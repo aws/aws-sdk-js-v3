@@ -46,8 +46,8 @@ export class GetOutpostInstanceTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetOutpostInstanceTypesInput.filterSensitiveLog,
-      outputFilterLog: GetOutpostInstanceTypesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOutpostInstanceTypesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOutpostInstanceTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

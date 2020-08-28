@@ -46,8 +46,8 @@ export class AssociateDRTRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateDRTRoleRequest.filterSensitiveLog,
-      outputFilterLog: AssociateDRTRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDRTRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDRTRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

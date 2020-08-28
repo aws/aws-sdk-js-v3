@@ -46,8 +46,8 @@ export class GetSolutionMetricsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSolutionMetricsRequest.filterSensitiveLog,
-      outputFilterLog: GetSolutionMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSolutionMetricsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSolutionMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

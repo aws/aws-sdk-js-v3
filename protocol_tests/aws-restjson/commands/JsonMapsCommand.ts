@@ -46,8 +46,8 @@ export class JsonMapsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: JsonMapsInputOutput.filterSensitiveLog,
-      outputFilterLog: JsonMapsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonMapsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonMapsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

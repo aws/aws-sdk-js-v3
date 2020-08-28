@@ -46,8 +46,8 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateUserDefinedFunctionRequest.filterSensitiveLog,
-      outputFilterLog: CreateUserDefinedFunctionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUserDefinedFunctionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUserDefinedFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

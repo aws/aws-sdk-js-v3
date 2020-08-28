@@ -50,8 +50,8 @@ export class SetIpAddressTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetIpAddressTypeInput.filterSensitiveLog,
-      outputFilterLog: SetIpAddressTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIpAddressTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIpAddressTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

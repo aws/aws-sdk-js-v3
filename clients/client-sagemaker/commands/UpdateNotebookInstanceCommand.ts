@@ -46,8 +46,8 @@ export class UpdateNotebookInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateNotebookInstanceInput.filterSensitiveLog,
-      outputFilterLog: UpdateNotebookInstanceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNotebookInstanceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNotebookInstanceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

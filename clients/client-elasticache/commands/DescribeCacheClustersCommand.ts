@@ -46,8 +46,8 @@ export class DescribeCacheClustersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCacheClustersMessage.filterSensitiveLog,
-      outputFilterLog: CacheClusterMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCacheClustersMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheClusterMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

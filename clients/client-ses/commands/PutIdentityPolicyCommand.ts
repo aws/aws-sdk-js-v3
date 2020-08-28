@@ -46,8 +46,8 @@ export class PutIdentityPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutIdentityPolicyRequest.filterSensitiveLog,
-      outputFilterLog: PutIdentityPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutIdentityPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutIdentityPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

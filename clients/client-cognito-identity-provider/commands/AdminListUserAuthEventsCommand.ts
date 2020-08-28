@@ -50,8 +50,8 @@ export class AdminListUserAuthEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminListUserAuthEventsRequest.filterSensitiveLog,
-      outputFilterLog: AdminListUserAuthEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminListUserAuthEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminListUserAuthEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

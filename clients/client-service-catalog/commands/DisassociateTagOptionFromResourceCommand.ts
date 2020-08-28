@@ -46,8 +46,8 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateTagOptionFromResourceInput.filterSensitiveLog,
-      outputFilterLog: DisassociateTagOptionFromResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTagOptionFromResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTagOptionFromResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetConsoleOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetConsoleOutputRequest.filterSensitiveLog,
-      outputFilterLog: GetConsoleOutputResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConsoleOutputRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetConsoleOutputResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

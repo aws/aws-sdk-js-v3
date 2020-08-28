@@ -46,8 +46,8 @@ export class IndexFacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: IndexFacesRequest.filterSensitiveLog,
-      outputFilterLog: IndexFacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: IndexFacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: IndexFacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

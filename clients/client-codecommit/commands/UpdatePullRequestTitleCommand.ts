@@ -46,8 +46,8 @@ export class UpdatePullRequestTitleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePullRequestTitleInput.filterSensitiveLog,
-      outputFilterLog: UpdatePullRequestTitleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePullRequestTitleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePullRequestTitleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

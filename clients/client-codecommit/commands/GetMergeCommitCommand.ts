@@ -46,8 +46,8 @@ export class GetMergeCommitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMergeCommitInput.filterSensitiveLog,
-      outputFilterLog: GetMergeCommitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMergeCommitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMergeCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

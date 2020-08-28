@@ -46,8 +46,8 @@ export class UpdateVoiceTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateVoiceTemplateRequest.filterSensitiveLog,
-      outputFilterLog: UpdateVoiceTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

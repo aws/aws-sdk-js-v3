@@ -50,8 +50,8 @@ export class BatchMeterUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchMeterUsageRequest.filterSensitiveLog,
-      outputFilterLog: BatchMeterUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchMeterUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchMeterUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

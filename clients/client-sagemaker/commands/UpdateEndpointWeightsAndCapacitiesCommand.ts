@@ -47,8 +47,8 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateEndpointWeightsAndCapacitiesInput.filterSensitiveLog,
-      outputFilterLog: UpdateEndpointWeightsAndCapacitiesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

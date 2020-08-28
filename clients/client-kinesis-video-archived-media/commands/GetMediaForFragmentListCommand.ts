@@ -50,8 +50,8 @@ export class GetMediaForFragmentListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMediaForFragmentListInput.filterSensitiveLog,
-      outputFilterLog: GetMediaForFragmentListOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMediaForFragmentListInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMediaForFragmentListOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class QueryObjectsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: QueryObjectsInput.filterSensitiveLog,
-      outputFilterLog: QueryObjectsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryObjectsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: QueryObjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

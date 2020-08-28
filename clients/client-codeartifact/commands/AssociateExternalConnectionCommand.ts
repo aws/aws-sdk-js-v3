@@ -46,8 +46,8 @@ export class AssociateExternalConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateExternalConnectionRequest.filterSensitiveLog,
-      outputFilterLog: AssociateExternalConnectionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateExternalConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateExternalConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

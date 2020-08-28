@@ -43,8 +43,8 @@ export class GetModelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetModelsRequest.filterSensitiveLog,
-      outputFilterLog: GetModelsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetModelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetModelsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

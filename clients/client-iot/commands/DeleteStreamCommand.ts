@@ -46,8 +46,8 @@ export class DeleteStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteStreamRequest.filterSensitiveLog,
-      outputFilterLog: DeleteStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateSystemInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateSystemInstanceRequest.filterSensitiveLog,
-      outputFilterLog: CreateSystemInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSystemInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeRetentionConfigurationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeRetentionConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRetentionConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRetentionConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

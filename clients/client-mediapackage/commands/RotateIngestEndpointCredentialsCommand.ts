@@ -46,8 +46,8 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RotateIngestEndpointCredentialsRequest.filterSensitiveLog,
-      outputFilterLog: RotateIngestEndpointCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RotateIngestEndpointCredentialsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RotateIngestEndpointCredentialsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

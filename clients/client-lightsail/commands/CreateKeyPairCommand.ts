@@ -46,8 +46,8 @@ export class CreateKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateKeyPairRequest.filterSensitiveLog,
-      outputFilterLog: CreateKeyPairResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateKeyPairRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateKeyPairResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

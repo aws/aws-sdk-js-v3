@@ -46,8 +46,8 @@ export class StartTaskExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartTaskExecutionRequest.filterSensitiveLog,
-      outputFilterLog: StartTaskExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTaskExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartTaskExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

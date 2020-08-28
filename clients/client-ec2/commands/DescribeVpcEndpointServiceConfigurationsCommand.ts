@@ -53,8 +53,8 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVpcEndpointServiceConfigurationsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeVpcEndpointServiceConfigurationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcEndpointServiceConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcEndpointServiceConfigurationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

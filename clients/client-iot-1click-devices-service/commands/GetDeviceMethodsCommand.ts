@@ -50,8 +50,8 @@ export class GetDeviceMethodsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetDeviceMethodsRequest.filterSensitiveLog,
-      outputFilterLog: GetDeviceMethodsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeviceMethodsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDeviceMethodsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

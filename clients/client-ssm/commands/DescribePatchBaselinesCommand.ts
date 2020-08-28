@@ -46,8 +46,8 @@ export class DescribePatchBaselinesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribePatchBaselinesRequest.filterSensitiveLog,
-      outputFilterLog: DescribePatchBaselinesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePatchBaselinesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePatchBaselinesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

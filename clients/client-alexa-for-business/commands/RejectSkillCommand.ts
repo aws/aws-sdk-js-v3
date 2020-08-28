@@ -46,8 +46,8 @@ export class RejectSkillCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RejectSkillRequest.filterSensitiveLog,
-      outputFilterLog: RejectSkillResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectSkillRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectSkillResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

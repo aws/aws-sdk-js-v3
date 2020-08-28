@@ -46,8 +46,8 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ForgetSmartHomeAppliancesRequest.filterSensitiveLog,
-      outputFilterLog: ForgetSmartHomeAppliancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ForgetSmartHomeAppliancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ForgetSmartHomeAppliancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

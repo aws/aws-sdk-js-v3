@@ -46,8 +46,8 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CountClosedWorkflowExecutionsInput.filterSensitiveLog,
-      outputFilterLog: WorkflowExecutionCount.filterSensitiveLog,
+      inputFilterSensitiveLog: CountClosedWorkflowExecutionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowExecutionCount.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

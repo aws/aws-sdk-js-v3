@@ -46,8 +46,8 @@ export class GetLaunchTemplateDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLaunchTemplateDataRequest.filterSensitiveLog,
-      outputFilterLog: GetLaunchTemplateDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLaunchTemplateDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLaunchTemplateDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

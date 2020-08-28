@@ -46,8 +46,8 @@ export class DeleteInsightRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteInsightRulesInput.filterSensitiveLog,
-      outputFilterLog: DeleteInsightRulesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInsightRulesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInsightRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DetectEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetectEntitiesRequest.filterSensitiveLog,
-      outputFilterLog: DetectEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

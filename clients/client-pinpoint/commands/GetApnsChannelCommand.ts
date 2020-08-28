@@ -46,8 +46,8 @@ export class GetApnsChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetApnsChannelRequest.filterSensitiveLog,
-      outputFilterLog: GetApnsChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApnsChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApnsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class GetTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTemplateRequest.filterSensitiveLog,
-      outputFilterLog: GetTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

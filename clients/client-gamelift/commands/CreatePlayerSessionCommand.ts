@@ -46,8 +46,8 @@ export class CreatePlayerSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreatePlayerSessionInput.filterSensitiveLog,
-      outputFilterLog: CreatePlayerSessionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePlayerSessionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePlayerSessionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

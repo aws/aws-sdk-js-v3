@@ -43,8 +43,8 @@ export class UpdateLagCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateLagRequest.filterSensitiveLog,
-      outputFilterLog: Lag.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLagRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Lag.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

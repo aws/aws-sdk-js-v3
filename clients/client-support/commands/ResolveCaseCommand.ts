@@ -46,8 +46,8 @@ export class ResolveCaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResolveCaseRequest.filterSensitiveLog,
-      outputFilterLog: ResolveCaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveCaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResolveCaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

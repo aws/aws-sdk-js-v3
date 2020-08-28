@@ -46,8 +46,8 @@ export class DetectKeyPhrasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DetectKeyPhrasesRequest.filterSensitiveLog,
-      outputFilterLog: DetectKeyPhrasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectKeyPhrasesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectKeyPhrasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

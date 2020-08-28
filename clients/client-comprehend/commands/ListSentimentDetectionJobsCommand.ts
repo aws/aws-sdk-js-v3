@@ -46,8 +46,8 @@ export class ListSentimentDetectionJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListSentimentDetectionJobsRequest.filterSensitiveLog,
-      outputFilterLog: ListSentimentDetectionJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSentimentDetectionJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSentimentDetectionJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

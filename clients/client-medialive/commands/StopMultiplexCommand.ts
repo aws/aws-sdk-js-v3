@@ -46,8 +46,8 @@ export class StopMultiplexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopMultiplexRequest.filterSensitiveLog,
-      outputFilterLog: StopMultiplexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopMultiplexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

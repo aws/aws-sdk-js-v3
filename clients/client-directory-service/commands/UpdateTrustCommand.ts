@@ -46,8 +46,8 @@ export class UpdateTrustCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateTrustRequest.filterSensitiveLog,
-      outputFilterLog: UpdateTrustResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTrustRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTrustResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

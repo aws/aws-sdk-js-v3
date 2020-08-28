@@ -46,8 +46,8 @@ export class XmlNamespacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: XmlNamespacesInputOutput.filterSensitiveLog,
-      outputFilterLog: XmlNamespacesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

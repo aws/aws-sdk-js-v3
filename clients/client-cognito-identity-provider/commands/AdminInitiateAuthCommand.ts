@@ -50,8 +50,8 @@ export class AdminInitiateAuthCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AdminInitiateAuthRequest.filterSensitiveLog,
-      outputFilterLog: AdminInitiateAuthResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminInitiateAuthRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminInitiateAuthResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

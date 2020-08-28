@@ -46,8 +46,8 @@ export class UpdateRateBasedRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRateBasedRuleRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRateBasedRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

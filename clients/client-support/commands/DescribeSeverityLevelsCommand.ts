@@ -46,8 +46,8 @@ export class DescribeSeverityLevelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeSeverityLevelsRequest.filterSensitiveLog,
-      outputFilterLog: DescribeSeverityLevelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSeverityLevelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSeverityLevelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class DeleteFlowTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteFlowTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeleteFlowTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFlowTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFlowTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StreamJournalToKinesisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StreamJournalToKinesisRequest.filterSensitiveLog,
-      outputFilterLog: StreamJournalToKinesisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamJournalToKinesisRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StreamJournalToKinesisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

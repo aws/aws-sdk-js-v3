@@ -46,8 +46,8 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ValidateConfigurationSettingsMessage.filterSensitiveLog,
-      outputFilterLog: ConfigurationSettingsValidationMessages.filterSensitiveLog,
+      inputFilterSensitiveLog: ValidateConfigurationSettingsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfigurationSettingsValidationMessages.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

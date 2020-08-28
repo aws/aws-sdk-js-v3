@@ -46,8 +46,8 @@ export class DescribeVirtualRouterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVirtualRouterInput.filterSensitiveLog,
-      outputFilterLog: DescribeVirtualRouterOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVirtualRouterInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

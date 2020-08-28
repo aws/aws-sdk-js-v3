@@ -46,8 +46,8 @@ export class AttachLoadBalancersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachLoadBalancersType.filterSensitiveLog,
-      outputFilterLog: AttachLoadBalancersResultType.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachLoadBalancersType.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachLoadBalancersResultType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

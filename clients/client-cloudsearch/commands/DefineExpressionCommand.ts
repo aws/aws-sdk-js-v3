@@ -46,8 +46,8 @@ export class DefineExpressionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DefineExpressionRequest.filterSensitiveLog,
-      outputFilterLog: DefineExpressionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DefineExpressionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DefineExpressionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

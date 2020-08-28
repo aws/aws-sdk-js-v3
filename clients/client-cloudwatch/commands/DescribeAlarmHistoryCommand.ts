@@ -46,8 +46,8 @@ export class DescribeAlarmHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeAlarmHistoryInput.filterSensitiveLog,
-      outputFilterLog: DescribeAlarmHistoryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAlarmHistoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAlarmHistoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

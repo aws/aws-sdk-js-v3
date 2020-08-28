@@ -46,8 +46,8 @@ export class JsonListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: JsonListsInputOutput.filterSensitiveLog,
-      outputFilterLog: JsonListsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

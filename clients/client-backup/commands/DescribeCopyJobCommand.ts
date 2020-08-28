@@ -46,8 +46,8 @@ export class DescribeCopyJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeCopyJobInput.filterSensitiveLog,
-      outputFilterLog: DescribeCopyJobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCopyJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCopyJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

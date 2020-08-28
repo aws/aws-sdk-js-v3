@@ -46,8 +46,8 @@ export class GetSearchSuggestionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSearchSuggestionsRequest.filterSensitiveLog,
-      outputFilterLog: GetSearchSuggestionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSearchSuggestionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSearchSuggestionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

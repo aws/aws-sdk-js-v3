@@ -46,8 +46,8 @@ export class AddJobFlowStepsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddJobFlowStepsInput.filterSensitiveLog,
-      outputFilterLog: AddJobFlowStepsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddJobFlowStepsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddJobFlowStepsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

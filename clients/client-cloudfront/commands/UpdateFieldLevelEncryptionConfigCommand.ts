@@ -46,8 +46,8 @@ export class UpdateFieldLevelEncryptionConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateFieldLevelEncryptionConfigRequest.filterSensitiveLog,
-      outputFilterLog: UpdateFieldLevelEncryptionConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFieldLevelEncryptionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFieldLevelEncryptionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

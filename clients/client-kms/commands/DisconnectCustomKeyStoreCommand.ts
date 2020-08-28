@@ -46,8 +46,8 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisconnectCustomKeyStoreRequest.filterSensitiveLog,
-      outputFilterLog: DisconnectCustomKeyStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisconnectCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisconnectCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

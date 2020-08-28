@@ -43,8 +43,8 @@ export class DeleteHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteHITRequest.filterSensitiveLog,
-      outputFilterLog: DeleteHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

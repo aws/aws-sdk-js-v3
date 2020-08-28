@@ -46,8 +46,8 @@ export class DeleteCampaignCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCampaignRequest.filterSensitiveLog,
-      outputFilterLog: DeleteCampaignResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCampaignRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCampaignResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

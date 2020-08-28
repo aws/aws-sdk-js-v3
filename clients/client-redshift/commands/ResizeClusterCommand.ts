@@ -46,8 +46,8 @@ export class ResizeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ResizeClusterMessage.filterSensitiveLog,
-      outputFilterLog: ResizeClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResizeClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ResizeClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

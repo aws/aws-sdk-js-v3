@@ -46,8 +46,8 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateLocalGatewayRouteRequest.filterSensitiveLog,
-      outputFilterLog: CreateLocalGatewayRouteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocalGatewayRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocalGatewayRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class GetCrawlersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCrawlersRequest.filterSensitiveLog,
-      outputFilterLog: GetCrawlersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCrawlersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCrawlersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

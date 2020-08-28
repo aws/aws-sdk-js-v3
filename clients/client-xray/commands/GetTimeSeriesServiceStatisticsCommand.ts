@@ -46,8 +46,8 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTimeSeriesServiceStatisticsRequest.filterSensitiveLog,
-      outputFilterLog: GetTimeSeriesServiceStatisticsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

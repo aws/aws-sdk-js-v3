@@ -46,8 +46,8 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateIamInstanceProfileRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateIamInstanceProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateIamInstanceProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateIamInstanceProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

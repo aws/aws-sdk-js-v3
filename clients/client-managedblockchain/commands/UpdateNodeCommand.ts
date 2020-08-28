@@ -50,8 +50,8 @@ export class UpdateNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateNodeInput.filterSensitiveLog,
-      outputFilterLog: UpdateNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

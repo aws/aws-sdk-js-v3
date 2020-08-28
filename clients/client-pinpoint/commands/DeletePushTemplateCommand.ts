@@ -46,8 +46,8 @@ export class DeletePushTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeletePushTemplateRequest.filterSensitiveLog,
-      outputFilterLog: DeletePushTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePushTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePushTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

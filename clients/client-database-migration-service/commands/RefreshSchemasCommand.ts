@@ -50,8 +50,8 @@ export class RefreshSchemasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RefreshSchemasMessage.filterSensitiveLog,
-      outputFilterLog: RefreshSchemasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RefreshSchemasMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RefreshSchemasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

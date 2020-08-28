@@ -46,8 +46,8 @@ export class GetMetricDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMetricDataInput.filterSensitiveLog,
-      outputFilterLog: GetMetricDataOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMetricDataInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricDataOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,8 @@ export class ImportSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ImportSnapshotRequest.filterSensitiveLog,
-      outputFilterLog: ImportSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ImportSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class PutAutoScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutAutoScalingPolicyInput.filterSensitiveLog,
-      outputFilterLog: PutAutoScalingPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAutoScalingPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAutoScalingPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

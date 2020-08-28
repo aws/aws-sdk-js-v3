@@ -46,8 +46,8 @@ export class DisassociateCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DisassociateCertificateRequest.filterSensitiveLog,
-      outputFilterLog: DisassociateCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

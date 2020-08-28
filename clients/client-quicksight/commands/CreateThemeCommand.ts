@@ -46,8 +46,8 @@ export class CreateThemeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateThemeRequest.filterSensitiveLog,
-      outputFilterLog: CreateThemeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateThemeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateThemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

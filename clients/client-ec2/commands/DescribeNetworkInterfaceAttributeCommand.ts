@@ -46,8 +46,8 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeNetworkInterfaceAttributeRequest.filterSensitiveLog,
-      outputFilterLog: DescribeNetworkInterfaceAttributeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNetworkInterfaceAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNetworkInterfaceAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

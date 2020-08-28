@@ -46,8 +46,8 @@ export class GetTelemetryMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetTelemetryMetadataRequest.filterSensitiveLog,
-      outputFilterLog: GetTelemetryMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTelemetryMetadataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTelemetryMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

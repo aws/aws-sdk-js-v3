@@ -46,8 +46,8 @@ export class DescribeVolumeAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeVolumeAttributeRequest.filterSensitiveLog,
-      outputFilterLog: DescribeVolumeAttributeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVolumeAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVolumeAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

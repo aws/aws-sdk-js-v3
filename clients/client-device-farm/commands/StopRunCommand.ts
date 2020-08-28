@@ -43,8 +43,8 @@ export class StopRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StopRunRequest.filterSensitiveLog,
-      outputFilterLog: StopRunResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

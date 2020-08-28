@@ -50,8 +50,8 @@ export class PutReportDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutReportDefinitionRequest.filterSensitiveLog,
-      outputFilterLog: PutReportDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutReportDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutReportDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListTagsForStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListTagsForStreamInput.filterSensitiveLog,
-      outputFilterLog: ListTagsForStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

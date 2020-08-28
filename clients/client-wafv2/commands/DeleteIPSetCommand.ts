@@ -46,8 +46,8 @@ export class DeleteIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteIPSetRequest.filterSensitiveLog,
-      outputFilterLog: DeleteIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIPSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

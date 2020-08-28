@@ -46,8 +46,8 @@ export class AttachToIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AttachToIndexRequest.filterSensitiveLog,
-      outputFilterLog: AttachToIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachToIndexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachToIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

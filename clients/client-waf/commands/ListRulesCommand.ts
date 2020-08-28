@@ -39,8 +39,8 @@ export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListRulesRequest.filterSensitiveLog,
-      outputFilterLog: ListRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateStreamingURLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateStreamingURLRequest.filterSensitiveLog,
-      outputFilterLog: CreateStreamingURLResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStreamingURLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamingURLResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

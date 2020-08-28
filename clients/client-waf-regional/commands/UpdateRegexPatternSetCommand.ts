@@ -46,8 +46,8 @@ export class UpdateRegexPatternSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRegexPatternSetRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRegexPatternSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

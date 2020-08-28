@@ -46,8 +46,8 @@ export class DeleteDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteDBClusterMessage.filterSensitiveLog,
-      outputFilterLog: DeleteDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

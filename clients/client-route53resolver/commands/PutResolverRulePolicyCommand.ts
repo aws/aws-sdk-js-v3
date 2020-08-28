@@ -46,8 +46,8 @@ export class PutResolverRulePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutResolverRulePolicyRequest.filterSensitiveLog,
-      outputFilterLog: PutResolverRulePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutResolverRulePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutResolverRulePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

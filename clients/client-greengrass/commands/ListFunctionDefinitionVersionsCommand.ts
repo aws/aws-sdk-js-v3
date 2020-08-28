@@ -46,8 +46,8 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListFunctionDefinitionVersionsRequest.filterSensitiveLog,
-      outputFilterLog: ListFunctionDefinitionVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFunctionDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFunctionDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

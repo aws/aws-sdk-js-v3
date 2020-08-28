@@ -50,8 +50,8 @@ export class DescribeICD10CMInferenceJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeICD10CMInferenceJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeICD10CMInferenceJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeICD10CMInferenceJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeICD10CMInferenceJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

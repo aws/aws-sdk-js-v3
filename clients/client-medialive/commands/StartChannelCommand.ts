@@ -46,8 +46,8 @@ export class StartChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartChannelRequest.filterSensitiveLog,
-      outputFilterLog: StartChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

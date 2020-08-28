@@ -48,8 +48,8 @@ export class ListObjectsV2Command extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListObjectsV2Request.filterSensitiveLog,
-      outputFilterLog: ListObjectsV2Output.filterSensitiveLog,
+      inputFilterSensitiveLog: ListObjectsV2Request.filterSensitiveLog,
+      outputFilterSensitiveLog: ListObjectsV2Output.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

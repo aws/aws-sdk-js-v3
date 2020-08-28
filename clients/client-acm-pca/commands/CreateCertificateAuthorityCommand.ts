@@ -46,8 +46,8 @@ export class CreateCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterLog: CreateCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

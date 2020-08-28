@@ -47,8 +47,8 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GenerateServiceLastAccessedDetailsRequest.filterSensitiveLog,
-      outputFilterLog: GenerateServiceLastAccessedDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateServiceLastAccessedDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateServiceLastAccessedDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

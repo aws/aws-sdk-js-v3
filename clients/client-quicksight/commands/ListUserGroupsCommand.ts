@@ -46,8 +46,8 @@ export class ListUserGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListUserGroupsRequest.filterSensitiveLog,
-      outputFilterLog: ListUserGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUserGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUserGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

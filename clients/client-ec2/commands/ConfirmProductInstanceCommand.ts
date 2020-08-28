@@ -46,8 +46,8 @@ export class ConfirmProductInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ConfirmProductInstanceRequest.filterSensitiveLog,
-      outputFilterLog: ConfirmProductInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmProductInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmProductInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

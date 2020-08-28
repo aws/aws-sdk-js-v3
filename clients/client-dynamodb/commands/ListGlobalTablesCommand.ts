@@ -46,8 +46,8 @@ export class ListGlobalTablesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListGlobalTablesInput.filterSensitiveLog,
-      outputFilterLog: ListGlobalTablesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGlobalTablesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListGlobalTablesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

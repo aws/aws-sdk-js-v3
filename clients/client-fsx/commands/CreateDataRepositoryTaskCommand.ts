@@ -46,8 +46,8 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDataRepositoryTaskRequest.filterSensitiveLog,
-      outputFilterLog: CreateDataRepositoryTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDataRepositoryTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataRepositoryTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

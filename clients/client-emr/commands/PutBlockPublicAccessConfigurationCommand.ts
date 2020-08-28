@@ -46,8 +46,8 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutBlockPublicAccessConfigurationInput.filterSensitiveLog,
-      outputFilterLog: PutBlockPublicAccessConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBlockPublicAccessConfigurationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutBlockPublicAccessConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,8 @@ export class GetResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetResourcesInput.filterSensitiveLog,
-      outputFilterLog: GetResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

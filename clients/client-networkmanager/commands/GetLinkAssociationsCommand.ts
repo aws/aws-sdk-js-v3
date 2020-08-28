@@ -46,8 +46,8 @@ export class GetLinkAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetLinkAssociationsRequest.filterSensitiveLog,
-      outputFilterLog: GetLinkAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLinkAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLinkAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

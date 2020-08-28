@@ -46,8 +46,8 @@ export class GetConsoleScreenshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetConsoleScreenshotRequest.filterSensitiveLog,
-      outputFilterLog: GetConsoleScreenshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConsoleScreenshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetConsoleScreenshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartJobRequest.filterSensitiveLog,
-      outputFilterLog: StartJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartJobResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

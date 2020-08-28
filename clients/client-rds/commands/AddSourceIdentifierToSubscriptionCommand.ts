@@ -46,8 +46,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
-      outputFilterLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

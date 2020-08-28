@@ -46,8 +46,8 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteEnvironmentMembershipRequest.filterSensitiveLog,
-      outputFilterLog: DeleteEnvironmentMembershipResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentMembershipRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEnvironmentMembershipResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

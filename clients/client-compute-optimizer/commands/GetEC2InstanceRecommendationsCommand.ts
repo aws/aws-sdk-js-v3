@@ -46,8 +46,8 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetEC2InstanceRecommendationsRequest.filterSensitiveLog,
-      outputFilterLog: GetEC2InstanceRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEC2InstanceRecommendationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEC2InstanceRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

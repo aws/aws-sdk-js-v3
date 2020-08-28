@@ -46,8 +46,8 @@ export class DescribeForecastExportJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeForecastExportJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeForecastExportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeForecastExportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeForecastExportJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

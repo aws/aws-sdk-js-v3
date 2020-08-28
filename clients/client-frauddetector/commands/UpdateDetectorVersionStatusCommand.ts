@@ -46,8 +46,8 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDetectorVersionStatusRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDetectorVersionStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDetectorVersionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDetectorVersionStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

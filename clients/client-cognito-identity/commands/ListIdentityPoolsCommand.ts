@@ -48,8 +48,8 @@ export class ListIdentityPoolsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListIdentityPoolsInput.filterSensitiveLog,
-      outputFilterLog: ListIdentityPoolsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIdentityPoolsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIdentityPoolsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

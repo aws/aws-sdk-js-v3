@@ -46,8 +46,8 @@ export class CreateDBInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateDBInstanceMessage.filterSensitiveLog,
-      outputFilterLog: CreateDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

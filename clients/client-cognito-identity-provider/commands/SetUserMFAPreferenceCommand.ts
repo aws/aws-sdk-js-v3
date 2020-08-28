@@ -50,8 +50,8 @@ export class SetUserMFAPreferenceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetUserMFAPreferenceRequest.filterSensitiveLog,
-      outputFilterLog: SetUserMFAPreferenceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetUserMFAPreferenceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetUserMFAPreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

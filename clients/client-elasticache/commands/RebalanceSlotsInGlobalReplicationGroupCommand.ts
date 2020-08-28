@@ -50,8 +50,8 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RebalanceSlotsInGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterLog: RebalanceSlotsInGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

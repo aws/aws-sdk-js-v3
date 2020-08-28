@@ -46,8 +46,8 @@ export class CreateStackInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateStackInstancesInput.filterSensitiveLog,
-      outputFilterLog: CreateStackInstancesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStackInstancesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStackInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

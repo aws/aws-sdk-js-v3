@@ -50,8 +50,8 @@ export class DeleteCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteCertificateMessage.filterSensitiveLog,
-      outputFilterLog: DeleteCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCertificateMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

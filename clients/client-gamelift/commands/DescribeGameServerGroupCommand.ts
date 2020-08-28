@@ -46,8 +46,8 @@ export class DescribeGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeGameServerGroupInput.filterSensitiveLog,
-      outputFilterLog: DescribeGameServerGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGameServerGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGameServerGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

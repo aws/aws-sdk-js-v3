@@ -48,8 +48,8 @@ export class LookupDeveloperIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: LookupDeveloperIdentityInput.filterSensitiveLog,
-      outputFilterLog: LookupDeveloperIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LookupDeveloperIdentityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: LookupDeveloperIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

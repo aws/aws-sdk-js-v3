@@ -46,8 +46,8 @@ export class GetRecommenderConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetRecommenderConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: GetRecommenderConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecommenderConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRecommenderConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

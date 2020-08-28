@@ -46,8 +46,8 @@ export class DescribeStackSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeStackSummaryRequest.filterSensitiveLog,
-      outputFilterLog: DescribeStackSummaryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStackSummaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackSummaryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

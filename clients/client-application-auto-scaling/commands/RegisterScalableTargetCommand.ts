@@ -50,8 +50,8 @@ export class RegisterScalableTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterScalableTargetRequest.filterSensitiveLog,
-      outputFilterLog: RegisterScalableTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterScalableTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterScalableTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

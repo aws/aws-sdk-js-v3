@@ -46,8 +46,8 @@ export class AllocateStaticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AllocateStaticIpRequest.filterSensitiveLog,
-      outputFilterLog: AllocateStaticIpResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateStaticIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AllocateStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

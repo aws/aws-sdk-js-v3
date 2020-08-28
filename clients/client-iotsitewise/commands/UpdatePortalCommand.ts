@@ -46,8 +46,8 @@ export class UpdatePortalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdatePortalRequest.filterSensitiveLog,
-      outputFilterLog: UpdatePortalResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePortalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePortalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

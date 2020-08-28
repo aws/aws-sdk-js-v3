@@ -53,8 +53,8 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterLog: AssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

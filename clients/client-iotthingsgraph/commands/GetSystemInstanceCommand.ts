@@ -46,8 +46,8 @@ export class GetSystemInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetSystemInstanceRequest.filterSensitiveLog,
-      outputFilterLog: GetSystemInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSystemInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

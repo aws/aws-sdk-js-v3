@@ -46,8 +46,8 @@ export class RegisterToWorkMailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RegisterToWorkMailRequest.filterSensitiveLog,
-      outputFilterLog: RegisterToWorkMailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterToWorkMailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterToWorkMailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

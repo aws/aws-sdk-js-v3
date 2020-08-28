@@ -46,8 +46,8 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
-      outputFilterLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

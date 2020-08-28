@@ -46,8 +46,8 @@ export class GetV2LoggingOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetV2LoggingOptionsRequest.filterSensitiveLog,
-      outputFilterLog: GetV2LoggingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetV2LoggingOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetV2LoggingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

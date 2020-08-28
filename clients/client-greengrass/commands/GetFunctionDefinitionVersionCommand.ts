@@ -46,8 +46,8 @@ export class GetFunctionDefinitionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetFunctionDefinitionVersionRequest.filterSensitiveLog,
-      outputFilterLog: GetFunctionDefinitionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFunctionDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFunctionDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class CreateContainerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CreateContainerInput.filterSensitiveLog,
-      outputFilterLog: CreateContainerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateContainerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateContainerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

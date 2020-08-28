@@ -46,8 +46,8 @@ export class UpdateCustomKeyStoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateCustomKeyStoreRequest.filterSensitiveLog,
-      outputFilterLog: UpdateCustomKeyStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

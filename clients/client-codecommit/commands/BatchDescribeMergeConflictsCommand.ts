@@ -46,8 +46,8 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDescribeMergeConflictsInput.filterSensitiveLog,
-      outputFilterLog: BatchDescribeMergeConflictsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDescribeMergeConflictsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDescribeMergeConflictsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

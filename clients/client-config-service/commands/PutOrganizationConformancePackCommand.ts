@@ -46,8 +46,8 @@ export class PutOrganizationConformancePackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PutOrganizationConformancePackRequest.filterSensitiveLog,
-      outputFilterLog: PutOrganizationConformancePackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutOrganizationConformancePackRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutOrganizationConformancePackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

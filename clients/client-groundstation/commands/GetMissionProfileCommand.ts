@@ -46,8 +46,8 @@ export class GetMissionProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetMissionProfileRequest.filterSensitiveLog,
-      outputFilterLog: GetMissionProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMissionProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMissionProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

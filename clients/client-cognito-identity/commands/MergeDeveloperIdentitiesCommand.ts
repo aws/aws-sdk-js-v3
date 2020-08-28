@@ -48,8 +48,8 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MergeDeveloperIdentitiesInput.filterSensitiveLog,
-      outputFilterLog: MergeDeveloperIdentitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: MergeDeveloperIdentitiesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergeDeveloperIdentitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

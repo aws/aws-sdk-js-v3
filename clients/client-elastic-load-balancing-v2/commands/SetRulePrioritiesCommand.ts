@@ -50,8 +50,8 @@ export class SetRulePrioritiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SetRulePrioritiesInput.filterSensitiveLog,
-      outputFilterLog: SetRulePrioritiesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetRulePrioritiesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetRulePrioritiesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListCandidatesForAutoMLJobRequest.filterSensitiveLog,
-      outputFilterLog: ListCandidatesForAutoMLJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCandidatesForAutoMLJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCandidatesForAutoMLJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

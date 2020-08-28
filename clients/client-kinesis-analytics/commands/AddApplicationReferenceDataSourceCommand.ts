@@ -47,8 +47,8 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AddApplicationReferenceDataSourceRequest.filterSensitiveLog,
-      outputFilterLog: AddApplicationReferenceDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationReferenceDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationReferenceDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

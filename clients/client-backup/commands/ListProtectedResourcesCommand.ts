@@ -46,8 +46,8 @@ export class ListProtectedResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListProtectedResourcesInput.filterSensitiveLog,
-      outputFilterLog: ListProtectedResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProtectedResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProtectedResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class StartDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartDBClusterMessage.filterSensitiveLog,
-      outputFilterLog: StartDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDBClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

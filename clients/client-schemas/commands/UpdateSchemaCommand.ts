@@ -46,8 +46,8 @@ export class UpdateSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateSchemaRequest.filterSensitiveLog,
-      outputFilterLog: UpdateSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

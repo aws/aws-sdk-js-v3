@@ -50,8 +50,8 @@ export class SendMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: SendMessageRequest.filterSensitiveLog,
-      outputFilterLog: SendMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

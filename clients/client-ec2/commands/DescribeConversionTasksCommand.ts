@@ -46,8 +46,8 @@ export class DescribeConversionTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeConversionTasksRequest.filterSensitiveLog,
-      outputFilterLog: DescribeConversionTasksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConversionTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConversionTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

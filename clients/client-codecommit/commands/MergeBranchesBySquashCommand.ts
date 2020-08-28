@@ -46,8 +46,8 @@ export class MergeBranchesBySquashCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: MergeBranchesBySquashInput.filterSensitiveLog,
-      outputFilterLog: MergeBranchesBySquashOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergeBranchesBySquashInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergeBranchesBySquashOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

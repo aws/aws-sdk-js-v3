@@ -46,8 +46,8 @@ export class StartDocumentAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: StartDocumentAnalysisRequest.filterSensitiveLog,
-      outputFilterLog: StartDocumentAnalysisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDocumentAnalysisRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDocumentAnalysisResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

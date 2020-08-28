@@ -46,8 +46,8 @@ export class ListBackupPlanVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ListBackupPlanVersionsInput.filterSensitiveLog,
-      outputFilterLog: ListBackupPlanVersionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBackupPlanVersionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBackupPlanVersionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

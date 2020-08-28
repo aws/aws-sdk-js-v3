@@ -46,8 +46,8 @@ export class ExportJournalToS3Command extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ExportJournalToS3Request.filterSensitiveLog,
-      outputFilterLog: ExportJournalToS3Response.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportJournalToS3Request.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportJournalToS3Response.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

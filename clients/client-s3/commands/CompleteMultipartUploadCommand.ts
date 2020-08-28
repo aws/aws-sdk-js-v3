@@ -48,8 +48,8 @@ export class CompleteMultipartUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: CompleteMultipartUploadRequest.filterSensitiveLog,
-      outputFilterLog: CompleteMultipartUploadOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteMultipartUploadRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteMultipartUploadOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

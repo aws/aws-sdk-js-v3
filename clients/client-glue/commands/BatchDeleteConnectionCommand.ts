@@ -46,8 +46,8 @@ export class BatchDeleteConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: BatchDeleteConnectionRequest.filterSensitiveLog,
-      outputFilterLog: BatchDeleteConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

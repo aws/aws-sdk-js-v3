@@ -46,8 +46,8 @@ export class AssociateFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateFleetRequest.filterSensitiveLog,
-      outputFilterLog: AssociateFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateFleetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateFleetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

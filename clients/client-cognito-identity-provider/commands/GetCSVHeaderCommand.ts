@@ -50,8 +50,8 @@ export class GetCSVHeaderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: GetCSVHeaderRequest.filterSensitiveLog,
-      outputFilterLog: GetCSVHeaderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCSVHeaderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCSVHeaderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

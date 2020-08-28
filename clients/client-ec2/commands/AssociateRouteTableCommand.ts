@@ -46,8 +46,8 @@ export class AssociateRouteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: AssociateRouteTableRequest.filterSensitiveLog,
-      outputFilterLog: AssociateRouteTableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateRouteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateRouteTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

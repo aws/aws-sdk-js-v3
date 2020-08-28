@@ -47,8 +47,8 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRelationalDatabaseParametersRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRelationalDatabaseParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRelationalDatabaseParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRelationalDatabaseParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

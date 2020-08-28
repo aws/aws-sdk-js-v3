@@ -46,8 +46,8 @@ export class PollForActivityTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: PollForActivityTaskInput.filterSensitiveLog,
-      outputFilterLog: ActivityTask.filterSensitiveLog,
+      inputFilterSensitiveLog: PollForActivityTaskInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivityTask.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

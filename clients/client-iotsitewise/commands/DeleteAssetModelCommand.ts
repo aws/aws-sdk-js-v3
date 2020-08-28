@@ -46,8 +46,8 @@ export class DeleteAssetModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteAssetModelRequest.filterSensitiveLog,
-      outputFilterLog: DeleteAssetModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAssetModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAssetModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

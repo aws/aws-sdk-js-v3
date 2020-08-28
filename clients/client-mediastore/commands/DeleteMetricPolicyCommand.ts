@@ -46,8 +46,8 @@ export class DeleteMetricPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DeleteMetricPolicyInput.filterSensitiveLog,
-      outputFilterLog: DeleteMetricPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMetricPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMetricPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -46,8 +46,8 @@ export class RebootNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RebootNodeRequest.filterSensitiveLog,
-      outputFilterLog: RebootNodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootNodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootNodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

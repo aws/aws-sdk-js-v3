@@ -46,8 +46,8 @@ export class RotateChannelCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: RotateChannelCredentialsRequest.filterSensitiveLog,
-      outputFilterLog: RotateChannelCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RotateChannelCredentialsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RotateChannelCredentialsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

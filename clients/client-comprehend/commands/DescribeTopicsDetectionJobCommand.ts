@@ -46,8 +46,8 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeTopicsDetectionJobRequest.filterSensitiveLog,
-      outputFilterLog: DescribeTopicsDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTopicsDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTopicsDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

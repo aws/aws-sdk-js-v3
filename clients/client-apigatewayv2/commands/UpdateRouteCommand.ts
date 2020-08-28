@@ -46,8 +46,8 @@ export class UpdateRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateRouteRequest.filterSensitiveLog,
-      outputFilterLog: UpdateRouteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

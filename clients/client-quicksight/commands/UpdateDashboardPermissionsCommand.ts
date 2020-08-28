@@ -46,8 +46,8 @@ export class UpdateDashboardPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: UpdateDashboardPermissionsRequest.filterSensitiveLog,
-      outputFilterLog: UpdateDashboardPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDashboardPermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDashboardPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

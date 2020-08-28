@@ -43,8 +43,8 @@ export class ModifyVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: ModifyVolumeRequest.filterSensitiveLog,
-      outputFilterLog: ModifyVolumeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyVolumeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyVolumeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

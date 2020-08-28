@@ -46,8 +46,8 @@ export class DescribeStepCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: DescribeStepInput.filterSensitiveLog,
-      outputFilterLog: DescribeStepOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStepInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStepOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
