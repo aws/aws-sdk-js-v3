@@ -47,7 +47,7 @@ export class StopTransformJobCommand extends $Command<
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: StopTransformJobRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

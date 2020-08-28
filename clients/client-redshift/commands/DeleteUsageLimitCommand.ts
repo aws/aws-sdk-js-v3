@@ -47,7 +47,7 @@ export class DeleteUsageLimitCommand extends $Command<
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: DeleteUsageLimitMessage.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

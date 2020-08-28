@@ -47,7 +47,7 @@ export class DeleteAutoScalingGroupCommand extends $Command<
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: DeleteAutoScalingGroupType.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

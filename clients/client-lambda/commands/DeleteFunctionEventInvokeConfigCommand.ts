@@ -47,7 +47,7 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: DeleteFunctionEventInvokeConfigRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

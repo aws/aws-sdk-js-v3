@@ -51,7 +51,7 @@ export class DeleteUserPoolClientCommand extends $Command<
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: DeleteUserPoolClientRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

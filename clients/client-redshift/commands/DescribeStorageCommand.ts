@@ -46,7 +46,7 @@ export class DescribeStorageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
+      inputFilterLog: (input: any) => input,
       outputFilterLog: CustomerStorageMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -43,7 +43,7 @@ export class XmlEnumsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
+      inputFilterLog: (input: any) => input,
       outputFilterLog: XmlEnumsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

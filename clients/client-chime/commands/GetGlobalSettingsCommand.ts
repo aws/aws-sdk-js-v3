@@ -46,7 +46,7 @@ export class GetGlobalSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
+      inputFilterLog: (input: any) => input,
       outputFilterLog: GetGlobalSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

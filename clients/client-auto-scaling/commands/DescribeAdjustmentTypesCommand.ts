@@ -46,7 +46,7 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
+      inputFilterLog: (input: any) => input,
       outputFilterLog: DescribeAdjustmentTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

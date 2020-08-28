@@ -40,7 +40,7 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: TagRoleRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

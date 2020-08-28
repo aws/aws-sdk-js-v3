@@ -40,7 +40,7 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: TagUserRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

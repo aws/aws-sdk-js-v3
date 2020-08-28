@@ -46,7 +46,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
+      inputFilterLog: (input: any) => input,
       outputFilterLog: IgnoreQueryParamsInResponseOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

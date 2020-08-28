@@ -50,7 +50,7 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: DeleteVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

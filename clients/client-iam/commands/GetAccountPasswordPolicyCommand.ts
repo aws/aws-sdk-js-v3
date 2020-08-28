@@ -46,7 +46,7 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
+      inputFilterLog: (input: any) => input,
       outputFilterLog: GetAccountPasswordPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

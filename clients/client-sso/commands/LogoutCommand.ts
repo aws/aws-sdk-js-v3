@@ -40,7 +40,7 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: LogoutRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

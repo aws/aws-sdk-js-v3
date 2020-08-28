@@ -45,8 +45,8 @@ export class LeaveOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterLog: (input) => input,
-      outputFilterLog: (output) => output,
+      inputFilterLog: (input: any) => input,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

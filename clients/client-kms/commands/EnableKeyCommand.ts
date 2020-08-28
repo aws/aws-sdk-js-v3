@@ -40,7 +40,7 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterLog: EnableKeyRequest.filterSensitiveLog,
-      outputFilterLog: (output) => output,
+      outputFilterLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
