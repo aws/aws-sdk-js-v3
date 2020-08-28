@@ -370,7 +370,7 @@ export interface HandlerExecutionContext {
    * A logger that may be invoked by any handler during execution of an
    * operation.
    */
-  logger: Logger;
+  logger?: Logger;
 
   [key: string]: any;
 }
