@@ -9,6 +9,8 @@ import {
   Pluggable,
 } from "@aws-sdk/types";
 
+import { LoggerResolvedConfig } from "./configurations";
+
 export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataBearer>(
   next: FinalizeHandler<any, Output>,
   context: HandlerExecutionContext
@@ -53,7 +55,8 @@ export const loggerMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLo
   step: "finalizeRequest",
 };
 
-export const getLoggerPlugin = (): Pluggable<any, any> => ({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const getLoggerPlugin = (options: LoggerResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(loggerMiddleware(), loggerMiddlewareOptions);
   },
