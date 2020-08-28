@@ -238,6 +238,12 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import {
+  LoggerInputConfig,
+  LoggerResolvedConfig,
+  getLoggerPlugin,
+  resolveLoggerConfig,
+} from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import { getValidateBucketNamePlugin } from "@aws-sdk/middleware-sdk-s3";
 import {
@@ -570,6 +576,7 @@ export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   BucketEndpointInputConfig &
   HostHeaderInputConfig &
+  LoggerInputConfig &
   EventStreamSerdeInputConfig;
 
 export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
@@ -581,6 +588,7 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   BucketEndpointResolvedConfig &
   HostHeaderResolvedConfig &
+  LoggerResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -606,9 +614,10 @@ export class S3Client extends __Client<
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveBucketEndpointConfig(_config_5);
     let _config_7 = resolveHostHeaderConfig(_config_6);
-    let _config_8 = resolveEventStreamSerdeConfig(_config_7);
-    super(_config_8);
-    this.config = _config_8;
+    let _config_8 = resolveLoggerConfig(_config_7);
+    let _config_9 = resolveEventStreamSerdeConfig(_config_8);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
@@ -616,6 +625,7 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {
