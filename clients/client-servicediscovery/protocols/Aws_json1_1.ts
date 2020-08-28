@@ -240,7 +240,7 @@ export const serializeAws_json1_1DiscoverInstancesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DiscoverInstancesRequest(input, context));
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data-" + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
