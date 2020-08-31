@@ -1,4 +1,4 @@
-import { ARN, build, parse, validate } from "./index";
+import { build, parse, validate } from "./index";
 
 describe("validate", () => {
   it("should validate whether input is a qualified resource ARN", () => {

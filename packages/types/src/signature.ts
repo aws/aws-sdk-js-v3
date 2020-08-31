@@ -1,5 +1,4 @@
 import { HttpRequest } from "./http";
-import { Provider } from "./util";
 
 /**
  * A {Date} object, a unix (epoch) timestamp in seconds, or a string that can be
