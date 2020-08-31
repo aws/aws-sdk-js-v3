@@ -4,20 +4,49 @@ import {
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestHandlerOptions,
+  HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 
 import { LoggerResolvedConfig } from "./configurations";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const loggerMiddleware = (options: LoggerResolvedConfig) => <Output extends MetadataBearer = MetadataBearer>(
-  next: FinalizeHandler<any, Output>
+export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataBearer>(
+  next: FinalizeHandler<any, Output>,
+  context: HandlerExecutionContext
 ): FinalizeHandler<any, Output> => async (
   args: FinalizeHandlerArguments<any>
 ): Promise<FinalizeHandlerOutput<Output>> => {
-  // TODO: use and call options.logger once it's available in context
-  return next(args);
+  const { logger, inputFilterSensitiveLog, outputFilterSensitiveLog } = context;
+
+  const response = await next(args);
+
+  if (!logger) {
+    return response;
+  }
+
+  const {
+    output: { $metadata, ...outputWithoutMetadata },
+  } = response;
+
+  if (typeof logger.debug === "function") {
+    logger.debug({
+      httpRequest: { ...(args.request as any), body: "examine input under info" },
+    });
+    logger.debug({
+      httpResponse: { ...(response.response as any), body: "examine output under info" },
+    });
+  }
+
+  if (typeof logger.info === "function") {
+    logger.info({
+      $metadata,
+      input: inputFilterSensitiveLog(args.input),
+      output: outputFilterSensitiveLog(outputWithoutMetadata),
+    });
+  }
+
+  return response;
 };
 
 export const loggerMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
@@ -26,8 +55,9 @@ export const loggerMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLo
   step: "finalizeRequest",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getLoggerPlugin = (options: LoggerResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(loggerMiddleware(options), loggerMiddlewareOptions);
+    clientStack.add(loggerMiddleware(), loggerMiddlewareOptions);
   },
 });
