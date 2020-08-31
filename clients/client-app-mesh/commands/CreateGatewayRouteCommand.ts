@@ -1,8 +1,8 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteMeshPolicyInput, DeleteMeshPolicyOutput } from "../models/index";
+import { CreateGatewayRouteInput, CreateGatewayRouteOutput } from "../models/index";
 import {
-  deserializeAws_restJson1DeleteMeshPolicyCommand,
-  serializeAws_restJson1DeleteMeshPolicyCommand,
+  deserializeAws_restJson1CreateGatewayRouteCommand,
+  serializeAws_restJson1CreateGatewayRouteCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,18 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMeshPolicyCommandInput = DeleteMeshPolicyInput;
-export type DeleteMeshPolicyCommandOutput = DeleteMeshPolicyOutput & __MetadataBearer;
+export type CreateGatewayRouteCommandInput = CreateGatewayRouteInput;
+export type CreateGatewayRouteCommandOutput = CreateGatewayRouteOutput & __MetadataBearer;
 
-export class DeleteMeshPolicyCommand extends $Command<
-  DeleteMeshPolicyCommandInput,
-  DeleteMeshPolicyCommandOutput,
+export class CreateGatewayRouteCommand extends $Command<
+  CreateGatewayRouteCommandInput,
+  CreateGatewayRouteCommandOutput,
   AppMeshClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DeleteMeshPolicyCommandInput) {
+  constructor(readonly input: CreateGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -38,7 +38,7 @@ export class DeleteMeshPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMeshPolicyCommandInput, DeleteMeshPolicyCommandOutput> {
+  ): Handler<CreateGatewayRouteCommandInput, CreateGatewayRouteCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -46,8 +46,8 @@ export class DeleteMeshPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: DeleteMeshPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMeshPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGatewayRouteInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGatewayRouteOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -57,12 +57,12 @@ export class DeleteMeshPolicyCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteMeshPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMeshPolicyCommand(input, context);
+  private serialize(input: CreateGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateGatewayRouteCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMeshPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteMeshPolicyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayRouteCommandOutput> {
+    return deserializeAws_restJson1CreateGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

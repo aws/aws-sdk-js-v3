@@ -1,8 +1,8 @@
 import { defaultRegionInfoProvider } from "./endpoints";
 
 export const ClientSharedValues = {
-  apiVersion: "2019-11-01",
+  apiVersion: "2019-09-01",
   disableHostPrefix: false,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "access-analyzer",
+  signingName: "braket",
 };

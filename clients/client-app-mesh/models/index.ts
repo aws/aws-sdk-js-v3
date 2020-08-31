@@ -73,13 +73,6 @@ export namespace AwsCloudMapInstanceAttribute {
 export interface AwsCloudMapServiceDiscovery {
   __type?: "AwsCloudMapServiceDiscovery";
   /**
-   * <p>A string map that contains attributes with values that you can use to filter instances
-   *          by any custom attribute that you specified when you registered the instance. Only instances
-   *          that match all of the specified key/value pairs will be returned.</p>
-   */
-  attributes?: AwsCloudMapInstanceAttribute[];
-
-  /**
    * <p>The name of the AWS Cloud Map namespace to use.</p>
    */
   namespaceName: string | undefined;
@@ -88,6 +81,13 @@ export interface AwsCloudMapServiceDiscovery {
    * <p>The name of the AWS Cloud Map service to use.</p>
    */
   serviceName: string | undefined;
+
+  /**
+   * <p>A string map that contains attributes with values that you can use to filter instances
+   *          by any custom attribute that you specified when you registered the instance. Only instances
+   *          that match all of the specified key/value pairs will be returned.</p>
+   */
+  attributes?: AwsCloudMapInstanceAttribute[];
 }
 
 export namespace AwsCloudMapServiceDiscovery {
@@ -211,7 +211,7 @@ export interface ClientPolicyTls {
   /**
    * <p>A reference to an object that represents a TLS validation context.</p>
    */
-  validation?: TlsValidationContext;
+  validation: TlsValidationContext | undefined;
 }
 
 export namespace ClientPolicyTls {
@@ -239,17 +239,79 @@ export namespace ConflictException {
   export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
-/**
- *
- */
-export interface CreateMeshInput {
-  __type?: "CreateMeshInput";
+export interface CreateGatewayRouteInput {
+  __type?: "CreateGatewayRouteInput";
+  /**
+   * <p>The name to use for the gateway route.</p>
+   */
+  gatewayRouteName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh to create the gateway route in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual gateway to associate the gateway route with. If the virtual
+   *          gateway is in a shared mesh, then you must be the owner of the virtual gateway
+   *          resource.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The gateway route specification to apply.</p>
+   */
+  spec: GatewayRouteSpec | undefined;
+
+  /**
+   * <p>Optional metadata that you can apply to the gateway route to assist with categorization
+   *          and organization. Each tag consists of a key and an optional value, both of which you
+   *          define. Tag keys can have a maximum character length of 128 characters, and tag values can have
+   *             a maximum length of 256 characters.</p>
+   */
+  tags?: TagRef[];
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
   clientToken?: string;
 
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace CreateGatewayRouteInput {
+  export const filterSensitiveLog = (obj: CreateGatewayRouteInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateGatewayRouteInput => __isa(o, "CreateGatewayRouteInput");
+}
+
+export interface CreateGatewayRouteOutput {
+  __type?: "CreateGatewayRouteOutput";
+  /**
+   * <p>The full description of your gateway route following the create call.</p>
+   */
+  gatewayRoute: GatewayRouteData | undefined;
+}
+
+export namespace CreateGatewayRouteOutput {
+  export const filterSensitiveLog = (obj: CreateGatewayRouteOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateGatewayRouteOutput => __isa(o, "CreateGatewayRouteOutput");
+}
+
+/**
+ *
+ */
+export interface CreateMeshInput {
+  __type?: "CreateMeshInput";
   /**
    * <p>The name to use for the service mesh.</p>
    */
@@ -267,6 +329,12 @@ export interface CreateMeshInput {
    *             a maximum length of 256 characters.</p>
    */
   tags?: TagRef[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace CreateMeshInput {
@@ -300,10 +368,9 @@ export namespace CreateMeshOutput {
 export interface CreateRouteInput {
   __type?: "CreateRouteInput";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the route.</p>
    */
-  clientToken?: string;
+  routeName: string | undefined;
 
   /**
    * <p>The name of the service mesh to create the route in.</p>
@@ -311,16 +378,10 @@ export interface CreateRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   * <p>The name of the virtual router in which to create the route. If the virtual router is in
+   *          a shared mesh, then you must be the owner of the virtual router resource.</p>
    */
-  meshOwner?: string;
-
-  /**
-   * <p>The name to use for the route.</p>
-   */
-  routeName: string | undefined;
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The route specification to apply.</p>
@@ -336,10 +397,17 @@ export interface CreateRouteInput {
   tags?: TagRef[];
 
   /**
-   * <p>The name of the virtual router in which to create the route. If the virtual router is in
-   *          a shared mesh, then you must be the owner of the virtual router resource.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualRouterName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace CreateRouteInput {
@@ -367,11 +435,31 @@ export namespace CreateRouteOutput {
   export const isa = (o: any): o is CreateRouteOutput => __isa(o, "CreateRouteOutput");
 }
 
-/**
- *
- */
-export interface CreateVirtualNodeInput {
-  __type?: "CreateVirtualNodeInput";
+export interface CreateVirtualGatewayInput {
+  __type?: "CreateVirtualGatewayInput";
+  /**
+   * <p>The name to use for the virtual gateway.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh to create the virtual gateway in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The virtual gateway specification to apply.</p>
+   */
+  spec: VirtualGatewaySpec | undefined;
+
+  /**
+   * <p>Optional metadata that you can apply to the virtual gateway to assist with
+   *          categorization and organization. Each tag consists of a key and an optional value, both of
+   *          which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have
+   *             a maximum length of 256 characters.</p>
+   */
+  tags?: TagRef[];
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
@@ -379,16 +467,51 @@ export interface CreateVirtualNodeInput {
   clientToken?: string;
 
   /**
-   * <p>The name of the service mesh to create the virtual node in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+}
+
+export namespace CreateVirtualGatewayInput {
+  export const filterSensitiveLog = (obj: CreateVirtualGatewayInput): any => ({
+    ...obj,
+    ...(obj.spec && { spec: VirtualGatewaySpec.filterSensitiveLog(obj.spec) }),
+  });
+  export const isa = (o: any): o is CreateVirtualGatewayInput => __isa(o, "CreateVirtualGatewayInput");
+}
+
+export interface CreateVirtualGatewayOutput {
+  __type?: "CreateVirtualGatewayOutput";
+  /**
+   * <p>The full description of your virtual gateway following the create call.</p>
+   */
+  virtualGateway: VirtualGatewayData | undefined;
+}
+
+export namespace CreateVirtualGatewayOutput {
+  export const filterSensitiveLog = (obj: CreateVirtualGatewayOutput): any => ({
+    ...obj,
+    ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
+  });
+  export const isa = (o: any): o is CreateVirtualGatewayOutput => __isa(o, "CreateVirtualGatewayOutput");
+}
+
+/**
+ *
+ */
+export interface CreateVirtualNodeInput {
+  __type?: "CreateVirtualNodeInput";
+  /**
+   * <p>The name to use for the virtual node.</p>
+   */
+  virtualNodeName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh to create the virtual node in.</p>
+   */
+  meshName: string | undefined;
 
   /**
    * <p>The virtual node specification to apply.</p>
@@ -404,9 +527,17 @@ export interface CreateVirtualNodeInput {
   tags?: TagRef[];
 
   /**
-   * <p>The name to use for the virtual node.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualNodeName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace CreateVirtualNodeInput {
@@ -442,22 +573,14 @@ export namespace CreateVirtualNodeOutput {
 export interface CreateVirtualRouterInput {
   __type?: "CreateVirtualRouterInput";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the virtual router.</p>
    */
-  clientToken?: string;
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The name of the service mesh to create the virtual router in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
 
   /**
    * <p>The virtual router specification to apply.</p>
@@ -473,9 +596,17 @@ export interface CreateVirtualRouterInput {
   tags?: TagRef[];
 
   /**
-   * <p>The name to use for the virtual router.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualRouterName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace CreateVirtualRouterInput {
@@ -509,22 +640,14 @@ export namespace CreateVirtualRouterOutput {
 export interface CreateVirtualServiceInput {
   __type?: "CreateVirtualServiceInput";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the virtual service.</p>
    */
-  clientToken?: string;
+  virtualServiceName: string | undefined;
 
   /**
    * <p>The name of the service mesh to create the virtual service in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
 
   /**
    * <p>The virtual service specification to apply.</p>
@@ -540,9 +663,17 @@ export interface CreateVirtualServiceInput {
   tags?: TagRef[];
 
   /**
-   * <p>The name to use for the virtual service.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualServiceName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace CreateVirtualServiceInput {
@@ -570,6 +701,52 @@ export namespace CreateVirtualServiceOutput {
     ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
   export const isa = (o: any): o is CreateVirtualServiceOutput => __isa(o, "CreateVirtualServiceOutput");
+}
+
+export interface DeleteGatewayRouteInput {
+  __type?: "DeleteGatewayRouteInput";
+  /**
+   * <p>The name of the gateway route to delete.</p>
+   */
+  gatewayRouteName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh to delete the gateway route from.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual gateway to delete the route from.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace DeleteGatewayRouteInput {
+  export const filterSensitiveLog = (obj: DeleteGatewayRouteInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteGatewayRouteInput => __isa(o, "DeleteGatewayRouteInput");
+}
+
+export interface DeleteGatewayRouteOutput {
+  __type?: "DeleteGatewayRouteOutput";
+  /**
+   * <p>The gateway route that was deleted.</p>
+   */
+  gatewayRoute: GatewayRouteData | undefined;
+}
+
+export namespace DeleteGatewayRouteOutput {
+  export const filterSensitiveLog = (obj: DeleteGatewayRouteOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteGatewayRouteOutput => __isa(o, "DeleteGatewayRouteOutput");
 }
 
 /**
@@ -608,54 +785,31 @@ export namespace DeleteMeshOutput {
   export const isa = (o: any): o is DeleteMeshOutput => __isa(o, "DeleteMeshOutput");
 }
 
-export interface DeleteMeshPolicyInput {
-  __type?: "DeleteMeshPolicyInput";
-  meshArn: string | undefined;
-}
-
-export namespace DeleteMeshPolicyInput {
-  export const filterSensitiveLog = (obj: DeleteMeshPolicyInput): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is DeleteMeshPolicyInput => __isa(o, "DeleteMeshPolicyInput");
-}
-
-export interface DeleteMeshPolicyOutput {
-  __type?: "DeleteMeshPolicyOutput";
-}
-
-export namespace DeleteMeshPolicyOutput {
-  export const filterSensitiveLog = (obj: DeleteMeshPolicyOutput): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is DeleteMeshPolicyOutput => __isa(o, "DeleteMeshPolicyOutput");
-}
-
 /**
  *
  */
 export interface DeleteRouteInput {
   __type?: "DeleteRouteInput";
   /**
+   * <p>The name of the route to delete.</p>
+   */
+  routeName: string | undefined;
+
+  /**
    * <p>The name of the service mesh to delete the route in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual router to delete the route in.</p>
+   */
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the route to delete.</p>
-   */
-  routeName: string | undefined;
-
-  /**
-   * <p>The name of the virtual router to delete the route in.</p>
-   */
-  virtualRouterName: string | undefined;
 }
 
 export namespace DeleteRouteInput {
@@ -683,11 +837,58 @@ export namespace DeleteRouteOutput {
   export const isa = (o: any): o is DeleteRouteOutput => __isa(o, "DeleteRouteOutput");
 }
 
+export interface DeleteVirtualGatewayInput {
+  __type?: "DeleteVirtualGatewayInput";
+  /**
+   * <p>The name of the virtual gateway to delete.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh to delete the virtual gateway from.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace DeleteVirtualGatewayInput {
+  export const filterSensitiveLog = (obj: DeleteVirtualGatewayInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteVirtualGatewayInput => __isa(o, "DeleteVirtualGatewayInput");
+}
+
+export interface DeleteVirtualGatewayOutput {
+  __type?: "DeleteVirtualGatewayOutput";
+  /**
+   * <p>The virtual gateway that was deleted.</p>
+   */
+  virtualGateway: VirtualGatewayData | undefined;
+}
+
+export namespace DeleteVirtualGatewayOutput {
+  export const filterSensitiveLog = (obj: DeleteVirtualGatewayOutput): any => ({
+    ...obj,
+    ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
+  });
+  export const isa = (o: any): o is DeleteVirtualGatewayOutput => __isa(o, "DeleteVirtualGatewayOutput");
+}
+
 /**
  *
  */
 export interface DeleteVirtualNodeInput {
   __type?: "DeleteVirtualNodeInput";
+  /**
+   * <p>The name of the virtual node to delete.</p>
+   */
+  virtualNodeName: string | undefined;
+
   /**
    * <p>The name of the service mesh to delete the virtual node in.</p>
    */
@@ -698,11 +899,6 @@ export interface DeleteVirtualNodeInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the virtual node to delete.</p>
-   */
-  virtualNodeName: string | undefined;
 }
 
 export namespace DeleteVirtualNodeInput {
@@ -737,6 +933,11 @@ export namespace DeleteVirtualNodeOutput {
 export interface DeleteVirtualRouterInput {
   __type?: "DeleteVirtualRouterInput";
   /**
+   * <p>The name of the virtual router to delete.</p>
+   */
+  virtualRouterName: string | undefined;
+
+  /**
    * <p>The name of the service mesh to delete the virtual router in.</p>
    */
   meshName: string | undefined;
@@ -746,11 +947,6 @@ export interface DeleteVirtualRouterInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the virtual router to delete.</p>
-   */
-  virtualRouterName: string | undefined;
 }
 
 export namespace DeleteVirtualRouterInput {
@@ -784,6 +980,11 @@ export namespace DeleteVirtualRouterOutput {
 export interface DeleteVirtualServiceInput {
   __type?: "DeleteVirtualServiceInput";
   /**
+   * <p>The name of the virtual service to delete.</p>
+   */
+  virtualServiceName: string | undefined;
+
+  /**
    * <p>The name of the service mesh to delete the virtual service in.</p>
    */
   meshName: string | undefined;
@@ -793,11 +994,6 @@ export interface DeleteVirtualServiceInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the virtual service to delete.</p>
-   */
-  virtualServiceName: string | undefined;
 }
 
 export namespace DeleteVirtualServiceInput {
@@ -824,6 +1020,52 @@ export namespace DeleteVirtualServiceOutput {
     ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
   export const isa = (o: any): o is DeleteVirtualServiceOutput => __isa(o, "DeleteVirtualServiceOutput");
+}
+
+export interface DescribeGatewayRouteInput {
+  __type?: "DescribeGatewayRouteInput";
+  /**
+   * <p>The name of the gateway route to describe.</p>
+   */
+  gatewayRouteName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh that the gateway route resides in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual gateway that the gateway route is associated with.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace DescribeGatewayRouteInput {
+  export const filterSensitiveLog = (obj: DescribeGatewayRouteInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeGatewayRouteInput => __isa(o, "DescribeGatewayRouteInput");
+}
+
+export interface DescribeGatewayRouteOutput {
+  __type?: "DescribeGatewayRouteOutput";
+  /**
+   * <p>The full description of your gateway route.</p>
+   */
+  gatewayRoute: GatewayRouteData | undefined;
+}
+
+export namespace DescribeGatewayRouteOutput {
+  export const filterSensitiveLog = (obj: DescribeGatewayRouteOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeGatewayRouteOutput => __isa(o, "DescribeGatewayRouteOutput");
 }
 
 /**
@@ -874,6 +1116,11 @@ export namespace DescribeMeshOutput {
 export interface DescribeRouteInput {
   __type?: "DescribeRouteInput";
   /**
+   * <p>The name of the route to describe.</p>
+   */
+  routeName: string | undefined;
+
+  /**
    * <p>The name of the service mesh that the route resides in.</p>
    */
   meshName: string | undefined;
@@ -883,11 +1130,6 @@ export interface DescribeRouteInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the route to describe.</p>
-   */
-  routeName: string | undefined;
 
   /**
    * <p>The name of the virtual router that the route is associated with.</p>
@@ -920,11 +1162,58 @@ export namespace DescribeRouteOutput {
   export const isa = (o: any): o is DescribeRouteOutput => __isa(o, "DescribeRouteOutput");
 }
 
+export interface DescribeVirtualGatewayInput {
+  __type?: "DescribeVirtualGatewayInput";
+  /**
+   * <p>The name of the virtual gateway to describe.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh that the gateway route resides in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace DescribeVirtualGatewayInput {
+  export const filterSensitiveLog = (obj: DescribeVirtualGatewayInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeVirtualGatewayInput => __isa(o, "DescribeVirtualGatewayInput");
+}
+
+export interface DescribeVirtualGatewayOutput {
+  __type?: "DescribeVirtualGatewayOutput";
+  /**
+   * <p>The full description of your virtual gateway.</p>
+   */
+  virtualGateway: VirtualGatewayData | undefined;
+}
+
+export namespace DescribeVirtualGatewayOutput {
+  export const filterSensitiveLog = (obj: DescribeVirtualGatewayOutput): any => ({
+    ...obj,
+    ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
+  });
+  export const isa = (o: any): o is DescribeVirtualGatewayOutput => __isa(o, "DescribeVirtualGatewayOutput");
+}
+
 /**
  *
  */
 export interface DescribeVirtualNodeInput {
   __type?: "DescribeVirtualNodeInput";
+  /**
+   * <p>The name of the virtual node to describe.</p>
+   */
+  virtualNodeName: string | undefined;
+
   /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
    */
@@ -935,11 +1224,6 @@ export interface DescribeVirtualNodeInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the virtual node to describe.</p>
-   */
-  virtualNodeName: string | undefined;
 }
 
 export namespace DescribeVirtualNodeInput {
@@ -974,6 +1258,11 @@ export namespace DescribeVirtualNodeOutput {
 export interface DescribeVirtualRouterInput {
   __type?: "DescribeVirtualRouterInput";
   /**
+   * <p>The name of the virtual router to describe.</p>
+   */
+  virtualRouterName: string | undefined;
+
+  /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
    */
   meshName: string | undefined;
@@ -983,11 +1272,6 @@ export interface DescribeVirtualRouterInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the virtual router to describe.</p>
-   */
-  virtualRouterName: string | undefined;
 }
 
 export namespace DescribeVirtualRouterInput {
@@ -1021,6 +1305,11 @@ export namespace DescribeVirtualRouterOutput {
 export interface DescribeVirtualServiceInput {
   __type?: "DescribeVirtualServiceInput";
   /**
+   * <p>The name of the virtual service to describe.</p>
+   */
+  virtualServiceName: string | undefined;
+
+  /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
   meshName: string | undefined;
@@ -1030,11 +1319,6 @@ export interface DescribeVirtualServiceInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The name of the virtual service to describe.</p>
-   */
-  virtualServiceName: string | undefined;
 }
 
 export namespace DescribeVirtualServiceInput {
@@ -1088,14 +1372,14 @@ export namespace DnsServiceDiscovery {
 export interface Duration {
   __type?: "Duration";
   /**
-   * <p>A unit of time.</p>
-   */
-  unit?: DurationUnit | string;
-
-  /**
    * <p>A number of time units.</p>
    */
   value?: number;
+
+  /**
+   * <p>A unit of time.</p>
+   */
+  unit?: DurationUnit | string;
 }
 
 export namespace Duration {
@@ -1179,28 +1463,255 @@ export namespace ForbiddenException {
   export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
-export interface GetMeshPolicyInput {
-  __type?: "GetMeshPolicyInput";
-  meshArn: string | undefined;
+/**
+ * <p>An object that represents a gateway route returned by a describe operation.</p>
+ */
+export interface GatewayRouteData {
+  __type?: "GatewayRouteData";
+  /**
+   * <p>The name of the service mesh that the resource resides in. </p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the gateway route.</p>
+   */
+  gatewayRouteName: string | undefined;
+
+  /**
+   * <p>The virtual gateway that the gateway route is associated with.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The specifications of the gateway route.</p>
+   */
+  spec: GatewayRouteSpec | undefined;
+
+  /**
+   * <p>An object that represents metadata for a resource.</p>
+   */
+  metadata: ResourceMetadata | undefined;
+
+  /**
+   * <p>The status of the gateway route.</p>
+   */
+  status: GatewayRouteStatus | undefined;
 }
 
-export namespace GetMeshPolicyInput {
-  export const filterSensitiveLog = (obj: GetMeshPolicyInput): any => ({
+export namespace GatewayRouteData {
+  export const filterSensitiveLog = (obj: GatewayRouteData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMeshPolicyInput => __isa(o, "GetMeshPolicyInput");
+  export const isa = (o: any): o is GatewayRouteData => __isa(o, "GatewayRouteData");
 }
 
-export interface GetMeshPolicyOutput {
-  __type?: "GetMeshPolicyOutput";
-  policy: string | undefined;
+/**
+ * <p>An object that represents a gateway route returned by a list operation.</p>
+ */
+export interface GatewayRouteRef {
+  __type?: "GatewayRouteRef";
+  /**
+   * <p>The name of the service mesh that the resource resides in. </p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the gateway route.</p>
+   */
+  gatewayRouteName: string | undefined;
+
+  /**
+   * <p>The virtual gateway that the gateway route is associated with.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  resourceOwner: string | undefined;
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) for the gateway route.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
-export namespace GetMeshPolicyOutput {
-  export const filterSensitiveLog = (obj: GetMeshPolicyOutput): any => ({
+export namespace GatewayRouteRef {
+  export const filterSensitiveLog = (obj: GatewayRouteRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMeshPolicyOutput => __isa(o, "GetMeshPolicyOutput");
+  export const isa = (o: any): o is GatewayRouteRef => __isa(o, "GatewayRouteRef");
+}
+
+/**
+ * <p>An object that represents a gateway route specification. Specify one gateway route
+ *          type.</p>
+ */
+export interface GatewayRouteSpec {
+  __type?: "GatewayRouteSpec";
+  /**
+   * <p>An object that represents the specification of an HTTP gateway route.</p>
+   */
+  httpRoute?: HttpGatewayRoute;
+
+  /**
+   * <p>An object that represents the specification of an HTTP/2 gateway route.</p>
+   */
+  http2Route?: HttpGatewayRoute;
+
+  /**
+   * <p>An object that represents the specification of a gRPC gateway route.</p>
+   */
+  grpcRoute?: GrpcGatewayRoute;
+}
+
+export namespace GatewayRouteSpec {
+  export const filterSensitiveLog = (obj: GatewayRouteSpec): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GatewayRouteSpec => __isa(o, "GatewayRouteSpec");
+}
+
+/**
+ * <p>An object that represents the current status of a gateway route.</p>
+ */
+export interface GatewayRouteStatus {
+  __type?: "GatewayRouteStatus";
+  /**
+   * <p>The current status for the gateway route.</p>
+   */
+  status: GatewayRouteStatusCode | string | undefined;
+}
+
+export namespace GatewayRouteStatus {
+  export const filterSensitiveLog = (obj: GatewayRouteStatus): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GatewayRouteStatus => __isa(o, "GatewayRouteStatus");
+}
+
+export enum GatewayRouteStatusCode {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+  INACTIVE = "INACTIVE",
+}
+
+/**
+ * <p>An object that represents a gateway route target.</p>
+ */
+export interface GatewayRouteTarget {
+  __type?: "GatewayRouteTarget";
+  /**
+   * <p>An object that represents a virtual service gateway route target.</p>
+   */
+  virtualService: GatewayRouteVirtualService | undefined;
+}
+
+export namespace GatewayRouteTarget {
+  export const filterSensitiveLog = (obj: GatewayRouteTarget): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GatewayRouteTarget => __isa(o, "GatewayRouteTarget");
+}
+
+/**
+ * <p>An object that represents the virtual service that traffic is routed to.</p>
+ */
+export interface GatewayRouteVirtualService {
+  __type?: "GatewayRouteVirtualService";
+  /**
+   * <p>The name of the virtual service that traffic is routed to.</p>
+   */
+  virtualServiceName: string | undefined;
+}
+
+export namespace GatewayRouteVirtualService {
+  export const filterSensitiveLog = (obj: GatewayRouteVirtualService): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GatewayRouteVirtualService => __isa(o, "GatewayRouteVirtualService");
+}
+
+/**
+ * <p>An object that represents a gRPC gateway route.</p>
+ */
+export interface GrpcGatewayRoute {
+  __type?: "GrpcGatewayRoute";
+  /**
+   * <p>An object that represents the criteria for determining a request match.</p>
+   */
+  match: GrpcGatewayRouteMatch | undefined;
+
+  /**
+   * <p>An object that represents the action to take if a match is determined.</p>
+   */
+  action: GrpcGatewayRouteAction | undefined;
+}
+
+export namespace GrpcGatewayRoute {
+  export const filterSensitiveLog = (obj: GrpcGatewayRoute): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GrpcGatewayRoute => __isa(o, "GrpcGatewayRoute");
+}
+
+/**
+ * <p>An object that represents the action to take if a match is determined.</p>
+ */
+export interface GrpcGatewayRouteAction {
+  __type?: "GrpcGatewayRouteAction";
+  /**
+   * <p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>
+   */
+  target: GatewayRouteTarget | undefined;
+}
+
+export namespace GrpcGatewayRouteAction {
+  export const filterSensitiveLog = (obj: GrpcGatewayRouteAction): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GrpcGatewayRouteAction => __isa(o, "GrpcGatewayRouteAction");
+}
+
+/**
+ * <p>An object that represents the criteria for determining a request match.</p>
+ */
+export interface GrpcGatewayRouteMatch {
+  __type?: "GrpcGatewayRouteMatch";
+  /**
+   * <p>The fully qualified domain name for the service to match from the request.</p>
+   */
+  serviceName?: string;
+}
+
+export namespace GrpcGatewayRouteMatch {
+  export const filterSensitiveLog = (obj: GrpcGatewayRouteMatch): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GrpcGatewayRouteMatch => __isa(o, "GrpcGatewayRouteMatch");
 }
 
 /**
@@ -1209,9 +1720,14 @@ export namespace GetMeshPolicyOutput {
 export interface GrpcRetryPolicy {
   __type?: "GrpcRetryPolicy";
   /**
-   * <p>Specify at least one of the valid values.</p>
+   * <p>An object that represents a duration of time.</p>
    */
-  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
+  perRetryTimeout: Duration | undefined;
+
+  /**
+   * <p>The maximum number of retry attempts.</p>
+   */
+  maxRetries: number | undefined;
 
   /**
    * <p>Specify at least one of the following values.</p>
@@ -1240,19 +1756,14 @@ export interface GrpcRetryPolicy {
   httpRetryEvents?: string[];
 
   /**
-   * <p>The maximum number of retry attempts.</p>
-   */
-  maxRetries: number | undefined;
-
-  /**
-   * <p>An object that represents a duration of time.</p>
-   */
-  perRetryTimeout: Duration | undefined;
-
-  /**
    * <p>Specify a valid value.</p>
    */
   tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
+
+  /**
+   * <p>Specify at least one of the valid values.</p>
+   */
+  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
 }
 
 export namespace GrpcRetryPolicy {
@@ -1290,6 +1801,9 @@ export interface GrpcRoute {
    */
   retryPolicy?: GrpcRetryPolicy;
 
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
   timeout?: GrpcTimeout;
 }
 
@@ -1324,9 +1838,9 @@ export namespace GrpcRouteAction {
 export interface GrpcRouteMatch {
   __type?: "GrpcRouteMatch";
   /**
-   * <p>An object that represents the data to match from the request.</p>
+   * <p>The fully qualified domain name for the service to match from the request.</p>
    */
-  metadata?: GrpcRouteMetadata[];
+  serviceName?: string;
 
   /**
    * <p>The method name to match from the request. If you specify a name, you must also specify
@@ -1335,9 +1849,9 @@ export interface GrpcRouteMatch {
   methodName?: string;
 
   /**
-   * <p>The fully qualified domain name for the service to match from the request.</p>
+   * <p>An object that represents the data to match from the request.</p>
    */
-  serviceName?: string;
+  metadata?: GrpcRouteMetadata[];
 }
 
 export namespace GrpcRouteMatch {
@@ -1354,6 +1868,11 @@ export namespace GrpcRouteMatch {
 export interface GrpcRouteMetadata {
   __type?: "GrpcRouteMetadata";
   /**
+   * <p>The name of the route.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
    */
   invert?: boolean;
@@ -1362,11 +1881,6 @@ export interface GrpcRouteMetadata {
    * <p>An object that represents the data to match from the request.</p>
    */
   match?: GrpcRouteMetadataMatchMethod;
-
-  /**
-   * <p>The name of the route.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace GrpcRouteMetadata {
@@ -1398,33 +1912,9 @@ export namespace GrpcRouteMetadataMatchMethod {
    */
   export interface ExactMember extends $Base {
     exact: string;
-    prefix?: never;
+    regex?: never;
     range?: never;
-    regex?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The value sent by the client must begin with the specified characters.</p>
-   */
-  export interface PrefixMember extends $Base {
-    exact?: never;
-    prefix: string;
-    range?: never;
-    regex?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An object that represents the range of values to match on.</p>
-   */
-  export interface RangeMember extends $Base {
-    exact?: never;
     prefix?: never;
-    range: MatchRange;
-    regex?: never;
     suffix?: never;
     $unknown?: never;
   }
@@ -1434,9 +1924,33 @@ export namespace GrpcRouteMetadataMatchMethod {
    */
   export interface RegexMember extends $Base {
     exact?: never;
-    prefix?: never;
-    range?: never;
     regex: string;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents the range of values to match on.</p>
+   */
+  export interface RangeMember extends $Base {
+    exact?: never;
+    regex?: never;
+    range: MatchRange;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value sent by the client must begin with the specified characters.</p>
+   */
+  export interface PrefixMember extends $Base {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix: string;
     suffix?: never;
     $unknown?: never;
   }
@@ -1446,61 +1960,64 @@ export namespace GrpcRouteMetadataMatchMethod {
    */
   export interface SuffixMember extends $Base {
     exact?: never;
-    prefix?: never;
-    range?: never;
     regex?: never;
+    range?: never;
+    prefix?: never;
     suffix: string;
     $unknown?: never;
   }
 
   export interface $UnknownMember extends $Base {
     exact?: never;
-    prefix?: never;
-    range?: never;
     regex?: never;
+    range?: never;
+    prefix?: never;
     suffix?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     exact: (value: string) => T;
-    prefix: (value: string) => T;
-    range: (value: MatchRange) => T;
     regex: (value: string) => T;
+    range: (value: MatchRange) => T;
+    prefix: (value: string) => T;
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: GrpcRouteMetadataMatchMethod, visitor: Visitor<T>): T => {
     if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.range !== undefined) return visitor.range(value.range);
     if (value.regex !== undefined) return visitor.regex(value.regex);
+    if (value.range !== undefined) return visitor.range(value.range);
+    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: GrpcRouteMetadataMatchMethod): any => {
     if (obj.exact !== undefined) return { exact: obj.exact };
-    if (obj.prefix !== undefined) return { prefix: obj.prefix };
-    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
     if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
     if (obj.suffix !== undefined) return { suffix: obj.suffix };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
+/**
+ * <p>An object that represents types of timeouts. </p>
+ */
 export interface GrpcTimeout {
   __type?: "GrpcTimeout";
   /**
-   * <p>An object that represents a duration of time.</p>
-   */
-  idle?: Duration;
-
-  /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.</p>
    */
   perRequest?: Duration;
+
+  /**
+   * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
+   */
+  idle?: Duration;
 }
 
 export namespace GrpcTimeout {
@@ -1532,33 +2049,9 @@ export namespace HeaderMatchMethod {
    */
   export interface ExactMember extends $Base {
     exact: string;
-    prefix?: never;
+    regex?: never;
     range?: never;
-    regex?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The value sent by the client must begin with the specified characters.</p>
-   */
-  export interface PrefixMember extends $Base {
-    exact?: never;
-    prefix: string;
-    range?: never;
-    regex?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An object that represents the range of values to match on.</p>
-   */
-  export interface RangeMember extends $Base {
-    exact?: never;
     prefix?: never;
-    range: MatchRange;
-    regex?: never;
     suffix?: never;
     $unknown?: never;
   }
@@ -1568,9 +2061,33 @@ export namespace HeaderMatchMethod {
    */
   export interface RegexMember extends $Base {
     exact?: never;
-    prefix?: never;
-    range?: never;
     regex: string;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents the range of values to match on.</p>
+   */
+  export interface RangeMember extends $Base {
+    exact?: never;
+    regex?: never;
+    range: MatchRange;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value sent by the client must begin with the specified characters.</p>
+   */
+  export interface PrefixMember extends $Base {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix: string;
     suffix?: never;
     $unknown?: never;
   }
@@ -1580,45 +2097,45 @@ export namespace HeaderMatchMethod {
    */
   export interface SuffixMember extends $Base {
     exact?: never;
-    prefix?: never;
-    range?: never;
     regex?: never;
+    range?: never;
+    prefix?: never;
     suffix: string;
     $unknown?: never;
   }
 
   export interface $UnknownMember extends $Base {
     exact?: never;
-    prefix?: never;
-    range?: never;
     regex?: never;
+    range?: never;
+    prefix?: never;
     suffix?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     exact: (value: string) => T;
-    prefix: (value: string) => T;
-    range: (value: MatchRange) => T;
     regex: (value: string) => T;
+    range: (value: MatchRange) => T;
+    prefix: (value: string) => T;
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: HeaderMatchMethod, visitor: Visitor<T>): T => {
     if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.range !== undefined) return visitor.range(value.range);
     if (value.regex !== undefined) return visitor.regex(value.regex);
+    if (value.range !== undefined) return visitor.range(value.range);
+    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
     if (obj.exact !== undefined) return { exact: obj.exact };
-    if (obj.prefix !== undefined) return { prefix: obj.prefix };
-    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
     if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
     if (obj.suffix !== undefined) return { suffix: obj.suffix };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
@@ -1630,27 +2147,15 @@ export namespace HeaderMatchMethod {
 export interface HealthCheckPolicy {
   __type?: "HealthCheckPolicy";
   /**
-   * <p>The number of consecutive successful health checks that must occur before declaring
-   *          listener healthy.</p>
+   * <p>The amount of time to wait when receiving a response from the health check, in
+   *          milliseconds.</p>
    */
-  healthyThreshold: number | undefined;
+  timeoutMillis: number | undefined;
 
   /**
    * <p>The time period in milliseconds between each health check execution.</p>
    */
   intervalMillis: number | undefined;
-
-  /**
-   * <p>The destination path for the health check request. This value is only used if the
-   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
-   */
-  path?: string;
-
-  /**
-   * <p>The destination port for the health check request. This port must match the port defined
-   *          in the <a>PortMapping</a> for the listener.</p>
-   */
-  port?: number;
 
   /**
    * <p>The protocol for the health check request. If you specify <code>grpc</code>, then your
@@ -1660,10 +2165,22 @@ export interface HealthCheckPolicy {
   protocol: PortProtocol | string | undefined;
 
   /**
-   * <p>The amount of time to wait when receiving a response from the health check, in
-   *          milliseconds.</p>
+   * <p>The destination port for the health check request. This port must match the port defined
+   *          in the <a>PortMapping</a> for the listener.</p>
    */
-  timeoutMillis: number | undefined;
+  port?: number;
+
+  /**
+   * <p>The destination path for the health check request. This value is only used if the
+   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The number of consecutive successful health checks that must occur before declaring
+   *          listener healthy.</p>
+   */
+  healthyThreshold: number | undefined;
 
   /**
    * <p>The number of consecutive failed health checks that must occur before declaring a
@@ -1677,6 +2194,70 @@ export namespace HealthCheckPolicy {
     ...obj,
   });
   export const isa = (o: any): o is HealthCheckPolicy => __isa(o, "HealthCheckPolicy");
+}
+
+/**
+ * <p>An object that represents an HTTP gateway route.</p>
+ */
+export interface HttpGatewayRoute {
+  __type?: "HttpGatewayRoute";
+  /**
+   * <p>An object that represents the criteria for determining a request match.</p>
+   */
+  match: HttpGatewayRouteMatch | undefined;
+
+  /**
+   * <p>An object that represents the action to take if a match is determined.</p>
+   */
+  action: HttpGatewayRouteAction | undefined;
+}
+
+export namespace HttpGatewayRoute {
+  export const filterSensitiveLog = (obj: HttpGatewayRoute): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HttpGatewayRoute => __isa(o, "HttpGatewayRoute");
+}
+
+/**
+ * <p>An object that represents the action to take if a match is determined.</p>
+ */
+export interface HttpGatewayRouteAction {
+  __type?: "HttpGatewayRouteAction";
+  /**
+   * <p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>
+   */
+  target: GatewayRouteTarget | undefined;
+}
+
+export namespace HttpGatewayRouteAction {
+  export const filterSensitiveLog = (obj: HttpGatewayRouteAction): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HttpGatewayRouteAction => __isa(o, "HttpGatewayRouteAction");
+}
+
+/**
+ * <p>An object that represents the criteria for determining a request match.</p>
+ */
+export interface HttpGatewayRouteMatch {
+  __type?: "HttpGatewayRouteMatch";
+  /**
+   * <p>Specifies the path to match requests with. This parameter must always start with
+   *             <code>/</code>, which by itself matches all requests to the virtual service name. You
+   *          can also match for path-based routing of requests. For example, if your virtual service
+   *          name is <code>my-service.local</code> and you want the route to match requests to
+   *             <code>my-service.local/metrics</code>, your prefix should be
+   *          <code>/metrics</code>.</p>
+   */
+  prefix: string | undefined;
+}
+
+export namespace HttpGatewayRouteMatch {
+  export const filterSensitiveLog = (obj: HttpGatewayRouteMatch): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HttpGatewayRouteMatch => __isa(o, "HttpGatewayRouteMatch");
 }
 
 export enum HttpMethod {
@@ -1696,6 +2277,16 @@ export enum HttpMethod {
  */
 export interface HttpRetryPolicy {
   __type?: "HttpRetryPolicy";
+  /**
+   * <p>An object that represents a duration of time.</p>
+   */
+  perRetryTimeout: Duration | undefined;
+
+  /**
+   * <p>The maximum number of retry attempts.</p>
+   */
+  maxRetries: number | undefined;
+
   /**
    * <p>Specify at least one of the following values.</p>
    *          <ul>
@@ -1723,16 +2314,6 @@ export interface HttpRetryPolicy {
   httpRetryEvents?: string[];
 
   /**
-   * <p>The maximum number of retry attempts.</p>
-   */
-  maxRetries: number | undefined;
-
-  /**
-   * <p>An object that represents a duration of time.</p>
-   */
-  perRetryTimeout: Duration | undefined;
-
-  /**
    * <p>Specify a valid value.</p>
    */
   tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
@@ -1751,20 +2332,23 @@ export namespace HttpRetryPolicy {
 export interface HttpRoute {
   __type?: "HttpRoute";
   /**
-   * <p>An object that represents the action to take if a match is determined.</p>
-   */
-  action: HttpRouteAction | undefined;
-
-  /**
    * <p>An object that represents the criteria for determining a request match.</p>
    */
   match: HttpRouteMatch | undefined;
+
+  /**
+   * <p>An object that represents the action to take if a match is determined.</p>
+   */
+  action: HttpRouteAction | undefined;
 
   /**
    * <p>An object that represents a retry policy.</p>
    */
   retryPolicy?: HttpRetryPolicy;
 
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
   timeout?: HttpTimeout;
 }
 
@@ -1799,6 +2383,11 @@ export namespace HttpRouteAction {
 export interface HttpRouteHeader {
   __type?: "HttpRouteHeader";
   /**
+   * <p>A name for the HTTP header in the client request that will be matched on.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
    */
   invert?: boolean;
@@ -1807,11 +2396,6 @@ export interface HttpRouteHeader {
    * <p>The <code>HeaderMatchMethod</code> object.</p>
    */
   match?: HeaderMatchMethod;
-
-  /**
-   * <p>A name for the HTTP header in the client request that will be matched on.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace HttpRouteHeader {
@@ -1829,16 +2413,6 @@ export namespace HttpRouteHeader {
 export interface HttpRouteMatch {
   __type?: "HttpRouteMatch";
   /**
-   * <p>An object that represents the client request headers to match on.</p>
-   */
-  headers?: HttpRouteHeader[];
-
-  /**
-   * <p>The client request method to match on. Specify only one.</p>
-   */
-  method?: HttpMethod | string;
-
-  /**
    * <p>Specifies the path to match requests with. This parameter must always start with
    *             <code>/</code>, which by itself matches all requests to the virtual service name. You
    *          can also match for path-based routing of requests. For example, if your virtual service
@@ -1849,9 +2423,19 @@ export interface HttpRouteMatch {
   prefix: string | undefined;
 
   /**
+   * <p>The client request method to match on. Specify only one.</p>
+   */
+  method?: HttpMethod | string;
+
+  /**
    * <p>The client request scheme to match on. Specify only one.</p>
    */
   scheme?: HttpScheme | string;
+
+  /**
+   * <p>An object that represents the client request headers to match on.</p>
+   */
+  headers?: HttpRouteHeader[];
 }
 
 export namespace HttpRouteMatch {
@@ -1867,17 +2451,20 @@ export enum HttpScheme {
   HTTPS = "https",
 }
 
+/**
+ * <p>An object that represents types of timeouts. </p>
+ */
 export interface HttpTimeout {
   __type?: "HttpTimeout";
   /**
    * <p>An object that represents a duration of time.</p>
    */
-  idle?: Duration;
+  perRequest?: Duration;
 
   /**
    * <p>An object that represents a duration of time.</p>
    */
-  perRequest?: Duration;
+  idle?: Duration;
 }
 
 export namespace HttpTimeout {
@@ -1928,21 +2515,341 @@ export namespace LimitExceededException {
 export interface Listener {
   __type?: "Listener";
   /**
+   * <p>The port mapping information for the listener.</p>
+   */
+  portMapping: PortMapping | undefined;
+
+  /**
+   * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for a listener.</p>
+   */
+  tls?: ListenerTls;
+
+  /**
    * <p>The health check information for the listener.</p>
    */
   healthCheck?: HealthCheckPolicy;
 
   /**
-   * <p>The port mapping information for the listener.</p>
+   * <p>An object that represents timeouts for different protocols.</p>
    */
-  portMapping: PortMapping | undefined;
+  timeout?: ListenerTimeout;
 }
 
 export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
+    ...(obj.tls && { tls: ListenerTls.filterSensitiveLog(obj.tls) }),
+    ...(obj.timeout && { timeout: ListenerTimeout.filterSensitiveLog(obj.timeout) }),
   });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
+}
+
+/**
+ * <p>An object that represents timeouts for different protocols.</p>
+ */
+export type ListenerTimeout =
+  | ListenerTimeout.GrpcMember
+  | ListenerTimeout.HttpMember
+  | ListenerTimeout.Http2Member
+  | ListenerTimeout.TcpMember
+  | ListenerTimeout.$UnknownMember;
+
+export namespace ListenerTimeout {
+  interface $Base {
+    __type?: "ListenerTimeout";
+  }
+
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
+  export interface TcpMember extends $Base {
+    tcp: TcpTimeout;
+    http?: never;
+    http2?: never;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
+  export interface HttpMember extends $Base {
+    tcp?: never;
+    http: HttpTimeout;
+    http2?: never;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
+  export interface Http2Member extends $Base {
+    tcp?: never;
+    http?: never;
+    http2: HttpTimeout;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
+  export interface GrpcMember extends $Base {
+    tcp?: never;
+    http?: never;
+    http2?: never;
+    grpc: GrpcTimeout;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember extends $Base {
+    tcp?: never;
+    http?: never;
+    http2?: never;
+    grpc?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tcp: (value: TcpTimeout) => T;
+    http: (value: HttpTimeout) => T;
+    http2: (value: HttpTimeout) => T;
+    grpc: (value: GrpcTimeout) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ListenerTimeout, visitor: Visitor<T>): T => {
+    if (value.tcp !== undefined) return visitor.tcp(value.tcp);
+    if (value.http !== undefined) return visitor.http(value.http);
+    if (value.http2 !== undefined) return visitor.http2(value.http2);
+    if (value.grpc !== undefined) return visitor.grpc(value.grpc);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ListenerTimeout): any => {
+    if (obj.tcp !== undefined) return { tcp: TcpTimeout.filterSensitiveLog(obj.tcp) };
+    if (obj.http !== undefined) return { http: HttpTimeout.filterSensitiveLog(obj.http) };
+    if (obj.http2 !== undefined) return { http2: HttpTimeout.filterSensitiveLog(obj.http2) };
+    if (obj.grpc !== undefined) return { grpc: GrpcTimeout.filterSensitiveLog(obj.grpc) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
+ */
+export interface ListenerTls {
+  __type?: "ListenerTls";
+  /**
+   * <p>Specify one of the following modes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b/>STRICT – Listener only accepts connections with TLS
+   *                enabled. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b/>PERMISSIVE – Listener accepts connections with or
+   *                without TLS enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b/>DISABLED – Listener only accepts connections without
+   *                TLS. </p>
+   *             </li>
+   *          </ul>
+   */
+  mode: ListenerTlsMode | string | undefined;
+
+  /**
+   * <p>A reference to an object that represents a listener's TLS certificate.</p>
+   */
+  certificate: ListenerTlsCertificate | undefined;
+}
+
+export namespace ListenerTls {
+  export const filterSensitiveLog = (obj: ListenerTls): any => ({
+    ...obj,
+    ...(obj.certificate && { certificate: ListenerTlsCertificate.filterSensitiveLog(obj.certificate) }),
+  });
+  export const isa = (o: any): o is ListenerTls => __isa(o, "ListenerTls");
+}
+
+/**
+ * <p>An object that represents an AWS Certicate Manager (ACM) certificate.</p>
+ */
+export interface ListenerTlsAcmCertificate {
+  __type?: "ListenerTlsAcmCertificate";
+  /**
+   * <p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+   */
+  certificateArn: string | undefined;
+}
+
+export namespace ListenerTlsAcmCertificate {
+  export const filterSensitiveLog = (obj: ListenerTlsAcmCertificate): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListenerTlsAcmCertificate => __isa(o, "ListenerTlsAcmCertificate");
+}
+
+/**
+ * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
+ */
+export type ListenerTlsCertificate =
+  | ListenerTlsCertificate.AcmMember
+  | ListenerTlsCertificate.FileMember
+  | ListenerTlsCertificate.$UnknownMember;
+
+export namespace ListenerTlsCertificate {
+  interface $Base {
+    __type?: "ListenerTlsCertificate";
+  }
+
+  /**
+   * <p>A reference to an object that represents an AWS Certicate Manager (ACM) certificate.</p>
+   */
+  export interface AcmMember extends $Base {
+    acm: ListenerTlsAcmCertificate;
+    file?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a local file certificate.</p>
+   */
+  export interface FileMember extends $Base {
+    acm?: never;
+    file: ListenerTlsFileCertificate;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember extends $Base {
+    acm?: never;
+    file?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    acm: (value: ListenerTlsAcmCertificate) => T;
+    file: (value: ListenerTlsFileCertificate) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ListenerTlsCertificate, visitor: Visitor<T>): T => {
+    if (value.acm !== undefined) return visitor.acm(value.acm);
+    if (value.file !== undefined) return visitor.file(value.file);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ListenerTlsCertificate): any => {
+    if (obj.acm !== undefined) return { acm: ListenerTlsAcmCertificate.filterSensitiveLog(obj.acm) };
+    if (obj.file !== undefined) return { file: ListenerTlsFileCertificate.filterSensitiveLog(obj.file) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents a local file certificate.
+ *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+ */
+export interface ListenerTlsFileCertificate {
+  __type?: "ListenerTlsFileCertificate";
+  /**
+   * <p>The certificate chain for the certificate.</p>
+   */
+  certificateChain: string | undefined;
+
+  /**
+   * <p>The private key for a certificate stored on the file system of the virtual node that the
+   *          proxy is running on.</p>
+   */
+  privateKey: string | undefined;
+}
+
+export namespace ListenerTlsFileCertificate {
+  export const filterSensitiveLog = (obj: ListenerTlsFileCertificate): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListenerTlsFileCertificate => __isa(o, "ListenerTlsFileCertificate");
+}
+
+export enum ListenerTlsMode {
+  DISABLED = "DISABLED",
+  PERMISSIVE = "PERMISSIVE",
+  STRICT = "STRICT",
+}
+
+export interface ListGatewayRoutesInput {
+  __type?: "ListGatewayRoutesInput";
+  /**
+   * <p>The name of the service mesh to list gateway routes in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual gateway to list gateway routes in.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListGatewayRoutes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListGatewayRoutes</code> in paginated
+   *          output. When you use this parameter, <code>ListGatewayRoutes</code> returns only
+   *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
+   *          element. You can see the remaining results of the initial request by sending another
+   *             <code>ListGatewayRoutes</code> request with the returned <code>nextToken</code> value.
+   *          This value can be between 1 and 100. If you don't use this
+   *          parameter, <code>ListGatewayRoutes</code> returns up to 100 results and a
+   *             <code>nextToken</code> value if applicable.</p>
+   */
+  limit?: number;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace ListGatewayRoutesInput {
+  export const filterSensitiveLog = (obj: ListGatewayRoutesInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListGatewayRoutesInput => __isa(o, "ListGatewayRoutesInput");
+}
+
+export interface ListGatewayRoutesOutput {
+  __type?: "ListGatewayRoutesOutput";
+  /**
+   * <p>The list of existing gateway routes for the specified service mesh and virtual
+   *          gateway.</p>
+   */
+  gatewayRoutes: GatewayRouteRef[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListGatewayRoutes</code>
+   *          request. When the results of a <code>ListGatewayRoutes</code> request exceed
+   *             <code>limit</code>, you can use this value to retrieve the next page of results. This
+   *          value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListGatewayRoutesOutput {
+  export const filterSensitiveLog = (obj: ListGatewayRoutesOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListGatewayRoutesOutput => __isa(o, "ListGatewayRoutesOutput");
 }
 
 /**
@@ -1950,19 +2857,6 @@ export namespace Listener {
  */
 export interface ListMeshesInput {
   __type?: "ListMeshesInput";
-  /**
-   * <p>The maximum number of results returned by <code>ListMeshes</code> in paginated output.
-   *          When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code>
-   *          results in a single page along with a <code>nextToken</code> response element. You can see
-   *          the remaining results of the initial request by sending another <code>ListMeshes</code>
-   *          request with the returned <code>nextToken</code> value. This value can be between
-   *          1 and 100. If you don't use this parameter,
-   *             <code>ListMeshes</code> returns up to 100 results and a
-   *             <code>nextToken</code> value if applicable.</p>
-   */
-  limit?: number;
-
-  meshOwner?: string;
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *             <code>ListMeshes</code> request where <code>limit</code> was used and the results
@@ -1974,6 +2868,18 @@ export interface ListMeshesInput {
    *         </note>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListMeshes</code> in paginated output.
+   *          When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code>
+   *          results in a single page along with a <code>nextToken</code> response element. You can see
+   *          the remaining results of the initial request by sending another <code>ListMeshes</code>
+   *          request with the returned <code>nextToken</code> value. This value can be between
+   *          1 and 100. If you don't use this parameter,
+   *             <code>ListMeshes</code> returns up to 100 results and a
+   *             <code>nextToken</code> value if applicable.</p>
+   */
+  limit?: number;
 }
 
 export namespace ListMeshesInput {
@@ -2015,6 +2921,24 @@ export namespace ListMeshesOutput {
 export interface ListRoutesInput {
   __type?: "ListRoutesInput";
   /**
+   * <p>The name of the service mesh to list routes in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual router to list routes in.</p>
+   */
+  virtualRouterName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListRoutes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results returned by <code>ListRoutes</code> in paginated output.
    *          When you use this parameter, <code>ListRoutes</code> returns only <code>limit</code>
    *          results in a single page along with a <code>nextToken</code> response element. You can see
@@ -2027,28 +2951,10 @@ export interface ListRoutesInput {
   limit?: number;
 
   /**
-   * <p>The name of the service mesh to list routes in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListRoutes</code> request where <code>limit</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous
-   *          results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The name of the virtual router to list routes in.</p>
-   */
-  virtualRouterName: string | undefined;
 }
 
 export namespace ListRoutesInput {
@@ -2064,17 +2970,17 @@ export namespace ListRoutesInput {
 export interface ListRoutesOutput {
   __type?: "ListRoutesOutput";
   /**
+   * <p>The list of existing routes for the specified service mesh and virtual router.</p>
+   */
+  routes: RouteRef[] | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRoutes</code> request.
    *          When the results of a <code>ListRoutes</code> request exceed <code>limit</code>, you can
    *          use this value to retrieve the next page of results. This value is <code>null</code> when
    *          there are no more results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The list of existing routes for the specified service mesh and virtual router.</p>
-   */
-  routes: RouteRef[] | undefined;
 }
 
 export namespace ListRoutesOutput {
@@ -2090,16 +2996,9 @@ export namespace ListRoutesOutput {
 export interface ListTagsForResourceInput {
   __type?: "ListTagsForResourceInput";
   /**
-   * <p>The maximum number of tag results returned by <code>ListTagsForResource</code> in
-   *          paginated output. When this parameter is used, <code>ListTagsForResource</code> returns
-   *          only <code>limit</code> results in a single page along with a <code>nextToken</code>
-   *          response element. You can see the remaining results of the initial request by sending
-   *          another <code>ListTagsForResource</code> request with the returned <code>nextToken</code>
-   *          value. This value can be between 1 and 100. If you don't use
-   *          this parameter, <code>ListTagsForResource</code> returns up to 100
-   *          results and a <code>nextToken</code> value if applicable.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>
    */
-  limit?: number;
+  resourceArn: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -2110,9 +3009,16 @@ export interface ListTagsForResourceInput {
   nextToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>
+   * <p>The maximum number of tag results returned by <code>ListTagsForResource</code> in
+   *          paginated output. When this parameter is used, <code>ListTagsForResource</code> returns
+   *          only <code>limit</code> results in a single page along with a <code>nextToken</code>
+   *          response element. You can see the remaining results of the initial request by sending
+   *          another <code>ListTagsForResource</code> request with the returned <code>nextToken</code>
+   *          value. This value can be between 1 and 100. If you don't use
+   *          this parameter, <code>ListTagsForResource</code> returns up to 100
+   *          results and a <code>nextToken</code> value if applicable.</p>
    */
-  resourceArn: string | undefined;
+  limit?: number;
 }
 
 export namespace ListTagsForResourceInput {
@@ -2128,17 +3034,17 @@ export namespace ListTagsForResourceInput {
 export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
+   * <p>The tags for the resource.</p>
+   */
+  tags: TagRef[] | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListTagsForResource</code>
    *          request. When the results of a <code>ListTagsForResource</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The tags for the resource.</p>
-   */
-  tags: TagRef[] | undefined;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -2148,11 +3054,88 @@ export namespace ListTagsForResourceOutput {
   export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
+export interface ListVirtualGatewaysInput {
+  __type?: "ListVirtualGatewaysInput";
+  /**
+   * <p>The name of the service mesh to list virtual gateways in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualGateways</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListVirtualGateways</code> in paginated
+   *          output. When you use this parameter, <code>ListVirtualGateways</code> returns only
+   *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
+   *          element. You can see the remaining results of the initial request by sending another
+   *             <code>ListVirtualGateways</code> request with the returned <code>nextToken</code> value.
+   *          This value can be between 1 and 100. If you don't use this
+   *          parameter, <code>ListVirtualGateways</code> returns up to 100 results and
+   *          a <code>nextToken</code> value if applicable.</p>
+   */
+  limit?: number;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace ListVirtualGatewaysInput {
+  export const filterSensitiveLog = (obj: ListVirtualGatewaysInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListVirtualGatewaysInput => __isa(o, "ListVirtualGatewaysInput");
+}
+
+export interface ListVirtualGatewaysOutput {
+  __type?: "ListVirtualGatewaysOutput";
+  /**
+   * <p>The list of existing virtual gateways for the specified service mesh.</p>
+   */
+  virtualGateways: VirtualGatewayRef[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualGateways</code>
+   *          request. When the results of a <code>ListVirtualGateways</code> request exceed
+   *             <code>limit</code>, you can use this value to retrieve the next page of results. This
+   *          value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListVirtualGatewaysOutput {
+  export const filterSensitiveLog = (obj: ListVirtualGatewaysOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListVirtualGatewaysOutput => __isa(o, "ListVirtualGatewaysOutput");
+}
+
 /**
  *
  */
 export interface ListVirtualNodesInput {
   __type?: "ListVirtualNodesInput";
+  /**
+   * <p>The name of the service mesh to list virtual nodes in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualNodes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>The maximum number of results returned by <code>ListVirtualNodes</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualNodes</code> returns only
@@ -2166,23 +3149,10 @@ export interface ListVirtualNodesInput {
   limit?: number;
 
   /**
-   * <p>The name of the service mesh to list virtual nodes in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualNodes</code> request where <code>limit</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous
-   *          results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListVirtualNodesInput {
@@ -2198,17 +3168,17 @@ export namespace ListVirtualNodesInput {
 export interface ListVirtualNodesOutput {
   __type?: "ListVirtualNodesOutput";
   /**
+   * <p>The list of existing virtual nodes for the specified service mesh.</p>
+   */
+  virtualNodes: VirtualNodeRef[] | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualNodes</code>
    *          request. When the results of a <code>ListVirtualNodes</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The list of existing virtual nodes for the specified service mesh.</p>
-   */
-  virtualNodes: VirtualNodeRef[] | undefined;
 }
 
 export namespace ListVirtualNodesOutput {
@@ -2224,6 +3194,19 @@ export namespace ListVirtualNodesOutput {
 export interface ListVirtualRoutersInput {
   __type?: "ListVirtualRoutersInput";
   /**
+   * <p>The name of the service mesh to list virtual routers in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualRouters</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results returned by <code>ListVirtualRouters</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualRouters</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -2236,23 +3219,10 @@ export interface ListVirtualRoutersInput {
   limit?: number;
 
   /**
-   * <p>The name of the service mesh to list virtual routers in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualRouters</code> request where <code>limit</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListVirtualRoutersInput {
@@ -2268,17 +3238,17 @@ export namespace ListVirtualRoutersInput {
 export interface ListVirtualRoutersOutput {
   __type?: "ListVirtualRoutersOutput";
   /**
+   * <p>The list of existing virtual routers for the specified service mesh.</p>
+   */
+  virtualRouters: VirtualRouterRef[] | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualRouters</code>
    *          request. When the results of a <code>ListVirtualRouters</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The list of existing virtual routers for the specified service mesh.</p>
-   */
-  virtualRouters: VirtualRouterRef[] | undefined;
 }
 
 export namespace ListVirtualRoutersOutput {
@@ -2294,6 +3264,19 @@ export namespace ListVirtualRoutersOutput {
 export interface ListVirtualServicesInput {
   __type?: "ListVirtualServicesInput";
   /**
+   * <p>The name of the service mesh to list virtual services in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualServices</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results returned by <code>ListVirtualServices</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualServices</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -2306,23 +3289,10 @@ export interface ListVirtualServicesInput {
   limit?: number;
 
   /**
-   * <p>The name of the service mesh to list virtual services in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualServices</code> request where <code>limit</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListVirtualServicesInput {
@@ -2338,17 +3308,17 @@ export namespace ListVirtualServicesInput {
 export interface ListVirtualServicesOutput {
   __type?: "ListVirtualServicesOutput";
   /**
+   * <p>The list of existing virtual services for the specified service mesh.</p>
+   */
+  virtualServices: VirtualServiceRef[] | undefined;
+
+  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualServices</code>
    *          request. When the results of a <code>ListVirtualServices</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The list of existing virtual services for the specified service mesh.</p>
-   */
-  virtualServices: VirtualServiceRef[] | undefined;
 }
 
 export namespace ListVirtualServicesOutput {
@@ -2383,14 +3353,14 @@ export namespace Logging {
 export interface MatchRange {
   __type?: "MatchRange";
   /**
-   * <p>The end of the range.</p>
-   */
-  end: number | undefined;
-
-  /**
    * <p>The start of the range.</p>
    */
   start: number | undefined;
+
+  /**
+   * <p>The end of the range.</p>
+   */
+  end: number | undefined;
 }
 
 export namespace MatchRange {
@@ -2411,14 +3381,14 @@ export interface MeshData {
   meshName: string | undefined;
 
   /**
-   * <p>The associated metadata for the service mesh.</p>
-   */
-  metadata: ResourceMetadata | undefined;
-
-  /**
    * <p>The associated specification for the service mesh.</p>
    */
   spec: MeshSpec | undefined;
+
+  /**
+   * <p>The associated metadata for the service mesh.</p>
+   */
+  metadata: ResourceMetadata | undefined;
 
   /**
    * <p>The status of the service mesh.</p>
@@ -2439,11 +3409,6 @@ export namespace MeshData {
 export interface MeshRef {
   __type?: "MeshRef";
   /**
-   * <p>The full Amazon Resource Name (ARN) of the service mesh.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The name of the service mesh.</p>
    */
   meshName: string | undefined;
@@ -2459,6 +3424,26 @@ export interface MeshRef {
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) of the service mesh.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
 export namespace MeshRef {
@@ -2556,30 +3541,6 @@ export enum PortProtocol {
   TCP = "tcp",
 }
 
-export interface PutMeshPolicyInput {
-  __type?: "PutMeshPolicyInput";
-  meshArn: string | undefined;
-  policy: string | undefined;
-}
-
-export namespace PutMeshPolicyInput {
-  export const filterSensitiveLog = (obj: PutMeshPolicyInput): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is PutMeshPolicyInput => __isa(o, "PutMeshPolicyInput");
-}
-
-export interface PutMeshPolicyOutput {
-  __type?: "PutMeshPolicyOutput";
-}
-
-export namespace PutMeshPolicyOutput {
-  export const filterSensitiveLog = (obj: PutMeshPolicyOutput): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is PutMeshPolicyOutput => __isa(o, "PutMeshPolicyOutput");
-}
-
 /**
  * <p>You can't delete the specified resource because it's in use or required by another
  *          resource.</p>
@@ -2608,6 +3569,16 @@ export interface ResourceMetadata {
   arn: string | undefined;
 
   /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   */
+  uid: string | undefined;
+
+  /**
    * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
    */
   createdAt: Date | undefined;
@@ -2628,17 +3599,6 @@ export interface ResourceMetadata {
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
-
-  /**
-   * <p>The unique identifier for the resource.</p>
-   */
-  uid: string | undefined;
-
-  /**
-   * <p>The version of the resource. Resources are created at version 1, and this version is
-   *          incremented each time that they're updated.</p>
-   */
-  version: number | undefined;
 }
 
 export namespace ResourceMetadata {
@@ -2659,9 +3619,9 @@ export interface RouteData {
   meshName: string | undefined;
 
   /**
-   * <p>The associated metadata for the route.</p>
+   * <p>The virtual router that the route is associated with.</p>
    */
-  metadata: ResourceMetadata | undefined;
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The name of the route.</p>
@@ -2674,14 +3634,14 @@ export interface RouteData {
   spec: RouteSpec | undefined;
 
   /**
+   * <p>The associated metadata for the route.</p>
+   */
+  metadata: ResourceMetadata | undefined;
+
+  /**
    * <p>The status of the route.</p>
    */
   status: RouteStatus | undefined;
-
-  /**
-   * <p>The virtual router that the route is associated with.</p>
-   */
-  virtualRouterName: string | undefined;
 }
 
 export namespace RouteData {
@@ -2697,14 +3657,19 @@ export namespace RouteData {
 export interface RouteRef {
   __type?: "RouteRef";
   /**
-   * <p>The full Amazon Resource Name (ARN) for the route.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the route resides in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The virtual router that the route is associated with.</p>
+   */
+  virtualRouterName: string | undefined;
+
+  /**
+   * <p>The name of the route.</p>
+   */
+  routeName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -2719,14 +3684,24 @@ export interface RouteRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The name of the route.</p>
+   * <p>The full Amazon Resource Name (ARN) for the route.</p>
    */
-  routeName: string | undefined;
+  arn: string | undefined;
 
   /**
-   * <p>The virtual router that the route is associated with.</p>
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
-  virtualRouterName: string | undefined;
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
 export namespace RouteRef {
@@ -2742,14 +3717,10 @@ export namespace RouteRef {
 export interface RouteSpec {
   __type?: "RouteSpec";
   /**
-   * <p>An object that represents the specification of a gRPC route.</p>
+   * <p>The priority for the route. Routes are matched based on the specified value, where 0 is
+   *          the highest priority.</p>
    */
-  grpcRoute?: GrpcRoute;
-
-  /**
-   * <p>An object that represents the specification of an HTTP/2 route.</p>
-   */
-  http2Route?: HttpRoute;
+  priority?: number;
 
   /**
    * <p>An object that represents the specification of an HTTP route.</p>
@@ -2757,15 +3728,19 @@ export interface RouteSpec {
   httpRoute?: HttpRoute;
 
   /**
-   * <p>The priority for the route. Routes are matched based on the specified value, where 0 is
-   *          the highest priority.</p>
-   */
-  priority?: number;
-
-  /**
    * <p>An object that represents the specification of a TCP route.</p>
    */
   tcpRoute?: TcpRoute;
+
+  /**
+   * <p>An object that represents the specification of an HTTP/2 route.</p>
+   */
+  http2Route?: HttpRoute;
+
+  /**
+   * <p>An object that represents the specification of a gRPC route.</p>
+   */
+  grpcRoute?: GrpcRoute;
 }
 
 export namespace RouteSpec {
@@ -2799,52 +3774,6 @@ export enum RouteStatusCode {
   INACTIVE = "INACTIVE",
 }
 
-export type SdsSource = SdsSource.UnixDomainSocketMember | SdsSource.$UnknownMember;
-
-export namespace SdsSource {
-  interface $Base {
-    __type?: "SdsSource";
-  }
-
-  export interface UnixDomainSocketMember extends $Base {
-    unixDomainSocket: SdsUnixDomainSocketSource;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember extends $Base {
-    unixDomainSocket?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    unixDomainSocket: (value: SdsUnixDomainSocketSource) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: SdsSource, visitor: Visitor<T>): T => {
-    if (value.unixDomainSocket !== undefined) return visitor.unixDomainSocket(value.unixDomainSocket);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  export const filterSensitiveLog = (obj: SdsSource): any => {
-    if (obj.unixDomainSocket !== undefined)
-      return { unixDomainSocket: SdsUnixDomainSocketSource.filterSensitiveLog(obj.unixDomainSocket) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
-}
-
-export interface SdsUnixDomainSocketSource {
-  __type?: "SdsUnixDomainSocketSource";
-  path: string | undefined;
-}
-
-export namespace SdsUnixDomainSocketSource {
-  export const filterSensitiveLog = (obj: SdsUnixDomainSocketSource): any => ({
-    ...obj,
-  });
-  export const isa = (o: any): o is SdsUnixDomainSocketSource => __isa(o, "SdsUnixDomainSocketSource");
-}
-
 /**
  * <p>An object that represents the service discovery information for a virtual node.</p>
  */
@@ -2859,45 +3788,45 @@ export namespace ServiceDiscovery {
   }
 
   /**
-   * <p>Specifies any AWS Cloud Map information for the virtual node.</p>
+   * <p>Specifies the DNS information for the virtual node.</p>
    */
-  export interface AwsCloudMapMember extends $Base {
-    awsCloudMap: AwsCloudMapServiceDiscovery;
-    dns?: never;
+  export interface DnsMember extends $Base {
+    dns: DnsServiceDiscovery;
+    awsCloudMap?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Specifies the DNS information for the virtual node.</p>
+   * <p>Specifies any AWS Cloud Map information for the virtual node.</p>
    */
-  export interface DnsMember extends $Base {
-    awsCloudMap?: never;
-    dns: DnsServiceDiscovery;
+  export interface AwsCloudMapMember extends $Base {
+    dns?: never;
+    awsCloudMap: AwsCloudMapServiceDiscovery;
     $unknown?: never;
   }
 
   export interface $UnknownMember extends $Base {
-    awsCloudMap?: never;
     dns?: never;
+    awsCloudMap?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
-    awsCloudMap: (value: AwsCloudMapServiceDiscovery) => T;
     dns: (value: DnsServiceDiscovery) => T;
+    awsCloudMap: (value: AwsCloudMapServiceDiscovery) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ServiceDiscovery, visitor: Visitor<T>): T => {
-    if (value.awsCloudMap !== undefined) return visitor.awsCloudMap(value.awsCloudMap);
     if (value.dns !== undefined) return visitor.dns(value.dns);
+    if (value.awsCloudMap !== undefined) return visitor.awsCloudMap(value.awsCloudMap);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
+    if (obj.dns !== undefined) return { dns: DnsServiceDiscovery.filterSensitiveLog(obj.dns) };
     if (obj.awsCloudMap !== undefined)
       return { awsCloudMap: AwsCloudMapServiceDiscovery.filterSensitiveLog(obj.awsCloudMap) };
-    if (obj.dns !== undefined) return { dns: DnsServiceDiscovery.filterSensitiveLog(obj.dns) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -3000,6 +3929,9 @@ export interface TcpRoute {
    */
   action: TcpRouteAction | undefined;
 
+  /**
+   * <p>An object that represents types of timeouts. </p>
+   */
   timeout?: TcpTimeout;
 }
 
@@ -3028,6 +3960,9 @@ export namespace TcpRouteAction {
   export const isa = (o: any): o is TcpRouteAction => __isa(o, "TcpRouteAction");
 }
 
+/**
+ * <p>An object that represents types of timeouts. </p>
+ */
 export interface TcpTimeout {
   __type?: "TcpTimeout";
   /**
@@ -3100,27 +4035,12 @@ export namespace TlsValidationContextFileTrust {
   export const isa = (o: any): o is TlsValidationContextFileTrust => __isa(o, "TlsValidationContextFileTrust");
 }
 
-export interface TlsValidationContextSdsTrust {
-  __type?: "TlsValidationContextSdsTrust";
-  secretName: string | undefined;
-  source: SdsSource | undefined;
-}
-
-export namespace TlsValidationContextSdsTrust {
-  export const filterSensitiveLog = (obj: TlsValidationContextSdsTrust): any => ({
-    ...obj,
-    ...(obj.source && { source: SdsSource.filterSensitiveLog(obj.source) }),
-  });
-  export const isa = (o: any): o is TlsValidationContextSdsTrust => __isa(o, "TlsValidationContextSdsTrust");
-}
-
 /**
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type TlsValidationContextTrust =
   | TlsValidationContextTrust.AcmMember
   | TlsValidationContextTrust.FileMember
-  | TlsValidationContextTrust.SdsMember
   | TlsValidationContextTrust.$UnknownMember;
 
 export namespace TlsValidationContextTrust {
@@ -3135,7 +4055,6 @@ export namespace TlsValidationContextTrust {
   export interface AcmMember extends $Base {
     acm: TlsValidationContextAcmTrust;
     file?: never;
-    sds?: never;
     $unknown?: never;
   }
 
@@ -3145,42 +4064,30 @@ export namespace TlsValidationContextTrust {
   export interface FileMember extends $Base {
     acm?: never;
     file: TlsValidationContextFileTrust;
-    sds?: never;
-    $unknown?: never;
-  }
-
-  export interface SdsMember extends $Base {
-    acm?: never;
-    file?: never;
-    sds: TlsValidationContextSdsTrust;
     $unknown?: never;
   }
 
   export interface $UnknownMember extends $Base {
     acm?: never;
     file?: never;
-    sds?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     acm: (value: TlsValidationContextAcmTrust) => T;
     file: (value: TlsValidationContextFileTrust) => T;
-    sds: (value: TlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: TlsValidationContextTrust, visitor: Visitor<T>): T => {
     if (value.acm !== undefined) return visitor.acm(value.acm);
     if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
     if (obj.acm !== undefined) return { acm: TlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
     if (obj.file !== undefined) return { file: TlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
-    if (obj.sds !== undefined) return { sds: TlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -3258,17 +4165,68 @@ export namespace UntagResourceOutput {
   export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
-/**
- *
- */
-export interface UpdateMeshInput {
-  __type?: "UpdateMeshInput";
+export interface UpdateGatewayRouteInput {
+  __type?: "UpdateGatewayRouteInput";
+  /**
+   * <p>The name of the gateway route to update.</p>
+   */
+  gatewayRouteName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh that the gateway route resides in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual gateway that the gateway route is associated with.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The new gateway route specification to apply. This overwrites the existing data.</p>
+   */
+  spec: GatewayRouteSpec | undefined;
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
   clientToken?: string;
 
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+}
+
+export namespace UpdateGatewayRouteInput {
+  export const filterSensitiveLog = (obj: UpdateGatewayRouteInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateGatewayRouteInput => __isa(o, "UpdateGatewayRouteInput");
+}
+
+export interface UpdateGatewayRouteOutput {
+  __type?: "UpdateGatewayRouteOutput";
+  /**
+   * <p>A full description of the gateway route that was updated.</p>
+   */
+  gatewayRoute: GatewayRouteData | undefined;
+}
+
+export namespace UpdateGatewayRouteOutput {
+  export const filterSensitiveLog = (obj: UpdateGatewayRouteOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateGatewayRouteOutput => __isa(o, "UpdateGatewayRouteOutput");
+}
+
+/**
+ *
+ */
+export interface UpdateMeshInput {
+  __type?: "UpdateMeshInput";
   /**
    * <p>The name of the service mesh to update.</p>
    */
@@ -3278,6 +4236,12 @@ export interface UpdateMeshInput {
    * <p>The service mesh specification to apply.</p>
    */
   spec?: MeshSpec;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace UpdateMeshInput {
@@ -3311,10 +4275,9 @@ export namespace UpdateMeshOutput {
 export interface UpdateRouteInput {
   __type?: "UpdateRouteInput";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the route to update.</p>
    */
-  clientToken?: string;
+  routeName: string | undefined;
 
   /**
    * <p>The name of the service mesh that the route resides in.</p>
@@ -3322,15 +4285,9 @@ export interface UpdateRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   * <p>The name of the virtual router that the route is associated with.</p>
    */
-  meshOwner?: string;
-
-  /**
-   * <p>The name of the route to update.</p>
-   */
-  routeName: string | undefined;
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The new route specification to apply. This overwrites the existing data.</p>
@@ -3338,9 +4295,16 @@ export interface UpdateRouteInput {
   spec: RouteSpec | undefined;
 
   /**
-   * <p>The name of the virtual router that the route is associated with.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualRouterName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace UpdateRouteInput {
@@ -3368,11 +4332,24 @@ export namespace UpdateRouteOutput {
   export const isa = (o: any): o is UpdateRouteOutput => __isa(o, "UpdateRouteOutput");
 }
 
-/**
- *
- */
-export interface UpdateVirtualNodeInput {
-  __type?: "UpdateVirtualNodeInput";
+export interface UpdateVirtualGatewayInput {
+  __type?: "UpdateVirtualGatewayInput";
+  /**
+   * <p>The name of the virtual gateway to update.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh that the virtual gateway resides in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The new virtual gateway specification to apply. This overwrites the existing
+   *          data.</p>
+   */
+  spec: VirtualGatewaySpec | undefined;
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
@@ -3380,15 +4357,50 @@ export interface UpdateVirtualNodeInput {
   clientToken?: string;
 
   /**
-   * <p>The name of the service mesh that the virtual node resides in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+}
+
+export namespace UpdateVirtualGatewayInput {
+  export const filterSensitiveLog = (obj: UpdateVirtualGatewayInput): any => ({
+    ...obj,
+    ...(obj.spec && { spec: VirtualGatewaySpec.filterSensitiveLog(obj.spec) }),
+  });
+  export const isa = (o: any): o is UpdateVirtualGatewayInput => __isa(o, "UpdateVirtualGatewayInput");
+}
+
+export interface UpdateVirtualGatewayOutput {
+  __type?: "UpdateVirtualGatewayOutput";
+  /**
+   * <p>A full description of the virtual gateway that was updated.</p>
+   */
+  virtualGateway: VirtualGatewayData | undefined;
+}
+
+export namespace UpdateVirtualGatewayOutput {
+  export const filterSensitiveLog = (obj: UpdateVirtualGatewayOutput): any => ({
+    ...obj,
+    ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
+  });
+  export const isa = (o: any): o is UpdateVirtualGatewayOutput => __isa(o, "UpdateVirtualGatewayOutput");
+}
+
+/**
+ *
+ */
+export interface UpdateVirtualNodeInput {
+  __type?: "UpdateVirtualNodeInput";
+  /**
+   * <p>The name of the virtual node to update.</p>
+   */
+  virtualNodeName: string | undefined;
+
+  /**
+   * <p>The name of the service mesh that the virtual node resides in.</p>
+   */
+  meshName: string | undefined;
 
   /**
    * <p>The new virtual node specification to apply. This overwrites the existing data.</p>
@@ -3396,9 +4408,16 @@ export interface UpdateVirtualNodeInput {
   spec: VirtualNodeSpec | undefined;
 
   /**
-   * <p>The name of the virtual node to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualNodeName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace UpdateVirtualNodeInput {
@@ -3434,10 +4453,9 @@ export namespace UpdateVirtualNodeOutput {
 export interface UpdateVirtualRouterInput {
   __type?: "UpdateVirtualRouterInput";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual router to update.</p>
    */
-  clientToken?: string;
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
@@ -3445,20 +4463,21 @@ export interface UpdateVirtualRouterInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
-
-  /**
    * <p>The new virtual router specification to apply. This overwrites the existing data.</p>
    */
   spec: VirtualRouterSpec | undefined;
 
   /**
-   * <p>The name of the virtual router to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualRouterName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace UpdateVirtualRouterInput {
@@ -3492,21 +4511,14 @@ export namespace UpdateVirtualRouterOutput {
 export interface UpdateVirtualServiceInput {
   __type?: "UpdateVirtualServiceInput";
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual service to update.</p>
    */
-  clientToken?: string;
+  virtualServiceName: string | undefined;
 
   /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
 
   /**
    * <p>The new virtual service specification to apply. This overwrites the existing
@@ -3515,9 +4527,16 @@ export interface UpdateVirtualServiceInput {
   spec: VirtualServiceSpec | undefined;
 
   /**
-   * <p>The name of the virtual service to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualServiceName: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 }
 
 export namespace UpdateVirtualServiceInput {
@@ -3548,6 +4567,686 @@ export namespace UpdateVirtualServiceOutput {
 }
 
 /**
+ * <p>The access log configuration for a virtual gateway.</p>
+ */
+export type VirtualGatewayAccessLog = VirtualGatewayAccessLog.FileMember | VirtualGatewayAccessLog.$UnknownMember;
+
+export namespace VirtualGatewayAccessLog {
+  interface $Base {
+    __type?: "VirtualGatewayAccessLog";
+  }
+
+  /**
+   * <p>The file object to send virtual gateway access logs to.</p>
+   */
+  export interface FileMember extends $Base {
+    file: VirtualGatewayFileAccessLog;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember extends $Base {
+    file?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    file: (value: VirtualGatewayFileAccessLog) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualGatewayAccessLog, visitor: Visitor<T>): T => {
+    if (value.file !== undefined) return visitor.file(value.file);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualGatewayAccessLog): any => {
+    if (obj.file !== undefined) return { file: VirtualGatewayFileAccessLog.filterSensitiveLog(obj.file) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents the default properties for a backend.</p>
+ */
+export interface VirtualGatewayBackendDefaults {
+  __type?: "VirtualGatewayBackendDefaults";
+  /**
+   * <p>A reference to an object that represents a client policy.</p>
+   */
+  clientPolicy?: VirtualGatewayClientPolicy;
+}
+
+export namespace VirtualGatewayBackendDefaults {
+  export const filterSensitiveLog = (obj: VirtualGatewayBackendDefaults): any => ({
+    ...obj,
+    ...(obj.clientPolicy && { clientPolicy: VirtualGatewayClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayBackendDefaults => __isa(o, "VirtualGatewayBackendDefaults");
+}
+
+/**
+ * <p>An object that represents a client policy.</p>
+ */
+export interface VirtualGatewayClientPolicy {
+  __type?: "VirtualGatewayClientPolicy";
+  /**
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
+   */
+  tls?: VirtualGatewayClientPolicyTls;
+}
+
+export namespace VirtualGatewayClientPolicy {
+  export const filterSensitiveLog = (obj: VirtualGatewayClientPolicy): any => ({
+    ...obj,
+    ...(obj.tls && { tls: VirtualGatewayClientPolicyTls.filterSensitiveLog(obj.tls) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayClientPolicy => __isa(o, "VirtualGatewayClientPolicy");
+}
+
+/**
+ * <p>An object that represents a Transport Layer Security (TLS) client policy.</p>
+ */
+export interface VirtualGatewayClientPolicyTls {
+  __type?: "VirtualGatewayClientPolicyTls";
+  /**
+   * <p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
+   *          specified.</p>
+   */
+  enforce?: boolean;
+
+  /**
+   * <p>One or more ports that the policy is enforced for.</p>
+   */
+  ports?: number[];
+
+  /**
+   * <p>A reference to an object that represents a TLS validation context.</p>
+   */
+  validation: VirtualGatewayTlsValidationContext | undefined;
+}
+
+export namespace VirtualGatewayClientPolicyTls {
+  export const filterSensitiveLog = (obj: VirtualGatewayClientPolicyTls): any => ({
+    ...obj,
+    ...(obj.validation && { validation: VirtualGatewayTlsValidationContext.filterSensitiveLog(obj.validation) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayClientPolicyTls => __isa(o, "VirtualGatewayClientPolicyTls");
+}
+
+/**
+ * <p>An object that represents a virtual gateway returned by a describe operation.</p>
+ */
+export interface VirtualGatewayData {
+  __type?: "VirtualGatewayData";
+  /**
+   * <p>The name of the service mesh that the virtual gateway resides in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual gateway.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The specifications of the virtual gateway.</p>
+   */
+  spec: VirtualGatewaySpec | undefined;
+
+  /**
+   * <p>An object that represents metadata for a resource.</p>
+   */
+  metadata: ResourceMetadata | undefined;
+
+  /**
+   * <p>The current status of the virtual gateway.</p>
+   */
+  status: VirtualGatewayStatus | undefined;
+}
+
+export namespace VirtualGatewayData {
+  export const filterSensitiveLog = (obj: VirtualGatewayData): any => ({
+    ...obj,
+    ...(obj.spec && { spec: VirtualGatewaySpec.filterSensitiveLog(obj.spec) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayData => __isa(o, "VirtualGatewayData");
+}
+
+/**
+ * <p>An object that represents an access log file.</p>
+ */
+export interface VirtualGatewayFileAccessLog {
+  __type?: "VirtualGatewayFileAccessLog";
+  /**
+   * <p>The file path to write access logs to. You can use <code>/dev/stdout</code> to send
+   *          access logs to standard out and configure your Envoy container to use a log driver, such as
+   *             <code>awslogs</code>, to export the access logs to a log storage service such as Amazon
+   *          CloudWatch Logs. You can also specify a path in the Envoy container's file system to write
+   *          the files to disk.</p>
+   */
+  path: string | undefined;
+}
+
+export namespace VirtualGatewayFileAccessLog {
+  export const filterSensitiveLog = (obj: VirtualGatewayFileAccessLog): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayFileAccessLog => __isa(o, "VirtualGatewayFileAccessLog");
+}
+
+/**
+ * <p>An object that represents the health check policy for a virtual gateway's
+ *          listener.</p>
+ */
+export interface VirtualGatewayHealthCheckPolicy {
+  __type?: "VirtualGatewayHealthCheckPolicy";
+  /**
+   * <p>The amount of time to wait when receiving a response from the health check, in
+   *          milliseconds.</p>
+   */
+  timeoutMillis: number | undefined;
+
+  /**
+   * <p>The time period in milliseconds between each health check execution.</p>
+   */
+  intervalMillis: number | undefined;
+
+  /**
+   * <p>The protocol for the health check request. If you specify <code>grpc</code>, then your
+   *          service must conform to the <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health
+   *             Checking Protocol</a>.</p>
+   */
+  protocol: VirtualGatewayPortProtocol | string | undefined;
+
+  /**
+   * <p>The destination port for the health check request. This port must match the port defined
+   *          in the <a>PortMapping</a> for the listener.</p>
+   */
+  port?: number;
+
+  /**
+   * <p>The destination path for the health check request. This value is only used if the
+   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The number of consecutive successful health checks that must occur before declaring the
+   *          listener healthy.</p>
+   */
+  healthyThreshold: number | undefined;
+
+  /**
+   * <p>The number of consecutive failed health checks that must occur before declaring a
+   *          virtual gateway unhealthy.</p>
+   */
+  unhealthyThreshold: number | undefined;
+}
+
+export namespace VirtualGatewayHealthCheckPolicy {
+  export const filterSensitiveLog = (obj: VirtualGatewayHealthCheckPolicy): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayHealthCheckPolicy => __isa(o, "VirtualGatewayHealthCheckPolicy");
+}
+
+/**
+ * <p>An object that represents a listener for a virtual gateway.</p>
+ */
+export interface VirtualGatewayListener {
+  __type?: "VirtualGatewayListener";
+  /**
+   * <p>The health check information for the listener.</p>
+   */
+  healthCheck?: VirtualGatewayHealthCheckPolicy;
+
+  /**
+   * <p>The port mapping information for the listener.</p>
+   */
+  portMapping: VirtualGatewayPortMapping | undefined;
+
+  /**
+   * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for the listener.</p>
+   */
+  tls?: VirtualGatewayListenerTls;
+}
+
+export namespace VirtualGatewayListener {
+  export const filterSensitiveLog = (obj: VirtualGatewayListener): any => ({
+    ...obj,
+    ...(obj.tls && { tls: VirtualGatewayListenerTls.filterSensitiveLog(obj.tls) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayListener => __isa(o, "VirtualGatewayListener");
+}
+
+/**
+ * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
+ */
+export interface VirtualGatewayListenerTls {
+  __type?: "VirtualGatewayListenerTls";
+  /**
+   * <p>Specify one of the following modes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b/>STRICT – Listener only accepts connections with TLS
+   *                enabled. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b/>PERMISSIVE – Listener accepts connections with or
+   *                without TLS enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b/>DISABLED – Listener only accepts connections without
+   *                TLS. </p>
+   *             </li>
+   *          </ul>
+   */
+  mode: VirtualGatewayListenerTlsMode | string | undefined;
+
+  /**
+   * <p>An object that represents a Transport Layer Security (TLS) certificate.</p>
+   */
+  certificate: VirtualGatewayListenerTlsCertificate | undefined;
+}
+
+export namespace VirtualGatewayListenerTls {
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTls): any => ({
+    ...obj,
+    ...(obj.certificate && { certificate: VirtualGatewayListenerTlsCertificate.filterSensitiveLog(obj.certificate) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayListenerTls => __isa(o, "VirtualGatewayListenerTls");
+}
+
+/**
+ * <p>An object that represents an AWS Certicate Manager (ACM) certificate.</p>
+ */
+export interface VirtualGatewayListenerTlsAcmCertificate {
+  __type?: "VirtualGatewayListenerTlsAcmCertificate";
+  /**
+   * <p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+   */
+  certificateArn: string | undefined;
+}
+
+export namespace VirtualGatewayListenerTlsAcmCertificate {
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsAcmCertificate): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayListenerTlsAcmCertificate =>
+    __isa(o, "VirtualGatewayListenerTlsAcmCertificate");
+}
+
+/**
+ * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
+ */
+export type VirtualGatewayListenerTlsCertificate =
+  | VirtualGatewayListenerTlsCertificate.AcmMember
+  | VirtualGatewayListenerTlsCertificate.FileMember
+  | VirtualGatewayListenerTlsCertificate.$UnknownMember;
+
+export namespace VirtualGatewayListenerTlsCertificate {
+  interface $Base {
+    __type?: "VirtualGatewayListenerTlsCertificate";
+  }
+
+  /**
+   * <p>A reference to an object that represents an AWS Certicate Manager (ACM) certificate.</p>
+   */
+  export interface AcmMember extends $Base {
+    acm: VirtualGatewayListenerTlsAcmCertificate;
+    file?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a local file certificate.</p>
+   */
+  export interface FileMember extends $Base {
+    acm?: never;
+    file: VirtualGatewayListenerTlsFileCertificate;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember extends $Base {
+    acm?: never;
+    file?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    acm: (value: VirtualGatewayListenerTlsAcmCertificate) => T;
+    file: (value: VirtualGatewayListenerTlsFileCertificate) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualGatewayListenerTlsCertificate, visitor: Visitor<T>): T => {
+    if (value.acm !== undefined) return visitor.acm(value.acm);
+    if (value.file !== undefined) return visitor.file(value.file);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsCertificate): any => {
+    if (obj.acm !== undefined) return { acm: VirtualGatewayListenerTlsAcmCertificate.filterSensitiveLog(obj.acm) };
+    if (obj.file !== undefined) return { file: VirtualGatewayListenerTlsFileCertificate.filterSensitiveLog(obj.file) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents a local file certificate.
+ *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+ */
+export interface VirtualGatewayListenerTlsFileCertificate {
+  __type?: "VirtualGatewayListenerTlsFileCertificate";
+  /**
+   * <p>The certificate chain for the certificate.</p>
+   */
+  certificateChain: string | undefined;
+
+  /**
+   * <p>The private key for a certificate stored on the file system of the mesh endpoint that
+   *          the proxy is running on.</p>
+   */
+  privateKey: string | undefined;
+}
+
+export namespace VirtualGatewayListenerTlsFileCertificate {
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsFileCertificate): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayListenerTlsFileCertificate =>
+    __isa(o, "VirtualGatewayListenerTlsFileCertificate");
+}
+
+export enum VirtualGatewayListenerTlsMode {
+  DISABLED = "DISABLED",
+  PERMISSIVE = "PERMISSIVE",
+  STRICT = "STRICT",
+}
+
+/**
+ * <p>An object that represents logging information.</p>
+ */
+export interface VirtualGatewayLogging {
+  __type?: "VirtualGatewayLogging";
+  /**
+   * <p>The access log configuration.</p>
+   */
+  accessLog?: VirtualGatewayAccessLog;
+}
+
+export namespace VirtualGatewayLogging {
+  export const filterSensitiveLog = (obj: VirtualGatewayLogging): any => ({
+    ...obj,
+    ...(obj.accessLog && { accessLog: VirtualGatewayAccessLog.filterSensitiveLog(obj.accessLog) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayLogging => __isa(o, "VirtualGatewayLogging");
+}
+
+/**
+ * <p>An object that represents a port mapping.</p>
+ */
+export interface VirtualGatewayPortMapping {
+  __type?: "VirtualGatewayPortMapping";
+  /**
+   * <p>The port used for the port mapping. Specify one protocol.</p>
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The protocol used for the port mapping.</p>
+   */
+  protocol: VirtualGatewayPortProtocol | string | undefined;
+}
+
+export namespace VirtualGatewayPortMapping {
+  export const filterSensitiveLog = (obj: VirtualGatewayPortMapping): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayPortMapping => __isa(o, "VirtualGatewayPortMapping");
+}
+
+export enum VirtualGatewayPortProtocol {
+  GRPC = "grpc",
+  HTTP = "http",
+  HTTP2 = "http2",
+}
+
+/**
+ * <p>An object that represents a virtual gateway returned by a list operation.</p>
+ */
+export interface VirtualGatewayRef {
+  __type?: "VirtualGatewayRef";
+  /**
+   * <p>The name of the service mesh that the resource resides in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  virtualGatewayName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  resourceOwner: string | undefined;
+
+  /**
+   * <p>The full Amazon Resource Name (ARN) for the resource.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+export namespace VirtualGatewayRef {
+  export const filterSensitiveLog = (obj: VirtualGatewayRef): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayRef => __isa(o, "VirtualGatewayRef");
+}
+
+/**
+ * <p>An object that represents the specification of a service mesh resource.</p>
+ */
+export interface VirtualGatewaySpec {
+  __type?: "VirtualGatewaySpec";
+  /**
+   * <p>A reference to an object that represents the defaults for backends.</p>
+   */
+  backendDefaults?: VirtualGatewayBackendDefaults;
+
+  /**
+   * <p>The listeners that the mesh endpoint is expected to receive inbound traffic from. You
+   *          can specify one listener.</p>
+   */
+  listeners: VirtualGatewayListener[] | undefined;
+
+  /**
+   * <p>An object that represents logging information.</p>
+   */
+  logging?: VirtualGatewayLogging;
+}
+
+export namespace VirtualGatewaySpec {
+  export const filterSensitiveLog = (obj: VirtualGatewaySpec): any => ({
+    ...obj,
+    ...(obj.backendDefaults && {
+      backendDefaults: VirtualGatewayBackendDefaults.filterSensitiveLog(obj.backendDefaults),
+    }),
+    ...(obj.listeners && { listeners: obj.listeners.map((item) => VirtualGatewayListener.filterSensitiveLog(item)) }),
+    ...(obj.logging && { logging: VirtualGatewayLogging.filterSensitiveLog(obj.logging) }),
+  });
+  export const isa = (o: any): o is VirtualGatewaySpec => __isa(o, "VirtualGatewaySpec");
+}
+
+/**
+ * <p>An object that represents the status of the mesh resource.</p>
+ */
+export interface VirtualGatewayStatus {
+  __type?: "VirtualGatewayStatus";
+  /**
+   * <p>The current status.</p>
+   */
+  status: VirtualGatewayStatusCode | string | undefined;
+}
+
+export namespace VirtualGatewayStatus {
+  export const filterSensitiveLog = (obj: VirtualGatewayStatus): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayStatus => __isa(o, "VirtualGatewayStatus");
+}
+
+export enum VirtualGatewayStatusCode {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+  INACTIVE = "INACTIVE",
+}
+
+/**
+ * <p>An object that represents a Transport Layer Security (TLS) validation context.</p>
+ */
+export interface VirtualGatewayTlsValidationContext {
+  __type?: "VirtualGatewayTlsValidationContext";
+  /**
+   * <p>A reference to an object that represents a TLS validation context trust.</p>
+   */
+  trust: VirtualGatewayTlsValidationContextTrust | undefined;
+}
+
+export namespace VirtualGatewayTlsValidationContext {
+  export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContext): any => ({
+    ...obj,
+    ...(obj.trust && { trust: VirtualGatewayTlsValidationContextTrust.filterSensitiveLog(obj.trust) }),
+  });
+  export const isa = (o: any): o is VirtualGatewayTlsValidationContext =>
+    __isa(o, "VirtualGatewayTlsValidationContext");
+}
+
+/**
+ * <p>An object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
+ *          certificate.</p>
+ */
+export interface VirtualGatewayTlsValidationContextAcmTrust {
+  __type?: "VirtualGatewayTlsValidationContextAcmTrust";
+  /**
+   * <p>One or more ACM Amazon Resource Name (ARN)s.</p>
+   */
+  certificateAuthorityArns: string[] | undefined;
+}
+
+export namespace VirtualGatewayTlsValidationContextAcmTrust {
+  export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContextAcmTrust): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayTlsValidationContextAcmTrust =>
+    __isa(o, "VirtualGatewayTlsValidationContextAcmTrust");
+}
+
+/**
+ * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
+ */
+export interface VirtualGatewayTlsValidationContextFileTrust {
+  __type?: "VirtualGatewayTlsValidationContextFileTrust";
+  /**
+   * <p>The certificate trust chain for a certificate stored on the file system of the virtual
+   *          node that the proxy is running on.</p>
+   */
+  certificateChain: string | undefined;
+}
+
+export namespace VirtualGatewayTlsValidationContextFileTrust {
+  export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContextFileTrust): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualGatewayTlsValidationContextFileTrust =>
+    __isa(o, "VirtualGatewayTlsValidationContextFileTrust");
+}
+
+/**
+ * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
+ */
+export type VirtualGatewayTlsValidationContextTrust =
+  | VirtualGatewayTlsValidationContextTrust.AcmMember
+  | VirtualGatewayTlsValidationContextTrust.FileMember
+  | VirtualGatewayTlsValidationContextTrust.$UnknownMember;
+
+export namespace VirtualGatewayTlsValidationContextTrust {
+  interface $Base {
+    __type?: "VirtualGatewayTlsValidationContextTrust";
+  }
+
+  /**
+   * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
+   *          certificate.</p>
+   */
+  export interface AcmMember extends $Base {
+    acm: VirtualGatewayTlsValidationContextAcmTrust;
+    file?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents a TLS validation context trust for a local file.</p>
+   */
+  export interface FileMember extends $Base {
+    acm?: never;
+    file: VirtualGatewayTlsValidationContextFileTrust;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember extends $Base {
+    acm?: never;
+    file?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    acm: (value: VirtualGatewayTlsValidationContextAcmTrust) => T;
+    file: (value: VirtualGatewayTlsValidationContextFileTrust) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualGatewayTlsValidationContextTrust, visitor: Visitor<T>): T => {
+    if (value.acm !== undefined) return visitor.acm(value.acm);
+    if (value.file !== undefined) return visitor.file(value.file);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContextTrust): any => {
+    if (obj.acm !== undefined) return { acm: VirtualGatewayTlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
+    if (obj.file !== undefined)
+      return { file: VirtualGatewayTlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
  * <p>An object that represents a virtual node returned by a describe operation.</p>
  */
 export interface VirtualNodeData {
@@ -3558,9 +5257,9 @@ export interface VirtualNodeData {
   meshName: string | undefined;
 
   /**
-   * <p>The associated metadata for the virtual node.</p>
+   * <p>The name of the virtual node.</p>
    */
-  metadata: ResourceMetadata | undefined;
+  virtualNodeName: string | undefined;
 
   /**
    * <p>The specifications of the virtual node.</p>
@@ -3568,14 +5267,14 @@ export interface VirtualNodeData {
   spec: VirtualNodeSpec | undefined;
 
   /**
+   * <p>The associated metadata for the virtual node.</p>
+   */
+  metadata: ResourceMetadata | undefined;
+
+  /**
    * <p>The current status for the virtual node.</p>
    */
   status: VirtualNodeStatus | undefined;
-
-  /**
-   * <p>The name of the virtual node.</p>
-   */
-  virtualNodeName: string | undefined;
 }
 
 export namespace VirtualNodeData {
@@ -3592,14 +5291,14 @@ export namespace VirtualNodeData {
 export interface VirtualNodeRef {
   __type?: "VirtualNodeRef";
   /**
-   * <p>The full Amazon Resource Name (ARN) for the virtual node.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual node.</p>
+   */
+  virtualNodeName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -3614,9 +5313,24 @@ export interface VirtualNodeRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The name of the virtual node.</p>
+   * <p>The full Amazon Resource Name (ARN) for the virtual node.</p>
    */
-  virtualNodeName: string | undefined;
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
 export namespace VirtualNodeRef {
@@ -3650,14 +5364,11 @@ export namespace VirtualNodeServiceProvider {
 export interface VirtualNodeSpec {
   __type?: "VirtualNodeSpec";
   /**
-   * <p>A reference to an object that represents the defaults for backends.</p>
+   * <p>The service discovery information for the virtual node. If your virtual node does not
+   *          expect ingress traffic, you can omit this parameter. If you specify a
+   *          <code>listener</code>, then you must specify service discovery information.</p>
    */
-  backendDefaults?: BackendDefaults;
-
-  /**
-   * <p>The backends that the virtual node is expected to send outbound traffic to.</p>
-   */
-  backends?: Backend[];
+  serviceDiscovery?: ServiceDiscovery;
 
   /**
    * <p>The listener that the virtual node is expected to receive inbound traffic from. You can
@@ -3666,25 +5377,29 @@ export interface VirtualNodeSpec {
   listeners?: Listener[];
 
   /**
+   * <p>The backends that the virtual node is expected to send outbound traffic to.</p>
+   */
+  backends?: Backend[];
+
+  /**
+   * <p>A reference to an object that represents the defaults for backends.</p>
+   */
+  backendDefaults?: BackendDefaults;
+
+  /**
    * <p>The inbound and outbound access logging information for the virtual node.</p>
    */
   logging?: Logging;
-
-  /**
-   * <p>The service discovery information for the virtual node. If your virtual node does not
-   *          expect ingress traffic, you can omit this parameter. If you specify a
-   *          <code>listener</code>, then you must specify service discovery information.</p>
-   */
-  serviceDiscovery?: ServiceDiscovery;
 }
 
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec): any => ({
     ...obj,
-    ...(obj.backendDefaults && { backendDefaults: BackendDefaults.filterSensitiveLog(obj.backendDefaults) }),
-    ...(obj.backends && { backends: obj.backends.map((item) => Backend.filterSensitiveLog(item)) }),
-    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
     ...(obj.serviceDiscovery && { serviceDiscovery: ServiceDiscovery.filterSensitiveLog(obj.serviceDiscovery) }),
+    ...(obj.listeners && { listeners: obj.listeners.map((item) => Listener.filterSensitiveLog(item)) }),
+    ...(obj.backends && { backends: obj.backends.map((item) => Backend.filterSensitiveLog(item)) }),
+    ...(obj.backendDefaults && { backendDefaults: BackendDefaults.filterSensitiveLog(obj.backendDefaults) }),
+    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
   });
   export const isa = (o: any): o is VirtualNodeSpec => __isa(o, "VirtualNodeSpec");
 }
@@ -3724,9 +5439,9 @@ export interface VirtualRouterData {
   meshName: string | undefined;
 
   /**
-   * <p>The associated metadata for the virtual router.</p>
+   * <p>The name of the virtual router.</p>
    */
-  metadata: ResourceMetadata | undefined;
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The specifications of the virtual router.</p>
@@ -3734,14 +5449,14 @@ export interface VirtualRouterData {
   spec: VirtualRouterSpec | undefined;
 
   /**
+   * <p>The associated metadata for the virtual router.</p>
+   */
+  metadata: ResourceMetadata | undefined;
+
+  /**
    * <p>The current status of the virtual router.</p>
    */
   status: VirtualRouterStatus | undefined;
-
-  /**
-   * <p>The name of the virtual router.</p>
-   */
-  virtualRouterName: string | undefined;
 }
 
 export namespace VirtualRouterData {
@@ -3775,14 +5490,14 @@ export namespace VirtualRouterListener {
 export interface VirtualRouterRef {
   __type?: "VirtualRouterRef";
   /**
-   * <p>The full Amazon Resource Name (ARN) for the virtual router.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual router.</p>
+   */
+  virtualRouterName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -3797,9 +5512,24 @@ export interface VirtualRouterRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The name of the virtual router.</p>
+   * <p>The full Amazon Resource Name (ARN) for the virtual router.</p>
    */
-  virtualRouterName: string | undefined;
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
 export namespace VirtualRouterRef {
@@ -3876,14 +5606,14 @@ export enum VirtualRouterStatusCode {
 export interface VirtualServiceBackend {
   __type?: "VirtualServiceBackend";
   /**
-   * <p>A reference to an object that represents the client policy for a backend.</p>
-   */
-  clientPolicy?: ClientPolicy;
-
-  /**
    * <p>The name of the virtual service that is acting as a virtual node backend.</p>
    */
   virtualServiceName: string | undefined;
+
+  /**
+   * <p>A reference to an object that represents the client policy for a backend.</p>
+   */
+  clientPolicy?: ClientPolicy;
 }
 
 export namespace VirtualServiceBackend {
@@ -3905,9 +5635,9 @@ export interface VirtualServiceData {
   meshName: string | undefined;
 
   /**
-   * <p>An object that represents metadata for a resource.</p>
+   * <p>The name of the virtual service.</p>
    */
-  metadata: ResourceMetadata | undefined;
+  virtualServiceName: string | undefined;
 
   /**
    * <p>The specifications of the virtual service.</p>
@@ -3915,14 +5645,14 @@ export interface VirtualServiceData {
   spec: VirtualServiceSpec | undefined;
 
   /**
+   * <p>An object that represents metadata for a resource.</p>
+   */
+  metadata: ResourceMetadata | undefined;
+
+  /**
    * <p>The current status of the virtual service.</p>
    */
   status: VirtualServiceStatus | undefined;
-
-  /**
-   * <p>The name of the virtual service.</p>
-   */
-  virtualServiceName: string | undefined;
 }
 
 export namespace VirtualServiceData {
@@ -3997,14 +5727,14 @@ export namespace VirtualServiceProvider {
 export interface VirtualServiceRef {
   __type?: "VirtualServiceRef";
   /**
-   * <p>The full Amazon Resource Name (ARN) for the virtual service.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The name of the virtual service.</p>
+   */
+  virtualServiceName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -4019,9 +5749,24 @@ export interface VirtualServiceRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The name of the virtual service.</p>
+   * <p>The full Amazon Resource Name (ARN) for the virtual service.</p>
    */
-  virtualServiceName: string | undefined;
+  arn: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
 export namespace VirtualServiceRef {

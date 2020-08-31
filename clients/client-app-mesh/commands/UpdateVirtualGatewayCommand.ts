@@ -1,8 +1,8 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { GetMeshPolicyInput, GetMeshPolicyOutput } from "../models/index";
+import { UpdateVirtualGatewayInput, UpdateVirtualGatewayOutput } from "../models/index";
 import {
-  deserializeAws_restJson1GetMeshPolicyCommand,
-  serializeAws_restJson1GetMeshPolicyCommand,
+  deserializeAws_restJson1UpdateVirtualGatewayCommand,
+  serializeAws_restJson1UpdateVirtualGatewayCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,18 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMeshPolicyCommandInput = GetMeshPolicyInput;
-export type GetMeshPolicyCommandOutput = GetMeshPolicyOutput & __MetadataBearer;
+export type UpdateVirtualGatewayCommandInput = UpdateVirtualGatewayInput;
+export type UpdateVirtualGatewayCommandOutput = UpdateVirtualGatewayOutput & __MetadataBearer;
 
-export class GetMeshPolicyCommand extends $Command<
-  GetMeshPolicyCommandInput,
-  GetMeshPolicyCommandOutput,
+export class UpdateVirtualGatewayCommand extends $Command<
+  UpdateVirtualGatewayCommandInput,
+  UpdateVirtualGatewayCommandOutput,
   AppMeshClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetMeshPolicyCommandInput) {
+  constructor(readonly input: UpdateVirtualGatewayCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -38,7 +38,7 @@ export class GetMeshPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetMeshPolicyCommandInput, GetMeshPolicyCommandOutput> {
+  ): Handler<UpdateVirtualGatewayCommandInput, UpdateVirtualGatewayCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -46,8 +46,8 @@ export class GetMeshPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: GetMeshPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMeshPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVirtualGatewayInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualGatewayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -57,12 +57,12 @@ export class GetMeshPolicyCommand extends $Command<
     );
   }
 
-  private serialize(input: GetMeshPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMeshPolicyCommand(input, context);
+  private serialize(input: UpdateVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateVirtualGatewayCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMeshPolicyCommandOutput> {
-    return deserializeAws_restJson1GetMeshPolicyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualGatewayCommandOutput> {
+    return deserializeAws_restJson1UpdateVirtualGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra
