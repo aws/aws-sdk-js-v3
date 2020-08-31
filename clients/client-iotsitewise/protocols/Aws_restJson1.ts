@@ -197,7 +197,7 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -238,7 +238,7 @@ export const serializeAws_restJson1BatchAssociateProjectAssetsCommand = async (
     ...(input.assetIds !== undefined && { assetIds: serializeAws_restJson1IDs(input.assetIds, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -279,7 +279,7 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
     ...(input.assetIds !== undefined && { assetIds: serializeAws_restJson1IDs(input.assetIds, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -312,7 +312,7 @@ export const serializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
       entries: serializeAws_restJson1PutAssetPropertyValueEntries(input.entries, context),
     }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -351,7 +351,7 @@ export const serializeAws_restJson1CreateAccessPolicyCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -385,7 +385,7 @@ export const serializeAws_restJson1CreateAssetCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -425,7 +425,7 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -461,7 +461,7 @@ export const serializeAws_restJson1CreateDashboardCommand = async (
     ...(input.projectId !== undefined && { projectId: input.projectId }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -496,7 +496,7 @@ export const serializeAws_restJson1CreateGatewayCommand = async (
     }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -535,7 +535,7 @@ export const serializeAws_restJson1CreatePortalCommand = async (
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -570,7 +570,7 @@ export const serializeAws_restJson1CreateProjectCommand = async (
     ...(input.projectName !== undefined && { projectName: input.projectName }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -610,7 +610,7 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -651,7 +651,7 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -692,7 +692,7 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -733,7 +733,7 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -771,7 +771,7 @@ export const serializeAws_restJson1DeleteGatewayCommand = async (
     throw new Error("No value provided for input HTTP label: gatewayId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -811,7 +811,7 @@ export const serializeAws_restJson1DeletePortalCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -852,7 +852,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -890,7 +890,7 @@ export const serializeAws_restJson1DescribeAccessPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: accessPolicyId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -927,7 +927,7 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
     throw new Error("No value provided for input HTTP label: assetId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -964,7 +964,7 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
     throw new Error("No value provided for input HTTP label: assetModelId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1010,7 +1010,7 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
     throw new Error("No value provided for input HTTP label: assetId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1047,7 +1047,7 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
     throw new Error("No value provided for input HTTP label: dashboardId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1084,7 +1084,7 @@ export const serializeAws_restJson1DescribeGatewayCommand = async (
     throw new Error("No value provided for input HTTP label: gatewayId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1130,7 +1130,7 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
     throw new Error("No value provided for input HTTP label: gatewayId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1159,7 +1159,7 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   let resolvedPath = "/logging";
   let body: any;
   body = "{}";
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1196,7 +1196,7 @@ export const serializeAws_restJson1DescribePortalCommand = async (
     throw new Error("No value provided for input HTTP label: portalId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1233,7 +1233,7 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
     throw new Error("No value provided for input HTTP label: projectId.");
   }
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1275,7 +1275,7 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1316,7 +1316,7 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1350,7 +1350,7 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1390,7 +1390,7 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1427,7 +1427,7 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1460,7 +1460,7 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1495,7 +1495,7 @@ export const serializeAws_restJson1ListAssetsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1538,7 +1538,7 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1572,7 +1572,7 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1605,7 +1605,7 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1638,7 +1638,7 @@ export const serializeAws_restJson1ListPortalsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1680,7 +1680,7 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1714,7 +1714,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1773,7 +1773,7 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
       loggingOptions: serializeAws_restJson1LoggingOptions(input.loggingOptions, context),
     }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1874,7 +1874,7 @@ export const serializeAws_restJson1UpdateAccessPolicyCommand = async (
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1915,7 +1915,7 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
     ...(input.assetName !== undefined && { assetName: input.assetName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -1963,7 +1963,7 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -2016,7 +2016,7 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
       propertyNotificationState: input.propertyNotificationState,
     }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "model." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -2059,7 +2059,7 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
     ...(input.dashboardDescription !== undefined && { dashboardDescription: input.dashboardDescription }),
     ...(input.dashboardName !== undefined && { dashboardName: input.dashboardName }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -2099,7 +2099,7 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
   body = JSON.stringify({
     ...(input.gatewayName !== undefined && { gatewayName: input.gatewayName }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -2140,7 +2140,7 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
     ...(input.capabilityConfiguration !== undefined && { capabilityConfiguration: input.capabilityConfiguration }),
     ...(input.capabilityNamespace !== undefined && { capabilityNamespace: input.capabilityNamespace }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "edge." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -2187,7 +2187,7 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
     ...(input.portalName !== undefined && { portalName: input.portalName }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
@@ -2229,7 +2229,7 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
     ...(input.projectDescription !== undefined && { projectDescription: input.projectDescription }),
     ...(input.projectName !== undefined && { projectName: input.projectName }),
   });
-  let resolvedHostname = (context.endpoint as any).hostname;
+  let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
