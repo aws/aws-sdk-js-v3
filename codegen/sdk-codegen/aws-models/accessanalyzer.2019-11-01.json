@@ -41,12 +41,12 @@
       "traits": {
         "aws.api#service": {
           "sdkId": "AccessAnalyzer",
-          "arnNamespace": "replace-for-service-name",
+          "arnNamespace": "access-analyzer",
           "cloudFormationName": "AccessAnalyzer",
-          "cloudTrailEventSource": "replace-for-cloudtrail-event-source"
+          "cloudTrailEventSource": "access-analyzer.amazonaws.com"
         },
         "aws.auth#sigv4": {
-          "name": ""
+          "name": "access-analyzer"
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {},
@@ -84,16 +84,17 @@
     "com.amazonaws.accessanalyzer#AnalyzedResource": {
       "type": "structure",
       "members": {
-        "actions": {
-          "target": "com.amazonaws.accessanalyzer#ActionList",
+        "resourceArn": {
+          "target": "com.amazonaws.accessanalyzer#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The actions that an external principal is granted permission to use by the policy that\n         generated the finding.</p>"
+            "smithy.api#documentation": "<p>The ARN of the resource that was analyzed.</p>",
+            "smithy.api#required": {}
           }
         },
-        "analyzedAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "resourceType": {
+          "target": "com.amazonaws.accessanalyzer#ResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the resource was analyzed.</p>",
+            "smithy.api#documentation": "<p>The type of the resource that was analyzed.</p>",
             "smithy.api#required": {}
           }
         },
@@ -104,10 +105,18 @@
             "smithy.api#required": {}
           }
         },
-        "error": {
-          "target": "smithy.api#String",
+        "analyzedAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>An error message.</p>"
+            "smithy.api#documentation": "<p>The time at which the resource was analyzed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the finding was updated.</p>",
+            "smithy.api#required": {}
           }
         },
         "isPublic": {
@@ -117,25 +126,10 @@
             "smithy.api#required": {}
           }
         },
-        "resourceArn": {
-          "target": "com.amazonaws.accessanalyzer#ResourceArn",
+        "actions": {
+          "target": "com.amazonaws.accessanalyzer#ActionList",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the resource that was analyzed.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "resourceOwnerAccount": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID that owns the resource.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "resourceType": {
-          "target": "com.amazonaws.accessanalyzer#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the resource that was analyzed.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The actions that an external principal is granted permission to use by the policy that\n         generated the finding.</p>"
           }
         },
         "sharedVia": {
@@ -150,11 +144,17 @@
             "smithy.api#documentation": "<p>The current status of the finding generated from the analyzed resource.</p>"
           }
         },
-        "updatedAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "resourceOwnerAccount": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the finding was updated.</p>",
+            "smithy.api#documentation": "<p>The AWS account ID that owns the resource.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "error": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An error message.</p>"
           }
         }
       },
@@ -265,6 +265,20 @@
             "smithy.api#required": {}
           }
         },
+        "name": {
+          "target": "com.amazonaws.accessanalyzer#Name",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the analyzer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.accessanalyzer#Type",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of analyzer, which corresponds to the zone of trust chosen for the\n         analyzer.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "createdAt": {
           "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
@@ -284,11 +298,10 @@
             "smithy.api#documentation": "<p>The time at which the most recently analyzed resource was analyzed.</p>"
           }
         },
-        "name": {
-          "target": "com.amazonaws.accessanalyzer#Name",
+        "tags": {
+          "target": "com.amazonaws.accessanalyzer#TagsMap",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the analyzer.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The tags added to the analyzer.</p>"
           }
         },
         "status": {
@@ -302,19 +315,6 @@
           "target": "com.amazonaws.accessanalyzer#StatusReason",
           "traits": {
             "smithy.api#documentation": "<p>The <code>statusReason</code> provides more details about the current status of the analyzer. For example, if the\n         creation for the analyzer fails, a <code>Failed</code> status is displayed. For an analyzer\n         with organization as the type, this failure can be due to an issue with creating the\n         service-linked roles required in the member accounts of the AWS organization.</p>"
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.accessanalyzer#TagsMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags added to the analyzer.</p>"
-          }
-        },
-        "type": {
-          "target": "com.amazonaws.accessanalyzer#Type",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of analyzer, which corresponds to the zone of trust chosen for the\n         analyzer.</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -365,10 +365,10 @@
     "com.amazonaws.accessanalyzer#ArchiveRuleSummary": {
       "type": "structure",
       "members": {
-        "createdAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "ruleName": {
+          "target": "com.amazonaws.accessanalyzer#Name",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the archive rule was created.</p>",
+            "smithy.api#documentation": "<p>The name of the archive rule.</p>",
             "smithy.api#required": {}
           }
         },
@@ -379,10 +379,10 @@
             "smithy.api#required": {}
           }
         },
-        "ruleName": {
-          "target": "com.amazonaws.accessanalyzer#Name",
+        "createdAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the archive rule.</p>",
+            "smithy.api#documentation": "<p>The time at which the archive rule was created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -491,17 +491,17 @@
             "smithy.api#required": {}
           }
         },
+        "type": {
+          "target": "com.amazonaws.accessanalyzer#Type",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create\n         only one analyzer per account per Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "archiveRules": {
           "target": "com.amazonaws.accessanalyzer#InlineArchiveRulesList",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive\n         findings that meet the criteria you define for the rule.</p>"
-          }
-        },
-        "clientToken": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A client token.</p>",
-            "smithy.api#idempotencyToken": {}
           }
         },
         "tags": {
@@ -510,11 +510,11 @@
             "smithy.api#documentation": "<p>The tags to apply to the analyzer.</p>"
           }
         },
-        "type": {
-          "target": "com.amazonaws.accessanalyzer#Type",
+        "clientToken": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create\n         only one analyzer per account per Region.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A client token.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -585,11 +585,11 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "smithy.api#String",
+        "ruleName": {
+          "target": "com.amazonaws.accessanalyzer#Name",
           "traits": {
-            "smithy.api#documentation": "<p>A client token.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The name of the rule to create.</p>",
+            "smithy.api#required": {}
           }
         },
         "filter": {
@@ -599,11 +599,11 @@
             "smithy.api#required": {}
           }
         },
-        "ruleName": {
-          "target": "com.amazonaws.accessanalyzer#Name",
+        "clientToken": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the rule to create.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A client token.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -614,28 +614,28 @@
     "com.amazonaws.accessanalyzer#Criterion": {
       "type": "structure",
       "members": {
-        "contains": {
-          "target": "com.amazonaws.accessanalyzer#ValueList",
-          "traits": {
-            "smithy.api#documentation": "<p>A \"contains\" operator to match for the filter used to create the rule.</p>"
-          }
-        },
         "eq": {
           "target": "com.amazonaws.accessanalyzer#ValueList",
           "traits": {
             "smithy.api#documentation": "<p>An \"equals\" operator to match for the filter used to create the rule.</p>"
           }
         },
-        "exists": {
-          "target": "smithy.api#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>An \"exists\" operator to match for the filter used to create the rule. </p>"
-          }
-        },
         "neq": {
           "target": "com.amazonaws.accessanalyzer#ValueList",
           "traits": {
             "smithy.api#documentation": "<p>A \"not equals\" operator to match for the filter used to create the rule.</p>"
+          }
+        },
+        "contains": {
+          "target": "com.amazonaws.accessanalyzer#ValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A \"contains\" operator to match for the filter used to create the rule.</p>"
+          }
+        },
+        "exists": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>An \"exists\" operator to match for the filter used to create the rule. </p>"
           }
         }
       },
@@ -742,20 +742,20 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A client token.</p>",
-            "smithy.api#httpQuery": "clientToken",
-            "smithy.api#idempotencyToken": {}
-          }
-        },
         "ruleName": {
           "target": "com.amazonaws.accessanalyzer#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule to delete.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A client token.</p>",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -775,16 +775,41 @@
     "com.amazonaws.accessanalyzer#Finding": {
       "type": "structure",
       "members": {
+        "id": {
+          "target": "com.amazonaws.accessanalyzer#FindingId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the finding.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "principal": {
+          "target": "com.amazonaws.accessanalyzer#PrincipalMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The external principal that access to a resource within the zone of trust.</p>"
+          }
+        },
         "action": {
           "target": "com.amazonaws.accessanalyzer#ActionList",
           "traits": {
             "smithy.api#documentation": "<p>The action in the analyzed policy statement that an external principal has permission to\n         use.</p>"
           }
         },
-        "analyzedAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "resource": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the resource was analyzed.</p>",
+            "smithy.api#documentation": "<p>The resource that an external principal has access to.</p>"
+          }
+        },
+        "isPublic": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the policy that generated the finding allows public access to the\n         resource.</p>"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.accessanalyzer#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the resource reported in the finding.</p>",
             "smithy.api#required": {}
           }
         },
@@ -802,55 +827,18 @@
             "smithy.api#required": {}
           }
         },
-        "error": {
-          "target": "smithy.api#String",
+        "analyzedAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>An error.</p>"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.accessanalyzer#FindingId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the finding.</p>",
+            "smithy.api#documentation": "<p>The time at which the resource was analyzed.</p>",
             "smithy.api#required": {}
           }
         },
-        "isPublic": {
-          "target": "smithy.api#Boolean",
+        "updatedAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the policy that generated the finding allows public access to the\n         resource.</p>"
-          }
-        },
-        "principal": {
-          "target": "com.amazonaws.accessanalyzer#PrincipalMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The external principal that access to a resource within the zone of trust.</p>"
-          }
-        },
-        "resource": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource that an external principal has access to.</p>"
-          }
-        },
-        "resourceOwnerAccount": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID that owns the resource.</p>",
+            "smithy.api#documentation": "<p>The time at which the finding was updated.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "resourceType": {
-          "target": "com.amazonaws.accessanalyzer#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the resource reported in the finding.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "sources": {
-          "target": "com.amazonaws.accessanalyzer#FindingSourceList",
-          "traits": {
-            "smithy.api#documentation": "<p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>"
           }
         },
         "status": {
@@ -860,11 +848,23 @@
             "smithy.api#required": {}
           }
         },
-        "updatedAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "resourceOwnerAccount": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the finding was updated.</p>",
+            "smithy.api#documentation": "<p>The AWS account ID that owns the resource.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "error": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An error.</p>"
+          }
+        },
+        "sources": {
+          "target": "com.amazonaws.accessanalyzer#FindingSourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>"
           }
         }
       },
@@ -884,17 +884,17 @@
     "com.amazonaws.accessanalyzer#FindingSource": {
       "type": "structure",
       "members": {
-        "detail": {
-          "target": "com.amazonaws.accessanalyzer#FindingSourceDetail",
-          "traits": {
-            "smithy.api#documentation": "<p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>"
-          }
-        },
         "type": {
           "target": "com.amazonaws.accessanalyzer#FindingSourceType",
           "traits": {
             "smithy.api#documentation": "<p>Indicates the type of access that generated the finding.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "detail": {
+          "target": "com.amazonaws.accessanalyzer#FindingSourceDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>"
           }
         }
       },
@@ -930,13 +930,13 @@
             "value": "POLICY"
           },
           {
-            "value": "// Conceptually the primary resource policy on the resource  BUCKET_ACL"
+            "value": "BUCKET_ACL"
           },
           {
-            "value": "// S3 bucket ACLs only  S3_ACCESS_POINT"
+            "value": "S3_ACCESS_POINT"
           },
           {
-            "value": "// S3 access points only  // KMS_GRANT"
+            "value": "KMS_GRANT"
           }
         ]
       }
@@ -973,16 +973,41 @@
     "com.amazonaws.accessanalyzer#FindingSummary": {
       "type": "structure",
       "members": {
+        "id": {
+          "target": "com.amazonaws.accessanalyzer#FindingId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the finding.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "principal": {
+          "target": "com.amazonaws.accessanalyzer#PrincipalMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The external principal that has access to a resource within the zone of trust.</p>"
+          }
+        },
         "action": {
           "target": "com.amazonaws.accessanalyzer#ActionList",
           "traits": {
             "smithy.api#documentation": "<p>The action in the analyzed policy statement that an external principal has permission to\n         use.</p>"
           }
         },
-        "analyzedAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "resource": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the resource-based policy that generated the finding was\n         analyzed.</p>",
+            "smithy.api#documentation": "<p>The resource that the external principal has access to.</p>"
+          }
+        },
+        "isPublic": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the finding reports a resource that has a policy that allows public\n         access.</p>"
+          }
+        },
+        "resourceType": {
+          "target": "com.amazonaws.accessanalyzer#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the resource that the external principal has access to.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1000,55 +1025,18 @@
             "smithy.api#required": {}
           }
         },
-        "error": {
-          "target": "smithy.api#String",
+        "analyzedAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The error that resulted in an Error finding.</p>"
-          }
-        },
-        "id": {
-          "target": "com.amazonaws.accessanalyzer#FindingId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID of the finding.</p>",
+            "smithy.api#documentation": "<p>The time at which the resource-based policy that generated the finding was\n         analyzed.</p>",
             "smithy.api#required": {}
           }
         },
-        "isPublic": {
-          "target": "smithy.api#Boolean",
+        "updatedAt": {
+          "target": "com.amazonaws.accessanalyzer#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the finding reports a resource that has a policy that allows public\n         access.</p>"
-          }
-        },
-        "principal": {
-          "target": "com.amazonaws.accessanalyzer#PrincipalMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The external principal that has access to a resource within the zone of trust.</p>"
-          }
-        },
-        "resource": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The resource that the external principal has access to.</p>"
-          }
-        },
-        "resourceOwnerAccount": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID that owns the resource.</p>",
+            "smithy.api#documentation": "<p>The time at which the finding was most recently updated.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "resourceType": {
-          "target": "com.amazonaws.accessanalyzer#ResourceType",
-          "traits": {
-            "smithy.api#documentation": "<p>The type of the resource that the external principal has access to.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "sources": {
-          "target": "com.amazonaws.accessanalyzer#FindingSourceList",
-          "traits": {
-            "smithy.api#documentation": "<p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>"
           }
         },
         "status": {
@@ -1058,11 +1046,23 @@
             "smithy.api#required": {}
           }
         },
-        "updatedAt": {
-          "target": "com.amazonaws.accessanalyzer#Timestamp",
+        "resourceOwnerAccount": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The time at which the finding was most recently updated.</p>",
+            "smithy.api#documentation": "<p>The AWS account ID that owns the resource.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "error": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error that resulted in an Error finding.</p>"
+          }
+        },
+        "sources": {
+          "target": "com.amazonaws.accessanalyzer#FindingSourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>"
           }
         }
       },
@@ -1320,8 +1320,7 @@
           "uri": "/finding/{id}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#suppress": ["MissingPaginatedTrait"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.accessanalyzer#GetFindingRequest": {
@@ -1365,17 +1364,17 @@
     "com.amazonaws.accessanalyzer#InlineArchiveRule": {
       "type": "structure",
       "members": {
-        "filter": {
-          "target": "com.amazonaws.accessanalyzer#FilterCriteriaMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The condition and values for a criterion.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "ruleName": {
           "target": "com.amazonaws.accessanalyzer#Name",
           "traits": {
             "smithy.api#documentation": "<p>The name of the rule.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "filter": {
+          "target": "com.amazonaws.accessanalyzer#FilterCriteriaMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The condition and values for a criterion.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1449,8 +1448,7 @@
         "smithy.api#paginated": {
           "items": "analyzedResources"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.accessanalyzer#ListAnalyzedResourcesRequest": {
@@ -1463,10 +1461,10 @@
             "smithy.api#required": {}
           }
         },
-        "maxResults": {
-          "target": "smithy.api#Integer",
+        "resourceType": {
+          "target": "com.amazonaws.accessanalyzer#ResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
+            "smithy.api#documentation": "<p>The type of resource.</p>"
           }
         },
         "nextToken": {
@@ -1475,10 +1473,10 @@
             "smithy.api#documentation": "<p>A token used for pagination of results returned.</p>"
           }
         },
-        "resourceType": {
-          "target": "com.amazonaws.accessanalyzer#ResourceType",
+        "maxResults": {
+          "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The type of resource.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         }
       },
@@ -1545,18 +1543,18 @@
     "com.amazonaws.accessanalyzer#ListAnalyzersRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.accessanalyzer#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token used for pagination of results returned.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "type": {
@@ -1638,18 +1636,18 @@
             "smithy.api#required": {}
           }
         },
-        "maxResults": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in the request.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.accessanalyzer#Token",
           "traits": {
             "smithy.api#documentation": "<p>A token used for pagination of results returned.</p>",
             "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in the request.</p>",
+            "smithy.api#httpQuery": "maxResults"
           }
         }
       },
@@ -1713,8 +1711,7 @@
         "smithy.api#paginated": {
           "items": "findings"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#suppress": ["HttpMethodSemantics"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.accessanalyzer#ListFindingsRequest": {
@@ -1733,10 +1730,10 @@
             "smithy.api#documentation": "<p>A filter to match for the findings to return.</p>"
           }
         },
-        "maxResults": {
-          "target": "smithy.api#Integer",
+        "sort": {
+          "target": "com.amazonaws.accessanalyzer#SortCriteria",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
+            "smithy.api#documentation": "<p>The sort order for the findings returned.</p>"
           }
         },
         "nextToken": {
@@ -1745,10 +1742,10 @@
             "smithy.api#documentation": "<p>A token used for pagination of results returned.</p>"
           }
         },
-        "sort": {
-          "target": "com.amazonaws.accessanalyzer#SortCriteria",
+        "maxResults": {
+          "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The sort order for the findings returned.</p>"
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         }
       },
@@ -1809,8 +1806,7 @@
           "uri": "/tags/{resourceArn}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#suppress": ["TrebuchetMissingPaginatedTrait", "MissingPaginatedTrait"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.accessanalyzer#ListTagsForResourceRequest": {
@@ -2314,11 +2310,12 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "smithy.api#String",
+        "ruleName": {
+          "target": "com.amazonaws.accessanalyzer#Name",
           "traits": {
-            "smithy.api#documentation": "<p>A client token.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The name of the rule to update.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
           }
         },
         "filter": {
@@ -2328,12 +2325,11 @@
             "smithy.api#required": {}
           }
         },
-        "ruleName": {
-          "target": "com.amazonaws.accessanalyzer#Name",
+        "clientToken": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the rule to update.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A client token.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -2383,11 +2379,11 @@
             "smithy.api#required": {}
           }
         },
-        "clientToken": {
-          "target": "smithy.api#String",
+        "status": {
+          "target": "com.amazonaws.accessanalyzer#FindingStatusUpdate",
           "traits": {
-            "smithy.api#documentation": "<p>A client token.</p>",
-            "smithy.api#idempotencyToken": {}
+            "smithy.api#documentation": "<p>The state represents the action to take to update the finding Status. Use\n            <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use\n            <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>",
+            "smithy.api#required": {}
           }
         },
         "ids": {
@@ -2402,11 +2398,11 @@
             "smithy.api#documentation": "<p>The ARN of the resource identified in the finding.</p>"
           }
         },
-        "status": {
-          "target": "com.amazonaws.accessanalyzer#FindingStatusUpdate",
+        "clientToken": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The state represents the action to take to update the finding Status. Use\n            <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use\n            <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A client token.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -2417,12 +2413,6 @@
     "com.amazonaws.accessanalyzer#ValidationException": {
       "type": "structure",
       "members": {
-        "fieldList": {
-          "target": "com.amazonaws.accessanalyzer#ValidationExceptionFieldList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of fields that didn't validate.</p>"
-          }
-        },
         "message": {
           "target": "smithy.api#String",
           "traits": {
@@ -2435,6 +2425,12 @@
             "smithy.api#documentation": "<p>The reason for the exception.</p>",
             "smithy.api#required": {}
           }
+        },
+        "fieldList": {
+          "target": "com.amazonaws.accessanalyzer#ValidationExceptionFieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of fields that didn't validate.</p>"
+          }
         }
       },
       "traits": {
@@ -2446,17 +2442,17 @@
     "com.amazonaws.accessanalyzer#ValidationExceptionField": {
       "type": "structure",
       "members": {
-        "message": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>A message about the validation exception.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the validation exception.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A message about the validation exception.</p>",
             "smithy.api#required": {}
           }
         }
