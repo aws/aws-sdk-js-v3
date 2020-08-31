@@ -43,8 +43,11 @@ export class ListConferenceProvidersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListConferenceProvidersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListConferenceProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

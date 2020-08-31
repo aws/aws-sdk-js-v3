@@ -43,8 +43,11 @@ export class UpdateServiceSettingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateServiceSettingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServiceSettingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

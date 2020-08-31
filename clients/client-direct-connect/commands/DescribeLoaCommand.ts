@@ -43,8 +43,11 @@ export class DescribeLoaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLoaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Loa.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

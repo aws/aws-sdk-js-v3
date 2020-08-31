@@ -43,8 +43,11 @@ export class CancelSchemaExtensionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelSchemaExtensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelSchemaExtensionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteBucketCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

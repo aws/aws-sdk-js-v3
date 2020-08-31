@@ -43,8 +43,11 @@ export class GetClassifierCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetClassifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

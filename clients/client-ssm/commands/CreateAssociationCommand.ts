@@ -43,8 +43,11 @@ export class CreateAssociationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

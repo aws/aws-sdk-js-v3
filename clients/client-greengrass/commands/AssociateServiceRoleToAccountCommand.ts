@@ -43,8 +43,11 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateServiceRoleToAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateServiceRoleToAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

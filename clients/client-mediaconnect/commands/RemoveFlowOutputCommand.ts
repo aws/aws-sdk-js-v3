@@ -43,8 +43,11 @@ export class RemoveFlowOutputCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RemoveFlowOutputRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFlowOutputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

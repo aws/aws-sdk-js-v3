@@ -43,8 +43,11 @@ export class DescribeElasticGpusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeElasticGpusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticGpusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,11 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryByQuotaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryByQuotaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ModifyDBInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

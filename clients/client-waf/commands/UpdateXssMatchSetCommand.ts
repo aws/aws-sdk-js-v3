@@ -43,8 +43,11 @@ export class UpdateXssMatchSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateXssMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateXssMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

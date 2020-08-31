@@ -43,8 +43,11 @@ export class DescribeStepCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeStepInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStepOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

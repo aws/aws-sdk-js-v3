@@ -43,8 +43,11 @@ export class DescribeAccessPointsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAccessPointsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccessPointsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

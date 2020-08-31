@@ -43,8 +43,11 @@ export class ModifyVpcTenancyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyVpcTenancyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyVpcTenancyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

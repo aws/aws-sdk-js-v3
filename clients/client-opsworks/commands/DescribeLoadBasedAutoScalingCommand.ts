@@ -43,8 +43,11 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLoadBasedAutoScalingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBasedAutoScalingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

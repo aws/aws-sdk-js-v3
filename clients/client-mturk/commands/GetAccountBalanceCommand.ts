@@ -43,8 +43,11 @@ export class GetAccountBalanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAccountBalanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountBalanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

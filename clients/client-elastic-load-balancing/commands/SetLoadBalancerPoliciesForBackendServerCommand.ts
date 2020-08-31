@@ -54,8 +54,11 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateClientCertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateClientCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ClientCertificate.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListVaultsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVaultsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVaultsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

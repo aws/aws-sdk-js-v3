@@ -43,8 +43,11 @@ export class GetConnectionStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetConnectionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetConnectionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

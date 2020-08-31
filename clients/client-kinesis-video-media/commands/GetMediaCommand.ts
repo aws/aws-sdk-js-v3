@@ -47,8 +47,11 @@ export class GetMediaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetMediaInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMediaOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

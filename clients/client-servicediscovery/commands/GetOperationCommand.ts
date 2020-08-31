@@ -43,8 +43,11 @@ export class GetOperationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetOperationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOperationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

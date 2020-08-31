@@ -43,8 +43,11 @@ export class QueryForecastCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: QueryForecastRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: QueryForecastResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

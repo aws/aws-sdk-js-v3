@@ -43,8 +43,11 @@ export class GrantPermissionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GrantPermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GrantPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

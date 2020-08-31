@@ -43,8 +43,11 @@ export class GetConnectorDefinitionVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetConnectorDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetConnectorDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

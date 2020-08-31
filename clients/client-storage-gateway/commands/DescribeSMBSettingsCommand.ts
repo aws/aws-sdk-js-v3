@@ -43,8 +43,11 @@ export class DescribeSMBSettingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSMBSettingsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSMBSettingsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

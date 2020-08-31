@@ -36,8 +36,11 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

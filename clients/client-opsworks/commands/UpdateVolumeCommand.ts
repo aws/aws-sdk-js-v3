@@ -43,8 +43,11 @@ export class UpdateVolumeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateVolumeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

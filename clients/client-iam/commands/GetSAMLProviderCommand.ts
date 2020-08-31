@@ -43,8 +43,11 @@ export class GetSAMLProviderCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSAMLProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSAMLProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

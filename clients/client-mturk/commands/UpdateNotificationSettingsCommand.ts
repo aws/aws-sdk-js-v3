@@ -43,8 +43,11 @@ export class UpdateNotificationSettingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateNotificationSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNotificationSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

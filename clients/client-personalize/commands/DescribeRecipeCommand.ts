@@ -43,8 +43,11 @@ export class DescribeRecipeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeRecipeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRecipeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

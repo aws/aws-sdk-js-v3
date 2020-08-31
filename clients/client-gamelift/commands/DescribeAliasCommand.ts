@@ -43,8 +43,11 @@ export class DescribeAliasCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAliasInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAliasOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

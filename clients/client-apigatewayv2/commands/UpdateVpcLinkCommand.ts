@@ -43,8 +43,11 @@ export class UpdateVpcLinkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateVpcLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVpcLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

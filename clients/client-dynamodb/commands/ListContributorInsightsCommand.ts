@@ -43,8 +43,11 @@ export class ListContributorInsightsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListContributorInsightsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListContributorInsightsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

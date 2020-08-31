@@ -43,8 +43,11 @@ export class UpdateUserProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateUserProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUserProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

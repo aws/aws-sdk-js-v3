@@ -43,8 +43,11 @@ export class CreateDomainAssociationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDomainAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

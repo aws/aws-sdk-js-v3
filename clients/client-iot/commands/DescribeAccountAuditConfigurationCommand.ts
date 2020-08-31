@@ -44,8 +44,11 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAccountAuditConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountAuditConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

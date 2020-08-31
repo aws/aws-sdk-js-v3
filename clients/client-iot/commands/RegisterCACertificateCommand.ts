@@ -43,8 +43,11 @@ export class RegisterCACertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RegisterCACertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterCACertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

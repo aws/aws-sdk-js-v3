@@ -43,8 +43,11 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociatePhoneNumberWithUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePhoneNumberWithUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

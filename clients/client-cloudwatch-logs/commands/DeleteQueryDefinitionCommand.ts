@@ -43,8 +43,11 @@ export class DeleteQueryDefinitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteQueryDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQueryDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

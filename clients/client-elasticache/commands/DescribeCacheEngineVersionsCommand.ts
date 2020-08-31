@@ -43,8 +43,11 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeCacheEngineVersionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheEngineVersionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

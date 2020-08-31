@@ -43,8 +43,11 @@ export class CreateCustomerGatewayCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCustomerGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomerGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

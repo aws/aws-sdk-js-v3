@@ -43,8 +43,11 @@ export class GetInsightsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetInsightsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInsightsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

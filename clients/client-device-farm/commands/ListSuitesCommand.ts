@@ -43,8 +43,11 @@ export class ListSuitesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListSuitesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSuitesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

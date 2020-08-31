@@ -43,8 +43,11 @@ export class CancelContactCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ContactIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

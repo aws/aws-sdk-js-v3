@@ -43,8 +43,11 @@ export class AttachStaticIpCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AttachStaticIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

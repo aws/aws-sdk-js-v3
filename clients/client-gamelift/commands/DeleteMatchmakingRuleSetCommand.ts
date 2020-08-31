@@ -43,8 +43,11 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteMatchmakingRuleSetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMatchmakingRuleSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

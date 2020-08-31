@@ -43,8 +43,11 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetFieldLevelEncryptionProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFieldLevelEncryptionProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

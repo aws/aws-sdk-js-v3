@@ -43,8 +43,11 @@ export class ListBonusPaymentsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListBonusPaymentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBonusPaymentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutProvisionedConcurrencyConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutProvisionedConcurrencyConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

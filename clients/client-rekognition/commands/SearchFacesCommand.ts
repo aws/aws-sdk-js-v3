@@ -43,8 +43,11 @@ export class SearchFacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchFacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchFacesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

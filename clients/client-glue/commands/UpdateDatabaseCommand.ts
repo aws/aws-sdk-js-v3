@@ -43,8 +43,11 @@ export class UpdateDatabaseCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDatabaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

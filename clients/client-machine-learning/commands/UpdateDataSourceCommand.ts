@@ -43,8 +43,11 @@ export class UpdateDataSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateDataSourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataSourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

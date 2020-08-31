@@ -43,8 +43,11 @@ export class StartCopyJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartCopyJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartCopyJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

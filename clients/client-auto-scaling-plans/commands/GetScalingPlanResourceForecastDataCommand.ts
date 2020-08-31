@@ -44,8 +44,11 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetScalingPlanResourceForecastDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetScalingPlanResourceForecastDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

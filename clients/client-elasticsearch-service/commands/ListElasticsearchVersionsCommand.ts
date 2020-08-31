@@ -47,8 +47,11 @@ export class ListElasticsearchVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListElasticsearchVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListElasticsearchVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

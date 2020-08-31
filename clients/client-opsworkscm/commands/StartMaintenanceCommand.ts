@@ -43,8 +43,11 @@ export class StartMaintenanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartMaintenanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMaintenanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

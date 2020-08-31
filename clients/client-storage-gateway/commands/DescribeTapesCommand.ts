@@ -43,8 +43,11 @@ export class DescribeTapesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTapesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTapesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

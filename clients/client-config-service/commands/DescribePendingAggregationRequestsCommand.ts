@@ -44,8 +44,11 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePendingAggregationRequestsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePendingAggregationRequestsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

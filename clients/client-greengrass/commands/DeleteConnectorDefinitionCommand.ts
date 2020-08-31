@@ -43,8 +43,11 @@ export class DeleteConnectorDefinitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteConnectorDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConnectorDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

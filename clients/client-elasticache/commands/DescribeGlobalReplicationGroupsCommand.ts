@@ -43,8 +43,11 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeGlobalReplicationGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGlobalReplicationGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

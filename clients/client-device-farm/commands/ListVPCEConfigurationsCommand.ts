@@ -43,8 +43,11 @@ export class ListVPCEConfigurationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVPCEConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVPCEConfigurationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListWorkteamsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListWorkteamsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWorkteamsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

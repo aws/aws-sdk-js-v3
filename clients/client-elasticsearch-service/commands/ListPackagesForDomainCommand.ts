@@ -47,8 +47,11 @@ export class ListPackagesForDomainCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListPackagesForDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPackagesForDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

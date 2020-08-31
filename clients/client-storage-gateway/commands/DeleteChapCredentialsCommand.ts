@@ -43,8 +43,11 @@ export class DeleteChapCredentialsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteChapCredentialsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteChapCredentialsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

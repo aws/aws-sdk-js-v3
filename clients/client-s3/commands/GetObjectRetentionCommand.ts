@@ -45,8 +45,11 @@ export class GetObjectRetentionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetObjectRetentionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectRetentionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

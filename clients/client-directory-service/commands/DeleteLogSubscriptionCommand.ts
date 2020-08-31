@@ -43,8 +43,11 @@ export class DeleteLogSubscriptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLogSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLogSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

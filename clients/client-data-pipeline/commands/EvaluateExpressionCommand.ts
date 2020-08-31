@@ -43,8 +43,11 @@ export class EvaluateExpressionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EvaluateExpressionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EvaluateExpressionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,11 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AcceptDirectConnectGatewayAssociationProposalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptDirectConnectGatewayAssociationProposalResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

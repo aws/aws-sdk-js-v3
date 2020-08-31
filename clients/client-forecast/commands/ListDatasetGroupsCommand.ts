@@ -43,8 +43,11 @@ export class ListDatasetGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDatasetGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDatasetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

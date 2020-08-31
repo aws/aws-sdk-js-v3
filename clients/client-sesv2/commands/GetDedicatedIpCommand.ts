@@ -43,8 +43,11 @@ export class GetDedicatedIpCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDedicatedIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDedicatedIpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

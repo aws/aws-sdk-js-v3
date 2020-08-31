@@ -47,8 +47,11 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class StopStackSetOperationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopStackSetOperationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopStackSetOperationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

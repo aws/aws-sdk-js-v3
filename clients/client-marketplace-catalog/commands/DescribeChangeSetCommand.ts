@@ -47,8 +47,11 @@ export class DescribeChangeSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeChangeSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

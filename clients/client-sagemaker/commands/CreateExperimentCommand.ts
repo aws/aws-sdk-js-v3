@@ -43,8 +43,11 @@ export class CreateExperimentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateExperimentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateExperimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class InitializeClusterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: InitializeClusterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InitializeClusterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

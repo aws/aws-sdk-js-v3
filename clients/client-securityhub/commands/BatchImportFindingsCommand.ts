@@ -43,8 +43,11 @@ export class BatchImportFindingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchImportFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchImportFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

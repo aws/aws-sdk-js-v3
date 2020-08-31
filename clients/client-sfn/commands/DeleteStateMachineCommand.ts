@@ -43,8 +43,11 @@ export class DeleteStateMachineCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteStateMachineInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStateMachineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

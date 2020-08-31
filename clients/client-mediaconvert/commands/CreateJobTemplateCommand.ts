@@ -43,8 +43,11 @@ export class CreateJobTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateJobTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateJobTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

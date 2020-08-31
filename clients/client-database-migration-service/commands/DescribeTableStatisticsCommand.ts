@@ -47,8 +47,11 @@ export class DescribeTableStatisticsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTableStatisticsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTableStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

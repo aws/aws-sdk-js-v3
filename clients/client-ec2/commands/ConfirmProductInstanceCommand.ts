@@ -43,8 +43,11 @@ export class ConfirmProductInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ConfirmProductInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmProductInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

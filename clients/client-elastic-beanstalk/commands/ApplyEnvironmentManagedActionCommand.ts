@@ -43,8 +43,11 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ApplyEnvironmentManagedActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplyEnvironmentManagedActionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

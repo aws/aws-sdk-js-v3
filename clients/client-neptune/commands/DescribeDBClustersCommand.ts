@@ -43,8 +43,11 @@ export class DescribeDBClustersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDBClustersMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeConfigurationRevisionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeConfigurationRevisionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

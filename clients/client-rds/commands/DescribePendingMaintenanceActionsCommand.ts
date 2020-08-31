@@ -43,8 +43,11 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PendingMaintenanceActionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

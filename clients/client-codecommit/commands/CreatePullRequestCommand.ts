@@ -43,8 +43,11 @@ export class CreatePullRequestCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePullRequestInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePullRequestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

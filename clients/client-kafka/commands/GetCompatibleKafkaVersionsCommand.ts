@@ -43,8 +43,11 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCompatibleKafkaVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCompatibleKafkaVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

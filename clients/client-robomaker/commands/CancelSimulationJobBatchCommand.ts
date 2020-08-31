@@ -43,8 +43,11 @@ export class CancelSimulationJobBatchCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelSimulationJobBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelSimulationJobBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

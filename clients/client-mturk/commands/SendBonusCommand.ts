@@ -40,8 +40,11 @@ export class SendBonusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendBonusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendBonusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

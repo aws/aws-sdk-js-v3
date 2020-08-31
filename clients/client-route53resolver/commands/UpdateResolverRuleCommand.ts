@@ -43,8 +43,11 @@ export class UpdateResolverRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateResolverRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

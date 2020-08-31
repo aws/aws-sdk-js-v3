@@ -43,8 +43,11 @@ export class SearchSystemTemplatesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchSystemTemplatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchSystemTemplatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

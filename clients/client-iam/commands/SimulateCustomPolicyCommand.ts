@@ -43,8 +43,11 @@ export class SimulateCustomPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SimulateCustomPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SimulatePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

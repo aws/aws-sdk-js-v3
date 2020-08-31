@@ -43,8 +43,11 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetFlowTemplateRevisionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFlowTemplateRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

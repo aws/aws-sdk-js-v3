@@ -43,8 +43,11 @@ export class ListMonitoringExecutionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListMonitoringExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMonitoringExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

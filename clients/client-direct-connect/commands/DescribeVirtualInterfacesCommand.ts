@@ -43,8 +43,11 @@ export class DescribeVirtualInterfacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeVirtualInterfacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterfaces.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

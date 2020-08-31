@@ -43,8 +43,11 @@ export class SearchRoomsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchRoomsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchRoomsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

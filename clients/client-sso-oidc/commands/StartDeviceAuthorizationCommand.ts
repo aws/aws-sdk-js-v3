@@ -43,8 +43,11 @@ export class StartDeviceAuthorizationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartDeviceAuthorizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDeviceAuthorizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

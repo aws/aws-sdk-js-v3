@@ -43,8 +43,11 @@ export class GetExportSnapshotRecordsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetExportSnapshotRecordsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetExportSnapshotRecordsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

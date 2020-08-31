@@ -43,8 +43,11 @@ export class DescribeExpressionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeExpressionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExpressionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

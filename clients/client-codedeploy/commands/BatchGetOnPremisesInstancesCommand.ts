@@ -43,8 +43,11 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetOnPremisesInstancesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetOnPremisesInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

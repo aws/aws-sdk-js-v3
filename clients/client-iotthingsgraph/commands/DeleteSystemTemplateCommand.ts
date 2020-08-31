@@ -43,8 +43,11 @@ export class DeleteSystemTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteSystemTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

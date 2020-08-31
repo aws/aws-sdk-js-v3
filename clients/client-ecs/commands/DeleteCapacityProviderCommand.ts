@@ -43,8 +43,11 @@ export class DeleteCapacityProviderCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteCapacityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCapacityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpgradePublishedSchemaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpgradePublishedSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpgradePublishedSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

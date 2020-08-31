@@ -43,8 +43,11 @@ export class StartPersonTrackingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartPersonTrackingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartPersonTrackingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

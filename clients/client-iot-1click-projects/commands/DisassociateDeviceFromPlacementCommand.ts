@@ -47,8 +47,11 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisassociateDeviceFromPlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDeviceFromPlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

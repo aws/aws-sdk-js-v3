@@ -43,8 +43,11 @@ export class GetOnPremisesInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetOnPremisesInstanceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOnPremisesInstanceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

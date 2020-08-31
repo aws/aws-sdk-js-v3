@@ -43,8 +43,11 @@ export class UpdateProvisioningArtifactCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

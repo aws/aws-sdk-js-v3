@@ -43,8 +43,11 @@ export class CreateSnapshotScheduleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSnapshotScheduleMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: SnapshotSchedule.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

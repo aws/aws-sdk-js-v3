@@ -43,8 +43,11 @@ export class UpdateSmsTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateSmsTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSmsTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

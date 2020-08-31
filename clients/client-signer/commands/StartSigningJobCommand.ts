@@ -43,8 +43,11 @@ export class StartSigningJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartSigningJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSigningJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

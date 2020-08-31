@@ -47,8 +47,11 @@ export class PutBotAliasCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutBotAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutBotAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

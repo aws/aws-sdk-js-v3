@@ -43,8 +43,11 @@ export class ModifyGlobalClusterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyGlobalClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyGlobalClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class StartInstanceRefreshCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartInstanceRefreshType.filterSensitiveLog,
+      outputFilterSensitiveLog: StartInstanceRefreshAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

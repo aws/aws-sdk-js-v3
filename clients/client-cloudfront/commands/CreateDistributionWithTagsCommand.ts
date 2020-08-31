@@ -43,8 +43,11 @@ export class CreateDistributionWithTagsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDistributionWithTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDistributionWithTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

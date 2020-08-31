@@ -43,8 +43,11 @@ export class UpdateRegistryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateRegistryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRegistryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

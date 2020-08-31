@@ -43,8 +43,11 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AttachLoadBalancerTlsCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachLoadBalancerTlsCertificateResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

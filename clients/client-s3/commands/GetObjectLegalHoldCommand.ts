@@ -45,8 +45,11 @@ export class GetObjectLegalHoldCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetObjectLegalHoldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectLegalHoldOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

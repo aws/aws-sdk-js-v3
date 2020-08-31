@@ -43,8 +43,11 @@ export class CreateStreamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

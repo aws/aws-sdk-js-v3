@@ -43,8 +43,11 @@ export class DescribeInstanceAttributeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeInstanceAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InstanceAttribute.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

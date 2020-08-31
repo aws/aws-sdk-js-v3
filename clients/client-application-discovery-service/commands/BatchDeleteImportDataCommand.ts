@@ -47,8 +47,11 @@ export class BatchDeleteImportDataCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchDeleteImportDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteImportDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

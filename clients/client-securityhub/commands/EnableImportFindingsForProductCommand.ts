@@ -43,8 +43,11 @@ export class EnableImportFindingsForProductCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableImportFindingsForProductRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableImportFindingsForProductResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

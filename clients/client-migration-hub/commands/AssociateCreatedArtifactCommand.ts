@@ -43,8 +43,11 @@ export class AssociateCreatedArtifactCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateCreatedArtifactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateCreatedArtifactResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

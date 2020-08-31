@@ -43,8 +43,11 @@ export class ListShardsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListShardsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListShardsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class DescribeTargetHealthCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTargetHealthInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTargetHealthOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

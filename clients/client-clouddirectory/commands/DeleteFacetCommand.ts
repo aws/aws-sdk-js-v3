@@ -43,8 +43,11 @@ export class DeleteFacetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

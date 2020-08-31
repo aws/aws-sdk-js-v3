@@ -43,8 +43,11 @@ export class DeleteVirtualNodeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteVirtualNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

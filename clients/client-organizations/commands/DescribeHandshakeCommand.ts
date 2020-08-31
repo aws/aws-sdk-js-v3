@@ -43,8 +43,11 @@ export class DescribeHandshakeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeHandshakeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateThingShadowCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateThingShadowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThingShadowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

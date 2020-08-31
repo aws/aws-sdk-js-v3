@@ -43,8 +43,11 @@ export class DescribePlatformVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePlatformVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePlatformVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

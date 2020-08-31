@@ -43,8 +43,11 @@ export class GetWebACLForResourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetWebACLForResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetWebACLForResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

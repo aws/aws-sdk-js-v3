@@ -43,8 +43,11 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTableReplicaAutoScalingInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTableReplicaAutoScalingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

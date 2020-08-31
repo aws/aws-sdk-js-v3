@@ -43,8 +43,11 @@ export class DeleteNatGatewayCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteNatGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNatGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

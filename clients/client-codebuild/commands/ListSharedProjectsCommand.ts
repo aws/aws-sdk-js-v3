@@ -43,8 +43,11 @@ export class ListSharedProjectsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListSharedProjectsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSharedProjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

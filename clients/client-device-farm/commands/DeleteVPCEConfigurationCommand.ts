@@ -43,8 +43,11 @@ export class DeleteVPCEConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteVPCEConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVPCEConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

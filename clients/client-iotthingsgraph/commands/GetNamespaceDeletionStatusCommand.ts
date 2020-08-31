@@ -43,8 +43,11 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetNamespaceDeletionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetNamespaceDeletionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

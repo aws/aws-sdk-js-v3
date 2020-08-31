@@ -43,8 +43,11 @@ export class StopPipelineExecutionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopPipelineExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopPipelineExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

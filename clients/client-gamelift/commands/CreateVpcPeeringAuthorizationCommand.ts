@@ -43,8 +43,11 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateVpcPeeringAuthorizationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVpcPeeringAuthorizationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

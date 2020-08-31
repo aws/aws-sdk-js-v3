@@ -43,8 +43,11 @@ export class TestRenderEmailTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TestRenderEmailTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestRenderEmailTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

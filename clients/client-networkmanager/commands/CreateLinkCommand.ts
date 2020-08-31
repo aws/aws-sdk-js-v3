@@ -43,8 +43,11 @@ export class CreateLinkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

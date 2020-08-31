@@ -43,8 +43,11 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeClassicLinkInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClassicLinkInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

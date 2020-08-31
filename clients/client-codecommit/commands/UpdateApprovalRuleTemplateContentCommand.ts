@@ -43,8 +43,11 @@ export class UpdateApprovalRuleTemplateContentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateApprovalRuleTemplateContentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApprovalRuleTemplateContentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

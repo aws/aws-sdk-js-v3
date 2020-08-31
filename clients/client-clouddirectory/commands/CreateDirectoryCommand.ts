@@ -43,8 +43,11 @@ export class CreateDirectoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDirectoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

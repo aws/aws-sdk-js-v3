@@ -43,8 +43,11 @@ export class CopyPackageVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CopyPackageVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyPackageVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

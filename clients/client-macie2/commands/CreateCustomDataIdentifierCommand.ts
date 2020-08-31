@@ -43,8 +43,11 @@ export class CreateCustomDataIdentifierCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCustomDataIdentifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomDataIdentifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

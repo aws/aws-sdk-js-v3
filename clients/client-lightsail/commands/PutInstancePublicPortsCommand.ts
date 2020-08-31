@@ -43,8 +43,11 @@ export class PutInstancePublicPortsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutInstancePublicPortsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutInstancePublicPortsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeEcsClustersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeEcsClustersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEcsClustersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

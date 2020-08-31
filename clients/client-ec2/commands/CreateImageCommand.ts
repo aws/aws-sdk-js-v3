@@ -40,8 +40,11 @@ export class CreateImageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateLifecyclePolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateLifecyclePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLifecyclePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

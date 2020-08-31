@@ -43,8 +43,11 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeClusterSubnetGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterSubnetGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

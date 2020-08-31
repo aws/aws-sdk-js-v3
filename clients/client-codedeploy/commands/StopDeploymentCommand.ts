@@ -43,8 +43,11 @@ export class StopDeploymentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopDeploymentInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopDeploymentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetModelTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetModelTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Template.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

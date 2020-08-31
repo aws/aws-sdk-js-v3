@@ -43,8 +43,11 @@ export class AssociateAddressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

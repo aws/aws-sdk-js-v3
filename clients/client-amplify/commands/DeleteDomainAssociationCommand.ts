@@ -43,8 +43,11 @@ export class DeleteDomainAssociationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDomainAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeLocationEfsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLocationEfsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationEfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

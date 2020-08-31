@@ -43,8 +43,11 @@ export class DescribeAccountCustomizationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAccountCustomizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountCustomizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

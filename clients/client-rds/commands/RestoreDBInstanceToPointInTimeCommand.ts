@@ -43,8 +43,11 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreDBInstanceToPointInTimeMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBInstanceToPointInTimeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

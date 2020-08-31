@@ -43,8 +43,11 @@ export class CheckDNSAvailabilityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CheckDNSAvailabilityMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CheckDNSAvailabilityResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

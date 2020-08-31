@@ -43,8 +43,11 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeCacheSubnetGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheSubnetGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

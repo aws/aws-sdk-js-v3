@@ -43,8 +43,11 @@ export class GetDifferencesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDifferencesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDifferencesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

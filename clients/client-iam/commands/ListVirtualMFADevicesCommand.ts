@@ -43,8 +43,11 @@ export class ListVirtualMFADevicesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

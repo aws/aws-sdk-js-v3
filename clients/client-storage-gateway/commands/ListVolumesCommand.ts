@@ -43,8 +43,11 @@ export class ListVolumesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVolumesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVolumesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class EnableUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableUserResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

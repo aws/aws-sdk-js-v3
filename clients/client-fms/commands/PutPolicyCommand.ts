@@ -36,8 +36,11 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetSendStatisticsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GetSendStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

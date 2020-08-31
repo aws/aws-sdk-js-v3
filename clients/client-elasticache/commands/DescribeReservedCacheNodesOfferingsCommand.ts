@@ -43,8 +43,11 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeReservedCacheNodesOfferingsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ReservedCacheNodesOfferingMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

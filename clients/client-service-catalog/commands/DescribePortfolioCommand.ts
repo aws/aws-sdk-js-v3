@@ -43,8 +43,11 @@ export class DescribePortfolioCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

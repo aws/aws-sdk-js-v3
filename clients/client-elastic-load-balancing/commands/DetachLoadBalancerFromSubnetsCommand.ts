@@ -47,8 +47,11 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetachLoadBalancerFromSubnetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachLoadBalancerFromSubnetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

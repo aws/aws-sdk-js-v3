@@ -43,8 +43,11 @@ export class RegisterVolumeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RegisterVolumeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterVolumeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

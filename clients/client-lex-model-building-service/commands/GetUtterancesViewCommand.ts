@@ -47,8 +47,11 @@ export class GetUtterancesViewCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetUtterancesViewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUtterancesViewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

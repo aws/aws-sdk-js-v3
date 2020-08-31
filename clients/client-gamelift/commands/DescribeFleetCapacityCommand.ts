@@ -43,8 +43,11 @@ export class DescribeFleetCapacityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeFleetCapacityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

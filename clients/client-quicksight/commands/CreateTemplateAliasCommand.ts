@@ -43,8 +43,11 @@ export class CreateTemplateAliasCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateTemplateAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTemplateAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

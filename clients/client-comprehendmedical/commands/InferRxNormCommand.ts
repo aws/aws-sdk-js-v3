@@ -47,8 +47,11 @@ export class InferRxNormCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: InferRxNormRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InferRxNormResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class AddApplicationInputCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AddApplicationInputRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationInputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

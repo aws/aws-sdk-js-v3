@@ -43,8 +43,11 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RefreshTrustedAdvisorCheckRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RefreshTrustedAdvisorCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

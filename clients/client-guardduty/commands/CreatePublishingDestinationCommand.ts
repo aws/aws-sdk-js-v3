@@ -43,8 +43,11 @@ export class CreatePublishingDestinationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePublishingDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePublishingDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

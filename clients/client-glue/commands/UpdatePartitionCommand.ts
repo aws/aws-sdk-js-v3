@@ -43,8 +43,11 @@ export class UpdatePartitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdatePartitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

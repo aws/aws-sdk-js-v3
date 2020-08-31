@@ -47,8 +47,11 @@ export class AdminUpdateUserAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AdminUpdateUserAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminUpdateUserAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

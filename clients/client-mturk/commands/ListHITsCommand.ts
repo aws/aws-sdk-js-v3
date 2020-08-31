@@ -36,8 +36,11 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListHITsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHITsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

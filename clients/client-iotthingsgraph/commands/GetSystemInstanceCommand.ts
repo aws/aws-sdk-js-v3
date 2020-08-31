@@ -43,8 +43,11 @@ export class GetSystemInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSystemInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

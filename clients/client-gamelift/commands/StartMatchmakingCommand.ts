@@ -43,8 +43,11 @@ export class StartMatchmakingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartMatchmakingInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMatchmakingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

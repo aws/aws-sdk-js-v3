@@ -43,8 +43,11 @@ export class CreateNatGatewayCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateNatGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNatGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

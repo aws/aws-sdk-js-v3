@@ -47,8 +47,11 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

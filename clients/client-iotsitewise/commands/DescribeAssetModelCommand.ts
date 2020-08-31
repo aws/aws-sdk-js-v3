@@ -43,8 +43,11 @@ export class DescribeAssetModelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAssetModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAssetModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

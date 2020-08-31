@@ -45,8 +45,11 @@ export class GetBucketWebsiteCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBucketWebsiteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketWebsiteOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

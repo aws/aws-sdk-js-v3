@@ -43,8 +43,11 @@ export class GetBackupPlanFromJSONCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBackupPlanFromJSONInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBackupPlanFromJSONOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class BatchDeleteTableCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchDeleteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeEC2InstanceLimitsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEC2InstanceLimitsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

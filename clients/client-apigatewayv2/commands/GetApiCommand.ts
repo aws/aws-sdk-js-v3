@@ -36,8 +36,11 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

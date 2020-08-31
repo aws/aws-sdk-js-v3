@@ -47,8 +47,11 @@ export class MeterUsageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: MeterUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MeterUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

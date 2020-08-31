@@ -43,8 +43,11 @@ export class CreateFileSystemFromBackupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateFileSystemFromBackupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFileSystemFromBackupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

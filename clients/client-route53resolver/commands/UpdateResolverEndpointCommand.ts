@@ -43,8 +43,11 @@ export class UpdateResolverEndpointCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateResolverEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResolverEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

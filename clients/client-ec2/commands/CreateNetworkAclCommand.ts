@@ -43,8 +43,11 @@ export class CreateNetworkAclCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateNetworkAclRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNetworkAclResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

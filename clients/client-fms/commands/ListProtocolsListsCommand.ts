@@ -43,8 +43,11 @@ export class ListProtocolsListsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListProtocolsListsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProtocolsListsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

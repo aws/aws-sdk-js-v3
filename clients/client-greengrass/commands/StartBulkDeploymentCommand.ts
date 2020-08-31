@@ -43,8 +43,11 @@ export class StartBulkDeploymentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartBulkDeploymentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartBulkDeploymentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

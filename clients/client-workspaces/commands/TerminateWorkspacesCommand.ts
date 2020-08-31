@@ -43,8 +43,11 @@ export class TerminateWorkspacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TerminateWorkspacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TerminateWorkspacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class StartOutboundVoiceContactCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartOutboundVoiceContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartOutboundVoiceContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

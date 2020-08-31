@@ -43,8 +43,11 @@ export class GetGroupVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetGroupVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

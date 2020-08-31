@@ -43,8 +43,11 @@ export class ListReservationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListReservationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReservationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

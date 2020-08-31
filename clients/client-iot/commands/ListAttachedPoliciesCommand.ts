@@ -43,8 +43,11 @@ export class ListAttachedPoliciesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAttachedPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAttachedPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

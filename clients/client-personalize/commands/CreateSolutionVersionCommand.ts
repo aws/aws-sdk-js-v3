@@ -43,8 +43,11 @@ export class CreateSolutionVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSolutionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSolutionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

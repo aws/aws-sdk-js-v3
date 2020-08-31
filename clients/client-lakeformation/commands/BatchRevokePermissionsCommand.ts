@@ -43,8 +43,11 @@ export class BatchRevokePermissionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchRevokePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchRevokePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

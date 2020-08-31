@@ -43,8 +43,11 @@ export class UpdateBotCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateBotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

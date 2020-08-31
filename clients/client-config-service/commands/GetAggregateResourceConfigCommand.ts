@@ -43,8 +43,11 @@ export class GetAggregateResourceConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAggregateResourceConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateResourceConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

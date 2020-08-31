@@ -43,8 +43,11 @@ export class PutEncryptionConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutEncryptionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEncryptionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListSimulationJobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListSimulationJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSimulationJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateBusinessReportScheduleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateBusinessReportScheduleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBusinessReportScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

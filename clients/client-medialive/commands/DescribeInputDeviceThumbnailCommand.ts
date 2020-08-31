@@ -43,8 +43,11 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

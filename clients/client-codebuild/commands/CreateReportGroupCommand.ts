@@ -43,8 +43,11 @@ export class CreateReportGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateReportGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReportGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateDomainNameCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDomainNameRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DomainName.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

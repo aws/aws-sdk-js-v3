@@ -43,8 +43,11 @@ export class PurchaseHostReservationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PurchaseHostReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseHostReservationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

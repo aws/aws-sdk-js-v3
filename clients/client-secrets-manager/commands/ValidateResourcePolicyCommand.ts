@@ -43,8 +43,11 @@ export class ValidateResourcePolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ValidateResourcePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ValidateResourcePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DetachThingPrincipalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetachThingPrincipalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachThingPrincipalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

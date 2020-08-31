@@ -43,8 +43,11 @@ export class ModifyCacheClusterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyCacheClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyCacheClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

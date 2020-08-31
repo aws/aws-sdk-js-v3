@@ -43,8 +43,11 @@ export class BatchGetProjectsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetProjectsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetProjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

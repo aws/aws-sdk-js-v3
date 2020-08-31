@@ -43,8 +43,11 @@ export class UpdatePackagingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdatePackagingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePackagingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

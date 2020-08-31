@@ -43,8 +43,11 @@ export class PutRemediationExceptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutRemediationExceptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutRemediationExceptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

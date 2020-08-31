@@ -50,8 +50,11 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

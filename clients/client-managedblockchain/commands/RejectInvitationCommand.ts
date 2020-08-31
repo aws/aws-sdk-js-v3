@@ -47,8 +47,11 @@ export class RejectInvitationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RejectInvitationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectInvitationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

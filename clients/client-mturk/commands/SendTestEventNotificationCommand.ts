@@ -43,8 +43,11 @@ export class SendTestEventNotificationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendTestEventNotificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendTestEventNotificationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

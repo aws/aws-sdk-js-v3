@@ -43,8 +43,11 @@ export class GetSignalingChannelEndpointCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSignalingChannelEndpointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSignalingChannelEndpointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

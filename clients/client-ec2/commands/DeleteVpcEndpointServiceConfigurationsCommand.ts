@@ -47,8 +47,11 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteVpcEndpointServiceConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVpcEndpointServiceConfigurationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,8 +45,11 @@ export class GetQueryLoggingConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetQueryLoggingConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQueryLoggingConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateOTAUpdateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateOTAUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateOTAUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

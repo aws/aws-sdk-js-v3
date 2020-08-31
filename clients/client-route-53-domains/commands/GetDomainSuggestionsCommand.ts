@@ -43,8 +43,11 @@ export class GetDomainSuggestionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDomainSuggestionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainSuggestionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

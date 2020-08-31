@@ -43,8 +43,11 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateClusterKafkaVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterKafkaVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

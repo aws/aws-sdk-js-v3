@@ -47,8 +47,11 @@ export class DescribeSSLPoliciesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSSLPoliciesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSSLPoliciesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

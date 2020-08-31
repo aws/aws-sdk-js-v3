@@ -47,8 +47,11 @@ export class DeleteReplicationInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteReplicationInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

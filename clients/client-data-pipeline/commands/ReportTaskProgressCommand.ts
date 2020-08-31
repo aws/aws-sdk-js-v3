@@ -43,8 +43,11 @@ export class ReportTaskProgressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ReportTaskProgressInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ReportTaskProgressOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

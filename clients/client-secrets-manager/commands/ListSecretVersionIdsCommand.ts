@@ -43,8 +43,11 @@ export class ListSecretVersionIdsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListSecretVersionIdsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSecretVersionIdsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

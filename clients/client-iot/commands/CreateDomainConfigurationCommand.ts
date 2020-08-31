@@ -43,8 +43,11 @@ export class CreateDomainConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDomainConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDomainConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

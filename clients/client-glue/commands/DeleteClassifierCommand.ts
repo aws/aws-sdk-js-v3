@@ -43,8 +43,11 @@ export class DeleteClassifierCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteClassifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

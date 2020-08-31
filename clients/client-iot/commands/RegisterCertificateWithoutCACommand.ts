@@ -43,8 +43,11 @@ export class RegisterCertificateWithoutCACommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RegisterCertificateWithoutCARequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterCertificateWithoutCAResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class JsonMapsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: JsonMapsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonMapsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

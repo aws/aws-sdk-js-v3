@@ -44,8 +44,11 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListWebsiteAuthorizationProvidersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWebsiteAuthorizationProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociatePrincipalWithPortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePrincipalWithPortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

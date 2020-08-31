@@ -43,8 +43,11 @@ export class DescribeAddressesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

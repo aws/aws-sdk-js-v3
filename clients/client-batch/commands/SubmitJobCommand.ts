@@ -43,8 +43,11 @@ export class SubmitJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SubmitJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SubmitJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeFastSnapshotRestoresCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeFastSnapshotRestoresRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFastSnapshotRestoresResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

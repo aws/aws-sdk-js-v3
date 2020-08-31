@@ -47,8 +47,11 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTransitGatewayMulticastDomainsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTransitGatewayMulticastDomainsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

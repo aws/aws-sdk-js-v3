@@ -43,8 +43,11 @@ export class UpdateTrailCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateTrailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTrailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

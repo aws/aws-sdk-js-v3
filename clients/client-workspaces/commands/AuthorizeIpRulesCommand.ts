@@ -43,8 +43,11 @@ export class AuthorizeIpRulesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AuthorizeIpRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeIpRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

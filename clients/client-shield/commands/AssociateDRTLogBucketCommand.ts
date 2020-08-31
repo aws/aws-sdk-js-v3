@@ -43,8 +43,11 @@ export class AssociateDRTLogBucketCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateDRTLogBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDRTLogBucketResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

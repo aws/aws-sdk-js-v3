@@ -43,8 +43,11 @@ export class GetCredentialsForIdentityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCredentialsForIdentityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCredentialsForIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

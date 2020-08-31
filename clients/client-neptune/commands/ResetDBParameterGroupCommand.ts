@@ -43,8 +43,11 @@ export class ResetDBParameterGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ResetDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

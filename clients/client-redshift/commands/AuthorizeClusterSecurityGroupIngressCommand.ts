@@ -47,8 +47,11 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

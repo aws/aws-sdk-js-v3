@@ -43,8 +43,11 @@ export class ModifyDBParameterGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

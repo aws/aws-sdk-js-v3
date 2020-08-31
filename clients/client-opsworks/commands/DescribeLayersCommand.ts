@@ -43,8 +43,11 @@ export class DescribeLayersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLayersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLayersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

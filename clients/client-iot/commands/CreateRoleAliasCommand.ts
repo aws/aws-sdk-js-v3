@@ -43,8 +43,11 @@ export class CreateRoleAliasCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRoleAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoleAliasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

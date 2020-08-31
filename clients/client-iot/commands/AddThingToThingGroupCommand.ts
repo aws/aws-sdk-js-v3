@@ -43,8 +43,11 @@ export class AddThingToThingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AddThingToThingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddThingToThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

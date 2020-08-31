@@ -43,8 +43,11 @@ export class CancelDeploymentJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelDeploymentJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelDeploymentJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

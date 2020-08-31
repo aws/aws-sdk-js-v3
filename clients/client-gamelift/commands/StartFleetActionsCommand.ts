@@ -43,8 +43,11 @@ export class StartFleetActionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartFleetActionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartFleetActionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

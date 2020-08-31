@@ -43,8 +43,11 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCampaignDateRangeKpiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCampaignDateRangeKpiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

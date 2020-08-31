@@ -43,8 +43,11 @@ export class DeleteAnomalyDetectorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteAnomalyDetectorInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAnomalyDetectorOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

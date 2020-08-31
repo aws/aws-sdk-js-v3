@@ -43,8 +43,11 @@ export class TestInvokeMethodCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TestInvokeMethodRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestInvokeMethodResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

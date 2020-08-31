@@ -43,8 +43,11 @@ export class DeleteResolverCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteResolverRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResolverResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeregisterContainerInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeregisterContainerInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterContainerInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

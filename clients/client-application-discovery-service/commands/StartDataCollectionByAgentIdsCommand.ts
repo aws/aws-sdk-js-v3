@@ -47,8 +47,11 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartDataCollectionByAgentIdsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDataCollectionByAgentIdsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

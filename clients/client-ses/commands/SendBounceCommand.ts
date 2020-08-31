@@ -40,8 +40,11 @@ export class SendBounceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendBounceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendBounceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListDeploymentConfigsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDeploymentConfigsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDeploymentConfigsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

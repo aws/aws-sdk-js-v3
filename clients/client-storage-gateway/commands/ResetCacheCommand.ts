@@ -43,8 +43,11 @@ export class ResetCacheCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ResetCacheInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetCacheOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

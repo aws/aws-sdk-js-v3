@@ -43,8 +43,11 @@ export class DescribeExclusionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeExclusionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExclusionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

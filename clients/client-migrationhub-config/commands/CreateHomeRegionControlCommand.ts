@@ -47,8 +47,11 @@ export class CreateHomeRegionControlCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateHomeRegionControlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHomeRegionControlResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

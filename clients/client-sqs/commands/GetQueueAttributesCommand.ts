@@ -43,8 +43,11 @@ export class GetQueueAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetQueueAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQueueAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

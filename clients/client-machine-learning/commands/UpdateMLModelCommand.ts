@@ -43,8 +43,11 @@ export class UpdateMLModelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateMLModelInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMLModelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetUserEndpointsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetUserEndpointsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUserEndpointsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

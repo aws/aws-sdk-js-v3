@@ -43,8 +43,11 @@ export class CreateSchemaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSchemaRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSchemaResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

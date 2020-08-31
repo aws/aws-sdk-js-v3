@@ -43,8 +43,11 @@ export class DeleteProvisioningArtifactCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

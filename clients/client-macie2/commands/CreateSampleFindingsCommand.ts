@@ -43,8 +43,11 @@ export class CreateSampleFindingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSampleFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSampleFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListActivityTypesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListActivityTypesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivityTypeInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

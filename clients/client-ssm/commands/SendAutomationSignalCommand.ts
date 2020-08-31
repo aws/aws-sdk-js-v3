@@ -43,8 +43,11 @@ export class SendAutomationSignalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendAutomationSignalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendAutomationSignalResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

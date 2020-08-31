@@ -43,8 +43,11 @@ export class PutAppReplicationConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutAppReplicationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAppReplicationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

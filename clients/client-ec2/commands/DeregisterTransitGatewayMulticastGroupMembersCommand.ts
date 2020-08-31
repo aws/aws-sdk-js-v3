@@ -50,8 +50,11 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeregisterTransitGatewayMulticastGroupMembersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTransitGatewayMulticastGroupMembersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

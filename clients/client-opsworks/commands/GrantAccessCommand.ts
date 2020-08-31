@@ -43,8 +43,11 @@ export class GrantAccessCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GrantAccessRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GrantAccessResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

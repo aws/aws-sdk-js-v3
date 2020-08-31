@@ -43,8 +43,11 @@ export class DescribeAggregateIdFormatCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAggregateIdFormatRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAggregateIdFormatResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

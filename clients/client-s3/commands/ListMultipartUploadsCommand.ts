@@ -45,8 +45,11 @@ export class ListMultipartUploadsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListMultipartUploadsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMultipartUploadsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

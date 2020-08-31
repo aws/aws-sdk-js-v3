@@ -47,8 +47,11 @@ export class GetImportCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetImportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetImportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

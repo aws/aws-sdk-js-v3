@@ -43,8 +43,11 @@ export class CreateFacetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

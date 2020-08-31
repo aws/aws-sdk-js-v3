@@ -43,8 +43,11 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteGitHubAccountTokenInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGitHubAccountTokenOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

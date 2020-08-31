@@ -43,8 +43,11 @@ export class GetWorkflowCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetWorkflowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetWorkflowResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

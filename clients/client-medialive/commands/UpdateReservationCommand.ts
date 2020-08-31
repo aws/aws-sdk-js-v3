@@ -43,8 +43,11 @@ export class UpdateReservationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateReservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

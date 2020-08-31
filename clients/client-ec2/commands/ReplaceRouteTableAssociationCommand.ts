@@ -43,8 +43,11 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ReplaceRouteTableAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReplaceRouteTableAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

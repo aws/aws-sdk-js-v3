@@ -47,8 +47,11 @@ export class CreateEndpointCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateEndpointMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

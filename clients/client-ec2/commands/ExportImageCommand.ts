@@ -40,8 +40,11 @@ export class ExportImageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ExportImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

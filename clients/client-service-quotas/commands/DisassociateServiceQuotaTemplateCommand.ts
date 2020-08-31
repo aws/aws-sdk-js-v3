@@ -43,8 +43,11 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisassociateServiceQuotaTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceQuotaTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

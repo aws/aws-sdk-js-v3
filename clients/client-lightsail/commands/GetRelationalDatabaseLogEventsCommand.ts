@@ -43,8 +43,11 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRelationalDatabaseLogEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRelationalDatabaseLogEventsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

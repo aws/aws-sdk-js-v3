@@ -47,8 +47,11 @@ export class AdminInitiateAuthCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AdminInitiateAuthRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminInitiateAuthResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

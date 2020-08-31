@@ -47,8 +47,11 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

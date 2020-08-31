@@ -43,8 +43,11 @@ export class CreateLoginProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateLoginProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoginProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

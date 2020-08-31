@@ -43,8 +43,11 @@ export class PollForTaskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PollForTaskInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PollForTaskOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetRecommendationSummariesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRecommendationSummariesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRecommendationSummariesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

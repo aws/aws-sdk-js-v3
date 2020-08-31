@@ -43,8 +43,11 @@ export class GetVocabularyFilterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetVocabularyFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVocabularyFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

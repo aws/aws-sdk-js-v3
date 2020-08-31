@@ -43,8 +43,11 @@ export class ListAssociationVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAssociationVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociationVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeDomainsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDomainsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDomainsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateWebACLCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateWebACLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

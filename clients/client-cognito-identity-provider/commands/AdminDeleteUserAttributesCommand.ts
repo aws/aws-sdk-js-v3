@@ -47,8 +47,11 @@ export class AdminDeleteUserAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AdminDeleteUserAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminDeleteUserAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteCacheClusterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteCacheClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCacheClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

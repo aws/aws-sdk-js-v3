@@ -43,8 +43,11 @@ export class ListContainerInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListContainerInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListContainerInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

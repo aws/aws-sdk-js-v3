@@ -54,8 +54,11 @@ export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteOutboundCrossClusterSearchConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOutboundCrossClusterSearchConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

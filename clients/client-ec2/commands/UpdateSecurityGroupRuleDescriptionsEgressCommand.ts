@@ -50,8 +50,11 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

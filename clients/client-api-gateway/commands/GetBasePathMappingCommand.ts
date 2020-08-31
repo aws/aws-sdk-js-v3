@@ -43,8 +43,11 @@ export class GetBasePathMappingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBasePathMappingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BasePathMapping.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

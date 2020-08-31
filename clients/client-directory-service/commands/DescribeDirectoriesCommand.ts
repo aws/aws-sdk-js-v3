@@ -43,8 +43,11 @@ export class DescribeDirectoriesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDirectoriesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDirectoriesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

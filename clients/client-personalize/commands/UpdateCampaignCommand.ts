@@ -43,8 +43,11 @@ export class UpdateCampaignCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateCampaignRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCampaignResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

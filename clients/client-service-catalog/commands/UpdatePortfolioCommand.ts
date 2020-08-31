@@ -43,8 +43,11 @@ export class UpdatePortfolioCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdatePortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

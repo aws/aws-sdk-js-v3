@@ -43,8 +43,11 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeNodeConfigurationOptionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: NodeConfigurationOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class TagStreamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TagStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TagStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

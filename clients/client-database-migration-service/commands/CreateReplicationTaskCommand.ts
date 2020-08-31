@@ -47,8 +47,11 @@ export class CreateReplicationTaskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateReplicationTaskMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplicationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class TagProjectCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TagProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TagProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

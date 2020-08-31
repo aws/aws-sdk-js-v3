@@ -43,8 +43,11 @@ export class ListImageRecipesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListImageRecipesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListImageRecipesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

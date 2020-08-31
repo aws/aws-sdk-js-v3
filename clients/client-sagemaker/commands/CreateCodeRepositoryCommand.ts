@@ -43,8 +43,11 @@ export class CreateCodeRepositoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCodeRepositoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCodeRepositoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

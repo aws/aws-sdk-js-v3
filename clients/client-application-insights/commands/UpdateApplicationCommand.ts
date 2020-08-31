@@ -47,8 +47,11 @@ export class UpdateApplicationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

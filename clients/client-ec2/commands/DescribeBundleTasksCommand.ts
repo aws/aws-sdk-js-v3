@@ -43,8 +43,11 @@ export class DescribeBundleTasksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeBundleTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBundleTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

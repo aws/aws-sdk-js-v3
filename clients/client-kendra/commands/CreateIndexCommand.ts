@@ -43,8 +43,11 @@ export class CreateIndexCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateIndexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateIndexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

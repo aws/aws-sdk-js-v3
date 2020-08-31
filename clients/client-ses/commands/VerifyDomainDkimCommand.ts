@@ -43,8 +43,11 @@ export class VerifyDomainDkimCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: VerifyDomainDkimRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VerifyDomainDkimResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

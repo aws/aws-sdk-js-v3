@@ -43,8 +43,11 @@ export class AssociateVirtualInterfaceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

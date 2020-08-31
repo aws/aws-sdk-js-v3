@@ -43,8 +43,11 @@ export class GetV2LoggingOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetV2LoggingOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetV2LoggingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

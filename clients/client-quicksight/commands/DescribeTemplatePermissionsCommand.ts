@@ -43,8 +43,11 @@ export class DescribeTemplatePermissionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTemplatePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTemplatePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

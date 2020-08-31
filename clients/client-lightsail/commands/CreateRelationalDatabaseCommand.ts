@@ -43,8 +43,11 @@ export class CreateRelationalDatabaseCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

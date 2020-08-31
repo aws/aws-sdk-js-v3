@@ -43,8 +43,11 @@ export class PutApprovalResultCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutApprovalResultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutApprovalResultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -36,8 +36,11 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

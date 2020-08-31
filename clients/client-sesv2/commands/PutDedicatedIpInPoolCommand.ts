@@ -43,8 +43,11 @@ export class PutDedicatedIpInPoolCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutDedicatedIpInPoolRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDedicatedIpInPoolResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

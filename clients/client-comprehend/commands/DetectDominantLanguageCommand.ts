@@ -43,8 +43,11 @@ export class DetectDominantLanguageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetectDominantLanguageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectDominantLanguageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

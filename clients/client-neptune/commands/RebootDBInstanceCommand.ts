@@ -43,8 +43,11 @@ export class RebootDBInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RebootDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

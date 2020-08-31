@@ -50,8 +50,11 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeVpcEndpointConnectionNotificationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcEndpointConnectionNotificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

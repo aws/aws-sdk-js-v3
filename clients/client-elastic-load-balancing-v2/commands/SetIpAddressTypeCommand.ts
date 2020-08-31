@@ -47,8 +47,11 @@ export class SetIpAddressTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SetIpAddressTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIpAddressTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

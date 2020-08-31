@@ -43,8 +43,11 @@ export class CreateNotificationSubscriptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateNotificationSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNotificationSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

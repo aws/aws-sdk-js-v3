@@ -43,8 +43,11 @@ export class DeleteClientVpnRouteCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteClientVpnRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteClientVpnRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

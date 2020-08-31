@@ -43,8 +43,11 @@ export class UpdateApiKeyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateApiKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApiKey.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

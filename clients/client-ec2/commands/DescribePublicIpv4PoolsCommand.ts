@@ -43,8 +43,11 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePublicIpv4PoolsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePublicIpv4PoolsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

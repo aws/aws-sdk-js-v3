@@ -47,8 +47,11 @@ export class InvokeDeviceMethodCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: InvokeDeviceMethodRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: InvokeDeviceMethodResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

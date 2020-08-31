@@ -43,8 +43,11 @@ export class PutIdentityPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutIdentityPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutIdentityPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

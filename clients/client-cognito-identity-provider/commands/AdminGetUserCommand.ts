@@ -47,8 +47,11 @@ export class AdminGetUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AdminGetUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminGetUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ResetServiceSettingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ResetServiceSettingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetServiceSettingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

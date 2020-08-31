@@ -43,8 +43,11 @@ export class ListNetworkProfilesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListNetworkProfilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNetworkProfilesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

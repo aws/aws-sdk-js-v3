@@ -43,8 +43,11 @@ export class ListAssessmentRunAgentsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAssessmentRunAgentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssessmentRunAgentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

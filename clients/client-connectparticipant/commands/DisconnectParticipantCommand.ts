@@ -47,8 +47,11 @@ export class DisconnectParticipantCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisconnectParticipantRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisconnectParticipantResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

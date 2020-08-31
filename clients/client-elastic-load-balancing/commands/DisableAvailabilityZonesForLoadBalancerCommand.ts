@@ -50,8 +50,11 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RemoveAvailabilityZonesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAvailabilityZonesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

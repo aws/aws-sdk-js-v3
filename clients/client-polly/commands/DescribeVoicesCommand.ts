@@ -43,8 +43,11 @@ export class DescribeVoicesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeVoicesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVoicesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

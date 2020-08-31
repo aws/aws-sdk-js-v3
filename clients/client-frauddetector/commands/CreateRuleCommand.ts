@@ -43,8 +43,11 @@ export class CreateRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

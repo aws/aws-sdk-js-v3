@@ -43,8 +43,11 @@ export class UpdateChannelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

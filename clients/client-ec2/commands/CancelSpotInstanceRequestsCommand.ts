@@ -43,8 +43,11 @@ export class CancelSpotInstanceRequestsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelSpotInstanceRequestsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelSpotInstanceRequestsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

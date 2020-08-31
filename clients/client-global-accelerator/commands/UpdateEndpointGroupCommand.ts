@@ -47,8 +47,11 @@ export class UpdateEndpointGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateEndpointGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

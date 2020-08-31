@@ -43,8 +43,11 @@ export class StartAppReplicationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartAppReplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartAppReplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

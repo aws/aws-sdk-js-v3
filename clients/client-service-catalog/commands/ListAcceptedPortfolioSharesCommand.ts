@@ -43,8 +43,11 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAcceptedPortfolioSharesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAcceptedPortfolioSharesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

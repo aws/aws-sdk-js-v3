@@ -43,8 +43,11 @@ export class CloneStackCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CloneStackRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CloneStackResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

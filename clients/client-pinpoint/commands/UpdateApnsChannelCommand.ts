@@ -43,8 +43,11 @@ export class UpdateApnsChannelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateApnsChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApnsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class ForgotPasswordCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ForgotPasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ForgotPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

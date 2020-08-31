@@ -44,8 +44,11 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateInfrastructureConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateInfrastructureConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

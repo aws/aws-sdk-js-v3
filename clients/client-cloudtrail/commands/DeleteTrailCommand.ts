@@ -43,8 +43,11 @@ export class DeleteTrailCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTrailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

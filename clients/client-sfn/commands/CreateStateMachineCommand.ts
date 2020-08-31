@@ -43,8 +43,11 @@ export class CreateStateMachineCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateStateMachineInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStateMachineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

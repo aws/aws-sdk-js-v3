@@ -47,8 +47,11 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeProvisioningTemplateVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProvisioningTemplateVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class BatchStopUpdateActionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchStopUpdateActionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateActionResultsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetBranchCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBranchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBranchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

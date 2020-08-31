@@ -43,8 +43,11 @@ export class DeleteBrokerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteBrokerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBrokerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

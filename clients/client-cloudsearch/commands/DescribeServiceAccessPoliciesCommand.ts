@@ -43,8 +43,11 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeServiceAccessPoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeServiceAccessPoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

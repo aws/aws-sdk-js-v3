@@ -36,8 +36,11 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SignRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SignResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteIpGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteIpGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIpGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

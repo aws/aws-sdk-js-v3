@@ -43,8 +43,11 @@ export class DescribeGlobalTableCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeGlobalTableInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGlobalTableOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

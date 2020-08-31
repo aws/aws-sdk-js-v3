@@ -43,8 +43,11 @@ export class GetSigningProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSigningProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSigningProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

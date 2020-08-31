@@ -43,8 +43,11 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableAWSOrganizationsAccessInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableAWSOrganizationsAccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

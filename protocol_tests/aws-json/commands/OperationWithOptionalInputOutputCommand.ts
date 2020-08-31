@@ -43,8 +43,11 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
+      outputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

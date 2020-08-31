@@ -43,8 +43,11 @@ export class GetDatabasesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDatabasesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDatabasesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class StopApplicationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

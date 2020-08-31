@@ -43,8 +43,11 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeOrderableClusterOptionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: OrderableClusterOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

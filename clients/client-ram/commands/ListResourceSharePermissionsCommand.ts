@@ -43,8 +43,11 @@ export class ListResourceSharePermissionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListResourceSharePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceSharePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

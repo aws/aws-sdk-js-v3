@@ -43,8 +43,11 @@ export class UpdateContinuousBackupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateContinuousBackupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContinuousBackupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

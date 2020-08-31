@@ -43,8 +43,11 @@ export class DescribeSessionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSessionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSessionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeSuggestersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSuggestersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSuggestersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

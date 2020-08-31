@@ -43,8 +43,11 @@ export class UpdateJourneyStateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateJourneyStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJourneyStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

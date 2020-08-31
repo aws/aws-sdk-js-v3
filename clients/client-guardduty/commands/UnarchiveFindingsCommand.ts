@@ -43,8 +43,11 @@ export class UnarchiveFindingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UnarchiveFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnarchiveFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

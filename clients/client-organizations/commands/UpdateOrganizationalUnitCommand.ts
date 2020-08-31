@@ -43,8 +43,11 @@ export class UpdateOrganizationalUnitCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateOrganizationalUnitRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOrganizationalUnitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

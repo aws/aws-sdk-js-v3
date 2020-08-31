@@ -43,8 +43,11 @@ export class CreateVariableCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateVariableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVariableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreFromClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreFromClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

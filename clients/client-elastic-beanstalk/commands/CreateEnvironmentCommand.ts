@@ -43,8 +43,11 @@ export class CreateEnvironmentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateEnvironmentMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

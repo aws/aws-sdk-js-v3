@@ -43,8 +43,11 @@ export class DeleteSkillGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteSkillGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateDimensionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateDimensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDimensionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

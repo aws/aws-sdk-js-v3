@@ -47,8 +47,11 @@ export class ListEntitiesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

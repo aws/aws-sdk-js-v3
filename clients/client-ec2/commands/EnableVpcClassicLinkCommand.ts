@@ -43,8 +43,11 @@ export class EnableVpcClassicLinkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableVpcClassicLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableVpcClassicLinkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

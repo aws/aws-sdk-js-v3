@@ -43,8 +43,11 @@ export class UpdateSmsChannelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateSmsChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSmsChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

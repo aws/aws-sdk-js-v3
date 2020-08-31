@@ -43,8 +43,11 @@ export class CreateConfigurationTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateConfigurationTemplateMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfigurationSettingsDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

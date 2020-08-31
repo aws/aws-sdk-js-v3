@@ -43,8 +43,11 @@ export class IncreaseReplicationFactorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: IncreaseReplicationFactorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: IncreaseReplicationFactorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetMaintenanceWindowExecutionTaskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

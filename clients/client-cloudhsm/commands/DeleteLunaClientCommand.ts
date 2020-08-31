@@ -43,8 +43,11 @@ export class DeleteLunaClientCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLunaClientRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLunaClientResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

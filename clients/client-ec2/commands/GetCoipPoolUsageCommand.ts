@@ -43,8 +43,11 @@ export class GetCoipPoolUsageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCoipPoolUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCoipPoolUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

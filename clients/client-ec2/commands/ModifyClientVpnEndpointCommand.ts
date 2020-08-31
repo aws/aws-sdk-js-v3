@@ -43,8 +43,11 @@ export class ModifyClientVpnEndpointCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyClientVpnEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClientVpnEndpointResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

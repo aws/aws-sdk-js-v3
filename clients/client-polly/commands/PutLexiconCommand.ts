@@ -43,8 +43,11 @@ export class PutLexiconCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutLexiconInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

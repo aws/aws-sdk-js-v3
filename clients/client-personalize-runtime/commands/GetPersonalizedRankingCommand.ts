@@ -47,8 +47,11 @@ export class GetPersonalizedRankingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetPersonalizedRankingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPersonalizedRankingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

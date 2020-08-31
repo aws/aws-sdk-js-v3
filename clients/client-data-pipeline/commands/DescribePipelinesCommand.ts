@@ -43,8 +43,11 @@ export class DescribePipelinesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePipelinesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePipelinesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

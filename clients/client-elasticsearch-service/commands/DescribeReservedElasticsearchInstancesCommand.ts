@@ -51,8 +51,11 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeReservedElasticsearchInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReservedElasticsearchInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

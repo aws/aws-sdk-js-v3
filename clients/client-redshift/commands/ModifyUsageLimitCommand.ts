@@ -43,8 +43,11 @@ export class ModifyUsageLimitCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyUsageLimitMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: UsageLimit.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

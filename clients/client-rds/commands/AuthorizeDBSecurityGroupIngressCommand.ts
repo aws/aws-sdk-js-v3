@@ -43,8 +43,11 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

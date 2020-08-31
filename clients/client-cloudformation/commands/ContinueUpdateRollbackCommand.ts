@@ -43,8 +43,11 @@ export class ContinueUpdateRollbackCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ContinueUpdateRollbackInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ContinueUpdateRollbackOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

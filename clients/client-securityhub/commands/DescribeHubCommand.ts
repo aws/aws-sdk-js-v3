@@ -43,8 +43,11 @@ export class DescribeHubCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeHubRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHubResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

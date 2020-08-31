@@ -43,8 +43,11 @@ export class ListChangedBlocksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListChangedBlocksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListChangedBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

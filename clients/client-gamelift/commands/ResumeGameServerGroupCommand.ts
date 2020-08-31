@@ -43,8 +43,11 @@ export class ResumeGameServerGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ResumeGameServerGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ResumeGameServerGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

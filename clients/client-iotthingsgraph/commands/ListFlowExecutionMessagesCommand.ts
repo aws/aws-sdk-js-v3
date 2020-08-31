@@ -43,8 +43,11 @@ export class ListFlowExecutionMessagesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListFlowExecutionMessagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFlowExecutionMessagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

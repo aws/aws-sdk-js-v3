@@ -43,8 +43,11 @@ export class CreateVoiceTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

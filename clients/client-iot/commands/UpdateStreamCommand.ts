@@ -43,8 +43,11 @@ export class UpdateStreamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

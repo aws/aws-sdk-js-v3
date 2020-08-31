@@ -43,8 +43,11 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteServiceLinkedRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServiceLinkedRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

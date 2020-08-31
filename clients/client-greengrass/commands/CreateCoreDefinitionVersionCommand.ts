@@ -43,8 +43,11 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCoreDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCoreDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

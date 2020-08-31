@@ -43,8 +43,11 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetDeploymentInstancesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetDeploymentInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

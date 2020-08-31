@@ -43,8 +43,11 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreDBClusterToPointInTimeMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBClusterToPointInTimeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

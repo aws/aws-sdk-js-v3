@@ -43,8 +43,11 @@ export class GetDataflowGraphCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

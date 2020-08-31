@@ -47,8 +47,11 @@ export class DescribeUserImportJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeUserImportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserImportJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

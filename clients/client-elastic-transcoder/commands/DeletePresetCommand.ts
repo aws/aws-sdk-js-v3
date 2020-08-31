@@ -47,8 +47,11 @@ export class DeletePresetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeletePresetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTypedLinkFacetInformationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTypedLinkFacetInformationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

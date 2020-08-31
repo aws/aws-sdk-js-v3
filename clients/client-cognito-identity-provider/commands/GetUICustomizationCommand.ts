@@ -47,8 +47,11 @@ export class GetUICustomizationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetUICustomizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUICustomizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

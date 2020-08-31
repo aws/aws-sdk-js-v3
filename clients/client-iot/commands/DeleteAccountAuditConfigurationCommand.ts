@@ -43,8 +43,11 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteAccountAuditConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccountAuditConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

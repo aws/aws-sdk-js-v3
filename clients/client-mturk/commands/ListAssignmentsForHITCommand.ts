@@ -43,8 +43,11 @@ export class ListAssignmentsForHITCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAssignmentsForHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssignmentsForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

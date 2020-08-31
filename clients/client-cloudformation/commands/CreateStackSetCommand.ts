@@ -43,8 +43,11 @@ export class CreateStackSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateStackSetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStackSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

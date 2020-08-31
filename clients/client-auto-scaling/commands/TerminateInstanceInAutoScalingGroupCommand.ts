@@ -43,8 +43,11 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TerminateInstanceInAutoScalingGroupType.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivityType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

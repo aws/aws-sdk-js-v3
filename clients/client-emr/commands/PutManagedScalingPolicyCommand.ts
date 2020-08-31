@@ -43,8 +43,11 @@ export class PutManagedScalingPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutManagedScalingPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutManagedScalingPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

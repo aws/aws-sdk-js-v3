@@ -43,8 +43,11 @@ export class DeleteQualificationTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

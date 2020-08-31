@@ -43,8 +43,11 @@ export class GetSearchSuggestionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSearchSuggestionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSearchSuggestionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

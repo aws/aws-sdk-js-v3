@@ -47,8 +47,11 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

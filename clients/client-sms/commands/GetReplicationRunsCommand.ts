@@ -43,8 +43,11 @@ export class GetReplicationRunsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetReplicationRunsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReplicationRunsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

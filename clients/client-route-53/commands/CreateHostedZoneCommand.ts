@@ -45,8 +45,11 @@ export class CreateHostedZoneCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

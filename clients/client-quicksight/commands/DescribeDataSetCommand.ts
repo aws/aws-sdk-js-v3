@@ -43,8 +43,11 @@ export class DescribeDataSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDataSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDataSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

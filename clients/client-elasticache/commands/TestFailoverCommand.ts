@@ -40,8 +40,11 @@ export class TestFailoverCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TestFailoverMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: TestFailoverResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

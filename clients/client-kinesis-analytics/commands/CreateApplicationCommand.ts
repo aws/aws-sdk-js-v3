@@ -43,8 +43,11 @@ export class CreateApplicationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

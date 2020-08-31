@@ -47,8 +47,11 @@ export class CreateUserPoolDomainCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateUserPoolDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUserPoolDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

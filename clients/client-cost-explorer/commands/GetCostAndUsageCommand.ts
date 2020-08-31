@@ -43,8 +43,11 @@ export class GetCostAndUsageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCostAndUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCostAndUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

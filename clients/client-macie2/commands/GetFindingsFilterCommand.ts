@@ -43,8 +43,11 @@ export class GetFindingsFilterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetFindingsFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFindingsFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

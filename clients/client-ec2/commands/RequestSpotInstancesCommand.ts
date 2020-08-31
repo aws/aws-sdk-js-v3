@@ -43,8 +43,11 @@ export class RequestSpotInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RequestSpotInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestSpotInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

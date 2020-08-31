@@ -47,8 +47,11 @@ export class CreateLogPatternCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateLogPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLogPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

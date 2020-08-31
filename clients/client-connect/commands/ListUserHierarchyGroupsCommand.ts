@@ -43,8 +43,11 @@ export class ListUserHierarchyGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListUserHierarchyGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUserHierarchyGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

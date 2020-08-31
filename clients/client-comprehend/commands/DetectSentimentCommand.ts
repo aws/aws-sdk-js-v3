@@ -43,8 +43,11 @@ export class DetectSentimentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetectSentimentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectSentimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

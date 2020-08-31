@@ -43,8 +43,11 @@ export class DeleteByteMatchSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteByteMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteByteMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

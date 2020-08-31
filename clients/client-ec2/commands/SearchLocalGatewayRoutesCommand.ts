@@ -43,8 +43,11 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchLocalGatewayRoutesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchLocalGatewayRoutesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateUserDefinedFunctionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUserDefinedFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

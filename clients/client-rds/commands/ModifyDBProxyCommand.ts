@@ -43,8 +43,11 @@ export class ModifyDBProxyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyDBProxyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDBProxyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

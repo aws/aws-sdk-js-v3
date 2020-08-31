@@ -43,8 +43,11 @@ export class DeleteEvaluationResultsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteEvaluationResultsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEvaluationResultsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

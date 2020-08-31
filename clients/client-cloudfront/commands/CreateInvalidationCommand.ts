@@ -43,8 +43,11 @@ export class CreateInvalidationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateInvalidationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateInvalidationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

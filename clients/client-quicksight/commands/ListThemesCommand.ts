@@ -43,8 +43,11 @@ export class ListThemesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListThemesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListThemesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

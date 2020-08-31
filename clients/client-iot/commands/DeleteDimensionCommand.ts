@@ -43,8 +43,11 @@ export class DeleteDimensionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDimensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDimensionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

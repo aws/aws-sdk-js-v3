@@ -43,8 +43,11 @@ export class EnableDomainTransferLockCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableDomainTransferLockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableDomainTransferLockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

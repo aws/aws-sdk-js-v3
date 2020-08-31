@@ -43,8 +43,11 @@ export class StopDBInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StopDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

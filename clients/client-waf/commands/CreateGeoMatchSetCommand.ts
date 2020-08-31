@@ -43,8 +43,11 @@ export class CreateGeoMatchSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

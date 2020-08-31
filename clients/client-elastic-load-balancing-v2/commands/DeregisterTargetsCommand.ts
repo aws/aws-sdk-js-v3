@@ -47,8 +47,11 @@ export class DeregisterTargetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeregisterTargetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTargetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

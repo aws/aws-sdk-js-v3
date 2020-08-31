@@ -43,8 +43,11 @@ export class DescribeEventCategoriesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeEventCategoriesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EventCategoriesMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

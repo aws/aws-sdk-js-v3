@@ -43,8 +43,11 @@ export class GetStreamingDistributionConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetStreamingDistributionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetStreamingDistributionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

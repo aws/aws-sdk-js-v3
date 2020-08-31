@@ -43,8 +43,11 @@ export class DeleteRobotApplicationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteRobotApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRobotApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

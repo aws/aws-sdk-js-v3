@@ -43,8 +43,11 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisassociateVpcCidrBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateVpcCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

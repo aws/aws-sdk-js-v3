@@ -43,8 +43,11 @@ export class DescribeInstanceRefreshesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeInstanceRefreshesType.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceRefreshesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

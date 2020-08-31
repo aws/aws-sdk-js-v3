@@ -43,8 +43,11 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeWorkspaceDirectoriesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspaceDirectoriesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

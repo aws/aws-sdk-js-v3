@@ -44,8 +44,11 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDomainDeliverabilityCampaignsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDomainDeliverabilityCampaignsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

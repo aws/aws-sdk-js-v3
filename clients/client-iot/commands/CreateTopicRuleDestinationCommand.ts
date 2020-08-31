@@ -43,8 +43,11 @@ export class CreateTopicRuleDestinationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateTopicRuleDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTopicRuleDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

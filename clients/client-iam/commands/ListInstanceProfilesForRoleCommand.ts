@@ -43,8 +43,11 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListInstanceProfilesForRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInstanceProfilesForRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

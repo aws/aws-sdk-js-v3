@@ -43,8 +43,11 @@ export class CreatePlacementGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePlacementGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePlacementGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

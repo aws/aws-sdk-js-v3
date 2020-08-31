@@ -43,8 +43,11 @@ export class AssociateWebACLCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateWebACLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

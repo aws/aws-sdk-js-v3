@@ -43,8 +43,11 @@ export class UpdateIndexingConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateIndexingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIndexingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

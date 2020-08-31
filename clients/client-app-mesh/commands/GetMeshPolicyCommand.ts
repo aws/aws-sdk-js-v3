@@ -43,8 +43,11 @@ export class GetMeshPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetMeshPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMeshPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

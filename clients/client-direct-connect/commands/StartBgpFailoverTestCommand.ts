@@ -43,8 +43,11 @@ export class StartBgpFailoverTestCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartBgpFailoverTestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartBgpFailoverTestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

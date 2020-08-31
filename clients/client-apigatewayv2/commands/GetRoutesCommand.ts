@@ -43,8 +43,11 @@ export class GetRoutesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRoutesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRoutesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

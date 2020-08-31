@@ -47,8 +47,11 @@ export class RegisterUsageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RegisterUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterUsageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

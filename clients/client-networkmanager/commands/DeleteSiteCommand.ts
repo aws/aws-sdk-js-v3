@@ -43,8 +43,11 @@ export class DeleteSiteCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteSiteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSiteResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

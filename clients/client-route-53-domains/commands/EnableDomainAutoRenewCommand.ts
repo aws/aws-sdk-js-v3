@@ -43,8 +43,11 @@ export class EnableDomainAutoRenewCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableDomainAutoRenewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableDomainAutoRenewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

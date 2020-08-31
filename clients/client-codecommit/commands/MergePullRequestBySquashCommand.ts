@@ -43,8 +43,11 @@ export class MergePullRequestBySquashCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: MergePullRequestBySquashInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestBySquashOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

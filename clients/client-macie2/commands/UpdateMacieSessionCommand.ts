@@ -43,8 +43,11 @@ export class UpdateMacieSessionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateMacieSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMacieSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

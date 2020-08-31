@@ -43,8 +43,11 @@ export class ListInputDevicesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListInputDevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInputDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteDataSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDataSourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDataSourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

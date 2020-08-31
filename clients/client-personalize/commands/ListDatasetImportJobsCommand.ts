@@ -43,8 +43,11 @@ export class ListDatasetImportJobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDatasetImportJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDatasetImportJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

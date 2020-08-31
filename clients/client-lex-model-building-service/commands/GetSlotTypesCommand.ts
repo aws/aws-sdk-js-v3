@@ -47,8 +47,11 @@ export class GetSlotTypesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSlotTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSlotTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

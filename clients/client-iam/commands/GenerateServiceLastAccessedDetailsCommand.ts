@@ -44,8 +44,11 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GenerateServiceLastAccessedDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateServiceLastAccessedDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

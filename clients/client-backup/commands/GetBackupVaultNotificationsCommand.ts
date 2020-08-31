@@ -43,8 +43,11 @@ export class GetBackupVaultNotificationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBackupVaultNotificationsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBackupVaultNotificationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

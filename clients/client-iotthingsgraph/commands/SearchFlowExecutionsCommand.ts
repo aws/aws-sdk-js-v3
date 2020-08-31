@@ -43,8 +43,11 @@ export class SearchFlowExecutionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchFlowExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchFlowExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

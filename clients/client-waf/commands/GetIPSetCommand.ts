@@ -36,8 +36,11 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetIPSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIPSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

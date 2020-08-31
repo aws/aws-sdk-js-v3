@@ -36,8 +36,11 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

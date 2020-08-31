@@ -43,8 +43,11 @@ export class CreatePortfolioShareCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePortfolioShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePortfolioShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

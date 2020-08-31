@@ -43,8 +43,11 @@ export class UpdateContainerInstancesStateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateContainerInstancesStateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContainerInstancesStateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

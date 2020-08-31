@@ -50,8 +50,11 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAssociatedApprovalRuleTemplatesForRepositoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociatedApprovalRuleTemplatesForRepositoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

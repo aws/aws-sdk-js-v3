@@ -45,8 +45,11 @@ export class CreateBucketCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBucketOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

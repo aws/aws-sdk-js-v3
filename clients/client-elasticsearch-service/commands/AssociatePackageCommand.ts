@@ -47,8 +47,11 @@ export class AssociatePackageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociatePackageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePackageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

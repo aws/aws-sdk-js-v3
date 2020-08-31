@@ -43,8 +43,11 @@ export class DeleteTriggerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTriggerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTriggerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

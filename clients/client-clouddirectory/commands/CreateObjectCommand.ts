@@ -43,8 +43,11 @@ export class CreateObjectCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateObjectResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

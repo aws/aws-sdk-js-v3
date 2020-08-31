@@ -43,8 +43,11 @@ export class CancelHandshakeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelHandshakeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

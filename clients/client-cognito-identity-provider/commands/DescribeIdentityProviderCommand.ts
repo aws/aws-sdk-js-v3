@@ -47,8 +47,11 @@ export class DescribeIdentityProviderCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeIdentityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

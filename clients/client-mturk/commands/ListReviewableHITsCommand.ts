@@ -43,8 +43,11 @@ export class ListReviewableHITsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListReviewableHITsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReviewableHITsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

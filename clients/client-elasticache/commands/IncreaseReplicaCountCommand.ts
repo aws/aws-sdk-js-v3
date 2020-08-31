@@ -43,8 +43,11 @@ export class IncreaseReplicaCountCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: IncreaseReplicaCountMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: IncreaseReplicaCountResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

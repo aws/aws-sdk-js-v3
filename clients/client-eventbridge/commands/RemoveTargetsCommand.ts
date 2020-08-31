@@ -43,8 +43,11 @@ export class RemoveTargetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RemoveTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreatePackagingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePackagingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePackagingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

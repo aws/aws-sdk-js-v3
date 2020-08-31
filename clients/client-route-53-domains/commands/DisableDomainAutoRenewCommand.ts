@@ -43,8 +43,11 @@ export class DisableDomainAutoRenewCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableDomainAutoRenewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableDomainAutoRenewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

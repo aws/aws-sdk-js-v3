@@ -43,8 +43,11 @@ export class DescribeEmergencyContactSettingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeEmergencyContactSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEmergencyContactSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

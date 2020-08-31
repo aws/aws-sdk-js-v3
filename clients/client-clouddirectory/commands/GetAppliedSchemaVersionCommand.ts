@@ -43,8 +43,11 @@ export class GetAppliedSchemaVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

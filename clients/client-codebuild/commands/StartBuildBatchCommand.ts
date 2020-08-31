@@ -43,8 +43,11 @@ export class StartBuildBatchCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartBuildBatchInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartBuildBatchOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

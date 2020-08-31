@@ -43,8 +43,11 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteUserDefinedFunctionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserDefinedFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

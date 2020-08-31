@@ -43,8 +43,11 @@ export class ScheduleRunCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ScheduleRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ScheduleRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class RejectAssignmentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RejectAssignmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PromoteReadReplicaDBClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PromoteReadReplicaDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

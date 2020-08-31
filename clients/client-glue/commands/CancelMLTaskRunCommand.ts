@@ -43,8 +43,11 @@ export class CancelMLTaskRunCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelMLTaskRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelMLTaskRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

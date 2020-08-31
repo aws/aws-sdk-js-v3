@@ -43,8 +43,11 @@ export class ListLaunchPathsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListLaunchPathsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLaunchPathsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class RevokeClientVpnIngressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RevokeClientVpnIngressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeClientVpnIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

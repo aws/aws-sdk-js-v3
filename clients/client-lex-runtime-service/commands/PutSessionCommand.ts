@@ -47,8 +47,11 @@ export class PutSessionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

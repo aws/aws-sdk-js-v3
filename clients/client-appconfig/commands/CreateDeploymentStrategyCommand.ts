@@ -43,8 +43,11 @@ export class CreateDeploymentStrategyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDeploymentStrategyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeploymentStrategy.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

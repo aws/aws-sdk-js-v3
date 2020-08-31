@@ -43,8 +43,11 @@ export class UpdateNodegroupConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateNodegroupConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNodegroupConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

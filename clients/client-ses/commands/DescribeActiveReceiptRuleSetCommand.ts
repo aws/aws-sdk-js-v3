@@ -43,8 +43,11 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeActiveReceiptRuleSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeActiveReceiptRuleSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

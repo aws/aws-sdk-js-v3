@@ -43,8 +43,11 @@ export class DeleteLifecyclePolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLifecyclePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLifecyclePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

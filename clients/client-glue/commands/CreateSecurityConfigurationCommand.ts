@@ -43,8 +43,11 @@ export class CreateSecurityConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSecurityConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSecurityConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

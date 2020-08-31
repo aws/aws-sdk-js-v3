@@ -43,8 +43,11 @@ export class DeleteVoiceTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

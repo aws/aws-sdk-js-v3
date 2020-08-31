@@ -43,8 +43,11 @@ export class UpdateRecordsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateRecordsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRecordsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

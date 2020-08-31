@@ -43,8 +43,11 @@ export class PutCodeBindingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutCodeBindingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutCodeBindingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateGatewayCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeSharedDirectoriesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSharedDirectoriesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSharedDirectoriesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

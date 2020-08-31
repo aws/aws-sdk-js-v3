@@ -43,8 +43,11 @@ export class ListCompatibleImagesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListCompatibleImagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCompatibleImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

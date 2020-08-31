@@ -43,8 +43,11 @@ export class DeletePortfolioCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeletePortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

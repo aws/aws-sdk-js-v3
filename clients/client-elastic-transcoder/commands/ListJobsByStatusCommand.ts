@@ -47,8 +47,11 @@ export class ListJobsByStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListJobsByStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListJobsByStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

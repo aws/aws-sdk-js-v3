@@ -43,8 +43,11 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSpotDatafeedSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSpotDatafeedSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

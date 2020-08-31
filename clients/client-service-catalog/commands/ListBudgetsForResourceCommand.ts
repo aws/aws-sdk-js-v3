@@ -43,8 +43,11 @@ export class ListBudgetsForResourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListBudgetsForResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBudgetsForResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

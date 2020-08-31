@@ -43,8 +43,11 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetEbsDefaultKmsKeyIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEbsDefaultKmsKeyIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -44,8 +44,11 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetIdentityNotificationAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityNotificationAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class TestRepositoryTriggersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TestRepositoryTriggersInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TestRepositoryTriggersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

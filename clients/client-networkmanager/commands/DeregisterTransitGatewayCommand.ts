@@ -43,8 +43,11 @@ export class DeregisterTransitGatewayCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeregisterTransitGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTransitGatewayResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

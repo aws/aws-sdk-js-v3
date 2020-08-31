@@ -43,8 +43,11 @@ export class DescribeCanariesLastRunCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeCanariesLastRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCanariesLastRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

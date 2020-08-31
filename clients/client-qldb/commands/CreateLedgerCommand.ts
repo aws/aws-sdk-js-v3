@@ -43,8 +43,11 @@ export class CreateLedgerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateLedgerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLedgerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

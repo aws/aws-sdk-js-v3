@@ -43,8 +43,11 @@ export class PublishLayerVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PublishLayerVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PublishLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -44,8 +44,11 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAuditMitigationActionsTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAuditMitigationActionsTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

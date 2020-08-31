@@ -47,8 +47,11 @@ export class DescribeReportDefinitionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeReportDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReportDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

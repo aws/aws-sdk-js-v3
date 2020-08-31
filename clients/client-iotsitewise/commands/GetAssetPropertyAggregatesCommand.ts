@@ -43,8 +43,11 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAssetPropertyAggregatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAssetPropertyAggregatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

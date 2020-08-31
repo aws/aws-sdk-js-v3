@@ -43,8 +43,11 @@ export class CreateReceiptRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateReceiptRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReceiptRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

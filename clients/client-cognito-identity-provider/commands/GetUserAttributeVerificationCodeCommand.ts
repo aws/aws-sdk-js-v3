@@ -47,8 +47,11 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetUserAttributeVerificationCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUserAttributeVerificationCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

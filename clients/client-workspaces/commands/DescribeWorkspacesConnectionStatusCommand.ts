@@ -44,8 +44,11 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeWorkspacesConnectionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspacesConnectionStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

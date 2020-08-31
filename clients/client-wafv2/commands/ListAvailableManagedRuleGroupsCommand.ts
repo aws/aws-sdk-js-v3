@@ -43,8 +43,11 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAvailableManagedRuleGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAvailableManagedRuleGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class BatchWriteItemCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchWriteItemInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchWriteItemOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DisableLDAPSCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableLDAPSRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableLDAPSResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

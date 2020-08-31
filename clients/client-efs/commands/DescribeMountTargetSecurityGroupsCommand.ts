@@ -44,8 +44,11 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeMountTargetSecurityGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMountTargetSecurityGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

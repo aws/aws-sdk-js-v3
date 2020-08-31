@@ -43,8 +43,11 @@ export class DescribeApplicationVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeApplicationVersionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplicationVersionDescriptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

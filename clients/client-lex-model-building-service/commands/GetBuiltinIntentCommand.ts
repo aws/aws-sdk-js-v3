@@ -47,8 +47,11 @@ export class GetBuiltinIntentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBuiltinIntentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBuiltinIntentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

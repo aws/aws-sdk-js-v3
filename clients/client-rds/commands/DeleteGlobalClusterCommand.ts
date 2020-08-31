@@ -43,8 +43,11 @@ export class DeleteGlobalClusterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteGlobalClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGlobalClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

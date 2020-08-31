@@ -43,8 +43,11 @@ export class UpdateWebhookCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateWebhookInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWebhookOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

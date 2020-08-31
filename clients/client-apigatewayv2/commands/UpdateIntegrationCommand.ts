@@ -43,8 +43,11 @@ export class UpdateIntegrationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateIntegrationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIntegrationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

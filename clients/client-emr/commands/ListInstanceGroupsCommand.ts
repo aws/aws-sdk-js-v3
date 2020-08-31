@@ -43,8 +43,11 @@ export class ListInstanceGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListInstanceGroupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInstanceGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

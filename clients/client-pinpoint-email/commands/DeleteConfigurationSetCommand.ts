@@ -43,8 +43,11 @@ export class DeleteConfigurationSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteConfigurationSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConfigurationSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

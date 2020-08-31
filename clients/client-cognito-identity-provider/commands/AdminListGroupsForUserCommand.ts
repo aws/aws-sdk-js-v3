@@ -47,8 +47,11 @@ export class AdminListGroupsForUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AdminListGroupsForUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminListGroupsForUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

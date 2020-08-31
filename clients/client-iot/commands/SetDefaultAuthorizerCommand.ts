@@ -43,8 +43,11 @@ export class SetDefaultAuthorizerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SetDefaultAuthorizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetDefaultAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeAlarmsForMetricCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAlarmsForMetricInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAlarmsForMetricOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

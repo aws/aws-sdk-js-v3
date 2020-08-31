@@ -43,8 +43,11 @@ export class CreateClientVpnRouteCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateClientVpnRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateClientVpnRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

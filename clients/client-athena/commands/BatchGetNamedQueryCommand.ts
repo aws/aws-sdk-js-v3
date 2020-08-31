@@ -43,8 +43,11 @@ export class BatchGetNamedQueryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetNamedQueryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetNamedQueryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

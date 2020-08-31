@@ -43,8 +43,11 @@ export class UpdateVirtualServiceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateVirtualServiceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualServiceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

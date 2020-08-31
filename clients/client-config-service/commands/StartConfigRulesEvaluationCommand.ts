@@ -43,8 +43,11 @@ export class StartConfigRulesEvaluationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartConfigRulesEvaluationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartConfigRulesEvaluationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

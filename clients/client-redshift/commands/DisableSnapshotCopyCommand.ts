@@ -43,8 +43,11 @@ export class DisableSnapshotCopyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableSnapshotCopyMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableSnapshotCopyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

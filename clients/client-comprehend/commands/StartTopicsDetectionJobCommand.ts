@@ -43,8 +43,11 @@ export class StartTopicsDetectionJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartTopicsDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartTopicsDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

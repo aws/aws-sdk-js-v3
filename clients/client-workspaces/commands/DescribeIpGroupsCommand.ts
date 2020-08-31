@@ -43,8 +43,11 @@ export class DescribeIpGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeIpGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIpGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: DescribeLifecycleHookTypesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

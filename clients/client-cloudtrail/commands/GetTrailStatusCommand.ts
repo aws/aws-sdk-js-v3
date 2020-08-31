@@ -43,8 +43,11 @@ export class GetTrailStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTrailStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTrailStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

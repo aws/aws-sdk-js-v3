@@ -43,8 +43,11 @@ export class CreateRevisionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRevisionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

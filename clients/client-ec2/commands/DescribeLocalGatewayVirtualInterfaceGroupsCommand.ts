@@ -50,8 +50,11 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfaceGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfaceGroupsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetMedicalVocabularyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetMedicalVocabularyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMedicalVocabularyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

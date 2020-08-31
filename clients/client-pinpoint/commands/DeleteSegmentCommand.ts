@@ -43,8 +43,11 @@ export class DeleteSegmentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteSegmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSegmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

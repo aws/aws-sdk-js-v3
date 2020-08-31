@@ -43,8 +43,11 @@ export class SetSMBGuestPasswordCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SetSMBGuestPasswordInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetSMBGuestPasswordOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

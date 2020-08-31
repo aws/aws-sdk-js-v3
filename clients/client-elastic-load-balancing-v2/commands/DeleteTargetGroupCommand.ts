@@ -47,8 +47,11 @@ export class DeleteTargetGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTargetGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTargetGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

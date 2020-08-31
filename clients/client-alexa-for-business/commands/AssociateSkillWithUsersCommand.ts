@@ -43,8 +43,11 @@ export class AssociateSkillWithUsersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateSkillWithUsersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSkillWithUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

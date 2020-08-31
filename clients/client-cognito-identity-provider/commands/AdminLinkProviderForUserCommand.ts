@@ -47,8 +47,11 @@ export class AdminLinkProviderForUserCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AdminLinkProviderForUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminLinkProviderForUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

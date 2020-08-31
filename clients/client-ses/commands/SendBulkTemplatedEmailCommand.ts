@@ -43,8 +43,11 @@ export class SendBulkTemplatedEmailCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendBulkTemplatedEmailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendBulkTemplatedEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

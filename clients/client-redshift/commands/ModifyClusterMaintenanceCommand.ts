@@ -43,8 +43,11 @@ export class ModifyClusterMaintenanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyClusterMaintenanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterMaintenanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

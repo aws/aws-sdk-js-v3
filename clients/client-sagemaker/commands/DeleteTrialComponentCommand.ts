@@ -43,8 +43,11 @@ export class DeleteTrialComponentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

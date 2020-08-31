@@ -43,8 +43,11 @@ export class GetRateBasedRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

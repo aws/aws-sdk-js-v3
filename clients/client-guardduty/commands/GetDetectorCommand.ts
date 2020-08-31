@@ -43,8 +43,11 @@ export class GetDetectorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDetectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDetectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

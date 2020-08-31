@@ -40,8 +40,11 @@ export class StopRunCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

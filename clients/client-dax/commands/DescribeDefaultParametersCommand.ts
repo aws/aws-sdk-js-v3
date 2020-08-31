@@ -43,8 +43,11 @@ export class DescribeDefaultParametersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDefaultParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDefaultParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

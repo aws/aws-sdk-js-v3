@@ -43,8 +43,11 @@ export class DescribeGameServerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeGameServerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGameServerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

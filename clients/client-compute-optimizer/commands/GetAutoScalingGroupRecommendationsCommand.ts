@@ -44,8 +44,11 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

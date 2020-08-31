@@ -45,8 +45,11 @@ export class GetBucketRequestPaymentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBucketRequestPaymentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketRequestPaymentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

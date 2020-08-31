@@ -43,8 +43,11 @@ export class SetIdentityMailFromDomainCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SetIdentityMailFromDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityMailFromDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

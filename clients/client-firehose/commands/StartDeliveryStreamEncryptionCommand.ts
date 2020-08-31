@@ -43,8 +43,11 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartDeliveryStreamEncryptionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDeliveryStreamEncryptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

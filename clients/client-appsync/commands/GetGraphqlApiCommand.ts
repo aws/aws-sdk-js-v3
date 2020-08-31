@@ -43,8 +43,11 @@ export class GetGraphqlApiCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetGraphqlApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

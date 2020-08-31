@@ -43,8 +43,11 @@ export class DescribeProjectsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeProjectsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProjectsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

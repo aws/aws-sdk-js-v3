@@ -43,8 +43,11 @@ export class StartWorkspacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartWorkspacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartWorkspacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class DescribeScalableTargetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeScalableTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScalableTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

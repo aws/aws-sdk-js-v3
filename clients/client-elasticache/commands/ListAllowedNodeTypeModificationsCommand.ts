@@ -43,8 +43,11 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAllowedNodeTypeModificationsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AllowedNodeTypeModificationsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

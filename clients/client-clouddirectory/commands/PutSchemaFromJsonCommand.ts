@@ -43,8 +43,11 @@ export class PutSchemaFromJsonCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutSchemaFromJsonRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutSchemaFromJsonResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

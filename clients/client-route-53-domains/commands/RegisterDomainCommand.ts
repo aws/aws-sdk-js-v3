@@ -43,8 +43,11 @@ export class RegisterDomainCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RegisterDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

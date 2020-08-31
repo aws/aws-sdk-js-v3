@@ -47,8 +47,11 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

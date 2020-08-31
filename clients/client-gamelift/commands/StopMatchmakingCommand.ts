@@ -43,8 +43,11 @@ export class StopMatchmakingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopMatchmakingInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopMatchmakingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

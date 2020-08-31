@@ -43,8 +43,11 @@ export class GetMailboxDetailsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetMailboxDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMailboxDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

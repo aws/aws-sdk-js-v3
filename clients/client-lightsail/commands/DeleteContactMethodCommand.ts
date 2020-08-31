@@ -43,8 +43,11 @@ export class DeleteContactMethodCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteContactMethodRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteContactMethodResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

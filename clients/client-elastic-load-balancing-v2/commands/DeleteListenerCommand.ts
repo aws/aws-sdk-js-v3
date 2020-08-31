@@ -47,8 +47,11 @@ export class DeleteListenerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteListenerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteListenerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

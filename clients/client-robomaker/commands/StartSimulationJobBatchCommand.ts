@@ -43,8 +43,11 @@ export class StartSimulationJobBatchCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartSimulationJobBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSimulationJobBatchResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

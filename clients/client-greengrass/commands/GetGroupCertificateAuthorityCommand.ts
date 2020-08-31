@@ -43,8 +43,11 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetGroupCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

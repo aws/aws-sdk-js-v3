@@ -43,8 +43,11 @@ export class UpdateScalingParametersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateScalingParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScalingParametersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

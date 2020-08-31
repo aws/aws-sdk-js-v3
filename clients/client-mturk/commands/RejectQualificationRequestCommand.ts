@@ -43,8 +43,11 @@ export class RejectQualificationRequestCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RejectQualificationRequestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectQualificationRequestResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

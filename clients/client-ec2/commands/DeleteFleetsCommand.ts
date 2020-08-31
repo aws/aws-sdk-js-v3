@@ -40,8 +40,11 @@ export class DeleteFleetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteFleetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFleetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

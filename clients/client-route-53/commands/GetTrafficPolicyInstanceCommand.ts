@@ -45,8 +45,11 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTrafficPolicyInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTrafficPolicyInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

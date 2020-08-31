@@ -43,8 +43,11 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

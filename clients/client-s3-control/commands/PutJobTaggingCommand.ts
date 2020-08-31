@@ -43,8 +43,11 @@ export class PutJobTaggingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutJobTaggingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutJobTaggingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

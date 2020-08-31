@@ -43,8 +43,11 @@ export class GetCommentsForComparedCommitCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCommentsForComparedCommitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCommentsForComparedCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

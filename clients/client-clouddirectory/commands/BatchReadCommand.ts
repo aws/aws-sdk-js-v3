@@ -43,8 +43,11 @@ export class BatchReadCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchReadRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchReadResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

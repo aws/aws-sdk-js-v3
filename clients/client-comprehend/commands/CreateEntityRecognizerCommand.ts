@@ -43,8 +43,11 @@ export class CreateEntityRecognizerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateEntityRecognizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEntityRecognizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

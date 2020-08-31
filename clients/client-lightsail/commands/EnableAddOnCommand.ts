@@ -43,8 +43,11 @@ export class EnableAddOnCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableAddOnRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableAddOnResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

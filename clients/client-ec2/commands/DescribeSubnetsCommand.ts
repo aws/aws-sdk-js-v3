@@ -40,8 +40,11 @@ export class DescribeSubnetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSubnetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubnetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListFargateProfilesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListFargateProfilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFargateProfilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

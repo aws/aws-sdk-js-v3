@@ -43,8 +43,11 @@ export class EnableEnhancedMonitoringCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EnableEnhancedMonitoringInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EnhancedMonitoringOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

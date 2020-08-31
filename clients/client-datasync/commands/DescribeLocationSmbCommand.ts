@@ -43,8 +43,11 @@ export class DescribeLocationSmbCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLocationSmbRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationSmbResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

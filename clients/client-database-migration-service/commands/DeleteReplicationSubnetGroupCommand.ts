@@ -47,8 +47,11 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteReplicationSubnetGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

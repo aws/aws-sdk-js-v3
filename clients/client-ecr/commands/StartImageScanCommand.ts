@@ -43,8 +43,11 @@ export class StartImageScanCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartImageScanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartImageScanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

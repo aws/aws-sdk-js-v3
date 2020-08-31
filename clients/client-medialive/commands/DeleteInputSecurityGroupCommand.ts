@@ -43,8 +43,11 @@ export class DeleteInputSecurityGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteInputSecurityGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInputSecurityGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

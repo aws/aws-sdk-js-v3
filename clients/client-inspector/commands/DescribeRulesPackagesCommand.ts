@@ -43,8 +43,11 @@ export class DescribeRulesPackagesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeRulesPackagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRulesPackagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

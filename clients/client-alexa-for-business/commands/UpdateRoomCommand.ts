@@ -43,8 +43,11 @@ export class UpdateRoomCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

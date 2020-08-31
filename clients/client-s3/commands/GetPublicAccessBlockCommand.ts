@@ -45,8 +45,11 @@ export class GetPublicAccessBlockCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetPublicAccessBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPublicAccessBlockOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

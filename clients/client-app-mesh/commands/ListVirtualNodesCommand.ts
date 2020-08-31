@@ -43,8 +43,11 @@ export class ListVirtualNodesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVirtualNodesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVirtualNodesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

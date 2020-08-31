@@ -43,8 +43,11 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyInstanceMetadataOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceMetadataOptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

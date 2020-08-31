@@ -44,8 +44,11 @@ export class ModifyRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyRuleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

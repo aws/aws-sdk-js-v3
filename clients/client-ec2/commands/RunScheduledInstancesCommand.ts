@@ -43,8 +43,11 @@ export class RunScheduledInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RunScheduledInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RunScheduledInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

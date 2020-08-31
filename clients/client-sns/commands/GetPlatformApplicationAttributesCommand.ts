@@ -43,8 +43,11 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetPlatformApplicationAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPlatformApplicationAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

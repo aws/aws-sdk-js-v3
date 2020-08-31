@@ -43,8 +43,11 @@ export class DescribeBackupVaultCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeBackupVaultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBackupVaultOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

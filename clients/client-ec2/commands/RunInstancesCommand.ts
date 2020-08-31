@@ -40,8 +40,11 @@ export class RunInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RunInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Reservation.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

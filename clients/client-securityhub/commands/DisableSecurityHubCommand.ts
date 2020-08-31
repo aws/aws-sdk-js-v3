@@ -43,8 +43,11 @@ export class DisableSecurityHubCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableSecurityHubRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableSecurityHubResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

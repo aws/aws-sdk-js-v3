@@ -43,8 +43,11 @@ export class DescribeProvisioningArtifactCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

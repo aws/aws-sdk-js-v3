@@ -43,8 +43,11 @@ export class CreateThreatIntelSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateThreatIntelSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateThreatIntelSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteRepositoryPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteRepositoryPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRepositoryPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

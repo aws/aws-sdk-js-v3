@@ -43,8 +43,11 @@ export class DescribeFlowDefinitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeFlowDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFlowDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

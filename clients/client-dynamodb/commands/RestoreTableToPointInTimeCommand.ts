@@ -43,8 +43,11 @@ export class RestoreTableToPointInTimeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreTableToPointInTimeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreTableToPointInTimeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

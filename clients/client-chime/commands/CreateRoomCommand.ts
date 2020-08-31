@@ -43,8 +43,11 @@ export class CreateRoomCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRoomRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoomResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

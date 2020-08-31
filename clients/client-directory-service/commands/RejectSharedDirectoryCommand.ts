@@ -43,8 +43,11 @@ export class RejectSharedDirectoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RejectSharedDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectSharedDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ProvisionByoipCidrCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ProvisionByoipCidrRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ProvisionByoipCidrResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

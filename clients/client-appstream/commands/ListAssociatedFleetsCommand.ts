@@ -43,8 +43,11 @@ export class ListAssociatedFleetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAssociatedFleetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociatedFleetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

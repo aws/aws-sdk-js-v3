@@ -43,8 +43,11 @@ export class TestInvokeAuthorizerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

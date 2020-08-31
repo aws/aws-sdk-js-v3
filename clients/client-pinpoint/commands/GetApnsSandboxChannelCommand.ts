@@ -43,8 +43,11 @@ export class GetApnsSandboxChannelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetApnsSandboxChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApnsSandboxChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

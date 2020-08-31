@@ -43,8 +43,11 @@ export class UpdateAssetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateAssetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

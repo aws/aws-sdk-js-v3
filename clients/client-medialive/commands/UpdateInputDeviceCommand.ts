@@ -43,8 +43,11 @@ export class UpdateInputDeviceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateInputDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateInputDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,8 +50,11 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

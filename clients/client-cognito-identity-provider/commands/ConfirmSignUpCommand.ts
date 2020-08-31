@@ -47,8 +47,11 @@ export class ConfirmSignUpCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ConfirmSignUpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmSignUpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

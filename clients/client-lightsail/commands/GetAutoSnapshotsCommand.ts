@@ -43,8 +43,11 @@ export class GetAutoSnapshotsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAutoSnapshotsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAutoSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

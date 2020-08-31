@@ -43,8 +43,11 @@ export class DescribeAgentVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAgentVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAgentVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

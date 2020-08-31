@@ -43,8 +43,11 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTransitGatewayRegistrationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayRegistrationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

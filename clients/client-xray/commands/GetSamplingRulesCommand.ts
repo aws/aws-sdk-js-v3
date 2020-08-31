@@ -43,8 +43,11 @@ export class GetSamplingRulesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSamplingRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSamplingRulesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

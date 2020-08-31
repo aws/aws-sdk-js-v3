@@ -43,8 +43,11 @@ export class CreateRouteCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListBackupPlanVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListBackupPlanVersionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBackupPlanVersionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeregisterWebhookWithThirdPartyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterWebhookWithThirdPartyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

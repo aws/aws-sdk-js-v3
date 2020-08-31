@@ -44,8 +44,11 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetVoiceConnectorTerminationHealthRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceConnectorTerminationHealthResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

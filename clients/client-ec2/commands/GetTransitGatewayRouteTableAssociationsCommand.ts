@@ -50,8 +50,11 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTransitGatewayRouteTableAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayRouteTableAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

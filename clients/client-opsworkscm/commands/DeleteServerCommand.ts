@@ -43,8 +43,11 @@ export class DeleteServerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteServerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

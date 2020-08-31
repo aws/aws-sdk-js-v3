@@ -43,8 +43,11 @@ export class ModifyScheduledActionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyScheduledActionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ScheduledAction.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

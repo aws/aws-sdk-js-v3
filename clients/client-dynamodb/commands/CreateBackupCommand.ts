@@ -43,8 +43,11 @@ export class CreateBackupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateBackupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBackupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

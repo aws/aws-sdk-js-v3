@@ -43,8 +43,11 @@ export class ListRoutingProfilesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListRoutingProfilesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRoutingProfilesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

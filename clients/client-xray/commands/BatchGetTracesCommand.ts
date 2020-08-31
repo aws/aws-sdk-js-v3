@@ -43,8 +43,11 @@ export class BatchGetTracesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetTracesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetTracesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

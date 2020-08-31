@@ -43,8 +43,11 @@ export class DescribeConditionalForwardersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeConditionalForwardersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConditionalForwardersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

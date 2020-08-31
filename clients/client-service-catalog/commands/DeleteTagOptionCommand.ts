@@ -43,8 +43,11 @@ export class DeleteTagOptionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTagOptionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTagOptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

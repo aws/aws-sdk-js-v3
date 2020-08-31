@@ -43,8 +43,11 @@ export class DeleteReceiptFilterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteReceiptFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReceiptFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

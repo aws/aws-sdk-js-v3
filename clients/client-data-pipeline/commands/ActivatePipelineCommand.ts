@@ -43,8 +43,11 @@ export class ActivatePipelineCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ActivatePipelineInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivatePipelineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

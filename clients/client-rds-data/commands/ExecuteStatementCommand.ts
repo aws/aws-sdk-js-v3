@@ -43,8 +43,11 @@ export class ExecuteStatementCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ExecuteStatementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteStatementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DetectStackResourceDriftCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetectStackResourceDriftInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectStackResourceDriftOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

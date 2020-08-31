@@ -43,8 +43,11 @@ export class DescribeCanariesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeCanariesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCanariesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

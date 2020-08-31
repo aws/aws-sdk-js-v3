@@ -43,8 +43,11 @@ export class CreateByteMatchSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateByteMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateByteMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

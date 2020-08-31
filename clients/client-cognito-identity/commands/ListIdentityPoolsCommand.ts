@@ -45,8 +45,11 @@ export class ListIdentityPoolsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListIdentityPoolsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIdentityPoolsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

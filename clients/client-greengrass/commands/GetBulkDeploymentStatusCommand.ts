@@ -43,8 +43,11 @@ export class GetBulkDeploymentStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBulkDeploymentStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBulkDeploymentStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

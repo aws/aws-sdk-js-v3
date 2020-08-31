@@ -47,8 +47,11 @@ export class GetBotChannelAssociationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBotChannelAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBotChannelAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

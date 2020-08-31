@@ -43,8 +43,11 @@ export class DeletePermissionPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeletePermissionPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePermissionPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

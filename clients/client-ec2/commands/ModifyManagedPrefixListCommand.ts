@@ -43,8 +43,11 @@ export class ModifyManagedPrefixListCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyManagedPrefixListRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyManagedPrefixListResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

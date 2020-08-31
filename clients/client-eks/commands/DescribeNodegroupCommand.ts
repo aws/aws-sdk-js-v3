@@ -43,8 +43,11 @@ export class DescribeNodegroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeNodegroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNodegroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

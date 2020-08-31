@@ -43,8 +43,11 @@ export class DescribeTrialComponentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

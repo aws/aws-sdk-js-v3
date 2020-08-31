@@ -36,8 +36,11 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

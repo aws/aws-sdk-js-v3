@@ -43,8 +43,11 @@ export class CreateTestGridProjectCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateTestGridProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTestGridProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

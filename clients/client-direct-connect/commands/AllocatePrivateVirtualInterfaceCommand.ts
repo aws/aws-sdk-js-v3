@@ -43,8 +43,11 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AllocatePrivateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListObjectParentsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListObjectParentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListObjectParentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

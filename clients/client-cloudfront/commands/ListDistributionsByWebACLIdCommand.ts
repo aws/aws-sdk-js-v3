@@ -43,8 +43,11 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDistributionsByWebACLIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByWebACLIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

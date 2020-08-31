@@ -43,8 +43,11 @@ export class GetServiceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetServiceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

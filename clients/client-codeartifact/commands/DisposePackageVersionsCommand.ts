@@ -43,8 +43,11 @@ export class DisposePackageVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisposePackageVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisposePackageVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

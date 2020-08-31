@@ -43,8 +43,11 @@ export class JoinDomainCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: JoinDomainInput.filterSensitiveLog,
+      outputFilterSensitiveLog: JoinDomainOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

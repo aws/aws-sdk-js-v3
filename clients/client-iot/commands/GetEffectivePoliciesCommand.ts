@@ -43,8 +43,11 @@ export class GetEffectivePoliciesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetEffectivePoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEffectivePoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

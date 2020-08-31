@@ -43,8 +43,11 @@ export class GetBootstrapBrokersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBootstrapBrokersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBootstrapBrokersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

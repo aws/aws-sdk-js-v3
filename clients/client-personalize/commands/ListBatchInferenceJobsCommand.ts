@@ -43,8 +43,11 @@ export class ListBatchInferenceJobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListBatchInferenceJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBatchInferenceJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

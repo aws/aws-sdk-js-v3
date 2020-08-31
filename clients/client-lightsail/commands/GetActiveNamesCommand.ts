@@ -43,8 +43,11 @@ export class GetActiveNamesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetActiveNamesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetActiveNamesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

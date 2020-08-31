@@ -43,8 +43,11 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeNetworkInterfaceAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNetworkInterfaceAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

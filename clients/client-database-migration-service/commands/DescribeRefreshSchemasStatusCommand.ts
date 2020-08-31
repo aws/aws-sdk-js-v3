@@ -47,8 +47,11 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeRefreshSchemasStatusMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRefreshSchemasStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

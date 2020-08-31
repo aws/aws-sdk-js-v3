@@ -43,8 +43,11 @@ export class CancelReservedInstancesListingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelReservedInstancesListingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelReservedInstancesListingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

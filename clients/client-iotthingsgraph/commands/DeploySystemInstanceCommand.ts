@@ -43,8 +43,11 @@ export class DeploySystemInstanceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeploySystemInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeploySystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

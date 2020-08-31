@@ -43,8 +43,11 @@ export class PutPipelineDefinitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutPipelineDefinitionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPipelineDefinitionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

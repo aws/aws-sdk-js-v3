@@ -43,8 +43,11 @@ export class GetInventoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetInventoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInventoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class BatchGetVariableCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetVariableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetVariableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

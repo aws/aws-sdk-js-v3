@@ -40,8 +40,11 @@ export class GetJobRunCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetJobRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetJobRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

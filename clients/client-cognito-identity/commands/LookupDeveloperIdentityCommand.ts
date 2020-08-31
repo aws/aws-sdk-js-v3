@@ -45,8 +45,11 @@ export class LookupDeveloperIdentityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: LookupDeveloperIdentityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: LookupDeveloperIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

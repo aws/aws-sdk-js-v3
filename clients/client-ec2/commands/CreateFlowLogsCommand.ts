@@ -40,8 +40,11 @@ export class CreateFlowLogsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateFlowLogsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFlowLogsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

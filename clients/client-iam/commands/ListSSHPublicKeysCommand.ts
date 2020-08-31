@@ -43,8 +43,11 @@ export class ListSSHPublicKeysCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListSSHPublicKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSSHPublicKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

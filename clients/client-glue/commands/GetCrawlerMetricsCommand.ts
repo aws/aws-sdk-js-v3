@@ -43,8 +43,11 @@ export class GetCrawlerMetricsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCrawlerMetricsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCrawlerMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

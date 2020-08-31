@@ -43,8 +43,11 @@ export class GetFacetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -36,8 +36,11 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CopyImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

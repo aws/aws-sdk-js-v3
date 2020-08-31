@@ -43,8 +43,11 @@ export class StartRestoreJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartRestoreJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartRestoreJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeTextTranslationJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTextTranslationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTextTranslationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

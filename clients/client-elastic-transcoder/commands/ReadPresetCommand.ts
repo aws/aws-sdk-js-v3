@@ -47,8 +47,11 @@ export class ReadPresetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ReadPresetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReadPresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

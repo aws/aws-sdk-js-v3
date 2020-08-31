@@ -43,8 +43,11 @@ export class UpdateBaiduChannelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateBaiduChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBaiduChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

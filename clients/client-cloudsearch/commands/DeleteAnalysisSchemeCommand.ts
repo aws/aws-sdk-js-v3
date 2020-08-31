@@ -43,8 +43,11 @@ export class DeleteAnalysisSchemeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteAnalysisSchemeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAnalysisSchemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

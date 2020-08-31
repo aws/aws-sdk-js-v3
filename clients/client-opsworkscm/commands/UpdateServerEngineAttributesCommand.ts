@@ -43,8 +43,11 @@ export class UpdateServerEngineAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateServerEngineAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServerEngineAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

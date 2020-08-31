@@ -43,8 +43,11 @@ export class PutEventTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutEventTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEventTypeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

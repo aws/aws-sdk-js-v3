@@ -43,8 +43,11 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeAvailabilityMonitorTestInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityMonitorTestOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

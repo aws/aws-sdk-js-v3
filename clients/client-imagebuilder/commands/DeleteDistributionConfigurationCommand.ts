@@ -43,8 +43,11 @@ export class DeleteDistributionConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDistributionConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDistributionConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

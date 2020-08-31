@@ -43,8 +43,11 @@ export class SearchTablesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchTablesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchTablesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

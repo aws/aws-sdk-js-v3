@@ -43,8 +43,11 @@ export class CancelInstanceRefreshCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelInstanceRefreshType.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelInstanceRefreshAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeSecretCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

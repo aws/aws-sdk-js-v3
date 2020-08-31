@@ -43,8 +43,11 @@ export class DisassociateCertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisassociateCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

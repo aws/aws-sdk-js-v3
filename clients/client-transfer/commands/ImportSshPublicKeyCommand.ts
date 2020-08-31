@@ -43,8 +43,11 @@ export class ImportSshPublicKeyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ImportSshPublicKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ImportSshPublicKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

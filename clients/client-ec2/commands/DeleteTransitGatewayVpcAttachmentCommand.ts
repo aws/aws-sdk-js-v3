@@ -43,8 +43,11 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetResourceShareInvitationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetResourceShareInvitationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceShareInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ResetPersonalPINCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ResetPersonalPINRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetPersonalPINResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

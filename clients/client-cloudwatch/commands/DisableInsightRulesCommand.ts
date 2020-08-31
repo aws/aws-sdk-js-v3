@@ -43,8 +43,11 @@ export class DisableInsightRulesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableInsightRulesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableInsightRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

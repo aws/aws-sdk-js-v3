@@ -43,8 +43,11 @@ export class DescribeVirtualRouterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeVirtualRouterInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

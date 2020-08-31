@@ -43,8 +43,11 @@ export class DeleteSignalingChannelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteSignalingChannelInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSignalingChannelOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

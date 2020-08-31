@@ -43,8 +43,11 @@ export class CreateHapgCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateHapgRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHapgResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

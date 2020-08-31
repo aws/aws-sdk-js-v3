@@ -47,8 +47,11 @@ export class SetUserMFAPreferenceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SetUserMFAPreferenceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetUserMFAPreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

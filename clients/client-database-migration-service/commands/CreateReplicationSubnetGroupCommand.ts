@@ -47,8 +47,11 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateReplicationSubnetGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplicationSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

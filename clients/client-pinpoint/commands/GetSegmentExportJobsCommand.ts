@@ -43,8 +43,11 @@ export class GetSegmentExportJobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSegmentExportJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSegmentExportJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

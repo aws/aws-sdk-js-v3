@@ -43,8 +43,11 @@ export class GetInstanceAccessDetailsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetInstanceAccessDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetInstanceAccessDetailsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

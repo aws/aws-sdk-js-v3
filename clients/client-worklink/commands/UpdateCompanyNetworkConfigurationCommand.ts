@@ -44,8 +44,11 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateCompanyNetworkConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateDetectorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateDetectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDetectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateVoiceConnectorGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVoiceConnectorGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

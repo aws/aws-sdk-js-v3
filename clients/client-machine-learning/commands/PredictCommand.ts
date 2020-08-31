@@ -42,8 +42,11 @@ export class PredictCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PredictInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PredictOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

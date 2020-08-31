@@ -43,8 +43,11 @@ export class UpdateAliasCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateAliasInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAliasOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

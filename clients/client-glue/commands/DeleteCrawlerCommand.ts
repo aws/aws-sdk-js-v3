@@ -43,8 +43,11 @@ export class DeleteCrawlerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteCrawlerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCrawlerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

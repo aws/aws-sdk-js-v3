@@ -42,8 +42,11 @@ export class GetChangeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetChangeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

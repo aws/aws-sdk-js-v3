@@ -43,8 +43,11 @@ export class GetRegexPatternSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

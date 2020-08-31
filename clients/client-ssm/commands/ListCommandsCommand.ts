@@ -43,8 +43,11 @@ export class ListCommandsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListCommandsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCommandsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

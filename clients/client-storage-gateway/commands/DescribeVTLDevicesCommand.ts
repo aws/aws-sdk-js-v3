@@ -43,8 +43,11 @@ export class DescribeVTLDevicesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeVTLDevicesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVTLDevicesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

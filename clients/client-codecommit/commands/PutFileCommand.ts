@@ -40,8 +40,11 @@ export class PutFileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutFileInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutFileOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

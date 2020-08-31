@@ -47,8 +47,11 @@ export class PutIntentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutIntentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutIntentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

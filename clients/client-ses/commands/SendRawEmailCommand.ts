@@ -40,8 +40,11 @@ export class SendRawEmailCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendRawEmailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendRawEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

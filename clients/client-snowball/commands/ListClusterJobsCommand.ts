@@ -43,8 +43,11 @@ export class ListClusterJobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListClusterJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListClusterJobsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

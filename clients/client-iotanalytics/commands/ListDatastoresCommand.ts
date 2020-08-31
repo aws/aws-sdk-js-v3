@@ -43,8 +43,11 @@ export class ListDatastoresCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDatastoresRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDatastoresResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

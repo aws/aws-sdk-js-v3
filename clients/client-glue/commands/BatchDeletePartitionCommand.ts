@@ -43,8 +43,11 @@ export class BatchDeletePartitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchDeletePartitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeletePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

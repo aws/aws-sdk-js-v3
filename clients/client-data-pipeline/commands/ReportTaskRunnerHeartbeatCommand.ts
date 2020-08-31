@@ -43,8 +43,11 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ReportTaskRunnerHeartbeatInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ReportTaskRunnerHeartbeatOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

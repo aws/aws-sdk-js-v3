@@ -43,8 +43,11 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RecordLifecycleActionHeartbeatType.filterSensitiveLog,
+      outputFilterSensitiveLog: RecordLifecycleActionHeartbeatAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

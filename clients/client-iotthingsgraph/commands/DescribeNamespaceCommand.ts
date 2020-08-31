@@ -43,8 +43,11 @@ export class DescribeNamespaceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeNamespaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

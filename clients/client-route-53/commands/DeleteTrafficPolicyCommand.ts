@@ -45,8 +45,11 @@ export class DeleteTrafficPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTrafficPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrafficPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

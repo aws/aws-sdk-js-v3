@@ -43,8 +43,11 @@ export class DeleteOTAUpdateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteOTAUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOTAUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

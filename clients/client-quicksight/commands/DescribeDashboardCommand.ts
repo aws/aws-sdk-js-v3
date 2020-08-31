@@ -43,8 +43,11 @@ export class DescribeDashboardCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDashboardRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDashboardResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -40,8 +40,11 @@ export class GetQueueUrlCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetQueueUrlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQueueUrlResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DefineIndexFieldCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DefineIndexFieldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DefineIndexFieldResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DetachClassicLinkVpcCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetachClassicLinkVpcRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachClassicLinkVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

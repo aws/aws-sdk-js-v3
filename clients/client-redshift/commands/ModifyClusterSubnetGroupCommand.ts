@@ -43,8 +43,11 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyClusterSubnetGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterSubnetGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UploadServerCertificateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UploadServerCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadServerCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -36,8 +36,11 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetUserRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUserResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateAppCookieStickinessPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAppCookieStickinessPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteReservationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

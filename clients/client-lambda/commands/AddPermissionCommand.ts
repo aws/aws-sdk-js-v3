@@ -43,8 +43,11 @@ export class AddPermissionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AddPermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddPermissionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

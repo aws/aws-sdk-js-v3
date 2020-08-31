@@ -43,8 +43,11 @@ export class DescribePortalCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribePortalRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePortalResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

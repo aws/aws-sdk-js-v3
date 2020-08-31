@@ -47,8 +47,11 @@ export class GetClassificationExportConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetClassificationExportConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetClassificationExportConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

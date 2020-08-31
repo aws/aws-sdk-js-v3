@@ -43,8 +43,11 @@ export class ListStreamKeysCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListStreamKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListStreamKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateClusterVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateClusterVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

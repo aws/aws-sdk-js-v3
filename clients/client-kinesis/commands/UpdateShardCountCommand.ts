@@ -43,8 +43,11 @@ export class UpdateShardCountCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateShardCountInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateShardCountOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

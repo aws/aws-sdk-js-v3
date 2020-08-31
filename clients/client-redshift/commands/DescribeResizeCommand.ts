@@ -43,8 +43,11 @@ export class DescribeResizeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeResizeMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ResizeProgressMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

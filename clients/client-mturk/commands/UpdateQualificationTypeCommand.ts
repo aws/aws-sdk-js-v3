@@ -43,8 +43,11 @@ export class UpdateQualificationTypeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

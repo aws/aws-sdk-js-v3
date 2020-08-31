@@ -43,8 +43,11 @@ export class DeleteBudgetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteBudgetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBudgetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

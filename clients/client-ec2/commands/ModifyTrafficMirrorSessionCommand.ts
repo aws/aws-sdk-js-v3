@@ -43,8 +43,11 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyTrafficMirrorSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyTrafficMirrorSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

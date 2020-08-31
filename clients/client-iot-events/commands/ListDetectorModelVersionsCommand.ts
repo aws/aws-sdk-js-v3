@@ -43,8 +43,11 @@ export class ListDetectorModelVersionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDetectorModelVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDetectorModelVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

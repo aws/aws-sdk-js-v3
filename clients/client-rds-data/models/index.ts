@@ -16,6 +16,7 @@ export namespace ArrayValue {
   interface $Base {
     __type?: "ArrayValue";
   }
+
   /**
    * <p>An array of arrays.</p>
    */
@@ -27,6 +28,7 @@ export namespace ArrayValue {
     stringValues?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An array of Boolean values.</p>
    */
@@ -38,6 +40,7 @@ export namespace ArrayValue {
     stringValues?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An array of integers.</p>
    */
@@ -49,6 +52,7 @@ export namespace ArrayValue {
     stringValues?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An array of floating point numbers.</p>
    */
@@ -60,6 +64,7 @@ export namespace ArrayValue {
     stringValues?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An array of strings.</p>
    */
@@ -71,6 +76,7 @@ export namespace ArrayValue {
     stringValues: string[];
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     arrayValues?: never;
     booleanValues?: never;
@@ -79,6 +85,7 @@ export namespace ArrayValue {
     stringValues?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     arrayValues: (value: ArrayValue[]) => T;
     booleanValues: (value: boolean[]) => T;
@@ -87,6 +94,7 @@ export namespace ArrayValue {
     stringValues: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: ArrayValue, visitor: Visitor<T>): T => {
     if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
     if (value.booleanValues !== undefined) return visitor.booleanValues(value.booleanValues);
@@ -94,6 +102,16 @@ export namespace ArrayValue {
     if (value.longValues !== undefined) return visitor.longValues(value.longValues);
     if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ArrayValue): any => {
+    if (obj.arrayValues !== undefined)
+      return { arrayValues: obj.arrayValues.map((item) => ArrayValue.filterSensitiveLog(item)) };
+    if (obj.booleanValues !== undefined) return { booleanValues: obj.booleanValues };
+    if (obj.doubleValues !== undefined) return { doubleValues: obj.doubleValues };
+    if (obj.longValues !== undefined) return { longValues: obj.longValues };
+    if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -525,6 +543,7 @@ export interface ExecuteStatementRequest {
 export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
     ...obj,
+    ...(obj.parameters && { parameters: obj.parameters.map((item) => SqlParameter.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ExecuteStatementRequest => __isa(o, "ExecuteStatementRequest");
 }
@@ -566,6 +585,7 @@ export interface ExecuteStatementResponse {
 export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
     ...obj,
+    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is ExecuteStatementResponse => __isa(o, "ExecuteStatementResponse");
 }
@@ -587,6 +607,7 @@ export namespace Field {
   interface $Base {
     __type?: "Field";
   }
+
   /**
    * <p>An array of values.</p>
    */
@@ -600,6 +621,7 @@ export namespace Field {
     stringValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value of BLOB data type.</p>
    */
@@ -613,6 +635,7 @@ export namespace Field {
     stringValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value of Boolean data type.</p>
    */
@@ -626,6 +649,7 @@ export namespace Field {
     stringValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value of double data type.</p>
    */
@@ -639,6 +663,7 @@ export namespace Field {
     stringValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A NULL value.</p>
    */
@@ -652,6 +677,7 @@ export namespace Field {
     stringValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value of long data type.</p>
    */
@@ -665,6 +691,7 @@ export namespace Field {
     stringValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value of string data type.</p>
    */
@@ -678,6 +705,7 @@ export namespace Field {
     stringValue: string;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     arrayValue?: never;
     blobValue?: never;
@@ -688,6 +716,7 @@ export namespace Field {
     stringValue?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     arrayValue: (value: ArrayValue) => T;
     blobValue: (value: Uint8Array) => T;
@@ -698,6 +727,7 @@ export namespace Field {
     stringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: Field, visitor: Visitor<T>): T => {
     if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
     if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
@@ -707,6 +737,17 @@ export namespace Field {
     if (value.longValue !== undefined) return visitor.longValue(value.longValue);
     if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: Field): any => {
+    if (obj.arrayValue !== undefined) return { arrayValue: ArrayValue.filterSensitiveLog(obj.arrayValue) };
+    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+    if (obj.isNull !== undefined) return { isNull: obj.isNull };
+    if (obj.longValue !== undefined) return { longValue: obj.longValue };
+    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -777,6 +818,7 @@ export interface _Record {
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
+    ...(obj.values && { values: obj.values.map((item) => Value.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -966,6 +1008,7 @@ export interface SqlParameter {
 export namespace SqlParameter {
   export const filterSensitiveLog = (obj: SqlParameter): any => ({
     ...obj,
+    ...(obj.value && { value: Field.filterSensitiveLog(obj.value) }),
   });
   export const isa = (o: any): o is SqlParameter => __isa(o, "SqlParameter");
 }
@@ -1035,6 +1078,7 @@ export interface StructValue {
 export namespace StructValue {
   export const filterSensitiveLog = (obj: StructValue): any => ({
     ...obj,
+    ...(obj.attributes && { attributes: obj.attributes.map((item) => Value.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
@@ -1060,6 +1104,7 @@ export interface UpdateResult {
 export namespace UpdateResult {
   export const filterSensitiveLog = (obj: UpdateResult): any => ({
     ...obj,
+    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }
@@ -1088,6 +1133,7 @@ export namespace Value {
   interface $Base {
     __type?: "Value";
   }
+
   /**
    * <p>An array of column values.</p>
    */
@@ -1104,6 +1150,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of big integer data type.</p>
    */
@@ -1120,6 +1167,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of BIT data type.</p>
    */
@@ -1136,6 +1184,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of BLOB data type.</p>
    */
@@ -1152,6 +1201,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of double data type.</p>
    */
@@ -1168,6 +1218,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of integer data type.</p>
    */
@@ -1184,6 +1235,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A NULL value.</p>
    */
@@ -1200,6 +1252,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of real data type.</p>
    */
@@ -1216,6 +1269,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of string data type.</p>
    */
@@ -1232,6 +1286,7 @@ export namespace Value {
     structValue?: never;
     $unknown?: never;
   }
+
   /**
    * <p>A value for a column of STRUCT data type.</p>
    */
@@ -1248,6 +1303,7 @@ export namespace Value {
     structValue: StructValue;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     arrayValues?: never;
     bigIntValue?: never;
@@ -1261,6 +1317,7 @@ export namespace Value {
     structValue?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     arrayValues: (value: Value[]) => T;
     bigIntValue: (value: number) => T;
@@ -1274,6 +1331,7 @@ export namespace Value {
     structValue: (value: StructValue) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: Value, visitor: Visitor<T>): T => {
     if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
     if (value.bigIntValue !== undefined) return visitor.bigIntValue(value.bigIntValue);
@@ -1286,5 +1344,20 @@ export namespace Value {
     if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
     if (value.structValue !== undefined) return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: Value): any => {
+    if (obj.arrayValues !== undefined)
+      return { arrayValues: obj.arrayValues.map((item) => Value.filterSensitiveLog(item)) };
+    if (obj.bigIntValue !== undefined) return { bigIntValue: obj.bigIntValue };
+    if (obj.bitValue !== undefined) return { bitValue: obj.bitValue };
+    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+    if (obj.intValue !== undefined) return { intValue: obj.intValue };
+    if (obj.isNull !== undefined) return { isNull: obj.isNull };
+    if (obj.realValue !== undefined) return { realValue: obj.realValue };
+    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+    if (obj.structValue !== undefined) return { structValue: StructValue.filterSensitiveLog(obj.structValue) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }

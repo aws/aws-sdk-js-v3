@@ -43,8 +43,11 @@ export class GetTriggersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTriggersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTriggersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

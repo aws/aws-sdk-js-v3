@@ -43,8 +43,11 @@ export class ApproveSkillCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ApproveSkillRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApproveSkillResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

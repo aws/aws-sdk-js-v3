@@ -43,8 +43,11 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RevokeCacheSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeCacheSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

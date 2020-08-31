@@ -43,8 +43,11 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeOrganizationConfigRulesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOrganizationConfigRulesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

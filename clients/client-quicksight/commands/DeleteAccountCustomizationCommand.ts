@@ -43,8 +43,11 @@ export class DeleteAccountCustomizationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteAccountCustomizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccountCustomizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

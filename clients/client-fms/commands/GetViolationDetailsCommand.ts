@@ -43,8 +43,11 @@ export class GetViolationDetailsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetViolationDetailsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetViolationDetailsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableVpcClassicLinkDnsSupportResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class AssociateMemberToGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateMemberToGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateMemberToGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

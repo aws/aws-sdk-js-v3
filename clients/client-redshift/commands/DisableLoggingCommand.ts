@@ -43,8 +43,11 @@ export class DisableLoggingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableLoggingMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: LoggingStatus.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

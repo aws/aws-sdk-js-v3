@@ -43,8 +43,11 @@ export class CreateConfigurationProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateConfigurationProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfigurationProfile.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

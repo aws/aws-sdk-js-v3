@@ -43,8 +43,11 @@ export class DescribeConformancePackStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeConformancePackStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConformancePackStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

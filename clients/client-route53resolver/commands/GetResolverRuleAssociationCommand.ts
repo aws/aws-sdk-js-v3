@@ -43,8 +43,11 @@ export class GetResolverRuleAssociationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetResolverRuleAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResolverRuleAssociationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

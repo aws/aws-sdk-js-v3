@@ -43,8 +43,11 @@ export class CreateDataCatalogCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDataCatalogInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataCatalogOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

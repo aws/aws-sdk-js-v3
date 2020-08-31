@@ -45,8 +45,11 @@ export class UploadMultipartPartCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UploadMultipartPartInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadMultipartPartOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateSizeConstraintSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSizeConstraintSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSizeConstraintSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetApprovalRuleTemplateCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetApprovalRuleTemplateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetApprovalRuleTemplateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

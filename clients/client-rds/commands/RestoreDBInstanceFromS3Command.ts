@@ -43,8 +43,11 @@ export class RestoreDBInstanceFromS3Command extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreDBInstanceFromS3Message.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBInstanceFromS3Result.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

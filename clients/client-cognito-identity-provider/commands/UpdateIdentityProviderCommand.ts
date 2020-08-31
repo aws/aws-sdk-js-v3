@@ -47,8 +47,11 @@ export class UpdateIdentityProviderCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateIdentityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIdentityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

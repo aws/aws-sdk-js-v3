@@ -43,8 +43,11 @@ export class UpdatePresetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdatePresetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePresetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

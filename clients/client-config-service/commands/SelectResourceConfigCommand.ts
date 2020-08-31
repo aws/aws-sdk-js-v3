@@ -43,8 +43,11 @@ export class SelectResourceConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SelectResourceConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SelectResourceConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

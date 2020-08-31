@@ -43,8 +43,11 @@ export class DeleteFargateProfileCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteFargateProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFargateProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

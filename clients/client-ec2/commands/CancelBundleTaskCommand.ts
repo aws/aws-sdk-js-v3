@@ -43,8 +43,11 @@ export class CancelBundleTaskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelBundleTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelBundleTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

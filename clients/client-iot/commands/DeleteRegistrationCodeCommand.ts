@@ -43,8 +43,11 @@ export class DeleteRegistrationCodeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteRegistrationCodeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRegistrationCodeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

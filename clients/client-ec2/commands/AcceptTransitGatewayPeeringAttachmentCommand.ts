@@ -47,8 +47,11 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AcceptTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AcceptTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

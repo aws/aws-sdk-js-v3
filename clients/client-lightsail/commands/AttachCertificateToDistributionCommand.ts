@@ -43,8 +43,11 @@ export class AttachCertificateToDistributionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AttachCertificateToDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachCertificateToDistributionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class SendTaskSuccessCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendTaskSuccessInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SendTaskSuccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

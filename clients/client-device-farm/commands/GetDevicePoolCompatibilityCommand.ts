@@ -43,8 +43,11 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDevicePoolCompatibilityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDevicePoolCompatibilityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class RevokeInvitationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RevokeInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

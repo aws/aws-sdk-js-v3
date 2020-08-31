@@ -43,8 +43,11 @@ export class GetParameterHistoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetParameterHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetParameterHistoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

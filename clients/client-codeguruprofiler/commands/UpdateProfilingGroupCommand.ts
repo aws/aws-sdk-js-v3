@@ -43,8 +43,11 @@ export class UpdateProfilingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateProfilingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProfilingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class AssociateSoftwareTokenCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

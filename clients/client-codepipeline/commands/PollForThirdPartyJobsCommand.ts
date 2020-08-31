@@ -43,8 +43,11 @@ export class PollForThirdPartyJobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PollForThirdPartyJobsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PollForThirdPartyJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

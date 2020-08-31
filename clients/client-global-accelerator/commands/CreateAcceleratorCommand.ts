@@ -47,8 +47,11 @@ export class CreateAcceleratorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateAcceleratorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAcceleratorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

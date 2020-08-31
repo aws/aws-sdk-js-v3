@@ -43,8 +43,11 @@ export class GetReservationCoverageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetReservationCoverageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservationCoverageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

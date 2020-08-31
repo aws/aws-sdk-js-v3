@@ -43,8 +43,11 @@ export class ListMitigationActionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListMitigationActionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMitigationActionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

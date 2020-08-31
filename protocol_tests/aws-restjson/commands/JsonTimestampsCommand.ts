@@ -43,8 +43,11 @@ export class JsonTimestampsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

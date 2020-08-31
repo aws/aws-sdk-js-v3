@@ -43,8 +43,11 @@ export class AddAttributesToFindingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AddAttributesToFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddAttributesToFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

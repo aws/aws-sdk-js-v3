@@ -47,8 +47,11 @@ export class GetComplianceSummaryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetComplianceSummaryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceSummaryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

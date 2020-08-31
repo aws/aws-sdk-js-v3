@@ -43,8 +43,11 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListAWSDefaultServiceQuotasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAWSDefaultServiceQuotasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

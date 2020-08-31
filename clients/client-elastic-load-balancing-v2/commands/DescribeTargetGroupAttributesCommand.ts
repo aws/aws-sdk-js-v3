@@ -47,8 +47,11 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTargetGroupAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTargetGroupAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

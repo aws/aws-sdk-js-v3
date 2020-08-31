@@ -43,8 +43,11 @@ export class StopCrawlerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopCrawlerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopCrawlerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

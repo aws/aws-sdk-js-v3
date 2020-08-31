@@ -43,8 +43,11 @@ export class DescribeRobotCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeRobotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRobotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateOriginRequestPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOriginRequestPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

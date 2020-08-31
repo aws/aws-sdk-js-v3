@@ -43,8 +43,11 @@ export class DescribeLunaClientCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLunaClientRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLunaClientResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateThingGroupsForThingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateThingGroupsForThingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThingGroupsForThingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

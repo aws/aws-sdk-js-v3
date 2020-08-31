@@ -45,8 +45,11 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListBucketAnalyticsConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBucketAnalyticsConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

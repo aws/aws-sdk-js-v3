@@ -47,8 +47,11 @@ export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateNotebookInstanceLifecycleConfigInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNotebookInstanceLifecycleConfigOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -40,8 +40,11 @@ export class ListTagsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListTagsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

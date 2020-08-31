@@ -43,8 +43,11 @@ export class GetStaticIpsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetStaticIpsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetStaticIpsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeCapacityReservationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeCapacityReservationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCapacityReservationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

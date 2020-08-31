@@ -43,8 +43,11 @@ export class SendTaskFailureCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SendTaskFailureInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SendTaskFailureOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

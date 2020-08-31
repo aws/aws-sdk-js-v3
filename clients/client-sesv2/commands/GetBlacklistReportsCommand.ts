@@ -43,8 +43,11 @@ export class GetBlacklistReportsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBlacklistReportsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBlacklistReportsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

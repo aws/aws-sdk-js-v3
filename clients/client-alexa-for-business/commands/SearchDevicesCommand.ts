@@ -43,8 +43,11 @@ export class SearchDevicesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SearchDevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SearchDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

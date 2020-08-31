@@ -43,8 +43,11 @@ export class DescribeGatewayInformationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeGatewayInformationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGatewayInformationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

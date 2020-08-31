@@ -43,8 +43,11 @@ export class DisableGatewayCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableGatewayInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableGatewayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

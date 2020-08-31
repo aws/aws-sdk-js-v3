@@ -36,8 +36,11 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRunResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

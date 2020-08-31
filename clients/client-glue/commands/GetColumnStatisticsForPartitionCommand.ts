@@ -43,8 +43,11 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetColumnStatisticsForPartitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

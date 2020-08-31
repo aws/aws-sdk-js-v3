@@ -43,8 +43,11 @@ export class CreateDocumentationPartCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateDocumentationPartRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DocumentationPart.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

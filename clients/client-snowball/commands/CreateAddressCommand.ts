@@ -43,8 +43,11 @@ export class CreateAddressCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAddressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

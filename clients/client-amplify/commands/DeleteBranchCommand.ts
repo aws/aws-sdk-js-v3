@@ -43,8 +43,11 @@ export class DeleteBranchCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteBranchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBranchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

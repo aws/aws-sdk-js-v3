@@ -43,8 +43,11 @@ export class CreateMembersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateMembersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMembersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

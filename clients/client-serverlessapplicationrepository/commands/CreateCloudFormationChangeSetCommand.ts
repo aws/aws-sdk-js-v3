@@ -47,8 +47,11 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCloudFormationChangeSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCloudFormationChangeSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

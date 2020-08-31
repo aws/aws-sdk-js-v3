@@ -36,8 +36,11 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TagInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TagOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

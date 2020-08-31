@@ -43,8 +43,11 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateSoftwareUpdateJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSoftwareUpdateJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

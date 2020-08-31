@@ -43,8 +43,11 @@ export class BatchDetectDominantLanguageCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchDetectDominantLanguageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDetectDominantLanguageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

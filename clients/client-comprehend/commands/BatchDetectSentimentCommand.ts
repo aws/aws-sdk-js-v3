@@ -43,8 +43,11 @@ export class BatchDetectSentimentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchDetectSentimentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDetectSentimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DescribeResourceGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeResourceGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeResourceGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

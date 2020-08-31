@@ -43,8 +43,11 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeImportSnapshotTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImportSnapshotTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

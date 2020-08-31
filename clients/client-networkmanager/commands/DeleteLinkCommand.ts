@@ -43,8 +43,11 @@ export class DeleteLinkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

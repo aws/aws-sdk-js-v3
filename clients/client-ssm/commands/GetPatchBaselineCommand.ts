@@ -43,8 +43,11 @@ export class GetPatchBaselineCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetPatchBaselineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

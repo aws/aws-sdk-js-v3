@@ -43,8 +43,11 @@ export class DisableSsoCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableSsoRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableSsoResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

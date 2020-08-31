@@ -36,8 +36,11 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetIdInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

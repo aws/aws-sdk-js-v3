@@ -47,8 +47,11 @@ export class ChangePasswordCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ChangePasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ChangePasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

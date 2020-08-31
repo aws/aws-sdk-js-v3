@@ -10,6 +10,7 @@ export namespace AccessLog {
   interface $Base {
     __type?: "AccessLog";
   }
+
   /**
    * <p>The file object to send virtual node access logs to.</p>
    */
@@ -17,17 +18,25 @@ export namespace AccessLog {
     file: FileAccessLog;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     file?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     file: (value: FileAccessLog) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: AccessLog, visitor: Visitor<T>): T => {
     if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: AccessLog): any => {
+    if (obj.file !== undefined) return { file: FileAccessLog.filterSensitiveLog(obj.file) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -98,6 +107,7 @@ export namespace Backend {
   interface $Base {
     __type?: "Backend";
   }
+
   /**
    * <p>Specifies a virtual service to use as a backend for a virtual node. </p>
    */
@@ -105,17 +115,26 @@ export namespace Backend {
     virtualService: VirtualServiceBackend;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     virtualService?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     virtualService: (value: VirtualServiceBackend) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: Backend, visitor: Visitor<T>): T => {
     if (value.virtualService !== undefined) return visitor.virtualService(value.virtualService);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: Backend): any => {
+    if (obj.virtualService !== undefined)
+      return { virtualService: VirtualServiceBackend.filterSensitiveLog(obj.virtualService) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -133,6 +152,7 @@ export interface BackendDefaults {
 export namespace BackendDefaults {
   export const filterSensitiveLog = (obj: BackendDefaults): any => ({
     ...obj,
+    ...(obj.clientPolicy && { clientPolicy: ClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
   });
   export const isa = (o: any): o is BackendDefaults => __isa(o, "BackendDefaults");
 }
@@ -167,6 +187,7 @@ export interface ClientPolicy {
 export namespace ClientPolicy {
   export const filterSensitiveLog = (obj: ClientPolicy): any => ({
     ...obj,
+    ...(obj.tls && { tls: ClientPolicyTls.filterSensitiveLog(obj.tls) }),
   });
   export const isa = (o: any): o is ClientPolicy => __isa(o, "ClientPolicy");
 }
@@ -196,6 +217,7 @@ export interface ClientPolicyTls {
 export namespace ClientPolicyTls {
   export const filterSensitiveLog = (obj: ClientPolicyTls): any => ({
     ...obj,
+    ...(obj.validation && { validation: TlsValidationContext.filterSensitiveLog(obj.validation) }),
   });
   export const isa = (o: any): o is ClientPolicyTls => __isa(o, "ClientPolicyTls");
 }
@@ -390,6 +412,7 @@ export interface CreateVirtualNodeInput {
 export namespace CreateVirtualNodeInput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeInput): any => ({
     ...obj,
+    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
   });
   export const isa = (o: any): o is CreateVirtualNodeInput => __isa(o, "CreateVirtualNodeInput");
 }
@@ -408,6 +431,7 @@ export interface CreateVirtualNodeOutput {
 export namespace CreateVirtualNodeOutput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeOutput): any => ({
     ...obj,
+    ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
   export const isa = (o: any): o is CreateVirtualNodeOutput => __isa(o, "CreateVirtualNodeOutput");
 }
@@ -524,6 +548,7 @@ export interface CreateVirtualServiceInput {
 export namespace CreateVirtualServiceInput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceInput): any => ({
     ...obj,
+    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
   });
   export const isa = (o: any): o is CreateVirtualServiceInput => __isa(o, "CreateVirtualServiceInput");
 }
@@ -542,6 +567,7 @@ export interface CreateVirtualServiceOutput {
 export namespace CreateVirtualServiceOutput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceOutput): any => ({
     ...obj,
+    ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
   export const isa = (o: any): o is CreateVirtualServiceOutput => __isa(o, "CreateVirtualServiceOutput");
 }
@@ -700,6 +726,7 @@ export interface DeleteVirtualNodeOutput {
 export namespace DeleteVirtualNodeOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualNodeOutput): any => ({
     ...obj,
+    ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
   export const isa = (o: any): o is DeleteVirtualNodeOutput => __isa(o, "DeleteVirtualNodeOutput");
 }
@@ -794,6 +821,7 @@ export interface DeleteVirtualServiceOutput {
 export namespace DeleteVirtualServiceOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualServiceOutput): any => ({
     ...obj,
+    ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
   export const isa = (o: any): o is DeleteVirtualServiceOutput => __isa(o, "DeleteVirtualServiceOutput");
 }
@@ -935,6 +963,7 @@ export interface DescribeVirtualNodeOutput {
 export namespace DescribeVirtualNodeOutput {
   export const filterSensitiveLog = (obj: DescribeVirtualNodeOutput): any => ({
     ...obj,
+    ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
   export const isa = (o: any): o is DescribeVirtualNodeOutput => __isa(o, "DescribeVirtualNodeOutput");
 }
@@ -1029,6 +1058,7 @@ export interface DescribeVirtualServiceOutput {
 export namespace DescribeVirtualServiceOutput {
   export const filterSensitiveLog = (obj: DescribeVirtualServiceOutput): any => ({
     ...obj,
+    ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
   export const isa = (o: any): o is DescribeVirtualServiceOutput => __isa(o, "DescribeVirtualServiceOutput");
 }
@@ -1313,6 +1343,7 @@ export interface GrpcRouteMatch {
 export namespace GrpcRouteMatch {
   export const filterSensitiveLog = (obj: GrpcRouteMatch): any => ({
     ...obj,
+    ...(obj.metadata && { metadata: obj.metadata.map((item) => GrpcRouteMetadata.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is GrpcRouteMatch => __isa(o, "GrpcRouteMatch");
 }
@@ -1341,6 +1372,7 @@ export interface GrpcRouteMetadata {
 export namespace GrpcRouteMetadata {
   export const filterSensitiveLog = (obj: GrpcRouteMetadata): any => ({
     ...obj,
+    ...(obj.match && { match: GrpcRouteMetadataMatchMethod.filterSensitiveLog(obj.match) }),
   });
   export const isa = (o: any): o is GrpcRouteMetadata => __isa(o, "GrpcRouteMetadata");
 }
@@ -1360,6 +1392,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   interface $Base {
     __type?: "GrpcRouteMetadataMatchMethod";
   }
+
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
    */
@@ -1371,6 +1404,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must begin with the specified characters.</p>
    */
@@ -1382,6 +1416,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An object that represents the range of values to match on.</p>
    */
@@ -1393,6 +1428,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must include the specified characters.</p>
    */
@@ -1404,6 +1440,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must end with the specified characters.</p>
    */
@@ -1415,6 +1452,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix: string;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     exact?: never;
     prefix?: never;
@@ -1423,6 +1461,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     exact: (value: string) => T;
     prefix: (value: string) => T;
@@ -1431,6 +1470,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: GrpcRouteMetadataMatchMethod, visitor: Visitor<T>): T => {
     if (value.exact !== undefined) return visitor.exact(value.exact);
     if (value.prefix !== undefined) return visitor.prefix(value.prefix);
@@ -1438,6 +1478,15 @@ export namespace GrpcRouteMetadataMatchMethod {
     if (value.regex !== undefined) return visitor.regex(value.regex);
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: GrpcRouteMetadataMatchMethod): any => {
+    if (obj.exact !== undefined) return { exact: obj.exact };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
+    if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.suffix !== undefined) return { suffix: obj.suffix };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -1477,6 +1526,7 @@ export namespace HeaderMatchMethod {
   interface $Base {
     __type?: "HeaderMatchMethod";
   }
+
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
    */
@@ -1488,6 +1538,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must begin with the specified characters.</p>
    */
@@ -1499,6 +1550,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An object that represents the range of values to match on.</p>
    */
@@ -1510,6 +1562,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must include the specified characters.</p>
    */
@@ -1521,6 +1574,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The value sent by the client must end with the specified characters.</p>
    */
@@ -1532,6 +1586,7 @@ export namespace HeaderMatchMethod {
     suffix: string;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     exact?: never;
     prefix?: never;
@@ -1540,6 +1595,7 @@ export namespace HeaderMatchMethod {
     suffix?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     exact: (value: string) => T;
     prefix: (value: string) => T;
@@ -1548,6 +1604,7 @@ export namespace HeaderMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: HeaderMatchMethod, visitor: Visitor<T>): T => {
     if (value.exact !== undefined) return visitor.exact(value.exact);
     if (value.prefix !== undefined) return visitor.prefix(value.prefix);
@@ -1555,6 +1612,15 @@ export namespace HeaderMatchMethod {
     if (value.regex !== undefined) return visitor.regex(value.regex);
     if (value.suffix !== undefined) return visitor.suffix(value.suffix);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
+    if (obj.exact !== undefined) return { exact: obj.exact };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
+    if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.suffix !== undefined) return { suffix: obj.suffix };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -1751,6 +1817,7 @@ export interface HttpRouteHeader {
 export namespace HttpRouteHeader {
   export const filterSensitiveLog = (obj: HttpRouteHeader): any => ({
     ...obj,
+    ...(obj.match && { match: HeaderMatchMethod.filterSensitiveLog(obj.match) }),
   });
   export const isa = (o: any): o is HttpRouteHeader => __isa(o, "HttpRouteHeader");
 }
@@ -1790,6 +1857,7 @@ export interface HttpRouteMatch {
 export namespace HttpRouteMatch {
   export const filterSensitiveLog = (obj: HttpRouteMatch): any => ({
     ...obj,
+    ...(obj.headers && { headers: obj.headers.map((item) => HttpRouteHeader.filterSensitiveLog(item)) }),
   });
   export const isa = (o: any): o is HttpRouteMatch => __isa(o, "HttpRouteMatch");
 }
@@ -2304,6 +2372,7 @@ export interface Logging {
 export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
     ...obj,
+    ...(obj.accessLog && { accessLog: AccessLog.filterSensitiveLog(obj.accessLog) }),
   });
   export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
@@ -2736,21 +2805,31 @@ export namespace SdsSource {
   interface $Base {
     __type?: "SdsSource";
   }
+
   export interface UnixDomainSocketMember extends $Base {
     unixDomainSocket: SdsUnixDomainSocketSource;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     unixDomainSocket?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     unixDomainSocket: (value: SdsUnixDomainSocketSource) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: SdsSource, visitor: Visitor<T>): T => {
     if (value.unixDomainSocket !== undefined) return visitor.unixDomainSocket(value.unixDomainSocket);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: SdsSource): any => {
+    if (obj.unixDomainSocket !== undefined)
+      return { unixDomainSocket: SdsUnixDomainSocketSource.filterSensitiveLog(obj.unixDomainSocket) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2778,6 +2857,7 @@ export namespace ServiceDiscovery {
   interface $Base {
     __type?: "ServiceDiscovery";
   }
+
   /**
    * <p>Specifies any AWS Cloud Map information for the virtual node.</p>
    */
@@ -2786,6 +2866,7 @@ export namespace ServiceDiscovery {
     dns?: never;
     $unknown?: never;
   }
+
   /**
    * <p>Specifies the DNS information for the virtual node.</p>
    */
@@ -2794,20 +2875,30 @@ export namespace ServiceDiscovery {
     dns: DnsServiceDiscovery;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     awsCloudMap?: never;
     dns?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     awsCloudMap: (value: AwsCloudMapServiceDiscovery) => T;
     dns: (value: DnsServiceDiscovery) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: ServiceDiscovery, visitor: Visitor<T>): T => {
     if (value.awsCloudMap !== undefined) return visitor.awsCloudMap(value.awsCloudMap);
     if (value.dns !== undefined) return visitor.dns(value.dns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ServiceDiscovery): any => {
+    if (obj.awsCloudMap !== undefined)
+      return { awsCloudMap: AwsCloudMapServiceDiscovery.filterSensitiveLog(obj.awsCloudMap) };
+    if (obj.dns !== undefined) return { dns: DnsServiceDiscovery.filterSensitiveLog(obj.dns) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2966,6 +3057,7 @@ export interface TlsValidationContext {
 export namespace TlsValidationContext {
   export const filterSensitiveLog = (obj: TlsValidationContext): any => ({
     ...obj,
+    ...(obj.trust && { trust: TlsValidationContextTrust.filterSensitiveLog(obj.trust) }),
   });
   export const isa = (o: any): o is TlsValidationContext => __isa(o, "TlsValidationContext");
 }
@@ -3017,6 +3109,7 @@ export interface TlsValidationContextSdsTrust {
 export namespace TlsValidationContextSdsTrust {
   export const filterSensitiveLog = (obj: TlsValidationContextSdsTrust): any => ({
     ...obj,
+    ...(obj.source && { source: SdsSource.filterSensitiveLog(obj.source) }),
   });
   export const isa = (o: any): o is TlsValidationContextSdsTrust => __isa(o, "TlsValidationContextSdsTrust");
 }
@@ -3034,6 +3127,7 @@ export namespace TlsValidationContextTrust {
   interface $Base {
     __type?: "TlsValidationContextTrust";
   }
+
   /**
    * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
    *          certificate.</p>
@@ -3044,6 +3138,7 @@ export namespace TlsValidationContextTrust {
     sds?: never;
     $unknown?: never;
   }
+
   /**
    * <p>An object that represents a TLS validation context trust for a local file.</p>
    */
@@ -3053,29 +3148,40 @@ export namespace TlsValidationContextTrust {
     sds?: never;
     $unknown?: never;
   }
+
   export interface SdsMember extends $Base {
     acm?: never;
     file?: never;
     sds: TlsValidationContextSdsTrust;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     acm?: never;
     file?: never;
     sds?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     acm: (value: TlsValidationContextAcmTrust) => T;
     file: (value: TlsValidationContextFileTrust) => T;
     sds: (value: TlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: TlsValidationContextTrust, visitor: Visitor<T>): T => {
     if (value.acm !== undefined) return visitor.acm(value.acm);
     if (value.file !== undefined) return visitor.file(value.file);
     if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
+    if (obj.acm !== undefined) return { acm: TlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
+    if (obj.file !== undefined) return { file: TlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: TlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -3298,6 +3404,7 @@ export interface UpdateVirtualNodeInput {
 export namespace UpdateVirtualNodeInput {
   export const filterSensitiveLog = (obj: UpdateVirtualNodeInput): any => ({
     ...obj,
+    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
   });
   export const isa = (o: any): o is UpdateVirtualNodeInput => __isa(o, "UpdateVirtualNodeInput");
 }
@@ -3316,6 +3423,7 @@ export interface UpdateVirtualNodeOutput {
 export namespace UpdateVirtualNodeOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualNodeOutput): any => ({
     ...obj,
+    ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
   export const isa = (o: any): o is UpdateVirtualNodeOutput => __isa(o, "UpdateVirtualNodeOutput");
 }
@@ -3415,6 +3523,7 @@ export interface UpdateVirtualServiceInput {
 export namespace UpdateVirtualServiceInput {
   export const filterSensitiveLog = (obj: UpdateVirtualServiceInput): any => ({
     ...obj,
+    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
   });
   export const isa = (o: any): o is UpdateVirtualServiceInput => __isa(o, "UpdateVirtualServiceInput");
 }
@@ -3433,6 +3542,7 @@ export interface UpdateVirtualServiceOutput {
 export namespace UpdateVirtualServiceOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualServiceOutput): any => ({
     ...obj,
+    ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
   export const isa = (o: any): o is UpdateVirtualServiceOutput => __isa(o, "UpdateVirtualServiceOutput");
 }
@@ -3471,6 +3581,7 @@ export interface VirtualNodeData {
 export namespace VirtualNodeData {
   export const filterSensitiveLog = (obj: VirtualNodeData): any => ({
     ...obj,
+    ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
   });
   export const isa = (o: any): o is VirtualNodeData => __isa(o, "VirtualNodeData");
 }
@@ -3570,6 +3681,10 @@ export interface VirtualNodeSpec {
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec): any => ({
     ...obj,
+    ...(obj.backendDefaults && { backendDefaults: BackendDefaults.filterSensitiveLog(obj.backendDefaults) }),
+    ...(obj.backends && { backends: obj.backends.map((item) => Backend.filterSensitiveLog(item)) }),
+    ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
+    ...(obj.serviceDiscovery && { serviceDiscovery: ServiceDiscovery.filterSensitiveLog(obj.serviceDiscovery) }),
   });
   export const isa = (o: any): o is VirtualNodeSpec => __isa(o, "VirtualNodeSpec");
 }
@@ -3774,6 +3889,7 @@ export interface VirtualServiceBackend {
 export namespace VirtualServiceBackend {
   export const filterSensitiveLog = (obj: VirtualServiceBackend): any => ({
     ...obj,
+    ...(obj.clientPolicy && { clientPolicy: ClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
   });
   export const isa = (o: any): o is VirtualServiceBackend => __isa(o, "VirtualServiceBackend");
 }
@@ -3812,6 +3928,7 @@ export interface VirtualServiceData {
 export namespace VirtualServiceData {
   export const filterSensitiveLog = (obj: VirtualServiceData): any => ({
     ...obj,
+    ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
   });
   export const isa = (o: any): o is VirtualServiceData => __isa(o, "VirtualServiceData");
 }
@@ -3828,6 +3945,7 @@ export namespace VirtualServiceProvider {
   interface $Base {
     __type?: "VirtualServiceProvider";
   }
+
   /**
    * <p>The virtual node associated with a virtual service.</p>
    */
@@ -3836,6 +3954,7 @@ export namespace VirtualServiceProvider {
     virtualRouter?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The virtual router associated with a virtual service.</p>
    */
@@ -3844,20 +3963,31 @@ export namespace VirtualServiceProvider {
     virtualRouter: VirtualRouterServiceProvider;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
     virtualNode?: never;
     virtualRouter?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
     virtualNode: (value: VirtualNodeServiceProvider) => T;
     virtualRouter: (value: VirtualRouterServiceProvider) => T;
     _: (name: string, value: any) => T;
   }
+
   export const visit = <T>(value: VirtualServiceProvider, visitor: Visitor<T>): T => {
     if (value.virtualNode !== undefined) return visitor.virtualNode(value.virtualNode);
     if (value.virtualRouter !== undefined) return visitor.virtualRouter(value.virtualRouter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualServiceProvider): any => {
+    if (obj.virtualNode !== undefined)
+      return { virtualNode: VirtualNodeServiceProvider.filterSensitiveLog(obj.virtualNode) };
+    if (obj.virtualRouter !== undefined)
+      return { virtualRouter: VirtualRouterServiceProvider.filterSensitiveLog(obj.virtualRouter) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -3916,6 +4046,7 @@ export interface VirtualServiceSpec {
 export namespace VirtualServiceSpec {
   export const filterSensitiveLog = (obj: VirtualServiceSpec): any => ({
     ...obj,
+    ...(obj.provider && { provider: VirtualServiceProvider.filterSensitiveLog(obj.provider) }),
   });
   export const isa = (o: any): o is VirtualServiceSpec => __isa(o, "VirtualServiceSpec");
 }

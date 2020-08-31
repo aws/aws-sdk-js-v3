@@ -43,8 +43,11 @@ export class DeleteDirectoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

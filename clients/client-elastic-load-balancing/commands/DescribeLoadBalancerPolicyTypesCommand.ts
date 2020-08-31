@@ -47,8 +47,11 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLoadBalancerPolicyTypesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerPolicyTypesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

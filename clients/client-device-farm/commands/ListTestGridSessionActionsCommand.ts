@@ -43,8 +43,11 @@ export class ListTestGridSessionActionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListTestGridSessionActionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTestGridSessionActionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

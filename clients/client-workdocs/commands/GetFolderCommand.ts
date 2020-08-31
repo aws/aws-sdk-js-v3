@@ -43,8 +43,11 @@ export class GetFolderCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetFolderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFolderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateAlgorithmCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateAlgorithmInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAlgorithmOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

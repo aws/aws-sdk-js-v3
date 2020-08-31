@@ -43,8 +43,11 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AllocateConnectionOnInterconnectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

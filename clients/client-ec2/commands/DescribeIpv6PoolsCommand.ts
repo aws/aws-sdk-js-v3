@@ -43,8 +43,11 @@ export class DescribeIpv6PoolsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeIpv6PoolsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIpv6PoolsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

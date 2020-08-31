@@ -43,8 +43,11 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDistributionsByCachePolicyIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByCachePolicyIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

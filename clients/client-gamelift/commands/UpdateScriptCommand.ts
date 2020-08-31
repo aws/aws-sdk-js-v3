@@ -43,8 +43,11 @@ export class UpdateScriptCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateScriptInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScriptOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

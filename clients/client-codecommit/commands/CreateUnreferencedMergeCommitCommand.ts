@@ -43,8 +43,11 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateUnreferencedMergeCommitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUnreferencedMergeCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

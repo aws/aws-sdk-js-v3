@@ -43,8 +43,11 @@ export class ListRoutesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListRoutesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRoutesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

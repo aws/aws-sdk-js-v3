@@ -43,8 +43,11 @@ export class RollbackTransactionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RollbackTransactionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RollbackTransactionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

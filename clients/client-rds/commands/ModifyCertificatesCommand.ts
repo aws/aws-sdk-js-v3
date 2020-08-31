@@ -43,8 +43,11 @@ export class ModifyCertificatesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ModifyCertificatesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyCertificatesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

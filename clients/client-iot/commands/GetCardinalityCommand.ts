@@ -43,8 +43,11 @@ export class GetCardinalityCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCardinalityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCardinalityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

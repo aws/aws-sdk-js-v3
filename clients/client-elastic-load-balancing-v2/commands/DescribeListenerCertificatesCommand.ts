@@ -47,8 +47,11 @@ export class DescribeListenerCertificatesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeListenerCertificatesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeListenerCertificatesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

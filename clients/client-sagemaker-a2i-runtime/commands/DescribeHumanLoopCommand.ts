@@ -47,8 +47,11 @@ export class DescribeHumanLoopCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeHumanLoopRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHumanLoopResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

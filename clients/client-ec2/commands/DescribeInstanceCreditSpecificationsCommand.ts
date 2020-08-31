@@ -47,8 +47,11 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeInstanceCreditSpecificationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceCreditSpecificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListVocabulariesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVocabulariesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVocabulariesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

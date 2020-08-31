@@ -43,8 +43,11 @@ export class ListVoiceConnectorGroupsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListVoiceConnectorGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVoiceConnectorGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

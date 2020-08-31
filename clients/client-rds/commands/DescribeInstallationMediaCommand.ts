@@ -43,8 +43,11 @@ export class DescribeInstallationMediaCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeInstallationMediaMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: InstallationMediaMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

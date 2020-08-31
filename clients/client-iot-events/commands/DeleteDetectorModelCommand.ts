@@ -43,8 +43,11 @@ export class DeleteDetectorModelCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDetectorModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDetectorModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

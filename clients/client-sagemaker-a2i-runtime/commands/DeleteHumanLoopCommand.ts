@@ -47,8 +47,11 @@ export class DeleteHumanLoopCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteHumanLoopRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHumanLoopResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

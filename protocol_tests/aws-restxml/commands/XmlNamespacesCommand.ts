@@ -43,8 +43,11 @@ export class XmlNamespacesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

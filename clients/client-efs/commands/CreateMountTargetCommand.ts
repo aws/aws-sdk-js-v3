@@ -43,8 +43,11 @@ export class CreateMountTargetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateMountTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MountTargetDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

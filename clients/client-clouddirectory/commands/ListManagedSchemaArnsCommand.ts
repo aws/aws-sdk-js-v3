@@ -43,8 +43,11 @@ export class ListManagedSchemaArnsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListManagedSchemaArnsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListManagedSchemaArnsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

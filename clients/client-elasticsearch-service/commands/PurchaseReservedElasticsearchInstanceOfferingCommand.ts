@@ -54,8 +54,11 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PurchaseReservedElasticsearchInstanceOfferingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedElasticsearchInstanceOfferingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

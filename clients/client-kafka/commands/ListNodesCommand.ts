@@ -43,8 +43,11 @@ export class ListNodesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListNodesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListNodesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

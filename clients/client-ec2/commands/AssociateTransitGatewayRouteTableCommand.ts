@@ -43,8 +43,11 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateTransitGatewayRouteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTransitGatewayRouteTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

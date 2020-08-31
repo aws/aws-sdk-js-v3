@@ -43,8 +43,11 @@ export class StartMatchBackfillCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartMatchBackfillInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMatchBackfillOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

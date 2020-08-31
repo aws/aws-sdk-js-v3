@@ -43,8 +43,11 @@ export class DeleteMultiplexCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteMultiplexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

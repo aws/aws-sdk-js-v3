@@ -43,8 +43,11 @@ export class RestoreSecretCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

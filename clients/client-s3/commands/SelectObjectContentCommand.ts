@@ -48,8 +48,11 @@ export class SelectObjectContentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SelectObjectContentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SelectObjectContentOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

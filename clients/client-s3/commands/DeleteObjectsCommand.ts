@@ -47,8 +47,11 @@ export class DeleteObjectsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteObjectsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteObjectsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

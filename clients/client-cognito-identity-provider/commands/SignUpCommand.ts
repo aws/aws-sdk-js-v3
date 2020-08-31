@@ -44,8 +44,11 @@ export class SignUpCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SignUpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SignUpResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

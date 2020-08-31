@@ -43,8 +43,11 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssociateClientVpnTargetNetworkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateClientVpnTargetNetworkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

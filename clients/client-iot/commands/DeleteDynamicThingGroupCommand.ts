@@ -43,8 +43,11 @@ export class DeleteDynamicThingGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDynamicThingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDynamicThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

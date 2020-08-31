@@ -43,8 +43,11 @@ export class UpdateAssociationStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateAssociationStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssociationStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

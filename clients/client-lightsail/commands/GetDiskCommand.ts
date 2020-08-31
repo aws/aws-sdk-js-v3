@@ -36,8 +36,11 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetDiskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDiskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

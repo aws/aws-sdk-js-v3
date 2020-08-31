@@ -43,8 +43,11 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetAssetPropertyValueHistoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAssetPropertyValueHistoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

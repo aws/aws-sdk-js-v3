@@ -47,8 +47,11 @@ export class CreateParticipantConnectionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateParticipantConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateParticipantConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

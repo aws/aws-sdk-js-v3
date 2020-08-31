@@ -43,8 +43,11 @@ export class CreatePartnerEventSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePartnerEventSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePartnerEventSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

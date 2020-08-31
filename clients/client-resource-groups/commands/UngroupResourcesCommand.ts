@@ -43,8 +43,11 @@ export class UngroupResourcesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UngroupResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UngroupResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

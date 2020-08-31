@@ -43,8 +43,11 @@ export class GetCodeBindingSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCodeBindingSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCodeBindingSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

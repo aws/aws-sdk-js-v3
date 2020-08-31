@@ -43,8 +43,11 @@ export class DeleteLexiconCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLexiconInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

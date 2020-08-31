@@ -43,8 +43,11 @@ export class CancelPipelineReprocessingCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CancelPipelineReprocessingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelPipelineReprocessingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

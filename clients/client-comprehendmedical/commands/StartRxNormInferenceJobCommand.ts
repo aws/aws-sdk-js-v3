@@ -47,8 +47,11 @@ export class StartRxNormInferenceJobCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StartRxNormInferenceJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartRxNormInferenceJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

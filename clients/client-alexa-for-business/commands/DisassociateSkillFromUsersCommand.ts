@@ -43,8 +43,11 @@ export class DisassociateSkillFromUsersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisassociateSkillFromUsersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateSkillFromUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,8 +47,11 @@ export class UpdateNotificationRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateNotificationRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -39,8 +39,11 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBlockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

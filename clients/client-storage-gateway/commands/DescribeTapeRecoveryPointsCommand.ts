@@ -43,8 +43,11 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeTapeRecoveryPointsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTapeRecoveryPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

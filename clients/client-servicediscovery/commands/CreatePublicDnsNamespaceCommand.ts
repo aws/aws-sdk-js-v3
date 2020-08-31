@@ -43,8 +43,11 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePublicDnsNamespaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePublicDnsNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

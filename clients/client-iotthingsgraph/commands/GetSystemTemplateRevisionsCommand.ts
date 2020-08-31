@@ -43,8 +43,11 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetSystemTemplateRevisionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSystemTemplateRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

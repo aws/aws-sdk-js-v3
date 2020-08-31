@@ -43,8 +43,11 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteEmailIdentityPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEmailIdentityPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

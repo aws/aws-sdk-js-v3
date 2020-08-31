@@ -43,8 +43,11 @@ export class GetTemplateSummaryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTemplateSummaryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTemplateSummaryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

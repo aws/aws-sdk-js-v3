@@ -36,8 +36,11 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: EncryptRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EncryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

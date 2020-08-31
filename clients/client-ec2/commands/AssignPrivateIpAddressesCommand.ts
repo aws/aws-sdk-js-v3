@@ -43,8 +43,11 @@ export class AssignPrivateIpAddressesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AssignPrivateIpAddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssignPrivateIpAddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

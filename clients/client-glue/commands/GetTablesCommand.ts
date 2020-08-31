@@ -40,8 +40,11 @@ export class GetTablesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetTablesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTablesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListEventSourceMappingsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListEventSourceMappingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEventSourceMappingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

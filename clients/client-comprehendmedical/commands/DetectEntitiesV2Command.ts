@@ -47,8 +47,11 @@ export class DetectEntitiesV2Command extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetectEntitiesV2Request.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectEntitiesV2Response.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

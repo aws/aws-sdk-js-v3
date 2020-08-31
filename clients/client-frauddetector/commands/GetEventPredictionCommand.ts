@@ -43,8 +43,11 @@ export class GetEventPredictionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetEventPredictionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEventPredictionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

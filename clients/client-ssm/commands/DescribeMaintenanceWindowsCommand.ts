@@ -43,8 +43,11 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeMaintenanceWindowsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMaintenanceWindowsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

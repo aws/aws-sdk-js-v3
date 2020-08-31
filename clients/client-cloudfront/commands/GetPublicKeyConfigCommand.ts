@@ -43,8 +43,11 @@ export class GetPublicKeyConfigCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetPublicKeyConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPublicKeyConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreDBClusterFromSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBClusterFromSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

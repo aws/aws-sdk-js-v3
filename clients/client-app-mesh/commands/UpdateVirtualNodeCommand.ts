@@ -43,8 +43,11 @@ export class UpdateVirtualNodeCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateVirtualNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

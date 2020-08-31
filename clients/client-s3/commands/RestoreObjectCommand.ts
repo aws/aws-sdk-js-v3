@@ -45,8 +45,11 @@ export class RestoreObjectCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class UpdateWebACLCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateWebACLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWebACLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

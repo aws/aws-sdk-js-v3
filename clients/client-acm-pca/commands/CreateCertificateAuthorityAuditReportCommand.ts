@@ -47,8 +47,11 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCertificateAuthorityAuditReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCertificateAuthorityAuditReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

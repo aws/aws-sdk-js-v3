@@ -50,8 +50,11 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetOrganizationConformancePackDetailedStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationConformancePackDetailedStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

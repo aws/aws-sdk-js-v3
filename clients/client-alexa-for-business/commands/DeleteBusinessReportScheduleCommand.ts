@@ -43,8 +43,11 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteBusinessReportScheduleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBusinessReportScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

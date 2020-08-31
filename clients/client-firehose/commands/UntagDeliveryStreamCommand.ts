@@ -43,8 +43,11 @@ export class UntagDeliveryStreamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UntagDeliveryStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UntagDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

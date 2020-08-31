@@ -43,8 +43,11 @@ export class ListDeviceEventsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListDeviceEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDeviceEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

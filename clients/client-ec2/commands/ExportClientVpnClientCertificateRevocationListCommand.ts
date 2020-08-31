@@ -50,8 +50,11 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ExportClientVpnClientCertificateRevocationListRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportClientVpnClientCertificateRevocationListResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

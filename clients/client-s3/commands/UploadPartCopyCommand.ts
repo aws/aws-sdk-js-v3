@@ -47,8 +47,11 @@ export class UploadPartCopyCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UploadPartCopyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadPartCopyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

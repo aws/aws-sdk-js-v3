@@ -43,8 +43,11 @@ export class DeleteTrafficMirrorTargetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteTrafficMirrorTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrafficMirrorTargetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

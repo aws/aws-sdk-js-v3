@@ -43,8 +43,11 @@ export class DeleteDocumentCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDocumentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDocumentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

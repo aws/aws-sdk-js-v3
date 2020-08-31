@@ -43,8 +43,11 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteDedicatedIpPoolRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDedicatedIpPoolResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

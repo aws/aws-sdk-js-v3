@@ -43,8 +43,11 @@ export class CreateRoomMembershipCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateRoomMembershipRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoomMembershipResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

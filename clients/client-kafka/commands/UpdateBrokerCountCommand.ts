@@ -43,8 +43,11 @@ export class UpdateBrokerCountCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateBrokerCountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBrokerCountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

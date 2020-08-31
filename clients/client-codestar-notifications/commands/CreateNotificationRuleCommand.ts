@@ -47,8 +47,11 @@ export class CreateNotificationRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateNotificationRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

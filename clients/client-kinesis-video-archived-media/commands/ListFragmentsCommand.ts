@@ -47,8 +47,11 @@ export class ListFragmentsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListFragmentsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFragmentsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

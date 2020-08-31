@@ -43,8 +43,11 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateMaintenanceWindowTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMaintenanceWindowTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

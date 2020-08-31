@@ -43,8 +43,11 @@ export class UpdateRelationalDatabaseCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

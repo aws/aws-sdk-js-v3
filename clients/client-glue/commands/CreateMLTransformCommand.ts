@@ -43,8 +43,11 @@ export class CreateMLTransformCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateMLTransformRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateMLTransformResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

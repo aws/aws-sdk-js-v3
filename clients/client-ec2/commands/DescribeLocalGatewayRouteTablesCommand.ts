@@ -43,8 +43,11 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeLocalGatewayRouteTablesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayRouteTablesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

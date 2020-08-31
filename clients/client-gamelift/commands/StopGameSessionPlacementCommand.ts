@@ -43,8 +43,11 @@ export class StopGameSessionPlacementCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopGameSessionPlacementInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopGameSessionPlacementOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

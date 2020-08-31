@@ -43,8 +43,11 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteAppLaunchConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppLaunchConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

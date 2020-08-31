@@ -43,8 +43,11 @@ export class InitiateVaultLockCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: InitiateVaultLockInput.filterSensitiveLog,
+      outputFilterSensitiveLog: InitiateVaultLockOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

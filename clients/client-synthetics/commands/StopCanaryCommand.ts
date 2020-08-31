@@ -43,8 +43,11 @@ export class StopCanaryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: StopCanaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopCanaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

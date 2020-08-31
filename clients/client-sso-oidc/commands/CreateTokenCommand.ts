@@ -43,8 +43,11 @@ export class CreateTokenCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateTokenRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTokenResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

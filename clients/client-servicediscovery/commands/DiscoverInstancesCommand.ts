@@ -43,8 +43,11 @@ export class DiscoverInstancesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DiscoverInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DiscoverInstancesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

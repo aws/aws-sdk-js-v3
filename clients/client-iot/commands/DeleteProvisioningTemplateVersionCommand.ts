@@ -44,8 +44,11 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteProvisioningTemplateVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisioningTemplateVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

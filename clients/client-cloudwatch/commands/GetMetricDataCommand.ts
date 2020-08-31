@@ -43,8 +43,11 @@ export class GetMetricDataCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetMetricDataInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricDataOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

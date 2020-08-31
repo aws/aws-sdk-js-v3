@@ -43,8 +43,11 @@ export class CreateProductCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

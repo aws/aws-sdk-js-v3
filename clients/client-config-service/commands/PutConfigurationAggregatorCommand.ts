@@ -43,8 +43,11 @@ export class PutConfigurationAggregatorCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutConfigurationAggregatorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationAggregatorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

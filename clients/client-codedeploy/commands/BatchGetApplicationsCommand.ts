@@ -43,8 +43,11 @@ export class BatchGetApplicationsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: BatchGetApplicationsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetApplicationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

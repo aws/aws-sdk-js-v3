@@ -43,8 +43,11 @@ export class UpdateGlobalNetworkCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateGlobalNetworkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGlobalNetworkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

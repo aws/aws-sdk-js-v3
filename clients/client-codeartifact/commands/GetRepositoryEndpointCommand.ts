@@ -43,8 +43,11 @@ export class GetRepositoryEndpointCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRepositoryEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRepositoryEndpointResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

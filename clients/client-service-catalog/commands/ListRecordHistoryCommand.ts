@@ -43,8 +43,11 @@ export class ListRecordHistoryCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListRecordHistoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRecordHistoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

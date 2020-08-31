@@ -43,8 +43,11 @@ export class AttachDiskCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: AttachDiskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachDiskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

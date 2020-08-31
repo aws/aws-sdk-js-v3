@@ -43,8 +43,11 @@ export class DeleteContainerCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteContainerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteContainerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

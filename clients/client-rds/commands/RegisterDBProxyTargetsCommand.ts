@@ -43,8 +43,11 @@ export class RegisterDBProxyTargetsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RegisterDBProxyTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterDBProxyTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

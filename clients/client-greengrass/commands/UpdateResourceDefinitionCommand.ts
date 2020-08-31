@@ -43,8 +43,11 @@ export class UpdateResourceDefinitionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: UpdateResourceDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResourceDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

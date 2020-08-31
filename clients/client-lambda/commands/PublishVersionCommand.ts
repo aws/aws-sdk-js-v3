@@ -43,8 +43,11 @@ export class PublishVersionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PublishVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FunctionConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

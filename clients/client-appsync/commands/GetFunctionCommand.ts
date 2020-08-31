@@ -43,8 +43,11 @@ export class GetFunctionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetFunctionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

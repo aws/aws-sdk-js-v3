@@ -43,8 +43,11 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLocalGatewayRouteRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLocalGatewayRouteResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

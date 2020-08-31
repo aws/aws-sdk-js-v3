@@ -40,8 +40,11 @@ export class DeleteHsmCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteHsmRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHsmResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

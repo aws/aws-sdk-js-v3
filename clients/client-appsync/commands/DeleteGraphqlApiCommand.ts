@@ -43,8 +43,11 @@ export class DeleteGraphqlApiCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteGraphqlApiRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGraphqlApiResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

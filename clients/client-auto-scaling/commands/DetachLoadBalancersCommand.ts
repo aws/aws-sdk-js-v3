@@ -43,8 +43,11 @@ export class DetachLoadBalancersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DetachLoadBalancersType.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachLoadBalancersResultType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

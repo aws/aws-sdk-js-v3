@@ -43,8 +43,11 @@ export class CreateWorkteamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateWorkteamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateWorkteamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

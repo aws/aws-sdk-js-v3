@@ -43,8 +43,11 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListGroupCertificateAuthoritiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListGroupCertificateAuthoritiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

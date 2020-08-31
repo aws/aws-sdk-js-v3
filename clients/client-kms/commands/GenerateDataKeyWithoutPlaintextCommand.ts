@@ -43,8 +43,11 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

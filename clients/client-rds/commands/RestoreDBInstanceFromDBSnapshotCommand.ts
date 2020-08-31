@@ -43,8 +43,11 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

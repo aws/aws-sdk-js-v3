@@ -43,8 +43,11 @@ export class CreateCustomKeyStoreCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

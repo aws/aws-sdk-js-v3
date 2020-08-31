@@ -47,8 +47,11 @@ export class DeleteLogPatternCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteLogPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLogPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class GetChangeTokenStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetChangeTokenStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetChangeTokenStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class CreateConstraintCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateConstraintInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConstraintOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

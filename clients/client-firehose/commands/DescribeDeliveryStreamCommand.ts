@@ -43,8 +43,11 @@ export class DescribeDeliveryStreamCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeDeliveryStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

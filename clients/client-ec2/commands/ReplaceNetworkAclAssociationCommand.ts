@@ -43,8 +43,11 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ReplaceNetworkAclAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReplaceNetworkAclAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

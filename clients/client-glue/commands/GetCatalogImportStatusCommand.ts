@@ -43,8 +43,11 @@ export class GetCatalogImportStatusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetCatalogImportStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCatalogImportStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

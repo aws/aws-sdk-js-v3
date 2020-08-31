@@ -43,8 +43,11 @@ export class OptInPhoneNumberCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: OptInPhoneNumberInput.filterSensitiveLog,
+      outputFilterSensitiveLog: OptInPhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

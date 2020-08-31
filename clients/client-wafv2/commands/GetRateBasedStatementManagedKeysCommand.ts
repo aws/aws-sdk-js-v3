@@ -43,8 +43,11 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: GetRateBasedStatementManagedKeysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRateBasedStatementManagedKeysResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

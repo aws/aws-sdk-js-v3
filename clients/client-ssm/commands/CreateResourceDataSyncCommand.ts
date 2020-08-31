@@ -43,8 +43,11 @@ export class CreateResourceDataSyncCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreateResourceDataSyncRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateResourceDataSyncResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class DeleteFindingsFilterCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteFindingsFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFindingsFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

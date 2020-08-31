@@ -43,8 +43,11 @@ export class SuspendGameServerGroupCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: SuspendGameServerGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SuspendGameServerGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,8 +43,11 @@ export class ListBootstrapActionsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListBootstrapActionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBootstrapActionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
