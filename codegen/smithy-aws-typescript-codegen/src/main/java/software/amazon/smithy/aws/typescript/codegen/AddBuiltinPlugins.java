@@ -207,7 +207,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .operationPredicate(AddBuiltinPlugins::operationUsesAwsAuth)
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger")
+                        .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
                         .build()
         );
     }
