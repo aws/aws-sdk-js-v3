@@ -31,10 +31,10 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
 
   if (typeof logger.debug === "function") {
     logger.debug({
-      httpRequest: { ...(args.request as any), body: "examine input under info" },
+      httpRequest: args.request,
     });
     logger.debug({
-      httpResponse: { ...(response.response as any), body: "examine output under info" },
+      httpResponse: response.response,
     });
   }
 
