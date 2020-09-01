@@ -176,49 +176,38 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         switch (target) {
             case BROWSER:
-                if (serviceId.equals("Cognito Identity")) {
-                    return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
+                return MapUtils.of(
+                    "credentialDefaultProvider", writer -> {
+                        if (serviceId.equals("Cognito Identity")) {
                             writer.write("credentialDefaultProvider: (() => {}) as any,");
-                        }
-                    );
-                } else {
-                    return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
+                        } else {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write(
                                     "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
                         }
-                    );
-                }
+                    }
+                );
             case NODE:
-                if (serviceId.equals("Cognito Identity")) {
-                    return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                            writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                return MapUtils.of(
+                    "credentialDefaultProvider", writer -> {
+                        writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                        writer.addImport("defaultProvider", "credentialDefaultProvider",
+                                AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+
+                        if (serviceId.equals("Cognito Identity")) {
                             writer.openBlock("credentialDefaultProvider: ((options: any) => {", "}) as any,", () -> {
-                                        writer.write("try {").indent();
-                                        writer.write("return credentialDefaultProvider(options);");
-                                        writer.dedent().write("} catch(e){}");
-                                        writer.write("return {}");
-                                    });
-                        }
-                    );
-                } else {
-                    return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                            writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                                writer.write("try {").indent();
+                                writer.write("return credentialDefaultProvider(options);");
+                                writer.dedent().write("} catch(e){}");
+                                writer.write("return {}");
+                            });
+                        } else {
                             writer.write("credentialDefaultProvider,");
                         }
-                    );
-                }
-                
+                    }
+                );
             default:
                 return Collections.emptyMap();
         }
