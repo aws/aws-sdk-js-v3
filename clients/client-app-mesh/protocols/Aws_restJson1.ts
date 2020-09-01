@@ -1,5 +1,10 @@
+import { CreateGatewayRouteCommandInput, CreateGatewayRouteCommandOutput } from "../commands/CreateGatewayRouteCommand";
 import { CreateMeshCommandInput, CreateMeshCommandOutput } from "../commands/CreateMeshCommand";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "../commands/CreateRouteCommand";
+import {
+  CreateVirtualGatewayCommandInput,
+  CreateVirtualGatewayCommandOutput,
+} from "../commands/CreateVirtualGatewayCommand";
 import { CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput } from "../commands/CreateVirtualNodeCommand";
 import {
   CreateVirtualRouterCommandInput,
@@ -9,9 +14,13 @@ import {
   CreateVirtualServiceCommandInput,
   CreateVirtualServiceCommandOutput,
 } from "../commands/CreateVirtualServiceCommand";
+import { DeleteGatewayRouteCommandInput, DeleteGatewayRouteCommandOutput } from "../commands/DeleteGatewayRouteCommand";
 import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "../commands/DeleteMeshCommand";
-import { DeleteMeshPolicyCommandInput, DeleteMeshPolicyCommandOutput } from "../commands/DeleteMeshPolicyCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "../commands/DeleteRouteCommand";
+import {
+  DeleteVirtualGatewayCommandInput,
+  DeleteVirtualGatewayCommandOutput,
+} from "../commands/DeleteVirtualGatewayCommand";
 import { DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput } from "../commands/DeleteVirtualNodeCommand";
 import {
   DeleteVirtualRouterCommandInput,
@@ -21,8 +30,16 @@ import {
   DeleteVirtualServiceCommandInput,
   DeleteVirtualServiceCommandOutput,
 } from "../commands/DeleteVirtualServiceCommand";
+import {
+  DescribeGatewayRouteCommandInput,
+  DescribeGatewayRouteCommandOutput,
+} from "../commands/DescribeGatewayRouteCommand";
 import { DescribeMeshCommandInput, DescribeMeshCommandOutput } from "../commands/DescribeMeshCommand";
 import { DescribeRouteCommandInput, DescribeRouteCommandOutput } from "../commands/DescribeRouteCommand";
+import {
+  DescribeVirtualGatewayCommandInput,
+  DescribeVirtualGatewayCommandOutput,
+} from "../commands/DescribeVirtualGatewayCommand";
 import {
   DescribeVirtualNodeCommandInput,
   DescribeVirtualNodeCommandOutput,
@@ -35,24 +52,32 @@ import {
   DescribeVirtualServiceCommandInput,
   DescribeVirtualServiceCommandOutput,
 } from "../commands/DescribeVirtualServiceCommand";
-import { GetMeshPolicyCommandInput, GetMeshPolicyCommandOutput } from "../commands/GetMeshPolicyCommand";
+import { ListGatewayRoutesCommandInput, ListGatewayRoutesCommandOutput } from "../commands/ListGatewayRoutesCommand";
 import { ListMeshesCommandInput, ListMeshesCommandOutput } from "../commands/ListMeshesCommand";
 import { ListRoutesCommandInput, ListRoutesCommandOutput } from "../commands/ListRoutesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListVirtualGatewaysCommandInput,
+  ListVirtualGatewaysCommandOutput,
+} from "../commands/ListVirtualGatewaysCommand";
 import { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "../commands/ListVirtualNodesCommand";
 import { ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput } from "../commands/ListVirtualRoutersCommand";
 import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput,
 } from "../commands/ListVirtualServicesCommand";
-import { PutMeshPolicyCommandInput, PutMeshPolicyCommandOutput } from "../commands/PutMeshPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateGatewayRouteCommandInput, UpdateGatewayRouteCommandOutput } from "../commands/UpdateGatewayRouteCommand";
 import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "../commands/UpdateMeshCommand";
 import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "../commands/UpdateRouteCommand";
+import {
+  UpdateVirtualGatewayCommandInput,
+  UpdateVirtualGatewayCommandOutput,
+} from "../commands/UpdateVirtualGatewayCommand";
 import { UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput } from "../commands/UpdateVirtualNodeCommand";
 import {
   UpdateVirtualRouterCommandInput,
@@ -77,6 +102,15 @@ import {
   EgressFilter,
   FileAccessLog,
   ForbiddenException,
+  GatewayRouteData,
+  GatewayRouteRef,
+  GatewayRouteSpec,
+  GatewayRouteStatus,
+  GatewayRouteTarget,
+  GatewayRouteVirtualService,
+  GrpcGatewayRoute,
+  GrpcGatewayRouteAction,
+  GrpcGatewayRouteMatch,
   GrpcRetryPolicy,
   GrpcRetryPolicyEvent,
   GrpcRoute,
@@ -87,6 +121,9 @@ import {
   GrpcTimeout,
   HeaderMatchMethod,
   HealthCheckPolicy,
+  HttpGatewayRoute,
+  HttpGatewayRouteAction,
+  HttpGatewayRouteMatch,
   HttpRetryPolicy,
   HttpRoute,
   HttpRouteAction,
@@ -96,6 +133,11 @@ import {
   InternalServerErrorException,
   LimitExceededException,
   Listener,
+  ListenerTimeout,
+  ListenerTls,
+  ListenerTlsAcmCertificate,
+  ListenerTlsCertificate,
+  ListenerTlsFileCertificate,
   Logging,
   MatchRange,
   MeshData,
@@ -110,8 +152,6 @@ import {
   RouteRef,
   RouteSpec,
   RouteStatus,
-  SdsSource,
-  SdsUnixDomainSocketSource,
   ServiceDiscovery,
   ServiceUnavailableException,
   TagRef,
@@ -122,10 +162,30 @@ import {
   TlsValidationContext,
   TlsValidationContextAcmTrust,
   TlsValidationContextFileTrust,
-  TlsValidationContextSdsTrust,
   TlsValidationContextTrust,
   TooManyRequestsException,
   TooManyTagsException,
+  VirtualGatewayAccessLog,
+  VirtualGatewayBackendDefaults,
+  VirtualGatewayClientPolicy,
+  VirtualGatewayClientPolicyTls,
+  VirtualGatewayData,
+  VirtualGatewayFileAccessLog,
+  VirtualGatewayHealthCheckPolicy,
+  VirtualGatewayListener,
+  VirtualGatewayListenerTls,
+  VirtualGatewayListenerTlsAcmCertificate,
+  VirtualGatewayListenerTlsCertificate,
+  VirtualGatewayListenerTlsFileCertificate,
+  VirtualGatewayLogging,
+  VirtualGatewayPortMapping,
+  VirtualGatewayRef,
+  VirtualGatewaySpec,
+  VirtualGatewayStatus,
+  VirtualGatewayTlsValidationContext,
+  VirtualGatewayTlsValidationContextAcmTrust,
+  VirtualGatewayTlsValidationContextFileTrust,
+  VirtualGatewayTlsValidationContextTrust,
   VirtualNodeData,
   VirtualNodeRef,
   VirtualNodeServiceProvider,
@@ -157,6 +217,55 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_restJson1CreateGatewayRouteCommand = async (
+  input: CreateGatewayRouteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.gatewayRouteName !== undefined && { gatewayRouteName: input.gatewayRouteName }),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1GatewayRouteSpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateMeshCommand = async (
   input: CreateMeshCommandInput,
@@ -220,6 +329,46 @@ export const serializeAws_restJson1CreateRouteCommand = async (
     ...(input.routeName !== undefined && { routeName: input.routeName }),
     ...(input.spec !== undefined && { spec: serializeAws_restJson1RouteSpec(input.spec, context) }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateVirtualGatewayCommand = async (
+  input: CreateVirtualGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways";
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualGatewaySpec(input.spec, context) }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.virtualGatewayName !== undefined && { virtualGatewayName: input.virtualGatewayName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -354,6 +503,59 @@ export const serializeAws_restJson1CreateVirtualServiceCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteGatewayRouteCommand = async (
+  input: DeleteGatewayRouteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath =
+    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
+  if (input.gatewayRouteName !== undefined) {
+    const labelValue: string = input.gatewayRouteName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: gatewayRouteName.");
+    }
+    resolvedPath = resolvedPath.replace("{gatewayRouteName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: gatewayRouteName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteMeshCommand = async (
   input: DeleteMeshCommandInput,
   context: __SerdeContext
@@ -384,31 +586,6 @@ export const serializeAws_restJson1DeleteMeshCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMeshPolicyCommand = async (
-  input: DeleteMeshPolicyCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
-  let resolvedPath = "/v20190125/meshPolicy";
-  const query: any = {
-    ...(input.meshArn !== undefined && { meshArn: input.meshArn }),
-  };
-  let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "com.amazonaws.appmesh#DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
-};
-
 export const serializeAws_restJson1DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
@@ -417,15 +594,6 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.routeName !== undefined) {
     const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
@@ -435,6 +603,15 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -443,6 +620,49 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
     resolvedPath = resolvedPath.replace("{virtualRouterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualRouterName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteVirtualGatewayCommand = async (
+  input: DeleteVirtualGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -469,15 +689,6 @@ export const serializeAws_restJson1DeleteVirtualNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
@@ -486,6 +697,15 @@ export const serializeAws_restJson1DeleteVirtualNodeCommand = async (
     resolvedPath = resolvedPath.replace("{virtualNodeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -512,15 +732,6 @@ export const serializeAws_restJson1DeleteVirtualRouterCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -529,6 +740,15 @@ export const serializeAws_restJson1DeleteVirtualRouterCommand = async (
     resolvedPath = resolvedPath.replace("{virtualRouterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualRouterName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -555,15 +775,6 @@ export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
@@ -572,6 +783,15 @@ export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
     resolvedPath = resolvedPath.replace("{virtualServiceName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualServiceName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -583,6 +803,59 @@ export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeGatewayRouteCommand = async (
+  input: DescribeGatewayRouteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath =
+    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
+  if (input.gatewayRouteName !== undefined) {
+    const labelValue: string = input.gatewayRouteName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: gatewayRouteName.");
+    }
+    resolvedPath = resolvedPath.replace("{gatewayRouteName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: gatewayRouteName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     query,
@@ -632,15 +905,6 @@ export const serializeAws_restJson1DescribeRouteCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.routeName !== undefined) {
     const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
@@ -650,6 +914,15 @@ export const serializeAws_restJson1DescribeRouteCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -658,6 +931,49 @@ export const serializeAws_restJson1DescribeRouteCommand = async (
     resolvedPath = resolvedPath.replace("{virtualRouterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualRouterName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeVirtualGatewayCommand = async (
+  input: DescribeVirtualGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -684,15 +1000,6 @@ export const serializeAws_restJson1DescribeVirtualNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
@@ -701,6 +1008,15 @@ export const serializeAws_restJson1DescribeVirtualNodeCommand = async (
     resolvedPath = resolvedPath.replace("{virtualNodeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -727,15 +1043,6 @@ export const serializeAws_restJson1DescribeVirtualRouterCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -744,6 +1051,15 @@ export const serializeAws_restJson1DescribeVirtualRouterCommand = async (
     resolvedPath = resolvedPath.replace("{virtualRouterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualRouterName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -770,15 +1086,6 @@ export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
@@ -787,6 +1094,15 @@ export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
     resolvedPath = resolvedPath.replace("{virtualServiceName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualServiceName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -805,16 +1121,36 @@ export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMeshPolicyCommand = async (
-  input: GetMeshPolicyCommandInput,
+export const serializeAws_restJson1ListGatewayRoutesCommand = async (
+  input: ListGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
   };
-  let resolvedPath = "/v20190125/meshPolicy";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
   const query: any = {
-    ...(input.meshArn !== undefined && { meshArn: input.meshArn }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -822,7 +1158,7 @@ export const serializeAws_restJson1GetMeshPolicyCommand = async (
     protocol,
     hostname,
     port,
-    method: "com.amazonaws.appmesh#GET",
+    method: "GET",
     headers,
     path: resolvedPath,
     query,
@@ -839,9 +1175,8 @@ export const serializeAws_restJson1ListMeshesCommand = async (
   };
   let resolvedPath = "/v20190125/meshes";
   const query: any = {
-    ...(input.limit !== undefined && { limit: input.limit.toString() }),
-    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -884,9 +1219,9 @@ export const serializeAws_restJson1ListRoutesCommand = async (
     throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -911,9 +1246,45 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   };
   let resolvedPath = "/v20190125/tags";
   const query: any = {
-    ...(input.limit !== undefined && { limit: input.limit.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListVirtualGatewaysCommand = async (
+  input: ListVirtualGatewaysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways";
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -947,9 +1318,9 @@ export const serializeAws_restJson1ListVirtualNodesCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -983,9 +1354,9 @@ export const serializeAws_restJson1ListVirtualRoutersCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1019,9 +1390,9 @@ export const serializeAws_restJson1ListVirtualServicesCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1030,34 +1401,6 @@ export const serializeAws_restJson1ListVirtualServicesCommand = async (
     hostname,
     port,
     method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
-};
-
-export const serializeAws_restJson1PutMeshPolicyCommand = async (
-  input: PutMeshPolicyCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "application/json",
-  };
-  let resolvedPath = "/v20190125/meshPolicy";
-  const query: any = {
-    ...(input.meshArn !== undefined && { meshArn: input.meshArn }),
-  };
-  let body: any;
-  body = JSON.stringify({
-    ...(input.policy !== undefined && { policy: input.policy }),
-  });
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "com.amazonaws.appmesh#PUT",
     headers,
     path: resolvedPath,
     query,
@@ -1121,6 +1464,63 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateGatewayRouteCommand = async (
+  input: UpdateGatewayRouteCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath =
+    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
+  if (input.gatewayRouteName !== undefined) {
+    const labelValue: string = input.gatewayRouteName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: gatewayRouteName.");
+    }
+    resolvedPath = resolvedPath.replace("{gatewayRouteName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: gatewayRouteName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
+  }
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1GatewayRouteSpec(input.spec, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateMeshCommand = async (
   input: UpdateMeshCommandInput,
   context: __SerdeContext
@@ -1163,15 +1563,6 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.routeName !== undefined) {
     const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
@@ -1180,6 +1571,15 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
     resolvedPath = resolvedPath.replace("{routeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
@@ -1211,14 +1611,23 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
-  input: UpdateVirtualNodeCommandInput,
+export const serializeAws_restJson1UpdateVirtualGatewayCommand = async (
+  input: UpdateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
   };
-  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
+  if (input.virtualGatewayName !== undefined) {
+    const labelValue: string = input.virtualGatewayName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: virtualGatewayName.");
+    }
+    resolvedPath = resolvedPath.replace("{virtualGatewayName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: virtualGatewayName.");
+  }
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
@@ -1228,6 +1637,35 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
+  const query: any = {
+    ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && { spec: serializeAws_restJson1VirtualGatewaySpec(input.spec, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
+  input: UpdateVirtualNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
@@ -1236,6 +1674,15 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
     resolvedPath = resolvedPath.replace("{virtualNodeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -1266,15 +1713,6 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
@@ -1283,6 +1721,15 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
     resolvedPath = resolvedPath.replace("{virtualRouterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualRouterName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -1313,15 +1760,6 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
-  if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: meshName.");
-    }
-    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: meshName.");
-  }
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
@@ -1330,6 +1768,15 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
     resolvedPath = resolvedPath.replace("{virtualServiceName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: virtualServiceName.");
+  }
+  if (input.meshName !== undefined) {
+    const labelValue: string = input.meshName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: meshName.");
+    }
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {
     ...(input.meshOwner !== undefined && { meshOwner: input.meshOwner }),
@@ -1350,6 +1797,116 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
     query,
     body,
   });
+};
+
+export const deserializeAws_restJson1CreateGatewayRouteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGatewayRouteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateGatewayRouteCommandError(output, context);
+  }
+  const contents: CreateGatewayRouteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateGatewayRouteOutput",
+    gatewayRoute: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateGatewayRouteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.appmesh#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appmesh#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateMeshCommand = async (
@@ -1483,6 +2040,116 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.appmesh#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appmesh#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateVirtualGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVirtualGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1CreateVirtualGatewayCommandError(output, context);
+  }
+  const contents: CreateVirtualGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateVirtualGatewayOutput",
+    virtualGateway: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateVirtualGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1902,6 +2569,108 @@ const deserializeAws_restJson1CreateVirtualServiceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteGatewayRouteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGatewayRouteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DeleteGatewayRouteCommandError(output, context);
+  }
+  const contents: DeleteGatewayRouteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteGatewayRouteOutput",
+    gatewayRoute: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteGatewayRouteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.appmesh#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2004,25 +2773,27 @@ const deserializeAws_restJson1DeleteMeshCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteMeshPolicyCommand = async (
+export const deserializeAws_restJson1DeleteRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteMeshPolicyCommandOutput> => {
+): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteMeshPolicyCommandError(output, context);
+    return deserializeAws_restJson1DeleteRouteCommandError(output, context);
   }
-  const contents: DeleteMeshPolicyCommandOutput = {
+  const contents: DeleteRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMeshPolicyOutput",
+    __type: "DeleteRouteOutput",
+    route: undefined,
   };
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  contents.route = deserializeAws_restJson1RouteData(data, context);
   return Promise.resolve(contents);
 };
 
-const deserializeAws_restJson1DeleteMeshPolicyCommandError = async (
+const deserializeAws_restJson1DeleteRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteMeshPolicyCommandOutput> => {
+): Promise<DeleteRouteCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2035,14 +2806,6 @@ const deserializeAws_restJson1DeleteMeshPolicyCommandError = async (
     case "com.amazonaws.appmesh#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2063,18 +2826,18 @@ const deserializeAws_restJson1DeleteMeshPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.appmesh#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2112,27 +2875,27 @@ const deserializeAws_restJson1DeleteMeshPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteRouteCommand = async (
+export const deserializeAws_restJson1DeleteVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> => {
+): Promise<DeleteVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1DeleteRouteCommandError(output, context);
+    return deserializeAws_restJson1DeleteVirtualGatewayCommandError(output, context);
   }
-  const contents: DeleteRouteCommandOutput = {
+  const contents: DeleteVirtualGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRouteOutput",
-    route: undefined,
+    __type: "DeleteVirtualGatewayOutput",
+    virtualGateway: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  contents.route = deserializeAws_restJson1RouteData(data, context);
+  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
   return Promise.resolve(contents);
 };
 
-const deserializeAws_restJson1DeleteRouteCommandError = async (
+const deserializeAws_restJson1DeleteVirtualGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> => {
+): Promise<DeleteVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2479,6 +3242,108 @@ const deserializeAws_restJson1DeleteVirtualServiceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceInUseException":
+    case "com.amazonaws.appmesh#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeGatewayRouteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayRouteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeGatewayRouteCommandError(output, context);
+  }
+  const contents: DescribeGatewayRouteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeGatewayRouteOutput",
+    gatewayRoute: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeGatewayRouteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
       response = {
@@ -2627,6 +3492,100 @@ const deserializeAws_restJson1DescribeRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeVirtualGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVirtualGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1DescribeVirtualGatewayCommandError(output, context);
+  }
+  const contents: DescribeVirtualGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeVirtualGatewayOutput",
+    virtualGateway: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeVirtualGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2982,29 +3941,33 @@ const deserializeAws_restJson1DescribeVirtualServiceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetMeshPolicyCommand = async (
+export const deserializeAws_restJson1ListGatewayRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMeshPolicyCommandOutput> => {
+): Promise<ListGatewayRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1GetMeshPolicyCommandError(output, context);
+    return deserializeAws_restJson1ListGatewayRoutesCommandError(output, context);
   }
-  const contents: GetMeshPolicyCommandOutput = {
+  const contents: ListGatewayRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMeshPolicyOutput",
-    policy: undefined,
+    __type: "ListGatewayRoutesOutput",
+    gatewayRoutes: undefined,
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
-  if (data.policy !== undefined && data.policy !== null) {
-    contents.policy = data.policy;
+  if (data.gatewayRoutes !== undefined && data.gatewayRoutes !== null) {
+    contents.gatewayRoutes = deserializeAws_restJson1GatewayRouteList(data.gatewayRoutes, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
   }
   return Promise.resolve(contents);
 };
 
-const deserializeAws_restJson1GetMeshPolicyCommandError = async (
+const deserializeAws_restJson1ListGatewayRoutesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetMeshPolicyCommandOutput> => {
+): Promise<ListGatewayRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3021,14 +3984,6 @@ const deserializeAws_restJson1GetMeshPolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
       response = {
@@ -3041,14 +3996,6 @@ const deserializeAws_restJson1GetMeshPolicyCommandError = async (
     case "com.amazonaws.appmesh#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3321,6 +4268,106 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListVirtualGatewaysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVirtualGatewaysCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1ListVirtualGatewaysCommandError(output, context);
+  }
+  const contents: ListVirtualGatewaysCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListVirtualGatewaysOutput",
+    nextToken: undefined,
+    virtualGateways: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.virtualGateways !== undefined && data.virtualGateways !== null) {
+    contents.virtualGateways = deserializeAws_restJson1VirtualGatewayList(data.virtualGateways, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListVirtualGatewaysCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVirtualGatewaysCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3694,114 +4741,6 @@ const deserializeAws_restJson1ListVirtualServicesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutMeshPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMeshPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1PutMeshPolicyCommandError(output, context);
-  }
-  const contents: PutMeshPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    __type: "PutMeshPolicyOutput",
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1PutMeshPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMeshPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      response = {
-        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3994,6 +4933,116 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateGatewayRouteCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayRouteCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateGatewayRouteCommandError(output, context);
+  }
+  const contents: UpdateGatewayRouteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateGatewayRouteOutput",
+    gatewayRoute: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateGatewayRouteCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.appmesh#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appmesh#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4117,6 +5166,116 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.appmesh#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.appmesh#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.appmesh#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.appmesh#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appmesh#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.appmesh#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.appmesh#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.appmesh#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateVirtualGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVirtualGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1UpdateVirtualGatewayCommandError(output, context);
+  }
+  const contents: UpdateVirtualGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateVirtualGatewayOutput",
+    virtualGateway: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateVirtualGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVirtualGatewayCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4809,6 +5968,56 @@ const serializeAws_restJson1FileAccessLog = (input: FileAccessLog, context: __Se
   };
 };
 
+const serializeAws_restJson1GatewayRouteSpec = (input: GatewayRouteSpec, context: __SerdeContext): any => {
+  return {
+    ...(input.grpcRoute !== undefined && {
+      grpcRoute: serializeAws_restJson1GrpcGatewayRoute(input.grpcRoute, context),
+    }),
+    ...(input.http2Route !== undefined && {
+      http2Route: serializeAws_restJson1HttpGatewayRoute(input.http2Route, context),
+    }),
+    ...(input.httpRoute !== undefined && {
+      httpRoute: serializeAws_restJson1HttpGatewayRoute(input.httpRoute, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GatewayRouteTarget = (input: GatewayRouteTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.virtualService !== undefined && {
+      virtualService: serializeAws_restJson1GatewayRouteVirtualService(input.virtualService, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1GatewayRouteVirtualService = (
+  input: GatewayRouteVirtualService,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.virtualServiceName !== undefined && { virtualServiceName: input.virtualServiceName }),
+  };
+};
+
+const serializeAws_restJson1GrpcGatewayRoute = (input: GrpcGatewayRoute, context: __SerdeContext): any => {
+  return {
+    ...(input.action !== undefined && { action: serializeAws_restJson1GrpcGatewayRouteAction(input.action, context) }),
+    ...(input.match !== undefined && { match: serializeAws_restJson1GrpcGatewayRouteMatch(input.match, context) }),
+  };
+};
+
+const serializeAws_restJson1GrpcGatewayRouteAction = (input: GrpcGatewayRouteAction, context: __SerdeContext): any => {
+  return {
+    ...(input.target !== undefined && { target: serializeAws_restJson1GatewayRouteTarget(input.target, context) }),
+  };
+};
+
+const serializeAws_restJson1GrpcGatewayRouteMatch = (input: GrpcGatewayRouteMatch, context: __SerdeContext): any => {
+  return {
+    ...(input.serviceName !== undefined && { serviceName: input.serviceName }),
+  };
+};
+
 const serializeAws_restJson1GrpcRetryPolicy = (input: GrpcRetryPolicy, context: __SerdeContext): any => {
   return {
     ...(input.grpcRetryEvents !== undefined && {
@@ -4921,6 +6130,25 @@ const serializeAws_restJson1HealthCheckPolicy = (input: HealthCheckPolicy, conte
   };
 };
 
+const serializeAws_restJson1HttpGatewayRoute = (input: HttpGatewayRoute, context: __SerdeContext): any => {
+  return {
+    ...(input.action !== undefined && { action: serializeAws_restJson1HttpGatewayRouteAction(input.action, context) }),
+    ...(input.match !== undefined && { match: serializeAws_restJson1HttpGatewayRouteMatch(input.match, context) }),
+  };
+};
+
+const serializeAws_restJson1HttpGatewayRouteAction = (input: HttpGatewayRouteAction, context: __SerdeContext): any => {
+  return {
+    ...(input.target !== undefined && { target: serializeAws_restJson1GatewayRouteTarget(input.target, context) }),
+  };
+};
+
+const serializeAws_restJson1HttpGatewayRouteMatch = (input: HttpGatewayRouteMatch, context: __SerdeContext): any => {
+  return {
+    ...(input.prefix !== undefined && { prefix: input.prefix }),
+  };
+};
+
 const serializeAws_restJson1HttpRetryPolicy = (input: HttpRetryPolicy, context: __SerdeContext): any => {
   return {
     ...(input.httpRetryEvents !== undefined && {
@@ -4995,11 +6223,59 @@ const serializeAws_restJson1Listener = (input: Listener, context: __SerdeContext
     ...(input.portMapping !== undefined && {
       portMapping: serializeAws_restJson1PortMapping(input.portMapping, context),
     }),
+    ...(input.timeout !== undefined && { timeout: serializeAws_restJson1ListenerTimeout(input.timeout, context) }),
+    ...(input.tls !== undefined && { tls: serializeAws_restJson1ListenerTls(input.tls, context) }),
   };
 };
 
 const serializeAws_restJson1Listeners = (input: Listener[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1Listener(entry, context));
+};
+
+const serializeAws_restJson1ListenerTimeout = (input: ListenerTimeout, context: __SerdeContext): any => {
+  return ListenerTimeout.visit(input, {
+    grpc: (value) => ({ grpc: serializeAws_restJson1GrpcTimeout(value, context) }),
+    http: (value) => ({ http: serializeAws_restJson1HttpTimeout(value, context) }),
+    http2: (value) => ({ http2: serializeAws_restJson1HttpTimeout(value, context) }),
+    tcp: (value) => ({ tcp: serializeAws_restJson1TcpTimeout(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1ListenerTls = (input: ListenerTls, context: __SerdeContext): any => {
+  return {
+    ...(input.certificate !== undefined && {
+      certificate: serializeAws_restJson1ListenerTlsCertificate(input.certificate, context),
+    }),
+    ...(input.mode !== undefined && { mode: input.mode }),
+  };
+};
+
+const serializeAws_restJson1ListenerTlsAcmCertificate = (
+  input: ListenerTlsAcmCertificate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateArn !== undefined && { certificateArn: input.certificateArn }),
+  };
+};
+
+const serializeAws_restJson1ListenerTlsCertificate = (input: ListenerTlsCertificate, context: __SerdeContext): any => {
+  return ListenerTlsCertificate.visit(input, {
+    acm: (value) => ({ acm: serializeAws_restJson1ListenerTlsAcmCertificate(value, context) }),
+    file: (value) => ({ file: serializeAws_restJson1ListenerTlsFileCertificate(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1ListenerTlsFileCertificate = (
+  input: ListenerTlsFileCertificate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateChain !== undefined && { certificateChain: input.certificateChain }),
+    ...(input.privateKey !== undefined && { privateKey: input.privateKey }),
+  };
 };
 
 const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
@@ -5041,24 +6317,6 @@ const serializeAws_restJson1RouteSpec = (input: RouteSpec, context: __SerdeConte
     ...(input.httpRoute !== undefined && { httpRoute: serializeAws_restJson1HttpRoute(input.httpRoute, context) }),
     ...(input.priority !== undefined && { priority: input.priority }),
     ...(input.tcpRoute !== undefined && { tcpRoute: serializeAws_restJson1TcpRoute(input.tcpRoute, context) }),
-  };
-};
-
-const serializeAws_restJson1SdsSource = (input: SdsSource, context: __SerdeContext): any => {
-  return SdsSource.visit(input, {
-    unixDomainSocket: (value) => ({
-      unixDomainSocket: serializeAws_restJson1SdsUnixDomainSocketSource(value, context),
-    }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
-const serializeAws_restJson1SdsUnixDomainSocketSource = (
-  input: SdsUnixDomainSocketSource,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.path !== undefined && { path: input.path }),
   };
 };
 
@@ -5139,16 +6397,6 @@ const serializeAws_restJson1TlsValidationContextFileTrust = (
   };
 };
 
-const serializeAws_restJson1TlsValidationContextSdsTrust = (
-  input: TlsValidationContextSdsTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName !== undefined && { secretName: input.secretName }),
-    ...(input.source !== undefined && { source: serializeAws_restJson1SdsSource(input.source, context) }),
-  };
-};
-
 const serializeAws_restJson1TlsValidationContextTrust = (
   input: TlsValidationContextTrust,
   context: __SerdeContext
@@ -5156,7 +6404,218 @@ const serializeAws_restJson1TlsValidationContextTrust = (
   return TlsValidationContextTrust.visit(input, {
     acm: (value) => ({ acm: serializeAws_restJson1TlsValidationContextAcmTrust(value, context) }),
     file: (value) => ({ file: serializeAws_restJson1TlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1VirtualGatewayAccessLog = (
+  input: VirtualGatewayAccessLog,
+  context: __SerdeContext
+): any => {
+  return VirtualGatewayAccessLog.visit(input, {
+    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayFileAccessLog(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1VirtualGatewayBackendDefaults = (
+  input: VirtualGatewayBackendDefaults,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.clientPolicy !== undefined && {
+      clientPolicy: serializeAws_restJson1VirtualGatewayClientPolicy(input.clientPolicy, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayCertificateAuthorityArns = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1VirtualGatewayClientPolicy = (
+  input: VirtualGatewayClientPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.tls !== undefined && { tls: serializeAws_restJson1VirtualGatewayClientPolicyTls(input.tls, context) }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayClientPolicyTls = (
+  input: VirtualGatewayClientPolicyTls,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.enforce !== undefined && { enforce: input.enforce }),
+    ...(input.ports !== undefined && { ports: serializeAws_restJson1PortSet(input.ports, context) }),
+    ...(input.validation !== undefined && {
+      validation: serializeAws_restJson1VirtualGatewayTlsValidationContext(input.validation, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayFileAccessLog = (
+  input: VirtualGatewayFileAccessLog,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.path !== undefined && { path: input.path }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
+  input: VirtualGatewayHealthCheckPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.healthyThreshold !== undefined && { healthyThreshold: input.healthyThreshold }),
+    ...(input.intervalMillis !== undefined && { intervalMillis: input.intervalMillis }),
+    ...(input.path !== undefined && { path: input.path }),
+    ...(input.port !== undefined && { port: input.port }),
+    ...(input.protocol !== undefined && { protocol: input.protocol }),
+    ...(input.timeoutMillis !== undefined && { timeoutMillis: input.timeoutMillis }),
+    ...(input.unhealthyThreshold !== undefined && { unhealthyThreshold: input.unhealthyThreshold }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayListener = (input: VirtualGatewayListener, context: __SerdeContext): any => {
+  return {
+    ...(input.healthCheck !== undefined && {
+      healthCheck: serializeAws_restJson1VirtualGatewayHealthCheckPolicy(input.healthCheck, context),
+    }),
+    ...(input.portMapping !== undefined && {
+      portMapping: serializeAws_restJson1VirtualGatewayPortMapping(input.portMapping, context),
+    }),
+    ...(input.tls !== undefined && { tls: serializeAws_restJson1VirtualGatewayListenerTls(input.tls, context) }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayListeners = (
+  input: VirtualGatewayListener[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1VirtualGatewayListener(entry, context));
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTls = (
+  input: VirtualGatewayListenerTls,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificate !== undefined && {
+      certificate: serializeAws_restJson1VirtualGatewayListenerTlsCertificate(input.certificate, context),
+    }),
+    ...(input.mode !== undefined && { mode: input.mode }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate = (
+  input: VirtualGatewayListenerTlsAcmCertificate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateArn !== undefined && { certificateArn: input.certificateArn }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTlsCertificate = (
+  input: VirtualGatewayListenerTlsCertificate,
+  context: __SerdeContext
+): any => {
+  return VirtualGatewayListenerTlsCertificate.visit(input, {
+    acm: (value) => ({ acm: serializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate(value, context) }),
+    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
+  input: VirtualGatewayListenerTlsFileCertificate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateChain !== undefined && { certificateChain: input.certificateChain }),
+    ...(input.privateKey !== undefined && { privateKey: input.privateKey }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayLogging = (input: VirtualGatewayLogging, context: __SerdeContext): any => {
+  return {
+    ...(input.accessLog !== undefined && {
+      accessLog: serializeAws_restJson1VirtualGatewayAccessLog(input.accessLog, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayPortMapping = (
+  input: VirtualGatewayPortMapping,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.port !== undefined && { port: input.port }),
+    ...(input.protocol !== undefined && { protocol: input.protocol }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewaySpec = (input: VirtualGatewaySpec, context: __SerdeContext): any => {
+  return {
+    ...(input.backendDefaults !== undefined && {
+      backendDefaults: serializeAws_restJson1VirtualGatewayBackendDefaults(input.backendDefaults, context),
+    }),
+    ...(input.listeners !== undefined && {
+      listeners: serializeAws_restJson1VirtualGatewayListeners(input.listeners, context),
+    }),
+    ...(input.logging !== undefined && {
+      logging: serializeAws_restJson1VirtualGatewayLogging(input.logging, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayTlsValidationContext = (
+  input: VirtualGatewayTlsValidationContext,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.trust !== undefined && {
+      trust: serializeAws_restJson1VirtualGatewayTlsValidationContextTrust(input.trust, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust = (
+  input: VirtualGatewayTlsValidationContextAcmTrust,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateAuthorityArns !== undefined && {
+      certificateAuthorityArns: serializeAws_restJson1VirtualGatewayCertificateAuthorityArns(
+        input.certificateAuthorityArns,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
+  input: VirtualGatewayTlsValidationContextFileTrust,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.certificateChain !== undefined && { certificateChain: input.certificateChain }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
+  input: VirtualGatewayTlsValidationContextTrust,
+  context: __SerdeContext
+): any => {
+  return VirtualGatewayTlsValidationContextTrust.visit(input, {
+    acm: (value) => ({ acm: serializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust(value, context) }),
+    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -5373,6 +6832,143 @@ const deserializeAws_restJson1FileAccessLog = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1GatewayRouteData = (output: any, context: __SerdeContext): GatewayRouteData => {
+  return {
+    __type: "GatewayRouteData",
+    gatewayRouteName:
+      output.gatewayRouteName !== undefined && output.gatewayRouteName !== null ? output.gatewayRouteName : undefined,
+    meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1ResourceMetadata(output.metadata, context)
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1GatewayRouteSpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1GatewayRouteStatus(output.status, context)
+        : undefined,
+    virtualGatewayName:
+      output.virtualGatewayName !== undefined && output.virtualGatewayName !== null
+        ? output.virtualGatewayName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GatewayRouteList = (output: any, context: __SerdeContext): GatewayRouteRef[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1GatewayRouteRef(entry, context));
+};
+
+const deserializeAws_restJson1GatewayRouteRef = (output: any, context: __SerdeContext): GatewayRouteRef => {
+  return {
+    __type: "GatewayRouteRef",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    gatewayRouteName:
+      output.gatewayRouteName !== undefined && output.gatewayRouteName !== null ? output.gatewayRouteName : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
+    meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
+    resourceOwner:
+      output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    virtualGatewayName:
+      output.virtualGatewayName !== undefined && output.virtualGatewayName !== null
+        ? output.virtualGatewayName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GatewayRouteSpec = (output: any, context: __SerdeContext): GatewayRouteSpec => {
+  return {
+    __type: "GatewayRouteSpec",
+    grpcRoute:
+      output.grpcRoute !== undefined && output.grpcRoute !== null
+        ? deserializeAws_restJson1GrpcGatewayRoute(output.grpcRoute, context)
+        : undefined,
+    http2Route:
+      output.http2Route !== undefined && output.http2Route !== null
+        ? deserializeAws_restJson1HttpGatewayRoute(output.http2Route, context)
+        : undefined,
+    httpRoute:
+      output.httpRoute !== undefined && output.httpRoute !== null
+        ? deserializeAws_restJson1HttpGatewayRoute(output.httpRoute, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GatewayRouteStatus = (output: any, context: __SerdeContext): GatewayRouteStatus => {
+  return {
+    __type: "GatewayRouteStatus",
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GatewayRouteTarget = (output: any, context: __SerdeContext): GatewayRouteTarget => {
+  return {
+    __type: "GatewayRouteTarget",
+    virtualService:
+      output.virtualService !== undefined && output.virtualService !== null
+        ? deserializeAws_restJson1GatewayRouteVirtualService(output.virtualService, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GatewayRouteVirtualService = (
+  output: any,
+  context: __SerdeContext
+): GatewayRouteVirtualService => {
+  return {
+    __type: "GatewayRouteVirtualService",
+    virtualServiceName:
+      output.virtualServiceName !== undefined && output.virtualServiceName !== null
+        ? output.virtualServiceName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GrpcGatewayRoute = (output: any, context: __SerdeContext): GrpcGatewayRoute => {
+  return {
+    __type: "GrpcGatewayRoute",
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1GrpcGatewayRouteAction(output.action, context)
+        : undefined,
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1GrpcGatewayRouteMatch(output.match, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GrpcGatewayRouteAction = (
+  output: any,
+  context: __SerdeContext
+): GrpcGatewayRouteAction => {
+  return {
+    __type: "GrpcGatewayRouteAction",
+    target:
+      output.target !== undefined && output.target !== null
+        ? deserializeAws_restJson1GatewayRouteTarget(output.target, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1GrpcGatewayRouteMatch = (output: any, context: __SerdeContext): GrpcGatewayRouteMatch => {
+  return {
+    __type: "GrpcGatewayRouteMatch",
+    serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1GrpcRetryPolicy = (output: any, context: __SerdeContext): GrpcRetryPolicy => {
   return {
     __type: "GrpcRetryPolicy",
@@ -5557,6 +7153,40 @@ const deserializeAws_restJson1HealthCheckPolicy = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1HttpGatewayRoute = (output: any, context: __SerdeContext): HttpGatewayRoute => {
+  return {
+    __type: "HttpGatewayRoute",
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1HttpGatewayRouteAction(output.action, context)
+        : undefined,
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1HttpGatewayRouteMatch(output.match, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HttpGatewayRouteAction = (
+  output: any,
+  context: __SerdeContext
+): HttpGatewayRouteAction => {
+  return {
+    __type: "HttpGatewayRouteAction",
+    target:
+      output.target !== undefined && output.target !== null
+        ? deserializeAws_restJson1GatewayRouteTarget(output.target, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HttpGatewayRouteMatch = (output: any, context: __SerdeContext): HttpGatewayRouteMatch => {
+  return {
+    __type: "HttpGatewayRouteMatch",
+    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1HttpRetryPolicy = (output: any, context: __SerdeContext): HttpRetryPolicy => {
   return {
     __type: "HttpRetryPolicy",
@@ -5666,11 +7296,94 @@ const deserializeAws_restJson1Listener = (output: any, context: __SerdeContext):
       output.portMapping !== undefined && output.portMapping !== null
         ? deserializeAws_restJson1PortMapping(output.portMapping, context)
         : undefined,
+    timeout:
+      output.timeout !== undefined && output.timeout !== null
+        ? deserializeAws_restJson1ListenerTimeout(output.timeout, context)
+        : undefined,
+    tls:
+      output.tls !== undefined && output.tls !== null
+        ? deserializeAws_restJson1ListenerTls(output.tls, context)
+        : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Listeners = (output: any, context: __SerdeContext): Listener[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Listener(entry, context));
+};
+
+const deserializeAws_restJson1ListenerTimeout = (output: any, context: __SerdeContext): ListenerTimeout => {
+  if (output.grpc !== undefined && output.grpc !== null) {
+    return {
+      grpc: deserializeAws_restJson1GrpcTimeout(output.grpc, context),
+    };
+  }
+  if (output.http !== undefined && output.http !== null) {
+    return {
+      http: deserializeAws_restJson1HttpTimeout(output.http, context),
+    };
+  }
+  if (output.http2 !== undefined && output.http2 !== null) {
+    return {
+      http2: deserializeAws_restJson1HttpTimeout(output.http2, context),
+    };
+  }
+  if (output.tcp !== undefined && output.tcp !== null) {
+    return {
+      tcp: deserializeAws_restJson1TcpTimeout(output.tcp, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1ListenerTls = (output: any, context: __SerdeContext): ListenerTls => {
+  return {
+    __type: "ListenerTls",
+    certificate:
+      output.certificate !== undefined && output.certificate !== null
+        ? deserializeAws_restJson1ListenerTlsCertificate(output.certificate, context)
+        : undefined,
+    mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListenerTlsAcmCertificate = (
+  output: any,
+  context: __SerdeContext
+): ListenerTlsAcmCertificate => {
+  return {
+    __type: "ListenerTlsAcmCertificate",
+    certificateArn:
+      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListenerTlsCertificate = (
+  output: any,
+  context: __SerdeContext
+): ListenerTlsCertificate => {
+  if (output.acm !== undefined && output.acm !== null) {
+    return {
+      acm: deserializeAws_restJson1ListenerTlsAcmCertificate(output.acm, context),
+    };
+  }
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1ListenerTlsFileCertificate(output.file, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1ListenerTlsFileCertificate = (
+  output: any,
+  context: __SerdeContext
+): ListenerTlsFileCertificate => {
+  return {
+    __type: "ListenerTlsFileCertificate",
+    certificateChain:
+      output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
+    privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
@@ -5718,10 +7431,19 @@ const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): 
   return {
     __type: "MeshRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
     resourceOwner:
       output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
 
@@ -5806,11 +7528,20 @@ const deserializeAws_restJson1RouteRef = (output: any, context: __SerdeContext):
   return {
     __type: "RouteRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
     resourceOwner:
       output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
     routeName: output.routeName !== undefined && output.routeName !== null ? output.routeName : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
     virtualRouterName:
       output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
@@ -5845,25 +7576,6 @@ const deserializeAws_restJson1RouteStatus = (output: any, context: __SerdeContex
   return {
     __type: "RouteStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SdsSource = (output: any, context: __SerdeContext): SdsSource => {
-  if (output.unixDomainSocket !== undefined && output.unixDomainSocket !== null) {
-    return {
-      unixDomainSocket: deserializeAws_restJson1SdsUnixDomainSocketSource(output.unixDomainSocket, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1SdsUnixDomainSocketSource = (
-  output: any,
-  context: __SerdeContext
-): SdsUnixDomainSocketSource => {
-  return {
-    __type: "SdsUnixDomainSocketSource",
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
   } as any;
 };
 
@@ -5968,20 +7680,6 @@ const deserializeAws_restJson1TlsValidationContextFileTrust = (
   } as any;
 };
 
-const deserializeAws_restJson1TlsValidationContextSdsTrust = (
-  output: any,
-  context: __SerdeContext
-): TlsValidationContextSdsTrust => {
-  return {
-    __type: "TlsValidationContextSdsTrust",
-    secretName: output.secretName !== undefined && output.secretName !== null ? output.secretName : undefined,
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_restJson1SdsSource(output.source, context)
-        : undefined,
-  } as any;
-};
-
 const deserializeAws_restJson1TlsValidationContextTrust = (
   output: any,
   context: __SerdeContext
@@ -5996,9 +7694,332 @@ const deserializeAws_restJson1TlsValidationContextTrust = (
       file: deserializeAws_restJson1TlsValidationContextFileTrust(output.file, context),
     };
   }
-  if (output.sds !== undefined && output.sds !== null) {
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1VirtualGatewayAccessLog = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayAccessLog => {
+  if (output.file !== undefined && output.file !== null) {
     return {
-      sds: deserializeAws_restJson1TlsValidationContextSdsTrust(output.sds, context),
+      file: deserializeAws_restJson1VirtualGatewayFileAccessLog(output.file, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1VirtualGatewayBackendDefaults = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayBackendDefaults => {
+  return {
+    __type: "VirtualGatewayBackendDefaults",
+    clientPolicy:
+      output.clientPolicy !== undefined && output.clientPolicy !== null
+        ? deserializeAws_restJson1VirtualGatewayClientPolicy(output.clientPolicy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1VirtualGatewayClientPolicy = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayClientPolicy => {
+  return {
+    __type: "VirtualGatewayClientPolicy",
+    tls:
+      output.tls !== undefined && output.tls !== null
+        ? deserializeAws_restJson1VirtualGatewayClientPolicyTls(output.tls, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayClientPolicyTls = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayClientPolicyTls => {
+  return {
+    __type: "VirtualGatewayClientPolicyTls",
+    enforce: output.enforce !== undefined && output.enforce !== null ? output.enforce : undefined,
+    ports:
+      output.ports !== undefined && output.ports !== null
+        ? deserializeAws_restJson1PortSet(output.ports, context)
+        : undefined,
+    validation:
+      output.validation !== undefined && output.validation !== null
+        ? deserializeAws_restJson1VirtualGatewayTlsValidationContext(output.validation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayData = (output: any, context: __SerdeContext): VirtualGatewayData => {
+  return {
+    __type: "VirtualGatewayData",
+    meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1ResourceMetadata(output.metadata, context)
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1VirtualGatewaySpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1VirtualGatewayStatus(output.status, context)
+        : undefined,
+    virtualGatewayName:
+      output.virtualGatewayName !== undefined && output.virtualGatewayName !== null
+        ? output.virtualGatewayName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayFileAccessLog = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayFileAccessLog => {
+  return {
+    __type: "VirtualGatewayFileAccessLog",
+    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayHealthCheckPolicy => {
+  return {
+    __type: "VirtualGatewayHealthCheckPolicy",
+    healthyThreshold:
+      output.healthyThreshold !== undefined && output.healthyThreshold !== null ? output.healthyThreshold : undefined,
+    intervalMillis:
+      output.intervalMillis !== undefined && output.intervalMillis !== null ? output.intervalMillis : undefined,
+    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    port: output.port !== undefined && output.port !== null ? output.port : undefined,
+    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
+    timeoutMillis:
+      output.timeoutMillis !== undefined && output.timeoutMillis !== null ? output.timeoutMillis : undefined,
+    unhealthyThreshold:
+      output.unhealthyThreshold !== undefined && output.unhealthyThreshold !== null
+        ? output.unhealthyThreshold
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGatewayRef[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1VirtualGatewayRef(entry, context));
+};
+
+const deserializeAws_restJson1VirtualGatewayListener = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListener => {
+  return {
+    __type: "VirtualGatewayListener",
+    healthCheck:
+      output.healthCheck !== undefined && output.healthCheck !== null
+        ? deserializeAws_restJson1VirtualGatewayHealthCheckPolicy(output.healthCheck, context)
+        : undefined,
+    portMapping:
+      output.portMapping !== undefined && output.portMapping !== null
+        ? deserializeAws_restJson1VirtualGatewayPortMapping(output.portMapping, context)
+        : undefined,
+    tls:
+      output.tls !== undefined && output.tls !== null
+        ? deserializeAws_restJson1VirtualGatewayListenerTls(output.tls, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayListeners = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListener[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1VirtualGatewayListener(entry, context));
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTls = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTls => {
+  return {
+    __type: "VirtualGatewayListenerTls",
+    certificate:
+      output.certificate !== undefined && output.certificate !== null
+        ? deserializeAws_restJson1VirtualGatewayListenerTlsCertificate(output.certificate, context)
+        : undefined,
+    mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTlsAcmCertificate => {
+  return {
+    __type: "VirtualGatewayListenerTlsAcmCertificate",
+    certificateArn:
+      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTlsCertificate = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTlsCertificate => {
+  if (output.acm !== undefined && output.acm !== null) {
+    return {
+      acm: deserializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate(output.acm, context),
+    };
+  }
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(output.file, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTlsFileCertificate => {
+  return {
+    __type: "VirtualGatewayListenerTlsFileCertificate",
+    certificateChain:
+      output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
+    privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayLogging = (output: any, context: __SerdeContext): VirtualGatewayLogging => {
+  return {
+    __type: "VirtualGatewayLogging",
+    accessLog:
+      output.accessLog !== undefined && output.accessLog !== null
+        ? deserializeAws_restJson1VirtualGatewayAccessLog(output.accessLog, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayPortMapping = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayPortMapping => {
+  return {
+    __type: "VirtualGatewayPortMapping",
+    port: output.port !== undefined && output.port !== null ? output.port : undefined,
+    protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayRef = (output: any, context: __SerdeContext): VirtualGatewayRef => {
+  return {
+    __type: "VirtualGatewayRef",
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
+    meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
+    resourceOwner:
+      output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    virtualGatewayName:
+      output.virtualGatewayName !== undefined && output.virtualGatewayName !== null
+        ? output.virtualGatewayName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewaySpec = (output: any, context: __SerdeContext): VirtualGatewaySpec => {
+  return {
+    __type: "VirtualGatewaySpec",
+    backendDefaults:
+      output.backendDefaults !== undefined && output.backendDefaults !== null
+        ? deserializeAws_restJson1VirtualGatewayBackendDefaults(output.backendDefaults, context)
+        : undefined,
+    listeners:
+      output.listeners !== undefined && output.listeners !== null
+        ? deserializeAws_restJson1VirtualGatewayListeners(output.listeners, context)
+        : undefined,
+    logging:
+      output.logging !== undefined && output.logging !== null
+        ? deserializeAws_restJson1VirtualGatewayLogging(output.logging, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayStatus = (output: any, context: __SerdeContext): VirtualGatewayStatus => {
+  return {
+    __type: "VirtualGatewayStatus",
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayTlsValidationContext = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayTlsValidationContext => {
+  return {
+    __type: "VirtualGatewayTlsValidationContext",
+    trust:
+      output.trust !== undefined && output.trust !== null
+        ? deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust(output.trust, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayTlsValidationContextAcmTrust => {
+  return {
+    __type: "VirtualGatewayTlsValidationContextAcmTrust",
+    certificateAuthorityArns:
+      output.certificateAuthorityArns !== undefined && output.certificateAuthorityArns !== null
+        ? deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns(output.certificateAuthorityArns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayTlsValidationContextFileTrust => {
+  return {
+    __type: "VirtualGatewayTlsValidationContextFileTrust",
+    certificateChain:
+      output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayTlsValidationContextTrust => {
+  if (output.acm !== undefined && output.acm !== null) {
+    return {
+      acm: deserializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust(output.acm, context),
+    };
+  }
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(output.file, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -6033,10 +8054,19 @@ const deserializeAws_restJson1VirtualNodeRef = (output: any, context: __SerdeCon
   return {
     __type: "VirtualNodeRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
     resourceOwner:
       output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
     virtualNodeName:
       output.virtualNodeName !== undefined && output.virtualNodeName !== null ? output.virtualNodeName : undefined,
   } as any;
@@ -6134,10 +8164,19 @@ const deserializeAws_restJson1VirtualRouterRef = (output: any, context: __SerdeC
   return {
     __type: "VirtualRouterRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
     resourceOwner:
       output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
     virtualRouterName:
       output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
@@ -6237,10 +8276,19 @@ const deserializeAws_restJson1VirtualServiceRef = (output: any, context: __Serde
   return {
     __type: "VirtualServiceRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     meshOwner: output.meshOwner !== undefined && output.meshOwner !== null ? output.meshOwner : undefined,
     resourceOwner:
       output.resourceOwner !== undefined && output.resourceOwner !== null ? output.resourceOwner : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
     virtualServiceName:
       output.virtualServiceName !== undefined && output.virtualServiceName !== null
         ? output.virtualServiceName

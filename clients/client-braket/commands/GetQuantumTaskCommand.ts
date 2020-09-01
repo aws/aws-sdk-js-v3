@@ -1,8 +1,8 @@
-import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { PutMeshPolicyInput, PutMeshPolicyOutput } from "../models/index";
+import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
+import { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/index";
 import {
-  deserializeAws_restJson1PutMeshPolicyCommand,
-  serializeAws_restJson1PutMeshPolicyCommand,
+  deserializeAws_restJson1GetQuantumTaskCommand,
+  serializeAws_restJson1GetQuantumTaskCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,18 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMeshPolicyCommandInput = PutMeshPolicyInput;
-export type PutMeshPolicyCommandOutput = PutMeshPolicyOutput & __MetadataBearer;
+export type GetQuantumTaskCommandInput = GetQuantumTaskRequest;
+export type GetQuantumTaskCommandOutput = GetQuantumTaskResponse & __MetadataBearer;
 
-export class PutMeshPolicyCommand extends $Command<
-  PutMeshPolicyCommandInput,
-  PutMeshPolicyCommandOutput,
-  AppMeshClientResolvedConfig
+export class GetQuantumTaskCommand extends $Command<
+  GetQuantumTaskCommandInput,
+  GetQuantumTaskCommandOutput,
+  BraketClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: PutMeshPolicyCommandInput) {
+  constructor(readonly input: GetQuantumTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -36,9 +36,9 @@ export class PutMeshPolicyCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppMeshClientResolvedConfig,
+    configuration: BraketClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutMeshPolicyCommandInput, PutMeshPolicyCommandOutput> {
+  ): Handler<GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -46,8 +46,8 @@ export class PutMeshPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: PutMeshPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutMeshPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQuantumTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQuantumTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -57,12 +57,12 @@ export class PutMeshPolicyCommand extends $Command<
     );
   }
 
-  private serialize(input: PutMeshPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutMeshPolicyCommand(input, context);
+  private serialize(input: GetQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetQuantumTaskCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMeshPolicyCommandOutput> {
-    return deserializeAws_restJson1PutMeshPolicyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuantumTaskCommandOutput> {
+    return deserializeAws_restJson1GetQuantumTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

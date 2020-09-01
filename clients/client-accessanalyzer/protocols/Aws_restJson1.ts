@@ -367,8 +367,8 @@ export const serializeAws_restJson1ListAnalyzersCommand = async (
   };
   let resolvedPath = "/analyzer";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.type !== undefined && { type: input.type }),
   };
   let body: any;
@@ -403,8 +403,8 @@ export const serializeAws_restJson1ListArchiveRulesCommand = async (
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
