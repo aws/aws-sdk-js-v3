@@ -118,31 +118,19 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         + "trait was found on " + service.getId());
             }
         }
-        runtimeConfigs.putAll(getRuntimeConfig(service, target));
+        runtimeConfigs.putAll(getCredentialProviderConfig(service, target));
+        runtimeConfigs.putAll(getDefaultConfig(target));
         return runtimeConfigs;
-    }
-
-    private Map<String, Consumer<TypeScriptWriter>> getRuntimeConfig(ServiceShape service, LanguageTarget target) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        if (serviceId.equals("Cognito Identity")) {
-            return getCognitoIdentityConfig(target);
-        } else {
-            return getDefaultConfig(target);
-        }
     }
 
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target) {
         switch (target) {
             case BROWSER:
                 return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
+                        "region", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write(
-                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
-                        },
-                        "region", writer -> {
                             writer.write("region: invalidFunction(\"Region is missing\") as any,");
                         },
                         "maxAttempts", writer -> {
@@ -154,12 +142,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 );
             case NODE:
                 return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                            writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                            writer.write("credentialDefaultProvider,");
-                        },
                         "region", writer -> {
                             writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
                             writer.addImport("loadConfig", "loadNodeConfig",
@@ -187,28 +169,33 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
      * Cognito Identity client doesn't require signing for some commands, so we are tolerant to
      * credential config resolver failure.
      */
-    private Map<String, Consumer<TypeScriptWriter>> getCognitoIdentityConfig(LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getCredentialProviderConfig(
+            ServiceShape service,
+            LanguageTarget target
+    ) {
+        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         switch (target) {
             case BROWSER:
-                return MapUtils.of(
+                if (serviceId.equals("Cognito Identity")) {
+                    return MapUtils.of(
                         "credentialDefaultProvider", writer -> {
                             writer.write("credentialDefaultProvider: (() => {}) as any,");
-                        },
-                        "region", writer -> {
+                        }
+                    );
+                } else {
+                    return MapUtils.of(
+                        "credentialDefaultProvider", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                             writer.addImport("invalidFunction", "invalidFunction",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("region: invalidFunction(\"Region is missing\") as any,");
-                        },
-                        "maxAttempts", writer -> {
-                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
-                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
-                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
+                            writer.write(
+                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
                         }
-                );
+                    );
+                }
             case NODE:
-                return MapUtils.of(
+                if (serviceId.equals("Cognito Identity")) {
+                    return MapUtils.of(
                         "credentialDefaultProvider", writer -> {
                             writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                             writer.addImport("defaultProvider", "credentialDefaultProvider",
@@ -219,25 +206,19 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                         writer.dedent().write("} catch(e){}");
                                         writer.write("return {}");
                                     });
-                        },
-                        "region", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
-                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
-                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
-                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.write(
-                                "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
-                        },
-                        "maxAttempts", writer -> {
-                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
-                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
                         }
-                );
+                    );
+                } else {
+                    return MapUtils.of(
+                        "credentialDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                            writer.addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                            writer.write("credentialDefaultProvider,");
+                        }
+                    );
+                }
+                
             default:
                 return Collections.emptyMap();
         }
