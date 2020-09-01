@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/property-provider@1.0.0-gamma.6...@aws-sdk/property-provider@1.0.0-gamma.7) (2020-09-01)
+
+
+### Bug Fixes
+
+* **property-provider:** memoize provider after the first evoke instead of immediately ([#1471](https://github.com/aws/aws-sdk-js-v3/issues/1471)) ([729a276](https://github.com/aws/aws-sdk-js-v3/commit/729a276502562d6451d553eb22d7ec9d0f069036))
+
+
+
+
+
 # [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/property-provider@1.0.0-gamma.5...@aws-sdk/property-provider@1.0.0-gamma.6) (2020-08-25)
 
 **Note:** Version bump only for package @aws-sdk/property-provider

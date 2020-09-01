@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/md5-js",
-  "version": "1.0.0-gamma.6",
+  "version": "1.0.0-gamma.7",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -28,7 +28,7 @@
     "typescript": "~4.0.2"
   },
   "dependencies": {
-    "@aws-sdk/types": "1.0.0-gamma.5",
+    "@aws-sdk/types": "1.0.0-gamma.6",
     "@aws-sdk/util-utf8-browser": "1.0.0-gamma.6",
     "tslib": "^1.8.0"
   },

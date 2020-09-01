@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/protocol-http@1.0.0-gamma.6...@aws-sdk/protocol-http@1.0.0-gamma.7) (2020-09-01)
+
+
+### Bug Fixes
+
+* serializer throws when hostname prefix is applied ([#1475](https://github.com/aws/aws-sdk-js-v3/issues/1475)) ([fe63117](https://github.com/aws/aws-sdk-js-v3/commit/fe631179824a4faa9aea1f59f90fd421a0f898cc))
+
+
+
+
+
 # [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/protocol-http@1.0.0-gamma.5...@aws-sdk/protocol-http@1.0.0-gamma.6) (2020-08-25)
 
 **Note:** Version bump only for package @aws-sdk/protocol-http

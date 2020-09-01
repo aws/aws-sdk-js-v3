@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-greengrass@1.0.0-gamma.7...@aws-sdk/client-greengrass@1.0.0-gamma.8) (2020-09-01)
+
+
+### Features
+
+* add LoggerConfig to all clients ([#1472](https://github.com/aws/aws-sdk-js-v3/issues/1472)) ([d55a812](https://github.com/aws/aws-sdk-js-v3/commit/d55a81278fee13281b20bfa60d89d2b111245dd4))
+
+
+
+
+
 # [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-greengrass@1.0.0-gamma.6...@aws-sdk/client-greengrass@1.0.0-gamma.7) (2020-08-25)
 
 

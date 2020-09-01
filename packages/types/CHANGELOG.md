@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/types@1.0.0-gamma.5...@aws-sdk/types@1.0.0-gamma.6) (2020-09-01)
+
+
+### Features
+
+* log metadata/input/output/request/response ([#1478](https://github.com/aws/aws-sdk-js-v3/issues/1478)) ([08f3c92](https://github.com/aws/aws-sdk-js-v3/commit/08f3c92baf6b2e9e04b622379598a14f4647dbe1))
+
+
+
+
+
 # [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/types@1.0.0-gamma.4...@aws-sdk/types@1.0.0-gamma.5) (2020-08-25)
 
 
