@@ -2,7 +2,7 @@ import {
   ArnHostnameParams,
   BucketHostnameParams,
   DOT_PATTERN,
-  getAccessPointName,
+  getArnResources,
   getSuffix,
   getSuffixForArnEndpoint,
   isBucketNameOptions,
@@ -69,12 +69,15 @@ const getEndpointFromAccessPoint = (options: ArnHostnameParams): string => {
   validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  const accessPointName = getAccessPointName(resource);
-  validateDNSHostLabel(`${accessPointName}-${accountId}`, { tlsCompatible });
 
-  return `${accessPointName}-${accountId}.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.${
-    useArnRegion ? region : clientRegion
-  }.${hostnameSuffix}`;
+  const { accesspointName, outpostId } = getArnResources(resource);
+  validateDNSHostLabel(`${accesspointName}-${accountId}`, { tlsCompatible });
+  const endpointRegion = useArnRegion ? region : clientRegion;
+  return outpostId
+    ? `${accesspointName}-${accountId}.${outpostId}.s3-outposts.${endpointRegion}.${hostnameSuffix}`
+    : `${accesspointName}-${accountId}.s3-accesspoint${
+        dualstackEndpoint ? ".dualstack" : ""
+      }.${endpointRegion}.${hostnameSuffix}`;
 };
 
 const getEndpointFromBucketName = ({

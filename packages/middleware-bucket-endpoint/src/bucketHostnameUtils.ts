@@ -116,13 +116,31 @@ export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: b
   }
 };
 
-export const getAccessPointName = (resource: string): string => {
-  if (resource.indexOf("accesspoint:") !== 0 && resource.indexOf("accesspoint/") !== 0) {
-    throw new Error("Access point ARN resource should begin with 'accesspoint/'");
+export const getArnResources = (
+  resource: string
+): {
+  accesspointName: string;
+  outpostId?: string;
+} => {
+  const delimiter = resource.includes(":") ? ":" : "/";
+  const [resourceType, ...rest] = resource.split(delimiter);
+  if (resourceType === "accesspoint") {
+    // Parse accesspoint ARN
+    if (rest.length !== 1 || rest[0] === "") {
+      throw new Error("Access Point ARN should have one resource accesspoint/{accesspointname}");
+    }
+    return { accesspointName: rest[0] };
+  } else if (resourceType === "outpost") {
+    // Parse outpost ARN
+    if (!rest[0] || rest[1] !== "accesspoint" || !rest[2] || rest.length !== 3) {
+      throw new Error("Outpost ARN should have resource outpost/{outpostId}/accesspoint/{accesspointName}");
+    }
+    const [outpostId, _, accesspointName] = rest;
+    if (!/op-[0-9a-fA-F]{17}/.test(outpostId)) throw new Error("Outpost Id must follow pattern /op-[0-9a-fA-F]{17}/");
+    if (!/[0-9a-zA-Z-]{3,50}/.test(accesspointName))
+      throw new Error("Accesspoint name must follow pattern /[0-9a-zA-Z-]{3,50}/");
+    return { outpostId, accesspointName };
+  } else {
+    throw new Error(`ARN resource should begin with 'accesspoint${delimiter}' or 'outpost${delimiter}'`);
   }
-  const parsedResource = resource.split(resource["accesspoint".length]);
-  if (parsedResource.length !== 2 || parsedResource[1] === "") {
-    throw new Error("Access Point ARN should have one resource accesspoint/{accesspointname}");
-  }
-  return parsedResource[1];
 };
