@@ -8,6 +8,7 @@ const getOverwritablePredicate = (packageName) => (pathName) => {
     "commands",
     "models",
     "protocols",
+    "pagination",
     "LICENCE",
     "runtimeConfig.ts",
     "runtimeConfig.browser.ts",
