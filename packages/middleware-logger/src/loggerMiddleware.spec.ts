@@ -1,4 +1,4 @@
-import { FinalizeHandlerArguments, MiddlewareStack } from "@aws-sdk/types";
+import { FinalizeHandlerArguments, Logger, MiddlewareStack } from "@aws-sdk/types";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 
@@ -26,8 +26,17 @@ describe("loggerMiddleware", () => {
     },
   };
   const mockResponse = {
-    statusCode: 200,
-    headers: {},
+    response: {
+      statusCode: 200,
+      headers: {},
+    },
+    output: {
+      $metadata: {
+        statusCode: 200,
+        requestId: "requestId",
+      },
+      outputKey: "outputValue",
+    },
   };
 
   beforeEach(() => {
@@ -40,6 +49,12 @@ describe("loggerMiddleware", () => {
 
   it("returns without logging if context.logger is not defined", async () => {
     const response = await loggerMiddleware()(next, {})(args as FinalizeHandlerArguments<any>);
+    expect(next).toHaveBeenCalledTimes(1);
+    expect(response).toStrictEqual(mockResponse);
+  });
+
+  it("returns without logging if context.logger doesn't have debug/info functions", async () => {
+    const response = await loggerMiddleware()(next, { logger: {} as Logger })(args as FinalizeHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
   });
