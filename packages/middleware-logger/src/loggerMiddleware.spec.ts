@@ -10,6 +10,7 @@ describe("getLoggerPlugin", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+
   it("adds loggerMiddleware", () => {
     getLoggerPlugin({}).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
     expect(mockClientStack.add).toHaveBeenCalledTimes(1);
@@ -91,6 +92,21 @@ describe("loggerMiddleware", () => {
       $metadata,
       input: args.input,
       output: outputWithoutMetadata,
+    });
+  });
+
+  it("logs httpRequest, httpResponse if context.logger has debug function", async () => {
+    const logger = ({ debug: jest.fn() } as unknown) as Logger;
+    const response = await loggerMiddleware()(next, { logger })(args as FinalizeHandlerArguments<any>);
+    expect(next).toHaveBeenCalledTimes(1);
+    expect(response).toStrictEqual(mockResponse);
+
+    expect(logger.debug).toHaveBeenCalledTimes(2);
+    expect(logger.debug).toHaveBeenNthCalledWith(1, {
+      httpRequest: args.request,
+    });
+    expect(logger.debug).toHaveBeenNthCalledWith(2, {
+      httpResponse: mockResponse.response,
     });
   });
 });
