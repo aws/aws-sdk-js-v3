@@ -57,12 +57,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  LoggerInputConfig,
-  LoggerResolvedConfig,
-  getLoggerPlugin,
-  resolveLoggerConfig,
-} from "@aws-sdk/middleware-logger";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -89,6 +84,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -226,6 +222,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   maxAttempts?: number | __Provider<number>;
 
   /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
@@ -238,8 +239,7 @@ export type MqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  HostHeaderInputConfig &
-  LoggerInputConfig;
+  HostHeaderInputConfig;
 
 export type MqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -248,8 +248,7 @@ export type MqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  HostHeaderResolvedConfig &
-  LoggerResolvedConfig;
+  HostHeaderResolvedConfig;
 
 /**
  * Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
@@ -273,9 +272,8 @@ export class MqClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    let _config_7 = resolveLoggerConfig(_config_6);
-    super(_config_7);
-    this.config = _config_7;
+    super(_config_6);
+    this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
