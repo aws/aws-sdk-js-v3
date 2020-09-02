@@ -87,7 +87,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
         writer.writeDocs("The service name with which to sign requests.")
-                .write("signingName?:< string;\n");
+                .write("signingName?: string;\n");
         writer.writeDocs("Default credentials provider; Not available in browser runtime")
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         writer.writeDocs("The AWS region to which this client will send requests")
