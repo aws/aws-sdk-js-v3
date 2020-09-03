@@ -119,7 +119,6 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Prepare the document contents structure.
         Map<String, MemberShape> members = shape.getAllMembers();
         writer.openBlock("let contents: any = {", "};", () -> {
-            writer.write("__type: $S,", shape.getId().getName());
             // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> writer.write("$L: undefined,", memberName));
         });
