@@ -121,12 +121,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  LoggerInputConfig,
-  LoggerResolvedConfig,
-  getLoggerPlugin,
-  resolveLoggerConfig,
-} from "@aws-sdk/middleware-logger";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -153,6 +148,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -340,6 +336,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   maxAttempts?: number | __Provider<number>;
 
   /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
@@ -352,8 +353,7 @@ export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  HostHeaderInputConfig &
-  LoggerInputConfig;
+  HostHeaderInputConfig;
 
 export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -362,8 +362,7 @@ export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  HostHeaderResolvedConfig &
-  LoggerResolvedConfig;
+  HostHeaderResolvedConfig;
 
 /**
  * <p>This is the Amazon Rekognition API reference.</p>
@@ -387,9 +386,8 @@ export class RekognitionClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    let _config_7 = resolveLoggerConfig(_config_6);
-    super(_config_7);
-    this.config = _config_7;
+    super(_config_6);
+    this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));

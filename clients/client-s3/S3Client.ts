@@ -238,12 +238,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
-import {
-  LoggerInputConfig,
-  LoggerResolvedConfig,
-  getLoggerPlugin,
-  resolveLoggerConfig,
-} from "@aws-sdk/middleware-logger";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import { getValidateBucketNamePlugin } from "@aws-sdk/middleware-sdk-s3";
 import {
@@ -273,6 +268,7 @@ import {
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
@@ -536,6 +532,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   maxAttempts?: number | __Provider<number>;
 
   /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
@@ -576,7 +577,6 @@ export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   BucketEndpointInputConfig &
   HostHeaderInputConfig &
-  LoggerInputConfig &
   EventStreamSerdeInputConfig;
 
 export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
@@ -588,7 +588,6 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   BucketEndpointResolvedConfig &
   HostHeaderResolvedConfig &
-  LoggerResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -614,10 +613,9 @@ export class S3Client extends __Client<
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveBucketEndpointConfig(_config_5);
     let _config_7 = resolveHostHeaderConfig(_config_6);
-    let _config_8 = resolveLoggerConfig(_config_7);
-    let _config_9 = resolveEventStreamSerdeConfig(_config_8);
-    super(_config_9);
-    this.config = _config_9;
+    let _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
