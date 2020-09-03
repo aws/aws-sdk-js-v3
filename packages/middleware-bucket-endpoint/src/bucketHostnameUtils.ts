@@ -57,9 +57,37 @@ export const getSuffixForArnEndpoint = (hostname: string): [string, string] =>
     ? [hostname.replace(`.${AWS_PARTITION_SUFFIX}`, ""), AWS_PARTITION_SUFFIX]
     : getRegionalSuffix(hostname);
 
+export const validateArnEndpointOptions = (options: {
+  accelerateEndpoint?: boolean;
+  tlsCompatible?: boolean;
+  pathStyleEndpoint?: boolean;
+}) => {
+  if (options.pathStyleEndpoint) {
+    throw new Error("Path-style S3 endpoint is not supported when bucket is an ARN");
+  }
+  if (options.accelerateEndpoint) {
+    throw new Error("Accelerate endpoint is not supported when bucket is an ARN");
+  }
+  if (!options.tlsCompatible) {
+    throw new Error("HTTPS is required when bucket is an ARN");
+  }
+};
+
 export const validateService = (service: string) => {
+  if (service !== "s3" && service !== "s3-outposts") {
+    throw new Error("Expect 's3' or 's3-outposts' in ARN service component");
+  }
+};
+
+export const validateS3Service = (service: string) => {
   if (service !== "s3") {
-    throw new Error("Expect 's3' in access point ARN service component");
+    throw new Error("Expect 's3' in Accesspoint ARN service component");
+  }
+};
+
+export const validateOutpostService = (service: string) => {
+  if (service !== "s3-outposts") {
+    throw new Error("Expect 's3-posts' in Outpost ARN service component");
   }
 };
 
@@ -78,7 +106,7 @@ export const validateRegion = (
   }
 ) => {
   if (region === "") {
-    throw new Error("Access point ARN region is empty");
+    throw new Error("ARN region is empty");
   }
   if (
     !options.useArnRegion &&
@@ -88,7 +116,7 @@ export const validateRegion = (
     throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
   }
   if (options.useArnRegion && isFipsRegion(region)) {
-    throw new Error("Access point endpoint does not support FIPS region");
+    throw new Error("Endpoint does not support FIPS region");
   }
 };
 
@@ -127,20 +155,27 @@ export const getArnResources = (
   if (resourceType === "accesspoint") {
     // Parse accesspoint ARN
     if (rest.length !== 1 || rest[0] === "") {
-      throw new Error("Access Point ARN should have one resource accesspoint/{accesspointname}");
+      throw new Error(`Access Point ARN should have one resource accesspoint${delimiter}{accesspointname}`);
     }
     return { accesspointName: rest[0] };
   } else if (resourceType === "outpost") {
     // Parse outpost ARN
     if (!rest[0] || rest[1] !== "accesspoint" || !rest[2] || rest.length !== 3) {
-      throw new Error("Outpost ARN should have resource outpost/{outpostId}/accesspoint/{accesspointName}");
+      throw new Error(
+        `Outpost ARN should have resource outpost${delimiter}{outpostId}${delimiter}accesspoint${delimiter}{accesspointName}`
+      );
     }
     const [outpostId, _, accesspointName] = rest;
-    if (!/op-[0-9a-fA-F]{17}/.test(outpostId)) throw new Error("Outpost Id must follow pattern /op-[0-9a-fA-F]{17}/");
-    if (!/[0-9a-zA-Z-]{3,50}/.test(accesspointName))
-      throw new Error("Accesspoint name must follow pattern /[0-9a-zA-Z-]{3,50}/");
     return { outpostId, accesspointName };
   } else {
     throw new Error(`ARN resource should begin with 'accesspoint${delimiter}' or 'outpost${delimiter}'`);
   }
+};
+
+export const validateNoDualstack = (dualstackEndpoint: boolean) => {
+  if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with Outpost");
+};
+
+export const validateNoFIPS = (region: string) => {
+  if (isFipsRegion(region ?? "")) throw new Error(`FIPS region is not supported with Outpost, got ${region}`);
 };

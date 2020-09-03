@@ -165,10 +165,14 @@ describe("bucketEndpointMiddleware", () => {
     });
 
     it("should set signing_region to middleware context if the request will use region from ARN", async () => {
+      mockBucketHostname.mockReturnValue({
+        bucketEndpoint: true,
+        hostname: "myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com",
+        signingService: "s3-foo",
+        signingRegion: "us-bar-1",
+      });
       const request = new HttpRequest(requestInput);
       previouslyResolvedConfig.useArnRegion.mockReturnValue(true);
-      const arnRegion = "us-west-2";
-      mockArnParse.mockReturnValue({ region: arnRegion });
       const handlerContext = {} as any;
       const handler = bucketEndpointMiddleware(
         resolveBucketEndpointConfig({
@@ -176,10 +180,10 @@ describe("bucketEndpointMiddleware", () => {
         })
       )(next, handlerContext);
       await handler({
-        input: { Bucket: `myendpoint-123456789012.s3-accesspoint.${arnRegion}.amazonaws.com` },
+        input: { Bucket: "Bucket" },
         request,
       });
-      expect(handlerContext).toMatchObject({ signing_region: arnRegion });
+      expect(handlerContext).toMatchObject({ signing_region: "us-bar-1", signing_service: "s3-foo" });
     });
   });
 });

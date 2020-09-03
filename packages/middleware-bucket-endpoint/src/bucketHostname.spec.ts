@@ -308,22 +308,22 @@ describe("bucketHostname", () => {
           baseHostname: "s3.us-west-2.amazonaws.com",
           accelerateEndpoint: true,
         });
-      }).toThrow("Accelerate is not supported when bucket is an Access Point ARN");
+      }).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
     });
 
     describe("should validate Access Point ARN", () => {
       [
         {
           bucketArn: "arn:aws:sqs:us-west-2:123456789012:someresource",
-          message: "Expect 's3' in access point ARN service component",
+          message: "Expect 's3' or 's3-outposts' in ARN service component",
         },
         {
           bucketArn: "arn:aws:s3:us-west-2:123456789012:bucket_name:mybucket",
-          message: "Access point ARN resource should begin with 'accesspoint/'",
+          message: "ARN resource should begin with 'accesspoint:' or 'outpost:'",
         },
         {
           bucketArn: "arn:aws:s3::123456789012:accesspoint:myendpoint",
-          message: "Access point ARN region is empty",
+          message: "ARN region is empty",
         },
         {
           bucketArn: "arn:aws:s3:us-west-2::accesspoint:myendpoint",
@@ -335,7 +335,7 @@ describe("bucketHostname", () => {
         },
         {
           bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:",
-          message: "Access Point ARN should have one resource accesspoint/{accesspointname}",
+          message: "Access Point ARN should have one resource accesspoint:{accesspointname}",
         },
         {
           bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:*",
@@ -347,7 +347,7 @@ describe("bucketHostname", () => {
         },
         {
           bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:mybucket:object:foo	",
-          message: "Access Point ARN should have one resource accesspoint/{accesspointname}",
+          message: "Access Point ARN should have one resource accesspoint:{accesspointname}",
         },
       ].forEach(({ bucketArn, message }) => {
         it(`should throw "${message}"`, () => {
@@ -359,6 +359,203 @@ describe("bucketHostname", () => {
           }).toThrow(message);
         });
       });
+    });
+
+    it("should return correct signing region", () => {
+      const bucketArn = parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint");
+      expect(
+        bucketHostname({
+          bucketName: bucketArn,
+          baseHostname: "s3.us-east-1.amazonaws.com",
+          useArnRegion: true,
+        }).signingRegion
+      ).toBe("us-west-2");
+    });
+  });
+
+  describe("from Outpost ARN", () => {
+    describe("populates access point endpoint from ARN", () => {
+      it("should use client region", () => {
+        const baseHostname = "s3.us-west-2.amazonaws.com";
+        const expectedEndpoint = "myaccesspoint-123456789012.op-01234567890123456.s3-outposts.us-west-2.amazonaws.com";
+        [
+          "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+          "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/myaccesspoint",
+        ].forEach((outpostArn) => {
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn(outpostArn),
+            baseHostname,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe(expectedEndpoint);
+        });
+      });
+
+      it("should use ARN region", () => {
+        const baseHostname = "s3.us-west-2.amazonaws.com";
+        const expectedEndpoint = "myaccesspoint-123456789012.op-01234567890123456.s3-outposts.us-east-1.amazonaws.com";
+        [
+          "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+          "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/myaccesspoint",
+        ].forEach((outpostArn) => {
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn(outpostArn),
+            baseHostname,
+            useArnRegion: true,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe(expectedEndpoint);
+        });
+      });
+    });
+
+    it("should throw if ARN region and client region are incompatible", () => {
+      expect(() => {
+        bucketHostname({
+          bucketName: parseArn(
+            "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+          ),
+          baseHostname: "s3.us-west-2.amazonaws.com",
+        });
+      }).toThrow("Region in ARN is incompatible, got us-east-1 but expected us-west-2");
+    });
+
+    it("should throw when ARN partition and client region partition are different", () => {
+      expect(() => {
+        bucketHostname({
+          bucketName: parseArn(
+            "arn:aws-cn:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+          ),
+          baseHostname: "s3.us-west-2.amazonaws.com",
+          useArnRegion: true,
+        });
+      }).toThrow(`Partition in ARN is incompatible, got "aws-cn" but expected "aws"`);
+    });
+
+    describe("not supports fips region", () => {
+      it("should throw if client region is fips", () => {
+        expect.assertions(2);
+        expect(() => {
+          bucketHostname({
+            bucketName: parseArn(
+              "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+            ),
+            baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+            clientPartition: "aws-us-gov",
+          });
+        }).toThrow("FIPS region is not supported with Outpost, got fips-us-gov-east-1");
+
+        expect(() => {
+          bucketHostname({
+            bucketName: parseArn(
+              "arn:aws-us-gov:s3-outposts:fips-us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+            ),
+            baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+            clientPartition: "aws-us-gov",
+            useArnRegion: true,
+          });
+        }).toThrow("Endpoint does not support FIPS region");
+      });
+
+      it("should allow if region is not fips", () => {
+        const { bucketEndpoint, hostname } = bucketHostname({
+          bucketName: parseArn(
+            "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+          ),
+          baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+          clientPartition: "aws-us-gov",
+          useArnRegion: true,
+        });
+        expect(bucketEndpoint).toBe(true);
+        expect(hostname).toBe(
+          "myaccesspoint-123456789012.op-01234567890123456.s3-outposts.us-gov-east-1.amazonaws.com"
+        );
+      });
+    });
+
+    it("should throw if dualstack is set", () => {
+      expect(() => {
+        bucketHostname({
+          bucketName: parseArn(
+            "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+          ),
+          baseHostname: "s3.us-west-2.amazonaws.com",
+          dualstackEndpoint: true,
+        });
+      }).toThrow("Dualstack endpoint is not supported with Outpost");
+    });
+
+    it("should throw if accelerate endpoint is set", () => {
+      expect(() => {
+        bucketHostname({
+          bucketName: parseArn(
+            "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+          ),
+          baseHostname: "s3.us-west-2.amazonaws.com",
+          accelerateEndpoint: true,
+        });
+      }).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
+    });
+
+    describe("should validate Access Point ARN", () => {
+      [
+        {
+          outpostArn: "arn:aws:s3-outposts:us-west-2:123456789012:outpost",
+          message: "Outpost ARN should have resource outpost/{outpostId}/accesspoint/{accesspointName}",
+        },
+        {
+          outpostArn: "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456",
+          message: "Outpost ARN should have resource outpost:{outpostId}:accesspoint:{accesspointName}",
+        },
+        {
+          outpostArn: "arn:aws:s3-outposts:us-west-2:123456789012:outpost:myaccesspoint",
+          message: "Outpost ARN should have resource outpost:{outpostId}:accesspoint:{accesspointName}",
+        },
+        {
+          outpostArn: "arn:aws:s3-outposts:us-west-2:123456789012:outpost::accesspoint:myaccesspoint",
+          message: "Outpost ARN should have resource outpost:{outpostId}:accesspoint:{accesspointName}",
+        },
+        {
+          outpostArn: "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint",
+          message: "Outpost ARN should have resource outpost:{outpostId}:accesspoint:{accesspointName}",
+        },
+        {
+          outpostArn:
+            "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:mybucket:object:foo",
+          message: "Outpost ARN should have resource outpost:{outpostId}:accesspoint:{accesspointName}",
+        },
+        {
+          outpostArn:
+            "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-0123456.890123456:accesspoint:myaccesspoint",
+          message: "Invalid DNS label op-0123456.890123456",
+        },
+        {
+          outpostArn: "arn:aws:s3:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+          message: "Expect 's3-posts' in Outpost ARN service component",
+        },
+      ].forEach(({ outpostArn, message }) => {
+        it(`should throw "${message}"`, () => {
+          expect(() => {
+            bucketHostname({
+              bucketName: parseArn(outpostArn),
+              baseHostname: "s3.us-west-2.amazonaws.com",
+            });
+          }).toThrow(message);
+        });
+      });
+    });
+
+    it("should return correct signing region and signing service", () => {
+      const bucketArn = parseArn(
+        "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+      );
+      const { signingRegion, signingService } = bucketHostname({
+        bucketName: bucketArn,
+        baseHostname: "s3.us-east-1.amazonaws.com",
+        useArnRegion: true,
+      });
+      expect(signingRegion).toBe("us-west-2");
+      expect(signingService).toBe("s3-outposts");
     });
   });
 });
