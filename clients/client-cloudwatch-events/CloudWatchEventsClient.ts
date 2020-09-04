@@ -75,6 +75,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
@@ -101,6 +102,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
@@ -256,6 +258,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   maxAttempts?: number | __Provider<number>;
 
   /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
@@ -280,27 +287,28 @@ export type CloudWatchEventsClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon EventBridge helps you to respond to state changes in your AWS
- *             resources. When your resources change state, they automatically send events into an
- *             event stream. You can create rules that match selected events in the stream and route
- *             them to targets to take action. You can also use rules to take action on a predetermined
- *             schedule. For example, you can configure rules to:</p>
+ * <p>Amazon EventBridge helps you to respond to state changes in your AWS resources.
+ *             When your resources change state, they automatically send events into an event stream.
+ *             You can create rules that match selected events in the stream and route them to targets
+ *             to take action. You can also use rules to take action on a predetermined schedule. For
+ *             example, you can configure rules to:</p>
  *         <ul>
  *             <li>
- *                <p>Automatically invoke an AWS Lambda function to update DNS entries when an event notifies
- *                     you that Amazon EC2 instance enters the running state</p>
+ *                 <p>Automatically invoke an AWS Lambda function to update DNS entries when an
+ *                     event notifies you that Amazon EC2 instance enters the running state.</p>
  *             </li>
  *             <li>
- *                <p>Direct specific API records from AWS CloudTrail to an Amazon Kinesis data stream for
- *                     detailed analysis of potential security or availability risks</p>
+ *                 <p>Direct specific API records from AWS CloudTrail to an Amazon Kinesis data
+ *                     stream for detailed analysis of potential security or availability
+ *                     risks.</p>
  *             </li>
  *             <li>
- *                <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS
- *                     volume</p>
+ *                 <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS
+ *                     volume.</p>
  *             </li>
  *          </ul>
- *         <p>For more information about the features of Amazon EventBridge, see the
- *             <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/">Amazon EventBridge User Guide</a>.</p>
+ *         <p>For more information about the features of Amazon EventBridge, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide">Amazon EventBridge User
+ *                 Guide</a>.</p>
  */
 export class CloudWatchEventsClient extends __Client<
   __HttpHandlerOptions,
@@ -328,6 +336,7 @@ export class CloudWatchEventsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {
