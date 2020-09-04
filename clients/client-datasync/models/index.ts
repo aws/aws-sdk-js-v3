@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       called.</p>
  */
 export interface AgentListEntry {
-  __type?: "AgentListEntry";
   /**
    * <p>The name of the agent.</p>
    */
@@ -28,7 +27,6 @@ export namespace AgentListEntry {
   export const filterSensitiveLog = (obj: AgentListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentListEntry => __isa(o, "AgentListEntry");
 }
 
 export enum AgentStatus {
@@ -45,7 +43,6 @@ export enum Atime {
  * <p>CancelTaskExecutionRequest</p>
  */
 export interface CancelTaskExecutionRequest {
-  __type?: "CancelTaskExecutionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the task execution to cancel.</p>
    */
@@ -56,25 +53,20 @@ export namespace CancelTaskExecutionRequest {
   export const filterSensitiveLog = (obj: CancelTaskExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelTaskExecutionRequest => __isa(o, "CancelTaskExecutionRequest");
 }
 
-export interface CancelTaskExecutionResponse {
-  __type?: "CancelTaskExecutionResponse";
-}
+export interface CancelTaskExecutionResponse {}
 
 export namespace CancelTaskExecutionResponse {
   export const filterSensitiveLog = (obj: CancelTaskExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelTaskExecutionResponse => __isa(o, "CancelTaskExecutionResponse");
 }
 
 /**
  * <p>CreateAgentRequest</p>
  */
 export interface CreateAgentRequest {
-  __type?: "CreateAgentRequest";
   /**
    * <p>The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic
    *       network interfaces for each data transfer task. The agent that runs a task must be private.
@@ -136,14 +128,12 @@ export namespace CreateAgentRequest {
   export const filterSensitiveLog = (obj: CreateAgentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAgentRequest => __isa(o, "CreateAgentRequest");
 }
 
 /**
  * <p>CreateAgentResponse</p>
  */
 export interface CreateAgentResponse {
-  __type?: "CreateAgentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the agent. Use the <code>ListAgents</code> operation
    *       to return a list of agents for your account and AWS Region.</p>
@@ -155,14 +145,12 @@ export namespace CreateAgentResponse {
   export const filterSensitiveLog = (obj: CreateAgentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAgentResponse => __isa(o, "CreateAgentResponse");
 }
 
 /**
  * <p>CreateLocationEfsRequest</p>
  */
 export interface CreateLocationEfsRequest {
-  __type?: "CreateLocationEfsRequest";
   /**
    * <p>A subdirectory in the location’s path. This subdirectory in the EFS file system is used
    *       to read data from the EFS source location or write data to the EFS destination. By default,
@@ -220,14 +208,12 @@ export namespace CreateLocationEfsRequest {
   export const filterSensitiveLog = (obj: CreateLocationEfsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationEfsRequest => __isa(o, "CreateLocationEfsRequest");
 }
 
 /**
  * <p>CreateLocationEfs</p>
  */
 export interface CreateLocationEfsResponse {
-  __type?: "CreateLocationEfsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EFS file system location that is
    *       created.</p>
@@ -239,11 +225,9 @@ export namespace CreateLocationEfsResponse {
   export const filterSensitiveLog = (obj: CreateLocationEfsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationEfsResponse => __isa(o, "CreateLocationEfsResponse");
 }
 
 export interface CreateLocationFsxWindowsRequest {
-  __type?: "CreateLocationFsxWindowsRequest";
   /**
    * <p>The Amazon Resource Names (ARNs) of the security groups that are to use to configure the
    *       FSx for Windows file system.</p>
@@ -291,11 +275,9 @@ export namespace CreateLocationFsxWindowsRequest {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateLocationFsxWindowsRequest => __isa(o, "CreateLocationFsxWindowsRequest");
 }
 
 export interface CreateLocationFsxWindowsResponse {
-  __type?: "CreateLocationFsxWindowsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows file system location that is
    *       created.</p>
@@ -307,14 +289,12 @@ export namespace CreateLocationFsxWindowsResponse {
   export const filterSensitiveLog = (obj: CreateLocationFsxWindowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationFsxWindowsResponse => __isa(o, "CreateLocationFsxWindowsResponse");
 }
 
 /**
  * <p>CreateLocationNfsRequest</p>
  */
 export interface CreateLocationNfsRequest {
-  __type?: "CreateLocationNfsRequest";
   /**
    * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
    */
@@ -372,14 +352,12 @@ export namespace CreateLocationNfsRequest {
   export const filterSensitiveLog = (obj: CreateLocationNfsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationNfsRequest => __isa(o, "CreateLocationNfsRequest");
 }
 
 /**
  * <p>CreateLocationNfsResponse</p>
  */
 export interface CreateLocationNfsResponse {
-  __type?: "CreateLocationNfsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the source NFS file system location that is
    *       created.</p>
@@ -391,14 +369,12 @@ export namespace CreateLocationNfsResponse {
   export const filterSensitiveLog = (obj: CreateLocationNfsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationNfsResponse => __isa(o, "CreateLocationNfsResponse");
 }
 
 /**
  * <p>CreateLocationObjectStorageRequest</p>
  */
 export interface CreateLocationObjectStorageRequest {
-  __type?: "CreateLocationObjectStorageRequest";
   /**
    * <p>The protocol that the object storage server uses to communicate.
    *       Valid values are HTTP or HTTPS.</p>
@@ -461,15 +437,12 @@ export namespace CreateLocationObjectStorageRequest {
     ...obj,
     ...(obj.SecretKey && { SecretKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateLocationObjectStorageRequest =>
-    __isa(o, "CreateLocationObjectStorageRequest");
 }
 
 /**
  * <p>CreateLocationObjectStorageResponse</p>
  */
 export interface CreateLocationObjectStorageResponse {
-  __type?: "CreateLocationObjectStorageResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the agents associated with the
    *       self-managed object storage server location.</p>
@@ -481,15 +454,12 @@ export namespace CreateLocationObjectStorageResponse {
   export const filterSensitiveLog = (obj: CreateLocationObjectStorageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationObjectStorageResponse =>
-    __isa(o, "CreateLocationObjectStorageResponse");
 }
 
 /**
  * <p>CreateLocationS3Request</p>
  */
 export interface CreateLocationS3Request {
-  __type?: "CreateLocationS3Request";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
    *       that is used to access an Amazon S3 bucket.</p>
@@ -529,14 +499,12 @@ export namespace CreateLocationS3Request {
   export const filterSensitiveLog = (obj: CreateLocationS3Request): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationS3Request => __isa(o, "CreateLocationS3Request");
 }
 
 /**
  * <p>CreateLocationS3Response</p>
  */
 export interface CreateLocationS3Response {
-  __type?: "CreateLocationS3Response";
   /**
    * <p>The Amazon Resource Name (ARN) of the source Amazon S3 bucket location that is
    *       created.</p>
@@ -548,14 +516,12 @@ export namespace CreateLocationS3Response {
   export const filterSensitiveLog = (obj: CreateLocationS3Response): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationS3Response => __isa(o, "CreateLocationS3Response");
 }
 
 /**
  * <p>CreateLocationSmbRequest</p>
  */
 export interface CreateLocationSmbRequest {
-  __type?: "CreateLocationSmbRequest";
   /**
    * <p>The name of the Windows domain that the SMB server belongs to.</p>
    */
@@ -627,14 +593,12 @@ export namespace CreateLocationSmbRequest {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateLocationSmbRequest => __isa(o, "CreateLocationSmbRequest");
 }
 
 /**
  * <p>CreateLocationSmbResponse</p>
  */
 export interface CreateLocationSmbResponse {
-  __type?: "CreateLocationSmbResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
    *       created.</p>
@@ -646,14 +610,12 @@ export namespace CreateLocationSmbResponse {
   export const filterSensitiveLog = (obj: CreateLocationSmbResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocationSmbResponse => __isa(o, "CreateLocationSmbResponse");
 }
 
 /**
  * <p>CreateTaskRequest</p>
  */
 export interface CreateTaskRequest {
-  __type?: "CreateTaskRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the source location for the task.</p>
    */
@@ -714,14 +676,12 @@ export namespace CreateTaskRequest {
   export const filterSensitiveLog = (obj: CreateTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTaskRequest => __isa(o, "CreateTaskRequest");
 }
 
 /**
  * <p>CreateTaskResponse</p>
  */
 export interface CreateTaskResponse {
-  __type?: "CreateTaskResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    */
@@ -732,14 +692,12 @@ export namespace CreateTaskResponse {
   export const filterSensitiveLog = (obj: CreateTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTaskResponse => __isa(o, "CreateTaskResponse");
 }
 
 /**
  * <p>DeleteAgentRequest</p>
  */
 export interface DeleteAgentRequest {
-  __type?: "DeleteAgentRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code>
    *       operation to return a list of agents for your account and AWS Region.</p>
@@ -751,25 +709,20 @@ export namespace DeleteAgentRequest {
   export const filterSensitiveLog = (obj: DeleteAgentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAgentRequest => __isa(o, "DeleteAgentRequest");
 }
 
-export interface DeleteAgentResponse {
-  __type?: "DeleteAgentResponse";
-}
+export interface DeleteAgentResponse {}
 
 export namespace DeleteAgentResponse {
   export const filterSensitiveLog = (obj: DeleteAgentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAgentResponse => __isa(o, "DeleteAgentResponse");
 }
 
 /**
  * <p>DeleteLocation</p>
  */
 export interface DeleteLocationRequest {
-  __type?: "DeleteLocationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the location to delete.</p>
    */
@@ -780,25 +733,20 @@ export namespace DeleteLocationRequest {
   export const filterSensitiveLog = (obj: DeleteLocationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLocationRequest => __isa(o, "DeleteLocationRequest");
 }
 
-export interface DeleteLocationResponse {
-  __type?: "DeleteLocationResponse";
-}
+export interface DeleteLocationResponse {}
 
 export namespace DeleteLocationResponse {
   export const filterSensitiveLog = (obj: DeleteLocationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLocationResponse => __isa(o, "DeleteLocationResponse");
 }
 
 /**
  * <p>DeleteTask</p>
  */
 export interface DeleteTaskRequest {
-  __type?: "DeleteTaskRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the task to delete.</p>
    */
@@ -809,25 +757,20 @@ export namespace DeleteTaskRequest {
   export const filterSensitiveLog = (obj: DeleteTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTaskRequest => __isa(o, "DeleteTaskRequest");
 }
 
-export interface DeleteTaskResponse {
-  __type?: "DeleteTaskResponse";
-}
+export interface DeleteTaskResponse {}
 
 export namespace DeleteTaskResponse {
   export const filterSensitiveLog = (obj: DeleteTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTaskResponse => __isa(o, "DeleteTaskResponse");
 }
 
 /**
  * <p>DescribeAgent</p>
  */
 export interface DescribeAgentRequest {
-  __type?: "DescribeAgentRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the agent to describe.</p>
    */
@@ -838,14 +781,12 @@ export namespace DescribeAgentRequest {
   export const filterSensitiveLog = (obj: DescribeAgentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentRequest => __isa(o, "DescribeAgentRequest");
 }
 
 /**
  * <p>DescribeAgentResponse</p>
  */
 export interface DescribeAgentResponse {
-  __type?: "DescribeAgentResponse";
   /**
    * <p>The time that the agent was activated (that is, created in your account).</p>
    */
@@ -891,14 +832,12 @@ export namespace DescribeAgentResponse {
   export const filterSensitiveLog = (obj: DescribeAgentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentResponse => __isa(o, "DescribeAgentResponse");
 }
 
 /**
  * <p>DescribeLocationEfsRequest</p>
  */
 export interface DescribeLocationEfsRequest {
-  __type?: "DescribeLocationEfsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the EFS location to describe.</p>
    */
@@ -909,14 +848,12 @@ export namespace DescribeLocationEfsRequest {
   export const filterSensitiveLog = (obj: DescribeLocationEfsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationEfsRequest => __isa(o, "DescribeLocationEfsRequest");
 }
 
 /**
  * <p>DescribeLocationEfsResponse</p>
  */
 export interface DescribeLocationEfsResponse {
-  __type?: "DescribeLocationEfsResponse";
   /**
    * <p>The subnet and the security group that DataSync uses to access target EFS file system.
    *       The subnet must have at least one mount target for that file system. The security group that
@@ -945,11 +882,9 @@ export namespace DescribeLocationEfsResponse {
   export const filterSensitiveLog = (obj: DescribeLocationEfsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationEfsResponse => __isa(o, "DescribeLocationEfsResponse");
 }
 
 export interface DescribeLocationFsxWindowsRequest {
-  __type?: "DescribeLocationFsxWindowsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows location to describe.</p>
    */
@@ -960,11 +895,9 @@ export namespace DescribeLocationFsxWindowsRequest {
   export const filterSensitiveLog = (obj: DescribeLocationFsxWindowsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationFsxWindowsRequest => __isa(o, "DescribeLocationFsxWindowsRequest");
 }
 
 export interface DescribeLocationFsxWindowsResponse {
-  __type?: "DescribeLocationFsxWindowsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows location that was described.</p>
    */
@@ -1002,15 +935,12 @@ export namespace DescribeLocationFsxWindowsResponse {
   export const filterSensitiveLog = (obj: DescribeLocationFsxWindowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationFsxWindowsResponse =>
-    __isa(o, "DescribeLocationFsxWindowsResponse");
 }
 
 /**
  * <p>DescribeLocationNfsRequest</p>
  */
 export interface DescribeLocationNfsRequest {
-  __type?: "DescribeLocationNfsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the NFS location to describe.</p>
    */
@@ -1021,14 +951,12 @@ export namespace DescribeLocationNfsRequest {
   export const filterSensitiveLog = (obj: DescribeLocationNfsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationNfsRequest => __isa(o, "DescribeLocationNfsRequest");
 }
 
 /**
  * <p>DescribeLocationNfsResponse</p>
  */
 export interface DescribeLocationNfsResponse {
-  __type?: "DescribeLocationNfsResponse";
   /**
    * <p>The URL of the source NFS location that was described.</p>
    */
@@ -1060,14 +988,12 @@ export namespace DescribeLocationNfsResponse {
   export const filterSensitiveLog = (obj: DescribeLocationNfsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationNfsResponse => __isa(o, "DescribeLocationNfsResponse");
 }
 
 /**
  * <p>DescribeLocationObjectStorageRequest</p>
  */
 export interface DescribeLocationObjectStorageRequest {
-  __type?: "DescribeLocationObjectStorageRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the self-managed object storage server location that was described.</p>
    */
@@ -1078,15 +1004,12 @@ export namespace DescribeLocationObjectStorageRequest {
   export const filterSensitiveLog = (obj: DescribeLocationObjectStorageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationObjectStorageRequest =>
-    __isa(o, "DescribeLocationObjectStorageRequest");
 }
 
 /**
  * <p>DescribeLocationObjectStorageResponse</p>
  */
 export interface DescribeLocationObjectStorageResponse {
-  __type?: "DescribeLocationObjectStorageResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the agents associated with the
    *       self-managed object storage server location.</p>
@@ -1131,15 +1054,12 @@ export namespace DescribeLocationObjectStorageResponse {
   export const filterSensitiveLog = (obj: DescribeLocationObjectStorageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationObjectStorageResponse =>
-    __isa(o, "DescribeLocationObjectStorageResponse");
 }
 
 /**
  * <p>DescribeLocationS3Request</p>
  */
 export interface DescribeLocationS3Request {
-  __type?: "DescribeLocationS3Request";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket location to describe.</p>
    */
@@ -1150,14 +1070,12 @@ export namespace DescribeLocationS3Request {
   export const filterSensitiveLog = (obj: DescribeLocationS3Request): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationS3Request => __isa(o, "DescribeLocationS3Request");
 }
 
 /**
  * <p>DescribeLocationS3Response</p>
  */
 export interface DescribeLocationS3Response {
-  __type?: "DescribeLocationS3Response";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
    *       that is used to access an Amazon S3 bucket.</p>
@@ -1195,14 +1113,12 @@ export namespace DescribeLocationS3Response {
   export const filterSensitiveLog = (obj: DescribeLocationS3Response): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationS3Response => __isa(o, "DescribeLocationS3Response");
 }
 
 /**
  * <p>DescribeLocationSmbRequest</p>
  */
 export interface DescribeLocationSmbRequest {
-  __type?: "DescribeLocationSmbRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the SMB location to describe.</p>
    */
@@ -1213,14 +1129,12 @@ export namespace DescribeLocationSmbRequest {
   export const filterSensitiveLog = (obj: DescribeLocationSmbRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationSmbRequest => __isa(o, "DescribeLocationSmbRequest");
 }
 
 /**
  * <p>DescribeLocationSmbResponse</p>
  */
 export interface DescribeLocationSmbResponse {
-  __type?: "DescribeLocationSmbResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the SMB location that was described.</p>
    */
@@ -1263,14 +1177,12 @@ export namespace DescribeLocationSmbResponse {
   export const filterSensitiveLog = (obj: DescribeLocationSmbResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocationSmbResponse => __isa(o, "DescribeLocationSmbResponse");
 }
 
 /**
  * <p>DescribeTaskExecutionRequest</p>
  */
 export interface DescribeTaskExecutionRequest {
-  __type?: "DescribeTaskExecutionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the task that is being executed.</p>
    */
@@ -1281,14 +1193,12 @@ export namespace DescribeTaskExecutionRequest {
   export const filterSensitiveLog = (obj: DescribeTaskExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskExecutionRequest => __isa(o, "DescribeTaskExecutionRequest");
 }
 
 /**
  * <p>DescribeTaskExecutionResponse</p>
  */
 export interface DescribeTaskExecutionResponse {
-  __type?: "DescribeTaskExecutionResponse";
   /**
    * <p>A list of filter rules that determines which files to include when running a task. The
    *       list should contain a single filter string that consists of the patterns to include. The
@@ -1393,14 +1303,12 @@ export namespace DescribeTaskExecutionResponse {
   export const filterSensitiveLog = (obj: DescribeTaskExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskExecutionResponse => __isa(o, "DescribeTaskExecutionResponse");
 }
 
 /**
  * <p>DescribeTaskRequest</p>
  */
 export interface DescribeTaskRequest {
-  __type?: "DescribeTaskRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the task to describe.</p>
    */
@@ -1411,14 +1319,12 @@ export namespace DescribeTaskRequest {
   export const filterSensitiveLog = (obj: DescribeTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskRequest => __isa(o, "DescribeTaskRequest");
 }
 
 /**
  * <p>DescribeTaskResponse</p>
  */
 export interface DescribeTaskResponse {
-  __type?: "DescribeTaskResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network Interface) that
    *       was created for your subnet.</p>
@@ -1524,7 +1430,6 @@ export namespace DescribeTaskResponse {
   export const filterSensitiveLog = (obj: DescribeTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskResponse => __isa(o, "DescribeTaskResponse");
 }
 
 /**
@@ -1534,7 +1439,6 @@ export namespace DescribeTaskResponse {
  *       subnet specified. </p>
  */
 export interface Ec2Config {
-  __type?: "Ec2Config";
   /**
    * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the
    *       Amazon EC2 resource.</p>
@@ -1552,7 +1456,6 @@ export namespace Ec2Config {
   export const filterSensitiveLog = (obj: Ec2Config): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ec2Config => __isa(o, "Ec2Config");
 }
 
 export enum EndpointType {
@@ -1566,7 +1469,6 @@ export enum EndpointType {
  *       from source to destination.</p>
  */
 export interface FilterRule {
-  __type?: "FilterRule";
   /**
    * <p>A single filter string that consists of the patterns to include or exclude. The patterns
    *       are delimited by "|" (that is, a pipe), for example: <code>/folder1|/folder2</code>
@@ -1587,7 +1489,6 @@ export namespace FilterRule {
   export const filterSensitiveLog = (obj: FilterRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterRule => __isa(o, "FilterRule");
 }
 
 export enum FilterType {
@@ -1615,7 +1516,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
@@ -1632,14 +1532,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>ListAgentsRequest</p>
  */
 export interface ListAgentsRequest {
-  __type?: "ListAgentsRequest";
   /**
    * <p>The maximum number of agents to list.</p>
    */
@@ -1656,14 +1554,12 @@ export namespace ListAgentsRequest {
   export const filterSensitiveLog = (obj: ListAgentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAgentsRequest => __isa(o, "ListAgentsRequest");
 }
 
 /**
  * <p>ListAgentsResponse</p>
  */
 export interface ListAgentsResponse {
-  __type?: "ListAgentsResponse";
   /**
    * <p>A list of agents in your account.</p>
    */
@@ -1680,14 +1576,12 @@ export namespace ListAgentsResponse {
   export const filterSensitiveLog = (obj: ListAgentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAgentsResponse => __isa(o, "ListAgentsResponse");
 }
 
 /**
  * <p>ListLocationsRequest</p>
  */
 export interface ListLocationsRequest {
-  __type?: "ListLocationsRequest";
   /**
    * <p>An opaque string that indicates the position at which to begin the next list of
    *       locations.</p>
@@ -1704,14 +1598,12 @@ export namespace ListLocationsRequest {
   export const filterSensitiveLog = (obj: ListLocationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLocationsRequest => __isa(o, "ListLocationsRequest");
 }
 
 /**
  * <p>ListLocationsResponse</p>
  */
 export interface ListLocationsResponse {
-  __type?: "ListLocationsResponse";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of locations.</p>
@@ -1728,14 +1620,12 @@ export namespace ListLocationsResponse {
   export const filterSensitiveLog = (obj: ListLocationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLocationsResponse => __isa(o, "ListLocationsResponse");
 }
 
 /**
  * <p>ListTagsForResourceRequest</p>
  */
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags to list.</p>
    */
@@ -1757,14 +1647,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p>ListTagsForResourceResponse</p>
  */
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Array of resource tags.</p>
    */
@@ -1781,14 +1669,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>ListTaskExecutions</p>
  */
 export interface ListTaskExecutionsRequest {
-  __type?: "ListTaskExecutionsRequest";
   /**
    * <p>The maximum number of executed tasks to list.</p>
    */
@@ -1810,14 +1696,12 @@ export namespace ListTaskExecutionsRequest {
   export const filterSensitiveLog = (obj: ListTaskExecutionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTaskExecutionsRequest => __isa(o, "ListTaskExecutionsRequest");
 }
 
 /**
  * <p>ListTaskExecutionsResponse</p>
  */
 export interface ListTaskExecutionsResponse {
-  __type?: "ListTaskExecutionsResponse";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of executed tasks.</p>
@@ -1834,14 +1718,12 @@ export namespace ListTaskExecutionsResponse {
   export const filterSensitiveLog = (obj: ListTaskExecutionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTaskExecutionsResponse => __isa(o, "ListTaskExecutionsResponse");
 }
 
 /**
  * <p>ListTasksRequest</p>
  */
 export interface ListTasksRequest {
-  __type?: "ListTasksRequest";
   /**
    * <p>The maximum number of tasks to return.</p>
    */
@@ -1858,14 +1740,12 @@ export namespace ListTasksRequest {
   export const filterSensitiveLog = (obj: ListTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTasksRequest => __isa(o, "ListTasksRequest");
 }
 
 /**
  * <p>ListTasksResponse</p>
  */
 export interface ListTasksResponse {
-  __type?: "ListTasksResponse";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
    *       of tasks.</p>
@@ -1882,7 +1762,6 @@ export namespace ListTasksResponse {
   export const filterSensitiveLog = (obj: ListTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTasksResponse => __isa(o, "ListTasksResponse");
 }
 
 /**
@@ -1891,7 +1770,6 @@ export namespace ListTasksResponse {
  *       operation is called.</p>
  */
 export interface LocationListEntry {
-  __type?: "LocationListEntry";
   /**
    * <p>The Amazon Resource Name (ARN) of the location. For Network File System (NFS) or Amazon
    *       EFS, the location is the export path. For Amazon S3, the location is the prefix path that you
@@ -1922,7 +1800,6 @@ export namespace LocationListEntry {
   export const filterSensitiveLog = (obj: LocationListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocationListEntry => __isa(o, "LocationListEntry");
 }
 
 export enum LogLevel {
@@ -1941,7 +1818,6 @@ export enum Mtime {
  *       location.</p>
  */
 export interface NfsMountOptions {
-  __type?: "NfsMountOptions";
   /**
    * <p>The specific NFS version that you want DataSync to use to mount your NFS share. If the
    *       server refuses to use the version specified, the sync will fail. If you don't specify a
@@ -1981,7 +1857,6 @@ export namespace NfsMountOptions {
   export const filterSensitiveLog = (obj: NfsMountOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NfsMountOptions => __isa(o, "NfsMountOptions");
 }
 
 export enum NfsVersion {
@@ -2001,7 +1876,6 @@ export enum ObjectStorageServerProtocol {
  *       location.</p>
  */
 export interface OnPremConfig {
-  __type?: "OnPremConfig";
   /**
    * <p>ARNs)of the agents to use for an NFS location.</p>
    */
@@ -2012,7 +1886,6 @@ export namespace OnPremConfig {
   export const filterSensitiveLog = (obj: OnPremConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnPremConfig => __isa(o, "OnPremConfig");
 }
 
 /**
@@ -2025,7 +1898,6 @@ export namespace OnPremConfig {
  *       to <a>StartTaskExecution</a>.</p>
  */
 export interface Options {
-  __type?: "Options";
   /**
    * <p>A value that determines whether a data integrity verification should be performed at
    *       the end of a task execution after all data and metadata have been transferred.
@@ -2183,7 +2055,6 @@ export namespace Options {
   export const filterSensitiveLog = (obj: Options): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Options => __isa(o, "Options");
 }
 
 export enum OverwriteMode {
@@ -2217,7 +2088,6 @@ export enum PreserveDevices {
  *       a VPC (Virtual Private Cloud).</p>
  */
 export interface PrivateLinkConfig {
-  __type?: "PrivateLinkConfig";
   /**
    * <p>The ID of the VPC endpoint that is configured for an agent. An agent that is configured
    *       with a VPC endpoint will not be accessible over the public internet.</p>
@@ -2249,7 +2119,6 @@ export namespace PrivateLinkConfig {
   export const filterSensitiveLog = (obj: PrivateLinkConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrivateLinkConfig => __isa(o, "PrivateLinkConfig");
 }
 
 /**
@@ -2260,7 +2129,6 @@ export namespace PrivateLinkConfig {
  *       Amazon S3 in the <i>AWS DataSync User Guide</i>.</p>
  */
 export interface S3Config {
-  __type?: "S3Config";
   /**
    * <p>The Amazon S3 bucket to access. This bucket is used as a parameter in the <a>CreateLocationS3</a> operation. </p>
    */
@@ -2271,7 +2139,6 @@ export namespace S3Config {
   export const filterSensitiveLog = (obj: S3Config): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Config => __isa(o, "S3Config");
 }
 
 export enum S3StorageClass {
@@ -2288,7 +2155,6 @@ export enum S3StorageClass {
  *       location.</p>
  */
 export interface SmbMountOptions {
-  __type?: "SmbMountOptions";
   /**
    * <p>The specific SMB version that you want DataSync to use to mount your SMB share. If you
    *       don't specify a version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync
@@ -2301,7 +2167,6 @@ export namespace SmbMountOptions {
   export const filterSensitiveLog = (obj: SmbMountOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SmbMountOptions => __isa(o, "SmbMountOptions");
 }
 
 export enum SmbVersion {
@@ -2314,7 +2179,6 @@ export enum SmbVersion {
  * <p>StartTaskExecutionRequest</p>
  */
 export interface StartTaskExecutionRequest {
-  __type?: "StartTaskExecutionRequest";
   /**
    * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
@@ -2346,14 +2210,12 @@ export namespace StartTaskExecutionRequest {
   export const filterSensitiveLog = (obj: StartTaskExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTaskExecutionRequest => __isa(o, "StartTaskExecutionRequest");
 }
 
 /**
  * <p>StartTaskExecutionResponse</p>
  */
 export interface StartTaskExecutionResponse {
-  __type?: "StartTaskExecutionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the specific task execution that was
    *       started.</p>
@@ -2365,7 +2227,6 @@ export namespace StartTaskExecutionResponse {
   export const filterSensitiveLog = (obj: StartTaskExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTaskExecutionResponse => __isa(o, "StartTaskExecutionResponse");
 }
 
 /**
@@ -2374,7 +2235,6 @@ export namespace StartTaskExecutionResponse {
  *       operation is called.</p>
  */
 export interface TagListEntry {
-  __type?: "TagListEntry";
   /**
    * <p>The value for an AWS resource tag.</p>
    */
@@ -2390,14 +2250,12 @@ export namespace TagListEntry {
   export const filterSensitiveLog = (obj: TagListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagListEntry => __isa(o, "TagListEntry");
 }
 
 /**
  * <p>TagResourceRequest</p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to apply the tag to.</p>
    */
@@ -2413,18 +2271,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2433,7 +2287,6 @@ export namespace TagResourceResponse {
  *       invocations of a task when <a>ListTaskExecutions</a> operation is called.</p>
  */
 export interface TaskExecutionListEntry {
-  __type?: "TaskExecutionListEntry";
   /**
    * <p>The Amazon Resource Name (ARN) of the task that was executed.</p>
    */
@@ -2449,7 +2302,6 @@ export namespace TaskExecutionListEntry {
   export const filterSensitiveLog = (obj: TaskExecutionListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskExecutionListEntry => __isa(o, "TaskExecutionListEntry");
 }
 
 /**
@@ -2458,7 +2310,6 @@ export namespace TaskExecutionListEntry {
  *       the errors encountered.</p>
  */
 export interface TaskExecutionResultDetail {
-  __type?: "TaskExecutionResultDetail";
   /**
    * <p>The total time in milliseconds that AWS DataSync spent in the PREPARING phase.
    *     </p>
@@ -2514,7 +2365,6 @@ export namespace TaskExecutionResultDetail {
   export const filterSensitiveLog = (obj: TaskExecutionResultDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskExecutionResultDetail => __isa(o, "TaskExecutionResultDetail");
 }
 
 export enum TaskExecutionStatus {
@@ -2534,7 +2384,6 @@ export enum TaskExecutionStatus {
  *       tasks.</p>
  */
 export interface TaskListEntry {
-  __type?: "TaskListEntry";
   /**
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    */
@@ -2555,7 +2404,6 @@ export namespace TaskListEntry {
   export const filterSensitiveLog = (obj: TaskListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskListEntry => __isa(o, "TaskListEntry");
 }
 
 export enum TaskQueueing {
@@ -2568,7 +2416,6 @@ export enum TaskQueueing {
  *       information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a>.</p>
  */
 export interface TaskSchedule {
-  __type?: "TaskSchedule";
   /**
    * <p>A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a
    *       source to a destination location. </p>
@@ -2580,7 +2427,6 @@ export namespace TaskSchedule {
   export const filterSensitiveLog = (obj: TaskSchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskSchedule => __isa(o, "TaskSchedule");
 }
 
 export enum TaskStatus {
@@ -2607,7 +2453,6 @@ export enum Uid {
  * <p>UntagResourceRequest</p>
  */
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys in the key-value pair in the tag to remove.</p>
    */
@@ -2623,25 +2468,20 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>UpdateAgentRequest</p>
  */
 export interface UpdateAgentRequest {
-  __type?: "UpdateAgentRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the agent to update.</p>
    */
@@ -2657,25 +2497,20 @@ export namespace UpdateAgentRequest {
   export const filterSensitiveLog = (obj: UpdateAgentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAgentRequest => __isa(o, "UpdateAgentRequest");
 }
 
-export interface UpdateAgentResponse {
-  __type?: "UpdateAgentResponse";
-}
+export interface UpdateAgentResponse {}
 
 export namespace UpdateAgentResponse {
   export const filterSensitiveLog = (obj: UpdateAgentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAgentResponse => __isa(o, "UpdateAgentResponse");
 }
 
 /**
  * <p>UpdateTaskResponse</p>
  */
 export interface UpdateTaskRequest {
-  __type?: "UpdateTaskRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource name of the task to update.</p>
    */
@@ -2726,18 +2561,14 @@ export namespace UpdateTaskRequest {
   export const filterSensitiveLog = (obj: UpdateTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTaskRequest => __isa(o, "UpdateTaskRequest");
 }
 
-export interface UpdateTaskResponse {
-  __type?: "UpdateTaskResponse";
-}
+export interface UpdateTaskResponse {}
 
 export namespace UpdateTaskResponse {
   export const filterSensitiveLog = (obj: UpdateTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTaskResponse => __isa(o, "UpdateTaskResponse");
 }
 
 export enum VerifyMode {

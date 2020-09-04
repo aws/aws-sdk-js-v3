@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       connection in the console.</p>
  */
 export interface Connection {
-  __type?: "Connection";
   /**
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
    *       reference when the connection is shared between AWS services.</p>
@@ -49,7 +48,6 @@ export namespace Connection {
   export const filterSensitiveLog = (obj: Connection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
 export enum ConnectionStatus {
@@ -59,7 +57,6 @@ export enum ConnectionStatus {
 }
 
 export interface CreateConnectionInput {
-  __type?: "CreateConnectionInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
    */
@@ -87,11 +84,9 @@ export namespace CreateConnectionInput {
   export const filterSensitiveLog = (obj: CreateConnectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionInput => __isa(o, "CreateConnectionInput");
 }
 
 export interface CreateConnectionOutput {
-  __type?: "CreateConnectionOutput";
   /**
    * <p>Specifies the tags applied to the resource.</p>
    */
@@ -111,11 +106,9 @@ export namespace CreateConnectionOutput {
   export const filterSensitiveLog = (obj: CreateConnectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionOutput => __isa(o, "CreateConnectionOutput");
 }
 
 export interface CreateHostInput {
-  __type?: "CreateHostInput";
   /**
    * <p>The name of the installed provider to be associated with your connection. The host
    *       resource represents the infrastructure where your provider type is installed. The valid
@@ -146,11 +139,9 @@ export namespace CreateHostInput {
   export const filterSensitiveLog = (obj: CreateHostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHostInput => __isa(o, "CreateHostInput");
 }
 
 export interface CreateHostOutput {
-  __type?: "CreateHostOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the host to be created.</p>
    */
@@ -161,11 +152,9 @@ export namespace CreateHostOutput {
   export const filterSensitiveLog = (obj: CreateHostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHostOutput => __isa(o, "CreateHostOutput");
 }
 
 export interface DeleteConnectionInput {
-  __type?: "DeleteConnectionInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the connection to be deleted.</p>
    *          <note>
@@ -179,22 +168,17 @@ export namespace DeleteConnectionInput {
   export const filterSensitiveLog = (obj: DeleteConnectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionInput => __isa(o, "DeleteConnectionInput");
 }
 
-export interface DeleteConnectionOutput {
-  __type?: "DeleteConnectionOutput";
-}
+export interface DeleteConnectionOutput {}
 
 export namespace DeleteConnectionOutput {
   export const filterSensitiveLog = (obj: DeleteConnectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionOutput => __isa(o, "DeleteConnectionOutput");
 }
 
 export interface DeleteHostInput {
-  __type?: "DeleteHostInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the host to be deleted.</p>
    */
@@ -205,22 +189,17 @@ export namespace DeleteHostInput {
   export const filterSensitiveLog = (obj: DeleteHostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHostInput => __isa(o, "DeleteHostInput");
 }
 
-export interface DeleteHostOutput {
-  __type?: "DeleteHostOutput";
-}
+export interface DeleteHostOutput {}
 
 export namespace DeleteHostOutput {
   export const filterSensitiveLog = (obj: DeleteHostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHostOutput => __isa(o, "DeleteHostOutput");
 }
 
 export interface GetConnectionInput {
-  __type?: "GetConnectionInput";
   /**
    * <p>The Amazon Resource Name (ARN) of a connection.</p>
    */
@@ -231,11 +210,9 @@ export namespace GetConnectionInput {
   export const filterSensitiveLog = (obj: GetConnectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionInput => __isa(o, "GetConnectionInput");
 }
 
 export interface GetConnectionOutput {
-  __type?: "GetConnectionOutput";
   /**
    * <p>The connection details, such as status, owner, and provider type.</p>
    */
@@ -246,11 +223,9 @@ export namespace GetConnectionOutput {
   export const filterSensitiveLog = (obj: GetConnectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionOutput => __isa(o, "GetConnectionOutput");
 }
 
 export interface GetHostInput {
-  __type?: "GetHostInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the requested host.</p>
    */
@@ -261,11 +236,9 @@ export namespace GetHostInput {
   export const filterSensitiveLog = (obj: GetHostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostInput => __isa(o, "GetHostInput");
 }
 
 export interface GetHostOutput {
-  __type?: "GetHostOutput";
   /**
    * <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
    */
@@ -296,7 +269,6 @@ export namespace GetHostOutput {
   export const filterSensitiveLog = (obj: GetHostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostOutput => __isa(o, "GetHostOutput");
 }
 
 /**
@@ -309,7 +281,6 @@ export namespace GetHostOutput {
  *          </note>
  */
 export interface Host {
-  __type?: "Host";
   /**
    * <p>The VPC configuration provisioned for the host.</p>
    */
@@ -352,7 +323,6 @@ export namespace Host {
   export const filterSensitiveLog = (obj: Host): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Host => __isa(o, "Host");
 }
 
 /**
@@ -368,11 +338,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListConnectionsInput {
-  __type?: "ListConnectionsInput";
   /**
    * <p>Filters the list of connections to those associated with a specified host.</p>
    */
@@ -401,11 +369,9 @@ export namespace ListConnectionsInput {
   export const filterSensitiveLog = (obj: ListConnectionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConnectionsInput => __isa(o, "ListConnectionsInput");
 }
 
 export interface ListConnectionsOutput {
-  __type?: "ListConnectionsOutput";
   /**
    * <p>A token that can be used in the next <code>ListConnections</code> call. To view all
    *       items in the list, continue to call this operation with each subsequent token until no more
@@ -424,11 +390,9 @@ export namespace ListConnectionsOutput {
   export const filterSensitiveLog = (obj: ListConnectionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConnectionsOutput => __isa(o, "ListConnectionsOutput");
 }
 
 export interface ListHostsInput {
-  __type?: "ListHostsInput";
   /**
    * <p>The token that was returned from the previous <code>ListHosts</code> call, which can be
    *       used to return the next set of hosts in the list.</p>
@@ -446,11 +410,9 @@ export namespace ListHostsInput {
   export const filterSensitiveLog = (obj: ListHostsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostsInput => __isa(o, "ListHostsInput");
 }
 
 export interface ListHostsOutput {
-  __type?: "ListHostsOutput";
   /**
    * <p>A token that can be used in the next <code>ListHosts</code> call. To view all items in the
    *       list, continue to call this operation with each subsequent token until no more
@@ -469,11 +431,9 @@ export namespace ListHostsOutput {
   export const filterSensitiveLog = (obj: ListHostsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostsOutput => __isa(o, "ListHostsOutput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
    */
@@ -484,11 +444,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
@@ -499,7 +457,6 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 export enum ProviderType {
@@ -520,7 +477,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -536,7 +492,6 @@ export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUnavailableException => __isa(o, "ResourceUnavailableException");
 }
 
 /**
@@ -544,7 +499,6 @@ export namespace ResourceUnavailableException {
  *          <p>This tag is available for use by AWS services that support tags.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's value.</p>
    */
@@ -560,11 +514,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
    */
@@ -580,22 +532,17 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The list of keys for the tags to be removed from the resource.</p>
    */
@@ -611,25 +558,20 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 /**
  * <p>The VPC configuration provisioned for the host.</p>
  */
 export interface VpcConfiguration {
-  __type?: "VpcConfiguration";
   /**
    * <p>The ID of the security group or security groups associated with the Amazon VPC connected
    *       to the infrastructure where your provider type is installed.</p>
@@ -658,5 +600,4 @@ export namespace VpcConfiguration {
   export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfiguration => __isa(o, "VpcConfiguration");
 }

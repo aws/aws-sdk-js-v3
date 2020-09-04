@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AbortAction {
@@ -9,7 +9,6 @@ export enum AbortAction {
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AbortConfig {
-  __type?: "AbortConfig";
   /**
    * <p>The list of criteria that determine when and how to abort the job.</p>
    */
@@ -20,14 +19,12 @@ export namespace AbortConfig {
   export const filterSensitiveLog = (obj: AbortConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortConfig => __isa(o, "AbortConfig");
 }
 
 /**
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AbortCriteria {
-  __type?: "AbortCriteria";
   /**
    * <p>The type of job action to take to initiate the job abort.</p>
    */
@@ -55,14 +52,12 @@ export namespace AbortCriteria {
   export const filterSensitiveLog = (obj: AbortCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortCriteria => __isa(o, "AbortCriteria");
 }
 
 /**
  * <p>The input for the AcceptCertificateTransfer operation.</p>
  */
 export interface AcceptCertificateTransferRequest {
-  __type?: "AcceptCertificateTransferRequest";
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
@@ -79,14 +74,12 @@ export namespace AcceptCertificateTransferRequest {
   export const filterSensitiveLog = (obj: AcceptCertificateTransferRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptCertificateTransferRequest => __isa(o, "AcceptCertificateTransferRequest");
 }
 
 /**
  * <p>Describes the actions associated with a rule.</p>
  */
 export interface Action {
-  __type?: "Action";
   /**
    * <p>Starts execution of a Step Functions state machine.</p>
    */
@@ -190,7 +183,6 @@ export namespace Action {
   export const filterSensitiveLog = (obj: Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Action => __isa(o, "Action");
 }
 
 export enum ActionType {
@@ -204,7 +196,6 @@ export enum ActionType {
  * <p>Information about an active Device Defender security profile behavior violation.</p>
  */
 export interface ActiveViolation {
-  __type?: "ActiveViolation";
   /**
    * <p>The name of the thing responsible for the active violation.</p>
    */
@@ -245,14 +236,12 @@ export namespace ActiveViolation {
   export const filterSensitiveLog = (obj: ActiveViolation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveViolation => __isa(o, "ActiveViolation");
 }
 
 /**
  * <p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>
  */
 export interface AddThingsToThingGroupParams {
-  __type?: "AddThingsToThingGroupParams";
   /**
    * <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
    */
@@ -268,11 +257,9 @@ export namespace AddThingsToThingGroupParams {
   export const filterSensitiveLog = (obj: AddThingsToThingGroupParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddThingsToThingGroupParams => __isa(o, "AddThingsToThingGroupParams");
 }
 
 export interface AddThingToBillingGroupRequest {
-  __type?: "AddThingToBillingGroupRequest";
   /**
    * <p>The ARN of the billing group.</p>
    */
@@ -298,22 +285,17 @@ export namespace AddThingToBillingGroupRequest {
   export const filterSensitiveLog = (obj: AddThingToBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddThingToBillingGroupRequest => __isa(o, "AddThingToBillingGroupRequest");
 }
 
-export interface AddThingToBillingGroupResponse {
-  __type?: "AddThingToBillingGroupResponse";
-}
+export interface AddThingToBillingGroupResponse {}
 
 export namespace AddThingToBillingGroupResponse {
   export const filterSensitiveLog = (obj: AddThingToBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddThingToBillingGroupResponse => __isa(o, "AddThingToBillingGroupResponse");
 }
 
 export interface AddThingToThingGroupRequest {
-  __type?: "AddThingToThingGroupRequest";
   /**
    * <p>The name of the thing to add to a group.</p>
    */
@@ -347,25 +329,20 @@ export namespace AddThingToThingGroupRequest {
   export const filterSensitiveLog = (obj: AddThingToThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddThingToThingGroupRequest => __isa(o, "AddThingToThingGroupRequest");
 }
 
-export interface AddThingToThingGroupResponse {
-  __type?: "AddThingToThingGroupResponse";
-}
+export interface AddThingToThingGroupResponse {}
 
 export namespace AddThingToThingGroupResponse {
   export const filterSensitiveLog = (obj: AddThingToThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddThingToThingGroupResponse => __isa(o, "AddThingToThingGroupResponse");
 }
 
 /**
  * <p>A structure containing the alert target ARN and the role ARN.</p>
  */
 export interface AlertTarget {
-  __type?: "AlertTarget";
   /**
    * <p>The ARN of the notification target to which alerts are sent.</p>
    */
@@ -382,7 +359,6 @@ export namespace AlertTarget {
   export const filterSensitiveLog = (obj: AlertTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlertTarget => __isa(o, "AlertTarget");
 }
 
 export enum AlertTargetType {
@@ -393,7 +369,6 @@ export enum AlertTargetType {
  * <p>Contains information that allowed the authorization.</p>
  */
 export interface Allowed {
-  __type?: "Allowed";
   /**
    * <p>A list of policies that allowed the authentication.</p>
    */
@@ -404,14 +379,12 @@ export namespace Allowed {
   export const filterSensitiveLog = (obj: Allowed): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Allowed => __isa(o, "Allowed");
 }
 
 /**
  * <p>An asset property timestamp entry containing the following information.</p>
  */
 export interface AssetPropertyTimestamp {
-  __type?: "AssetPropertyTimestamp";
   /**
    * <p>A string that contains the time in seconds since epoch. Accepts substitution
    *       templates.</p>
@@ -429,14 +402,12 @@ export namespace AssetPropertyTimestamp {
   export const filterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyTimestamp => __isa(o, "AssetPropertyTimestamp");
 }
 
 /**
  * <p>An asset property value entry containing the following information.</p>
  */
 export interface AssetPropertyValue {
-  __type?: "AssetPropertyValue";
   /**
    * <p>Optional. A string that describes the quality of the value. Accepts substitution
    *       templates. Must be <code>GOOD</code>, <code>BAD</code>, or <code>UNCERTAIN</code>.</p>
@@ -458,14 +429,12 @@ export namespace AssetPropertyValue {
   export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyValue => __isa(o, "AssetPropertyValue");
 }
 
 /**
  * <p>Contains an asset property value (of a single type).</p>
  */
 export interface AssetPropertyVariant {
-  __type?: "AssetPropertyVariant";
   /**
    * <p>Optional. The string value of the value entry. Accepts substitution templates.</p>
    */
@@ -494,11 +463,9 @@ export namespace AssetPropertyVariant {
   export const filterSensitiveLog = (obj: AssetPropertyVariant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyVariant => __isa(o, "AssetPropertyVariant");
 }
 
 export interface AssociateTargetsWithJobRequest {
-  __type?: "AssociateTargetsWithJobRequest";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -519,11 +486,9 @@ export namespace AssociateTargetsWithJobRequest {
   export const filterSensitiveLog = (obj: AssociateTargetsWithJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTargetsWithJobRequest => __isa(o, "AssociateTargetsWithJobRequest");
 }
 
 export interface AssociateTargetsWithJobResponse {
-  __type?: "AssociateTargetsWithJobResponse";
   /**
    * <p>An ARN identifying the job.</p>
    */
@@ -544,11 +509,9 @@ export namespace AssociateTargetsWithJobResponse {
   export const filterSensitiveLog = (obj: AssociateTargetsWithJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTargetsWithJobResponse => __isa(o, "AssociateTargetsWithJobResponse");
 }
 
 export interface AttachPolicyRequest {
-  __type?: "AttachPolicyRequest";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached.</p>
    */
@@ -564,14 +527,12 @@ export namespace AttachPolicyRequest {
   export const filterSensitiveLog = (obj: AttachPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachPolicyRequest => __isa(o, "AttachPolicyRequest");
 }
 
 /**
  * <p>The input for the AttachPrincipalPolicy operation.</p>
  */
 export interface AttachPrincipalPolicyRequest {
-  __type?: "AttachPrincipalPolicyRequest";
   /**
    * <p>The policy name.</p>
    */
@@ -588,11 +549,9 @@ export namespace AttachPrincipalPolicyRequest {
   export const filterSensitiveLog = (obj: AttachPrincipalPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachPrincipalPolicyRequest => __isa(o, "AttachPrincipalPolicyRequest");
 }
 
 export interface AttachSecurityProfileRequest {
-  __type?: "AttachSecurityProfileRequest";
   /**
    * <p>The ARN of the target (thing group) to which the security profile is attached.</p>
    */
@@ -608,25 +567,20 @@ export namespace AttachSecurityProfileRequest {
   export const filterSensitiveLog = (obj: AttachSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachSecurityProfileRequest => __isa(o, "AttachSecurityProfileRequest");
 }
 
-export interface AttachSecurityProfileResponse {
-  __type?: "AttachSecurityProfileResponse";
-}
+export interface AttachSecurityProfileResponse {}
 
 export namespace AttachSecurityProfileResponse {
   export const filterSensitiveLog = (obj: AttachSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachSecurityProfileResponse => __isa(o, "AttachSecurityProfileResponse");
 }
 
 /**
  * <p>The input for the AttachThingPrincipal operation.</p>
  */
 export interface AttachThingPrincipalRequest {
-  __type?: "AttachThingPrincipalRequest";
   /**
    * <p>The principal, which can be a certificate ARN (as returned from the
    * 			CreateCertificate operation) or an Amazon Cognito ID.</p>
@@ -643,28 +597,23 @@ export namespace AttachThingPrincipalRequest {
   export const filterSensitiveLog = (obj: AttachThingPrincipalRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachThingPrincipalRequest => __isa(o, "AttachThingPrincipalRequest");
 }
 
 /**
  * <p>The output from the AttachThingPrincipal operation.</p>
  */
-export interface AttachThingPrincipalResponse {
-  __type?: "AttachThingPrincipalResponse";
-}
+export interface AttachThingPrincipalResponse {}
 
 export namespace AttachThingPrincipalResponse {
   export const filterSensitiveLog = (obj: AttachThingPrincipalResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachThingPrincipalResponse => __isa(o, "AttachThingPrincipalResponse");
 }
 
 /**
  * <p>The attribute payload.</p>
  */
 export interface AttributePayload {
-  __type?: "AttributePayload";
   /**
    * <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
    * 		       <p>
@@ -688,14 +637,12 @@ export namespace AttributePayload {
   export const filterSensitiveLog = (obj: AttributePayload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributePayload => __isa(o, "AttributePayload");
 }
 
 /**
  * <p>Which audit checks are enabled and disabled for this account.</p>
  */
 export interface AuditCheckConfiguration {
-  __type?: "AuditCheckConfiguration";
   /**
    * <p>True if this audit check is enabled for this account.</p>
    */
@@ -706,14 +653,12 @@ export namespace AuditCheckConfiguration {
   export const filterSensitiveLog = (obj: AuditCheckConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditCheckConfiguration => __isa(o, "AuditCheckConfiguration");
 }
 
 /**
  * <p>Information about the audit check.</p>
  */
 export interface AuditCheckDetails {
-  __type?: "AuditCheckDetails";
   /**
    * <p>The number of resources that were found noncompliant during the check.</p>
    */
@@ -751,7 +696,6 @@ export namespace AuditCheckDetails {
   export const filterSensitiveLog = (obj: AuditCheckDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditCheckDetails => __isa(o, "AuditCheckDetails");
 }
 
 export enum AuditCheckRunStatus {
@@ -767,7 +711,6 @@ export enum AuditCheckRunStatus {
  * <p>The findings (results) of the audit.</p>
  */
 export interface AuditFinding {
-  __type?: "AuditFinding";
   /**
    * <p>The audit check that generated this result.</p>
    */
@@ -825,7 +768,6 @@ export namespace AuditFinding {
   export const filterSensitiveLog = (obj: AuditFinding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditFinding => __isa(o, "AuditFinding");
 }
 
 export enum AuditFindingSeverity {
@@ -846,7 +788,6 @@ export enum AuditFrequency {
  * <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
  */
 export interface AuditMitigationActionExecutionMetadata {
-  __type?: "AuditMitigationActionExecutionMetadata";
   /**
    * <p>The unique identifier for the findings to which the task and associated mitigation action are applied.</p>
    */
@@ -897,8 +838,6 @@ export namespace AuditMitigationActionExecutionMetadata {
   export const filterSensitiveLog = (obj: AuditMitigationActionExecutionMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditMitigationActionExecutionMetadata =>
-    __isa(o, "AuditMitigationActionExecutionMetadata");
 }
 
 export enum AuditMitigationActionsExecutionStatus {
@@ -914,7 +853,6 @@ export enum AuditMitigationActionsExecutionStatus {
  * <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
  */
 export interface AuditMitigationActionsTaskMetadata {
-  __type?: "AuditMitigationActionsTaskMetadata";
   /**
    * <p>The unique identifier for the task.</p>
    */
@@ -935,8 +873,6 @@ export namespace AuditMitigationActionsTaskMetadata {
   export const filterSensitiveLog = (obj: AuditMitigationActionsTaskMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditMitigationActionsTaskMetadata =>
-    __isa(o, "AuditMitigationActionsTaskMetadata");
 }
 
 export enum AuditMitigationActionsTaskStatus {
@@ -950,7 +886,6 @@ export enum AuditMitigationActionsTaskStatus {
  * <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
  */
 export interface AuditMitigationActionsTaskTarget {
-  __type?: "AuditMitigationActionsTaskTarget";
   /**
    * <p>If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.</p>
    */
@@ -971,14 +906,12 @@ export namespace AuditMitigationActionsTaskTarget {
   export const filterSensitiveLog = (obj: AuditMitigationActionsTaskTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditMitigationActionsTaskTarget => __isa(o, "AuditMitigationActionsTaskTarget");
 }
 
 /**
  * <p>Information about the targets to which audit notifications are sent.</p>
  */
 export interface AuditNotificationTarget {
-  __type?: "AuditNotificationTarget";
   /**
    * <p>The ARN of the role that grants permission to send notifications to the target.</p>
    */
@@ -999,7 +932,6 @@ export namespace AuditNotificationTarget {
   export const filterSensitiveLog = (obj: AuditNotificationTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditNotificationTarget => __isa(o, "AuditNotificationTarget");
 }
 
 export enum AuditNotificationType {
@@ -1010,7 +942,6 @@ export enum AuditNotificationType {
  * <p>The audits that were performed.</p>
  */
 export interface AuditTaskMetadata {
-  __type?: "AuditTaskMetadata";
   /**
    * <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
    *         "FAILED", or "CANCELED".</p>
@@ -1032,7 +963,6 @@ export namespace AuditTaskMetadata {
   export const filterSensitiveLog = (obj: AuditTaskMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuditTaskMetadata => __isa(o, "AuditTaskMetadata");
 }
 
 export enum AuditTaskStatus {
@@ -1057,7 +987,6 @@ export enum AuthDecision {
  * <p>A collection of authorization information.</p>
  */
 export interface AuthInfo {
-  __type?: "AuthInfo";
   /**
    * <p>The type of action for which the principal is being authorized.</p>
    */
@@ -1074,14 +1003,12 @@ export namespace AuthInfo {
   export const filterSensitiveLog = (obj: AuthInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthInfo => __isa(o, "AuthInfo");
 }
 
 /**
  * <p>An object that specifies the authorization service for a domain.</p>
  */
 export interface AuthorizerConfig {
-  __type?: "AuthorizerConfig";
   /**
    * <p>The name of the authorization service for a domain configuration.</p>
    */
@@ -1097,14 +1024,12 @@ export namespace AuthorizerConfig {
   export const filterSensitiveLog = (obj: AuthorizerConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizerConfig => __isa(o, "AuthorizerConfig");
 }
 
 /**
  * <p>The authorizer description.</p>
  */
 export interface AuthorizerDescription {
-  __type?: "AuthorizerDescription";
   /**
    * <p>The status of the authorizer.</p>
    */
@@ -1156,7 +1081,6 @@ export namespace AuthorizerDescription {
   export const filterSensitiveLog = (obj: AuthorizerDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizerDescription => __isa(o, "AuthorizerDescription");
 }
 
 export enum AuthorizerStatus {
@@ -1168,7 +1092,6 @@ export enum AuthorizerStatus {
  * <p>The authorizer summary.</p>
  */
 export interface AuthorizerSummary {
-  __type?: "AuthorizerSummary";
   /**
    * <p>The authorizer ARN.</p>
    */
@@ -1184,14 +1107,12 @@ export namespace AuthorizerSummary {
   export const filterSensitiveLog = (obj: AuthorizerSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizerSummary => __isa(o, "AuthorizerSummary");
 }
 
 /**
  * <p>The authorizer result.</p>
  */
 export interface AuthResult {
-  __type?: "AuthResult";
   /**
    * <p>The policies and statements that denied the specified action.</p>
    */
@@ -1224,7 +1145,6 @@ export namespace AuthResult {
   export const filterSensitiveLog = (obj: AuthResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthResult => __isa(o, "AuthResult");
 }
 
 export enum AutoRegistrationStatus {
@@ -1236,7 +1156,6 @@ export enum AutoRegistrationStatus {
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AwsJobAbortConfig {
-  __type?: "AwsJobAbortConfig";
   /**
    * <p>The list of criteria that determine when and how to abort the job.</p>
    */
@@ -1247,14 +1166,12 @@ export namespace AwsJobAbortConfig {
   export const filterSensitiveLog = (obj: AwsJobAbortConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobAbortConfig => __isa(o, "AwsJobAbortConfig");
 }
 
 /**
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
 export interface AwsJobAbortCriteria {
-  __type?: "AwsJobAbortCriteria";
   /**
    * <p>The type of job action to take to initiate the job abort.</p>
    */
@@ -1282,7 +1199,6 @@ export namespace AwsJobAbortCriteria {
   export const filterSensitiveLog = (obj: AwsJobAbortCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobAbortCriteria => __isa(o, "AwsJobAbortCriteria");
 }
 
 export enum AwsJobAbortCriteriaAbortAction {
@@ -1300,7 +1216,6 @@ export enum AwsJobAbortCriteriaFailureType {
  * <p>Configuration for the rollout of OTA updates.</p>
  */
 export interface AwsJobExecutionsRolloutConfig {
-  __type?: "AwsJobExecutionsRolloutConfig";
   /**
    * <p>The maximum number of OTA update job executions started per minute.</p>
    */
@@ -1317,7 +1232,6 @@ export namespace AwsJobExecutionsRolloutConfig {
   export const filterSensitiveLog = (obj: AwsJobExecutionsRolloutConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobExecutionsRolloutConfig => __isa(o, "AwsJobExecutionsRolloutConfig");
 }
 
 /**
@@ -1325,7 +1239,6 @@ export namespace AwsJobExecutionsRolloutConfig {
  *             increase for a job rollout.</p>
  */
 export interface AwsJobExponentialRolloutRate {
-  __type?: "AwsJobExponentialRolloutRate";
   /**
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
    *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
@@ -1349,7 +1262,6 @@ export namespace AwsJobExponentialRolloutRate {
   export const filterSensitiveLog = (obj: AwsJobExponentialRolloutRate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobExponentialRolloutRate => __isa(o, "AwsJobExponentialRolloutRate");
 }
 
 /**
@@ -1357,7 +1269,6 @@ export namespace AwsJobExponentialRolloutRate {
  *            contains HTTP.</p>
  */
 export interface AwsJobPresignedUrlConfig {
-  __type?: "AwsJobPresignedUrlConfig";
   /**
    * <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800
    *             seconds. Pre-signed URLs are generated when a request for the job document is received.</p>
@@ -1369,14 +1280,12 @@ export namespace AwsJobPresignedUrlConfig {
   export const filterSensitiveLog = (obj: AwsJobPresignedUrlConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobPresignedUrlConfig => __isa(o, "AwsJobPresignedUrlConfig");
 }
 
 /**
  * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
  */
 export interface AwsJobRateIncreaseCriteria {
-  __type?: "AwsJobRateIncreaseCriteria";
   /**
    * <p>When this number of things have succeeded in their job execution, it will initiate an
    *             increase in the rollout rate.</p>
@@ -1394,7 +1303,6 @@ export namespace AwsJobRateIncreaseCriteria {
   export const filterSensitiveLog = (obj: AwsJobRateIncreaseCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobRateIncreaseCriteria => __isa(o, "AwsJobRateIncreaseCriteria");
 }
 
 /**
@@ -1404,7 +1312,6 @@ export namespace AwsJobRateIncreaseCriteria {
  *             set to <code>TIMED_OUT</code>.</p>
  */
 export interface AwsJobTimeoutConfig {
-  __type?: "AwsJobTimeoutConfig";
   /**
    * <p>Specifies the amount of time, in minutes, this device has to finish execution of this job. The
    *             timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress
@@ -1419,14 +1326,12 @@ export namespace AwsJobTimeoutConfig {
   export const filterSensitiveLog = (obj: AwsJobTimeoutConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsJobTimeoutConfig => __isa(o, "AwsJobTimeoutConfig");
 }
 
 /**
  * <p>A Device Defender security profile behavior.</p>
  */
 export interface Behavior {
-  __type?: "Behavior";
   /**
    * <p>The criteria that determine if a device is behaving normally in regard to
    *           the <code>metric</code>.</p>
@@ -1453,14 +1358,12 @@ export namespace Behavior {
   export const filterSensitiveLog = (obj: Behavior): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Behavior => __isa(o, "Behavior");
 }
 
 /**
  * <p>The criteria by which the behavior is determined to be normal.</p>
  */
 export interface BehaviorCriteria {
-  __type?: "BehaviorCriteria";
   /**
    * <p>If a device is in violation of the behavior for the specified number of consecutive
    *           datapoints, an alarm occurs. If not specified, the default is 1.</p>
@@ -1506,14 +1409,12 @@ export namespace BehaviorCriteria {
   export const filterSensitiveLog = (obj: BehaviorCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BehaviorCriteria => __isa(o, "BehaviorCriteria");
 }
 
 /**
  * <p>Additional information about the billing group.</p>
  */
 export interface BillingGroupMetadata {
-  __type?: "BillingGroupMetadata";
   /**
    * <p>The date the billing group was created.</p>
    */
@@ -1524,14 +1425,12 @@ export namespace BillingGroupMetadata {
   export const filterSensitiveLog = (obj: BillingGroupMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BillingGroupMetadata => __isa(o, "BillingGroupMetadata");
 }
 
 /**
  * <p>The properties of a billing group.</p>
  */
 export interface BillingGroupProperties {
-  __type?: "BillingGroupProperties";
   /**
    * <p>The description of the billing group.</p>
    */
@@ -1542,14 +1441,12 @@ export namespace BillingGroupProperties {
   export const filterSensitiveLog = (obj: BillingGroupProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BillingGroupProperties => __isa(o, "BillingGroupProperties");
 }
 
 /**
  * <p>A CA certificate.</p>
  */
 export interface CACertificate {
-  __type?: "CACertificate";
   /**
    * <p>The ID of the CA certificate.</p>
    */
@@ -1576,14 +1473,12 @@ export namespace CACertificate {
   export const filterSensitiveLog = (obj: CACertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CACertificate => __isa(o, "CACertificate");
 }
 
 /**
  * <p>Describes a CA certificate.</p>
  */
 export interface CACertificateDescription {
-  __type?: "CACertificateDescription";
   /**
    * <p>When the CA certificate is valid.</p>
    */
@@ -1645,7 +1540,6 @@ export namespace CACertificateDescription {
   export const filterSensitiveLog = (obj: CACertificateDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CACertificateDescription => __isa(o, "CACertificateDescription");
 }
 
 export enum CACertificateStatus {
@@ -1658,7 +1552,6 @@ export enum CACertificateUpdateAction {
 }
 
 export interface CancelAuditMitigationActionsTaskRequest {
-  __type?: "CancelAuditMitigationActionsTaskRequest";
   /**
    * <p>The unique identifier for the task that you want to cancel. </p>
    */
@@ -1669,24 +1562,17 @@ export namespace CancelAuditMitigationActionsTaskRequest {
   export const filterSensitiveLog = (obj: CancelAuditMitigationActionsTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelAuditMitigationActionsTaskRequest =>
-    __isa(o, "CancelAuditMitigationActionsTaskRequest");
 }
 
-export interface CancelAuditMitigationActionsTaskResponse {
-  __type?: "CancelAuditMitigationActionsTaskResponse";
-}
+export interface CancelAuditMitigationActionsTaskResponse {}
 
 export namespace CancelAuditMitigationActionsTaskResponse {
   export const filterSensitiveLog = (obj: CancelAuditMitigationActionsTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelAuditMitigationActionsTaskResponse =>
-    __isa(o, "CancelAuditMitigationActionsTaskResponse");
 }
 
 export interface CancelAuditTaskRequest {
-  __type?: "CancelAuditTaskRequest";
   /**
    * <p>The ID of the audit you want to cancel. You can only cancel an
    *               audit that is "IN_PROGRESS".</p>
@@ -1698,25 +1584,20 @@ export namespace CancelAuditTaskRequest {
   export const filterSensitiveLog = (obj: CancelAuditTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelAuditTaskRequest => __isa(o, "CancelAuditTaskRequest");
 }
 
-export interface CancelAuditTaskResponse {
-  __type?: "CancelAuditTaskResponse";
-}
+export interface CancelAuditTaskResponse {}
 
 export namespace CancelAuditTaskResponse {
   export const filterSensitiveLog = (obj: CancelAuditTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelAuditTaskResponse => __isa(o, "CancelAuditTaskResponse");
 }
 
 /**
  * <p>The input for the CancelCertificateTransfer operation.</p>
  */
 export interface CancelCertificateTransferRequest {
-  __type?: "CancelCertificateTransferRequest";
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
@@ -1728,11 +1609,9 @@ export namespace CancelCertificateTransferRequest {
   export const filterSensitiveLog = (obj: CancelCertificateTransferRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelCertificateTransferRequest => __isa(o, "CancelCertificateTransferRequest");
 }
 
 export interface CancelJobExecutionRequest {
-  __type?: "CancelJobExecutionRequest";
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution. If not
    *           specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>
@@ -1776,11 +1655,9 @@ export namespace CancelJobExecutionRequest {
   export const filterSensitiveLog = (obj: CancelJobExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobExecutionRequest => __isa(o, "CancelJobExecutionRequest");
 }
 
 export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -1811,11 +1688,9 @@ export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
 export interface CancelJobResponse {
-  __type?: "CancelJobResponse";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -1836,7 +1711,6 @@ export namespace CancelJobResponse {
   export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobResponse => __isa(o, "CancelJobResponse");
 }
 
 export enum CannedAccessControlList {
@@ -1854,7 +1728,6 @@ export enum CannedAccessControlList {
  * <p>Information about a certificate.</p>
  */
 export interface Certificate {
-  __type?: "Certificate";
   /**
    * <p>The ARN of the certificate.</p>
    */
@@ -1887,7 +1760,6 @@ export namespace Certificate {
   export const filterSensitiveLog = (obj: Certificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
 }
 
 /**
@@ -1908,14 +1780,12 @@ export namespace CertificateConflictException {
   export const filterSensitiveLog = (obj: CertificateConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateConflictException => __isa(o, "CertificateConflictException");
 }
 
 /**
  * <p>Describes a certificate.</p>
  */
 export interface CertificateDescription {
-  __type?: "CertificateDescription";
   /**
    * <p>The mode of the certificate.</p>
    */
@@ -1991,7 +1861,6 @@ export namespace CertificateDescription {
   export const filterSensitiveLog = (obj: CertificateDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateDescription => __isa(o, "CertificateDescription");
 }
 
 export enum CertificateMode {
@@ -2015,7 +1884,6 @@ export namespace CertificateStateException {
   export const filterSensitiveLog = (obj: CertificateStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateStateException => __isa(o, "CertificateStateException");
 }
 
 export enum CertificateStatus {
@@ -2043,14 +1911,12 @@ export namespace CertificateValidationException {
   export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateValidationException => __isa(o, "CertificateValidationException");
 }
 
 /**
  * <p>When the certificate is valid.</p>
  */
 export interface CertificateValidity {
-  __type?: "CertificateValidity";
   /**
    * <p>The certificate is not valid after this date.</p>
    */
@@ -2066,36 +1932,28 @@ export namespace CertificateValidity {
   export const filterSensitiveLog = (obj: CertificateValidity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateValidity => __isa(o, "CertificateValidity");
 }
 
-export interface ClearDefaultAuthorizerRequest {
-  __type?: "ClearDefaultAuthorizerRequest";
-}
+export interface ClearDefaultAuthorizerRequest {}
 
 export namespace ClearDefaultAuthorizerRequest {
   export const filterSensitiveLog = (obj: ClearDefaultAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClearDefaultAuthorizerRequest => __isa(o, "ClearDefaultAuthorizerRequest");
 }
 
-export interface ClearDefaultAuthorizerResponse {
-  __type?: "ClearDefaultAuthorizerResponse";
-}
+export interface ClearDefaultAuthorizerResponse {}
 
 export namespace ClearDefaultAuthorizerResponse {
   export const filterSensitiveLog = (obj: ClearDefaultAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClearDefaultAuthorizerResponse => __isa(o, "ClearDefaultAuthorizerResponse");
 }
 
 /**
  * <p>Describes an action that updates a CloudWatch alarm.</p>
  */
 export interface CloudwatchAlarmAction {
-  __type?: "CloudwatchAlarmAction";
   /**
    * <p>The CloudWatch alarm name.</p>
    */
@@ -2122,14 +1980,12 @@ export namespace CloudwatchAlarmAction {
   export const filterSensitiveLog = (obj: CloudwatchAlarmAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudwatchAlarmAction => __isa(o, "CloudwatchAlarmAction");
 }
 
 /**
  * <p>Describes an action that sends data to CloudWatch Logs.</p>
  */
 export interface CloudwatchLogsAction {
-  __type?: "CloudwatchLogsAction";
   /**
    * <p>The IAM role that allows access to the CloudWatch log.</p>
    */
@@ -2145,14 +2001,12 @@ export namespace CloudwatchLogsAction {
   export const filterSensitiveLog = (obj: CloudwatchLogsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudwatchLogsAction => __isa(o, "CloudwatchLogsAction");
 }
 
 /**
  * <p>Describes an action that captures a CloudWatch metric.</p>
  */
 export interface CloudwatchMetricAction {
-  __type?: "CloudwatchMetricAction";
   /**
    * <p>The CloudWatch metric namespace name.</p>
    */
@@ -2189,14 +2043,12 @@ export namespace CloudwatchMetricAction {
   export const filterSensitiveLog = (obj: CloudwatchMetricAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudwatchMetricAction => __isa(o, "CloudwatchMetricAction");
 }
 
 /**
  * <p>Describes the method to use when code signing a file.</p>
  */
 export interface CodeSigning {
-  __type?: "CodeSigning";
   /**
    * <p>A custom method for code signing a file.</p>
    */
@@ -2217,14 +2069,12 @@ export namespace CodeSigning {
   export const filterSensitiveLog = (obj: CodeSigning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeSigning => __isa(o, "CodeSigning");
 }
 
 /**
  * <p>Describes the certificate chain being used when code signing a file.</p>
  */
 export interface CodeSigningCertificateChain {
-  __type?: "CodeSigningCertificateChain";
   /**
    * <p>The name of the certificate.</p>
    */
@@ -2240,14 +2090,12 @@ export namespace CodeSigningCertificateChain {
   export const filterSensitiveLog = (obj: CodeSigningCertificateChain): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeSigningCertificateChain => __isa(o, "CodeSigningCertificateChain");
 }
 
 /**
  * <p>Describes the signature for a file.</p>
  */
 export interface CodeSigningSignature {
-  __type?: "CodeSigningSignature";
   /**
    * <p>A base64 encoded binary representation of the code signing signature.</p>
    */
@@ -2258,7 +2106,6 @@ export namespace CodeSigningSignature {
   export const filterSensitiveLog = (obj: CodeSigningSignature): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeSigningSignature => __isa(o, "CodeSigningSignature");
 }
 
 export enum ComparisonOperator {
@@ -2276,7 +2123,6 @@ export enum ComparisonOperator {
  * <p>Configuration.</p>
  */
 export interface Configuration {
-  __type?: "Configuration";
   /**
    * <p>True to enable the configuration.</p>
    */
@@ -2287,11 +2133,9 @@ export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
 
 export interface ConfirmTopicRuleDestinationRequest {
-  __type?: "ConfirmTopicRuleDestinationRequest";
   /**
    * <p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>
    */
@@ -2302,20 +2146,14 @@ export namespace ConfirmTopicRuleDestinationRequest {
   export const filterSensitiveLog = (obj: ConfirmTopicRuleDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmTopicRuleDestinationRequest =>
-    __isa(o, "ConfirmTopicRuleDestinationRequest");
 }
 
-export interface ConfirmTopicRuleDestinationResponse {
-  __type?: "ConfirmTopicRuleDestinationResponse";
-}
+export interface ConfirmTopicRuleDestinationResponse {}
 
 export namespace ConfirmTopicRuleDestinationResponse {
   export const filterSensitiveLog = (obj: ConfirmTopicRuleDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmTopicRuleDestinationResponse =>
-    __isa(o, "ConfirmTopicRuleDestinationResponse");
 }
 
 /**
@@ -2335,12 +2173,9 @@ export namespace ConflictingResourceUpdateException {
   export const filterSensitiveLog = (obj: ConflictingResourceUpdateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictingResourceUpdateException =>
-    __isa(o, "ConflictingResourceUpdateException");
 }
 
 export interface CreateAuthorizerRequest {
-  __type?: "CreateAuthorizerRequest";
   /**
    * <p>The public keys used to verify the digital signature returned by your custom
    *          authentication service.</p>
@@ -2389,11 +2224,9 @@ export namespace CreateAuthorizerRequest {
   export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAuthorizerRequest => __isa(o, "CreateAuthorizerRequest");
 }
 
 export interface CreateAuthorizerResponse {
-  __type?: "CreateAuthorizerResponse";
   /**
    * <p>The authorizer ARN.</p>
    */
@@ -2409,11 +2242,9 @@ export namespace CreateAuthorizerResponse {
   export const filterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAuthorizerResponse => __isa(o, "CreateAuthorizerResponse");
 }
 
 export interface CreateBillingGroupRequest {
-  __type?: "CreateBillingGroupRequest";
   /**
    * <p>Metadata which can be used to manage the billing group.</p>
    */
@@ -2434,11 +2265,9 @@ export namespace CreateBillingGroupRequest {
   export const filterSensitiveLog = (obj: CreateBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBillingGroupRequest => __isa(o, "CreateBillingGroupRequest");
 }
 
 export interface CreateBillingGroupResponse {
-  __type?: "CreateBillingGroupResponse";
   /**
    * <p>The ID of the billing group.</p>
    */
@@ -2459,14 +2288,12 @@ export namespace CreateBillingGroupResponse {
   export const filterSensitiveLog = (obj: CreateBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBillingGroupResponse => __isa(o, "CreateBillingGroupResponse");
 }
 
 /**
  * <p>The input for the CreateCertificateFromCsr operation.</p>
  */
 export interface CreateCertificateFromCsrRequest {
-  __type?: "CreateCertificateFromCsrRequest";
   /**
    * <p>Specifies whether the certificate is active.</p>
    */
@@ -2482,14 +2309,12 @@ export namespace CreateCertificateFromCsrRequest {
   export const filterSensitiveLog = (obj: CreateCertificateFromCsrRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCertificateFromCsrRequest => __isa(o, "CreateCertificateFromCsrRequest");
 }
 
 /**
  * <p>The output from the CreateCertificateFromCsr operation.</p>
  */
 export interface CreateCertificateFromCsrResponse {
-  __type?: "CreateCertificateFromCsrResponse";
   /**
    * <p>The certificate data, in PEM format.</p>
    */
@@ -2512,11 +2337,9 @@ export namespace CreateCertificateFromCsrResponse {
   export const filterSensitiveLog = (obj: CreateCertificateFromCsrResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCertificateFromCsrResponse => __isa(o, "CreateCertificateFromCsrResponse");
 }
 
 export interface CreateDimensionRequest {
-  __type?: "CreateDimensionRequest";
   /**
    * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
    */
@@ -2548,11 +2371,9 @@ export namespace CreateDimensionRequest {
   export const filterSensitiveLog = (obj: CreateDimensionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDimensionRequest => __isa(o, "CreateDimensionRequest");
 }
 
 export interface CreateDimensionResponse {
-  __type?: "CreateDimensionResponse";
   /**
    * <p>A unique identifier for the dimension.</p>
    */
@@ -2568,11 +2389,9 @@ export namespace CreateDimensionResponse {
   export const filterSensitiveLog = (obj: CreateDimensionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDimensionResponse => __isa(o, "CreateDimensionResponse");
 }
 
 export interface CreateDomainConfigurationRequest {
-  __type?: "CreateDomainConfigurationRequest";
   /**
    * <p>The name of the domain configuration. This value must be unique to a region.</p>
    */
@@ -2625,11 +2444,9 @@ export namespace CreateDomainConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateDomainConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainConfigurationRequest => __isa(o, "CreateDomainConfigurationRequest");
 }
 
 export interface CreateDomainConfigurationResponse {
-  __type?: "CreateDomainConfigurationResponse";
   /**
    * <p>The name of the domain configuration.</p>
    */
@@ -2645,11 +2462,9 @@ export namespace CreateDomainConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateDomainConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainConfigurationResponse => __isa(o, "CreateDomainConfigurationResponse");
 }
 
 export interface CreateDynamicThingGroupRequest {
-  __type?: "CreateDynamicThingGroupRequest";
   /**
    * <p>The dynamic thing group query version.</p>
    * 		       <note>
@@ -2693,11 +2508,9 @@ export namespace CreateDynamicThingGroupRequest {
   export const filterSensitiveLog = (obj: CreateDynamicThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDynamicThingGroupRequest => __isa(o, "CreateDynamicThingGroupRequest");
 }
 
 export interface CreateDynamicThingGroupResponse {
-  __type?: "CreateDynamicThingGroupResponse";
   /**
    * <p>The dynamic thing group ARN.</p>
    */
@@ -2733,11 +2546,9 @@ export namespace CreateDynamicThingGroupResponse {
   export const filterSensitiveLog = (obj: CreateDynamicThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDynamicThingGroupResponse => __isa(o, "CreateDynamicThingGroupResponse");
 }
 
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * <p>The job document.</p>
    *         <note>
@@ -2813,11 +2624,9 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
-  __type?: "CreateJobResponse";
   /**
    * <p>The unique identifier you assigned to this job.</p>
    */
@@ -2838,14 +2647,12 @@ export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
  * <p>The input for the CreateKeysAndCertificate operation.</p>
  */
 export interface CreateKeysAndCertificateRequest {
-  __type?: "CreateKeysAndCertificateRequest";
   /**
    * <p>Specifies whether the certificate is active.</p>
    */
@@ -2856,14 +2663,12 @@ export namespace CreateKeysAndCertificateRequest {
   export const filterSensitiveLog = (obj: CreateKeysAndCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateKeysAndCertificateRequest => __isa(o, "CreateKeysAndCertificateRequest");
 }
 
 /**
  * <p>The output of the CreateKeysAndCertificate operation.</p>
  */
 export interface CreateKeysAndCertificateResponse {
-  __type?: "CreateKeysAndCertificateResponse";
   /**
    * <p>The ARN of the certificate.</p>
    */
@@ -2891,11 +2696,9 @@ export namespace CreateKeysAndCertificateResponse {
     ...obj,
     ...(obj.keyPair && { keyPair: KeyPair.filterSensitiveLog(obj.keyPair) }),
   });
-  export const isa = (o: any): o is CreateKeysAndCertificateResponse => __isa(o, "CreateKeysAndCertificateResponse");
 }
 
 export interface CreateMitigationActionRequest {
-  __type?: "CreateMitigationActionRequest";
   /**
    * <p>Metadata that can be used to manage the mitigation action.</p>
    */
@@ -2921,11 +2724,9 @@ export namespace CreateMitigationActionRequest {
   export const filterSensitiveLog = (obj: CreateMitigationActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMitigationActionRequest => __isa(o, "CreateMitigationActionRequest");
 }
 
 export interface CreateMitigationActionResponse {
-  __type?: "CreateMitigationActionResponse";
   /**
    * <p>A unique identifier for the new mitigation action.</p>
    */
@@ -2941,11 +2742,9 @@ export namespace CreateMitigationActionResponse {
   export const filterSensitiveLog = (obj: CreateMitigationActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMitigationActionResponse => __isa(o, "CreateMitigationActionResponse");
 }
 
 export interface CreateOTAUpdateRequest {
-  __type?: "CreateOTAUpdateRequest";
   /**
    * <p>Configuration for the rollout of OTA updates.</p>
    */
@@ -3025,11 +2824,9 @@ export namespace CreateOTAUpdateRequest {
   export const filterSensitiveLog = (obj: CreateOTAUpdateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOTAUpdateRequest => __isa(o, "CreateOTAUpdateRequest");
 }
 
 export interface CreateOTAUpdateResponse {
-  __type?: "CreateOTAUpdateResponse";
   /**
    * <p>The OTA update ID.</p>
    */
@@ -3060,14 +2857,12 @@ export namespace CreateOTAUpdateResponse {
   export const filterSensitiveLog = (obj: CreateOTAUpdateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOTAUpdateResponse => __isa(o, "CreateOTAUpdateResponse");
 }
 
 /**
  * <p>The input for the CreatePolicy operation.</p>
  */
 export interface CreatePolicyRequest {
-  __type?: "CreatePolicyRequest";
   /**
    * <p>Metadata which can be used to manage the policy.</p>
    *          <note>
@@ -3096,14 +2891,12 @@ export namespace CreatePolicyRequest {
   export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyRequest => __isa(o, "CreatePolicyRequest");
 }
 
 /**
  * <p>The output from the CreatePolicy operation.</p>
  */
 export interface CreatePolicyResponse {
-  __type?: "CreatePolicyResponse";
   /**
    * <p>The JSON document that describes the policy.</p>
    */
@@ -3129,14 +2922,12 @@ export namespace CreatePolicyResponse {
   export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyResponse => __isa(o, "CreatePolicyResponse");
 }
 
 /**
  * <p>The input for the CreatePolicyVersion operation.</p>
  */
 export interface CreatePolicyVersionRequest {
-  __type?: "CreatePolicyVersionRequest";
   /**
    * <p>Specifies whether the policy version is set as the default. When this parameter is
    *          true, the new policy version becomes the operative version (that is, the version that is in
@@ -3160,14 +2951,12 @@ export namespace CreatePolicyVersionRequest {
   export const filterSensitiveLog = (obj: CreatePolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyVersionRequest => __isa(o, "CreatePolicyVersionRequest");
 }
 
 /**
  * <p>The output of the CreatePolicyVersion operation.</p>
  */
 export interface CreatePolicyVersionResponse {
-  __type?: "CreatePolicyVersionResponse";
   /**
    * <p>The JSON document that describes the policy.</p>
    */
@@ -3193,11 +2982,9 @@ export namespace CreatePolicyVersionResponse {
   export const filterSensitiveLog = (obj: CreatePolicyVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyVersionResponse => __isa(o, "CreatePolicyVersionResponse");
 }
 
 export interface CreateProvisioningClaimRequest {
-  __type?: "CreateProvisioningClaimRequest";
   /**
    * <p>The name of the provisioning template to use.</p>
    */
@@ -3208,11 +2995,9 @@ export namespace CreateProvisioningClaimRequest {
   export const filterSensitiveLog = (obj: CreateProvisioningClaimRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProvisioningClaimRequest => __isa(o, "CreateProvisioningClaimRequest");
 }
 
 export interface CreateProvisioningClaimResponse {
-  __type?: "CreateProvisioningClaimResponse";
   /**
    * <p>The provisioning claim certificate.</p>
    */
@@ -3239,11 +3024,9 @@ export namespace CreateProvisioningClaimResponse {
     ...obj,
     ...(obj.keyPair && { keyPair: KeyPair.filterSensitiveLog(obj.keyPair) }),
   });
-  export const isa = (o: any): o is CreateProvisioningClaimResponse => __isa(o, "CreateProvisioningClaimResponse");
 }
 
 export interface CreateProvisioningTemplateRequest {
-  __type?: "CreateProvisioningTemplateRequest";
   /**
    * <p>The description of the fleet provisioning template.</p>
    */
@@ -3292,11 +3075,9 @@ export namespace CreateProvisioningTemplateRequest {
   export const filterSensitiveLog = (obj: CreateProvisioningTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProvisioningTemplateRequest => __isa(o, "CreateProvisioningTemplateRequest");
 }
 
 export interface CreateProvisioningTemplateResponse {
-  __type?: "CreateProvisioningTemplateResponse";
   /**
    * <p>The name of the fleet provisioning template.</p>
    */
@@ -3317,12 +3098,9 @@ export namespace CreateProvisioningTemplateResponse {
   export const filterSensitiveLog = (obj: CreateProvisioningTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProvisioningTemplateResponse =>
-    __isa(o, "CreateProvisioningTemplateResponse");
 }
 
 export interface CreateProvisioningTemplateVersionRequest {
-  __type?: "CreateProvisioningTemplateVersionRequest";
   /**
    * <p>Sets a fleet provision template version as the default version.</p>
    */
@@ -3343,12 +3121,9 @@ export namespace CreateProvisioningTemplateVersionRequest {
   export const filterSensitiveLog = (obj: CreateProvisioningTemplateVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProvisioningTemplateVersionRequest =>
-    __isa(o, "CreateProvisioningTemplateVersionRequest");
 }
 
 export interface CreateProvisioningTemplateVersionResponse {
-  __type?: "CreateProvisioningTemplateVersionResponse";
   /**
    * <p>True if the fleet provisioning template version is the default version, otherwise
    *          false.</p>
@@ -3375,12 +3150,9 @@ export namespace CreateProvisioningTemplateVersionResponse {
   export const filterSensitiveLog = (obj: CreateProvisioningTemplateVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProvisioningTemplateVersionResponse =>
-    __isa(o, "CreateProvisioningTemplateVersionResponse");
 }
 
 export interface CreateRoleAliasRequest {
-  __type?: "CreateRoleAliasRequest";
   /**
    * <p>The role ARN.</p>
    */
@@ -3414,11 +3186,9 @@ export namespace CreateRoleAliasRequest {
   export const filterSensitiveLog = (obj: CreateRoleAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoleAliasRequest => __isa(o, "CreateRoleAliasRequest");
 }
 
 export interface CreateRoleAliasResponse {
-  __type?: "CreateRoleAliasResponse";
   /**
    * <p>The role alias ARN.</p>
    */
@@ -3434,11 +3204,9 @@ export namespace CreateRoleAliasResponse {
   export const filterSensitiveLog = (obj: CreateRoleAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoleAliasResponse => __isa(o, "CreateRoleAliasResponse");
 }
 
 export interface CreateScheduledAuditRequest {
-  __type?: "CreateScheduledAuditRequest";
   /**
    * <p>The day of the week on which the scheduled audit takes place. Can be one of
    *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
@@ -3484,11 +3252,9 @@ export namespace CreateScheduledAuditRequest {
   export const filterSensitiveLog = (obj: CreateScheduledAuditRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScheduledAuditRequest => __isa(o, "CreateScheduledAuditRequest");
 }
 
 export interface CreateScheduledAuditResponse {
-  __type?: "CreateScheduledAuditResponse";
   /**
    * <p>The ARN of the scheduled audit.</p>
    */
@@ -3499,11 +3265,9 @@ export namespace CreateScheduledAuditResponse {
   export const filterSensitiveLog = (obj: CreateScheduledAuditResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScheduledAuditResponse => __isa(o, "CreateScheduledAuditResponse");
 }
 
 export interface CreateSecurityProfileRequest {
-  __type?: "CreateSecurityProfileRequest";
   /**
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
    *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
@@ -3549,11 +3313,9 @@ export namespace CreateSecurityProfileRequest {
   export const filterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityProfileRequest => __isa(o, "CreateSecurityProfileRequest");
 }
 
 export interface CreateSecurityProfileResponse {
-  __type?: "CreateSecurityProfileResponse";
   /**
    * <p>The ARN of the security profile.</p>
    */
@@ -3569,11 +3331,9 @@ export namespace CreateSecurityProfileResponse {
   export const filterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityProfileResponse => __isa(o, "CreateSecurityProfileResponse");
 }
 
 export interface CreateStreamRequest {
-  __type?: "CreateStreamRequest";
   /**
    * <p>The stream ID.</p>
    */
@@ -3604,11 +3364,9 @@ export namespace CreateStreamRequest {
   export const filterSensitiveLog = (obj: CreateStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamRequest => __isa(o, "CreateStreamRequest");
 }
 
 export interface CreateStreamResponse {
-  __type?: "CreateStreamResponse";
   /**
    * <p>The stream ARN.</p>
    */
@@ -3634,11 +3392,9 @@ export namespace CreateStreamResponse {
   export const filterSensitiveLog = (obj: CreateStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamResponse => __isa(o, "CreateStreamResponse");
 }
 
 export interface CreateThingGroupRequest {
-  __type?: "CreateThingGroupRequest";
   /**
    * <p>The name of the parent thing group.</p>
    */
@@ -3664,11 +3420,9 @@ export namespace CreateThingGroupRequest {
   export const filterSensitiveLog = (obj: CreateThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThingGroupRequest => __isa(o, "CreateThingGroupRequest");
 }
 
 export interface CreateThingGroupResponse {
-  __type?: "CreateThingGroupResponse";
   /**
    * <p>The thing group ID.</p>
    */
@@ -3689,14 +3443,12 @@ export namespace CreateThingGroupResponse {
   export const filterSensitiveLog = (obj: CreateThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThingGroupResponse => __isa(o, "CreateThingGroupResponse");
 }
 
 /**
  * <p>The input for the CreateThing operation.</p>
  */
 export interface CreateThingRequest {
-  __type?: "CreateThingRequest";
   /**
    * <p>The name of the billing group the thing will be added to.</p>
    */
@@ -3728,14 +3480,12 @@ export namespace CreateThingRequest {
   export const filterSensitiveLog = (obj: CreateThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThingRequest => __isa(o, "CreateThingRequest");
 }
 
 /**
  * <p>The output of the CreateThing operation.</p>
  */
 export interface CreateThingResponse {
-  __type?: "CreateThingResponse";
   /**
    * <p>The ARN of the new thing.</p>
    */
@@ -3756,14 +3506,12 @@ export namespace CreateThingResponse {
   export const filterSensitiveLog = (obj: CreateThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThingResponse => __isa(o, "CreateThingResponse");
 }
 
 /**
  * <p>The input for the CreateThingType operation.</p>
  */
 export interface CreateThingTypeRequest {
-  __type?: "CreateThingTypeRequest";
   /**
    * <p>The ThingTypeProperties for the thing type to create. It contains information about
    * 			the new thing type including a description, and a list of searchable thing attribute
@@ -3786,14 +3534,12 @@ export namespace CreateThingTypeRequest {
   export const filterSensitiveLog = (obj: CreateThingTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThingTypeRequest => __isa(o, "CreateThingTypeRequest");
 }
 
 /**
  * <p>The output of the CreateThingType operation.</p>
  */
 export interface CreateThingTypeResponse {
-  __type?: "CreateThingTypeResponse";
   /**
    * <p>The thing type ID.</p>
    */
@@ -3814,11 +3560,9 @@ export namespace CreateThingTypeResponse {
   export const filterSensitiveLog = (obj: CreateThingTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThingTypeResponse => __isa(o, "CreateThingTypeResponse");
 }
 
 export interface CreateTopicRuleDestinationRequest {
-  __type?: "CreateTopicRuleDestinationRequest";
   /**
    * <p>The topic rule destination configuration.</p>
    */
@@ -3829,11 +3573,9 @@ export namespace CreateTopicRuleDestinationRequest {
   export const filterSensitiveLog = (obj: CreateTopicRuleDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTopicRuleDestinationRequest => __isa(o, "CreateTopicRuleDestinationRequest");
 }
 
 export interface CreateTopicRuleDestinationResponse {
-  __type?: "CreateTopicRuleDestinationResponse";
   /**
    * <p>The topic rule destination.</p>
    */
@@ -3844,15 +3586,12 @@ export namespace CreateTopicRuleDestinationResponse {
   export const filterSensitiveLog = (obj: CreateTopicRuleDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTopicRuleDestinationResponse =>
-    __isa(o, "CreateTopicRuleDestinationResponse");
 }
 
 /**
  * <p>The input for the CreateTopicRule operation.</p>
  */
 export interface CreateTopicRuleRequest {
-  __type?: "CreateTopicRuleRequest";
   /**
    * <p>The rule payload.</p>
    */
@@ -3880,14 +3619,12 @@ export namespace CreateTopicRuleRequest {
   export const filterSensitiveLog = (obj: CreateTopicRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTopicRuleRequest => __isa(o, "CreateTopicRuleRequest");
 }
 
 /**
  * <p>Describes a custom method used to code sign a file.</p>
  */
 export interface CustomCodeSigning {
-  __type?: "CustomCodeSigning";
   /**
    * <p>The signature algorithm used to code sign the file.</p>
    */
@@ -3913,7 +3650,6 @@ export namespace CustomCodeSigning {
   export const filterSensitiveLog = (obj: CustomCodeSigning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomCodeSigning => __isa(o, "CustomCodeSigning");
 }
 
 export enum DayOfWeek {
@@ -3927,7 +3663,6 @@ export enum DayOfWeek {
 }
 
 export interface DeleteAccountAuditConfigurationRequest {
-  __type?: "DeleteAccountAuditConfigurationRequest";
   /**
    * <p>If true, all scheduled audits are deleted.</p>
    */
@@ -3938,24 +3673,17 @@ export namespace DeleteAccountAuditConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteAccountAuditConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountAuditConfigurationRequest =>
-    __isa(o, "DeleteAccountAuditConfigurationRequest");
 }
 
-export interface DeleteAccountAuditConfigurationResponse {
-  __type?: "DeleteAccountAuditConfigurationResponse";
-}
+export interface DeleteAccountAuditConfigurationResponse {}
 
 export namespace DeleteAccountAuditConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteAccountAuditConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountAuditConfigurationResponse =>
-    __isa(o, "DeleteAccountAuditConfigurationResponse");
 }
 
 export interface DeleteAuthorizerRequest {
-  __type?: "DeleteAuthorizerRequest";
   /**
    * <p>The name of the authorizer to delete.</p>
    */
@@ -3966,22 +3694,17 @@ export namespace DeleteAuthorizerRequest {
   export const filterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAuthorizerRequest => __isa(o, "DeleteAuthorizerRequest");
 }
 
-export interface DeleteAuthorizerResponse {
-  __type?: "DeleteAuthorizerResponse";
-}
+export interface DeleteAuthorizerResponse {}
 
 export namespace DeleteAuthorizerResponse {
   export const filterSensitiveLog = (obj: DeleteAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAuthorizerResponse => __isa(o, "DeleteAuthorizerResponse");
 }
 
 export interface DeleteBillingGroupRequest {
-  __type?: "DeleteBillingGroupRequest";
   /**
    * <p>The expected version of the billing group. If the version of the billing group does
    * 			not match the expected version specified in the request, the
@@ -4000,25 +3723,20 @@ export namespace DeleteBillingGroupRequest {
   export const filterSensitiveLog = (obj: DeleteBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBillingGroupRequest => __isa(o, "DeleteBillingGroupRequest");
 }
 
-export interface DeleteBillingGroupResponse {
-  __type?: "DeleteBillingGroupResponse";
-}
+export interface DeleteBillingGroupResponse {}
 
 export namespace DeleteBillingGroupResponse {
   export const filterSensitiveLog = (obj: DeleteBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBillingGroupResponse => __isa(o, "DeleteBillingGroupResponse");
 }
 
 /**
  * <p>Input for the DeleteCACertificate operation.</p>
  */
 export interface DeleteCACertificateRequest {
-  __type?: "DeleteCACertificateRequest";
   /**
    * <p>The ID of the certificate to delete. (The last part of the certificate ARN contains
    *          the certificate ID.)</p>
@@ -4030,28 +3748,23 @@ export namespace DeleteCACertificateRequest {
   export const filterSensitiveLog = (obj: DeleteCACertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCACertificateRequest => __isa(o, "DeleteCACertificateRequest");
 }
 
 /**
  * <p>The output for the DeleteCACertificate operation.</p>
  */
-export interface DeleteCACertificateResponse {
-  __type?: "DeleteCACertificateResponse";
-}
+export interface DeleteCACertificateResponse {}
 
 export namespace DeleteCACertificateResponse {
   export const filterSensitiveLog = (obj: DeleteCACertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCACertificateResponse => __isa(o, "DeleteCACertificateResponse");
 }
 
 /**
  * <p>The input for the DeleteCertificate operation.</p>
  */
 export interface DeleteCertificateRequest {
-  __type?: "DeleteCertificateRequest";
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
@@ -4069,7 +3782,6 @@ export namespace DeleteCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateRequest => __isa(o, "DeleteCertificateRequest");
 }
 
 /**
@@ -4089,11 +3801,9 @@ export namespace DeleteConflictException {
   export const filterSensitiveLog = (obj: DeleteConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConflictException => __isa(o, "DeleteConflictException");
 }
 
 export interface DeleteDimensionRequest {
-  __type?: "DeleteDimensionRequest";
   /**
    * <p>The unique identifier for the dimension that you want to delete.</p>
    */
@@ -4104,22 +3814,17 @@ export namespace DeleteDimensionRequest {
   export const filterSensitiveLog = (obj: DeleteDimensionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDimensionRequest => __isa(o, "DeleteDimensionRequest");
 }
 
-export interface DeleteDimensionResponse {
-  __type?: "DeleteDimensionResponse";
-}
+export interface DeleteDimensionResponse {}
 
 export namespace DeleteDimensionResponse {
   export const filterSensitiveLog = (obj: DeleteDimensionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDimensionResponse => __isa(o, "DeleteDimensionResponse");
 }
 
 export interface DeleteDomainConfigurationRequest {
-  __type?: "DeleteDomainConfigurationRequest";
   /**
    * <p>The name of the domain configuration to be deleted.</p>
    */
@@ -4130,22 +3835,17 @@ export namespace DeleteDomainConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteDomainConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainConfigurationRequest => __isa(o, "DeleteDomainConfigurationRequest");
 }
 
-export interface DeleteDomainConfigurationResponse {
-  __type?: "DeleteDomainConfigurationResponse";
-}
+export interface DeleteDomainConfigurationResponse {}
 
 export namespace DeleteDomainConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteDomainConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainConfigurationResponse => __isa(o, "DeleteDomainConfigurationResponse");
 }
 
 export interface DeleteDynamicThingGroupRequest {
-  __type?: "DeleteDynamicThingGroupRequest";
   /**
    * <p>The expected version of the dynamic thing group to delete.</p>
    */
@@ -4161,22 +3861,17 @@ export namespace DeleteDynamicThingGroupRequest {
   export const filterSensitiveLog = (obj: DeleteDynamicThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDynamicThingGroupRequest => __isa(o, "DeleteDynamicThingGroupRequest");
 }
 
-export interface DeleteDynamicThingGroupResponse {
-  __type?: "DeleteDynamicThingGroupResponse";
-}
+export interface DeleteDynamicThingGroupResponse {}
 
 export namespace DeleteDynamicThingGroupResponse {
   export const filterSensitiveLog = (obj: DeleteDynamicThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDynamicThingGroupResponse => __isa(o, "DeleteDynamicThingGroupResponse");
 }
 
 export interface DeleteJobExecutionRequest {
-  __type?: "DeleteJobExecutionRequest";
   /**
    * <p>The ID of the job whose execution on a particular device will be deleted.</p>
    */
@@ -4212,11 +3907,9 @@ export namespace DeleteJobExecutionRequest {
   export const filterSensitiveLog = (obj: DeleteJobExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobExecutionRequest => __isa(o, "DeleteJobExecutionRequest");
 }
 
 export interface DeleteJobRequest {
-  __type?: "DeleteJobRequest";
   /**
    * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
    *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
@@ -4243,11 +3936,9 @@ export namespace DeleteJobRequest {
   export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobRequest => __isa(o, "DeleteJobRequest");
 }
 
 export interface DeleteMitigationActionRequest {
-  __type?: "DeleteMitigationActionRequest";
   /**
    * <p>The name of the mitigation action that you want to delete.</p>
    */
@@ -4258,22 +3949,17 @@ export namespace DeleteMitigationActionRequest {
   export const filterSensitiveLog = (obj: DeleteMitigationActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMitigationActionRequest => __isa(o, "DeleteMitigationActionRequest");
 }
 
-export interface DeleteMitigationActionResponse {
-  __type?: "DeleteMitigationActionResponse";
-}
+export interface DeleteMitigationActionResponse {}
 
 export namespace DeleteMitigationActionResponse {
   export const filterSensitiveLog = (obj: DeleteMitigationActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMitigationActionResponse => __isa(o, "DeleteMitigationActionResponse");
 }
 
 export interface DeleteOTAUpdateRequest {
-  __type?: "DeleteOTAUpdateRequest";
   /**
    * <p>Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.</p>
    */
@@ -4294,25 +3980,20 @@ export namespace DeleteOTAUpdateRequest {
   export const filterSensitiveLog = (obj: DeleteOTAUpdateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOTAUpdateRequest => __isa(o, "DeleteOTAUpdateRequest");
 }
 
-export interface DeleteOTAUpdateResponse {
-  __type?: "DeleteOTAUpdateResponse";
-}
+export interface DeleteOTAUpdateResponse {}
 
 export namespace DeleteOTAUpdateResponse {
   export const filterSensitiveLog = (obj: DeleteOTAUpdateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOTAUpdateResponse => __isa(o, "DeleteOTAUpdateResponse");
 }
 
 /**
  * <p>The input for the DeletePolicy operation.</p>
  */
 export interface DeletePolicyRequest {
-  __type?: "DeletePolicyRequest";
   /**
    * <p>The name of the policy to delete.</p>
    */
@@ -4323,14 +4004,12 @@ export namespace DeletePolicyRequest {
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 /**
  * <p>The input for the DeletePolicyVersion operation.</p>
  */
 export interface DeletePolicyVersionRequest {
-  __type?: "DeletePolicyVersionRequest";
   /**
    * <p>The policy version ID.</p>
    */
@@ -4346,11 +4025,9 @@ export namespace DeletePolicyVersionRequest {
   export const filterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyVersionRequest => __isa(o, "DeletePolicyVersionRequest");
 }
 
 export interface DeleteProvisioningTemplateRequest {
-  __type?: "DeleteProvisioningTemplateRequest";
   /**
    * <p>The name of the fleet provision template to delete.</p>
    */
@@ -4361,23 +4038,17 @@ export namespace DeleteProvisioningTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProvisioningTemplateRequest => __isa(o, "DeleteProvisioningTemplateRequest");
 }
 
-export interface DeleteProvisioningTemplateResponse {
-  __type?: "DeleteProvisioningTemplateResponse";
-}
+export interface DeleteProvisioningTemplateResponse {}
 
 export namespace DeleteProvisioningTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProvisioningTemplateResponse =>
-    __isa(o, "DeleteProvisioningTemplateResponse");
 }
 
 export interface DeleteProvisioningTemplateVersionRequest {
-  __type?: "DeleteProvisioningTemplateVersionRequest";
   /**
    * <p>The name of the fleet provisioning template version to delete.</p>
    */
@@ -4393,52 +4064,39 @@ export namespace DeleteProvisioningTemplateVersionRequest {
   export const filterSensitiveLog = (obj: DeleteProvisioningTemplateVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProvisioningTemplateVersionRequest =>
-    __isa(o, "DeleteProvisioningTemplateVersionRequest");
 }
 
-export interface DeleteProvisioningTemplateVersionResponse {
-  __type?: "DeleteProvisioningTemplateVersionResponse";
-}
+export interface DeleteProvisioningTemplateVersionResponse {}
 
 export namespace DeleteProvisioningTemplateVersionResponse {
   export const filterSensitiveLog = (obj: DeleteProvisioningTemplateVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProvisioningTemplateVersionResponse =>
-    __isa(o, "DeleteProvisioningTemplateVersionResponse");
 }
 
 /**
  * <p>The input for the DeleteRegistrationCode operation.</p>
  */
-export interface DeleteRegistrationCodeRequest {
-  __type?: "DeleteRegistrationCodeRequest";
-}
+export interface DeleteRegistrationCodeRequest {}
 
 export namespace DeleteRegistrationCodeRequest {
   export const filterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegistrationCodeRequest => __isa(o, "DeleteRegistrationCodeRequest");
 }
 
 /**
  * <p>The output for the DeleteRegistrationCode operation.</p>
  */
-export interface DeleteRegistrationCodeResponse {
-  __type?: "DeleteRegistrationCodeResponse";
-}
+export interface DeleteRegistrationCodeResponse {}
 
 export namespace DeleteRegistrationCodeResponse {
   export const filterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegistrationCodeResponse => __isa(o, "DeleteRegistrationCodeResponse");
 }
 
 export interface DeleteRoleAliasRequest {
-  __type?: "DeleteRoleAliasRequest";
   /**
    * <p>The role alias to delete.</p>
    */
@@ -4449,22 +4107,17 @@ export namespace DeleteRoleAliasRequest {
   export const filterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoleAliasRequest => __isa(o, "DeleteRoleAliasRequest");
 }
 
-export interface DeleteRoleAliasResponse {
-  __type?: "DeleteRoleAliasResponse";
-}
+export interface DeleteRoleAliasResponse {}
 
 export namespace DeleteRoleAliasResponse {
   export const filterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoleAliasResponse => __isa(o, "DeleteRoleAliasResponse");
 }
 
 export interface DeleteScheduledAuditRequest {
-  __type?: "DeleteScheduledAuditRequest";
   /**
    * <p>The name of the scheduled audit you want to delete.</p>
    */
@@ -4475,22 +4128,17 @@ export namespace DeleteScheduledAuditRequest {
   export const filterSensitiveLog = (obj: DeleteScheduledAuditRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledAuditRequest => __isa(o, "DeleteScheduledAuditRequest");
 }
 
-export interface DeleteScheduledAuditResponse {
-  __type?: "DeleteScheduledAuditResponse";
-}
+export interface DeleteScheduledAuditResponse {}
 
 export namespace DeleteScheduledAuditResponse {
   export const filterSensitiveLog = (obj: DeleteScheduledAuditResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledAuditResponse => __isa(o, "DeleteScheduledAuditResponse");
 }
 
 export interface DeleteSecurityProfileRequest {
-  __type?: "DeleteSecurityProfileRequest";
   /**
    * <p>The expected version of the security profile. A new version is generated whenever
    *         the security profile is updated. If you specify a value that is different from the actual
@@ -4508,22 +4156,17 @@ export namespace DeleteSecurityProfileRequest {
   export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityProfileRequest => __isa(o, "DeleteSecurityProfileRequest");
 }
 
-export interface DeleteSecurityProfileResponse {
-  __type?: "DeleteSecurityProfileResponse";
-}
+export interface DeleteSecurityProfileResponse {}
 
 export namespace DeleteSecurityProfileResponse {
   export const filterSensitiveLog = (obj: DeleteSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityProfileResponse => __isa(o, "DeleteSecurityProfileResponse");
 }
 
 export interface DeleteStreamRequest {
-  __type?: "DeleteStreamRequest";
   /**
    * <p>The stream ID.</p>
    */
@@ -4534,22 +4177,17 @@ export namespace DeleteStreamRequest {
   export const filterSensitiveLog = (obj: DeleteStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamRequest => __isa(o, "DeleteStreamRequest");
 }
 
-export interface DeleteStreamResponse {
-  __type?: "DeleteStreamResponse";
-}
+export interface DeleteStreamResponse {}
 
 export namespace DeleteStreamResponse {
   export const filterSensitiveLog = (obj: DeleteStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamResponse => __isa(o, "DeleteStreamResponse");
 }
 
 export interface DeleteThingGroupRequest {
-  __type?: "DeleteThingGroupRequest";
   /**
    * <p>The expected version of the thing group to delete.</p>
    */
@@ -4565,25 +4203,20 @@ export namespace DeleteThingGroupRequest {
   export const filterSensitiveLog = (obj: DeleteThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingGroupRequest => __isa(o, "DeleteThingGroupRequest");
 }
 
-export interface DeleteThingGroupResponse {
-  __type?: "DeleteThingGroupResponse";
-}
+export interface DeleteThingGroupResponse {}
 
 export namespace DeleteThingGroupResponse {
   export const filterSensitiveLog = (obj: DeleteThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingGroupResponse => __isa(o, "DeleteThingGroupResponse");
 }
 
 /**
  * <p>The input for the DeleteThing operation.</p>
  */
 export interface DeleteThingRequest {
-  __type?: "DeleteThingRequest";
   /**
    * <p>The name of the thing to delete.</p>
    */
@@ -4602,28 +4235,23 @@ export namespace DeleteThingRequest {
   export const filterSensitiveLog = (obj: DeleteThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingRequest => __isa(o, "DeleteThingRequest");
 }
 
 /**
  * <p>The output of the DeleteThing operation.</p>
  */
-export interface DeleteThingResponse {
-  __type?: "DeleteThingResponse";
-}
+export interface DeleteThingResponse {}
 
 export namespace DeleteThingResponse {
   export const filterSensitiveLog = (obj: DeleteThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingResponse => __isa(o, "DeleteThingResponse");
 }
 
 /**
  * <p>The input for the DeleteThingType operation.</p>
  */
 export interface DeleteThingTypeRequest {
-  __type?: "DeleteThingTypeRequest";
   /**
    * <p>The name of the thing type.</p>
    */
@@ -4634,25 +4262,20 @@ export namespace DeleteThingTypeRequest {
   export const filterSensitiveLog = (obj: DeleteThingTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingTypeRequest => __isa(o, "DeleteThingTypeRequest");
 }
 
 /**
  * <p>The output for the DeleteThingType operation.</p>
  */
-export interface DeleteThingTypeResponse {
-  __type?: "DeleteThingTypeResponse";
-}
+export interface DeleteThingTypeResponse {}
 
 export namespace DeleteThingTypeResponse {
   export const filterSensitiveLog = (obj: DeleteThingTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingTypeResponse => __isa(o, "DeleteThingTypeResponse");
 }
 
 export interface DeleteTopicRuleDestinationRequest {
-  __type?: "DeleteTopicRuleDestinationRequest";
   /**
    * <p>The ARN of the topic rule destination to delete.</p>
    */
@@ -4663,26 +4286,20 @@ export namespace DeleteTopicRuleDestinationRequest {
   export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTopicRuleDestinationRequest => __isa(o, "DeleteTopicRuleDestinationRequest");
 }
 
-export interface DeleteTopicRuleDestinationResponse {
-  __type?: "DeleteTopicRuleDestinationResponse";
-}
+export interface DeleteTopicRuleDestinationResponse {}
 
 export namespace DeleteTopicRuleDestinationResponse {
   export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTopicRuleDestinationResponse =>
-    __isa(o, "DeleteTopicRuleDestinationResponse");
 }
 
 /**
  * <p>The input for the DeleteTopicRule operation.</p>
  */
 export interface DeleteTopicRuleRequest {
-  __type?: "DeleteTopicRuleRequest";
   /**
    * <p>The name of the rule.</p>
    */
@@ -4693,11 +4310,9 @@ export namespace DeleteTopicRuleRequest {
   export const filterSensitiveLog = (obj: DeleteTopicRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTopicRuleRequest => __isa(o, "DeleteTopicRuleRequest");
 }
 
 export interface DeleteV2LoggingLevelRequest {
-  __type?: "DeleteV2LoggingLevelRequest";
   /**
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
@@ -4714,14 +4329,12 @@ export namespace DeleteV2LoggingLevelRequest {
   export const filterSensitiveLog = (obj: DeleteV2LoggingLevelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteV2LoggingLevelRequest => __isa(o, "DeleteV2LoggingLevelRequest");
 }
 
 /**
  * <p>Contains information that denied the authorization.</p>
  */
 export interface Denied {
-  __type?: "Denied";
   /**
    * <p>Information that explicitly denies the authorization. </p>
    */
@@ -4739,14 +4352,12 @@ export namespace Denied {
   export const filterSensitiveLog = (obj: Denied): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Denied => __isa(o, "Denied");
 }
 
 /**
  * <p>The input for the DeprecateThingType operation.</p>
  */
 export interface DeprecateThingTypeRequest {
-  __type?: "DeprecateThingTypeRequest";
   /**
    * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
    * 			associate it with things.</p>
@@ -4763,37 +4374,28 @@ export namespace DeprecateThingTypeRequest {
   export const filterSensitiveLog = (obj: DeprecateThingTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprecateThingTypeRequest => __isa(o, "DeprecateThingTypeRequest");
 }
 
 /**
  * <p>The output for the DeprecateThingType operation.</p>
  */
-export interface DeprecateThingTypeResponse {
-  __type?: "DeprecateThingTypeResponse";
-}
+export interface DeprecateThingTypeResponse {}
 
 export namespace DeprecateThingTypeResponse {
   export const filterSensitiveLog = (obj: DeprecateThingTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprecateThingTypeResponse => __isa(o, "DeprecateThingTypeResponse");
 }
 
-export interface DescribeAccountAuditConfigurationRequest {
-  __type?: "DescribeAccountAuditConfigurationRequest";
-}
+export interface DescribeAccountAuditConfigurationRequest {}
 
 export namespace DescribeAccountAuditConfigurationRequest {
   export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAuditConfigurationRequest =>
-    __isa(o, "DescribeAccountAuditConfigurationRequest");
 }
 
 export interface DescribeAccountAuditConfigurationResponse {
-  __type?: "DescribeAccountAuditConfigurationResponse";
   /**
    * <p>The ARN of the role that grants permission to AWS IoT to access information
    *             about your devices, policies, certificates, and other items as required when
@@ -4819,12 +4421,9 @@ export namespace DescribeAccountAuditConfigurationResponse {
   export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAuditConfigurationResponse =>
-    __isa(o, "DescribeAccountAuditConfigurationResponse");
 }
 
 export interface DescribeAuditFindingRequest {
-  __type?: "DescribeAuditFindingRequest";
   /**
    * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
    */
@@ -4835,11 +4434,9 @@ export namespace DescribeAuditFindingRequest {
   export const filterSensitiveLog = (obj: DescribeAuditFindingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuditFindingRequest => __isa(o, "DescribeAuditFindingRequest");
 }
 
 export interface DescribeAuditFindingResponse {
-  __type?: "DescribeAuditFindingResponse";
   /**
    * <p>The findings (results) of the audit.</p>
    */
@@ -4850,11 +4447,9 @@ export namespace DescribeAuditFindingResponse {
   export const filterSensitiveLog = (obj: DescribeAuditFindingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuditFindingResponse => __isa(o, "DescribeAuditFindingResponse");
 }
 
 export interface DescribeAuditMitigationActionsTaskRequest {
-  __type?: "DescribeAuditMitigationActionsTaskRequest";
   /**
    * <p>The unique identifier for the audit mitigation task.</p>
    */
@@ -4865,12 +4460,9 @@ export namespace DescribeAuditMitigationActionsTaskRequest {
   export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuditMitigationActionsTaskRequest =>
-    __isa(o, "DescribeAuditMitigationActionsTaskRequest");
 }
 
 export interface DescribeAuditMitigationActionsTaskResponse {
-  __type?: "DescribeAuditMitigationActionsTaskResponse";
   /**
    * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
    */
@@ -4911,12 +4503,9 @@ export namespace DescribeAuditMitigationActionsTaskResponse {
   export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuditMitigationActionsTaskResponse =>
-    __isa(o, "DescribeAuditMitigationActionsTaskResponse");
 }
 
 export interface DescribeAuditTaskRequest {
-  __type?: "DescribeAuditTaskRequest";
   /**
    * <p>The ID of the audit whose information you want to get.</p>
    */
@@ -4927,11 +4516,9 @@ export namespace DescribeAuditTaskRequest {
   export const filterSensitiveLog = (obj: DescribeAuditTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuditTaskRequest => __isa(o, "DescribeAuditTaskRequest");
 }
 
 export interface DescribeAuditTaskResponse {
-  __type?: "DescribeAuditTaskResponse";
   /**
    * <p>Detailed information about each check performed during this audit.</p>
    */
@@ -4968,11 +4555,9 @@ export namespace DescribeAuditTaskResponse {
   export const filterSensitiveLog = (obj: DescribeAuditTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuditTaskResponse => __isa(o, "DescribeAuditTaskResponse");
 }
 
 export interface DescribeAuthorizerRequest {
-  __type?: "DescribeAuthorizerRequest";
   /**
    * <p>The name of the authorizer to describe.</p>
    */
@@ -4983,11 +4568,9 @@ export namespace DescribeAuthorizerRequest {
   export const filterSensitiveLog = (obj: DescribeAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuthorizerRequest => __isa(o, "DescribeAuthorizerRequest");
 }
 
 export interface DescribeAuthorizerResponse {
-  __type?: "DescribeAuthorizerResponse";
   /**
    * <p>The authorizer description.</p>
    */
@@ -4998,11 +4581,9 @@ export namespace DescribeAuthorizerResponse {
   export const filterSensitiveLog = (obj: DescribeAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAuthorizerResponse => __isa(o, "DescribeAuthorizerResponse");
 }
 
 export interface DescribeBillingGroupRequest {
-  __type?: "DescribeBillingGroupRequest";
   /**
    * <p>The name of the billing group.</p>
    */
@@ -5013,11 +4594,9 @@ export namespace DescribeBillingGroupRequest {
   export const filterSensitiveLog = (obj: DescribeBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBillingGroupRequest => __isa(o, "DescribeBillingGroupRequest");
 }
 
 export interface DescribeBillingGroupResponse {
-  __type?: "DescribeBillingGroupResponse";
   /**
    * <p>The version of the billing group.</p>
    */
@@ -5053,14 +4632,12 @@ export namespace DescribeBillingGroupResponse {
   export const filterSensitiveLog = (obj: DescribeBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBillingGroupResponse => __isa(o, "DescribeBillingGroupResponse");
 }
 
 /**
  * <p>The input for the DescribeCACertificate operation.</p>
  */
 export interface DescribeCACertificateRequest {
-  __type?: "DescribeCACertificateRequest";
   /**
    * <p>The CA certificate identifier.</p>
    */
@@ -5071,14 +4648,12 @@ export namespace DescribeCACertificateRequest {
   export const filterSensitiveLog = (obj: DescribeCACertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCACertificateRequest => __isa(o, "DescribeCACertificateRequest");
 }
 
 /**
  * <p>The output from the DescribeCACertificate operation.</p>
  */
 export interface DescribeCACertificateResponse {
-  __type?: "DescribeCACertificateResponse";
   /**
    * <p>Information about the registration configuration.</p>
    */
@@ -5094,14 +4669,12 @@ export namespace DescribeCACertificateResponse {
   export const filterSensitiveLog = (obj: DescribeCACertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCACertificateResponse => __isa(o, "DescribeCACertificateResponse");
 }
 
 /**
  * <p>The input for the DescribeCertificate operation.</p>
  */
 export interface DescribeCertificateRequest {
-  __type?: "DescribeCertificateRequest";
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
@@ -5113,14 +4686,12 @@ export namespace DescribeCertificateRequest {
   export const filterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificateRequest => __isa(o, "DescribeCertificateRequest");
 }
 
 /**
  * <p>The output of the DescribeCertificate operation.</p>
  */
 export interface DescribeCertificateResponse {
-  __type?: "DescribeCertificateResponse";
   /**
    * <p>The description of the certificate.</p>
    */
@@ -5131,22 +4702,17 @@ export namespace DescribeCertificateResponse {
   export const filterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificateResponse => __isa(o, "DescribeCertificateResponse");
 }
 
-export interface DescribeDefaultAuthorizerRequest {
-  __type?: "DescribeDefaultAuthorizerRequest";
-}
+export interface DescribeDefaultAuthorizerRequest {}
 
 export namespace DescribeDefaultAuthorizerRequest {
   export const filterSensitiveLog = (obj: DescribeDefaultAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDefaultAuthorizerRequest => __isa(o, "DescribeDefaultAuthorizerRequest");
 }
 
 export interface DescribeDefaultAuthorizerResponse {
-  __type?: "DescribeDefaultAuthorizerResponse";
   /**
    * <p>The default authorizer's description.</p>
    */
@@ -5157,11 +4723,9 @@ export namespace DescribeDefaultAuthorizerResponse {
   export const filterSensitiveLog = (obj: DescribeDefaultAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDefaultAuthorizerResponse => __isa(o, "DescribeDefaultAuthorizerResponse");
 }
 
 export interface DescribeDimensionRequest {
-  __type?: "DescribeDimensionRequest";
   /**
    * <p>The unique identifier for the dimension.</p>
    */
@@ -5172,11 +4736,9 @@ export namespace DescribeDimensionRequest {
   export const filterSensitiveLog = (obj: DescribeDimensionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDimensionRequest => __isa(o, "DescribeDimensionRequest");
 }
 
 export interface DescribeDimensionResponse {
-  __type?: "DescribeDimensionResponse";
   /**
    * <p>The date the dimension was last modified.</p>
    */
@@ -5212,11 +4774,9 @@ export namespace DescribeDimensionResponse {
   export const filterSensitiveLog = (obj: DescribeDimensionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDimensionResponse => __isa(o, "DescribeDimensionResponse");
 }
 
 export interface DescribeDomainConfigurationRequest {
-  __type?: "DescribeDomainConfigurationRequest";
   /**
    * <p>The name of the domain configuration.</p>
    */
@@ -5227,12 +4787,9 @@ export namespace DescribeDomainConfigurationRequest {
   export const filterSensitiveLog = (obj: DescribeDomainConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainConfigurationRequest =>
-    __isa(o, "DescribeDomainConfigurationRequest");
 }
 
 export interface DescribeDomainConfigurationResponse {
-  __type?: "DescribeDomainConfigurationResponse";
   /**
    * <p>An object that specifies the authorization service for a domain.</p>
    */
@@ -5278,15 +4835,12 @@ export namespace DescribeDomainConfigurationResponse {
   export const filterSensitiveLog = (obj: DescribeDomainConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainConfigurationResponse =>
-    __isa(o, "DescribeDomainConfigurationResponse");
 }
 
 /**
  * <p>The input for the DescribeEndpoint operation.</p>
  */
 export interface DescribeEndpointRequest {
-  __type?: "DescribeEndpointRequest";
   /**
    * <p>The endpoint type. Valid endpoint types include:</p>
    *          <ul>
@@ -5325,14 +4879,12 @@ export namespace DescribeEndpointRequest {
   export const filterSensitiveLog = (obj: DescribeEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointRequest => __isa(o, "DescribeEndpointRequest");
 }
 
 /**
  * <p>The output from the DescribeEndpoint operation.</p>
  */
 export interface DescribeEndpointResponse {
-  __type?: "DescribeEndpointResponse";
   /**
    * <p>The endpoint. The format of the endpoint is as follows:
    *             <i>identifier</i>.iot.<i>region</i>.amazonaws.com.</p>
@@ -5344,23 +4896,17 @@ export namespace DescribeEndpointResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointResponse => __isa(o, "DescribeEndpointResponse");
 }
 
-export interface DescribeEventConfigurationsRequest {
-  __type?: "DescribeEventConfigurationsRequest";
-}
+export interface DescribeEventConfigurationsRequest {}
 
 export namespace DescribeEventConfigurationsRequest {
   export const filterSensitiveLog = (obj: DescribeEventConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventConfigurationsRequest =>
-    __isa(o, "DescribeEventConfigurationsRequest");
 }
 
 export interface DescribeEventConfigurationsResponse {
-  __type?: "DescribeEventConfigurationsResponse";
   /**
    * <p>The date the event configurations were last modified.</p>
    */
@@ -5381,12 +4927,9 @@ export namespace DescribeEventConfigurationsResponse {
   export const filterSensitiveLog = (obj: DescribeEventConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventConfigurationsResponse =>
-    __isa(o, "DescribeEventConfigurationsResponse");
 }
 
 export interface DescribeIndexRequest {
-  __type?: "DescribeIndexRequest";
   /**
    * <p>The index name.</p>
    */
@@ -5397,11 +4940,9 @@ export namespace DescribeIndexRequest {
   export const filterSensitiveLog = (obj: DescribeIndexRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIndexRequest => __isa(o, "DescribeIndexRequest");
 }
 
 export interface DescribeIndexResponse {
-  __type?: "DescribeIndexResponse";
   /**
    * <p>The index status.</p>
    */
@@ -5439,11 +4980,9 @@ export namespace DescribeIndexResponse {
   export const filterSensitiveLog = (obj: DescribeIndexResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIndexResponse => __isa(o, "DescribeIndexResponse");
 }
 
 export interface DescribeJobExecutionRequest {
-  __type?: "DescribeJobExecutionRequest";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -5465,11 +5004,9 @@ export namespace DescribeJobExecutionRequest {
   export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionRequest => __isa(o, "DescribeJobExecutionRequest");
 }
 
 export interface DescribeJobExecutionResponse {
-  __type?: "DescribeJobExecutionResponse";
   /**
    * <p>Information about the job execution.</p>
    */
@@ -5480,11 +5017,9 @@ export namespace DescribeJobExecutionResponse {
   export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionResponse => __isa(o, "DescribeJobExecutionResponse");
 }
 
 export interface DescribeJobRequest {
-  __type?: "DescribeJobRequest";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -5495,11 +5030,9 @@ export namespace DescribeJobRequest {
   export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobRequest => __isa(o, "DescribeJobRequest");
 }
 
 export interface DescribeJobResponse {
-  __type?: "DescribeJobResponse";
   /**
    * <p>An S3 link to the job document.</p>
    */
@@ -5515,11 +5048,9 @@ export namespace DescribeJobResponse {
   export const filterSensitiveLog = (obj: DescribeJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobResponse => __isa(o, "DescribeJobResponse");
 }
 
 export interface DescribeMitigationActionRequest {
-  __type?: "DescribeMitigationActionRequest";
   /**
    * <p>The friendly name that uniquely identifies the mitigation action.</p>
    */
@@ -5530,11 +5061,9 @@ export namespace DescribeMitigationActionRequest {
   export const filterSensitiveLog = (obj: DescribeMitigationActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMitigationActionRequest => __isa(o, "DescribeMitigationActionRequest");
 }
 
 export interface DescribeMitigationActionResponse {
-  __type?: "DescribeMitigationActionResponse";
   /**
    * <p>The ARN of the IAM role used to apply this action.</p>
    */
@@ -5580,11 +5109,9 @@ export namespace DescribeMitigationActionResponse {
   export const filterSensitiveLog = (obj: DescribeMitigationActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMitigationActionResponse => __isa(o, "DescribeMitigationActionResponse");
 }
 
 export interface DescribeProvisioningTemplateRequest {
-  __type?: "DescribeProvisioningTemplateRequest";
   /**
    * <p>The name of the fleet provisioning template.</p>
    */
@@ -5595,12 +5122,9 @@ export namespace DescribeProvisioningTemplateRequest {
   export const filterSensitiveLog = (obj: DescribeProvisioningTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProvisioningTemplateRequest =>
-    __isa(o, "DescribeProvisioningTemplateRequest");
 }
 
 export interface DescribeProvisioningTemplateResponse {
-  __type?: "DescribeProvisioningTemplateResponse";
   /**
    * <p>The description of the fleet provisioning template.</p>
    */
@@ -5657,12 +5181,9 @@ export namespace DescribeProvisioningTemplateResponse {
   export const filterSensitiveLog = (obj: DescribeProvisioningTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProvisioningTemplateResponse =>
-    __isa(o, "DescribeProvisioningTemplateResponse");
 }
 
 export interface DescribeProvisioningTemplateVersionRequest {
-  __type?: "DescribeProvisioningTemplateVersionRequest";
   /**
    * <p>The template name.</p>
    */
@@ -5678,12 +5199,9 @@ export namespace DescribeProvisioningTemplateVersionRequest {
   export const filterSensitiveLog = (obj: DescribeProvisioningTemplateVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProvisioningTemplateVersionRequest =>
-    __isa(o, "DescribeProvisioningTemplateVersionRequest");
 }
 
 export interface DescribeProvisioningTemplateVersionResponse {
-  __type?: "DescribeProvisioningTemplateVersionResponse";
   /**
    * <p>The JSON formatted contents of the fleet provisioning template version.</p>
    */
@@ -5709,12 +5227,9 @@ export namespace DescribeProvisioningTemplateVersionResponse {
   export const filterSensitiveLog = (obj: DescribeProvisioningTemplateVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProvisioningTemplateVersionResponse =>
-    __isa(o, "DescribeProvisioningTemplateVersionResponse");
 }
 
 export interface DescribeRoleAliasRequest {
-  __type?: "DescribeRoleAliasRequest";
   /**
    * <p>The role alias to describe.</p>
    */
@@ -5725,11 +5240,9 @@ export namespace DescribeRoleAliasRequest {
   export const filterSensitiveLog = (obj: DescribeRoleAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRoleAliasRequest => __isa(o, "DescribeRoleAliasRequest");
 }
 
 export interface DescribeRoleAliasResponse {
-  __type?: "DescribeRoleAliasResponse";
   /**
    * <p>The role alias description.</p>
    */
@@ -5740,11 +5253,9 @@ export namespace DescribeRoleAliasResponse {
   export const filterSensitiveLog = (obj: DescribeRoleAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRoleAliasResponse => __isa(o, "DescribeRoleAliasResponse");
 }
 
 export interface DescribeScheduledAuditRequest {
-  __type?: "DescribeScheduledAuditRequest";
   /**
    * <p>The name of the scheduled audit whose information you want to get.</p>
    */
@@ -5755,11 +5266,9 @@ export namespace DescribeScheduledAuditRequest {
   export const filterSensitiveLog = (obj: DescribeScheduledAuditRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledAuditRequest => __isa(o, "DescribeScheduledAuditRequest");
 }
 
 export interface DescribeScheduledAuditResponse {
-  __type?: "DescribeScheduledAuditResponse";
   /**
    * <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY",
    *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
@@ -5803,11 +5312,9 @@ export namespace DescribeScheduledAuditResponse {
   export const filterSensitiveLog = (obj: DescribeScheduledAuditResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledAuditResponse => __isa(o, "DescribeScheduledAuditResponse");
 }
 
 export interface DescribeSecurityProfileRequest {
-  __type?: "DescribeSecurityProfileRequest";
   /**
    * <p>The name of the security profile whose information you want to get.</p>
    */
@@ -5818,11 +5325,9 @@ export namespace DescribeSecurityProfileRequest {
   export const filterSensitiveLog = (obj: DescribeSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityProfileRequest => __isa(o, "DescribeSecurityProfileRequest");
 }
 
 export interface DescribeSecurityProfileResponse {
-  __type?: "DescribeSecurityProfileResponse";
   /**
    * <p>The name of the security profile.</p>
    */
@@ -5884,11 +5389,9 @@ export namespace DescribeSecurityProfileResponse {
   export const filterSensitiveLog = (obj: DescribeSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityProfileResponse => __isa(o, "DescribeSecurityProfileResponse");
 }
 
 export interface DescribeStreamRequest {
-  __type?: "DescribeStreamRequest";
   /**
    * <p>The stream ID.</p>
    */
@@ -5899,11 +5402,9 @@ export namespace DescribeStreamRequest {
   export const filterSensitiveLog = (obj: DescribeStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamRequest => __isa(o, "DescribeStreamRequest");
 }
 
 export interface DescribeStreamResponse {
-  __type?: "DescribeStreamResponse";
   /**
    * <p>Information about the stream.</p>
    */
@@ -5914,11 +5415,9 @@ export namespace DescribeStreamResponse {
   export const filterSensitiveLog = (obj: DescribeStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamResponse => __isa(o, "DescribeStreamResponse");
 }
 
 export interface DescribeThingGroupRequest {
-  __type?: "DescribeThingGroupRequest";
   /**
    * <p>The name of the thing group.</p>
    */
@@ -5929,11 +5428,9 @@ export namespace DescribeThingGroupRequest {
   export const filterSensitiveLog = (obj: DescribeThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingGroupRequest => __isa(o, "DescribeThingGroupRequest");
 }
 
 export interface DescribeThingGroupResponse {
-  __type?: "DescribeThingGroupResponse";
   /**
    * <p>The dynamic thing group query version.</p>
    */
@@ -5989,11 +5486,9 @@ export namespace DescribeThingGroupResponse {
   export const filterSensitiveLog = (obj: DescribeThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingGroupResponse => __isa(o, "DescribeThingGroupResponse");
 }
 
 export interface DescribeThingRegistrationTaskRequest {
-  __type?: "DescribeThingRegistrationTaskRequest";
   /**
    * <p>The task ID.</p>
    */
@@ -6004,12 +5499,9 @@ export namespace DescribeThingRegistrationTaskRequest {
   export const filterSensitiveLog = (obj: DescribeThingRegistrationTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingRegistrationTaskRequest =>
-    __isa(o, "DescribeThingRegistrationTaskRequest");
 }
 
 export interface DescribeThingRegistrationTaskResponse {
-  __type?: "DescribeThingRegistrationTaskResponse";
   /**
    * <p>The input file key.</p>
    */
@@ -6075,15 +5567,12 @@ export namespace DescribeThingRegistrationTaskResponse {
   export const filterSensitiveLog = (obj: DescribeThingRegistrationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingRegistrationTaskResponse =>
-    __isa(o, "DescribeThingRegistrationTaskResponse");
 }
 
 /**
  * <p>The input for the DescribeThing operation.</p>
  */
 export interface DescribeThingRequest {
-  __type?: "DescribeThingRequest";
   /**
    * <p>The name of the thing.</p>
    */
@@ -6094,14 +5583,12 @@ export namespace DescribeThingRequest {
   export const filterSensitiveLog = (obj: DescribeThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingRequest => __isa(o, "DescribeThingRequest");
 }
 
 /**
  * <p>The output from the DescribeThing operation.</p>
  */
 export interface DescribeThingResponse {
-  __type?: "DescribeThingResponse";
   /**
    * <p>The ARN of the thing to describe.</p>
    */
@@ -6155,14 +5642,12 @@ export namespace DescribeThingResponse {
   export const filterSensitiveLog = (obj: DescribeThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingResponse => __isa(o, "DescribeThingResponse");
 }
 
 /**
  * <p>The input for the DescribeThingType operation.</p>
  */
 export interface DescribeThingTypeRequest {
-  __type?: "DescribeThingTypeRequest";
   /**
    * <p>The name of the thing type.</p>
    */
@@ -6173,14 +5658,12 @@ export namespace DescribeThingTypeRequest {
   export const filterSensitiveLog = (obj: DescribeThingTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingTypeRequest => __isa(o, "DescribeThingTypeRequest");
 }
 
 /**
  * <p>The output for the DescribeThingType operation.</p>
  */
 export interface DescribeThingTypeResponse {
-  __type?: "DescribeThingTypeResponse";
   /**
    * <p>The thing type ID.</p>
    */
@@ -6214,14 +5697,12 @@ export namespace DescribeThingTypeResponse {
   export const filterSensitiveLog = (obj: DescribeThingTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThingTypeResponse => __isa(o, "DescribeThingTypeResponse");
 }
 
 /**
  * <p>Describes the location of the updated firmware.</p>
  */
 export interface Destination {
-  __type?: "Destination";
   /**
    * <p>Describes the location in S3 of the updated firmware.</p>
    */
@@ -6232,11 +5713,9 @@ export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export interface DetachPolicyRequest {
-  __type?: "DetachPolicyRequest";
   /**
    * <p>The target from which the policy will be detached.</p>
    */
@@ -6252,14 +5731,12 @@ export namespace DetachPolicyRequest {
   export const filterSensitiveLog = (obj: DetachPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachPolicyRequest => __isa(o, "DetachPolicyRequest");
 }
 
 /**
  * <p>The input for the DetachPrincipalPolicy operation.</p>
  */
 export interface DetachPrincipalPolicyRequest {
-  __type?: "DetachPrincipalPolicyRequest";
   /**
    * <p>The principal.</p>
    *          <p>If the principal is a certificate, specify the certificate ARN. If the principal is
@@ -6277,11 +5754,9 @@ export namespace DetachPrincipalPolicyRequest {
   export const filterSensitiveLog = (obj: DetachPrincipalPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachPrincipalPolicyRequest => __isa(o, "DetachPrincipalPolicyRequest");
 }
 
 export interface DetachSecurityProfileRequest {
-  __type?: "DetachSecurityProfileRequest";
   /**
    * <p>The security profile that is detached.</p>
    */
@@ -6297,25 +5772,20 @@ export namespace DetachSecurityProfileRequest {
   export const filterSensitiveLog = (obj: DetachSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachSecurityProfileRequest => __isa(o, "DetachSecurityProfileRequest");
 }
 
-export interface DetachSecurityProfileResponse {
-  __type?: "DetachSecurityProfileResponse";
-}
+export interface DetachSecurityProfileResponse {}
 
 export namespace DetachSecurityProfileResponse {
   export const filterSensitiveLog = (obj: DetachSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachSecurityProfileResponse => __isa(o, "DetachSecurityProfileResponse");
 }
 
 /**
  * <p>The input for the DetachThingPrincipal operation.</p>
  */
 export interface DetachThingPrincipalRequest {
-  __type?: "DetachThingPrincipalRequest";
   /**
    * <p>The name of the thing.</p>
    */
@@ -6333,21 +5803,17 @@ export namespace DetachThingPrincipalRequest {
   export const filterSensitiveLog = (obj: DetachThingPrincipalRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachThingPrincipalRequest => __isa(o, "DetachThingPrincipalRequest");
 }
 
 /**
  * <p>The output from the DetachThingPrincipal operation.</p>
  */
-export interface DetachThingPrincipalResponse {
-  __type?: "DetachThingPrincipalResponse";
-}
+export interface DetachThingPrincipalResponse {}
 
 export namespace DetachThingPrincipalResponse {
   export const filterSensitiveLog = (obj: DetachThingPrincipalResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachThingPrincipalResponse => __isa(o, "DetachThingPrincipalResponse");
 }
 
 export enum DeviceCertificateUpdateAction {
@@ -6367,7 +5833,6 @@ export enum DimensionValueOperator {
  * <p>The input for the DisableTopicRuleRequest operation.</p>
  */
 export interface DisableTopicRuleRequest {
-  __type?: "DisableTopicRuleRequest";
   /**
    * <p>The name of the rule to disable.</p>
    */
@@ -6378,7 +5843,6 @@ export namespace DisableTopicRuleRequest {
   export const filterSensitiveLog = (obj: DisableTopicRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableTopicRuleRequest => __isa(o, "DisableTopicRuleRequest");
 }
 
 export enum DomainConfigurationStatus {
@@ -6406,7 +5870,6 @@ export enum DomainConfigurationStatus {
  *          </note>
  */
 export interface DomainConfigurationSummary {
-  __type?: "DomainConfigurationSummary";
   /**
    * <p>The type of service delivered by the endpoint.</p>
    */
@@ -6427,7 +5890,6 @@ export namespace DomainConfigurationSummary {
   export const filterSensitiveLog = (obj: DomainConfigurationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainConfigurationSummary => __isa(o, "DomainConfigurationSummary");
 }
 
 export enum DomainType {
@@ -6461,7 +5923,6 @@ export enum DynamicGroupStatus {
  *          </p>
  */
 export interface DynamoDBAction {
-  __type?: "DynamoDBAction";
   /**
    * <p>The hash key value.</p>
    */
@@ -6519,7 +5980,6 @@ export namespace DynamoDBAction {
   export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamoDBAction => __isa(o, "DynamoDBAction");
 }
 
 /**
@@ -6528,7 +5988,6 @@ export namespace DynamoDBAction {
  *          column in the DynamoDB table.</p>
  */
 export interface DynamoDBv2Action {
-  __type?: "DynamoDBv2Action";
   /**
    * <p>Specifies the DynamoDB table to which the message data will be written. For
    *          example:</p>
@@ -6551,7 +6010,6 @@ export namespace DynamoDBv2Action {
   export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamoDBv2Action => __isa(o, "DynamoDBv2Action");
 }
 
 export enum DynamoKeyType {
@@ -6563,7 +6021,6 @@ export enum DynamoKeyType {
  * <p>The policy that has the effect on the authorization results.</p>
  */
 export interface EffectivePolicy {
-  __type?: "EffectivePolicy";
   /**
    * <p>The policy name.</p>
    */
@@ -6584,7 +6041,6 @@ export namespace EffectivePolicy {
   export const filterSensitiveLog = (obj: EffectivePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EffectivePolicy => __isa(o, "EffectivePolicy");
 }
 
 /**
@@ -6592,7 +6048,6 @@ export namespace EffectivePolicy {
  *          domain.</p>
  */
 export interface ElasticsearchAction {
-  __type?: "ElasticsearchAction";
   /**
    * <p>The Elasticsearch index where you want to store your data.</p>
    */
@@ -6623,14 +6078,12 @@ export namespace ElasticsearchAction {
   export const filterSensitiveLog = (obj: ElasticsearchAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchAction => __isa(o, "ElasticsearchAction");
 }
 
 /**
  * <p>Parameters used when defining a mitigation action that enable AWS IoT logging.</p>
  */
 export interface EnableIoTLoggingParams {
-  __type?: "EnableIoTLoggingParams";
   /**
    * <p>The ARN of the IAM role used for logging.</p>
    */
@@ -6646,14 +6099,12 @@ export namespace EnableIoTLoggingParams {
   export const filterSensitiveLog = (obj: EnableIoTLoggingParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableIoTLoggingParams => __isa(o, "EnableIoTLoggingParams");
 }
 
 /**
  * <p>The input for the EnableTopicRuleRequest operation.</p>
  */
 export interface EnableTopicRuleRequest {
-  __type?: "EnableTopicRuleRequest";
   /**
    * <p>The name of the topic rule to enable.</p>
    */
@@ -6664,14 +6115,12 @@ export namespace EnableTopicRuleRequest {
   export const filterSensitiveLog = (obj: EnableTopicRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableTopicRuleRequest => __isa(o, "EnableTopicRuleRequest");
 }
 
 /**
  * <p>Error information.</p>
  */
 export interface ErrorInfo {
-  __type?: "ErrorInfo";
   /**
    * <p>The error code.</p>
    */
@@ -6687,7 +6136,6 @@ export namespace ErrorInfo {
   export const filterSensitiveLog = (obj: ErrorInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorInfo => __isa(o, "ErrorInfo");
 }
 
 export enum EventType {
@@ -6708,7 +6156,6 @@ export enum EventType {
  * <p>Information that explicitly denies authorization.</p>
  */
 export interface ExplicitDeny {
-  __type?: "ExplicitDeny";
   /**
    * <p>The policies that denied the authorization.</p>
    */
@@ -6719,14 +6166,12 @@ export namespace ExplicitDeny {
   export const filterSensitiveLog = (obj: ExplicitDeny): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExplicitDeny => __isa(o, "ExplicitDeny");
 }
 
 /**
  * <p>Allows you to create an exponential rate of rollout for a job.</p>
  */
 export interface ExponentialRolloutRate {
-  __type?: "ExponentialRolloutRate";
   /**
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
    *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
@@ -6749,14 +6194,12 @@ export namespace ExponentialRolloutRate {
   export const filterSensitiveLog = (obj: ExponentialRolloutRate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExponentialRolloutRate => __isa(o, "ExponentialRolloutRate");
 }
 
 /**
  * <p>Describes the name and data type at a field.</p>
  */
 export interface Field {
-  __type?: "Field";
   /**
    * <p>The datatype of the field.</p>
    */
@@ -6772,7 +6215,6 @@ export namespace Field {
   export const filterSensitiveLog = (obj: Field): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Field => __isa(o, "Field");
 }
 
 export enum FieldType {
@@ -6785,7 +6227,6 @@ export enum FieldType {
  * <p>The location of the OTA update.</p>
  */
 export interface FileLocation {
-  __type?: "FileLocation";
   /**
    * <p>The location of the updated firmware in S3.</p>
    */
@@ -6801,14 +6242,12 @@ export namespace FileLocation {
   export const filterSensitiveLog = (obj: FileLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileLocation => __isa(o, "FileLocation");
 }
 
 /**
  * <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
  */
 export interface FirehoseAction {
-  __type?: "FirehoseAction";
   /**
    * <p>The IAM role that grants access to the Amazon Kinesis Firehose stream.</p>
    */
@@ -6831,11 +6270,9 @@ export namespace FirehoseAction {
   export const filterSensitiveLog = (obj: FirehoseAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FirehoseAction => __isa(o, "FirehoseAction");
 }
 
 export interface GetCardinalityRequest {
-  __type?: "GetCardinalityRequest";
   /**
    * <p>The query version.</p>
    */
@@ -6861,11 +6298,9 @@ export namespace GetCardinalityRequest {
   export const filterSensitiveLog = (obj: GetCardinalityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCardinalityRequest => __isa(o, "GetCardinalityRequest");
 }
 
 export interface GetCardinalityResponse {
-  __type?: "GetCardinalityResponse";
   /**
    * <p>The approximate count of unique values that match the query.</p>
    */
@@ -6876,11 +6311,9 @@ export namespace GetCardinalityResponse {
   export const filterSensitiveLog = (obj: GetCardinalityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCardinalityResponse => __isa(o, "GetCardinalityResponse");
 }
 
 export interface GetEffectivePoliciesRequest {
-  __type?: "GetEffectivePoliciesRequest";
   /**
    * <p>The thing name.</p>
    */
@@ -6901,11 +6334,9 @@ export namespace GetEffectivePoliciesRequest {
   export const filterSensitiveLog = (obj: GetEffectivePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEffectivePoliciesRequest => __isa(o, "GetEffectivePoliciesRequest");
 }
 
 export interface GetEffectivePoliciesResponse {
-  __type?: "GetEffectivePoliciesResponse";
   /**
    * <p>The effective policies.</p>
    */
@@ -6916,22 +6347,17 @@ export namespace GetEffectivePoliciesResponse {
   export const filterSensitiveLog = (obj: GetEffectivePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEffectivePoliciesResponse => __isa(o, "GetEffectivePoliciesResponse");
 }
 
-export interface GetIndexingConfigurationRequest {
-  __type?: "GetIndexingConfigurationRequest";
-}
+export interface GetIndexingConfigurationRequest {}
 
 export namespace GetIndexingConfigurationRequest {
   export const filterSensitiveLog = (obj: GetIndexingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIndexingConfigurationRequest => __isa(o, "GetIndexingConfigurationRequest");
 }
 
 export interface GetIndexingConfigurationResponse {
-  __type?: "GetIndexingConfigurationResponse";
   /**
    * <p>Thing indexing configuration.</p>
    */
@@ -6947,11 +6373,9 @@ export namespace GetIndexingConfigurationResponse {
   export const filterSensitiveLog = (obj: GetIndexingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIndexingConfigurationResponse => __isa(o, "GetIndexingConfigurationResponse");
 }
 
 export interface GetJobDocumentRequest {
-  __type?: "GetJobDocumentRequest";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -6962,11 +6386,9 @@ export namespace GetJobDocumentRequest {
   export const filterSensitiveLog = (obj: GetJobDocumentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobDocumentRequest => __isa(o, "GetJobDocumentRequest");
 }
 
 export interface GetJobDocumentResponse {
-  __type?: "GetJobDocumentResponse";
   /**
    * <p>The job document content.</p>
    */
@@ -6977,28 +6399,23 @@ export namespace GetJobDocumentResponse {
   export const filterSensitiveLog = (obj: GetJobDocumentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobDocumentResponse => __isa(o, "GetJobDocumentResponse");
 }
 
 /**
  * <p>The input for the GetLoggingOptions operation.</p>
  */
-export interface GetLoggingOptionsRequest {
-  __type?: "GetLoggingOptionsRequest";
-}
+export interface GetLoggingOptionsRequest {}
 
 export namespace GetLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: GetLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggingOptionsRequest => __isa(o, "GetLoggingOptionsRequest");
 }
 
 /**
  * <p>The output from the GetLoggingOptions operation.</p>
  */
 export interface GetLoggingOptionsResponse {
-  __type?: "GetLoggingOptionsResponse";
   /**
    * <p>The logging level.</p>
    */
@@ -7014,11 +6431,9 @@ export namespace GetLoggingOptionsResponse {
   export const filterSensitiveLog = (obj: GetLoggingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggingOptionsResponse => __isa(o, "GetLoggingOptionsResponse");
 }
 
 export interface GetOTAUpdateRequest {
-  __type?: "GetOTAUpdateRequest";
   /**
    * <p>The OTA update ID.</p>
    */
@@ -7029,11 +6444,9 @@ export namespace GetOTAUpdateRequest {
   export const filterSensitiveLog = (obj: GetOTAUpdateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOTAUpdateRequest => __isa(o, "GetOTAUpdateRequest");
 }
 
 export interface GetOTAUpdateResponse {
-  __type?: "GetOTAUpdateResponse";
   /**
    * <p>The OTA update info.</p>
    */
@@ -7044,11 +6457,9 @@ export namespace GetOTAUpdateResponse {
   export const filterSensitiveLog = (obj: GetOTAUpdateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOTAUpdateResponse => __isa(o, "GetOTAUpdateResponse");
 }
 
 export interface GetPercentilesRequest {
-  __type?: "GetPercentilesRequest";
   /**
    * <p>The percentile groups returned.</p>
    */
@@ -7079,11 +6490,9 @@ export namespace GetPercentilesRequest {
   export const filterSensitiveLog = (obj: GetPercentilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPercentilesRequest => __isa(o, "GetPercentilesRequest");
 }
 
 export interface GetPercentilesResponse {
-  __type?: "GetPercentilesResponse";
   /**
    * <p>The percentile values of the aggregated fields.</p>
    */
@@ -7094,14 +6503,12 @@ export namespace GetPercentilesResponse {
   export const filterSensitiveLog = (obj: GetPercentilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPercentilesResponse => __isa(o, "GetPercentilesResponse");
 }
 
 /**
  * <p>The input for the GetPolicy operation.</p>
  */
 export interface GetPolicyRequest {
-  __type?: "GetPolicyRequest";
   /**
    * <p>The name of the policy.</p>
    */
@@ -7112,14 +6519,12 @@ export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 /**
  * <p>The output from the GetPolicy operation.</p>
  */
 export interface GetPolicyResponse {
-  __type?: "GetPolicyResponse";
   /**
    * <p>The date the policy was created.</p>
    */
@@ -7160,14 +6565,12 @@ export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 /**
  * <p>The input for the GetPolicyVersion operation.</p>
  */
 export interface GetPolicyVersionRequest {
-  __type?: "GetPolicyVersionRequest";
   /**
    * <p>The policy version ID.</p>
    */
@@ -7183,14 +6586,12 @@ export namespace GetPolicyVersionRequest {
   export const filterSensitiveLog = (obj: GetPolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyVersionRequest => __isa(o, "GetPolicyVersionRequest");
 }
 
 /**
  * <p>The output from the GetPolicyVersion operation.</p>
  */
 export interface GetPolicyVersionResponse {
-  __type?: "GetPolicyVersionResponse";
   /**
    * <p>The policy version ID.</p>
    */
@@ -7236,28 +6637,23 @@ export namespace GetPolicyVersionResponse {
   export const filterSensitiveLog = (obj: GetPolicyVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyVersionResponse => __isa(o, "GetPolicyVersionResponse");
 }
 
 /**
  * <p>The input to the GetRegistrationCode operation.</p>
  */
-export interface GetRegistrationCodeRequest {
-  __type?: "GetRegistrationCodeRequest";
-}
+export interface GetRegistrationCodeRequest {}
 
 export namespace GetRegistrationCodeRequest {
   export const filterSensitiveLog = (obj: GetRegistrationCodeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegistrationCodeRequest => __isa(o, "GetRegistrationCodeRequest");
 }
 
 /**
  * <p>The output from the GetRegistrationCode operation.</p>
  */
 export interface GetRegistrationCodeResponse {
-  __type?: "GetRegistrationCodeResponse";
   /**
    * <p>The CA certificate registration code.</p>
    */
@@ -7268,11 +6664,9 @@ export namespace GetRegistrationCodeResponse {
   export const filterSensitiveLog = (obj: GetRegistrationCodeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegistrationCodeResponse => __isa(o, "GetRegistrationCodeResponse");
 }
 
 export interface GetStatisticsRequest {
-  __type?: "GetStatisticsRequest";
   /**
    * <p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>
    */
@@ -7299,11 +6693,9 @@ export namespace GetStatisticsRequest {
   export const filterSensitiveLog = (obj: GetStatisticsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStatisticsRequest => __isa(o, "GetStatisticsRequest");
 }
 
 export interface GetStatisticsResponse {
-  __type?: "GetStatisticsResponse";
   /**
    * <p>The statistics returned by the Fleet Indexing service based on the query and aggregation
    *       field.</p>
@@ -7315,11 +6707,9 @@ export namespace GetStatisticsResponse {
   export const filterSensitiveLog = (obj: GetStatisticsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStatisticsResponse => __isa(o, "GetStatisticsResponse");
 }
 
 export interface GetTopicRuleDestinationRequest {
-  __type?: "GetTopicRuleDestinationRequest";
   /**
    * <p>The ARN of the topic rule destination.</p>
    */
@@ -7330,11 +6720,9 @@ export namespace GetTopicRuleDestinationRequest {
   export const filterSensitiveLog = (obj: GetTopicRuleDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTopicRuleDestinationRequest => __isa(o, "GetTopicRuleDestinationRequest");
 }
 
 export interface GetTopicRuleDestinationResponse {
-  __type?: "GetTopicRuleDestinationResponse";
   /**
    * <p>The topic rule destination.</p>
    */
@@ -7345,14 +6733,12 @@ export namespace GetTopicRuleDestinationResponse {
   export const filterSensitiveLog = (obj: GetTopicRuleDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTopicRuleDestinationResponse => __isa(o, "GetTopicRuleDestinationResponse");
 }
 
 /**
  * <p>The input for the GetTopicRule operation.</p>
  */
 export interface GetTopicRuleRequest {
-  __type?: "GetTopicRuleRequest";
   /**
    * <p>The name of the rule.</p>
    */
@@ -7363,14 +6749,12 @@ export namespace GetTopicRuleRequest {
   export const filterSensitiveLog = (obj: GetTopicRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTopicRuleRequest => __isa(o, "GetTopicRuleRequest");
 }
 
 /**
  * <p>The output from the GetTopicRule operation.</p>
  */
 export interface GetTopicRuleResponse {
-  __type?: "GetTopicRuleResponse";
   /**
    * <p>The rule.</p>
    */
@@ -7386,22 +6770,17 @@ export namespace GetTopicRuleResponse {
   export const filterSensitiveLog = (obj: GetTopicRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTopicRuleResponse => __isa(o, "GetTopicRuleResponse");
 }
 
-export interface GetV2LoggingOptionsRequest {
-  __type?: "GetV2LoggingOptionsRequest";
-}
+export interface GetV2LoggingOptionsRequest {}
 
 export namespace GetV2LoggingOptionsRequest {
   export const filterSensitiveLog = (obj: GetV2LoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetV2LoggingOptionsRequest => __isa(o, "GetV2LoggingOptionsRequest");
 }
 
 export interface GetV2LoggingOptionsResponse {
-  __type?: "GetV2LoggingOptionsResponse";
   /**
    * <p>The default log level.</p>
    */
@@ -7422,14 +6801,12 @@ export namespace GetV2LoggingOptionsResponse {
   export const filterSensitiveLog = (obj: GetV2LoggingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetV2LoggingOptionsResponse => __isa(o, "GetV2LoggingOptionsResponse");
 }
 
 /**
  * <p>The name and ARN of a group.</p>
  */
 export interface GroupNameAndArn {
-  __type?: "GroupNameAndArn";
   /**
    * <p>The group ARN.</p>
    */
@@ -7445,14 +6822,12 @@ export namespace GroupNameAndArn {
   export const filterSensitiveLog = (obj: GroupNameAndArn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupNameAndArn => __isa(o, "GroupNameAndArn");
 }
 
 /**
  * <p>Send data to an HTTPS endpoint.</p>
  */
 export interface HttpAction {
-  __type?: "HttpAction";
   /**
    * <p>The HTTP headers to send with the message data.</p>
    */
@@ -7485,14 +6860,12 @@ export namespace HttpAction {
   export const filterSensitiveLog = (obj: HttpAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpAction => __isa(o, "HttpAction");
 }
 
 /**
  * <p>The HTTP action header.</p>
  */
 export interface HttpActionHeader {
-  __type?: "HttpActionHeader";
   /**
    * <p>The HTTP header value. Substitution templates are supported.</p>
    */
@@ -7508,14 +6881,12 @@ export namespace HttpActionHeader {
   export const filterSensitiveLog = (obj: HttpActionHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpActionHeader => __isa(o, "HttpActionHeader");
 }
 
 /**
  * <p>The authorization method used to send messages.</p>
  */
 export interface HttpAuthorization {
-  __type?: "HttpAuthorization";
   /**
    * <p>Use Sig V4 authorization. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
    *             Version 4 Signing Process</a>.</p>
@@ -7527,14 +6898,12 @@ export namespace HttpAuthorization {
   export const filterSensitiveLog = (obj: HttpAuthorization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpAuthorization => __isa(o, "HttpAuthorization");
 }
 
 /**
  * <p>Specifies the HTTP context to use for the test authorizer request.</p>
  */
 export interface HttpContext {
-  __type?: "HttpContext";
   /**
    * <p>The header keys and values in an HTTP authorization request.</p>
    */
@@ -7550,14 +6919,12 @@ export namespace HttpContext {
   export const filterSensitiveLog = (obj: HttpContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpContext => __isa(o, "HttpContext");
 }
 
 /**
  * <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
  */
 export interface HttpUrlDestinationConfiguration {
-  __type?: "HttpUrlDestinationConfiguration";
   /**
    * <p>The URL AWS IoT uses to confirm ownership of or access to the topic rule destination
    *          URL.</p>
@@ -7569,14 +6936,12 @@ export namespace HttpUrlDestinationConfiguration {
   export const filterSensitiveLog = (obj: HttpUrlDestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpUrlDestinationConfiguration => __isa(o, "HttpUrlDestinationConfiguration");
 }
 
 /**
  * <p>HTTP URL destination properties.</p>
  */
 export interface HttpUrlDestinationProperties {
-  __type?: "HttpUrlDestinationProperties";
   /**
    * <p>The URL used to confirm the HTTP topic rule destination URL.</p>
    */
@@ -7587,14 +6952,12 @@ export namespace HttpUrlDestinationProperties {
   export const filterSensitiveLog = (obj: HttpUrlDestinationProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpUrlDestinationProperties => __isa(o, "HttpUrlDestinationProperties");
 }
 
 /**
  * <p>Information about an HTTP URL destination.</p>
  */
 export interface HttpUrlDestinationSummary {
-  __type?: "HttpUrlDestinationSummary";
   /**
    * <p>The URL used to confirm ownership of or access to the HTTP topic rule destination
    *          URL.</p>
@@ -7606,7 +6969,6 @@ export namespace HttpUrlDestinationSummary {
   export const filterSensitiveLog = (obj: HttpUrlDestinationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpUrlDestinationSummary => __isa(o, "HttpUrlDestinationSummary");
 }
 
 /**
@@ -7614,7 +6976,6 @@ export namespace HttpUrlDestinationSummary {
  *          or allow an action on a resource it is considered an implicit deny.</p>
  */
 export interface ImplicitDeny {
-  __type?: "ImplicitDeny";
   /**
    * <p>Policies that don't contain a matching allow or deny statement for the specified
    *          action on the specified resource. </p>
@@ -7626,7 +6987,6 @@ export namespace ImplicitDeny {
   export const filterSensitiveLog = (obj: ImplicitDeny): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImplicitDeny => __isa(o, "ImplicitDeny");
 }
 
 /**
@@ -7645,7 +7005,6 @@ export namespace IndexNotReadyException {
   export const filterSensitiveLog = (obj: IndexNotReadyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexNotReadyException => __isa(o, "IndexNotReadyException");
 }
 
 export enum IndexStatus {
@@ -7670,7 +7029,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
@@ -7689,7 +7047,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -7705,7 +7062,6 @@ export namespace InvalidAggregationException {
   export const filterSensitiveLog = (obj: InvalidAggregationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAggregationException => __isa(o, "InvalidAggregationException");
 }
 
 /**
@@ -7724,7 +7080,6 @@ export namespace InvalidQueryException {
   export const filterSensitiveLog = (obj: InvalidQueryException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidQueryException => __isa(o, "InvalidQueryException");
 }
 
 /**
@@ -7743,7 +7098,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -7762,7 +7116,6 @@ export namespace InvalidResponseException {
   export const filterSensitiveLog = (obj: InvalidResponseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResponseException => __isa(o, "InvalidResponseException");
 }
 
 /**
@@ -7783,14 +7136,12 @@ export namespace InvalidStateTransitionException {
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 /**
  * <p>Sends message data to an AWS IoT Analytics channel.</p>
  */
 export interface IotAnalyticsAction {
-  __type?: "IotAnalyticsAction";
   /**
    * <p>The name of the IoT Analytics channel to which message data will be sent.</p>
    */
@@ -7813,14 +7164,12 @@ export namespace IotAnalyticsAction {
   export const filterSensitiveLog = (obj: IotAnalyticsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotAnalyticsAction => __isa(o, "IotAnalyticsAction");
 }
 
 /**
  * <p>Sends an input to an AWS IoT Events detector.</p>
  */
 export interface IotEventsAction {
-  __type?: "IotEventsAction";
   /**
    * <p>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT
    *       Events detector. ("Action":"iotevents:BatchPutMessage").</p>
@@ -7843,7 +7192,6 @@ export namespace IotEventsAction {
   export const filterSensitiveLog = (obj: IotEventsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotEventsAction => __isa(o, "IotEventsAction");
 }
 
 /**
@@ -7851,7 +7199,6 @@ export namespace IotEventsAction {
  *       SiteWise asset properties.</p>
  */
 export interface IotSiteWiseAction {
-  __type?: "IotSiteWiseAction";
   /**
    * <p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS
    *       IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
@@ -7869,14 +7216,12 @@ export namespace IotSiteWiseAction {
   export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotSiteWiseAction => __isa(o, "IotSiteWiseAction");
 }
 
 /**
  * <p>The <code>Job</code> object contains details about a job.</p>
  */
 export interface Job {
-  __type?: "Job";
   /**
    * <p>Configuration for pre-signed S3 URLs.</p>
    */
@@ -7976,14 +7321,12 @@ export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
  * <p>The job execution object represents the execution of a job on a particular device.</p>
  */
 export interface JobExecution {
-  __type?: "JobExecution";
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated
    *       by a device.</p>
@@ -8052,7 +7395,6 @@ export namespace JobExecution {
   export const filterSensitiveLog = (obj: JobExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
 }
 
 export enum JobExecutionFailureType {
@@ -8066,7 +7408,6 @@ export enum JobExecutionFailureType {
  * <p>Allows you to create a staged rollout of a job.</p>
  */
 export interface JobExecutionsRolloutConfig {
-  __type?: "JobExecutionsRolloutConfig";
   /**
    * <p>The rate of increase for a job rollout.
    *             This parameter allows you to define an exponential rate for a job rollout.</p>
@@ -8084,7 +7425,6 @@ export namespace JobExecutionsRolloutConfig {
   export const filterSensitiveLog = (obj: JobExecutionsRolloutConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionsRolloutConfig => __isa(o, "JobExecutionsRolloutConfig");
 }
 
 export enum JobExecutionStatus {
@@ -8102,7 +7442,6 @@ export enum JobExecutionStatus {
  * <p>Details of the job execution status.</p>
  */
 export interface JobExecutionStatusDetails {
-  __type?: "JobExecutionStatusDetails";
   /**
    * <p>The job execution status.</p>
    */
@@ -8113,14 +7452,12 @@ export namespace JobExecutionStatusDetails {
   export const filterSensitiveLog = (obj: JobExecutionStatusDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionStatusDetails => __isa(o, "JobExecutionStatusDetails");
 }
 
 /**
  * <p>The job execution summary.</p>
  */
 export interface JobExecutionSummary {
-  __type?: "JobExecutionSummary";
   /**
    * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
    */
@@ -8153,14 +7490,12 @@ export namespace JobExecutionSummary {
   export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSummary => __isa(o, "JobExecutionSummary");
 }
 
 /**
  * <p>Contains a summary of information about job executions for a specific job.</p>
  */
 export interface JobExecutionSummaryForJob {
-  __type?: "JobExecutionSummaryForJob";
   /**
    * <p>The ARN of the thing on which the job execution is running.</p>
    */
@@ -8176,14 +7511,12 @@ export namespace JobExecutionSummaryForJob {
   export const filterSensitiveLog = (obj: JobExecutionSummaryForJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSummaryForJob => __isa(o, "JobExecutionSummaryForJob");
 }
 
 /**
  * <p>The job execution summary for a thing.</p>
  */
 export interface JobExecutionSummaryForThing {
-  __type?: "JobExecutionSummaryForThing";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -8199,14 +7532,12 @@ export namespace JobExecutionSummaryForThing {
   export const filterSensitiveLog = (obj: JobExecutionSummaryForThing): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSummaryForThing => __isa(o, "JobExecutionSummaryForThing");
 }
 
 /**
  * <p>The job process details.</p>
  */
 export interface JobProcessDetails {
-  __type?: "JobProcessDetails";
   /**
    * <p>The number of things that rejected the job.</p>
    */
@@ -8258,7 +7589,6 @@ export namespace JobProcessDetails {
   export const filterSensitiveLog = (obj: JobProcessDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobProcessDetails => __isa(o, "JobProcessDetails");
 }
 
 export enum JobStatus {
@@ -8272,7 +7602,6 @@ export enum JobStatus {
  * <p>The job summary.</p>
  */
 export interface JobSummary {
-  __type?: "JobSummary";
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
    *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
@@ -8321,14 +7650,12 @@ export namespace JobSummary {
   export const filterSensitiveLog = (obj: JobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobSummary => __isa(o, "JobSummary");
 }
 
 /**
  * <p>Describes a key pair.</p>
  */
 export interface KeyPair {
-  __type?: "KeyPair";
   /**
    * <p>The private key.</p>
    */
@@ -8345,14 +7672,12 @@ export namespace KeyPair {
     ...obj,
     ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is KeyPair => __isa(o, "KeyPair");
 }
 
 /**
  * <p>Describes an action to write data to an Amazon Kinesis stream.</p>
  */
 export interface KinesisAction {
-  __type?: "KinesisAction";
   /**
    * <p>The name of the Amazon Kinesis stream.</p>
    */
@@ -8373,14 +7698,12 @@ export namespace KinesisAction {
   export const filterSensitiveLog = (obj: KinesisAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisAction => __isa(o, "KinesisAction");
 }
 
 /**
  * <p>Describes an action to invoke a Lambda function.</p>
  */
 export interface LambdaAction {
-  __type?: "LambdaAction";
   /**
    * <p>The ARN of the Lambda function.</p>
    */
@@ -8391,7 +7714,6 @@ export namespace LambdaAction {
   export const filterSensitiveLog = (obj: LambdaAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaAction => __isa(o, "LambdaAction");
 }
 
 /**
@@ -8410,11 +7732,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListActiveViolationsRequest {
-  __type?: "ListActiveViolationsRequest";
   /**
    * <p>The name of the thing whose active violations are listed.</p>
    */
@@ -8440,11 +7760,9 @@ export namespace ListActiveViolationsRequest {
   export const filterSensitiveLog = (obj: ListActiveViolationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActiveViolationsRequest => __isa(o, "ListActiveViolationsRequest");
 }
 
 export interface ListActiveViolationsResponse {
-  __type?: "ListActiveViolationsResponse";
   /**
    * <p>The list of active violations.</p>
    */
@@ -8461,11 +7779,9 @@ export namespace ListActiveViolationsResponse {
   export const filterSensitiveLog = (obj: ListActiveViolationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActiveViolationsResponse => __isa(o, "ListActiveViolationsResponse");
 }
 
 export interface ListAttachedPoliciesRequest {
-  __type?: "ListAttachedPoliciesRequest";
   /**
    * <p>The token to retrieve the next set of results.</p>
    */
@@ -8491,11 +7807,9 @@ export namespace ListAttachedPoliciesRequest {
   export const filterSensitiveLog = (obj: ListAttachedPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedPoliciesRequest => __isa(o, "ListAttachedPoliciesRequest");
 }
 
 export interface ListAttachedPoliciesResponse {
-  __type?: "ListAttachedPoliciesResponse";
   /**
    * <p>The policies.</p>
    */
@@ -8512,11 +7826,9 @@ export namespace ListAttachedPoliciesResponse {
   export const filterSensitiveLog = (obj: ListAttachedPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedPoliciesResponse => __isa(o, "ListAttachedPoliciesResponse");
 }
 
 export interface ListAuditFindingsRequest {
-  __type?: "ListAuditFindingsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -8560,11 +7872,9 @@ export namespace ListAuditFindingsRequest {
   export const filterSensitiveLog = (obj: ListAuditFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditFindingsRequest => __isa(o, "ListAuditFindingsRequest");
 }
 
 export interface ListAuditFindingsResponse {
-  __type?: "ListAuditFindingsResponse";
   /**
    * <p>The findings (results) of the audit.</p>
    */
@@ -8581,11 +7891,9 @@ export namespace ListAuditFindingsResponse {
   export const filterSensitiveLog = (obj: ListAuditFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditFindingsResponse => __isa(o, "ListAuditFindingsResponse");
 }
 
 export interface ListAuditMitigationActionsExecutionsRequest {
-  __type?: "ListAuditMitigationActionsExecutionsRequest";
   /**
    * <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
    */
@@ -8616,12 +7924,9 @@ export namespace ListAuditMitigationActionsExecutionsRequest {
   export const filterSensitiveLog = (obj: ListAuditMitigationActionsExecutionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditMitigationActionsExecutionsRequest =>
-    __isa(o, "ListAuditMitigationActionsExecutionsRequest");
 }
 
 export interface ListAuditMitigationActionsExecutionsResponse {
-  __type?: "ListAuditMitigationActionsExecutionsResponse";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -8637,12 +7942,9 @@ export namespace ListAuditMitigationActionsExecutionsResponse {
   export const filterSensitiveLog = (obj: ListAuditMitigationActionsExecutionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditMitigationActionsExecutionsResponse =>
-    __isa(o, "ListAuditMitigationActionsExecutionsResponse");
 }
 
 export interface ListAuditMitigationActionsTasksRequest {
-  __type?: "ListAuditMitigationActionsTasksRequest";
   /**
    * <p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>
    */
@@ -8683,12 +7985,9 @@ export namespace ListAuditMitigationActionsTasksRequest {
   export const filterSensitiveLog = (obj: ListAuditMitigationActionsTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditMitigationActionsTasksRequest =>
-    __isa(o, "ListAuditMitigationActionsTasksRequest");
 }
 
 export interface ListAuditMitigationActionsTasksResponse {
-  __type?: "ListAuditMitigationActionsTasksResponse";
   /**
    * <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
    */
@@ -8704,12 +8003,9 @@ export namespace ListAuditMitigationActionsTasksResponse {
   export const filterSensitiveLog = (obj: ListAuditMitigationActionsTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditMitigationActionsTasksResponse =>
-    __isa(o, "ListAuditMitigationActionsTasksResponse");
 }
 
 export interface ListAuditTasksRequest {
-  __type?: "ListAuditTasksRequest";
   /**
    * <p>A filter to limit the output to the specified type of audit: can be one of
    *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
@@ -8749,11 +8045,9 @@ export namespace ListAuditTasksRequest {
   export const filterSensitiveLog = (obj: ListAuditTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditTasksRequest => __isa(o, "ListAuditTasksRequest");
 }
 
 export interface ListAuditTasksResponse {
-  __type?: "ListAuditTasksResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
    *             if there are no additional results.</p>
@@ -8770,11 +8064,9 @@ export namespace ListAuditTasksResponse {
   export const filterSensitiveLog = (obj: ListAuditTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuditTasksResponse => __isa(o, "ListAuditTasksResponse");
 }
 
 export interface ListAuthorizersRequest {
-  __type?: "ListAuthorizersRequest";
   /**
    * <p>The status of the list authorizers request.</p>
    */
@@ -8800,11 +8092,9 @@ export namespace ListAuthorizersRequest {
   export const filterSensitiveLog = (obj: ListAuthorizersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuthorizersRequest => __isa(o, "ListAuthorizersRequest");
 }
 
 export interface ListAuthorizersResponse {
-  __type?: "ListAuthorizersResponse";
   /**
    * <p>The authorizers.</p>
    */
@@ -8820,11 +8110,9 @@ export namespace ListAuthorizersResponse {
   export const filterSensitiveLog = (obj: ListAuthorizersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAuthorizersResponse => __isa(o, "ListAuthorizersResponse");
 }
 
 export interface ListBillingGroupsRequest {
-  __type?: "ListBillingGroupsRequest";
   /**
    * <p>The maximum number of results to return per request.</p>
    */
@@ -8845,11 +8133,9 @@ export namespace ListBillingGroupsRequest {
   export const filterSensitiveLog = (obj: ListBillingGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBillingGroupsRequest => __isa(o, "ListBillingGroupsRequest");
 }
 
 export interface ListBillingGroupsResponse {
-  __type?: "ListBillingGroupsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -8865,14 +8151,12 @@ export namespace ListBillingGroupsResponse {
   export const filterSensitiveLog = (obj: ListBillingGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBillingGroupsResponse => __isa(o, "ListBillingGroupsResponse");
 }
 
 /**
  * <p>Input for the ListCACertificates operation.</p>
  */
 export interface ListCACertificatesRequest {
-  __type?: "ListCACertificatesRequest";
   /**
    * <p>Determines the order of the results.</p>
    */
@@ -8893,14 +8177,12 @@ export namespace ListCACertificatesRequest {
   export const filterSensitiveLog = (obj: ListCACertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCACertificatesRequest => __isa(o, "ListCACertificatesRequest");
 }
 
 /**
  * <p>The output from the ListCACertificates operation.</p>
  */
 export interface ListCACertificatesResponse {
-  __type?: "ListCACertificatesResponse";
   /**
    * <p>The CA certificates registered in your AWS account.</p>
    */
@@ -8916,14 +8198,12 @@ export namespace ListCACertificatesResponse {
   export const filterSensitiveLog = (obj: ListCACertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCACertificatesResponse => __isa(o, "ListCACertificatesResponse");
 }
 
 /**
  * <p>The input to the ListCertificatesByCA operation.</p>
  */
 export interface ListCertificatesByCARequest {
-  __type?: "ListCertificatesByCARequest";
   /**
    * <p>The result page size.</p>
    */
@@ -8951,14 +8231,12 @@ export namespace ListCertificatesByCARequest {
   export const filterSensitiveLog = (obj: ListCertificatesByCARequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesByCARequest => __isa(o, "ListCertificatesByCARequest");
 }
 
 /**
  * <p>The output of the ListCertificatesByCA operation.</p>
  */
 export interface ListCertificatesByCAResponse {
-  __type?: "ListCertificatesByCAResponse";
   /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
@@ -8975,14 +8253,12 @@ export namespace ListCertificatesByCAResponse {
   export const filterSensitiveLog = (obj: ListCertificatesByCAResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesByCAResponse => __isa(o, "ListCertificatesByCAResponse");
 }
 
 /**
  * <p>The input for the ListCertificates operation.</p>
  */
 export interface ListCertificatesRequest {
-  __type?: "ListCertificatesRequest";
   /**
    * <p>Specifies the order for results. If True, the results are returned in ascending
    *          order, based on the creation date.</p>
@@ -9004,14 +8280,12 @@ export namespace ListCertificatesRequest {
   export const filterSensitiveLog = (obj: ListCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesRequest => __isa(o, "ListCertificatesRequest");
 }
 
 /**
  * <p>The output of the ListCertificates operation.</p>
  */
 export interface ListCertificatesResponse {
-  __type?: "ListCertificatesResponse";
   /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
@@ -9028,11 +8302,9 @@ export namespace ListCertificatesResponse {
   export const filterSensitiveLog = (obj: ListCertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesResponse => __isa(o, "ListCertificatesResponse");
 }
 
 export interface ListDimensionsRequest {
-  __type?: "ListDimensionsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -9048,11 +8320,9 @@ export namespace ListDimensionsRequest {
   export const filterSensitiveLog = (obj: ListDimensionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDimensionsRequest => __isa(o, "ListDimensionsRequest");
 }
 
 export interface ListDimensionsResponse {
-  __type?: "ListDimensionsResponse";
   /**
    * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>
    */
@@ -9068,11 +8338,9 @@ export namespace ListDimensionsResponse {
   export const filterSensitiveLog = (obj: ListDimensionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDimensionsResponse => __isa(o, "ListDimensionsResponse");
 }
 
 export interface ListDomainConfigurationsRequest {
-  __type?: "ListDomainConfigurationsRequest";
   /**
    * <p>The marker for the next set of results.</p>
    */
@@ -9093,11 +8361,9 @@ export namespace ListDomainConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListDomainConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainConfigurationsRequest => __isa(o, "ListDomainConfigurationsRequest");
 }
 
 export interface ListDomainConfigurationsResponse {
-  __type?: "ListDomainConfigurationsResponse";
   /**
    * <p>The marker for the next set of results.</p>
    */
@@ -9113,11 +8379,9 @@ export namespace ListDomainConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListDomainConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainConfigurationsResponse => __isa(o, "ListDomainConfigurationsResponse");
 }
 
 export interface ListIndicesRequest {
-  __type?: "ListIndicesRequest";
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
    *       results.</p>
@@ -9134,11 +8398,9 @@ export namespace ListIndicesRequest {
   export const filterSensitiveLog = (obj: ListIndicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIndicesRequest => __isa(o, "ListIndicesRequest");
 }
 
 export interface ListIndicesResponse {
-  __type?: "ListIndicesResponse";
   /**
    * <p>The index names.</p>
    */
@@ -9155,11 +8417,9 @@ export namespace ListIndicesResponse {
   export const filterSensitiveLog = (obj: ListIndicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIndicesResponse => __isa(o, "ListIndicesResponse");
 }
 
 export interface ListJobExecutionsForJobRequest {
-  __type?: "ListJobExecutionsForJobRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -9185,11 +8445,9 @@ export namespace ListJobExecutionsForJobRequest {
   export const filterSensitiveLog = (obj: ListJobExecutionsForJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobExecutionsForJobRequest => __isa(o, "ListJobExecutionsForJobRequest");
 }
 
 export interface ListJobExecutionsForJobResponse {
-  __type?: "ListJobExecutionsForJobResponse";
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
@@ -9206,11 +8464,9 @@ export namespace ListJobExecutionsForJobResponse {
   export const filterSensitiveLog = (obj: ListJobExecutionsForJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobExecutionsForJobResponse => __isa(o, "ListJobExecutionsForJobResponse");
 }
 
 export interface ListJobExecutionsForThingRequest {
-  __type?: "ListJobExecutionsForThingRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -9236,11 +8492,9 @@ export namespace ListJobExecutionsForThingRequest {
   export const filterSensitiveLog = (obj: ListJobExecutionsForThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobExecutionsForThingRequest => __isa(o, "ListJobExecutionsForThingRequest");
 }
 
 export interface ListJobExecutionsForThingResponse {
-  __type?: "ListJobExecutionsForThingResponse";
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
@@ -9257,11 +8511,9 @@ export namespace ListJobExecutionsForThingResponse {
   export const filterSensitiveLog = (obj: ListJobExecutionsForThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobExecutionsForThingResponse => __isa(o, "ListJobExecutionsForThingResponse");
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    */
@@ -9300,11 +8552,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
-  __type?: "ListJobsResponse";
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
@@ -9321,11 +8571,9 @@ export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 export interface ListMitigationActionsRequest {
-  __type?: "ListMitigationActionsRequest";
   /**
    * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
    */
@@ -9346,11 +8594,9 @@ export namespace ListMitigationActionsRequest {
   export const filterSensitiveLog = (obj: ListMitigationActionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMitigationActionsRequest => __isa(o, "ListMitigationActionsRequest");
 }
 
 export interface ListMitigationActionsResponse {
-  __type?: "ListMitigationActionsResponse";
   /**
    * <p>A set of actions that matched the specified filter criteria.</p>
    */
@@ -9366,11 +8612,9 @@ export namespace ListMitigationActionsResponse {
   export const filterSensitiveLog = (obj: ListMitigationActionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMitigationActionsResponse => __isa(o, "ListMitigationActionsResponse");
 }
 
 export interface ListOTAUpdatesRequest {
-  __type?: "ListOTAUpdatesRequest";
   /**
    * <p>The OTA update job status.</p>
    */
@@ -9391,11 +8635,9 @@ export namespace ListOTAUpdatesRequest {
   export const filterSensitiveLog = (obj: ListOTAUpdatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOTAUpdatesRequest => __isa(o, "ListOTAUpdatesRequest");
 }
 
 export interface ListOTAUpdatesResponse {
-  __type?: "ListOTAUpdatesResponse";
   /**
    * <p>A token to use to get the next set of results.</p>
    */
@@ -9411,14 +8653,12 @@ export namespace ListOTAUpdatesResponse {
   export const filterSensitiveLog = (obj: ListOTAUpdatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOTAUpdatesResponse => __isa(o, "ListOTAUpdatesResponse");
 }
 
 /**
  * <p>The input to the ListOutgoingCertificates operation.</p>
  */
 export interface ListOutgoingCertificatesRequest {
-  __type?: "ListOutgoingCertificatesRequest";
   /**
    * <p>Specifies the order for results. If True, the results are returned in ascending
    *          order, based on the creation date.</p>
@@ -9440,14 +8680,12 @@ export namespace ListOutgoingCertificatesRequest {
   export const filterSensitiveLog = (obj: ListOutgoingCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOutgoingCertificatesRequest => __isa(o, "ListOutgoingCertificatesRequest");
 }
 
 /**
  * <p>The output from the ListOutgoingCertificates operation.</p>
  */
 export interface ListOutgoingCertificatesResponse {
-  __type?: "ListOutgoingCertificatesResponse";
   /**
    * <p>The marker for the next set of results.</p>
    */
@@ -9463,14 +8701,12 @@ export namespace ListOutgoingCertificatesResponse {
   export const filterSensitiveLog = (obj: ListOutgoingCertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOutgoingCertificatesResponse => __isa(o, "ListOutgoingCertificatesResponse");
 }
 
 /**
  * <p>The input for the ListPolicies operation.</p>
  */
 export interface ListPoliciesRequest {
-  __type?: "ListPoliciesRequest";
   /**
    * <p>The result page size.</p>
    */
@@ -9492,14 +8728,12 @@ export namespace ListPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 /**
  * <p>The output from the ListPolicies operation.</p>
  */
 export interface ListPoliciesResponse {
-  __type?: "ListPoliciesResponse";
   /**
    * <p>The descriptions of the policies.</p>
    */
@@ -9516,14 +8750,12 @@ export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 /**
  * <p>The input for the ListPolicyPrincipals operation.</p>
  */
 export interface ListPolicyPrincipalsRequest {
-  __type?: "ListPolicyPrincipalsRequest";
   /**
    * <p>The result page size.</p>
    */
@@ -9550,14 +8782,12 @@ export namespace ListPolicyPrincipalsRequest {
   export const filterSensitiveLog = (obj: ListPolicyPrincipalsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPolicyPrincipalsRequest => __isa(o, "ListPolicyPrincipalsRequest");
 }
 
 /**
  * <p>The output from the ListPolicyPrincipals operation.</p>
  */
 export interface ListPolicyPrincipalsResponse {
-  __type?: "ListPolicyPrincipalsResponse";
   /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
@@ -9574,14 +8804,12 @@ export namespace ListPolicyPrincipalsResponse {
   export const filterSensitiveLog = (obj: ListPolicyPrincipalsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPolicyPrincipalsResponse => __isa(o, "ListPolicyPrincipalsResponse");
 }
 
 /**
  * <p>The input for the ListPolicyVersions operation.</p>
  */
 export interface ListPolicyVersionsRequest {
-  __type?: "ListPolicyVersionsRequest";
   /**
    * <p>The policy name.</p>
    */
@@ -9592,14 +8820,12 @@ export namespace ListPolicyVersionsRequest {
   export const filterSensitiveLog = (obj: ListPolicyVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPolicyVersionsRequest => __isa(o, "ListPolicyVersionsRequest");
 }
 
 /**
  * <p>The output from the ListPolicyVersions operation.</p>
  */
 export interface ListPolicyVersionsResponse {
-  __type?: "ListPolicyVersionsResponse";
   /**
    * <p>The policy versions.</p>
    */
@@ -9610,14 +8836,12 @@ export namespace ListPolicyVersionsResponse {
   export const filterSensitiveLog = (obj: ListPolicyVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPolicyVersionsResponse => __isa(o, "ListPolicyVersionsResponse");
 }
 
 /**
  * <p>The input for the ListPrincipalPolicies operation.</p>
  */
 export interface ListPrincipalPoliciesRequest {
-  __type?: "ListPrincipalPoliciesRequest";
   /**
    * <p>The marker for the next set of results.</p>
    */
@@ -9644,14 +8868,12 @@ export namespace ListPrincipalPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPrincipalPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalPoliciesRequest => __isa(o, "ListPrincipalPoliciesRequest");
 }
 
 /**
  * <p>The output from the ListPrincipalPolicies operation.</p>
  */
 export interface ListPrincipalPoliciesResponse {
-  __type?: "ListPrincipalPoliciesResponse";
   /**
    * <p>The policies.</p>
    */
@@ -9668,14 +8890,12 @@ export namespace ListPrincipalPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPrincipalPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalPoliciesResponse => __isa(o, "ListPrincipalPoliciesResponse");
 }
 
 /**
  * <p>The input for the ListPrincipalThings operation.</p>
  */
 export interface ListPrincipalThingsRequest {
-  __type?: "ListPrincipalThingsRequest";
   /**
    * <p>The principal.</p>
    */
@@ -9696,14 +8916,12 @@ export namespace ListPrincipalThingsRequest {
   export const filterSensitiveLog = (obj: ListPrincipalThingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalThingsRequest => __isa(o, "ListPrincipalThingsRequest");
 }
 
 /**
  * <p>The output from the ListPrincipalThings operation.</p>
  */
 export interface ListPrincipalThingsResponse {
-  __type?: "ListPrincipalThingsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -9719,11 +8937,9 @@ export namespace ListPrincipalThingsResponse {
   export const filterSensitiveLog = (obj: ListPrincipalThingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalThingsResponse => __isa(o, "ListPrincipalThingsResponse");
 }
 
 export interface ListProvisioningTemplatesRequest {
-  __type?: "ListProvisioningTemplatesRequest";
   /**
    * <p>The maximum number of results to return at one time.</p>
    */
@@ -9739,11 +8955,9 @@ export namespace ListProvisioningTemplatesRequest {
   export const filterSensitiveLog = (obj: ListProvisioningTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisioningTemplatesRequest => __isa(o, "ListProvisioningTemplatesRequest");
 }
 
 export interface ListProvisioningTemplatesResponse {
-  __type?: "ListProvisioningTemplatesResponse";
   /**
    * <p>A token to retrieve the next set of results.</p>
    */
@@ -9759,11 +8973,9 @@ export namespace ListProvisioningTemplatesResponse {
   export const filterSensitiveLog = (obj: ListProvisioningTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisioningTemplatesResponse => __isa(o, "ListProvisioningTemplatesResponse");
 }
 
 export interface ListProvisioningTemplateVersionsRequest {
-  __type?: "ListProvisioningTemplateVersionsRequest";
   /**
    * <p>A token to retrieve the next set of results.</p>
    */
@@ -9784,12 +8996,9 @@ export namespace ListProvisioningTemplateVersionsRequest {
   export const filterSensitiveLog = (obj: ListProvisioningTemplateVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisioningTemplateVersionsRequest =>
-    __isa(o, "ListProvisioningTemplateVersionsRequest");
 }
 
 export interface ListProvisioningTemplateVersionsResponse {
-  __type?: "ListProvisioningTemplateVersionsResponse";
   /**
    * <p>A token to retrieve the next set of results.</p>
    */
@@ -9805,12 +9014,9 @@ export namespace ListProvisioningTemplateVersionsResponse {
   export const filterSensitiveLog = (obj: ListProvisioningTemplateVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisioningTemplateVersionsResponse =>
-    __isa(o, "ListProvisioningTemplateVersionsResponse");
 }
 
 export interface ListRoleAliasesRequest {
-  __type?: "ListRoleAliasesRequest";
   /**
    * <p>Return the list of role aliases in ascending alphabetical order.</p>
    */
@@ -9831,11 +9037,9 @@ export namespace ListRoleAliasesRequest {
   export const filterSensitiveLog = (obj: ListRoleAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoleAliasesRequest => __isa(o, "ListRoleAliasesRequest");
 }
 
 export interface ListRoleAliasesResponse {
-  __type?: "ListRoleAliasesResponse";
   /**
    * <p>The role aliases.</p>
    */
@@ -9851,11 +9055,9 @@ export namespace ListRoleAliasesResponse {
   export const filterSensitiveLog = (obj: ListRoleAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoleAliasesResponse => __isa(o, "ListRoleAliasesResponse");
 }
 
 export interface ListScheduledAuditsRequest {
-  __type?: "ListScheduledAuditsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -9871,11 +9073,9 @@ export namespace ListScheduledAuditsRequest {
   export const filterSensitiveLog = (obj: ListScheduledAuditsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListScheduledAuditsRequest => __isa(o, "ListScheduledAuditsRequest");
 }
 
 export interface ListScheduledAuditsResponse {
-  __type?: "ListScheduledAuditsResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results,
    *             or <code>null</code> if there are no additional results.</p>
@@ -9892,11 +9092,9 @@ export namespace ListScheduledAuditsResponse {
   export const filterSensitiveLog = (obj: ListScheduledAuditsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListScheduledAuditsResponse => __isa(o, "ListScheduledAuditsResponse");
 }
 
 export interface ListSecurityProfilesForTargetRequest {
-  __type?: "ListSecurityProfilesForTargetRequest";
   /**
    * <p>The maximum number of results to return at one time.</p>
    */
@@ -9922,12 +9120,9 @@ export namespace ListSecurityProfilesForTargetRequest {
   export const filterSensitiveLog = (obj: ListSecurityProfilesForTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityProfilesForTargetRequest =>
-    __isa(o, "ListSecurityProfilesForTargetRequest");
 }
 
 export interface ListSecurityProfilesForTargetResponse {
-  __type?: "ListSecurityProfilesForTargetResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
@@ -9944,12 +9139,9 @@ export namespace ListSecurityProfilesForTargetResponse {
   export const filterSensitiveLog = (obj: ListSecurityProfilesForTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityProfilesForTargetResponse =>
-    __isa(o, "ListSecurityProfilesForTargetResponse");
 }
 
 export interface ListSecurityProfilesRequest {
-  __type?: "ListSecurityProfilesRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -9970,11 +9162,9 @@ export namespace ListSecurityProfilesRequest {
   export const filterSensitiveLog = (obj: ListSecurityProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityProfilesRequest => __isa(o, "ListSecurityProfilesRequest");
 }
 
 export interface ListSecurityProfilesResponse {
-  __type?: "ListSecurityProfilesResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
@@ -9991,11 +9181,9 @@ export namespace ListSecurityProfilesResponse {
   export const filterSensitiveLog = (obj: ListSecurityProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityProfilesResponse => __isa(o, "ListSecurityProfilesResponse");
 }
 
 export interface ListStreamsRequest {
-  __type?: "ListStreamsRequest";
   /**
    * <p>Set to true to return the list of streams in ascending order.</p>
    */
@@ -10016,11 +9204,9 @@ export namespace ListStreamsRequest {
   export const filterSensitiveLog = (obj: ListStreamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsRequest => __isa(o, "ListStreamsRequest");
 }
 
 export interface ListStreamsResponse {
-  __type?: "ListStreamsResponse";
   /**
    * <p>A token used to get the next set of results.</p>
    */
@@ -10036,11 +9222,9 @@ export namespace ListStreamsResponse {
   export const filterSensitiveLog = (obj: ListStreamsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsResponse => __isa(o, "ListStreamsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The token to retrieve the next set of results.</p>
    */
@@ -10056,11 +9240,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tags assigned to the resource.</p>
    */
@@ -10076,11 +9258,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTargetsForPolicyRequest {
-  __type?: "ListTargetsForPolicyRequest";
   /**
    * <p>The policy name.</p>
    */
@@ -10101,11 +9281,9 @@ export namespace ListTargetsForPolicyRequest {
   export const filterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsForPolicyRequest => __isa(o, "ListTargetsForPolicyRequest");
 }
 
 export interface ListTargetsForPolicyResponse {
-  __type?: "ListTargetsForPolicyResponse";
   /**
    * <p>The policy targets.</p>
    */
@@ -10121,11 +9299,9 @@ export namespace ListTargetsForPolicyResponse {
   export const filterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsForPolicyResponse => __isa(o, "ListTargetsForPolicyResponse");
 }
 
 export interface ListTargetsForSecurityProfileRequest {
-  __type?: "ListTargetsForSecurityProfileRequest";
   /**
    * <p>The security profile.</p>
    */
@@ -10146,12 +9322,9 @@ export namespace ListTargetsForSecurityProfileRequest {
   export const filterSensitiveLog = (obj: ListTargetsForSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsForSecurityProfileRequest =>
-    __isa(o, "ListTargetsForSecurityProfileRequest");
 }
 
 export interface ListTargetsForSecurityProfileResponse {
-  __type?: "ListTargetsForSecurityProfileResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
@@ -10168,12 +9341,9 @@ export namespace ListTargetsForSecurityProfileResponse {
   export const filterSensitiveLog = (obj: ListTargetsForSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsForSecurityProfileResponse =>
-    __isa(o, "ListTargetsForSecurityProfileResponse");
 }
 
 export interface ListThingGroupsForThingRequest {
-  __type?: "ListThingGroupsForThingRequest";
   /**
    * <p>The maximum number of results to return at one time.</p>
    */
@@ -10194,11 +9364,9 @@ export namespace ListThingGroupsForThingRequest {
   export const filterSensitiveLog = (obj: ListThingGroupsForThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingGroupsForThingRequest => __isa(o, "ListThingGroupsForThingRequest");
 }
 
 export interface ListThingGroupsForThingResponse {
-  __type?: "ListThingGroupsForThingResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -10214,11 +9382,9 @@ export namespace ListThingGroupsForThingResponse {
   export const filterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingGroupsForThingResponse => __isa(o, "ListThingGroupsForThingResponse");
 }
 
 export interface ListThingGroupsRequest {
-  __type?: "ListThingGroupsRequest";
   /**
    * <p>The maximum number of results to return at one time.</p>
    */
@@ -10249,11 +9415,9 @@ export namespace ListThingGroupsRequest {
   export const filterSensitiveLog = (obj: ListThingGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingGroupsRequest => __isa(o, "ListThingGroupsRequest");
 }
 
 export interface ListThingGroupsResponse {
-  __type?: "ListThingGroupsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -10269,14 +9433,12 @@ export namespace ListThingGroupsResponse {
   export const filterSensitiveLog = (obj: ListThingGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingGroupsResponse => __isa(o, "ListThingGroupsResponse");
 }
 
 /**
  * <p>The input for the ListThingPrincipal operation.</p>
  */
 export interface ListThingPrincipalsRequest {
-  __type?: "ListThingPrincipalsRequest";
   /**
    * <p>The name of the thing.</p>
    */
@@ -10287,14 +9449,12 @@ export namespace ListThingPrincipalsRequest {
   export const filterSensitiveLog = (obj: ListThingPrincipalsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingPrincipalsRequest => __isa(o, "ListThingPrincipalsRequest");
 }
 
 /**
  * <p>The output from the ListThingPrincipals operation.</p>
  */
 export interface ListThingPrincipalsResponse {
-  __type?: "ListThingPrincipalsResponse";
   /**
    * <p>The principals associated with the thing.</p>
    */
@@ -10305,11 +9465,9 @@ export namespace ListThingPrincipalsResponse {
   export const filterSensitiveLog = (obj: ListThingPrincipalsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingPrincipalsResponse => __isa(o, "ListThingPrincipalsResponse");
 }
 
 export interface ListThingRegistrationTaskReportsRequest {
-  __type?: "ListThingRegistrationTaskReportsRequest";
   /**
    * <p>The maximum number of results to return per request.</p>
    */
@@ -10335,12 +9493,9 @@ export namespace ListThingRegistrationTaskReportsRequest {
   export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingRegistrationTaskReportsRequest =>
-    __isa(o, "ListThingRegistrationTaskReportsRequest");
 }
 
 export interface ListThingRegistrationTaskReportsResponse {
-  __type?: "ListThingRegistrationTaskReportsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -10361,12 +9516,9 @@ export namespace ListThingRegistrationTaskReportsResponse {
   export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingRegistrationTaskReportsResponse =>
-    __isa(o, "ListThingRegistrationTaskReportsResponse");
 }
 
 export interface ListThingRegistrationTasksRequest {
-  __type?: "ListThingRegistrationTasksRequest";
   /**
    * <p>The maximum number of results to return at one time.</p>
    */
@@ -10387,11 +9539,9 @@ export namespace ListThingRegistrationTasksRequest {
   export const filterSensitiveLog = (obj: ListThingRegistrationTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingRegistrationTasksRequest => __isa(o, "ListThingRegistrationTasksRequest");
 }
 
 export interface ListThingRegistrationTasksResponse {
-  __type?: "ListThingRegistrationTasksResponse";
   /**
    * <p>A list of bulk thing provisioning task IDs.</p>
    */
@@ -10407,12 +9557,9 @@ export namespace ListThingRegistrationTasksResponse {
   export const filterSensitiveLog = (obj: ListThingRegistrationTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingRegistrationTasksResponse =>
-    __isa(o, "ListThingRegistrationTasksResponse");
 }
 
 export interface ListThingsInBillingGroupRequest {
-  __type?: "ListThingsInBillingGroupRequest";
   /**
    * <p>The name of the billing group.</p>
    */
@@ -10433,11 +9580,9 @@ export namespace ListThingsInBillingGroupRequest {
   export const filterSensitiveLog = (obj: ListThingsInBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingsInBillingGroupRequest => __isa(o, "ListThingsInBillingGroupRequest");
 }
 
 export interface ListThingsInBillingGroupResponse {
-  __type?: "ListThingsInBillingGroupResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -10453,11 +9598,9 @@ export namespace ListThingsInBillingGroupResponse {
   export const filterSensitiveLog = (obj: ListThingsInBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingsInBillingGroupResponse => __isa(o, "ListThingsInBillingGroupResponse");
 }
 
 export interface ListThingsInThingGroupRequest {
-  __type?: "ListThingsInThingGroupRequest";
   /**
    * <p>The token to retrieve the next set of results.</p>
    */
@@ -10484,11 +9627,9 @@ export namespace ListThingsInThingGroupRequest {
   export const filterSensitiveLog = (obj: ListThingsInThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingsInThingGroupRequest => __isa(o, "ListThingsInThingGroupRequest");
 }
 
 export interface ListThingsInThingGroupResponse {
-  __type?: "ListThingsInThingGroupResponse";
   /**
    * <p>The things in the specified thing group.</p>
    */
@@ -10504,14 +9645,12 @@ export namespace ListThingsInThingGroupResponse {
   export const filterSensitiveLog = (obj: ListThingsInThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingsInThingGroupResponse => __isa(o, "ListThingsInThingGroupResponse");
 }
 
 /**
  * <p>The input for the ListThings operation.</p>
  */
 export interface ListThingsRequest {
-  __type?: "ListThingsRequest";
   /**
    * <p>The attribute value used to search for things.</p>
    */
@@ -10542,14 +9681,12 @@ export namespace ListThingsRequest {
   export const filterSensitiveLog = (obj: ListThingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingsRequest => __isa(o, "ListThingsRequest");
 }
 
 /**
  * <p>The output from the ListThings operation.</p>
  */
 export interface ListThingsResponse {
-  __type?: "ListThingsResponse";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -10565,14 +9702,12 @@ export namespace ListThingsResponse {
   export const filterSensitiveLog = (obj: ListThingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingsResponse => __isa(o, "ListThingsResponse");
 }
 
 /**
  * <p>The input for the ListThingTypes operation.</p>
  */
 export interface ListThingTypesRequest {
-  __type?: "ListThingTypesRequest";
   /**
    * <p>The name of the thing type.</p>
    */
@@ -10593,14 +9728,12 @@ export namespace ListThingTypesRequest {
   export const filterSensitiveLog = (obj: ListThingTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingTypesRequest => __isa(o, "ListThingTypesRequest");
 }
 
 /**
  * <p>The output for the ListThingTypes operation.</p>
  */
 export interface ListThingTypesResponse {
-  __type?: "ListThingTypesResponse";
   /**
    * <p>The thing types.</p>
    */
@@ -10617,11 +9750,9 @@ export namespace ListThingTypesResponse {
   export const filterSensitiveLog = (obj: ListThingTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThingTypesResponse => __isa(o, "ListThingTypesResponse");
 }
 
 export interface ListTopicRuleDestinationsRequest {
-  __type?: "ListTopicRuleDestinationsRequest";
   /**
    * <p>The token to retrieve the next set of results.</p>
    */
@@ -10637,11 +9768,9 @@ export namespace ListTopicRuleDestinationsRequest {
   export const filterSensitiveLog = (obj: ListTopicRuleDestinationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTopicRuleDestinationsRequest => __isa(o, "ListTopicRuleDestinationsRequest");
 }
 
 export interface ListTopicRuleDestinationsResponse {
-  __type?: "ListTopicRuleDestinationsResponse";
   /**
    * <p>Information about a topic rule destination.</p>
    */
@@ -10657,14 +9786,12 @@ export namespace ListTopicRuleDestinationsResponse {
   export const filterSensitiveLog = (obj: ListTopicRuleDestinationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTopicRuleDestinationsResponse => __isa(o, "ListTopicRuleDestinationsResponse");
 }
 
 /**
  * <p>The input for the ListTopicRules operation.</p>
  */
 export interface ListTopicRulesRequest {
-  __type?: "ListTopicRulesRequest";
   /**
    * <p>The topic.</p>
    */
@@ -10690,14 +9817,12 @@ export namespace ListTopicRulesRequest {
   export const filterSensitiveLog = (obj: ListTopicRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTopicRulesRequest => __isa(o, "ListTopicRulesRequest");
 }
 
 /**
  * <p>The output from the ListTopicRules operation.</p>
  */
 export interface ListTopicRulesResponse {
-  __type?: "ListTopicRulesResponse";
   /**
    * <p>A token used to retrieve the next value.</p>
    */
@@ -10713,11 +9838,9 @@ export namespace ListTopicRulesResponse {
   export const filterSensitiveLog = (obj: ListTopicRulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTopicRulesResponse => __isa(o, "ListTopicRulesResponse");
 }
 
 export interface ListV2LoggingLevelsRequest {
-  __type?: "ListV2LoggingLevelsRequest";
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
@@ -10739,11 +9862,9 @@ export namespace ListV2LoggingLevelsRequest {
   export const filterSensitiveLog = (obj: ListV2LoggingLevelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListV2LoggingLevelsRequest => __isa(o, "ListV2LoggingLevelsRequest");
 }
 
 export interface ListV2LoggingLevelsResponse {
-  __type?: "ListV2LoggingLevelsResponse";
   /**
    * <p>The logging configuration for a target.</p>
    */
@@ -10759,11 +9880,9 @@ export namespace ListV2LoggingLevelsResponse {
   export const filterSensitiveLog = (obj: ListV2LoggingLevelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListV2LoggingLevelsResponse => __isa(o, "ListV2LoggingLevelsResponse");
 }
 
 export interface ListViolationEventsRequest {
-  __type?: "ListViolationEventsRequest";
   /**
    * <p>The maximum number of results to return at one time.</p>
    */
@@ -10799,11 +9918,9 @@ export namespace ListViolationEventsRequest {
   export const filterSensitiveLog = (obj: ListViolationEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListViolationEventsRequest => __isa(o, "ListViolationEventsRequest");
 }
 
 export interface ListViolationEventsResponse {
-  __type?: "ListViolationEventsResponse";
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
@@ -10821,14 +9938,12 @@ export namespace ListViolationEventsResponse {
   export const filterSensitiveLog = (obj: ListViolationEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListViolationEventsResponse => __isa(o, "ListViolationEventsResponse");
 }
 
 /**
  * <p>Describes the logging options payload.</p>
  */
 export interface LoggingOptionsPayload {
-  __type?: "LoggingOptionsPayload";
   /**
    * <p>The ARN of the IAM role that grants access.</p>
    */
@@ -10844,7 +9959,6 @@ export namespace LoggingOptionsPayload {
   export const filterSensitiveLog = (obj: LoggingOptionsPayload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingOptionsPayload => __isa(o, "LoggingOptionsPayload");
 }
 
 export enum LogLevel {
@@ -10859,7 +9973,6 @@ export enum LogLevel {
  * <p>A log target.</p>
  */
 export interface LogTarget {
-  __type?: "LogTarget";
   /**
    * <p>The target name.</p>
    */
@@ -10875,14 +9988,12 @@ export namespace LogTarget {
   export const filterSensitiveLog = (obj: LogTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogTarget => __isa(o, "LogTarget");
 }
 
 /**
  * <p>The target configuration.</p>
  */
 export interface LogTargetConfiguration {
-  __type?: "LogTargetConfiguration";
   /**
    * <p>The logging level.</p>
    */
@@ -10898,7 +10009,6 @@ export namespace LogTargetConfiguration {
   export const filterSensitiveLog = (obj: LogTargetConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogTargetConfiguration => __isa(o, "LogTargetConfiguration");
 }
 
 export enum LogTargetType {
@@ -10922,7 +10032,6 @@ export namespace MalformedPolicyException {
   export const filterSensitiveLog = (obj: MalformedPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyException => __isa(o, "MalformedPolicyException");
 }
 
 export enum MessageFormat {
@@ -10934,7 +10043,6 @@ export enum MessageFormat {
  * <p>The dimension of a metric.</p>
  */
 export interface MetricDimension {
-  __type?: "MetricDimension";
   /**
    * <p>Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.</p>
    */
@@ -10950,14 +10058,12 @@ export namespace MetricDimension {
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 /**
  * <p>The metric you want to retain. Dimensions are optional.</p>
  */
 export interface MetricToRetain {
-  __type?: "MetricToRetain";
   /**
    * <p>What is measured by the behavior.</p>
    */
@@ -10973,14 +10079,12 @@ export namespace MetricToRetain {
   export const filterSensitiveLog = (obj: MetricToRetain): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricToRetain => __isa(o, "MetricToRetain");
 }
 
 /**
  * <p>The value to be compared with the <code>metric</code>.</p>
  */
 export interface MetricValue {
-  __type?: "MetricValue";
   /**
    * <p>If the <code>comparisonOperator</code> calls for a set of ports, use this
    *           to specify that set to be compared with the <code>metric</code>.</p>
@@ -11004,14 +10108,12 @@ export namespace MetricValue {
   export const filterSensitiveLog = (obj: MetricValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricValue => __isa(o, "MetricValue");
 }
 
 /**
  * <p>Describes which changes should be applied as part of a mitigation action.</p>
  */
 export interface MitigationAction {
-  __type?: "MitigationAction";
   /**
    * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
    */
@@ -11037,14 +10139,12 @@ export namespace MitigationAction {
   export const filterSensitiveLog = (obj: MitigationAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MitigationAction => __isa(o, "MitigationAction");
 }
 
 /**
  * <p>Information that identifies a mitigation action. This information is returned by ListMitigationActions.</p>
  */
 export interface MitigationActionIdentifier {
-  __type?: "MitigationActionIdentifier";
   /**
    * <p>The friendly name of the mitigation action.</p>
    */
@@ -11065,14 +10165,12 @@ export namespace MitigationActionIdentifier {
   export const filterSensitiveLog = (obj: MitigationActionIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MitigationActionIdentifier => __isa(o, "MitigationActionIdentifier");
 }
 
 /**
  * <p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>
  */
 export interface MitigationActionParams {
-  __type?: "MitigationActionParams";
   /**
    * <p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>
    */
@@ -11108,7 +10206,6 @@ export namespace MitigationActionParams {
   export const filterSensitiveLog = (obj: MitigationActionParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MitigationActionParams => __isa(o, "MitigationActionParams");
 }
 
 export enum MitigationActionType {
@@ -11124,7 +10221,6 @@ export enum MitigationActionType {
  * <p>Specifies the MQTT context to use for the test authorizer request</p>
  */
 export interface MqttContext {
-  __type?: "MqttContext";
   /**
    * <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
    */
@@ -11145,14 +10241,12 @@ export namespace MqttContext {
   export const filterSensitiveLog = (obj: MqttContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MqttContext => __isa(o, "MqttContext");
 }
 
 /**
  * <p>Information about the resource that was noncompliant with the audit check.</p>
  */
 export interface NonCompliantResource {
-  __type?: "NonCompliantResource";
   /**
    * <p>Other information about the noncompliant resource.</p>
    */
@@ -11173,7 +10267,6 @@ export namespace NonCompliantResource {
   export const filterSensitiveLog = (obj: NonCompliantResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NonCompliantResource => __isa(o, "NonCompliantResource");
 }
 
 /**
@@ -11192,14 +10285,12 @@ export namespace NotConfiguredException {
   export const filterSensitiveLog = (obj: NotConfiguredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotConfiguredException => __isa(o, "NotConfiguredException");
 }
 
 /**
  * <p>Describes a file to be associated with an OTA update.</p>
  */
 export interface OTAUpdateFile {
-  __type?: "OTAUpdateFile";
   /**
    * <p>A list of name/attribute pairs.</p>
    */
@@ -11230,14 +10321,12 @@ export namespace OTAUpdateFile {
   export const filterSensitiveLog = (obj: OTAUpdateFile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OTAUpdateFile => __isa(o, "OTAUpdateFile");
 }
 
 /**
  * <p>Information about an OTA update.</p>
  */
 export interface OTAUpdateInfo {
-  __type?: "OTAUpdateInfo";
   /**
    * <p>The AWS IoT job ID associated with the OTA update.</p>
    */
@@ -11329,7 +10418,6 @@ export namespace OTAUpdateInfo {
   export const filterSensitiveLog = (obj: OTAUpdateInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OTAUpdateInfo => __isa(o, "OTAUpdateInfo");
 }
 
 export enum OTAUpdateStatus {
@@ -11343,7 +10431,6 @@ export enum OTAUpdateStatus {
  * <p>An OTA update summary.</p>
  */
 export interface OTAUpdateSummary {
-  __type?: "OTAUpdateSummary";
   /**
    * <p>The OTA update ARN.</p>
    */
@@ -11364,14 +10451,12 @@ export namespace OTAUpdateSummary {
   export const filterSensitiveLog = (obj: OTAUpdateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OTAUpdateSummary => __isa(o, "OTAUpdateSummary");
 }
 
 /**
  * <p>A certificate that has been transferred but not yet accepted.</p>
  */
 export interface OutgoingCertificate {
-  __type?: "OutgoingCertificate";
   /**
    * <p>The certificate ARN.</p>
    */
@@ -11407,14 +10492,12 @@ export namespace OutgoingCertificate {
   export const filterSensitiveLog = (obj: OutgoingCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutgoingCertificate => __isa(o, "OutgoingCertificate");
 }
 
 /**
  * <p>Describes the percentile and percentile value.</p>
  */
 export interface PercentPair {
-  __type?: "PercentPair";
   /**
    * <p>The percentile.</p>
    */
@@ -11430,14 +10513,12 @@ export namespace PercentPair {
   export const filterSensitiveLog = (obj: PercentPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PercentPair => __isa(o, "PercentPair");
 }
 
 /**
  * <p>Describes an AWS IoT policy.</p>
  */
 export interface Policy {
-  __type?: "Policy";
   /**
    * <p>The policy name.</p>
    */
@@ -11453,7 +10534,6 @@ export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Policy => __isa(o, "Policy");
 }
 
 export enum PolicyTemplateName {
@@ -11464,7 +10544,6 @@ export enum PolicyTemplateName {
  * <p>Describes a policy version.</p>
  */
 export interface PolicyVersion {
-  __type?: "PolicyVersion";
   /**
    * <p>The date and time the policy was created.</p>
    */
@@ -11485,14 +10564,12 @@ export namespace PolicyVersion {
   export const filterSensitiveLog = (obj: PolicyVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyVersion => __isa(o, "PolicyVersion");
 }
 
 /**
  * <p>Information about the version of the policy associated with the resource.</p>
  */
 export interface PolicyVersionIdentifier {
-  __type?: "PolicyVersionIdentifier";
   /**
    * <p>The name of the policy.</p>
    */
@@ -11508,14 +10585,12 @@ export namespace PolicyVersionIdentifier {
   export const filterSensitiveLog = (obj: PolicyVersionIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyVersionIdentifier => __isa(o, "PolicyVersionIdentifier");
 }
 
 /**
  * <p>Configuration for pre-signed S3 URLs.</p>
  */
 export interface PresignedUrlConfig {
-  __type?: "PresignedUrlConfig";
   /**
    * <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600
    *             seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>
@@ -11533,7 +10608,6 @@ export namespace PresignedUrlConfig {
   export const filterSensitiveLog = (obj: PresignedUrlConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PresignedUrlConfig => __isa(o, "PresignedUrlConfig");
 }
 
 export enum Protocol {
@@ -11546,7 +10620,6 @@ export enum Protocol {
  *          <code>targetArn</code>.</p>
  */
 export interface ProvisioningHook {
-  __type?: "ProvisioningHook";
   /**
    * <p>The payload that was sent to the target function.</p>
    *          <p>
@@ -11566,14 +10639,12 @@ export namespace ProvisioningHook {
   export const filterSensitiveLog = (obj: ProvisioningHook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisioningHook => __isa(o, "ProvisioningHook");
 }
 
 /**
  * <p>A summary of information about a fleet provisioning template.</p>
  */
 export interface ProvisioningTemplateSummary {
-  __type?: "ProvisioningTemplateSummary";
   /**
    * <p>True if the fleet provision template is enabled, otherwise false.</p>
    */
@@ -11609,14 +10680,12 @@ export namespace ProvisioningTemplateSummary {
   export const filterSensitiveLog = (obj: ProvisioningTemplateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisioningTemplateSummary => __isa(o, "ProvisioningTemplateSummary");
 }
 
 /**
  * <p>A summary of information about a fleet provision template version.</p>
  */
 export interface ProvisioningTemplateVersionSummary {
-  __type?: "ProvisioningTemplateVersionSummary";
   /**
    * <p>The ID of the fleet privisioning template version.</p>
    */
@@ -11638,15 +10707,12 @@ export namespace ProvisioningTemplateVersionSummary {
   export const filterSensitiveLog = (obj: ProvisioningTemplateVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisioningTemplateVersionSummary =>
-    __isa(o, "ProvisioningTemplateVersionSummary");
 }
 
 /**
  * <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
  */
 export interface PublishFindingToSnsParams {
-  __type?: "PublishFindingToSnsParams";
   /**
    * <p>The ARN of the topic to which you want to publish the findings.</p>
    */
@@ -11657,14 +10723,12 @@ export namespace PublishFindingToSnsParams {
   export const filterSensitiveLog = (obj: PublishFindingToSnsParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublishFindingToSnsParams => __isa(o, "PublishFindingToSnsParams");
 }
 
 /**
  * <p>An asset property value entry containing the following information.</p>
  */
 export interface PutAssetPropertyValueEntry {
-  __type?: "PutAssetPropertyValueEntry";
   /**
    * <p>A list of property values to insert that each contain timestamp, quality, and value (TQV)
    *       information.</p>
@@ -11704,7 +10768,6 @@ export namespace PutAssetPropertyValueEntry {
   export const filterSensitiveLog = (obj: PutAssetPropertyValueEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAssetPropertyValueEntry => __isa(o, "PutAssetPropertyValueEntry");
 }
 
 /**
@@ -11712,7 +10775,6 @@ export namespace PutAssetPropertyValueEntry {
  *          the message data will be written.</p>
  */
 export interface PutItemInput {
-  __type?: "PutItemInput";
   /**
    * <p>The table where the message data will be written.</p>
    */
@@ -11723,14 +10785,12 @@ export namespace PutItemInput {
   export const filterSensitiveLog = (obj: PutItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutItemInput => __isa(o, "PutItemInput");
 }
 
 /**
  * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
  */
 export interface RateIncreaseCriteria {
-  __type?: "RateIncreaseCriteria";
   /**
    * <p>The threshold for number of notified things that will initiate the increase in rate of rollout.</p>
    */
@@ -11746,14 +10806,12 @@ export namespace RateIncreaseCriteria {
   export const filterSensitiveLog = (obj: RateIncreaseCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RateIncreaseCriteria => __isa(o, "RateIncreaseCriteria");
 }
 
 /**
  * <p>The input to the RegisterCACertificate operation.</p>
  */
 export interface RegisterCACertificateRequest {
-  __type?: "RegisterCACertificateRequest";
   /**
    * <p>Metadata which can be used to manage the CA certificate.</p>
    *          <note>
@@ -11797,14 +10855,12 @@ export namespace RegisterCACertificateRequest {
   export const filterSensitiveLog = (obj: RegisterCACertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCACertificateRequest => __isa(o, "RegisterCACertificateRequest");
 }
 
 /**
  * <p>The output from the RegisterCACertificateResponse operation.</p>
  */
 export interface RegisterCACertificateResponse {
-  __type?: "RegisterCACertificateResponse";
   /**
    * <p>The CA certificate ARN.</p>
    */
@@ -11820,14 +10876,12 @@ export namespace RegisterCACertificateResponse {
   export const filterSensitiveLog = (obj: RegisterCACertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCACertificateResponse => __isa(o, "RegisterCACertificateResponse");
 }
 
 /**
  * <p>The input to the RegisterCertificate operation.</p>
  */
 export interface RegisterCertificateRequest {
-  __type?: "RegisterCertificateRequest";
   /**
    * <p>The status of the register certificate request.</p>
    */
@@ -11853,14 +10907,12 @@ export namespace RegisterCertificateRequest {
   export const filterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCertificateRequest => __isa(o, "RegisterCertificateRequest");
 }
 
 /**
  * <p>The output from the RegisterCertificate operation.</p>
  */
 export interface RegisterCertificateResponse {
-  __type?: "RegisterCertificateResponse";
   /**
    * <p>The certificate ARN.</p>
    */
@@ -11876,11 +10928,9 @@ export namespace RegisterCertificateResponse {
   export const filterSensitiveLog = (obj: RegisterCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCertificateResponse => __isa(o, "RegisterCertificateResponse");
 }
 
 export interface RegisterCertificateWithoutCARequest {
-  __type?: "RegisterCertificateWithoutCARequest";
   /**
    * <p>The certificate data, in PEM format.</p>
    */
@@ -11896,12 +10946,9 @@ export namespace RegisterCertificateWithoutCARequest {
   export const filterSensitiveLog = (obj: RegisterCertificateWithoutCARequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCertificateWithoutCARequest =>
-    __isa(o, "RegisterCertificateWithoutCARequest");
 }
 
 export interface RegisterCertificateWithoutCAResponse {
-  __type?: "RegisterCertificateWithoutCAResponse";
   /**
    * <p>The ID of the registered certificate. (The last part of the certificate ARN contains the
    *          certificate ID.</p>
@@ -11918,12 +10965,9 @@ export namespace RegisterCertificateWithoutCAResponse {
   export const filterSensitiveLog = (obj: RegisterCertificateWithoutCAResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCertificateWithoutCAResponse =>
-    __isa(o, "RegisterCertificateWithoutCAResponse");
 }
 
 export interface RegisterThingRequest {
-  __type?: "RegisterThingRequest";
   /**
    * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
    */
@@ -11939,11 +10983,9 @@ export namespace RegisterThingRequest {
   export const filterSensitiveLog = (obj: RegisterThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterThingRequest => __isa(o, "RegisterThingRequest");
 }
 
 export interface RegisterThingResponse {
-  __type?: "RegisterThingResponse";
   /**
    * <p>ARNs for the generated resources.</p>
    */
@@ -11959,7 +11001,6 @@ export namespace RegisterThingResponse {
   export const filterSensitiveLog = (obj: RegisterThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterThingResponse => __isa(o, "RegisterThingResponse");
 }
 
 /**
@@ -11978,15 +11019,12 @@ export namespace RegistrationCodeValidationException {
   export const filterSensitiveLog = (obj: RegistrationCodeValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegistrationCodeValidationException =>
-    __isa(o, "RegistrationCodeValidationException");
 }
 
 /**
  * <p>The registration configuration.</p>
  */
 export interface RegistrationConfig {
-  __type?: "RegistrationConfig";
   /**
    * <p>The template body.</p>
    */
@@ -12002,14 +11040,12 @@ export namespace RegistrationConfig {
   export const filterSensitiveLog = (obj: RegistrationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegistrationConfig => __isa(o, "RegistrationConfig");
 }
 
 /**
  * <p>The input for the RejectCertificateTransfer operation.</p>
  */
 export interface RejectCertificateTransferRequest {
-  __type?: "RejectCertificateTransferRequest";
   /**
    * <p>The reason the certificate transfer was rejected.</p>
    */
@@ -12026,14 +11062,12 @@ export namespace RejectCertificateTransferRequest {
   export const filterSensitiveLog = (obj: RejectCertificateTransferRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectCertificateTransferRequest => __isa(o, "RejectCertificateTransferRequest");
 }
 
 /**
  * <p>Information about a related resource.</p>
  */
 export interface RelatedResource {
-  __type?: "RelatedResource";
   /**
    * <p>Information that identifies the resource.</p>
    */
@@ -12054,11 +11088,9 @@ export namespace RelatedResource {
   export const filterSensitiveLog = (obj: RelatedResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelatedResource => __isa(o, "RelatedResource");
 }
 
 export interface RemoveThingFromBillingGroupRequest {
-  __type?: "RemoveThingFromBillingGroupRequest";
   /**
    * <p>The ARN of the thing to be removed from the billing group.</p>
    */
@@ -12084,24 +11116,17 @@ export namespace RemoveThingFromBillingGroupRequest {
   export const filterSensitiveLog = (obj: RemoveThingFromBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveThingFromBillingGroupRequest =>
-    __isa(o, "RemoveThingFromBillingGroupRequest");
 }
 
-export interface RemoveThingFromBillingGroupResponse {
-  __type?: "RemoveThingFromBillingGroupResponse";
-}
+export interface RemoveThingFromBillingGroupResponse {}
 
 export namespace RemoveThingFromBillingGroupResponse {
   export const filterSensitiveLog = (obj: RemoveThingFromBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveThingFromBillingGroupResponse =>
-    __isa(o, "RemoveThingFromBillingGroupResponse");
 }
 
 export interface RemoveThingFromThingGroupRequest {
-  __type?: "RemoveThingFromThingGroupRequest";
   /**
    * <p>The ARN of the thing to remove from the group.</p>
    */
@@ -12127,25 +11152,20 @@ export namespace RemoveThingFromThingGroupRequest {
   export const filterSensitiveLog = (obj: RemoveThingFromThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveThingFromThingGroupRequest => __isa(o, "RemoveThingFromThingGroupRequest");
 }
 
-export interface RemoveThingFromThingGroupResponse {
-  __type?: "RemoveThingFromThingGroupResponse";
-}
+export interface RemoveThingFromThingGroupResponse {}
 
 export namespace RemoveThingFromThingGroupResponse {
   export const filterSensitiveLog = (obj: RemoveThingFromThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveThingFromThingGroupResponse => __isa(o, "RemoveThingFromThingGroupResponse");
 }
 
 /**
  * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
  */
 export interface ReplaceDefaultPolicyVersionParams {
-  __type?: "ReplaceDefaultPolicyVersionParams";
   /**
    * <p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>
    */
@@ -12156,14 +11176,12 @@ export namespace ReplaceDefaultPolicyVersionParams {
   export const filterSensitiveLog = (obj: ReplaceDefaultPolicyVersionParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceDefaultPolicyVersionParams => __isa(o, "ReplaceDefaultPolicyVersionParams");
 }
 
 /**
  * <p>The input for the ReplaceTopicRule operation.</p>
  */
 export interface ReplaceTopicRuleRequest {
-  __type?: "ReplaceTopicRuleRequest";
   /**
    * <p>The rule payload.</p>
    */
@@ -12179,7 +11197,6 @@ export namespace ReplaceTopicRuleRequest {
   export const filterSensitiveLog = (obj: ReplaceTopicRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceTopicRuleRequest => __isa(o, "ReplaceTopicRuleRequest");
 }
 
 export enum ReportType {
@@ -12191,7 +11208,6 @@ export enum ReportType {
  * <p>Describes an action to republish to another topic.</p>
  */
 export interface RepublishAction {
-  __type?: "RepublishAction";
   /**
    * <p>The ARN of the IAM role that grants access.</p>
    */
@@ -12213,7 +11229,6 @@ export namespace RepublishAction {
   export const filterSensitiveLog = (obj: RepublishAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepublishAction => __isa(o, "RepublishAction");
 }
 
 /**
@@ -12242,14 +11257,12 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>Information that identifies the noncompliant resource.</p>
  */
 export interface ResourceIdentifier {
-  __type?: "ResourceIdentifier";
   /**
    * <p>The version of the policy associated with the resource.</p>
    */
@@ -12295,7 +11308,6 @@ export namespace ResourceIdentifier {
   export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceIdentifier => __isa(o, "ResourceIdentifier");
 }
 
 /**
@@ -12314,7 +11326,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -12333,8 +11344,6 @@ export namespace ResourceRegistrationFailureException {
   export const filterSensitiveLog = (obj: ResourceRegistrationFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRegistrationFailureException =>
-    __isa(o, "ResourceRegistrationFailureException");
 }
 
 export enum ResourceType {
@@ -12352,7 +11361,6 @@ export enum ResourceType {
  * <p>Role alias description.</p>
  */
 export interface RoleAliasDescription {
-  __type?: "RoleAliasDescription";
   /**
    * <p>The role ARN.</p>
    */
@@ -12393,14 +11401,12 @@ export namespace RoleAliasDescription {
   export const filterSensitiveLog = (obj: RoleAliasDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleAliasDescription => __isa(o, "RoleAliasDescription");
 }
 
 /**
  * <p>Describes an action to write data to an Amazon S3 bucket.</p>
  */
 export interface S3Action {
-  __type?: "S3Action";
   /**
    * <p>The object key.</p>
    */
@@ -12427,14 +11433,12 @@ export namespace S3Action {
   export const filterSensitiveLog = (obj: S3Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Action => __isa(o, "S3Action");
 }
 
 /**
  * <p>Describes the location of updated firmware in S3.</p>
  */
 export interface S3Destination {
-  __type?: "S3Destination";
   /**
    * <p>The S3 prefix.</p>
    */
@@ -12450,14 +11454,12 @@ export namespace S3Destination {
   export const filterSensitiveLog = (obj: S3Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
 /**
  * <p>The S3 location.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>The S3 bucket.</p>
    */
@@ -12478,7 +11480,6 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 /**
@@ -12486,7 +11487,6 @@ export namespace S3Location {
  *          Stream.</p>
  */
 export interface SalesforceAction {
-  __type?: "SalesforceAction";
   /**
    * <p>The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The
    *          token is available from the Salesforce IoT Cloud platform after creation of the Input
@@ -12505,14 +11505,12 @@ export namespace SalesforceAction {
   export const filterSensitiveLog = (obj: SalesforceAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceAction => __isa(o, "SalesforceAction");
 }
 
 /**
  * <p>Information about the scheduled audit.</p>
  */
 export interface ScheduledAuditMetadata {
-  __type?: "ScheduledAuditMetadata";
   /**
    * <p>The day of the month on which the scheduled audit is run (if the
    *           <code>frequency</code> is "MONTHLY").
@@ -12547,11 +11545,9 @@ export namespace ScheduledAuditMetadata {
   export const filterSensitiveLog = (obj: ScheduledAuditMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledAuditMetadata => __isa(o, "ScheduledAuditMetadata");
 }
 
 export interface SearchIndexRequest {
-  __type?: "SearchIndexRequest";
   /**
    * <p>The search query string.</p>
    */
@@ -12583,11 +11579,9 @@ export namespace SearchIndexRequest {
   export const filterSensitiveLog = (obj: SearchIndexRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchIndexRequest => __isa(o, "SearchIndexRequest");
 }
 
 export interface SearchIndexResponse {
-  __type?: "SearchIndexResponse";
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
    *       results.</p>
@@ -12609,14 +11603,12 @@ export namespace SearchIndexResponse {
   export const filterSensitiveLog = (obj: SearchIndexResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchIndexResponse => __isa(o, "SearchIndexResponse");
 }
 
 /**
  * <p>Identifying information for a Device Defender security profile.</p>
  */
 export interface SecurityProfileIdentifier {
-  __type?: "SecurityProfileIdentifier";
   /**
    * <p>The ARN of the security profile.</p>
    */
@@ -12632,7 +11624,6 @@ export namespace SecurityProfileIdentifier {
   export const filterSensitiveLog = (obj: SecurityProfileIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityProfileIdentifier => __isa(o, "SecurityProfileIdentifier");
 }
 
 /**
@@ -12640,7 +11631,6 @@ export namespace SecurityProfileIdentifier {
  *           violated.</p>
  */
 export interface SecurityProfileTarget {
-  __type?: "SecurityProfileTarget";
   /**
    * <p>The ARN of the security profile.</p>
    */
@@ -12651,14 +11641,12 @@ export namespace SecurityProfileTarget {
   export const filterSensitiveLog = (obj: SecurityProfileTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityProfileTarget => __isa(o, "SecurityProfileTarget");
 }
 
 /**
  * <p>Information about a security profile and the target associated with it.</p>
  */
 export interface SecurityProfileTargetMapping {
-  __type?: "SecurityProfileTargetMapping";
   /**
    * <p>Information about the target (thing group) associated with the security profile.</p>
    */
@@ -12674,7 +11662,6 @@ export namespace SecurityProfileTargetMapping {
   export const filterSensitiveLog = (obj: SecurityProfileTargetMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityProfileTargetMapping => __isa(o, "SecurityProfileTargetMapping");
 }
 
 export enum ServerCertificateStatus {
@@ -12686,7 +11673,6 @@ export enum ServerCertificateStatus {
  * <p>An object that contains information about a server certificate.</p>
  */
 export interface ServerCertificateSummary {
-  __type?: "ServerCertificateSummary";
   /**
    * <p>Details that explain the status of the server certificate.</p>
    */
@@ -12707,7 +11693,6 @@ export namespace ServerCertificateSummary {
   export const filterSensitiveLog = (obj: ServerCertificateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerCertificateSummary => __isa(o, "ServerCertificateSummary");
 }
 
 export enum ServiceType {
@@ -12732,11 +11717,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface SetDefaultAuthorizerRequest {
-  __type?: "SetDefaultAuthorizerRequest";
   /**
    * <p>The authorizer name.</p>
    */
@@ -12747,11 +11730,9 @@ export namespace SetDefaultAuthorizerRequest {
   export const filterSensitiveLog = (obj: SetDefaultAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDefaultAuthorizerRequest => __isa(o, "SetDefaultAuthorizerRequest");
 }
 
 export interface SetDefaultAuthorizerResponse {
-  __type?: "SetDefaultAuthorizerResponse";
   /**
    * <p>The authorizer name.</p>
    */
@@ -12767,14 +11748,12 @@ export namespace SetDefaultAuthorizerResponse {
   export const filterSensitiveLog = (obj: SetDefaultAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDefaultAuthorizerResponse => __isa(o, "SetDefaultAuthorizerResponse");
 }
 
 /**
  * <p>The input for the SetDefaultPolicyVersion operation.</p>
  */
 export interface SetDefaultPolicyVersionRequest {
-  __type?: "SetDefaultPolicyVersionRequest";
   /**
    * <p>The policy name.</p>
    */
@@ -12790,14 +11769,12 @@ export namespace SetDefaultPolicyVersionRequest {
   export const filterSensitiveLog = (obj: SetDefaultPolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDefaultPolicyVersionRequest => __isa(o, "SetDefaultPolicyVersionRequest");
 }
 
 /**
  * <p>The input for the SetLoggingOptions operation.</p>
  */
 export interface SetLoggingOptionsRequest {
-  __type?: "SetLoggingOptionsRequest";
   /**
    * <p>The logging options payload.</p>
    */
@@ -12808,11 +11785,9 @@ export namespace SetLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: SetLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoggingOptionsRequest => __isa(o, "SetLoggingOptionsRequest");
 }
 
 export interface SetV2LoggingLevelRequest {
-  __type?: "SetV2LoggingLevelRequest";
   /**
    * <p>The log level.</p>
    */
@@ -12828,11 +11803,9 @@ export namespace SetV2LoggingLevelRequest {
   export const filterSensitiveLog = (obj: SetV2LoggingLevelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetV2LoggingLevelRequest => __isa(o, "SetV2LoggingLevelRequest");
 }
 
 export interface SetV2LoggingOptionsRequest {
-  __type?: "SetV2LoggingOptionsRequest";
   /**
    * <p>The default logging level.</p>
    */
@@ -12853,14 +11826,12 @@ export namespace SetV2LoggingOptionsRequest {
   export const filterSensitiveLog = (obj: SetV2LoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetV2LoggingOptionsRequest => __isa(o, "SetV2LoggingOptionsRequest");
 }
 
 /**
  * <p>Describes the code-signing profile.</p>
  */
 export interface SigningProfileParameter {
-  __type?: "SigningProfileParameter";
   /**
    * <p>Certificate ARN.</p>
    */
@@ -12881,14 +11852,12 @@ export namespace SigningProfileParameter {
   export const filterSensitiveLog = (obj: SigningProfileParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningProfileParameter => __isa(o, "SigningProfileParameter");
 }
 
 /**
  * <p>Use Sig V4 authorization.</p>
  */
 export interface SigV4Authorization {
-  __type?: "SigV4Authorization";
   /**
    * <p>The service name to use while signing with Sig V4.</p>
    */
@@ -12909,14 +11878,12 @@ export namespace SigV4Authorization {
   export const filterSensitiveLog = (obj: SigV4Authorization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigV4Authorization => __isa(o, "SigV4Authorization");
 }
 
 /**
  * <p>Describes an action to publish to an Amazon SNS topic.</p>
  */
 export interface SnsAction {
-  __type?: "SnsAction";
   /**
    * <p>The ARN of the IAM role that grants access.</p>
    */
@@ -12940,7 +11907,6 @@ export namespace SnsAction {
   export const filterSensitiveLog = (obj: SnsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnsAction => __isa(o, "SnsAction");
 }
 
 /**
@@ -12959,14 +11925,12 @@ export namespace SqlParseException {
   export const filterSensitiveLog = (obj: SqlParseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlParseException => __isa(o, "SqlParseException");
 }
 
 /**
  * <p>Describes an action to publish data to an Amazon SQS queue.</p>
  */
 export interface SqsAction {
-  __type?: "SqsAction";
   /**
    * <p>The ARN of the IAM role that grants access.</p>
    */
@@ -12987,11 +11951,9 @@ export namespace SqsAction {
   export const filterSensitiveLog = (obj: SqsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqsAction => __isa(o, "SqsAction");
 }
 
 export interface StartAuditMitigationActionsTaskRequest {
-  __type?: "StartAuditMitigationActionsTaskRequest";
   /**
    * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
    */
@@ -13017,12 +11979,9 @@ export namespace StartAuditMitigationActionsTaskRequest {
   export const filterSensitiveLog = (obj: StartAuditMitigationActionsTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartAuditMitigationActionsTaskRequest =>
-    __isa(o, "StartAuditMitigationActionsTaskRequest");
 }
 
 export interface StartAuditMitigationActionsTaskResponse {
-  __type?: "StartAuditMitigationActionsTaskResponse";
   /**
    * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
    */
@@ -13033,12 +11992,9 @@ export namespace StartAuditMitigationActionsTaskResponse {
   export const filterSensitiveLog = (obj: StartAuditMitigationActionsTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartAuditMitigationActionsTaskResponse =>
-    __isa(o, "StartAuditMitigationActionsTaskResponse");
 }
 
 export interface StartOnDemandAuditTaskRequest {
-  __type?: "StartOnDemandAuditTaskRequest";
   /**
    * <p>Which checks are performed during the audit. The checks you specify must be enabled
    *             for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
@@ -13052,11 +12008,9 @@ export namespace StartOnDemandAuditTaskRequest {
   export const filterSensitiveLog = (obj: StartOnDemandAuditTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartOnDemandAuditTaskRequest => __isa(o, "StartOnDemandAuditTaskRequest");
 }
 
 export interface StartOnDemandAuditTaskResponse {
-  __type?: "StartOnDemandAuditTaskResponse";
   /**
    * <p>The ID of the on-demand audit you started.</p>
    */
@@ -13067,14 +12021,12 @@ export namespace StartOnDemandAuditTaskResponse {
   export const filterSensitiveLog = (obj: StartOnDemandAuditTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartOnDemandAuditTaskResponse => __isa(o, "StartOnDemandAuditTaskResponse");
 }
 
 /**
  * <p>Information required to start a signing job.</p>
  */
 export interface StartSigningJobParameter {
-  __type?: "StartSigningJobParameter";
   /**
    * <p>Describes the code-signing profile.</p>
    */
@@ -13095,11 +12047,9 @@ export namespace StartSigningJobParameter {
   export const filterSensitiveLog = (obj: StartSigningJobParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSigningJobParameter => __isa(o, "StartSigningJobParameter");
 }
 
 export interface StartThingRegistrationTaskRequest {
-  __type?: "StartThingRegistrationTaskRequest";
   /**
    * <p>The IAM role ARN that grants permission the input file.</p>
    */
@@ -13127,11 +12077,9 @@ export namespace StartThingRegistrationTaskRequest {
   export const filterSensitiveLog = (obj: StartThingRegistrationTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartThingRegistrationTaskRequest => __isa(o, "StartThingRegistrationTaskRequest");
 }
 
 export interface StartThingRegistrationTaskResponse {
-  __type?: "StartThingRegistrationTaskResponse";
   /**
    * <p>The bulk thing provisioning task ID.</p>
    */
@@ -13142,8 +12090,6 @@ export namespace StartThingRegistrationTaskResponse {
   export const filterSensitiveLog = (obj: StartThingRegistrationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartThingRegistrationTaskResponse =>
-    __isa(o, "StartThingRegistrationTaskResponse");
 }
 
 /**
@@ -13151,7 +12097,6 @@ export namespace StartThingRegistrationTaskResponse {
  *           is determined to be in compliance or in violation of the behavior.</p>
  */
 export interface StatisticalThreshold {
-  __type?: "StatisticalThreshold";
   /**
    * <p>The percentile which resolves to a threshold value by which compliance with a behavior is
    *           determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from
@@ -13168,7 +12113,6 @@ export namespace StatisticalThreshold {
   export const filterSensitiveLog = (obj: StatisticalThreshold): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatisticalThreshold => __isa(o, "StatisticalThreshold");
 }
 
 /**
@@ -13176,7 +12120,6 @@ export namespace StatisticalThreshold {
  *       supported.</p>
  */
 export interface Statistics {
-  __type?: "Statistics";
   /**
    * <p>The maximum aggregated field value.</p>
    */
@@ -13222,7 +12165,6 @@ export namespace Statistics {
   export const filterSensitiveLog = (obj: Statistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Statistics => __isa(o, "Statistics");
 }
 
 export enum Status {
@@ -13237,7 +12179,6 @@ export enum Status {
  * <p>Starts execution of a Step Functions state machine.</p>
  */
 export interface StepFunctionsAction {
-  __type?: "StepFunctionsAction";
   /**
    * <p>(Optional) A name will be given to the state machine execution consisting of this
    *       prefix followed by a UUID. Step Functions automatically creates a unique name for each state
@@ -13261,11 +12202,9 @@ export namespace StepFunctionsAction {
   export const filterSensitiveLog = (obj: StepFunctionsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepFunctionsAction => __isa(o, "StepFunctionsAction");
 }
 
 export interface StopThingRegistrationTaskRequest {
-  __type?: "StopThingRegistrationTaskRequest";
   /**
    * <p>The bulk thing provisioning task ID.</p>
    */
@@ -13276,25 +12215,20 @@ export namespace StopThingRegistrationTaskRequest {
   export const filterSensitiveLog = (obj: StopThingRegistrationTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopThingRegistrationTaskRequest => __isa(o, "StopThingRegistrationTaskRequest");
 }
 
-export interface StopThingRegistrationTaskResponse {
-  __type?: "StopThingRegistrationTaskResponse";
-}
+export interface StopThingRegistrationTaskResponse {}
 
 export namespace StopThingRegistrationTaskResponse {
   export const filterSensitiveLog = (obj: StopThingRegistrationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopThingRegistrationTaskResponse => __isa(o, "StopThingRegistrationTaskResponse");
 }
 
 /**
  * <p>Describes a group of files that can be streamed.</p>
  */
 export interface _Stream {
-  __type?: "Stream";
   /**
    * <p>The ID of a file associated with a stream.</p>
    */
@@ -13310,14 +12244,12 @@ export namespace _Stream {
   export const filterSensitiveLog = (obj: _Stream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Stream => __isa(o, "Stream");
 }
 
 /**
  * <p>Represents a file to stream.</p>
  */
 export interface StreamFile {
-  __type?: "StreamFile";
   /**
    * <p>The file ID.</p>
    */
@@ -13333,14 +12265,12 @@ export namespace StreamFile {
   export const filterSensitiveLog = (obj: StreamFile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamFile => __isa(o, "StreamFile");
 }
 
 /**
  * <p>Information about a stream.</p>
  */
 export interface StreamInfo {
-  __type?: "StreamInfo";
   /**
    * <p>The date when the stream was last updated.</p>
    */
@@ -13386,14 +12316,12 @@ export namespace StreamInfo {
   export const filterSensitiveLog = (obj: StreamInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamInfo => __isa(o, "StreamInfo");
 }
 
 /**
  * <p>A summary of a stream.</p>
  */
 export interface StreamSummary {
-  __type?: "StreamSummary";
   /**
    * <p>The stream ID.</p>
    */
@@ -13419,14 +12347,12 @@ export namespace StreamSummary {
   export const filterSensitiveLog = (obj: StreamSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamSummary => __isa(o, "StreamSummary");
 }
 
 /**
  * <p>A set of key/value pairs that are used to manage the resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's key.</p>
    */
@@ -13442,11 +12368,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The new or modified tags for the resource.</p>
    */
@@ -13462,18 +12386,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TargetSelection {
@@ -13494,14 +12414,12 @@ export namespace TaskAlreadyExistsException {
   export const filterSensitiveLog = (obj: TaskAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskAlreadyExistsException => __isa(o, "TaskAlreadyExistsException");
 }
 
 /**
  * <p>Statistics for the checks performed during the audit.</p>
  */
 export interface TaskStatistics {
-  __type?: "TaskStatistics";
   /**
    * <p>The number of checks in this audit.</p>
    */
@@ -13542,14 +12460,12 @@ export namespace TaskStatistics {
   export const filterSensitiveLog = (obj: TaskStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskStatistics => __isa(o, "TaskStatistics");
 }
 
 /**
  * <p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>
  */
 export interface TaskStatisticsForAuditCheck {
-  __type?: "TaskStatisticsForAuditCheck";
   /**
    * <p>The number of findings for which at least one of the actions failed when applied.</p>
    */
@@ -13580,11 +12496,9 @@ export namespace TaskStatisticsForAuditCheck {
   export const filterSensitiveLog = (obj: TaskStatisticsForAuditCheck): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskStatisticsForAuditCheck => __isa(o, "TaskStatisticsForAuditCheck");
 }
 
 export interface TestAuthorizationRequest {
-  __type?: "TestAuthorizationRequest";
   /**
    * <p>When testing custom authorization, the policies specified here are treated as if they
    *          are attached to the principal being authorized.</p>
@@ -13623,11 +12537,9 @@ export namespace TestAuthorizationRequest {
   export const filterSensitiveLog = (obj: TestAuthorizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestAuthorizationRequest => __isa(o, "TestAuthorizationRequest");
 }
 
 export interface TestAuthorizationResponse {
-  __type?: "TestAuthorizationResponse";
   /**
    * <p>The authentication results.</p>
    */
@@ -13638,11 +12550,9 @@ export namespace TestAuthorizationResponse {
   export const filterSensitiveLog = (obj: TestAuthorizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestAuthorizationResponse => __isa(o, "TestAuthorizationResponse");
 }
 
 export interface TestInvokeAuthorizerRequest {
-  __type?: "TestInvokeAuthorizerRequest";
   /**
    * <p>The token returned by your custom authentication service.</p>
    */
@@ -13679,11 +12589,9 @@ export namespace TestInvokeAuthorizerRequest {
   export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestInvokeAuthorizerRequest => __isa(o, "TestInvokeAuthorizerRequest");
 }
 
 export interface TestInvokeAuthorizerResponse {
-  __type?: "TestInvokeAuthorizerResponse";
   /**
    * <p>IAM policy documents.</p>
    */
@@ -13714,7 +12622,6 @@ export namespace TestInvokeAuthorizerResponse {
   export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestInvokeAuthorizerResponse => __isa(o, "TestInvokeAuthorizerResponse");
 }
 
 /**
@@ -13722,7 +12629,6 @@ export namespace TestInvokeAuthorizerResponse {
  * 			attributes.</p>
  */
 export interface ThingAttribute {
-  __type?: "ThingAttribute";
   /**
    * <p>The version of the thing record in the registry.</p>
    */
@@ -13753,14 +12659,12 @@ export namespace ThingAttribute {
   export const filterSensitiveLog = (obj: ThingAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingAttribute => __isa(o, "ThingAttribute");
 }
 
 /**
  * <p>The connectivity status of the thing.</p>
  */
 export interface ThingConnectivity {
-  __type?: "ThingConnectivity";
   /**
    * <p>True if the thing is connected to the AWS IoT service; false if it is not
    *       connected.</p>
@@ -13778,7 +12682,6 @@ export namespace ThingConnectivity {
   export const filterSensitiveLog = (obj: ThingConnectivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingConnectivity => __isa(o, "ThingConnectivity");
 }
 
 export enum ThingConnectivityIndexingMode {
@@ -13790,7 +12693,6 @@ export enum ThingConnectivityIndexingMode {
  * <p>The thing search index document.</p>
  */
 export interface ThingDocument {
-  __type?: "ThingDocument";
   /**
    * <p>Thing group names.</p>
    */
@@ -13831,14 +12733,12 @@ export namespace ThingDocument {
   export const filterSensitiveLog = (obj: ThingDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingDocument => __isa(o, "ThingDocument");
 }
 
 /**
  * <p>The thing group search index document.</p>
  */
 export interface ThingGroupDocument {
-  __type?: "ThingGroupDocument";
   /**
    * <p>The thing group ID.</p>
    */
@@ -13869,14 +12769,12 @@ export namespace ThingGroupDocument {
   export const filterSensitiveLog = (obj: ThingGroupDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingGroupDocument => __isa(o, "ThingGroupDocument");
 }
 
 /**
  * <p>Thing group indexing configuration.</p>
  */
 export interface ThingGroupIndexingConfiguration {
-  __type?: "ThingGroupIndexingConfiguration";
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
    *       service.</p>
@@ -13900,7 +12798,6 @@ export namespace ThingGroupIndexingConfiguration {
   export const filterSensitiveLog = (obj: ThingGroupIndexingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingGroupIndexingConfiguration => __isa(o, "ThingGroupIndexingConfiguration");
 }
 
 export enum ThingGroupIndexingMode {
@@ -13912,7 +12809,6 @@ export enum ThingGroupIndexingMode {
  * <p>Thing group metadata.</p>
  */
 export interface ThingGroupMetadata {
-  __type?: "ThingGroupMetadata";
   /**
    * <p>The UNIX timestamp of when the thing group was created.</p>
    */
@@ -13933,14 +12829,12 @@ export namespace ThingGroupMetadata {
   export const filterSensitiveLog = (obj: ThingGroupMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingGroupMetadata => __isa(o, "ThingGroupMetadata");
 }
 
 /**
  * <p>Thing group properties.</p>
  */
 export interface ThingGroupProperties {
-  __type?: "ThingGroupProperties";
   /**
    * <p>The thing group description.</p>
    */
@@ -13956,7 +12850,6 @@ export namespace ThingGroupProperties {
   export const filterSensitiveLog = (obj: ThingGroupProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingGroupProperties => __isa(o, "ThingGroupProperties");
 }
 
 /**
@@ -13964,7 +12857,6 @@ export namespace ThingGroupProperties {
  *         Thing Indexing</a>.</p>
  */
 export interface ThingIndexingConfiguration {
-  __type?: "ThingIndexingConfiguration";
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
    *       service.</p>
@@ -14011,7 +12903,6 @@ export namespace ThingIndexingConfiguration {
   export const filterSensitiveLog = (obj: ThingIndexingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingIndexingConfiguration => __isa(o, "ThingIndexingConfiguration");
 }
 
 export enum ThingIndexingMode {
@@ -14024,7 +12915,6 @@ export enum ThingIndexingMode {
  * <p>The definition of the thing type, including thing type name and description.</p>
  */
 export interface ThingTypeDefinition {
-  __type?: "ThingTypeDefinition";
   /**
    * <p>The name of the thing type.</p>
    */
@@ -14052,7 +12942,6 @@ export namespace ThingTypeDefinition {
   export const filterSensitiveLog = (obj: ThingTypeDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingTypeDefinition => __isa(o, "ThingTypeDefinition");
 }
 
 /**
@@ -14061,7 +12950,6 @@ export namespace ThingTypeDefinition {
  * 			deprecated.</p>
  */
 export interface ThingTypeMetadata {
-  __type?: "ThingTypeMetadata";
   /**
    * <p>Whether the thing type is deprecated. If <b>true</b>, no new things could be
    * 			associated with this type.</p>
@@ -14083,7 +12971,6 @@ export namespace ThingTypeMetadata {
   export const filterSensitiveLog = (obj: ThingTypeMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingTypeMetadata => __isa(o, "ThingTypeMetadata");
 }
 
 /**
@@ -14091,7 +12978,6 @@ export namespace ThingTypeMetadata {
  * 			and a list of searchable thing attribute names.</p>
  */
 export interface ThingTypeProperties {
-  __type?: "ThingTypeProperties";
   /**
    * <p>The description of the thing type.</p>
    */
@@ -14107,7 +12993,6 @@ export namespace ThingTypeProperties {
   export const filterSensitiveLog = (obj: ThingTypeProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThingTypeProperties => __isa(o, "ThingTypeProperties");
 }
 
 /**
@@ -14126,7 +13011,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -14136,7 +13020,6 @@ export namespace ThrottlingException {
  *            be automatically set to <code>TIMED_OUT</code>.</p>
  */
 export interface TimeoutConfig {
-  __type?: "TimeoutConfig";
   /**
    * <p>Specifies the amount of time, in minutes, this device has to finish execution of this job.
    *            The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The
@@ -14151,14 +13034,12 @@ export namespace TimeoutConfig {
   export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeoutConfig => __isa(o, "TimeoutConfig");
 }
 
 /**
  * <p>Specifies the TLS context to use for the test authorizer request.</p>
  */
 export interface TlsContext {
-  __type?: "TlsContext";
   /**
    * <p>The value of the <code>serverName</code> key in a TLS authorization request.</p>
    */
@@ -14169,14 +13050,12 @@ export namespace TlsContext {
   export const filterSensitiveLog = (obj: TlsContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TlsContext => __isa(o, "TlsContext");
 }
 
 /**
  * <p>Describes a rule.</p>
  */
 export interface TopicRule {
-  __type?: "TopicRule";
   /**
    * <p>Specifies whether the rule is disabled.</p>
    */
@@ -14223,14 +13102,12 @@ export namespace TopicRule {
   export const filterSensitiveLog = (obj: TopicRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicRule => __isa(o, "TopicRule");
 }
 
 /**
  * <p>A topic rule destination.</p>
  */
 export interface TopicRuleDestination {
-  __type?: "TopicRuleDestination";
   /**
    * <p>The topic rule destination URL.</p>
    */
@@ -14288,14 +13165,12 @@ export namespace TopicRuleDestination {
   export const filterSensitiveLog = (obj: TopicRuleDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicRuleDestination => __isa(o, "TopicRuleDestination");
 }
 
 /**
  * <p>Configuration of the topic rule destination.</p>
  */
 export interface TopicRuleDestinationConfiguration {
-  __type?: "TopicRuleDestinationConfiguration";
   /**
    * <p>Configuration of the HTTP URL.</p>
    */
@@ -14306,7 +13181,6 @@ export namespace TopicRuleDestinationConfiguration {
   export const filterSensitiveLog = (obj: TopicRuleDestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicRuleDestinationConfiguration => __isa(o, "TopicRuleDestinationConfiguration");
 }
 
 export enum TopicRuleDestinationStatus {
@@ -14320,7 +13194,6 @@ export enum TopicRuleDestinationStatus {
  * <p>Information about the topic rule destination.</p>
  */
 export interface TopicRuleDestinationSummary {
-  __type?: "TopicRuleDestinationSummary";
   /**
    * <p>The status of the topic rule destination. Valid values are:</p>
    *          <dl>
@@ -14377,14 +13250,12 @@ export namespace TopicRuleDestinationSummary {
   export const filterSensitiveLog = (obj: TopicRuleDestinationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicRuleDestinationSummary => __isa(o, "TopicRuleDestinationSummary");
 }
 
 /**
  * <p>Describes a rule.</p>
  */
 export interface TopicRuleListItem {
-  __type?: "TopicRuleListItem";
   /**
    * <p>Specifies whether the rule is disabled.</p>
    */
@@ -14415,14 +13286,12 @@ export namespace TopicRuleListItem {
   export const filterSensitiveLog = (obj: TopicRuleListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicRuleListItem => __isa(o, "TopicRuleListItem");
 }
 
 /**
  * <p>Describes a rule.</p>
  */
 export interface TopicRulePayload {
-  __type?: "TopicRulePayload";
   /**
    * <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS IoT SQL
    *             Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
@@ -14459,7 +13328,6 @@ export namespace TopicRulePayload {
   export const filterSensitiveLog = (obj: TopicRulePayload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicRulePayload => __isa(o, "TopicRulePayload");
 }
 
 /**
@@ -14479,14 +13347,12 @@ export namespace TransferAlreadyCompletedException {
   export const filterSensitiveLog = (obj: TransferAlreadyCompletedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferAlreadyCompletedException => __isa(o, "TransferAlreadyCompletedException");
 }
 
 /**
  * <p>The input for the TransferCertificate operation.</p>
  */
 export interface TransferCertificateRequest {
-  __type?: "TransferCertificateRequest";
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
@@ -14508,14 +13374,12 @@ export namespace TransferCertificateRequest {
   export const filterSensitiveLog = (obj: TransferCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferCertificateRequest => __isa(o, "TransferCertificateRequest");
 }
 
 /**
  * <p>The output from the TransferCertificate operation.</p>
  */
 export interface TransferCertificateResponse {
-  __type?: "TransferCertificateResponse";
   /**
    * <p>The ARN of the certificate.</p>
    */
@@ -14526,7 +13390,6 @@ export namespace TransferCertificateResponse {
   export const filterSensitiveLog = (obj: TransferCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferCertificateResponse => __isa(o, "TransferCertificateResponse");
 }
 
 /**
@@ -14546,14 +13409,12 @@ export namespace TransferConflictException {
   export const filterSensitiveLog = (obj: TransferConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferConflictException => __isa(o, "TransferConflictException");
 }
 
 /**
  * <p>Data used to transfer a certificate to an AWS account.</p>
  */
 export interface TransferData {
-  __type?: "TransferData";
   /**
    * <p>The date the transfer took place.</p>
    */
@@ -14584,7 +13445,6 @@ export namespace TransferData {
   export const filterSensitiveLog = (obj: TransferData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferData => __isa(o, "TransferData");
 }
 
 /**
@@ -14603,11 +13463,9 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
@@ -14623,22 +13481,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateAccountAuditConfigurationRequest {
-  __type?: "UpdateAccountAuditConfigurationRequest";
   /**
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
    *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
@@ -14669,24 +13522,17 @@ export namespace UpdateAccountAuditConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateAccountAuditConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountAuditConfigurationRequest =>
-    __isa(o, "UpdateAccountAuditConfigurationRequest");
 }
 
-export interface UpdateAccountAuditConfigurationResponse {
-  __type?: "UpdateAccountAuditConfigurationResponse";
-}
+export interface UpdateAccountAuditConfigurationResponse {}
 
 export namespace UpdateAccountAuditConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateAccountAuditConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountAuditConfigurationResponse =>
-    __isa(o, "UpdateAccountAuditConfigurationResponse");
 }
 
 export interface UpdateAuthorizerRequest {
-  __type?: "UpdateAuthorizerRequest";
   /**
    * <p>The ARN of the authorizer's Lambda function.</p>
    */
@@ -14717,11 +13563,9 @@ export namespace UpdateAuthorizerRequest {
   export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAuthorizerRequest => __isa(o, "UpdateAuthorizerRequest");
 }
 
 export interface UpdateAuthorizerResponse {
-  __type?: "UpdateAuthorizerResponse";
   /**
    * <p>The authorizer name.</p>
    */
@@ -14737,11 +13581,9 @@ export namespace UpdateAuthorizerResponse {
   export const filterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAuthorizerResponse => __isa(o, "UpdateAuthorizerResponse");
 }
 
 export interface UpdateBillingGroupRequest {
-  __type?: "UpdateBillingGroupRequest";
   /**
    * <p>The properties of the billing group.</p>
    */
@@ -14765,11 +13607,9 @@ export namespace UpdateBillingGroupRequest {
   export const filterSensitiveLog = (obj: UpdateBillingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBillingGroupRequest => __isa(o, "UpdateBillingGroupRequest");
 }
 
 export interface UpdateBillingGroupResponse {
-  __type?: "UpdateBillingGroupResponse";
   /**
    * <p>The latest version of the billing group.</p>
    */
@@ -14780,14 +13620,12 @@ export namespace UpdateBillingGroupResponse {
   export const filterSensitiveLog = (obj: UpdateBillingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBillingGroupResponse => __isa(o, "UpdateBillingGroupResponse");
 }
 
 /**
  * <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
  */
 export interface UpdateCACertificateParams {
-  __type?: "UpdateCACertificateParams";
   /**
    * <p>The action that you want to apply to the CA cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
@@ -14798,14 +13636,12 @@ export namespace UpdateCACertificateParams {
   export const filterSensitiveLog = (obj: UpdateCACertificateParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCACertificateParams => __isa(o, "UpdateCACertificateParams");
 }
 
 /**
  * <p>The input to the UpdateCACertificate operation.</p>
  */
 export interface UpdateCACertificateRequest {
-  __type?: "UpdateCACertificateRequest";
   /**
    * <p>If true, removes auto registration.</p>
    */
@@ -14840,14 +13676,12 @@ export namespace UpdateCACertificateRequest {
   export const filterSensitiveLog = (obj: UpdateCACertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCACertificateRequest => __isa(o, "UpdateCACertificateRequest");
 }
 
 /**
  * <p>The input for the UpdateCertificate operation.</p>
  */
 export interface UpdateCertificateRequest {
-  __type?: "UpdateCertificateRequest";
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
@@ -14871,14 +13705,12 @@ export namespace UpdateCertificateRequest {
   export const filterSensitiveLog = (obj: UpdateCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCertificateRequest => __isa(o, "UpdateCertificateRequest");
 }
 
 /**
  * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
  */
 export interface UpdateDeviceCertificateParams {
-  __type?: "UpdateDeviceCertificateParams";
   /**
    * <p>The action that you want to apply to the device cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
@@ -14889,11 +13721,9 @@ export namespace UpdateDeviceCertificateParams {
   export const filterSensitiveLog = (obj: UpdateDeviceCertificateParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceCertificateParams => __isa(o, "UpdateDeviceCertificateParams");
 }
 
 export interface UpdateDimensionRequest {
-  __type?: "UpdateDimensionRequest";
   /**
    * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
    */
@@ -14909,11 +13739,9 @@ export namespace UpdateDimensionRequest {
   export const filterSensitiveLog = (obj: UpdateDimensionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDimensionRequest => __isa(o, "UpdateDimensionRequest");
 }
 
 export interface UpdateDimensionResponse {
-  __type?: "UpdateDimensionResponse";
   /**
    * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
    */
@@ -14949,11 +13777,9 @@ export namespace UpdateDimensionResponse {
   export const filterSensitiveLog = (obj: UpdateDimensionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDimensionResponse => __isa(o, "UpdateDimensionResponse");
 }
 
 export interface UpdateDomainConfigurationRequest {
-  __type?: "UpdateDomainConfigurationRequest";
   /**
    * <p>The name of the domain configuration to be updated.</p>
    */
@@ -14979,11 +13805,9 @@ export namespace UpdateDomainConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateDomainConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainConfigurationRequest => __isa(o, "UpdateDomainConfigurationRequest");
 }
 
 export interface UpdateDomainConfigurationResponse {
-  __type?: "UpdateDomainConfigurationResponse";
   /**
    * <p>The name of the domain configuration that was updated.</p>
    */
@@ -14999,11 +13823,9 @@ export namespace UpdateDomainConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateDomainConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainConfigurationResponse => __isa(o, "UpdateDomainConfigurationResponse");
 }
 
 export interface UpdateDynamicThingGroupRequest {
-  __type?: "UpdateDynamicThingGroupRequest";
   /**
    * <p>The name of the dynamic thing group to update.</p>
    */
@@ -15046,11 +13868,9 @@ export namespace UpdateDynamicThingGroupRequest {
   export const filterSensitiveLog = (obj: UpdateDynamicThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDynamicThingGroupRequest => __isa(o, "UpdateDynamicThingGroupRequest");
 }
 
 export interface UpdateDynamicThingGroupResponse {
-  __type?: "UpdateDynamicThingGroupResponse";
   /**
    * <p>The dynamic thing group version.</p>
    */
@@ -15061,11 +13881,9 @@ export namespace UpdateDynamicThingGroupResponse {
   export const filterSensitiveLog = (obj: UpdateDynamicThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDynamicThingGroupResponse => __isa(o, "UpdateDynamicThingGroupResponse");
 }
 
 export interface UpdateEventConfigurationsRequest {
-  __type?: "UpdateEventConfigurationsRequest";
   /**
    * <p>The new event configuration values.</p>
    */
@@ -15076,22 +13894,17 @@ export namespace UpdateEventConfigurationsRequest {
   export const filterSensitiveLog = (obj: UpdateEventConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEventConfigurationsRequest => __isa(o, "UpdateEventConfigurationsRequest");
 }
 
-export interface UpdateEventConfigurationsResponse {
-  __type?: "UpdateEventConfigurationsResponse";
-}
+export interface UpdateEventConfigurationsResponse {}
 
 export namespace UpdateEventConfigurationsResponse {
   export const filterSensitiveLog = (obj: UpdateEventConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEventConfigurationsResponse => __isa(o, "UpdateEventConfigurationsResponse");
 }
 
 export interface UpdateIndexingConfigurationRequest {
-  __type?: "UpdateIndexingConfigurationRequest";
   /**
    * <p>Thing indexing configuration.</p>
    */
@@ -15107,24 +13920,17 @@ export namespace UpdateIndexingConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateIndexingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIndexingConfigurationRequest =>
-    __isa(o, "UpdateIndexingConfigurationRequest");
 }
 
-export interface UpdateIndexingConfigurationResponse {
-  __type?: "UpdateIndexingConfigurationResponse";
-}
+export interface UpdateIndexingConfigurationResponse {}
 
 export namespace UpdateIndexingConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateIndexingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIndexingConfigurationResponse =>
-    __isa(o, "UpdateIndexingConfigurationResponse");
 }
 
 export interface UpdateJobRequest {
-  __type?: "UpdateJobRequest";
   /**
    * <p>The ID of the job to be updated.</p>
    */
@@ -15161,11 +13967,9 @@ export namespace UpdateJobRequest {
   export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobRequest => __isa(o, "UpdateJobRequest");
 }
 
 export interface UpdateMitigationActionRequest {
-  __type?: "UpdateMitigationActionRequest";
   /**
    * <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
    */
@@ -15186,11 +13990,9 @@ export namespace UpdateMitigationActionRequest {
   export const filterSensitiveLog = (obj: UpdateMitigationActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMitigationActionRequest => __isa(o, "UpdateMitigationActionRequest");
 }
 
 export interface UpdateMitigationActionResponse {
-  __type?: "UpdateMitigationActionResponse";
   /**
    * <p>A unique identifier for the mitigation action.</p>
    */
@@ -15206,11 +14008,9 @@ export namespace UpdateMitigationActionResponse {
   export const filterSensitiveLog = (obj: UpdateMitigationActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMitigationActionResponse => __isa(o, "UpdateMitigationActionResponse");
 }
 
 export interface UpdateProvisioningTemplateRequest {
-  __type?: "UpdateProvisioningTemplateRequest";
   /**
    * <p>The name of the fleet provisioning template.</p>
    */
@@ -15252,23 +14052,17 @@ export namespace UpdateProvisioningTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateProvisioningTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProvisioningTemplateRequest => __isa(o, "UpdateProvisioningTemplateRequest");
 }
 
-export interface UpdateProvisioningTemplateResponse {
-  __type?: "UpdateProvisioningTemplateResponse";
-}
+export interface UpdateProvisioningTemplateResponse {}
 
 export namespace UpdateProvisioningTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateProvisioningTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProvisioningTemplateResponse =>
-    __isa(o, "UpdateProvisioningTemplateResponse");
 }
 
 export interface UpdateRoleAliasRequest {
-  __type?: "UpdateRoleAliasRequest";
   /**
    * <p>The role ARN.</p>
    */
@@ -15289,11 +14083,9 @@ export namespace UpdateRoleAliasRequest {
   export const filterSensitiveLog = (obj: UpdateRoleAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleAliasRequest => __isa(o, "UpdateRoleAliasRequest");
 }
 
 export interface UpdateRoleAliasResponse {
-  __type?: "UpdateRoleAliasResponse";
   /**
    * <p>The role alias ARN.</p>
    */
@@ -15309,11 +14101,9 @@ export namespace UpdateRoleAliasResponse {
   export const filterSensitiveLog = (obj: UpdateRoleAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleAliasResponse => __isa(o, "UpdateRoleAliasResponse");
 }
 
 export interface UpdateScheduledAuditRequest {
-  __type?: "UpdateScheduledAuditRequest";
   /**
    * <p>The day of the week on which the scheduled audit takes place. Can be one of
    *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
@@ -15354,11 +14144,9 @@ export namespace UpdateScheduledAuditRequest {
   export const filterSensitiveLog = (obj: UpdateScheduledAuditRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateScheduledAuditRequest => __isa(o, "UpdateScheduledAuditRequest");
 }
 
 export interface UpdateScheduledAuditResponse {
-  __type?: "UpdateScheduledAuditResponse";
   /**
    * <p>The ARN of the scheduled audit.</p>
    */
@@ -15369,11 +14157,9 @@ export namespace UpdateScheduledAuditResponse {
   export const filterSensitiveLog = (obj: UpdateScheduledAuditResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateScheduledAuditResponse => __isa(o, "UpdateScheduledAuditResponse");
 }
 
 export interface UpdateSecurityProfileRequest {
-  __type?: "UpdateSecurityProfileRequest";
   /**
    * <p>If true, delete all <code>behaviors</code> defined for this security profile.
    *         If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>
@@ -15439,11 +14225,9 @@ export namespace UpdateSecurityProfileRequest {
   export const filterSensitiveLog = (obj: UpdateSecurityProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityProfileRequest => __isa(o, "UpdateSecurityProfileRequest");
 }
 
 export interface UpdateSecurityProfileResponse {
-  __type?: "UpdateSecurityProfileResponse";
   /**
    * <p>A list of metrics whose data is retained (stored). By default, data is retained
    *         for any metric used in the security profile's <code>behaviors</code>, but it is also retained for
@@ -15503,11 +14287,9 @@ export namespace UpdateSecurityProfileResponse {
   export const filterSensitiveLog = (obj: UpdateSecurityProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityProfileResponse => __isa(o, "UpdateSecurityProfileResponse");
 }
 
 export interface UpdateStreamRequest {
-  __type?: "UpdateStreamRequest";
   /**
    * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
    */
@@ -15533,11 +14315,9 @@ export namespace UpdateStreamRequest {
   export const filterSensitiveLog = (obj: UpdateStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStreamRequest => __isa(o, "UpdateStreamRequest");
 }
 
 export interface UpdateStreamResponse {
-  __type?: "UpdateStreamResponse";
   /**
    * <p>The stream ID.</p>
    */
@@ -15563,11 +14343,9 @@ export namespace UpdateStreamResponse {
   export const filterSensitiveLog = (obj: UpdateStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStreamResponse => __isa(o, "UpdateStreamResponse");
 }
 
 export interface UpdateThingGroupRequest {
-  __type?: "UpdateThingGroupRequest";
   /**
    * <p>The thing group to update.</p>
    */
@@ -15589,11 +14367,9 @@ export namespace UpdateThingGroupRequest {
   export const filterSensitiveLog = (obj: UpdateThingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingGroupRequest => __isa(o, "UpdateThingGroupRequest");
 }
 
 export interface UpdateThingGroupResponse {
-  __type?: "UpdateThingGroupResponse";
   /**
    * <p>The version of the updated thing group.</p>
    */
@@ -15604,11 +14380,9 @@ export namespace UpdateThingGroupResponse {
   export const filterSensitiveLog = (obj: UpdateThingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingGroupResponse => __isa(o, "UpdateThingGroupResponse");
 }
 
 export interface UpdateThingGroupsForThingRequest {
-  __type?: "UpdateThingGroupsForThingRequest";
   /**
    * <p>Override dynamic thing groups with static thing groups when 10-group limit is
    * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
@@ -15637,25 +14411,20 @@ export namespace UpdateThingGroupsForThingRequest {
   export const filterSensitiveLog = (obj: UpdateThingGroupsForThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingGroupsForThingRequest => __isa(o, "UpdateThingGroupsForThingRequest");
 }
 
-export interface UpdateThingGroupsForThingResponse {
-  __type?: "UpdateThingGroupsForThingResponse";
-}
+export interface UpdateThingGroupsForThingResponse {}
 
 export namespace UpdateThingGroupsForThingResponse {
   export const filterSensitiveLog = (obj: UpdateThingGroupsForThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingGroupsForThingResponse => __isa(o, "UpdateThingGroupsForThingResponse");
 }
 
 /**
  * <p>The input for the UpdateThing operation.</p>
  */
 export interface UpdateThingRequest {
-  __type?: "UpdateThingRequest";
   /**
    * <p>The name of the thing type.</p>
    */
@@ -15697,25 +14466,20 @@ export namespace UpdateThingRequest {
   export const filterSensitiveLog = (obj: UpdateThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingRequest => __isa(o, "UpdateThingRequest");
 }
 
 /**
  * <p>The output from the UpdateThing operation.</p>
  */
-export interface UpdateThingResponse {
-  __type?: "UpdateThingResponse";
-}
+export interface UpdateThingResponse {}
 
 export namespace UpdateThingResponse {
   export const filterSensitiveLog = (obj: UpdateThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingResponse => __isa(o, "UpdateThingResponse");
 }
 
 export interface UpdateTopicRuleDestinationRequest {
-  __type?: "UpdateTopicRuleDestinationRequest";
   /**
    * <p>The ARN of the topic rule destination.</p>
    */
@@ -15762,23 +14526,17 @@ export namespace UpdateTopicRuleDestinationRequest {
   export const filterSensitiveLog = (obj: UpdateTopicRuleDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTopicRuleDestinationRequest => __isa(o, "UpdateTopicRuleDestinationRequest");
 }
 
-export interface UpdateTopicRuleDestinationResponse {
-  __type?: "UpdateTopicRuleDestinationResponse";
-}
+export interface UpdateTopicRuleDestinationResponse {}
 
 export namespace UpdateTopicRuleDestinationResponse {
   export const filterSensitiveLog = (obj: UpdateTopicRuleDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTopicRuleDestinationResponse =>
-    __isa(o, "UpdateTopicRuleDestinationResponse");
 }
 
 export interface ValidateSecurityProfileBehaviorsRequest {
-  __type?: "ValidateSecurityProfileBehaviorsRequest";
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
@@ -15789,12 +14547,9 @@ export namespace ValidateSecurityProfileBehaviorsRequest {
   export const filterSensitiveLog = (obj: ValidateSecurityProfileBehaviorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateSecurityProfileBehaviorsRequest =>
-    __isa(o, "ValidateSecurityProfileBehaviorsRequest");
 }
 
 export interface ValidateSecurityProfileBehaviorsResponse {
-  __type?: "ValidateSecurityProfileBehaviorsResponse";
   /**
    * <p>True if the behaviors were valid.</p>
    */
@@ -15810,15 +14565,12 @@ export namespace ValidateSecurityProfileBehaviorsResponse {
   export const filterSensitiveLog = (obj: ValidateSecurityProfileBehaviorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateSecurityProfileBehaviorsResponse =>
-    __isa(o, "ValidateSecurityProfileBehaviorsResponse");
 }
 
 /**
  * <p>Information about an error found in a behavior specification.</p>
  */
 export interface ValidationError {
-  __type?: "ValidationError";
   /**
    * <p>The description of an error found in the behaviors.</p>
    */
@@ -15829,7 +14581,6 @@ export namespace ValidationError {
   export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }
 
 /**
@@ -15850,7 +14601,6 @@ export namespace VersionConflictException {
   export const filterSensitiveLog = (obj: VersionConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionConflictException => __isa(o, "VersionConflictException");
 }
 
 /**
@@ -15869,14 +14619,12 @@ export namespace VersionsLimitExceededException {
   export const filterSensitiveLog = (obj: VersionsLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionsLimitExceededException => __isa(o, "VersionsLimitExceededException");
 }
 
 /**
  * <p>Information about a Device Defender security profile behavior violation.</p>
  */
 export interface ViolationEvent {
-  __type?: "ViolationEvent";
   /**
    * <p>The time the violation event occurred.</p>
    */
@@ -15917,7 +14665,6 @@ export namespace ViolationEvent {
   export const filterSensitiveLog = (obj: ViolationEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ViolationEvent => __isa(o, "ViolationEvent");
 }
 
 export enum ViolationEventType {

@@ -67,7 +67,6 @@ export const deserializeAws_json1_1DescribeDimensionKeysCommand = async (
   contents = deserializeAws_json1_1DescribeDimensionKeysResponse(data, context);
   const response: DescribeDimensionKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDimensionKeysResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -139,7 +138,6 @@ export const deserializeAws_json1_1GetResourceMetricsCommand = async (
   contents = deserializeAws_json1_1GetResourceMetricsResponse(data, context);
   const response: GetResourceMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceMetricsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -319,7 +317,6 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
 
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
-    __type: "DataPoint",
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -337,7 +334,6 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
   context: __SerdeContext
 ): DescribeDimensionKeysResponse => {
   return {
-    __type: "DescribeDimensionKeysResponse",
     AlignedEndTime:
       output.AlignedEndTime !== undefined && output.AlignedEndTime !== null
         ? new Date(Math.round(output.AlignedEndTime * 1000))
@@ -363,7 +359,6 @@ const deserializeAws_json1_1DimensionKeyDescription = (
   context: __SerdeContext
 ): DimensionKeyDescription => {
   return {
-    __type: "DimensionKeyDescription",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
@@ -398,7 +393,6 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
   context: __SerdeContext
 ): GetResourceMetricsResponse => {
   return {
-    __type: "GetResourceMetricsResponse",
     AlignedEndTime:
       output.AlignedEndTime !== undefined && output.AlignedEndTime !== null
         ? new Date(Math.round(output.AlignedEndTime * 1000))
@@ -418,7 +412,6 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
 
 const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
-    __type: "InternalServiceError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -428,14 +421,12 @@ const deserializeAws_json1_1InvalidArgumentException = (
   context: __SerdeContext
 ): InvalidArgumentException => {
   return {
-    __type: "InvalidArgumentException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1MetricKeyDataPoints = (output: any, context: __SerdeContext): MetricKeyDataPoints => {
   return {
-    __type: "MetricKeyDataPoints",
     DataPoints:
       output.DataPoints !== undefined && output.DataPoints !== null
         ? deserializeAws_json1_1DataPointsList(output.DataPoints, context)
@@ -457,14 +448,12 @@ const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
   return {
-    __type: "NotAuthorizedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResponsePartitionKey = (output: any, context: __SerdeContext): ResponsePartitionKey => {
   return {
-    __type: "ResponsePartitionKey",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
@@ -484,7 +473,6 @@ const deserializeAws_json1_1ResponseResourceMetricKey = (
   context: __SerdeContext
 ): ResponseResourceMetricKey => {
   return {
-    __type: "ResponseResourceMetricKey",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)

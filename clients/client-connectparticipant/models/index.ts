@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum ChatItemType {
@@ -27,7 +26,6 @@ export enum ChatItemType {
  * <p>Connection credentials. </p>
  */
 export interface ConnectionCredentials {
-  __type?: "ConnectionCredentials";
   /**
    * <p>The expiration of the token.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -45,7 +43,6 @@ export namespace ConnectionCredentials {
   export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionCredentials => __isa(o, "ConnectionCredentials");
 }
 
 export enum ConnectionType {
@@ -54,7 +51,6 @@ export enum ConnectionType {
 }
 
 export interface CreateParticipantConnectionRequest {
-  __type?: "CreateParticipantConnectionRequest";
   /**
    * <p>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a> API response.</p>
    */
@@ -70,12 +66,9 @@ export namespace CreateParticipantConnectionRequest {
   export const filterSensitiveLog = (obj: CreateParticipantConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateParticipantConnectionRequest =>
-    __isa(o, "CreateParticipantConnectionRequest");
 }
 
 export interface CreateParticipantConnectionResponse {
-  __type?: "CreateParticipantConnectionResponse";
   /**
    * <p>Creates the participant's connection credentials. The authentication token associated
    *             with the participant's connection.</p>
@@ -92,12 +85,9 @@ export namespace CreateParticipantConnectionResponse {
   export const filterSensitiveLog = (obj: CreateParticipantConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateParticipantConnectionResponse =>
-    __isa(o, "CreateParticipantConnectionResponse");
 }
 
 export interface DisconnectParticipantRequest {
-  __type?: "DisconnectParticipantRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
@@ -114,22 +104,17 @@ export namespace DisconnectParticipantRequest {
   export const filterSensitiveLog = (obj: DisconnectParticipantRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisconnectParticipantRequest => __isa(o, "DisconnectParticipantRequest");
 }
 
-export interface DisconnectParticipantResponse {
-  __type?: "DisconnectParticipantResponse";
-}
+export interface DisconnectParticipantResponse {}
 
 export namespace DisconnectParticipantResponse {
   export const filterSensitiveLog = (obj: DisconnectParticipantResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisconnectParticipantResponse => __isa(o, "DisconnectParticipantResponse");
 }
 
 export interface GetTranscriptRequest {
-  __type?: "GetTranscriptRequest";
   /**
    * <p>The sort order for the records. Default: DESCENDING.</p>
    */
@@ -172,11 +157,9 @@ export namespace GetTranscriptRequest {
   export const filterSensitiveLog = (obj: GetTranscriptRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTranscriptRequest => __isa(o, "GetTranscriptRequest");
 }
 
 export interface GetTranscriptResponse {
-  __type?: "GetTranscriptResponse";
   /**
    * <p>The initial contact ID for the contact. </p>
    */
@@ -198,7 +181,6 @@ export namespace GetTranscriptResponse {
   export const filterSensitiveLog = (obj: GetTranscriptResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTranscriptResponse => __isa(o, "GetTranscriptResponse");
 }
 
 /**
@@ -214,14 +196,12 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>An item - message or event - that has been sent. </p>
  */
 export interface Item {
-  __type?: "Item";
   /**
    * <p>The ID of the sender in the session.</p>
    */
@@ -269,7 +249,6 @@ export namespace Item {
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ParticipantRole {
@@ -284,7 +263,6 @@ export enum ScanDirection {
 }
 
 export interface SendEventRequest {
-  __type?: "SendEventRequest";
   /**
    * <p>The authentication token associated with the participant's connection.</p>
    */
@@ -321,11 +299,9 @@ export namespace SendEventRequest {
   export const filterSensitiveLog = (obj: SendEventRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendEventRequest => __isa(o, "SendEventRequest");
 }
 
 export interface SendEventResponse {
-  __type?: "SendEventResponse";
   /**
    * <p>The ID of the response.</p>
    */
@@ -343,11 +319,9 @@ export namespace SendEventResponse {
   export const filterSensitiveLog = (obj: SendEventResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendEventResponse => __isa(o, "SendEventResponse");
 }
 
 export interface SendMessageRequest {
-  __type?: "SendMessageRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
@@ -374,11 +348,9 @@ export namespace SendMessageRequest {
   export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageRequest => __isa(o, "SendMessageRequest");
 }
 
 export interface SendMessageResponse {
-  __type?: "SendMessageResponse";
   /**
    * <p>The ID of the message.</p>
    */
@@ -396,7 +368,6 @@ export namespace SendMessageResponse {
   export const filterSensitiveLog = (obj: SendMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageResponse => __isa(o, "SendMessageResponse");
 }
 
 export enum SortKey {
@@ -409,7 +380,6 @@ export enum SortKey {
  *             with message 50. </p>
  */
 export interface StartPosition {
-  __type?: "StartPosition";
   /**
    * <p>The time in ISO format where to start.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -432,7 +402,6 @@ export namespace StartPosition {
   export const filterSensitiveLog = (obj: StartPosition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPosition => __isa(o, "StartPosition");
 }
 
 /**
@@ -448,7 +417,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -464,14 +432,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>The websocket for the participant's connection.</p>
  */
 export interface Websocket {
-  __type?: "Websocket";
   /**
    * <p>The URL of the websocket.</p>
    */
@@ -489,5 +455,4 @@ export namespace Websocket {
   export const filterSensitiveLog = (obj: Websocket): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Websocket => __isa(o, "Websocket");
 }

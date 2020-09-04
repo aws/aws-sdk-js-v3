@@ -43,7 +43,6 @@ export const deserializeAws_json1_1SendSSHPublicKeyCommand = async (
   contents = deserializeAws_json1_1SendSSHPublicKeyResponse(data, context);
   const response: SendSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendSSHPublicKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -205,7 +204,6 @@ const serializeAws_json1_1SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequ
 
 const deserializeAws_json1_1AuthException = (output: any, context: __SerdeContext): AuthException => {
   return {
-    __type: "AuthException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -215,14 +213,12 @@ const deserializeAws_json1_1EC2InstanceNotFoundException = (
   context: __SerdeContext
 ): EC2InstanceNotFoundException => {
   return {
-    __type: "EC2InstanceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
   return {
-    __type: "InvalidArgsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -232,7 +228,6 @@ const deserializeAws_json1_1SendSSHPublicKeyResponse = (
   context: __SerdeContext
 ): SendSSHPublicKeyResponse => {
   return {
-    __type: "SendSSHPublicKeyResponse",
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
     Success: output.Success !== undefined && output.Success !== null ? output.Success : undefined,
   } as any;
@@ -240,14 +235,12 @@ const deserializeAws_json1_1SendSSHPublicKeyResponse = (
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    __type: "ServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

@@ -100,7 +100,6 @@ export const deserializeAws_json1_0DescribeStreamCommand = async (
   contents = deserializeAws_json1_0DescribeStreamOutput(data, context);
   const response: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStreamOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -164,7 +163,6 @@ export const deserializeAws_json1_0GetRecordsCommand = async (
   contents = deserializeAws_json1_0GetRecordsOutput(data, context);
   const response: GetRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecordsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -252,7 +250,6 @@ export const deserializeAws_json1_0GetShardIteratorCommand = async (
   contents = deserializeAws_json1_0GetShardIteratorOutput(data, context);
   const response: GetShardIteratorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetShardIteratorOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -324,7 +321,6 @@ export const deserializeAws_json1_0ListStreamsCommand = async (
   contents = deserializeAws_json1_0ListStreamsOutput(data, context);
   const response: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -498,7 +494,6 @@ const deserializeAws_json1_0AttributeMap = (
 
 const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    __type: "AttributeValue",
     B: output.B !== undefined && output.B !== null ? context.base64Decoder(output.B) : undefined,
     BOOL: output.BOOL !== undefined && output.BOOL !== null ? output.BOOL : undefined,
     BS:
@@ -533,7 +528,6 @@ const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __S
 
 const deserializeAws_json1_0DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
   return {
-    __type: "DescribeStreamOutput",
     StreamDescription:
       output.StreamDescription !== undefined && output.StreamDescription !== null
         ? deserializeAws_json1_0StreamDescription(output.StreamDescription, context)
@@ -546,14 +540,12 @@ const deserializeAws_json1_0ExpiredIteratorException = (
   context: __SerdeContext
 ): ExpiredIteratorException => {
   return {
-    __type: "ExpiredIteratorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
   return {
-    __type: "GetRecordsOutput",
     NextShardIterator:
       output.NextShardIterator !== undefined && output.NextShardIterator !== null
         ? output.NextShardIterator
@@ -567,7 +559,6 @@ const deserializeAws_json1_0GetRecordsOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0GetShardIteratorOutput = (output: any, context: __SerdeContext): GetShardIteratorOutput => {
   return {
-    __type: "GetShardIteratorOutput",
     ShardIterator:
       output.ShardIterator !== undefined && output.ShardIterator !== null ? output.ShardIterator : undefined,
   } as any;
@@ -575,7 +566,6 @@ const deserializeAws_json1_0GetShardIteratorOutput = (output: any, context: __Se
 
 const deserializeAws_json1_0Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    __type: "Identity",
     PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -583,7 +573,6 @@ const deserializeAws_json1_0Identity = (output: any, context: __SerdeContext): I
 
 const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -594,7 +583,6 @@ const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
   return {
-    __type: "KeySchemaElement",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     KeyType: output.KeyType !== undefined && output.KeyType !== null ? output.KeyType : undefined,
@@ -603,7 +591,6 @@ const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -614,7 +601,6 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
   return {
-    __type: "ListStreamsOutput",
     LastEvaluatedStreamArn:
       output.LastEvaluatedStreamArn !== undefined && output.LastEvaluatedStreamArn !== null
         ? output.LastEvaluatedStreamArn
@@ -645,7 +631,6 @@ const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __S
 
 const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _Record => {
   return {
-    __type: "Record",
     awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
     dynamodb:
       output.dynamodb !== undefined && output.dynamodb !== null
@@ -671,14 +656,12 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0SequenceNumberRange = (output: any, context: __SerdeContext): SequenceNumberRange => {
   return {
-    __type: "SequenceNumberRange",
     EndingSequenceNumber:
       output.EndingSequenceNumber !== undefined && output.EndingSequenceNumber !== null
         ? output.EndingSequenceNumber
@@ -692,7 +675,6 @@ const deserializeAws_json1_0SequenceNumberRange = (output: any, context: __Serde
 
 const deserializeAws_json1_0Shard = (output: any, context: __SerdeContext): Shard => {
   return {
-    __type: "Shard",
     ParentShardId:
       output.ParentShardId !== undefined && output.ParentShardId !== null ? output.ParentShardId : undefined,
     SequenceNumberRange:
@@ -709,7 +691,6 @@ const deserializeAws_json1_0ShardDescriptionList = (output: any, context: __Serd
 
 const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
-    __type: "Stream",
     StreamArn: output.StreamArn !== undefined && output.StreamArn !== null ? output.StreamArn : undefined,
     StreamLabel: output.StreamLabel !== undefined && output.StreamLabel !== null ? output.StreamLabel : undefined,
     TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
@@ -718,7 +699,6 @@ const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _S
 
 const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
   return {
-    __type: "StreamDescription",
     CreationRequestDateTime:
       output.CreationRequestDateTime !== undefined && output.CreationRequestDateTime !== null
         ? new Date(Math.round(output.CreationRequestDateTime * 1000))
@@ -750,7 +730,6 @@ const deserializeAws_json1_0StreamList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext): StreamRecord => {
   return {
-    __type: "StreamRecord",
     ApproximateCreationDateTime:
       output.ApproximateCreationDateTime !== undefined && output.ApproximateCreationDateTime !== null
         ? new Date(Math.round(output.ApproximateCreationDateTime * 1000))
@@ -784,7 +763,6 @@ const deserializeAws_json1_0TrimmedDataAccessException = (
   context: __SerdeContext
 ): TrimmedDataAccessException => {
   return {
-    __type: "TrimmedDataAccessException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

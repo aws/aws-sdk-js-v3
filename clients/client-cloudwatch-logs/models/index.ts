@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateKmsKeyRequest {
-  __type?: "AssociateKmsKeyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. This must be a symmetric CMK.
    *       For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p>
@@ -19,11 +18,9 @@ export namespace AssociateKmsKeyRequest {
   export const filterSensitiveLog = (obj: AssociateKmsKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateKmsKeyRequest => __isa(o, "AssociateKmsKeyRequest");
 }
 
 export interface CancelExportTaskRequest {
-  __type?: "CancelExportTaskRequest";
   /**
    * <p>The ID of the export task.</p>
    */
@@ -34,11 +31,9 @@ export namespace CancelExportTaskRequest {
   export const filterSensitiveLog = (obj: CancelExportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelExportTaskRequest => __isa(o, "CancelExportTaskRequest");
 }
 
 export interface CreateExportTaskRequest {
-  __type?: "CreateExportTaskRequest";
   /**
    * <p>The start time of the range for the request, expressed as the number of milliseconds
    *       after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not
@@ -85,11 +80,9 @@ export namespace CreateExportTaskRequest {
   export const filterSensitiveLog = (obj: CreateExportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExportTaskRequest => __isa(o, "CreateExportTaskRequest");
 }
 
 export interface CreateExportTaskResponse {
-  __type?: "CreateExportTaskResponse";
   /**
    * <p>The ID of the export task.</p>
    */
@@ -100,11 +93,9 @@ export namespace CreateExportTaskResponse {
   export const filterSensitiveLog = (obj: CreateExportTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExportTaskResponse => __isa(o, "CreateExportTaskResponse");
 }
 
 export interface CreateLogGroupRequest {
-  __type?: "CreateLogGroupRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -126,11 +117,9 @@ export namespace CreateLogGroupRequest {
   export const filterSensitiveLog = (obj: CreateLogGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLogGroupRequest => __isa(o, "CreateLogGroupRequest");
 }
 
 export interface CreateLogStreamRequest {
-  __type?: "CreateLogStreamRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -146,7 +135,6 @@ export namespace CreateLogStreamRequest {
   export const filterSensitiveLog = (obj: CreateLogStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLogStreamRequest => __isa(o, "CreateLogStreamRequest");
 }
 
 /**
@@ -163,11 +151,9 @@ export namespace DataAlreadyAcceptedException {
   export const filterSensitiveLog = (obj: DataAlreadyAcceptedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataAlreadyAcceptedException => __isa(o, "DataAlreadyAcceptedException");
 }
 
 export interface DeleteDestinationRequest {
-  __type?: "DeleteDestinationRequest";
   /**
    * <p>The name of the destination.</p>
    */
@@ -178,11 +164,9 @@ export namespace DeleteDestinationRequest {
   export const filterSensitiveLog = (obj: DeleteDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDestinationRequest => __isa(o, "DeleteDestinationRequest");
 }
 
 export interface DeleteLogGroupRequest {
-  __type?: "DeleteLogGroupRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -193,11 +177,9 @@ export namespace DeleteLogGroupRequest {
   export const filterSensitiveLog = (obj: DeleteLogGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLogGroupRequest => __isa(o, "DeleteLogGroupRequest");
 }
 
 export interface DeleteLogStreamRequest {
-  __type?: "DeleteLogStreamRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -213,11 +195,9 @@ export namespace DeleteLogStreamRequest {
   export const filterSensitiveLog = (obj: DeleteLogStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLogStreamRequest => __isa(o, "DeleteLogStreamRequest");
 }
 
 export interface DeleteMetricFilterRequest {
-  __type?: "DeleteMetricFilterRequest";
   /**
    * <p>The name of the metric filter.</p>
    */
@@ -233,11 +213,9 @@ export namespace DeleteMetricFilterRequest {
   export const filterSensitiveLog = (obj: DeleteMetricFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMetricFilterRequest => __isa(o, "DeleteMetricFilterRequest");
 }
 
 export interface DeleteQueryDefinitionRequest {
-  __type?: "DeleteQueryDefinitionRequest";
   queryDefinitionId: string | undefined;
 }
 
@@ -245,11 +223,9 @@ export namespace DeleteQueryDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteQueryDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueryDefinitionRequest => __isa(o, "DeleteQueryDefinitionRequest");
 }
 
 export interface DeleteQueryDefinitionResponse {
-  __type?: "DeleteQueryDefinitionResponse";
   success?: boolean;
 }
 
@@ -257,11 +233,9 @@ export namespace DeleteQueryDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteQueryDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueryDefinitionResponse => __isa(o, "DeleteQueryDefinitionResponse");
 }
 
 export interface DeleteResourcePolicyRequest {
-  __type?: "DeleteResourcePolicyRequest";
   /**
    * <p>The name of the policy to be revoked. This parameter is required.</p>
    */
@@ -272,11 +246,9 @@ export namespace DeleteResourcePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyRequest => __isa(o, "DeleteResourcePolicyRequest");
 }
 
 export interface DeleteRetentionPolicyRequest {
-  __type?: "DeleteRetentionPolicyRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -287,11 +259,9 @@ export namespace DeleteRetentionPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteRetentionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRetentionPolicyRequest => __isa(o, "DeleteRetentionPolicyRequest");
 }
 
 export interface DeleteSubscriptionFilterRequest {
-  __type?: "DeleteSubscriptionFilterRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -307,11 +277,9 @@ export namespace DeleteSubscriptionFilterRequest {
   export const filterSensitiveLog = (obj: DeleteSubscriptionFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriptionFilterRequest => __isa(o, "DeleteSubscriptionFilterRequest");
 }
 
 export interface DescribeDestinationsRequest {
-  __type?: "DescribeDestinationsRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
@@ -332,11 +300,9 @@ export namespace DescribeDestinationsRequest {
   export const filterSensitiveLog = (obj: DescribeDestinationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDestinationsRequest => __isa(o, "DescribeDestinationsRequest");
 }
 
 export interface DescribeDestinationsResponse {
-  __type?: "DescribeDestinationsResponse";
   /**
    * <p>The destinations.</p>
    */
@@ -352,11 +318,9 @@ export namespace DescribeDestinationsResponse {
   export const filterSensitiveLog = (obj: DescribeDestinationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDestinationsResponse => __isa(o, "DescribeDestinationsResponse");
 }
 
 export interface DescribeExportTasksRequest {
-  __type?: "DescribeExportTasksRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
@@ -382,11 +346,9 @@ export namespace DescribeExportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksRequest => __isa(o, "DescribeExportTasksRequest");
 }
 
 export interface DescribeExportTasksResponse {
-  __type?: "DescribeExportTasksResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    */
@@ -402,11 +364,9 @@ export namespace DescribeExportTasksResponse {
   export const filterSensitiveLog = (obj: DescribeExportTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksResponse => __isa(o, "DescribeExportTasksResponse");
 }
 
 export interface DescribeLogGroupsRequest {
-  __type?: "DescribeLogGroupsRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
@@ -427,11 +387,9 @@ export namespace DescribeLogGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeLogGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLogGroupsRequest => __isa(o, "DescribeLogGroupsRequest");
 }
 
 export interface DescribeLogGroupsResponse {
-  __type?: "DescribeLogGroupsResponse";
   /**
    * <p>The log groups.</p>
    */
@@ -447,11 +405,9 @@ export namespace DescribeLogGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeLogGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLogGroupsResponse => __isa(o, "DescribeLogGroupsResponse");
 }
 
 export interface DescribeLogStreamsRequest {
-  __type?: "DescribeLogStreamsRequest";
   /**
    * <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name.
    *       If the value is <code>LastEventTime</code>, the results are ordered by the event time.
@@ -499,11 +455,9 @@ export namespace DescribeLogStreamsRequest {
   export const filterSensitiveLog = (obj: DescribeLogStreamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLogStreamsRequest => __isa(o, "DescribeLogStreamsRequest");
 }
 
 export interface DescribeLogStreamsResponse {
-  __type?: "DescribeLogStreamsResponse";
   /**
    * <p>The log streams.</p>
    */
@@ -519,11 +473,9 @@ export namespace DescribeLogStreamsResponse {
   export const filterSensitiveLog = (obj: DescribeLogStreamsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLogStreamsResponse => __isa(o, "DescribeLogStreamsResponse");
 }
 
 export interface DescribeMetricFiltersRequest {
-  __type?: "DescribeMetricFiltersRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
@@ -561,11 +513,9 @@ export namespace DescribeMetricFiltersRequest {
   export const filterSensitiveLog = (obj: DescribeMetricFiltersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMetricFiltersRequest => __isa(o, "DescribeMetricFiltersRequest");
 }
 
 export interface DescribeMetricFiltersResponse {
-  __type?: "DescribeMetricFiltersResponse";
   /**
    * <p>The metric filters.</p>
    */
@@ -581,11 +531,9 @@ export namespace DescribeMetricFiltersResponse {
   export const filterSensitiveLog = (obj: DescribeMetricFiltersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMetricFiltersResponse => __isa(o, "DescribeMetricFiltersResponse");
 }
 
 export interface DescribeQueriesRequest {
-  __type?: "DescribeQueriesRequest";
   /**
    * <p>Limits the returned queries to only those that have the specified status. Valid values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
@@ -612,11 +560,9 @@ export namespace DescribeQueriesRequest {
   export const filterSensitiveLog = (obj: DescribeQueriesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeQueriesRequest => __isa(o, "DescribeQueriesRequest");
 }
 
 export interface DescribeQueriesResponse {
-  __type?: "DescribeQueriesResponse";
   /**
    * <p>The list of queries that match the request.</p>
    */
@@ -632,11 +578,9 @@ export namespace DescribeQueriesResponse {
   export const filterSensitiveLog = (obj: DescribeQueriesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeQueriesResponse => __isa(o, "DescribeQueriesResponse");
 }
 
 export interface DescribeQueryDefinitionsRequest {
-  __type?: "DescribeQueryDefinitionsRequest";
   queryDefinitionNamePrefix?: string;
   maxResults?: number;
   /**
@@ -649,11 +593,9 @@ export namespace DescribeQueryDefinitionsRequest {
   export const filterSensitiveLog = (obj: DescribeQueryDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeQueryDefinitionsRequest => __isa(o, "DescribeQueryDefinitionsRequest");
 }
 
 export interface DescribeQueryDefinitionsResponse {
-  __type?: "DescribeQueryDefinitionsResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    */
@@ -666,11 +608,9 @@ export namespace DescribeQueryDefinitionsResponse {
   export const filterSensitiveLog = (obj: DescribeQueryDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeQueryDefinitionsResponse => __isa(o, "DescribeQueryDefinitionsResponse");
 }
 
 export interface DescribeResourcePoliciesRequest {
-  __type?: "DescribeResourcePoliciesRequest";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    */
@@ -686,11 +626,9 @@ export namespace DescribeResourcePoliciesRequest {
   export const filterSensitiveLog = (obj: DescribeResourcePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourcePoliciesRequest => __isa(o, "DescribeResourcePoliciesRequest");
 }
 
 export interface DescribeResourcePoliciesResponse {
-  __type?: "DescribeResourcePoliciesResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    */
@@ -706,11 +644,9 @@ export namespace DescribeResourcePoliciesResponse {
   export const filterSensitiveLog = (obj: DescribeResourcePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourcePoliciesResponse => __isa(o, "DescribeResourcePoliciesResponse");
 }
 
 export interface DescribeSubscriptionFiltersRequest {
-  __type?: "DescribeSubscriptionFiltersRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    */
@@ -736,12 +672,9 @@ export namespace DescribeSubscriptionFiltersRequest {
   export const filterSensitiveLog = (obj: DescribeSubscriptionFiltersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscriptionFiltersRequest =>
-    __isa(o, "DescribeSubscriptionFiltersRequest");
 }
 
 export interface DescribeSubscriptionFiltersResponse {
-  __type?: "DescribeSubscriptionFiltersResponse";
   /**
    * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
    */
@@ -757,15 +690,12 @@ export namespace DescribeSubscriptionFiltersResponse {
   export const filterSensitiveLog = (obj: DescribeSubscriptionFiltersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscriptionFiltersResponse =>
-    __isa(o, "DescribeSubscriptionFiltersResponse");
 }
 
 /**
  * <p>Represents a cross-account destination that receives subscription log events.</p>
  */
 export interface Destination {
-  __type?: "Destination";
   /**
    * <p>The creation time of the destination, expressed as the number of milliseconds after Jan
    *       1, 1970 00:00:00 UTC.</p>
@@ -804,11 +734,9 @@ export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export interface DisassociateKmsKeyRequest {
-  __type?: "DisassociateKmsKeyRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -819,7 +747,6 @@ export namespace DisassociateKmsKeyRequest {
   export const filterSensitiveLog = (obj: DisassociateKmsKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateKmsKeyRequest => __isa(o, "DisassociateKmsKeyRequest");
 }
 
 export enum Distribution {
@@ -831,7 +758,6 @@ export enum Distribution {
  * <p>Represents an export task.</p>
  */
 export interface ExportTask {
-  __type?: "ExportTask";
   /**
    * <p>The prefix that was used as the start of Amazon S3 key for every object exported.</p>
    */
@@ -884,14 +810,12 @@ export namespace ExportTask {
   export const filterSensitiveLog = (obj: ExportTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTask => __isa(o, "ExportTask");
 }
 
 /**
  * <p>Represents the status of an export task.</p>
  */
 export interface ExportTaskExecutionInfo {
-  __type?: "ExportTaskExecutionInfo";
   /**
    * <p>The creation time of the export task, expressed as the number of milliseconds after Jan
    *       1, 1970 00:00:00 UTC.</p>
@@ -909,14 +833,12 @@ export namespace ExportTaskExecutionInfo {
   export const filterSensitiveLog = (obj: ExportTaskExecutionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTaskExecutionInfo => __isa(o, "ExportTaskExecutionInfo");
 }
 
 /**
  * <p>Represents the status of an export task.</p>
  */
 export interface ExportTaskStatus {
-  __type?: "ExportTaskStatus";
   /**
    * <p>The status code of the export task.</p>
    */
@@ -932,7 +854,6 @@ export namespace ExportTaskStatus {
   export const filterSensitiveLog = (obj: ExportTaskStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTaskStatus => __isa(o, "ExportTaskStatus");
 }
 
 export enum ExportTaskStatusCode {
@@ -948,7 +869,6 @@ export enum ExportTaskStatusCode {
  * <p>Represents a matched event.</p>
  */
 export interface FilteredLogEvent {
-  __type?: "FilteredLogEvent";
   /**
    * <p>The name of the log stream to which this event belongs.</p>
    */
@@ -981,11 +901,9 @@ export namespace FilteredLogEvent {
   export const filterSensitiveLog = (obj: FilteredLogEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilteredLogEvent => __isa(o, "FilteredLogEvent");
 }
 
 export interface FilterLogEventsRequest {
-  __type?: "FilterLogEventsRequest";
   /**
    * <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970
    *       00:00:00 UTC. Events with a timestamp before this time are not returned.</p>
@@ -1051,11 +969,9 @@ export namespace FilterLogEventsRequest {
   export const filterSensitiveLog = (obj: FilterLogEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterLogEventsRequest => __isa(o, "FilterLogEventsRequest");
 }
 
 export interface FilterLogEventsResponse {
-  __type?: "FilterLogEventsResponse";
   /**
    * <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
    */
@@ -1076,11 +992,9 @@ export namespace FilterLogEventsResponse {
   export const filterSensitiveLog = (obj: FilterLogEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterLogEventsResponse => __isa(o, "FilterLogEventsResponse");
 }
 
 export interface GetLogEventsRequest {
-  __type?: "GetLogEventsRequest";
   /**
    * <p>If the value is true, the earliest log events are returned first.
    *       If the value is false, the latest log events are returned first.
@@ -1130,11 +1044,9 @@ export namespace GetLogEventsRequest {
   export const filterSensitiveLog = (obj: GetLogEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLogEventsRequest => __isa(o, "GetLogEventsRequest");
 }
 
 export interface GetLogEventsResponse {
-  __type?: "GetLogEventsResponse";
   /**
    * <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you
    *     have reached the end of the stream, it will return the same token you passed in.</p>
@@ -1157,11 +1069,9 @@ export namespace GetLogEventsResponse {
   export const filterSensitiveLog = (obj: GetLogEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLogEventsResponse => __isa(o, "GetLogEventsResponse");
 }
 
 export interface GetLogGroupFieldsRequest {
-  __type?: "GetLogGroupFieldsRequest";
   /**
    * <p>The time to set as the center of the query. If you specify <code>time</code>, the 8
    *       minutes before and 8 minutes after this time are searched. If you omit <code>time</code>, the
@@ -1181,11 +1091,9 @@ export namespace GetLogGroupFieldsRequest {
   export const filterSensitiveLog = (obj: GetLogGroupFieldsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLogGroupFieldsRequest => __isa(o, "GetLogGroupFieldsRequest");
 }
 
 export interface GetLogGroupFieldsResponse {
-  __type?: "GetLogGroupFieldsResponse";
   /**
    * <p>The array of fields found in the query. Each object in the array contains the name of the field, along with the
    *     percentage of time it appeared in the log events that were queried.</p>
@@ -1197,11 +1105,9 @@ export namespace GetLogGroupFieldsResponse {
   export const filterSensitiveLog = (obj: GetLogGroupFieldsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLogGroupFieldsResponse => __isa(o, "GetLogGroupFieldsResponse");
 }
 
 export interface GetLogRecordRequest {
-  __type?: "GetLogRecordRequest";
   /**
    * <p>The pointer corresponding to the log event record you want to retrieve. You get this from
    *       the response of a <code>GetQueryResults</code> operation. In that response, the value of the
@@ -1215,11 +1121,9 @@ export namespace GetLogRecordRequest {
   export const filterSensitiveLog = (obj: GetLogRecordRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLogRecordRequest => __isa(o, "GetLogRecordRequest");
 }
 
 export interface GetLogRecordResponse {
-  __type?: "GetLogRecordResponse";
   /**
    * <p>The requested log event, as a JSON string.</p>
    */
@@ -1230,11 +1134,9 @@ export namespace GetLogRecordResponse {
   export const filterSensitiveLog = (obj: GetLogRecordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLogRecordResponse => __isa(o, "GetLogRecordResponse");
 }
 
 export interface GetQueryResultsRequest {
-  __type?: "GetQueryResultsRequest";
   /**
    * <p>The ID number of the query.</p>
    */
@@ -1245,11 +1147,9 @@ export namespace GetQueryResultsRequest {
   export const filterSensitiveLog = (obj: GetQueryResultsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueryResultsRequest => __isa(o, "GetQueryResultsRequest");
 }
 
 export interface GetQueryResultsResponse {
-  __type?: "GetQueryResultsResponse";
   /**
    * <p>The log events that matched the query criteria during the most recent time it ran.</p>
    *          <p>The <code>results</code> value is an array of arrays. Each log event is one object in the
@@ -1279,7 +1179,6 @@ export namespace GetQueryResultsResponse {
   export const filterSensitiveLog = (obj: GetQueryResultsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueryResultsResponse => __isa(o, "GetQueryResultsResponse");
 }
 
 /**
@@ -1287,7 +1186,6 @@ export namespace GetQueryResultsResponse {
  *       by the application or resource being monitored.</p>
  */
 export interface InputLogEvent {
-  __type?: "InputLogEvent";
   /**
    * <p>The raw event message.</p>
    */
@@ -1304,7 +1202,6 @@ export namespace InputLogEvent {
   export const filterSensitiveLog = (obj: InputLogEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputLogEvent => __isa(o, "InputLogEvent");
 }
 
 /**
@@ -1320,7 +1217,6 @@ export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
@@ -1336,7 +1232,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1355,7 +1250,6 @@ export namespace InvalidSequenceTokenException {
   export const filterSensitiveLog = (obj: InvalidSequenceTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSequenceTokenException => __isa(o, "InvalidSequenceTokenException");
 }
 
 /**
@@ -1371,11 +1265,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsLogGroupRequest {
-  __type?: "ListTagsLogGroupRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -1386,11 +1278,9 @@ export namespace ListTagsLogGroupRequest {
   export const filterSensitiveLog = (obj: ListTagsLogGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsLogGroupRequest => __isa(o, "ListTagsLogGroupRequest");
 }
 
 export interface ListTagsLogGroupResponse {
-  __type?: "ListTagsLogGroupResponse";
   /**
    * <p>The tags for the log group.</p>
    */
@@ -1401,14 +1291,12 @@ export namespace ListTagsLogGroupResponse {
   export const filterSensitiveLog = (obj: ListTagsLogGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsLogGroupResponse => __isa(o, "ListTagsLogGroupResponse");
 }
 
 /**
  * <p>Represents a log group.</p>
  */
 export interface LogGroup {
-  __type?: "LogGroup";
   /**
    * <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.</p>
    */
@@ -1451,7 +1339,6 @@ export namespace LogGroup {
   export const filterSensitiveLog = (obj: LogGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogGroup => __isa(o, "LogGroup");
 }
 
 /**
@@ -1459,7 +1346,6 @@ export namespace LogGroup {
  *       along with the percentage of queried log events in which each field appears.</p>
  */
 export interface LogGroupField {
-  __type?: "LogGroupField";
   /**
    * <p>The name of a log field.</p>
    */
@@ -1475,7 +1361,6 @@ export namespace LogGroupField {
   export const filterSensitiveLog = (obj: LogGroupField): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogGroupField => __isa(o, "LogGroupField");
 }
 
 /**
@@ -1483,7 +1368,6 @@ export namespace LogGroupField {
  *       a single emitter of logs.</p>
  */
 export interface LogStream {
-  __type?: "LogStream";
   /**
    * <p>The name of the log stream.</p>
    */
@@ -1540,7 +1424,6 @@ export namespace LogStream {
   export const filterSensitiveLog = (obj: LogStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogStream => __isa(o, "LogStream");
 }
 
 /**
@@ -1564,7 +1447,6 @@ export namespace MalformedQueryException {
   export const filterSensitiveLog = (obj: MalformedQueryException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedQueryException => __isa(o, "MalformedQueryException");
 }
 
 /**
@@ -1572,7 +1454,6 @@ export namespace MalformedQueryException {
  *       from ingested log events and transform them into metric data in a CloudWatch metric.</p>
  */
 export interface MetricFilter {
-  __type?: "MetricFilter";
   /**
    * <p>The creation time of the metric filter, expressed as the number of milliseconds after
    *       Jan 1, 1970 00:00:00 UTC.</p>
@@ -1606,14 +1487,12 @@ export namespace MetricFilter {
   export const filterSensitiveLog = (obj: MetricFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricFilter => __isa(o, "MetricFilter");
 }
 
 /**
  * <p>Represents a matched event.</p>
  */
 export interface MetricFilterMatchRecord {
-  __type?: "MetricFilterMatchRecord";
   /**
    * <p>The values extracted from the event data by the filter.</p>
    */
@@ -1634,7 +1513,6 @@ export namespace MetricFilterMatchRecord {
   export const filterSensitiveLog = (obj: MetricFilterMatchRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricFilterMatchRecord => __isa(o, "MetricFilterMatchRecord");
 }
 
 /**
@@ -1642,7 +1520,6 @@ export namespace MetricFilterMatchRecord {
  *       metric.</p>
  */
 export interface MetricTransformation {
-  __type?: "MetricTransformation";
   /**
    * <p>A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics
    *       that are similar. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">Namespaces</a>.</p>
@@ -1670,7 +1547,6 @@ export namespace MetricTransformation {
   export const filterSensitiveLog = (obj: MetricTransformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricTransformation => __isa(o, "MetricTransformation");
 }
 
 /**
@@ -1686,7 +1562,6 @@ export namespace OperationAbortedException {
   export const filterSensitiveLog = (obj: OperationAbortedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationAbortedException => __isa(o, "OperationAbortedException");
 }
 
 export enum OrderBy {
@@ -1698,7 +1573,6 @@ export enum OrderBy {
  * <p>Represents a log event.</p>
  */
 export interface OutputLogEvent {
-  __type?: "OutputLogEvent";
   /**
    * <p>The time the event was ingested, expressed as the number of milliseconds after Jan 1,
    *       1970 00:00:00 UTC.</p>
@@ -1721,11 +1595,9 @@ export namespace OutputLogEvent {
   export const filterSensitiveLog = (obj: OutputLogEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputLogEvent => __isa(o, "OutputLogEvent");
 }
 
 export interface PutDestinationPolicyRequest {
-  __type?: "PutDestinationPolicyRequest";
   /**
    * <p>A name for an existing destination.</p>
    */
@@ -1742,11 +1614,9 @@ export namespace PutDestinationPolicyRequest {
   export const filterSensitiveLog = (obj: PutDestinationPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDestinationPolicyRequest => __isa(o, "PutDestinationPolicyRequest");
 }
 
 export interface PutDestinationRequest {
-  __type?: "PutDestinationRequest";
   /**
    * <p>The ARN of an Amazon Kinesis stream to which to deliver matching log events.</p>
    */
@@ -1768,11 +1638,9 @@ export namespace PutDestinationRequest {
   export const filterSensitiveLog = (obj: PutDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDestinationRequest => __isa(o, "PutDestinationRequest");
 }
 
 export interface PutDestinationResponse {
-  __type?: "PutDestinationResponse";
   /**
    * <p>The destination.</p>
    */
@@ -1783,11 +1651,9 @@ export namespace PutDestinationResponse {
   export const filterSensitiveLog = (obj: PutDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDestinationResponse => __isa(o, "PutDestinationResponse");
 }
 
 export interface PutLogEventsRequest {
-  __type?: "PutLogEventsRequest";
   /**
    * <p>The name of the log stream.</p>
    */
@@ -1817,11 +1683,9 @@ export namespace PutLogEventsRequest {
   export const filterSensitiveLog = (obj: PutLogEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLogEventsRequest => __isa(o, "PutLogEventsRequest");
 }
 
 export interface PutLogEventsResponse {
-  __type?: "PutLogEventsResponse";
   /**
    * <p>The rejected events.</p>
    */
@@ -1837,11 +1701,9 @@ export namespace PutLogEventsResponse {
   export const filterSensitiveLog = (obj: PutLogEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLogEventsResponse => __isa(o, "PutLogEventsResponse");
 }
 
 export interface PutMetricFilterRequest {
-  __type?: "PutMetricFilterRequest";
   /**
    * <p>A filter pattern for extracting metric data out of ingested log events.</p>
    */
@@ -1867,11 +1729,9 @@ export namespace PutMetricFilterRequest {
   export const filterSensitiveLog = (obj: PutMetricFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutMetricFilterRequest => __isa(o, "PutMetricFilterRequest");
 }
 
 export interface PutQueryDefinitionRequest {
-  __type?: "PutQueryDefinitionRequest";
   logGroupNames?: string[];
   queryDefinitionId?: string;
   name: string | undefined;
@@ -1882,11 +1742,9 @@ export namespace PutQueryDefinitionRequest {
   export const filterSensitiveLog = (obj: PutQueryDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutQueryDefinitionRequest => __isa(o, "PutQueryDefinitionRequest");
 }
 
 export interface PutQueryDefinitionResponse {
-  __type?: "PutQueryDefinitionResponse";
   queryDefinitionId?: string;
 }
 
@@ -1894,11 +1752,9 @@ export namespace PutQueryDefinitionResponse {
   export const filterSensitiveLog = (obj: PutQueryDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutQueryDefinitionResponse => __isa(o, "PutQueryDefinitionResponse");
 }
 
 export interface PutResourcePolicyRequest {
-  __type?: "PutResourcePolicyRequest";
   /**
    * <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.
    *     This parameter is required.</p>
@@ -1936,11 +1792,9 @@ export namespace PutResourcePolicyRequest {
   export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyRequest => __isa(o, "PutResourcePolicyRequest");
 }
 
 export interface PutResourcePolicyResponse {
-  __type?: "PutResourcePolicyResponse";
   /**
    * <p>The new policy.</p>
    */
@@ -1951,11 +1805,9 @@ export namespace PutResourcePolicyResponse {
   export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyResponse => __isa(o, "PutResourcePolicyResponse");
 }
 
 export interface PutRetentionPolicyRequest {
-  __type?: "PutRetentionPolicyRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -1972,11 +1824,9 @@ export namespace PutRetentionPolicyRequest {
   export const filterSensitiveLog = (obj: PutRetentionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRetentionPolicyRequest => __isa(o, "PutRetentionPolicyRequest");
 }
 
 export interface PutSubscriptionFilterRequest {
-  __type?: "PutSubscriptionFilterRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -2039,14 +1889,12 @@ export namespace PutSubscriptionFilterRequest {
   export const filterSensitiveLog = (obj: PutSubscriptionFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSubscriptionFilterRequest => __isa(o, "PutSubscriptionFilterRequest");
 }
 
 /**
  * <p>Reserved.</p>
  */
 export interface QueryCompileError {
-  __type?: "QueryCompileError";
   /**
    * <p>Reserved.</p>
    */
@@ -2062,14 +1910,12 @@ export namespace QueryCompileError {
   export const filterSensitiveLog = (obj: QueryCompileError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryCompileError => __isa(o, "QueryCompileError");
 }
 
 /**
  * <p>Reserved.</p>
  */
 export interface QueryCompileErrorLocation {
-  __type?: "QueryCompileErrorLocation";
   /**
    * <p>Reserved.</p>
    */
@@ -2085,11 +1931,9 @@ export namespace QueryCompileErrorLocation {
   export const filterSensitiveLog = (obj: QueryCompileErrorLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryCompileErrorLocation => __isa(o, "QueryCompileErrorLocation");
 }
 
 export interface QueryDefinition {
-  __type?: "QueryDefinition";
   lastModified?: number;
   queryDefinitionId?: string;
   logGroupNames?: string[];
@@ -2101,14 +1945,12 @@ export namespace QueryDefinition {
   export const filterSensitiveLog = (obj: QueryDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryDefinition => __isa(o, "QueryDefinition");
 }
 
 /**
  * <p>Information about one CloudWatch Logs Insights query that matches the request in a <code>DescribeQueries</code> operation. </p>
  */
 export interface QueryInfo {
-  __type?: "QueryInfo";
   /**
    * <p>The date and time that this query was created.</p>
    */
@@ -2140,7 +1982,6 @@ export namespace QueryInfo {
   export const filterSensitiveLog = (obj: QueryInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryInfo => __isa(o, "QueryInfo");
 }
 
 /**
@@ -2148,7 +1989,6 @@ export namespace QueryInfo {
  *       query criteria, and the total number of bytes in the log events that were scanned.</p>
  */
 export interface QueryStatistics {
-  __type?: "QueryStatistics";
   /**
    * <p>The total number of log events scanned during the query.</p>
    */
@@ -2169,7 +2009,6 @@ export namespace QueryStatistics {
   export const filterSensitiveLog = (obj: QueryStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryStatistics => __isa(o, "QueryStatistics");
 }
 
 export enum QueryStatus {
@@ -2184,7 +2023,6 @@ export enum QueryStatus {
  * <p>Represents the rejected events.</p>
  */
 export interface RejectedLogEventsInfo {
-  __type?: "RejectedLogEventsInfo";
   /**
    * <p>The log events that are too old.</p>
    */
@@ -2205,7 +2043,6 @@ export namespace RejectedLogEventsInfo {
   export const filterSensitiveLog = (obj: RejectedLogEventsInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectedLogEventsInfo => __isa(o, "RejectedLogEventsInfo");
 }
 
 /**
@@ -2221,7 +2058,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -2237,14 +2073,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A policy enabling one or more entities to put logs to a log group in this account.</p>
  */
 export interface ResourcePolicy {
-  __type?: "ResourcePolicy";
   /**
    * <p>The details of the policy.</p>
    */
@@ -2266,7 +2100,6 @@ export namespace ResourcePolicy {
   export const filterSensitiveLog = (obj: ResourcePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourcePolicy => __isa(o, "ResourcePolicy");
 }
 
 /**
@@ -2276,7 +2109,6 @@ export namespace ResourcePolicy {
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p>
  */
 export interface ResultField {
-  __type?: "ResultField";
   /**
    * <p>The log event field.</p>
    */
@@ -2292,14 +2124,12 @@ export namespace ResultField {
   export const filterSensitiveLog = (obj: ResultField): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResultField => __isa(o, "ResultField");
 }
 
 /**
  * <p>Represents the search status of a log stream.</p>
  */
 export interface SearchedLogStream {
-  __type?: "SearchedLogStream";
   /**
    * <p>The name of the log stream.</p>
    */
@@ -2315,7 +2145,6 @@ export namespace SearchedLogStream {
   export const filterSensitiveLog = (obj: SearchedLogStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchedLogStream => __isa(o, "SearchedLogStream");
 }
 
 /**
@@ -2331,11 +2160,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartQueryRequest {
-  __type?: "StartQueryRequest";
   /**
    * <p>The log group on which to perform the query.</p>
    *          <p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code>logGroupName</code> parameter, but
@@ -2381,11 +2208,9 @@ export namespace StartQueryRequest {
   export const filterSensitiveLog = (obj: StartQueryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartQueryRequest => __isa(o, "StartQueryRequest");
 }
 
 export interface StartQueryResponse {
-  __type?: "StartQueryResponse";
   /**
    * <p>The unique ID of the query. </p>
    */
@@ -2396,11 +2221,9 @@ export namespace StartQueryResponse {
   export const filterSensitiveLog = (obj: StartQueryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartQueryResponse => __isa(o, "StartQueryResponse");
 }
 
 export interface StopQueryRequest {
-  __type?: "StopQueryRequest";
   /**
    * <p>The ID number of the query to stop. If necessary, you can use <code>DescribeQueries</code>
    *       to find this ID number.</p>
@@ -2412,11 +2235,9 @@ export namespace StopQueryRequest {
   export const filterSensitiveLog = (obj: StopQueryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopQueryRequest => __isa(o, "StopQueryRequest");
 }
 
 export interface StopQueryResponse {
-  __type?: "StopQueryResponse";
   /**
    * <p>This is true if the query was stopped by the <code>StopQuery</code> operation.</p>
    */
@@ -2427,14 +2248,12 @@ export namespace StopQueryResponse {
   export const filterSensitiveLog = (obj: StopQueryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopQueryResponse => __isa(o, "StopQueryResponse");
 }
 
 /**
  * <p>Represents a subscription filter.</p>
  */
 export interface SubscriptionFilter {
-  __type?: "SubscriptionFilter";
   /**
    * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
    *       event. For example, a log event may contain timestamps, IP addresses, strings, and so on. You
@@ -2479,11 +2298,9 @@ export namespace SubscriptionFilter {
   export const filterSensitiveLog = (obj: SubscriptionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionFilter => __isa(o, "SubscriptionFilter");
 }
 
 export interface TagLogGroupRequest {
-  __type?: "TagLogGroupRequest";
   /**
    * <p>The name of the log group.</p>
    */
@@ -2499,11 +2316,9 @@ export namespace TagLogGroupRequest {
   export const filterSensitiveLog = (obj: TagLogGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagLogGroupRequest => __isa(o, "TagLogGroupRequest");
 }
 
 export interface TestMetricFilterRequest {
-  __type?: "TestMetricFilterRequest";
   /**
    * <p>The log event messages to test.</p>
    */
@@ -2521,11 +2336,9 @@ export namespace TestMetricFilterRequest {
   export const filterSensitiveLog = (obj: TestMetricFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestMetricFilterRequest => __isa(o, "TestMetricFilterRequest");
 }
 
 export interface TestMetricFilterResponse {
-  __type?: "TestMetricFilterResponse";
   /**
    * <p>The matched events.</p>
    */
@@ -2536,7 +2349,6 @@ export namespace TestMetricFilterResponse {
   export const filterSensitiveLog = (obj: TestMetricFilterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestMetricFilterResponse => __isa(o, "TestMetricFilterResponse");
 }
 
 /**
@@ -2552,11 +2364,9 @@ export namespace UnrecognizedClientException {
   export const filterSensitiveLog = (obj: UnrecognizedClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnrecognizedClientException => __isa(o, "UnrecognizedClientException");
 }
 
 export interface UntagLogGroupRequest {
-  __type?: "UntagLogGroupRequest";
   /**
    * <p>The tag keys. The corresponding tags are removed from the log group.</p>
    */
@@ -2572,5 +2382,4 @@ export namespace UntagLogGroupRequest {
   export const filterSensitiveLog = (obj: UntagLogGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagLogGroupRequest => __isa(o, "UntagLogGroupRequest");
 }

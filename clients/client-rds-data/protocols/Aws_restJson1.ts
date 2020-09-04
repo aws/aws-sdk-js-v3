@@ -224,7 +224,6 @@ export const deserializeAws_restJson1BatchExecuteStatementCommand = async (
   }
   const contents: BatchExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchExecuteStatementResponse",
     updateResults: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -312,7 +311,6 @@ export const deserializeAws_restJson1BeginTransactionCommand = async (
   }
   const contents: BeginTransactionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BeginTransactionResponse",
     transactionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -400,7 +398,6 @@ export const deserializeAws_restJson1CommitTransactionCommand = async (
   }
   const contents: CommitTransactionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CommitTransactionResponse",
     transactionStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -496,7 +493,6 @@ export const deserializeAws_restJson1ExecuteSqlCommand = async (
   }
   const contents: ExecuteSqlCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExecuteSqlResponse",
     sqlStatementResults: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -576,7 +572,6 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
   }
   const contents: ExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExecuteStatementResponse",
     columnMetadata: undefined,
     generatedFields: undefined,
     numberOfRecordsUpdated: undefined,
@@ -676,7 +671,6 @@ export const deserializeAws_restJson1RollbackTransactionCommand = async (
   }
   const contents: RollbackTransactionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RollbackTransactionResponse",
     transactionStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -970,7 +964,6 @@ const deserializeAws_restJson1BooleanArray = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
   return {
-    __type: "ColumnMetadata",
     arrayBaseColumnType:
       output.arrayBaseColumnType !== undefined && output.arrayBaseColumnType !== null
         ? output.arrayBaseColumnType
@@ -1050,7 +1043,6 @@ const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
-    __type: "Record",
     values:
       output.values !== undefined && output.values !== null
         ? deserializeAws_restJson1Row(output.values, context)
@@ -1064,7 +1056,6 @@ const deserializeAws_restJson1Records = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ResultFrame = (output: any, context: __SerdeContext): ResultFrame => {
   return {
-    __type: "ResultFrame",
     records:
       output.records !== undefined && output.records !== null
         ? deserializeAws_restJson1Records(output.records, context)
@@ -1078,7 +1069,6 @@ const deserializeAws_restJson1ResultFrame = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
   return {
-    __type: "ResultSetMetadata",
     columnCount: output.columnCount !== undefined && output.columnCount !== null ? output.columnCount : undefined,
     columnMetadata:
       output.columnMetadata !== undefined && output.columnMetadata !== null
@@ -1097,7 +1087,6 @@ const deserializeAws_restJson1SqlRecords = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
   return {
-    __type: "SqlStatementResult",
     numberOfRecordsUpdated:
       output.numberOfRecordsUpdated !== undefined && output.numberOfRecordsUpdated !== null
         ? output.numberOfRecordsUpdated
@@ -1119,7 +1108,6 @@ const deserializeAws_restJson1StringArray = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1StructValue = (output: any, context: __SerdeContext): StructValue => {
   return {
-    __type: "StructValue",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1ArrayValueList(output.attributes, context)
@@ -1129,7 +1117,6 @@ const deserializeAws_restJson1StructValue = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1UpdateResult = (output: any, context: __SerdeContext): UpdateResult => {
   return {
-    __type: "UpdateResult",
     generatedFields:
       output.generatedFields !== undefined && output.generatedFields !== null
         ? deserializeAws_restJson1FieldList(output.generatedFields, context)

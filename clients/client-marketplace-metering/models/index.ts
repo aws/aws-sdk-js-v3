@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             within your application.</p>
  */
 export interface BatchMeterUsageRequest {
-  __type?: "BatchMeterUsageRequest";
   /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
@@ -25,7 +24,6 @@ export namespace BatchMeterUsageRequest {
   export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchMeterUsageRequest => __isa(o, "BatchMeterUsageRequest");
 }
 
 /**
@@ -33,7 +31,6 @@ export namespace BatchMeterUsageRequest {
  *             failed due to transient error.</p>
  */
 export interface BatchMeterUsageResult {
-  __type?: "BatchMeterUsageResult";
   /**
    * <p>Contains all UsageRecords processed by BatchMeterUsage. These records were either
    *             honored by AWS Marketplace Metering Service or were invalid.</p>
@@ -52,7 +49,6 @@ export namespace BatchMeterUsageResult {
   export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchMeterUsageResult => __isa(o, "BatchMeterUsageResult");
 }
 
 /**
@@ -69,7 +65,6 @@ export namespace CustomerNotEntitledException {
   export const filterSensitiveLog = (obj: CustomerNotEntitledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerNotEntitledException => __isa(o, "CustomerNotEntitledException");
 }
 
 /**
@@ -85,7 +80,6 @@ export namespace DisabledApiException {
   export const filterSensitiveLog = (obj: DisabledApiException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisabledApiException => __isa(o, "DisabledApiException");
 }
 
 /**
@@ -103,7 +97,6 @@ export namespace DuplicateRequestException {
   export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateRequestException => __isa(o, "DuplicateRequestException");
 }
 
 /**
@@ -123,7 +116,6 @@ export namespace ExpiredTokenException {
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpiredTokenException => __isa(o, "ExpiredTokenException");
 }
 
 /**
@@ -140,7 +132,6 @@ export namespace InternalServiceErrorException {
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -156,8 +147,6 @@ export namespace InvalidCustomerIdentifierException {
   export const filterSensitiveLog = (obj: InvalidCustomerIdentifierException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCustomerIdentifierException =>
-    __isa(o, "InvalidCustomerIdentifierException");
 }
 
 /**
@@ -175,7 +164,6 @@ export namespace InvalidEndpointRegionException {
   export const filterSensitiveLog = (obj: InvalidEndpointRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEndpointRegionException => __isa(o, "InvalidEndpointRegionException");
 }
 
 /**
@@ -192,7 +180,6 @@ export namespace InvalidProductCodeException {
   export const filterSensitiveLog = (obj: InvalidProductCodeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidProductCodeException => __isa(o, "InvalidProductCodeException");
 }
 
 /**
@@ -208,7 +195,6 @@ export namespace InvalidPublicKeyVersionException {
   export const filterSensitiveLog = (obj: InvalidPublicKeyVersionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPublicKeyVersionException => __isa(o, "InvalidPublicKeyVersionException");
 }
 
 /**
@@ -226,7 +212,6 @@ export namespace InvalidRegionException {
   export const filterSensitiveLog = (obj: InvalidRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRegionException => __isa(o, "InvalidRegionException");
 }
 
 /**
@@ -242,7 +227,6 @@ export namespace InvalidTokenException {
   export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTokenException => __isa(o, "InvalidTokenException");
 }
 
 /**
@@ -259,11 +243,9 @@ export namespace InvalidUsageDimensionException {
   export const filterSensitiveLog = (obj: InvalidUsageDimensionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidUsageDimensionException => __isa(o, "InvalidUsageDimensionException");
 }
 
 export interface MeterUsageRequest {
-  __type?: "MeterUsageRequest";
   /**
    * <p>Timestamp, in UTC, for which the usage is being reported. Your application can
    *             meter usage for up to one hour in the past. Make sure the timestamp value is not before
@@ -303,11 +285,9 @@ export namespace MeterUsageRequest {
   export const filterSensitiveLog = (obj: MeterUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeterUsageRequest => __isa(o, "MeterUsageRequest");
 }
 
 export interface MeterUsageResult {
-  __type?: "MeterUsageResult";
   /**
    * <p>Metering record id.</p>
    */
@@ -318,7 +298,6 @@ export namespace MeterUsageResult {
   export const filterSensitiveLog = (obj: MeterUsageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeterUsageResult => __isa(o, "MeterUsageResult");
 }
 
 /**
@@ -335,11 +314,9 @@ export namespace PlatformNotSupportedException {
   export const filterSensitiveLog = (obj: PlatformNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformNotSupportedException => __isa(o, "PlatformNotSupportedException");
 }
 
 export interface RegisterUsageRequest {
-  __type?: "RegisterUsageRequest";
   /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
@@ -363,11 +340,9 @@ export namespace RegisterUsageRequest {
   export const filterSensitiveLog = (obj: RegisterUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterUsageRequest => __isa(o, "RegisterUsageRequest");
 }
 
 export interface RegisterUsageResult {
-  __type?: "RegisterUsageResult";
   /**
    * <p>(Optional) Only included when public key version has expired</p>
    */
@@ -383,14 +358,12 @@ export namespace RegisterUsageResult {
   export const filterSensitiveLog = (obj: RegisterUsageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterUsageResult => __isa(o, "RegisterUsageResult");
 }
 
 /**
  * <p>Contains input to the ResolveCustomer operation.</p>
  */
 export interface ResolveCustomerRequest {
-  __type?: "ResolveCustomerRequest";
   /**
    * <p>When a buyer visits your website during the registration process, the buyer submits
    *             a registration token through the browser. The registration token is resolved to obtain a
@@ -403,7 +376,6 @@ export namespace ResolveCustomerRequest {
   export const filterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveCustomerRequest => __isa(o, "ResolveCustomerRequest");
 }
 
 /**
@@ -411,7 +383,6 @@ export namespace ResolveCustomerRequest {
  *             product code.</p>
  */
 export interface ResolveCustomerResult {
-  __type?: "ResolveCustomerResult";
   /**
    * <p>The product code is returned to confirm that the buyer is registering for your
    *             product. Subsequent BatchMeterUsage calls should be made using this product
@@ -431,7 +402,6 @@ export namespace ResolveCustomerResult {
   export const filterSensitiveLog = (obj: ResolveCustomerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveCustomerResult => __isa(o, "ResolveCustomerResult");
 }
 
 /**
@@ -447,7 +417,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -463,7 +432,6 @@ export namespace TimestampOutOfBoundsException {
   export const filterSensitiveLog = (obj: TimestampOutOfBoundsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimestampOutOfBoundsException => __isa(o, "TimestampOutOfBoundsException");
 }
 
 /**
@@ -473,7 +441,6 @@ export namespace TimestampOutOfBoundsException {
  *             prevent double charges.</p>
  */
 export interface UsageRecord {
-  __type?: "UsageRecord";
   /**
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
    *         <p>Your application can meter usage for up to one hour in the past. Make sure the
@@ -505,7 +472,6 @@ export namespace UsageRecord {
   export const filterSensitiveLog = (obj: UsageRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageRecord => __isa(o, "UsageRecord");
 }
 
 /**
@@ -513,7 +479,6 @@ export namespace UsageRecord {
  *             BatchMeterUsage.</p>
  */
 export interface UsageRecordResult {
-  __type?: "UsageRecordResult";
   /**
    * <p>The MeteringRecordId is a unique identifier for this metering event.</p>
    */
@@ -555,7 +520,6 @@ export namespace UsageRecordResult {
   export const filterSensitiveLog = (obj: UsageRecordResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageRecordResult => __isa(o, "UsageRecordResult");
 }
 
 export enum UsageRecordResultStatus {

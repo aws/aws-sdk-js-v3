@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,11 +15,9 @@ export namespace ComplexError {
   export const filterSensitiveLog = (obj: ComplexError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComplexError => __isa(o, "ComplexError");
 }
 
 export interface ComplexNestedErrorData {
-  __type?: "ComplexNestedErrorData";
   Foo?: string;
 }
 
@@ -27,33 +25,25 @@ export namespace ComplexNestedErrorData {
   export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComplexNestedErrorData => __isa(o, "ComplexNestedErrorData");
 }
 
-export interface EmptyInputAndEmptyOutputInput {
-  __type?: "EmptyInputAndEmptyOutputInput";
-}
+export interface EmptyInputAndEmptyOutputInput {}
 
 export namespace EmptyInputAndEmptyOutputInput {
   export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmptyInputAndEmptyOutputInput => __isa(o, "EmptyInputAndEmptyOutputInput");
 }
 
-export interface EmptyInputAndEmptyOutputOutput {
-  __type?: "EmptyInputAndEmptyOutputOutput";
-}
+export interface EmptyInputAndEmptyOutputOutput {}
 
 export namespace EmptyInputAndEmptyOutputOutput {
   export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmptyInputAndEmptyOutputOutput => __isa(o, "EmptyInputAndEmptyOutputOutput");
 }
 
 export interface GreetingWithErrorsOutput {
-  __type?: "GreetingWithErrorsOutput";
   greeting?: string;
 }
 
@@ -61,11 +51,9 @@ export namespace GreetingWithErrorsOutput {
   export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GreetingWithErrorsOutput => __isa(o, "GreetingWithErrorsOutput");
 }
 
 export interface IgnoresWrappingXmlNameOutput {
-  __type?: "IgnoresWrappingXmlNameOutput";
   foo?: string;
 }
 
@@ -73,7 +61,6 @@ export namespace IgnoresWrappingXmlNameOutput {
   export const filterSensitiveLog = (obj: IgnoresWrappingXmlNameOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IgnoresWrappingXmlNameOutput => __isa(o, "IgnoresWrappingXmlNameOutput");
 }
 
 /**
@@ -89,11 +76,9 @@ export namespace InvalidGreeting {
   export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGreeting => __isa(o, "InvalidGreeting");
 }
 
 export interface NestedStructuresInput {
-  __type?: "NestedStructuresInput";
   Nested?: StructArg;
 }
 
@@ -101,22 +86,17 @@ export namespace NestedStructuresInput {
   export const filterSensitiveLog = (obj: NestedStructuresInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NestedStructuresInput => __isa(o, "NestedStructuresInput");
 }
 
-export interface NoInputAndOutputOutput {
-  __type?: "NoInputAndOutputOutput";
-}
+export interface NoInputAndOutputOutput {}
 
 export namespace NoInputAndOutputOutput {
   export const filterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoInputAndOutputOutput => __isa(o, "NoInputAndOutputOutput");
 }
 
 export interface QueryIdempotencyTokenAutoFillInput {
-  __type?: "QueryIdempotencyTokenAutoFillInput";
   token?: string;
 }
 
@@ -124,12 +104,9 @@ export namespace QueryIdempotencyTokenAutoFillInput {
   export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryIdempotencyTokenAutoFillInput =>
-    __isa(o, "QueryIdempotencyTokenAutoFillInput");
 }
 
 export interface QueryListsInput {
-  __type?: "QueryListsInput";
   ListArg?: string[];
   ComplexListArg?: GreetingStruct[];
   ListArgWithXmlNameMember?: string[];
@@ -140,11 +117,9 @@ export namespace QueryListsInput {
   export const filterSensitiveLog = (obj: QueryListsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryListsInput => __isa(o, "QueryListsInput");
 }
 
 export interface QueryTimestampsInput {
-  __type?: "QueryTimestampsInput";
   normalFormat?: Date;
   epochMember?: Date;
   epochTarget?: Date;
@@ -154,11 +129,9 @@ export namespace QueryTimestampsInput {
   export const filterSensitiveLog = (obj: QueryTimestampsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryTimestampsInput => __isa(o, "QueryTimestampsInput");
 }
 
 export interface RecursiveXmlShapesOutput {
-  __type?: "RecursiveXmlShapesOutput";
   nested?: RecursiveXmlShapesOutputNested1;
 }
 
@@ -166,11 +139,9 @@ export namespace RecursiveXmlShapesOutput {
   export const filterSensitiveLog = (obj: RecursiveXmlShapesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecursiveXmlShapesOutput => __isa(o, "RecursiveXmlShapesOutput");
 }
 
 export interface RecursiveXmlShapesOutputNested1 {
-  __type?: "RecursiveXmlShapesOutputNested1";
   foo?: string;
   nested?: RecursiveXmlShapesOutputNested2;
 }
@@ -179,11 +150,9 @@ export namespace RecursiveXmlShapesOutputNested1 {
   export const filterSensitiveLog = (obj: RecursiveXmlShapesOutputNested1): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecursiveXmlShapesOutputNested1 => __isa(o, "RecursiveXmlShapesOutputNested1");
 }
 
 export interface RecursiveXmlShapesOutputNested2 {
-  __type?: "RecursiveXmlShapesOutputNested2";
   bar?: string;
   recursiveMember?: RecursiveXmlShapesOutputNested1;
 }
@@ -192,11 +161,9 @@ export namespace RecursiveXmlShapesOutputNested2 {
   export const filterSensitiveLog = (obj: RecursiveXmlShapesOutputNested2): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecursiveXmlShapesOutputNested2 => __isa(o, "RecursiveXmlShapesOutputNested2");
 }
 
 export interface SimpleInputParamsInput {
-  __type?: "SimpleInputParamsInput";
   Foo?: string;
   Bar?: string;
   Baz?: boolean;
@@ -213,11 +180,9 @@ export namespace SimpleInputParamsInput {
   export const filterSensitiveLog = (obj: SimpleInputParamsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimpleInputParamsInput => __isa(o, "SimpleInputParamsInput");
 }
 
 export interface SimpleScalarXmlPropertiesOutput {
-  __type?: "SimpleScalarXmlPropertiesOutput";
   stringValue?: string;
   emptyStringValue?: string;
   trueBooleanValue?: boolean;
@@ -234,11 +199,9 @@ export namespace SimpleScalarXmlPropertiesOutput {
   export const filterSensitiveLog = (obj: SimpleScalarXmlPropertiesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimpleScalarXmlPropertiesOutput => __isa(o, "SimpleScalarXmlPropertiesOutput");
 }
 
 export interface StructArg {
-  __type?: "StructArg";
   StringArg?: string;
   OtherArg?: boolean;
   RecursiveArg?: StructArg;
@@ -248,11 +211,9 @@ export namespace StructArg {
   export const filterSensitiveLog = (obj: StructArg): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StructArg => __isa(o, "StructArg");
 }
 
 export interface StructureListMember {
-  __type?: "StructureListMember";
   a?: string;
   b?: string;
 }
@@ -261,11 +222,9 @@ export namespace StructureListMember {
   export const filterSensitiveLog = (obj: StructureListMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StructureListMember => __isa(o, "StructureListMember");
 }
 
 export interface XmlBlobsOutput {
-  __type?: "XmlBlobsOutput";
   data?: Uint8Array;
 }
 
@@ -273,11 +232,9 @@ export namespace XmlBlobsOutput {
   export const filterSensitiveLog = (obj: XmlBlobsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XmlBlobsOutput => __isa(o, "XmlBlobsOutput");
 }
 
 export interface XmlEnumsOutput {
-  __type?: "XmlEnumsOutput";
   fooEnum1?: FooEnum | string;
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
@@ -290,11 +247,9 @@ export namespace XmlEnumsOutput {
   export const filterSensitiveLog = (obj: XmlEnumsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XmlEnumsOutput => __isa(o, "XmlEnumsOutput");
 }
 
 export interface XmlListsOutput {
-  __type?: "XmlListsOutput";
   stringList?: string[];
   stringSet?: string[];
   integerList?: number[];
@@ -316,11 +271,9 @@ export namespace XmlListsOutput {
   export const filterSensitiveLog = (obj: XmlListsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XmlListsOutput => __isa(o, "XmlListsOutput");
 }
 
 export interface XmlNamespaceNested {
-  __type?: "XmlNamespaceNested";
   foo?: string;
   values?: string[];
 }
@@ -329,11 +282,9 @@ export namespace XmlNamespaceNested {
   export const filterSensitiveLog = (obj: XmlNamespaceNested): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XmlNamespaceNested => __isa(o, "XmlNamespaceNested");
 }
 
 export interface XmlNamespacesOutput {
-  __type?: "XmlNamespacesOutput";
   nested?: XmlNamespaceNested;
 }
 
@@ -341,11 +292,9 @@ export namespace XmlNamespacesOutput {
   export const filterSensitiveLog = (obj: XmlNamespacesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XmlNamespacesOutput => __isa(o, "XmlNamespacesOutput");
 }
 
 export interface XmlTimestampsOutput {
-  __type?: "XmlTimestampsOutput";
   normal?: Date;
   dateTime?: Date;
   epochSeconds?: Date;
@@ -356,13 +305,11 @@ export namespace XmlTimestampsOutput {
   export const filterSensitiveLog = (obj: XmlTimestampsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XmlTimestampsOutput => __isa(o, "XmlTimestampsOutput");
 }
 
 export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
 
 export interface GreetingStruct {
-  __type?: "GreetingStruct";
   hi?: string;
 }
 
@@ -370,5 +317,4 @@ export namespace GreetingStruct {
   export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GreetingStruct => __isa(o, "GreetingStruct");
 }

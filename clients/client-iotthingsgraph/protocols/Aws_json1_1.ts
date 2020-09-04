@@ -671,7 +671,6 @@ export const deserializeAws_json1_1AssociateEntityToThingCommand = async (
   contents = deserializeAws_json1_1AssociateEntityToThingResponse(data, context);
   const response: AssociateEntityToThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateEntityToThingResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -751,7 +750,6 @@ export const deserializeAws_json1_1CreateFlowTemplateCommand = async (
   contents = deserializeAws_json1_1CreateFlowTemplateResponse(data, context);
   const response: CreateFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFlowTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -839,7 +837,6 @@ export const deserializeAws_json1_1CreateSystemInstanceCommand = async (
   contents = deserializeAws_json1_1CreateSystemInstanceResponse(data, context);
   const response: CreateSystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSystemInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -927,7 +924,6 @@ export const deserializeAws_json1_1CreateSystemTemplateCommand = async (
   contents = deserializeAws_json1_1CreateSystemTemplateResponse(data, context);
   const response: CreateSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSystemTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1007,7 +1003,6 @@ export const deserializeAws_json1_1DeleteFlowTemplateCommand = async (
   contents = deserializeAws_json1_1DeleteFlowTemplateResponse(data, context);
   const response: DeleteFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFlowTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1087,7 +1082,6 @@ export const deserializeAws_json1_1DeleteNamespaceCommand = async (
   contents = deserializeAws_json1_1DeleteNamespaceResponse(data, context);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1151,7 +1145,6 @@ export const deserializeAws_json1_1DeleteSystemInstanceCommand = async (
   contents = deserializeAws_json1_1DeleteSystemInstanceResponse(data, context);
   const response: DeleteSystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSystemInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1231,7 +1224,6 @@ export const deserializeAws_json1_1DeleteSystemTemplateCommand = async (
   contents = deserializeAws_json1_1DeleteSystemTemplateResponse(data, context);
   const response: DeleteSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSystemTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1311,7 +1303,6 @@ export const deserializeAws_json1_1DeploySystemInstanceCommand = async (
   contents = deserializeAws_json1_1DeploySystemInstanceResponse(data, context);
   const response: DeploySystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeploySystemInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1399,7 +1390,6 @@ export const deserializeAws_json1_1DeprecateFlowTemplateCommand = async (
   contents = deserializeAws_json1_1DeprecateFlowTemplateResponse(data, context);
   const response: DeprecateFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeprecateFlowTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1479,7 +1469,6 @@ export const deserializeAws_json1_1DeprecateSystemTemplateCommand = async (
   contents = deserializeAws_json1_1DeprecateSystemTemplateResponse(data, context);
   const response: DeprecateSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeprecateSystemTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1559,7 +1548,6 @@ export const deserializeAws_json1_1DescribeNamespaceCommand = async (
   contents = deserializeAws_json1_1DescribeNamespaceResponse(data, context);
   const response: DescribeNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1639,7 +1627,6 @@ export const deserializeAws_json1_1DissociateEntityFromThingCommand = async (
   contents = deserializeAws_json1_1DissociateEntityFromThingResponse(data, context);
   const response: DissociateEntityFromThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DissociateEntityFromThingResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1719,7 +1706,6 @@ export const deserializeAws_json1_1GetEntitiesCommand = async (
   contents = deserializeAws_json1_1GetEntitiesResponse(data, context);
   const response: GetEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1799,7 +1785,6 @@ export const deserializeAws_json1_1GetFlowTemplateCommand = async (
   contents = deserializeAws_json1_1GetFlowTemplateResponse(data, context);
   const response: GetFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFlowTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1879,7 +1864,6 @@ export const deserializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
   contents = deserializeAws_json1_1GetFlowTemplateRevisionsResponse(data, context);
   const response: GetFlowTemplateRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFlowTemplateRevisionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1959,7 +1943,6 @@ export const deserializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
   contents = deserializeAws_json1_1GetNamespaceDeletionStatusResponse(data, context);
   const response: GetNamespaceDeletionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNamespaceDeletionStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2031,7 +2014,6 @@ export const deserializeAws_json1_1GetSystemInstanceCommand = async (
   contents = deserializeAws_json1_1GetSystemInstanceResponse(data, context);
   const response: GetSystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSystemInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2111,7 +2093,6 @@ export const deserializeAws_json1_1GetSystemTemplateCommand = async (
   contents = deserializeAws_json1_1GetSystemTemplateResponse(data, context);
   const response: GetSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSystemTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2191,7 +2172,6 @@ export const deserializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
   contents = deserializeAws_json1_1GetSystemTemplateRevisionsResponse(data, context);
   const response: GetSystemTemplateRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSystemTemplateRevisionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2271,7 +2251,6 @@ export const deserializeAws_json1_1GetUploadStatusCommand = async (
   contents = deserializeAws_json1_1GetUploadStatusResponse(data, context);
   const response: GetUploadStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUploadStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2351,7 +2330,6 @@ export const deserializeAws_json1_1ListFlowExecutionMessagesCommand = async (
   contents = deserializeAws_json1_1ListFlowExecutionMessagesResponse(data, context);
   const response: ListFlowExecutionMessagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFlowExecutionMessagesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2431,7 +2409,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2511,7 +2488,6 @@ export const deserializeAws_json1_1SearchEntitiesCommand = async (
   contents = deserializeAws_json1_1SearchEntitiesResponse(data, context);
   const response: SearchEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2583,7 +2559,6 @@ export const deserializeAws_json1_1SearchFlowExecutionsCommand = async (
   contents = deserializeAws_json1_1SearchFlowExecutionsResponse(data, context);
   const response: SearchFlowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchFlowExecutionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2663,7 +2638,6 @@ export const deserializeAws_json1_1SearchFlowTemplatesCommand = async (
   contents = deserializeAws_json1_1SearchFlowTemplatesResponse(data, context);
   const response: SearchFlowTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchFlowTemplatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2735,7 +2709,6 @@ export const deserializeAws_json1_1SearchSystemInstancesCommand = async (
   contents = deserializeAws_json1_1SearchSystemInstancesResponse(data, context);
   const response: SearchSystemInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchSystemInstancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2807,7 +2780,6 @@ export const deserializeAws_json1_1SearchSystemTemplatesCommand = async (
   contents = deserializeAws_json1_1SearchSystemTemplatesResponse(data, context);
   const response: SearchSystemTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchSystemTemplatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2879,7 +2851,6 @@ export const deserializeAws_json1_1SearchThingsCommand = async (
   contents = deserializeAws_json1_1SearchThingsResponse(data, context);
   const response: SearchThingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchThingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2959,7 +2930,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3039,7 +3009,6 @@ export const deserializeAws_json1_1UndeploySystemInstanceCommand = async (
   contents = deserializeAws_json1_1UndeploySystemInstanceResponse(data, context);
   const response: UndeploySystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UndeploySystemInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3127,7 +3096,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3207,7 +3175,6 @@ export const deserializeAws_json1_1UpdateFlowTemplateCommand = async (
   contents = deserializeAws_json1_1UpdateFlowTemplateResponse(data, context);
   const response: UpdateFlowTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFlowTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3287,7 +3254,6 @@ export const deserializeAws_json1_1UpdateSystemTemplateCommand = async (
   contents = deserializeAws_json1_1UpdateSystemTemplateResponse(data, context);
   const response: UpdateSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSystemTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3367,7 +3333,6 @@ export const deserializeAws_json1_1UploadEntityDefinitionsCommand = async (
   contents = deserializeAws_json1_1UploadEntityDefinitionsResponse(data, context);
   const response: UploadEntityDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadEntityDefinitionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3992,9 +3957,7 @@ const deserializeAws_json1_1AssociateEntityToThingResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateEntityToThingResponse => {
-  return {
-    __type: "AssociateEntityToThingResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateFlowTemplateResponse = (
@@ -4002,7 +3965,6 @@ const deserializeAws_json1_1CreateFlowTemplateResponse = (
   context: __SerdeContext
 ): CreateFlowTemplateResponse => {
   return {
-    __type: "CreateFlowTemplateResponse",
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
@@ -4015,7 +3977,6 @@ const deserializeAws_json1_1CreateSystemInstanceResponse = (
   context: __SerdeContext
 ): CreateSystemInstanceResponse => {
   return {
-    __type: "CreateSystemInstanceResponse",
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
@@ -4028,7 +3989,6 @@ const deserializeAws_json1_1CreateSystemTemplateResponse = (
   context: __SerdeContext
 ): CreateSystemTemplateResponse => {
   return {
-    __type: "CreateSystemTemplateResponse",
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
@@ -4038,7 +3998,6 @@ const deserializeAws_json1_1CreateSystemTemplateResponse = (
 
 const deserializeAws_json1_1DefinitionDocument = (output: any, context: __SerdeContext): DefinitionDocument => {
   return {
-    __type: "DefinitionDocument",
     language: output.language !== undefined && output.language !== null ? output.language : undefined,
     text: output.text !== undefined && output.text !== null ? output.text : undefined,
   } as any;
@@ -4048,9 +4007,7 @@ const deserializeAws_json1_1DeleteFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteFlowTemplateResponse => {
-  return {
-    __type: "DeleteFlowTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteNamespaceResponse = (
@@ -4058,7 +4015,6 @@ const deserializeAws_json1_1DeleteNamespaceResponse = (
   context: __SerdeContext
 ): DeleteNamespaceResponse => {
   return {
-    __type: "DeleteNamespaceResponse",
     namespaceArn: output.namespaceArn !== undefined && output.namespaceArn !== null ? output.namespaceArn : undefined,
     namespaceName:
       output.namespaceName !== undefined && output.namespaceName !== null ? output.namespaceName : undefined,
@@ -4069,23 +4025,18 @@ const deserializeAws_json1_1DeleteSystemInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSystemInstanceResponse => {
-  return {
-    __type: "DeleteSystemInstanceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSystemTemplateResponse => {
-  return {
-    __type: "DeleteSystemTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DependencyRevision = (output: any, context: __SerdeContext): DependencyRevision => {
   return {
-    __type: "DependencyRevision",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     revisionNumber:
       output.revisionNumber !== undefined && output.revisionNumber !== null ? output.revisionNumber : undefined,
@@ -4101,7 +4052,6 @@ const deserializeAws_json1_1DeploySystemInstanceResponse = (
   context: __SerdeContext
 ): DeploySystemInstanceResponse => {
   return {
-    __type: "DeploySystemInstanceResponse",
     greengrassDeploymentId:
       output.greengrassDeploymentId !== undefined && output.greengrassDeploymentId !== null
         ? output.greengrassDeploymentId
@@ -4117,18 +4067,14 @@ const deserializeAws_json1_1DeprecateFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeprecateFlowTemplateResponse => {
-  return {
-    __type: "DeprecateFlowTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeprecateSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeprecateSystemTemplateResponse => {
-  return {
-    __type: "DeprecateSystemTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeNamespaceResponse = (
@@ -4136,7 +4082,6 @@ const deserializeAws_json1_1DescribeNamespaceResponse = (
   context: __SerdeContext
 ): DescribeNamespaceResponse => {
   return {
-    __type: "DescribeNamespaceResponse",
     namespaceArn: output.namespaceArn !== undefined && output.namespaceArn !== null ? output.namespaceArn : undefined,
     namespaceName:
       output.namespaceName !== undefined && output.namespaceName !== null ? output.namespaceName : undefined,
@@ -4157,14 +4102,11 @@ const deserializeAws_json1_1DissociateEntityFromThingResponse = (
   output: any,
   context: __SerdeContext
 ): DissociateEntityFromThingResponse => {
-  return {
-    __type: "DissociateEntityFromThingResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EntityDescription = (output: any, context: __SerdeContext): EntityDescription => {
   return {
-    __type: "EntityDescription",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -4185,7 +4127,6 @@ const deserializeAws_json1_1EntityDescriptions = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __SerdeContext): FlowExecutionMessage => {
   return {
-    __type: "FlowExecutionMessage",
     eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
     messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
     payload: output.payload !== undefined && output.payload !== null ? output.payload : undefined,
@@ -4206,7 +4147,6 @@ const deserializeAws_json1_1FlowExecutionSummaries = (output: any, context: __Se
 
 const deserializeAws_json1_1FlowExecutionSummary = (output: any, context: __SerdeContext): FlowExecutionSummary => {
   return {
-    __type: "FlowExecutionSummary",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -4230,7 +4170,6 @@ const deserializeAws_json1_1FlowTemplateDescription = (
   context: __SerdeContext
 ): FlowTemplateDescription => {
   return {
-    __type: "FlowTemplateDescription",
     definition:
       output.definition !== undefined && output.definition !== null
         ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
@@ -4252,7 +4191,6 @@ const deserializeAws_json1_1FlowTemplateSummaries = (output: any, context: __Ser
 
 const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __SerdeContext): FlowTemplateSummary => {
   return {
-    __type: "FlowTemplateSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -4266,7 +4204,6 @@ const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __Serde
 
 const deserializeAws_json1_1GetEntitiesResponse = (output: any, context: __SerdeContext): GetEntitiesResponse => {
   return {
-    __type: "GetEntitiesResponse",
     descriptions:
       output.descriptions !== undefined && output.descriptions !== null
         ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
@@ -4279,7 +4216,6 @@ const deserializeAws_json1_1GetFlowTemplateResponse = (
   context: __SerdeContext
 ): GetFlowTemplateResponse => {
   return {
-    __type: "GetFlowTemplateResponse",
     description:
       output.description !== undefined && output.description !== null
         ? deserializeAws_json1_1FlowTemplateDescription(output.description, context)
@@ -4292,7 +4228,6 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsResponse = (
   context: __SerdeContext
 ): GetFlowTemplateRevisionsResponse => {
   return {
-    __type: "GetFlowTemplateRevisionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
@@ -4306,7 +4241,6 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusResponse = (
   context: __SerdeContext
 ): GetNamespaceDeletionStatusResponse => {
   return {
-    __type: "GetNamespaceDeletionStatusResponse",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     namespaceArn: output.namespaceArn !== undefined && output.namespaceArn !== null ? output.namespaceArn : undefined,
@@ -4321,7 +4255,6 @@ const deserializeAws_json1_1GetSystemInstanceResponse = (
   context: __SerdeContext
 ): GetSystemInstanceResponse => {
   return {
-    __type: "GetSystemInstanceResponse",
     description:
       output.description !== undefined && output.description !== null
         ? deserializeAws_json1_1SystemInstanceDescription(output.description, context)
@@ -4334,7 +4267,6 @@ const deserializeAws_json1_1GetSystemTemplateResponse = (
   context: __SerdeContext
 ): GetSystemTemplateResponse => {
   return {
-    __type: "GetSystemTemplateResponse",
     description:
       output.description !== undefined && output.description !== null
         ? deserializeAws_json1_1SystemTemplateDescription(output.description, context)
@@ -4347,7 +4279,6 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsResponse = (
   context: __SerdeContext
 ): GetSystemTemplateRevisionsResponse => {
   return {
-    __type: "GetSystemTemplateRevisionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
@@ -4361,7 +4292,6 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
   context: __SerdeContext
 ): GetUploadStatusResponse => {
   return {
-    __type: "GetUploadStatusResponse",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -4385,7 +4315,6 @@ const deserializeAws_json1_1InternalFailureException = (
   context: __SerdeContext
 ): InternalFailureException => {
   return {
-    __type: "InternalFailureException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4395,14 +4324,12 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4412,7 +4339,6 @@ const deserializeAws_json1_1ListFlowExecutionMessagesResponse = (
   context: __SerdeContext
 ): ListFlowExecutionMessagesResponse => {
   return {
-    __type: "ListFlowExecutionMessagesResponse",
     messages:
       output.messages !== undefined && output.messages !== null
         ? deserializeAws_json1_1FlowExecutionMessages(output.messages, context)
@@ -4426,7 +4352,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
@@ -4437,7 +4362,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1MetricsConfiguration = (output: any, context: __SerdeContext): MetricsConfiguration => {
   return {
-    __type: "MetricsConfiguration",
     cloudMetricEnabled:
       output.cloudMetricEnabled !== undefined && output.cloudMetricEnabled !== null
         ? output.cloudMetricEnabled
@@ -4454,14 +4378,12 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4471,14 +4393,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SearchEntitiesResponse = (output: any, context: __SerdeContext): SearchEntitiesResponse => {
   return {
-    __type: "SearchEntitiesResponse",
     descriptions:
       output.descriptions !== undefined && output.descriptions !== null
         ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
@@ -4492,7 +4412,6 @@ const deserializeAws_json1_1SearchFlowExecutionsResponse = (
   context: __SerdeContext
 ): SearchFlowExecutionsResponse => {
   return {
-    __type: "SearchFlowExecutionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
@@ -4506,7 +4425,6 @@ const deserializeAws_json1_1SearchFlowTemplatesResponse = (
   context: __SerdeContext
 ): SearchFlowTemplatesResponse => {
   return {
-    __type: "SearchFlowTemplatesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
@@ -4520,7 +4438,6 @@ const deserializeAws_json1_1SearchSystemInstancesResponse = (
   context: __SerdeContext
 ): SearchSystemInstancesResponse => {
   return {
-    __type: "SearchSystemInstancesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
@@ -4534,7 +4451,6 @@ const deserializeAws_json1_1SearchSystemTemplatesResponse = (
   context: __SerdeContext
 ): SearchSystemTemplatesResponse => {
   return {
-    __type: "SearchSystemTemplatesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
@@ -4545,7 +4461,6 @@ const deserializeAws_json1_1SearchSystemTemplatesResponse = (
 
 const deserializeAws_json1_1SearchThingsResponse = (output: any, context: __SerdeContext): SearchThingsResponse => {
   return {
-    __type: "SearchThingsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     things:
       output.things !== undefined && output.things !== null
@@ -4563,7 +4478,6 @@ const deserializeAws_json1_1SystemInstanceDescription = (
   context: __SerdeContext
 ): SystemInstanceDescription => {
   return {
-    __type: "SystemInstanceDescription",
     definition:
       output.definition !== undefined && output.definition !== null
         ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
@@ -4601,7 +4515,6 @@ const deserializeAws_json1_1SystemInstanceSummaries = (
 
 const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __SerdeContext): SystemInstanceSummary => {
   return {
-    __type: "SystemInstanceSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -4634,7 +4547,6 @@ const deserializeAws_json1_1SystemTemplateDescription = (
   context: __SerdeContext
 ): SystemTemplateDescription => {
   return {
-    __type: "SystemTemplateDescription",
     definition:
       output.definition !== undefined && output.definition !== null
         ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
@@ -4659,7 +4571,6 @@ const deserializeAws_json1_1SystemTemplateSummaries = (
 
 const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __SerdeContext): SystemTemplateSummary => {
   return {
-    __type: "SystemTemplateSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -4673,7 +4584,6 @@ const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __Ser
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -4684,14 +4594,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Thing = (output: any, context: __SerdeContext): Thing => {
   return {
-    __type: "Thing",
     thingArn: output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
     thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
   } as any;
@@ -4703,7 +4610,6 @@ const deserializeAws_json1_1Things = (output: any, context: __SerdeContext): Thi
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4713,7 +4619,6 @@ const deserializeAws_json1_1UndeploySystemInstanceResponse = (
   context: __SerdeContext
 ): UndeploySystemInstanceResponse => {
   return {
-    __type: "UndeploySystemInstanceResponse",
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
@@ -4722,9 +4627,7 @@ const deserializeAws_json1_1UndeploySystemInstanceResponse = (
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateFlowTemplateResponse = (
@@ -4732,7 +4635,6 @@ const deserializeAws_json1_1UpdateFlowTemplateResponse = (
   context: __SerdeContext
 ): UpdateFlowTemplateResponse => {
   return {
-    __type: "UpdateFlowTemplateResponse",
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
@@ -4745,7 +4647,6 @@ const deserializeAws_json1_1UpdateSystemTemplateResponse = (
   context: __SerdeContext
 ): UpdateSystemTemplateResponse => {
   return {
-    __type: "UpdateSystemTemplateResponse",
     summary:
       output.summary !== undefined && output.summary !== null
         ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
@@ -4758,7 +4659,6 @@ const deserializeAws_json1_1UploadEntityDefinitionsResponse = (
   context: __SerdeContext
 ): UploadEntityDefinitionsResponse => {
   return {
-    __type: "UploadEntityDefinitionsResponse",
     uploadId: output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined,
   } as any;
 };

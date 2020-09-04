@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          returns.</p>
  */
 export interface AssumedRoleUser {
-  __type?: "AssumedRoleUser";
   /**
    * <p>The ARN of the temporary security credentials that are returned from the <a>AssumeRole</a> action. For more information about ARNs and how to use them in
    *          policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
@@ -25,11 +24,9 @@ export namespace AssumedRoleUser {
   export const filterSensitiveLog = (obj: AssumedRoleUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssumedRoleUser => __isa(o, "AssumedRoleUser");
 }
 
 export interface AssumeRoleRequest {
-  __type?: "AssumeRoleRequest";
   /**
    * <p>A unique identifier that might be required when you assume a role in another account. If
    *          the administrator of the account to which the role belongs provided you with an external
@@ -217,7 +214,6 @@ export namespace AssumeRoleRequest {
   export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleRequest => __isa(o, "AssumeRoleRequest");
 }
 
 /**
@@ -225,7 +221,6 @@ export namespace AssumeRoleRequest {
  *       temporary AWS credentials that can be used to make AWS requests. </p>
  */
 export interface AssumeRoleResponse {
-  __type?: "AssumeRoleResponse";
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
@@ -257,11 +252,9 @@ export namespace AssumeRoleResponse {
   export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleResponse => __isa(o, "AssumeRoleResponse");
 }
 
 export interface AssumeRoleWithSAMLRequest {
-  __type?: "AssumeRoleWithSAMLRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the
    *          IdP.</p>
@@ -364,7 +357,6 @@ export namespace AssumeRoleWithSAMLRequest {
     ...obj,
     ...(obj.SAMLAssertion && { SAMLAssertion: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssumeRoleWithSAMLRequest => __isa(o, "AssumeRoleWithSAMLRequest");
 }
 
 /**
@@ -372,7 +364,6 @@ export namespace AssumeRoleWithSAMLRequest {
  *       including temporary AWS credentials that can be used to make AWS requests. </p>
  */
 export interface AssumeRoleWithSAMLResponse {
-  __type?: "AssumeRoleWithSAMLResponse";
   /**
    * <p> The value of the <code>Recipient</code> attribute of the
    *             <code>SubjectConfirmationData</code> element of the SAML assertion. </p>
@@ -442,11 +433,9 @@ export namespace AssumeRoleWithSAMLResponse {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithSAMLResponse => __isa(o, "AssumeRoleWithSAMLResponse");
 }
 
 export interface AssumeRoleWithWebIdentityRequest {
-  __type?: "AssumeRoleWithWebIdentityRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
    */
@@ -563,7 +552,6 @@ export namespace AssumeRoleWithWebIdentityRequest {
     ...obj,
     ...(obj.WebIdentityToken && { WebIdentityToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest => __isa(o, "AssumeRoleWithWebIdentityRequest");
 }
 
 /**
@@ -571,7 +559,6 @@ export namespace AssumeRoleWithWebIdentityRequest {
  *       request, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
 export interface AssumeRoleWithWebIdentityResponse {
-  __type?: "AssumeRoleWithWebIdentityResponse";
   /**
    * <p>A percentage value that indicates the packed size of the session policies and session
    *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
@@ -628,14 +615,12 @@ export namespace AssumeRoleWithWebIdentityResponse {
   export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithWebIdentityResponse => __isa(o, "AssumeRoleWithWebIdentityResponse");
 }
 
 /**
  * <p>AWS credentials for API authentication.</p>
  */
 export interface Credentials {
-  __type?: "Credentials";
   /**
    * <p>The access key ID that identifies the temporary security credentials.</p>
    */
@@ -662,11 +647,9 @@ export namespace Credentials {
   export const filterSensitiveLog = (obj: Credentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
 
 export interface DecodeAuthorizationMessageRequest {
-  __type?: "DecodeAuthorizationMessageRequest";
   /**
    * <p>The encoded message that was returned with the response.</p>
    */
@@ -677,7 +660,6 @@ export namespace DecodeAuthorizationMessageRequest {
   export const filterSensitiveLog = (obj: DecodeAuthorizationMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecodeAuthorizationMessageRequest => __isa(o, "DecodeAuthorizationMessageRequest");
 }
 
 /**
@@ -685,7 +667,6 @@ export namespace DecodeAuthorizationMessageRequest {
  *       request from an encoded message that is returned in response to an AWS request.</p>
  */
 export interface DecodeAuthorizationMessageResponse {
-  __type?: "DecodeAuthorizationMessageResponse";
   /**
    * <p>An XML document that contains the decoded message.</p>
    */
@@ -696,8 +677,6 @@ export namespace DecodeAuthorizationMessageResponse {
   export const filterSensitiveLog = (obj: DecodeAuthorizationMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecodeAuthorizationMessageResponse =>
-    __isa(o, "DecodeAuthorizationMessageResponse");
 }
 
 /**
@@ -714,14 +693,12 @@ export namespace ExpiredTokenException {
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpiredTokenException => __isa(o, "ExpiredTokenException");
 }
 
 /**
  * <p>Identifiers for the federated user that is associated with the credentials.</p>
  */
 export interface FederatedUser {
-  __type?: "FederatedUser";
   /**
    * <p>The ARN that specifies the federated user that is associated with the credentials. For
    *          more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
@@ -740,11 +717,9 @@ export namespace FederatedUser {
   export const filterSensitiveLog = (obj: FederatedUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FederatedUser => __isa(o, "FederatedUser");
 }
 
 export interface GetAccessKeyInfoRequest {
-  __type?: "GetAccessKeyInfoRequest";
   /**
    * <p>The identifier of an access key.</p>
    *          <p>This parameter allows (through its regex pattern) a string of characters that can
@@ -757,11 +732,9 @@ export namespace GetAccessKeyInfoRequest {
   export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyInfoRequest => __isa(o, "GetAccessKeyInfoRequest");
 }
 
 export interface GetAccessKeyInfoResponse {
-  __type?: "GetAccessKeyInfoResponse";
   /**
    * <p>The number used to identify the AWS account.</p>
    */
@@ -772,18 +745,14 @@ export namespace GetAccessKeyInfoResponse {
   export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyInfoResponse => __isa(o, "GetAccessKeyInfoResponse");
 }
 
-export interface GetCallerIdentityRequest {
-  __type?: "GetCallerIdentityRequest";
-}
+export interface GetCallerIdentityRequest {}
 
 export namespace GetCallerIdentityRequest {
   export const filterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCallerIdentityRequest => __isa(o, "GetCallerIdentityRequest");
 }
 
 /**
@@ -791,7 +760,6 @@ export namespace GetCallerIdentityRequest {
  *          including information about the entity making the request.</p>
  */
 export interface GetCallerIdentityResponse {
-  __type?: "GetCallerIdentityResponse";
   /**
    * <p>The AWS ARN associated with the calling entity.</p>
    */
@@ -816,11 +784,9 @@ export namespace GetCallerIdentityResponse {
   export const filterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCallerIdentityResponse => __isa(o, "GetCallerIdentityResponse");
 }
 
 export interface GetFederationTokenRequest {
-  __type?: "GetFederationTokenRequest";
   /**
    * <p>The duration, in seconds, that the session should last. Acceptable durations for
    *          federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with
@@ -945,7 +911,6 @@ export namespace GetFederationTokenRequest {
   export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenRequest => __isa(o, "GetFederationTokenRequest");
 }
 
 /**
@@ -953,7 +918,6 @@ export namespace GetFederationTokenRequest {
  *       including temporary AWS credentials that can be used to make AWS requests. </p>
  */
 export interface GetFederationTokenResponse {
-  __type?: "GetFederationTokenResponse";
   /**
    * <p>Identifiers for the federated user associated with the credentials (such as
    *             <code>arn:aws:sts::123456789012:federated-user/Bob</code> or
@@ -984,11 +948,9 @@ export namespace GetFederationTokenResponse {
   export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenResponse => __isa(o, "GetFederationTokenResponse");
 }
 
 export interface GetSessionTokenRequest {
-  __type?: "GetSessionTokenRequest";
   /**
    * <p>The value provided by the MFA device, if MFA is required. If any policy requires the
    *          IAM user to submit an MFA code, specify this value. If MFA authentication is required,
@@ -1028,7 +990,6 @@ export namespace GetSessionTokenRequest {
   export const filterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSessionTokenRequest => __isa(o, "GetSessionTokenRequest");
 }
 
 /**
@@ -1036,7 +997,6 @@ export namespace GetSessionTokenRequest {
  *       including temporary AWS credentials that can be used to make AWS requests. </p>
  */
 export interface GetSessionTokenResponse {
-  __type?: "GetSessionTokenResponse";
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
@@ -1052,7 +1012,6 @@ export namespace GetSessionTokenResponse {
   export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSessionTokenResponse => __isa(o, "GetSessionTokenResponse");
 }
 
 /**
@@ -1072,7 +1031,6 @@ export namespace IDPCommunicationErrorException {
   export const filterSensitiveLog = (obj: IDPCommunicationErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IDPCommunicationErrorException => __isa(o, "IDPCommunicationErrorException");
 }
 
 /**
@@ -1091,7 +1049,6 @@ export namespace IDPRejectedClaimException {
   export const filterSensitiveLog = (obj: IDPRejectedClaimException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IDPRejectedClaimException => __isa(o, "IDPRejectedClaimException");
 }
 
 /**
@@ -1109,8 +1066,6 @@ export namespace InvalidAuthorizationMessageException {
   export const filterSensitiveLog = (obj: InvalidAuthorizationMessageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAuthorizationMessageException =>
-    __isa(o, "InvalidAuthorizationMessageException");
 }
 
 /**
@@ -1127,7 +1082,6 @@ export namespace InvalidIdentityTokenException {
   export const filterSensitiveLog = (obj: InvalidIdentityTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIdentityTokenException => __isa(o, "InvalidIdentityTokenException");
 }
 
 /**
@@ -1144,7 +1098,6 @@ export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -1168,7 +1121,6 @@ export namespace PackedPolicyTooLargeException {
   export const filterSensitiveLog = (obj: PackedPolicyTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackedPolicyTooLargeException => __isa(o, "PackedPolicyTooLargeException");
 }
 
 /**
@@ -1176,7 +1128,6 @@ export namespace PackedPolicyTooLargeException {
  *          session or a federated user session.</p>
  */
 export interface PolicyDescriptorType {
-  __type?: "PolicyDescriptorType";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM managed policy to use as a session policy
    *          for the role. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
@@ -1189,7 +1140,6 @@ export namespace PolicyDescriptorType {
   export const filterSensitiveLog = (obj: PolicyDescriptorType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyDescriptorType => __isa(o, "PolicyDescriptorType");
 }
 
 /**
@@ -1209,7 +1159,6 @@ export namespace RegionDisabledException {
   export const filterSensitiveLog = (obj: RegionDisabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegionDisabledException => __isa(o, "RegionDisabledException");
 }
 
 /**
@@ -1219,7 +1168,6 @@ export namespace RegionDisabledException {
  *             <i>IAM User Guide</i>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value for a session tag.</p>
    *          <p>You can pass up to 50 session tags. The plain text session tag values can’t exceed 256
@@ -1241,5 +1189,4 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }

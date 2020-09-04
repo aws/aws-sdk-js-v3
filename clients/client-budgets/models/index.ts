@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,7 +17,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -28,7 +27,6 @@ export namespace AccessDeniedException {
  *          </p>
  */
 export interface Budget {
-  __type?: "Budget";
   /**
    * <p>The types of costs that are included in this <code>COST</code> budget.</p>
    * 		       <p>
@@ -118,14 +116,12 @@ export namespace Budget {
   export const filterSensitiveLog = (obj: Budget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Budget => __isa(o, "Budget");
 }
 
 /**
  * <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
  */
 export interface BudgetedAndActualAmounts {
-  __type?: "BudgetedAndActualAmounts";
   /**
    * <p>Your actual costs or usage for a budget period.</p>
    */
@@ -146,14 +142,12 @@ export namespace BudgetedAndActualAmounts {
   export const filterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BudgetedAndActualAmounts => __isa(o, "BudgetedAndActualAmounts");
 }
 
 /**
  * <p>A history of the state of a budget at the end of the budget's specified time period.</p>
  */
 export interface BudgetPerformanceHistory {
-  __type?: "BudgetPerformanceHistory";
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
    */
@@ -191,7 +185,6 @@ export namespace BudgetPerformanceHistory {
   export const filterSensitiveLog = (obj: BudgetPerformanceHistory): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BudgetPerformanceHistory => __isa(o, "BudgetPerformanceHistory");
 }
 
 export enum BudgetType {
@@ -208,7 +201,6 @@ export enum BudgetType {
  * 		       <p>For example, if it is the 20th of the month and you have spent <code>50</code> dollars on Amazon EC2, your <code>actualSpend</code> is <code>50 USD</code>, and your <code>forecastedSpend</code> is <code>75 USD</code>.</p>
  */
 export interface CalculatedSpend {
-  __type?: "CalculatedSpend";
   /**
    * <p>The amount of cost, usage, or RI units that you are forecasted to use.</p>
    */
@@ -224,7 +216,6 @@ export namespace CalculatedSpend {
   export const filterSensitiveLog = (obj: CalculatedSpend): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CalculatedSpend => __isa(o, "CalculatedSpend");
 }
 
 export enum ComparisonOperator {
@@ -239,7 +230,6 @@ export enum ComparisonOperator {
  *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, and <code>RI_COVERAGE</code> budgets do not have <code>CostTypes</code>.</p>
  */
 export interface CostTypes {
-  __type?: "CostTypes";
   /**
    * <p>Specifies whether a budget includes upfront RI costs.</p>
    * 		       <p>The default value is <code>true</code>.</p>
@@ -311,14 +301,12 @@ export namespace CostTypes {
   export const filterSensitiveLog = (obj: CostTypes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CostTypes => __isa(o, "CostTypes");
 }
 
 /**
  * <p> Request of CreateBudget </p>
  */
 export interface CreateBudgetRequest {
-  __type?: "CreateBudgetRequest";
   /**
    * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, AWS creates the notifications and subscribers for you.</p>
    */
@@ -339,28 +327,23 @@ export namespace CreateBudgetRequest {
   export const filterSensitiveLog = (obj: CreateBudgetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBudgetRequest => __isa(o, "CreateBudgetRequest");
 }
 
 /**
  * <p> Response of CreateBudget </p>
  */
-export interface CreateBudgetResponse {
-  __type?: "CreateBudgetResponse";
-}
+export interface CreateBudgetResponse {}
 
 export namespace CreateBudgetResponse {
   export const filterSensitiveLog = (obj: CreateBudgetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBudgetResponse => __isa(o, "CreateBudgetResponse");
 }
 
 /**
  * <p> Request of CreateNotification </p>
  */
 export interface CreateNotificationRequest {
-  __type?: "CreateNotificationRequest";
   /**
    * <p>A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.</p>
    */
@@ -387,28 +370,23 @@ export namespace CreateNotificationRequest {
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateNotificationRequest => __isa(o, "CreateNotificationRequest");
 }
 
 /**
  * <p> Response of CreateNotification </p>
  */
-export interface CreateNotificationResponse {
-  __type?: "CreateNotificationResponse";
-}
+export interface CreateNotificationResponse {}
 
 export namespace CreateNotificationResponse {
   export const filterSensitiveLog = (obj: CreateNotificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNotificationResponse => __isa(o, "CreateNotificationResponse");
 }
 
 /**
  * <p> Request of CreateSubscriber </p>
  */
 export interface CreateSubscriberRequest {
-  __type?: "CreateSubscriberRequest";
   /**
    * <p>The notification that you want to create a subscriber for.</p>
    */
@@ -435,21 +413,17 @@ export namespace CreateSubscriberRequest {
     ...obj,
     ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
   });
-  export const isa = (o: any): o is CreateSubscriberRequest => __isa(o, "CreateSubscriberRequest");
 }
 
 /**
  * <p> Response of CreateSubscriber </p>
  */
-export interface CreateSubscriberResponse {
-  __type?: "CreateSubscriberResponse";
-}
+export interface CreateSubscriberResponse {}
 
 export namespace CreateSubscriberResponse {
   export const filterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriberResponse => __isa(o, "CreateSubscriberResponse");
 }
 
 /**
@@ -468,14 +442,12 @@ export namespace CreationLimitExceededException {
   export const filterSensitiveLog = (obj: CreationLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreationLimitExceededException => __isa(o, "CreationLimitExceededException");
 }
 
 /**
  * <p> Request of DeleteBudget </p>
  */
 export interface DeleteBudgetRequest {
-  __type?: "DeleteBudgetRequest";
   /**
    * <p>The name of the budget that you want to delete.</p>
    */
@@ -491,28 +463,23 @@ export namespace DeleteBudgetRequest {
   export const filterSensitiveLog = (obj: DeleteBudgetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBudgetRequest => __isa(o, "DeleteBudgetRequest");
 }
 
 /**
  * <p> Response of DeleteBudget </p>
  */
-export interface DeleteBudgetResponse {
-  __type?: "DeleteBudgetResponse";
-}
+export interface DeleteBudgetResponse {}
 
 export namespace DeleteBudgetResponse {
   export const filterSensitiveLog = (obj: DeleteBudgetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBudgetResponse => __isa(o, "DeleteBudgetResponse");
 }
 
 /**
  * <p> Request of DeleteNotification </p>
  */
 export interface DeleteNotificationRequest {
-  __type?: "DeleteNotificationRequest";
   /**
    * <p>The name of the budget whose notification you want to delete.</p>
    */
@@ -533,28 +500,23 @@ export namespace DeleteNotificationRequest {
   export const filterSensitiveLog = (obj: DeleteNotificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationRequest => __isa(o, "DeleteNotificationRequest");
 }
 
 /**
  * <p> Response of DeleteNotification </p>
  */
-export interface DeleteNotificationResponse {
-  __type?: "DeleteNotificationResponse";
-}
+export interface DeleteNotificationResponse {}
 
 export namespace DeleteNotificationResponse {
   export const filterSensitiveLog = (obj: DeleteNotificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationResponse => __isa(o, "DeleteNotificationResponse");
 }
 
 /**
  * <p> Request of DeleteSubscriber </p>
  */
 export interface DeleteSubscriberRequest {
-  __type?: "DeleteSubscriberRequest";
   /**
    * <p>The notification whose subscriber you want to delete.</p>
    */
@@ -581,25 +543,20 @@ export namespace DeleteSubscriberRequest {
     ...obj,
     ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
   });
-  export const isa = (o: any): o is DeleteSubscriberRequest => __isa(o, "DeleteSubscriberRequest");
 }
 
 /**
  * <p> Response of DeleteSubscriber </p>
  */
-export interface DeleteSubscriberResponse {
-  __type?: "DeleteSubscriberResponse";
-}
+export interface DeleteSubscriberResponse {}
 
 export namespace DeleteSubscriberResponse {
   export const filterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriberResponse => __isa(o, "DeleteSubscriberResponse");
 }
 
 export interface DescribeBudgetPerformanceHistoryRequest {
-  __type?: "DescribeBudgetPerformanceHistoryRequest";
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
    */
@@ -630,12 +587,9 @@ export namespace DescribeBudgetPerformanceHistoryRequest {
   export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetPerformanceHistoryRequest =>
-    __isa(o, "DescribeBudgetPerformanceHistoryRequest");
 }
 
 export interface DescribeBudgetPerformanceHistoryResponse {
-  __type?: "DescribeBudgetPerformanceHistoryResponse";
   /**
    * <p> A generic string.</p>
    */
@@ -652,15 +606,12 @@ export namespace DescribeBudgetPerformanceHistoryResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetPerformanceHistoryResponse =>
-    __isa(o, "DescribeBudgetPerformanceHistoryResponse");
 }
 
 /**
  * <p> Request of DescribeBudget </p>
  */
 export interface DescribeBudgetRequest {
-  __type?: "DescribeBudgetRequest";
   /**
    * <p>The name of the budget that you want a description of.</p>
    */
@@ -676,14 +627,12 @@ export namespace DescribeBudgetRequest {
   export const filterSensitiveLog = (obj: DescribeBudgetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetRequest => __isa(o, "DescribeBudgetRequest");
 }
 
 /**
  * <p> Response of DescribeBudget </p>
  */
 export interface DescribeBudgetResponse {
-  __type?: "DescribeBudgetResponse";
   /**
    * <p>The description of the budget.</p>
    */
@@ -694,14 +643,12 @@ export namespace DescribeBudgetResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetResponse => __isa(o, "DescribeBudgetResponse");
 }
 
 /**
  * <p> Request of DescribeBudgets </p>
  */
 export interface DescribeBudgetsRequest {
-  __type?: "DescribeBudgetsRequest";
   /**
    * <p>The <code>accountId</code> that is associated with the budgets that you want descriptions of.</p>
    */
@@ -722,14 +669,12 @@ export namespace DescribeBudgetsRequest {
   export const filterSensitiveLog = (obj: DescribeBudgetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetsRequest => __isa(o, "DescribeBudgetsRequest");
 }
 
 /**
  * <p> Response of DescribeBudgets </p>
  */
 export interface DescribeBudgetsResponse {
-  __type?: "DescribeBudgetsResponse";
   /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
@@ -745,14 +690,12 @@ export namespace DescribeBudgetsResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetsResponse => __isa(o, "DescribeBudgetsResponse");
 }
 
 /**
  * <p> Request of DescribeNotificationsForBudget </p>
  */
 export interface DescribeNotificationsForBudgetRequest {
-  __type?: "DescribeNotificationsForBudgetRequest";
   /**
    * <p>The <code>accountId</code> that is associated with the budget whose notifications you want descriptions of.</p>
    */
@@ -778,15 +721,12 @@ export namespace DescribeNotificationsForBudgetRequest {
   export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotificationsForBudgetRequest =>
-    __isa(o, "DescribeNotificationsForBudgetRequest");
 }
 
 /**
  * <p> Response of GetNotificationsForBudget </p>
  */
 export interface DescribeNotificationsForBudgetResponse {
-  __type?: "DescribeNotificationsForBudgetResponse";
   /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
@@ -802,15 +742,12 @@ export namespace DescribeNotificationsForBudgetResponse {
   export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotificationsForBudgetResponse =>
-    __isa(o, "DescribeNotificationsForBudgetResponse");
 }
 
 /**
  * <p> Request of DescribeSubscribersForNotification </p>
  */
 export interface DescribeSubscribersForNotificationRequest {
-  __type?: "DescribeSubscribersForNotificationRequest";
   /**
    * <p>The <code>accountId</code> that is associated with the budget whose subscribers you want descriptions of.</p>
    */
@@ -841,15 +778,12 @@ export namespace DescribeSubscribersForNotificationRequest {
   export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscribersForNotificationRequest =>
-    __isa(o, "DescribeSubscribersForNotificationRequest");
 }
 
 /**
  * <p> Response of DescribeSubscribersForNotification </p>
  */
 export interface DescribeSubscribersForNotificationResponse {
-  __type?: "DescribeSubscribersForNotificationResponse";
   /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
@@ -866,8 +800,6 @@ export namespace DescribeSubscribersForNotificationResponse {
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is DescribeSubscribersForNotificationResponse =>
-    __isa(o, "DescribeSubscribersForNotificationResponse");
 }
 
 /**
@@ -886,7 +818,6 @@ export namespace DuplicateRecordException {
   export const filterSensitiveLog = (obj: DuplicateRecordException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateRecordException => __isa(o, "DuplicateRecordException");
 }
 
 /**
@@ -905,7 +836,6 @@ export namespace ExpiredNextTokenException {
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpiredNextTokenException => __isa(o, "ExpiredNextTokenException");
 }
 
 /**
@@ -924,7 +854,6 @@ export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
@@ -943,7 +872,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -962,7 +890,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -981,7 +908,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1008,7 +934,6 @@ export namespace NotFoundException {
  *          </ul>
  */
 export interface Notification {
-  __type?: "Notification";
   /**
    * <p>The comparison that is used for this notification.</p>
    */
@@ -1039,7 +964,6 @@ export namespace Notification {
   export const filterSensitiveLog = (obj: Notification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Notification => __isa(o, "Notification");
 }
 
 export enum NotificationState {
@@ -1056,7 +980,6 @@ export enum NotificationType {
  * <p>A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  */
 export interface NotificationWithSubscribers {
-  __type?: "NotificationWithSubscribers";
   /**
    * <p>The notification that is associated with a budget.</p>
    */
@@ -1073,7 +996,6 @@ export namespace NotificationWithSubscribers {
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is NotificationWithSubscribers => __isa(o, "NotificationWithSubscribers");
 }
 
 /**
@@ -1091,7 +1013,6 @@ export namespace NotificationWithSubscribers {
  *          </ul>
  */
 export interface Spend {
-  __type?: "Spend";
   /**
    * <p>The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.</p>
    */
@@ -1107,7 +1028,6 @@ export namespace Spend {
   export const filterSensitiveLog = (obj: Spend): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Spend => __isa(o, "Spend");
 }
 
 /**
@@ -1125,7 +1045,6 @@ export namespace Spend {
  *          </ul>
  */
 export interface Subscriber {
-  __type?: "Subscriber";
   /**
    * <p>The address that AWS sends budget notifications to, either an SNS topic or an email.</p>
    * 		       <p>When you create a subscriber, the value of <code>Address</code> can't contain line breaks.</p>
@@ -1143,7 +1062,6 @@ export namespace Subscriber {
     ...obj,
     ...(obj.Address && { Address: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Subscriber => __isa(o, "Subscriber");
 }
 
 export enum SubscriptionType {
@@ -1160,7 +1078,6 @@ export enum ThresholdType {
  * <p>The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date. </p>
  */
 export interface TimePeriod {
-  __type?: "TimePeriod";
   /**
    * <p>The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API.</p>
    * 		       <p>You can change your start date with the <code>UpdateBudget</code> operation.</p>
@@ -1178,7 +1095,6 @@ export namespace TimePeriod {
   export const filterSensitiveLog = (obj: TimePeriod): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimePeriod => __isa(o, "TimePeriod");
 }
 
 export enum TimeUnit {
@@ -1192,7 +1108,6 @@ export enum TimeUnit {
  * <p> Request of UpdateBudget </p>
  */
 export interface UpdateBudgetRequest {
-  __type?: "UpdateBudgetRequest";
   /**
    * <p>The budget that you want to update your budget to.</p>
    */
@@ -1208,28 +1123,23 @@ export namespace UpdateBudgetRequest {
   export const filterSensitiveLog = (obj: UpdateBudgetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBudgetRequest => __isa(o, "UpdateBudgetRequest");
 }
 
 /**
  * <p> Response of UpdateBudget </p>
  */
-export interface UpdateBudgetResponse {
-  __type?: "UpdateBudgetResponse";
-}
+export interface UpdateBudgetResponse {}
 
 export namespace UpdateBudgetResponse {
   export const filterSensitiveLog = (obj: UpdateBudgetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBudgetResponse => __isa(o, "UpdateBudgetResponse");
 }
 
 /**
  * <p> Request of UpdateNotification </p>
  */
 export interface UpdateNotificationRequest {
-  __type?: "UpdateNotificationRequest";
   /**
    * <p>The <code>accountId</code> that is associated with the budget whose notification you want to update.</p>
    */
@@ -1255,28 +1165,23 @@ export namespace UpdateNotificationRequest {
   export const filterSensitiveLog = (obj: UpdateNotificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationRequest => __isa(o, "UpdateNotificationRequest");
 }
 
 /**
  * <p> Response of UpdateNotification </p>
  */
-export interface UpdateNotificationResponse {
-  __type?: "UpdateNotificationResponse";
-}
+export interface UpdateNotificationResponse {}
 
 export namespace UpdateNotificationResponse {
   export const filterSensitiveLog = (obj: UpdateNotificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationResponse => __isa(o, "UpdateNotificationResponse");
 }
 
 /**
  * <p> Request of UpdateSubscriber </p>
  */
 export interface UpdateSubscriberRequest {
-  __type?: "UpdateSubscriberRequest";
   /**
    * <p>The name of the budget whose subscriber you want to update.</p>
    */
@@ -1309,19 +1214,15 @@ export namespace UpdateSubscriberRequest {
     ...(obj.OldSubscriber && { OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber) }),
     ...(obj.NewSubscriber && { NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber) }),
   });
-  export const isa = (o: any): o is UpdateSubscriberRequest => __isa(o, "UpdateSubscriberRequest");
 }
 
 /**
  * <p> Response of UpdateSubscriber </p>
  */
-export interface UpdateSubscriberResponse {
-  __type?: "UpdateSubscriberResponse";
-}
+export interface UpdateSubscriberResponse {}
 
 export namespace UpdateSubscriberResponse {
   export const filterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSubscriberResponse => __isa(o, "UpdateSubscriberResponse");
 }

@@ -673,7 +673,6 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   }
   const contents: CreateChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateChannelResponse",
     Arn: undefined,
     Description: undefined,
     HlsIngest: undefined,
@@ -785,7 +784,6 @@ export const deserializeAws_restJson1CreateHarvestJobCommand = async (
   }
   const contents: CreateHarvestJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHarvestJobResponse",
     Arn: undefined,
     ChannelId: undefined,
     CreatedAt: undefined,
@@ -913,7 +911,6 @@ export const deserializeAws_restJson1CreateOriginEndpointCommand = async (
   }
   const contents: CreateOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOriginEndpointResponse",
     Arn: undefined,
     Authorization: undefined,
     ChannelId: undefined,
@@ -1069,7 +1066,6 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   }
   const contents: DeleteChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteChannelResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1161,7 +1157,6 @@ export const deserializeAws_restJson1DeleteOriginEndpointCommand = async (
   }
   const contents: DeleteOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteOriginEndpointResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1253,7 +1248,6 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   }
   const contents: DescribeChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeChannelResponse",
     Arn: undefined,
     Description: undefined,
     HlsIngest: undefined,
@@ -1365,7 +1359,6 @@ export const deserializeAws_restJson1DescribeHarvestJobCommand = async (
   }
   const contents: DescribeHarvestJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHarvestJobResponse",
     Arn: undefined,
     ChannelId: undefined,
     CreatedAt: undefined,
@@ -1493,7 +1486,6 @@ export const deserializeAws_restJson1DescribeOriginEndpointCommand = async (
   }
   const contents: DescribeOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOriginEndpointResponse",
     Arn: undefined,
     Authorization: undefined,
     ChannelId: undefined,
@@ -1649,7 +1641,6 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   }
   const contents: ListChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChannelsResponse",
     Channels: undefined,
     NextToken: undefined,
   };
@@ -1749,7 +1740,6 @@ export const deserializeAws_restJson1ListHarvestJobsCommand = async (
   }
   const contents: ListHarvestJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHarvestJobsResponse",
     HarvestJobs: undefined,
     NextToken: undefined,
   };
@@ -1849,7 +1839,6 @@ export const deserializeAws_restJson1ListOriginEndpointsCommand = async (
   }
   const contents: ListOriginEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOriginEndpointsResponse",
     NextToken: undefined,
     OriginEndpoints: undefined,
   };
@@ -1949,7 +1938,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1997,7 +1985,6 @@ export const deserializeAws_restJson1RotateChannelCredentialsCommand = async (
   }
   const contents: RotateChannelCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RotateChannelCredentialsResponse",
     Arn: undefined,
     Description: undefined,
     HlsIngest: undefined,
@@ -2109,7 +2096,6 @@ export const deserializeAws_restJson1RotateIngestEndpointCredentialsCommand = as
   }
   const contents: RotateIngestEndpointCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RotateIngestEndpointCredentialsResponse",
     Arn: undefined,
     Description: undefined,
     HlsIngest: undefined,
@@ -2307,7 +2293,6 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   }
   const contents: UpdateChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateChannelResponse",
     Arn: undefined,
     Description: undefined,
     HlsIngest: undefined,
@@ -2419,7 +2404,6 @@ export const deserializeAws_restJson1UpdateOriginEndpointCommand = async (
   }
   const contents: UpdateOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateOriginEndpointResponse",
     Arn: undefined,
     Authorization: undefined,
     ChannelId: undefined,
@@ -2943,7 +2927,6 @@ const deserializeAws_restJson1AdTriggers = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Authorization = (output: any, context: __SerdeContext): Authorization => {
   return {
-    __type: "Authorization",
     CdnIdentifierSecret:
       output.cdnIdentifierSecret !== undefined && output.cdnIdentifierSecret !== null
         ? output.cdnIdentifierSecret
@@ -2955,7 +2938,6 @@ const deserializeAws_restJson1Authorization = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
-    __type: "Channel",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     HlsIngest:
@@ -2972,7 +2954,6 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
   return {
-    __type: "CmafEncryption",
     KeyRotationIntervalSeconds:
       output.keyRotationIntervalSeconds !== undefined && output.keyRotationIntervalSeconds !== null
         ? output.keyRotationIntervalSeconds
@@ -2986,7 +2967,6 @@ const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
   return {
-    __type: "CmafPackage",
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1CmafEncryption(output.encryption, context)
@@ -3010,7 +2990,6 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
   return {
-    __type: "DashEncryption",
     KeyRotationIntervalSeconds:
       output.keyRotationIntervalSeconds !== undefined && output.keyRotationIntervalSeconds !== null
         ? output.keyRotationIntervalSeconds
@@ -3024,7 +3003,6 @@ const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContext): DashPackage => {
   return {
-    __type: "DashPackage",
     AdTriggers:
       output.adTriggers !== undefined && output.adTriggers !== null
         ? deserializeAws_restJson1AdTriggers(output.adTriggers, context)
@@ -3077,7 +3055,6 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1HarvestJob = (output: any, context: __SerdeContext): HarvestJob => {
   return {
-    __type: "HarvestJob",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ChannelId: output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
     CreatedAt: output.createdAt !== undefined && output.createdAt !== null ? output.createdAt : undefined,
@@ -3096,7 +3073,6 @@ const deserializeAws_restJson1HarvestJob = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption => {
   return {
-    __type: "HlsEncryption",
     ConstantInitializationVector:
       output.constantInitializationVector !== undefined && output.constantInitializationVector !== null
         ? output.constantInitializationVector
@@ -3118,7 +3094,6 @@ const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1HlsIngest = (output: any, context: __SerdeContext): HlsIngest => {
   return {
-    __type: "HlsIngest",
     IngestEndpoints:
       output.ingestEndpoints !== undefined && output.ingestEndpoints !== null
         ? deserializeAws_restJson1__listOfIngestEndpoint(output.ingestEndpoints, context)
@@ -3128,7 +3103,6 @@ const deserializeAws_restJson1HlsIngest = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
   return {
-    __type: "HlsManifest",
     AdMarkers: output.adMarkers !== undefined && output.adMarkers !== null ? output.adMarkers : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     IncludeIframeOnlyStream:
@@ -3151,7 +3125,6 @@ const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
   return {
-    __type: "HlsPackage",
     AdMarkers: output.adMarkers !== undefined && output.adMarkers !== null ? output.adMarkers : undefined,
     AdTriggers:
       output.adTriggers !== undefined && output.adTriggers !== null
@@ -3195,7 +3168,6 @@ const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1IngestEndpoint = (output: any, context: __SerdeContext): IngestEndpoint => {
   return {
-    __type: "IngestEndpoint",
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     Password: output.password !== undefined && output.password !== null ? output.password : undefined,
     Url: output.url !== undefined && output.url !== null ? output.url : undefined,
@@ -3205,7 +3177,6 @@ const deserializeAws_restJson1IngestEndpoint = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1MssEncryption = (output: any, context: __SerdeContext): MssEncryption => {
   return {
-    __type: "MssEncryption",
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -3215,7 +3186,6 @@ const deserializeAws_restJson1MssEncryption = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext): MssPackage => {
   return {
-    __type: "MssPackage",
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1MssEncryption(output.encryption, context)
@@ -3237,7 +3207,6 @@ const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeContext): OriginEndpoint => {
   return {
-    __type: "OriginEndpoint",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Authorization:
       output.authorization !== undefined && output.authorization !== null
@@ -3284,7 +3253,6 @@ const deserializeAws_restJson1OriginEndpoint = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
-    __type: "S3Destination",
     BucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     ManifestKey: output.manifestKey !== undefined && output.manifestKey !== null ? output.manifestKey : undefined,
     RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
@@ -3293,7 +3261,6 @@ const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return {
-    __type: "SpekeKeyProvider",
     CertificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     ResourceId: output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
@@ -3308,7 +3275,6 @@ const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1StreamSelection = (output: any, context: __SerdeContext): StreamSelection => {
   return {
-    __type: "StreamSelection",
     MaxVideoBitsPerSecond:
       output.maxVideoBitsPerSecond !== undefined && output.maxVideoBitsPerSecond !== null
         ? output.maxVideoBitsPerSecond

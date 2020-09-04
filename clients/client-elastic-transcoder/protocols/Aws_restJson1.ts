@@ -625,7 +625,6 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   }
   const contents: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -717,7 +716,6 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   }
   const contents: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJobResponse",
     Job: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -813,7 +811,6 @@ export const deserializeAws_restJson1CreatePipelineCommand = async (
   }
   const contents: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePipelineResponse",
     Pipeline: undefined,
     Warnings: undefined,
   };
@@ -913,7 +910,6 @@ export const deserializeAws_restJson1CreatePresetCommand = async (
   }
   const contents: CreatePresetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePresetResponse",
     Preset: undefined,
     Warning: undefined,
   };
@@ -1005,7 +1001,6 @@ export const deserializeAws_restJson1DeletePipelineCommand = async (
   }
   const contents: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePipelineResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1097,7 +1092,6 @@ export const deserializeAws_restJson1DeletePresetCommand = async (
   }
   const contents: DeletePresetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePresetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1181,7 +1175,6 @@ export const deserializeAws_restJson1ListJobsByPipelineCommand = async (
   }
   const contents: ListJobsByPipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsByPipelineResponse",
     Jobs: undefined,
     NextPageToken: undefined,
   };
@@ -1273,7 +1266,6 @@ export const deserializeAws_restJson1ListJobsByStatusCommand = async (
   }
   const contents: ListJobsByStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsByStatusResponse",
     Jobs: undefined,
     NextPageToken: undefined,
   };
@@ -1365,7 +1357,6 @@ export const deserializeAws_restJson1ListPipelinesCommand = async (
   }
   const contents: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPipelinesResponse",
     NextPageToken: undefined,
     Pipelines: undefined,
   };
@@ -1449,7 +1440,6 @@ export const deserializeAws_restJson1ListPresetsCommand = async (
   }
   const contents: ListPresetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPresetsResponse",
     NextPageToken: undefined,
     Presets: undefined,
   };
@@ -1533,7 +1523,6 @@ export const deserializeAws_restJson1ReadJobCommand = async (
   }
   const contents: ReadJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReadJobResponse",
     Job: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1621,7 +1610,6 @@ export const deserializeAws_restJson1ReadPipelineCommand = async (
   }
   const contents: ReadPipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReadPipelineResponse",
     Pipeline: undefined,
     Warnings: undefined,
   };
@@ -1713,7 +1701,6 @@ export const deserializeAws_restJson1ReadPresetCommand = async (
   }
   const contents: ReadPresetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReadPresetResponse",
     Preset: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1801,7 +1788,6 @@ export const deserializeAws_restJson1TestRoleCommand = async (
   }
   const contents: TestRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestRoleResponse",
     Messages: undefined,
     Success: undefined,
   };
@@ -1893,7 +1879,6 @@ export const deserializeAws_restJson1UpdatePipelineCommand = async (
   }
   const contents: UpdatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePipelineResponse",
     Pipeline: undefined,
     Warnings: undefined,
   };
@@ -1993,7 +1978,6 @@ export const deserializeAws_restJson1UpdatePipelineNotificationsCommand = async 
   }
   const contents: UpdatePipelineNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePipelineNotificationsResponse",
     Pipeline: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2089,7 +2073,6 @@ export const deserializeAws_restJson1UpdatePipelineStatusCommand = async (
   }
   const contents: UpdatePipelineStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePipelineStatusResponse",
     Pipeline: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2649,7 +2632,6 @@ const deserializeAws_restJson1AccessControls = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Artwork = (output: any, context: __SerdeContext): Artwork => {
   return {
-    __type: "Artwork",
     AlbumArtFormat:
       output.AlbumArtFormat !== undefined && output.AlbumArtFormat !== null ? output.AlbumArtFormat : undefined,
     Encryption:
@@ -2671,7 +2653,6 @@ const deserializeAws_restJson1Artworks = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1AudioCodecOptions = (output: any, context: __SerdeContext): AudioCodecOptions => {
   return {
-    __type: "AudioCodecOptions",
     BitDepth: output.BitDepth !== undefined && output.BitDepth !== null ? output.BitDepth : undefined,
     BitOrder: output.BitOrder !== undefined && output.BitOrder !== null ? output.BitOrder : undefined,
     Profile: output.Profile !== undefined && output.Profile !== null ? output.Profile : undefined,
@@ -2681,7 +2662,6 @@ const deserializeAws_restJson1AudioCodecOptions = (output: any, context: __Serde
 
 const deserializeAws_restJson1AudioParameters = (output: any, context: __SerdeContext): AudioParameters => {
   return {
-    __type: "AudioParameters",
     AudioPackingMode:
       output.AudioPackingMode !== undefined && output.AudioPackingMode !== null ? output.AudioPackingMode : undefined,
     BitRate: output.BitRate !== undefined && output.BitRate !== null ? output.BitRate : undefined,
@@ -2697,7 +2677,6 @@ const deserializeAws_restJson1AudioParameters = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1CaptionFormat = (output: any, context: __SerdeContext): CaptionFormat => {
   return {
-    __type: "CaptionFormat",
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1Encryption(output.Encryption, context)
@@ -2713,7 +2692,6 @@ const deserializeAws_restJson1CaptionFormats = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Captions = (output: any, context: __SerdeContext): Captions => {
   return {
-    __type: "Captions",
     CaptionFormats:
       output.CaptionFormats !== undefined && output.CaptionFormats !== null
         ? deserializeAws_restJson1CaptionFormats(output.CaptionFormats, context)
@@ -2728,7 +2706,6 @@ const deserializeAws_restJson1Captions = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1CaptionSource = (output: any, context: __SerdeContext): CaptionSource => {
   return {
-    __type: "CaptionSource",
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1Encryption(output.Encryption, context)
@@ -2746,7 +2723,6 @@ const deserializeAws_restJson1CaptionSources = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Clip = (output: any, context: __SerdeContext): Clip => {
   return {
-    __type: "Clip",
     TimeSpan:
       output.TimeSpan !== undefined && output.TimeSpan !== null
         ? deserializeAws_restJson1TimeSpan(output.TimeSpan, context)
@@ -2770,7 +2746,6 @@ const deserializeAws_restJson1Composition = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DetectedProperties = (output: any, context: __SerdeContext): DetectedProperties => {
   return {
-    __type: "DetectedProperties",
     DurationMillis:
       output.DurationMillis !== undefined && output.DurationMillis !== null ? output.DurationMillis : undefined,
     FileSize: output.FileSize !== undefined && output.FileSize !== null ? output.FileSize : undefined,
@@ -2782,7 +2757,6 @@ const deserializeAws_restJson1DetectedProperties = (output: any, context: __Serd
 
 const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
-    __type: "Encryption",
     InitializationVector:
       output.InitializationVector !== undefined && output.InitializationVector !== null
         ? output.InitializationVector
@@ -2799,7 +2773,6 @@ const deserializeAws_restJson1ExceptionMessages = (output: any, context: __Serde
 
 const deserializeAws_restJson1HlsContentProtection = (output: any, context: __SerdeContext): HlsContentProtection => {
   return {
-    __type: "HlsContentProtection",
     InitializationVector:
       output.InitializationVector !== undefined && output.InitializationVector !== null
         ? output.InitializationVector
@@ -2818,7 +2791,6 @@ const deserializeAws_restJson1HlsContentProtection = (output: any, context: __Se
 
 const deserializeAws_restJson1InputCaptions = (output: any, context: __SerdeContext): InputCaptions => {
   return {
-    __type: "InputCaptions",
     CaptionSources:
       output.CaptionSources !== undefined && output.CaptionSources !== null
         ? deserializeAws_restJson1CaptionSources(output.CaptionSources, context)
@@ -2829,7 +2801,6 @@ const deserializeAws_restJson1InputCaptions = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
-    __type: "Job",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Input:
@@ -2869,7 +2840,6 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
 
 const deserializeAws_restJson1JobAlbumArt = (output: any, context: __SerdeContext): JobAlbumArt => {
   return {
-    __type: "JobAlbumArt",
     Artwork:
       output.Artwork !== undefined && output.Artwork !== null
         ? deserializeAws_restJson1Artworks(output.Artwork, context)
@@ -2880,7 +2850,6 @@ const deserializeAws_restJson1JobAlbumArt = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1JobInput = (output: any, context: __SerdeContext): JobInput => {
   return {
-    __type: "JobInput",
     AspectRatio: output.AspectRatio !== undefined && output.AspectRatio !== null ? output.AspectRatio : undefined,
     Container: output.Container !== undefined && output.Container !== null ? output.Container : undefined,
     DetectedProperties:
@@ -2912,7 +2881,6 @@ const deserializeAws_restJson1JobInputs = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1JobOutput = (output: any, context: __SerdeContext): JobOutput => {
   return {
-    __type: "JobOutput",
     AlbumArt:
       output.AlbumArt !== undefined && output.AlbumArt !== null
         ? deserializeAws_restJson1JobAlbumArt(output.AlbumArt, context)
@@ -2971,7 +2939,6 @@ const deserializeAws_restJson1Jobs = (output: any, context: __SerdeContext): Job
 
 const deserializeAws_restJson1JobWatermark = (output: any, context: __SerdeContext): JobWatermark => {
   return {
-    __type: "JobWatermark",
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1Encryption(output.Encryption, context)
@@ -2990,7 +2957,6 @@ const deserializeAws_restJson1JobWatermarks = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Notifications = (output: any, context: __SerdeContext): Notifications => {
   return {
-    __type: "Notifications",
     Completed: output.Completed !== undefined && output.Completed !== null ? output.Completed : undefined,
     Error: output.Error !== undefined && output.Error !== null ? output.Error : undefined,
     Progressing: output.Progressing !== undefined && output.Progressing !== null ? output.Progressing : undefined,
@@ -3004,7 +2970,6 @@ const deserializeAws_restJson1OutputKeys = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    __type: "Permission",
     Access:
       output.Access !== undefined && output.Access !== null
         ? deserializeAws_restJson1AccessControls(output.Access, context)
@@ -3020,7 +2985,6 @@ const deserializeAws_restJson1Permissions = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Pipeline = (output: any, context: __SerdeContext): Pipeline => {
   return {
-    __type: "Pipeline",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AwsKmsKeyArn: output.AwsKmsKeyArn !== undefined && output.AwsKmsKeyArn !== null ? output.AwsKmsKeyArn : undefined,
     ContentConfig:
@@ -3046,7 +3010,6 @@ const deserializeAws_restJson1Pipeline = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PipelineOutputConfig = (output: any, context: __SerdeContext): PipelineOutputConfig => {
   return {
-    __type: "PipelineOutputConfig",
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
@@ -3062,7 +3025,6 @@ const deserializeAws_restJson1Pipelines = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1Playlist = (output: any, context: __SerdeContext): Playlist => {
   return {
-    __type: "Playlist",
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     HlsContentProtection:
       output.HlsContentProtection !== undefined && output.HlsContentProtection !== null
@@ -3088,7 +3050,6 @@ const deserializeAws_restJson1Playlists = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1PlayReadyDrm = (output: any, context: __SerdeContext): PlayReadyDrm => {
   return {
-    __type: "PlayReadyDrm",
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     InitializationVector:
       output.InitializationVector !== undefined && output.InitializationVector !== null
@@ -3106,7 +3067,6 @@ const deserializeAws_restJson1PlayReadyDrm = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Preset = (output: any, context: __SerdeContext): Preset => {
   return {
-    __type: "Preset",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Audio:
       output.Audio !== undefined && output.Audio !== null
@@ -3134,7 +3094,6 @@ const deserializeAws_restJson1Presets = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1PresetWatermark = (output: any, context: __SerdeContext): PresetWatermark => {
   return {
-    __type: "PresetWatermark",
     HorizontalAlign:
       output.HorizontalAlign !== undefined && output.HorizontalAlign !== null ? output.HorizontalAlign : undefined,
     HorizontalOffset:
@@ -3158,7 +3117,6 @@ const deserializeAws_restJson1PresetWatermarks = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Thumbnails = (output: any, context: __SerdeContext): Thumbnails => {
   return {
-    __type: "Thumbnails",
     AspectRatio: output.AspectRatio !== undefined && output.AspectRatio !== null ? output.AspectRatio : undefined,
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
@@ -3173,7 +3131,6 @@ const deserializeAws_restJson1Thumbnails = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1TimeSpan = (output: any, context: __SerdeContext): TimeSpan => {
   return {
-    __type: "TimeSpan",
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
   } as any;
@@ -3181,7 +3138,6 @@ const deserializeAws_restJson1TimeSpan = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Timing = (output: any, context: __SerdeContext): Timing => {
   return {
-    __type: "Timing",
     FinishTimeMillis:
       output.FinishTimeMillis !== undefined && output.FinishTimeMillis !== null ? output.FinishTimeMillis : undefined,
     StartTimeMillis:
@@ -3203,7 +3159,6 @@ const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1VideoParameters = (output: any, context: __SerdeContext): VideoParameters => {
   return {
-    __type: "VideoParameters",
     AspectRatio: output.AspectRatio !== undefined && output.AspectRatio !== null ? output.AspectRatio : undefined,
     BitRate: output.BitRate !== undefined && output.BitRate !== null ? output.BitRate : undefined,
     Codec: output.Codec !== undefined && output.Codec !== null ? output.Codec : undefined,
@@ -3235,7 +3190,6 @@ const deserializeAws_restJson1VideoParameters = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Warning = (output: any, context: __SerdeContext): Warning => {
   return {
-    __type: "Warning",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;

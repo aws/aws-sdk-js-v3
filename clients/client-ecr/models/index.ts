@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>This data type is used in the <a>ImageScanFinding</a> data type.</p>
  */
 export interface Attribute {
-  __type?: "Attribute";
   /**
    * <p>The value assigned to the attribute key.</p>
    */
@@ -21,14 +20,12 @@ export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 /**
  * <p>An object representing authorization data for an Amazon ECR registry.</p>
  */
 export interface AuthorizationData {
-  __type?: "AuthorizationData";
   /**
    * <p>The registry URL to use for this authorization token in a <code>docker login</code>
    *             command. The Amazon ECR registry URL format is
@@ -56,11 +53,9 @@ export namespace AuthorizationData {
   export const filterSensitiveLog = (obj: AuthorizationData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationData => __isa(o, "AuthorizationData");
 }
 
 export interface BatchCheckLayerAvailabilityRequest {
-  __type?: "BatchCheckLayerAvailabilityRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the image layers to
    *             check. If you do not specify a registry, the default registry is assumed.</p>
@@ -82,12 +77,9 @@ export namespace BatchCheckLayerAvailabilityRequest {
   export const filterSensitiveLog = (obj: BatchCheckLayerAvailabilityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCheckLayerAvailabilityRequest =>
-    __isa(o, "BatchCheckLayerAvailabilityRequest");
 }
 
 export interface BatchCheckLayerAvailabilityResponse {
-  __type?: "BatchCheckLayerAvailabilityResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -104,8 +96,6 @@ export namespace BatchCheckLayerAvailabilityResponse {
   export const filterSensitiveLog = (obj: BatchCheckLayerAvailabilityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCheckLayerAvailabilityResponse =>
-    __isa(o, "BatchCheckLayerAvailabilityResponse");
 }
 
 /**
@@ -113,7 +103,6 @@ export namespace BatchCheckLayerAvailabilityResponse {
  *             either the <code>imageTag</code> or <code>imageDigest</code>.</p>
  */
 export interface BatchDeleteImageRequest {
-  __type?: "BatchDeleteImageRequest";
   /**
    * <p>A list of image ID references that correspond to images to delete. The format of the
    *                 <code>imageIds</code> reference is <code>imageTag=tag</code> or
@@ -137,11 +126,9 @@ export namespace BatchDeleteImageRequest {
   export const filterSensitiveLog = (obj: BatchDeleteImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImageRequest => __isa(o, "BatchDeleteImageRequest");
 }
 
 export interface BatchDeleteImageResponse {
-  __type?: "BatchDeleteImageResponse";
   /**
    * <p>The image IDs of the deleted images.</p>
    */
@@ -157,11 +144,9 @@ export namespace BatchDeleteImageResponse {
   export const filterSensitiveLog = (obj: BatchDeleteImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImageResponse => __isa(o, "BatchDeleteImageResponse");
 }
 
 export interface BatchGetImageRequest {
-  __type?: "BatchGetImageRequest";
   /**
    * <p>A list of image ID references that correspond to images to describe. The format of the
    *                 <code>imageIds</code> reference is <code>imageTag=tag</code> or
@@ -194,11 +179,9 @@ export namespace BatchGetImageRequest {
   export const filterSensitiveLog = (obj: BatchGetImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetImageRequest => __isa(o, "BatchGetImageRequest");
 }
 
 export interface BatchGetImageResponse {
-  __type?: "BatchGetImageResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -214,11 +197,9 @@ export namespace BatchGetImageResponse {
   export const filterSensitiveLog = (obj: BatchGetImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetImageResponse => __isa(o, "BatchGetImageResponse");
 }
 
 export interface CompleteLayerUploadRequest {
-  __type?: "CompleteLayerUploadRequest";
   /**
    * <p>The name of the repository to associate with the image layer.</p>
    */
@@ -246,11 +227,9 @@ export namespace CompleteLayerUploadRequest {
   export const filterSensitiveLog = (obj: CompleteLayerUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteLayerUploadRequest => __isa(o, "CompleteLayerUploadRequest");
 }
 
 export interface CompleteLayerUploadResponse {
-  __type?: "CompleteLayerUploadResponse";
   /**
    * <p>The upload ID associated with the layer.</p>
    */
@@ -276,11 +255,9 @@ export namespace CompleteLayerUploadResponse {
   export const filterSensitiveLog = (obj: CompleteLayerUploadResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteLayerUploadResponse => __isa(o, "CompleteLayerUploadResponse");
 }
 
 export interface CreateRepositoryRequest {
-  __type?: "CreateRepositoryRequest";
   /**
    * <p>The image scanning configuration for the repository. This determines whether images
    *             are scanned for known vulnerabilities after being pushed to the repository.</p>
@@ -321,11 +298,9 @@ export namespace CreateRepositoryRequest {
   export const filterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryRequest => __isa(o, "CreateRepositoryRequest");
 }
 
 export interface CreateRepositoryResponse {
-  __type?: "CreateRepositoryResponse";
   /**
    * <p>The repository that was created.</p>
    */
@@ -336,11 +311,9 @@ export namespace CreateRepositoryResponse {
   export const filterSensitiveLog = (obj: CreateRepositoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryResponse => __isa(o, "CreateRepositoryResponse");
 }
 
 export interface DeleteLifecyclePolicyRequest {
-  __type?: "DeleteLifecyclePolicyRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
@@ -357,11 +330,9 @@ export namespace DeleteLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecyclePolicyRequest => __isa(o, "DeleteLifecyclePolicyRequest");
 }
 
 export interface DeleteLifecyclePolicyResponse {
-  __type?: "DeleteLifecyclePolicyResponse";
   /**
    * <p>The JSON lifecycle policy text.</p>
    */
@@ -387,11 +358,9 @@ export namespace DeleteLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: DeleteLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecyclePolicyResponse => __isa(o, "DeleteLifecyclePolicyResponse");
 }
 
 export interface DeleteRepositoryPolicyRequest {
-  __type?: "DeleteRepositoryPolicyRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repository policy to
    *             delete. If you do not specify a registry, the default registry is assumed.</p>
@@ -409,11 +378,9 @@ export namespace DeleteRepositoryPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteRepositoryPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryPolicyRequest => __isa(o, "DeleteRepositoryPolicyRequest");
 }
 
 export interface DeleteRepositoryPolicyResponse {
-  __type?: "DeleteRepositoryPolicyResponse";
   /**
    * <p>The JSON repository policy that was deleted from the repository.</p>
    */
@@ -434,11 +401,9 @@ export namespace DeleteRepositoryPolicyResponse {
   export const filterSensitiveLog = (obj: DeleteRepositoryPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryPolicyResponse => __isa(o, "DeleteRepositoryPolicyResponse");
 }
 
 export interface DeleteRepositoryRequest {
-  __type?: "DeleteRepositoryRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repository to
    *             delete. If you do not specify a registry, the default registry is assumed.</p>
@@ -460,11 +425,9 @@ export namespace DeleteRepositoryRequest {
   export const filterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryRequest => __isa(o, "DeleteRepositoryRequest");
 }
 
 export interface DeleteRepositoryResponse {
-  __type?: "DeleteRepositoryResponse";
   /**
    * <p>The repository that was deleted.</p>
    */
@@ -475,11 +438,9 @@ export namespace DeleteRepositoryResponse {
   export const filterSensitiveLog = (obj: DeleteRepositoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryResponse => __isa(o, "DeleteRepositoryResponse");
 }
 
 export interface DescribeImageScanFindingsRequest {
-  __type?: "DescribeImageScanFindingsRequest";
   /**
    * <p>The maximum number of image scan results returned by
    *                 <code>DescribeImageScanFindings</code> in paginated output. When this parameter is
@@ -524,11 +485,9 @@ export namespace DescribeImageScanFindingsRequest {
   export const filterSensitiveLog = (obj: DescribeImageScanFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImageScanFindingsRequest => __isa(o, "DescribeImageScanFindingsRequest");
 }
 
 export interface DescribeImageScanFindingsResponse {
-  __type?: "DescribeImageScanFindingsResponse";
   /**
    * <p>The registry ID associated with the request.</p>
    */
@@ -568,7 +527,6 @@ export namespace DescribeImageScanFindingsResponse {
   export const filterSensitiveLog = (obj: DescribeImageScanFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImageScanFindingsResponse => __isa(o, "DescribeImageScanFindingsResponse");
 }
 
 /**
@@ -576,7 +534,6 @@ export namespace DescribeImageScanFindingsResponse {
  *             operation.</p>
  */
 export interface DescribeImagesFilter {
-  __type?: "DescribeImagesFilter";
   /**
    * <p>The tag status with which to filter your <a>DescribeImages</a> results. You
    *             can filter results based on whether they are <code>TAGGED</code> or
@@ -589,11 +546,9 @@ export namespace DescribeImagesFilter {
   export const filterSensitiveLog = (obj: DescribeImagesFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesFilter => __isa(o, "DescribeImagesFilter");
 }
 
 export interface DescribeImagesRequest {
-  __type?: "DescribeImagesRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repository in which
    *             to describe images. If you do not specify a registry, the default registry is assumed.</p>
@@ -644,11 +599,9 @@ export namespace DescribeImagesRequest {
   export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResponse {
-  __type?: "DescribeImagesResponse";
   /**
    * <p>A list of <a>ImageDetail</a> objects that contain data about the
    *             image.</p>
@@ -669,11 +622,9 @@ export namespace DescribeImagesResponse {
   export const filterSensitiveLog = (obj: DescribeImagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesResponse => __isa(o, "DescribeImagesResponse");
 }
 
 export interface DescribeRepositoriesRequest {
-  __type?: "DescribeRepositoriesRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repositories to be
    *             described. If you do not specify a registry, the default registry is assumed.</p>
@@ -719,11 +670,9 @@ export namespace DescribeRepositoriesRequest {
   export const filterSensitiveLog = (obj: DescribeRepositoriesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoriesRequest => __isa(o, "DescribeRepositoriesRequest");
 }
 
 export interface DescribeRepositoriesResponse {
-  __type?: "DescribeRepositoriesResponse";
   /**
    * <p>A list of repository objects corresponding to valid repositories.</p>
    */
@@ -743,7 +692,6 @@ export namespace DescribeRepositoriesResponse {
   export const filterSensitiveLog = (obj: DescribeRepositoriesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoriesResponse => __isa(o, "DescribeRepositoriesResponse");
 }
 
 /**
@@ -762,7 +710,6 @@ export namespace EmptyUploadException {
   export const filterSensitiveLog = (obj: EmptyUploadException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmptyUploadException => __isa(o, "EmptyUploadException");
 }
 
 /**
@@ -778,7 +725,6 @@ export namespace EmptyUploadException {
  *                 rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  */
 export interface EncryptionConfiguration {
-  __type?: "EncryptionConfiguration";
   /**
    * <p>The encryption type to use.</p>
    *         <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
@@ -809,7 +755,6 @@ export namespace EncryptionConfiguration {
   export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfiguration => __isa(o, "EncryptionConfiguration");
 }
 
 export enum EncryptionType {
@@ -827,7 +772,6 @@ export enum FindingSeverity {
 }
 
 export interface GetAuthorizationTokenRequest {
-  __type?: "GetAuthorizationTokenRequest";
   /**
    * <p>A list of AWS account IDs that are associated with the registries for which to get
    *             AuthorizationData objects. If you do not specify a registry, the default registry is assumed.</p>
@@ -839,11 +783,9 @@ export namespace GetAuthorizationTokenRequest {
   export const filterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizationTokenRequest => __isa(o, "GetAuthorizationTokenRequest");
 }
 
 export interface GetAuthorizationTokenResponse {
-  __type?: "GetAuthorizationTokenResponse";
   /**
    * <p>A list of authorization token data objects that correspond to the
    *                 <code>registryIds</code> values in the request.</p>
@@ -855,11 +797,9 @@ export namespace GetAuthorizationTokenResponse {
   export const filterSensitiveLog = (obj: GetAuthorizationTokenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizationTokenResponse => __isa(o, "GetAuthorizationTokenResponse");
 }
 
 export interface GetDownloadUrlForLayerRequest {
-  __type?: "GetDownloadUrlForLayerRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the image layer to
    *             download. If you do not specify a registry, the default registry is assumed.</p>
@@ -881,11 +821,9 @@ export namespace GetDownloadUrlForLayerRequest {
   export const filterSensitiveLog = (obj: GetDownloadUrlForLayerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDownloadUrlForLayerRequest => __isa(o, "GetDownloadUrlForLayerRequest");
 }
 
 export interface GetDownloadUrlForLayerResponse {
-  __type?: "GetDownloadUrlForLayerResponse";
   /**
    * <p>The digest of the image layer to download.</p>
    */
@@ -901,11 +839,9 @@ export namespace GetDownloadUrlForLayerResponse {
   export const filterSensitiveLog = (obj: GetDownloadUrlForLayerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDownloadUrlForLayerResponse => __isa(o, "GetDownloadUrlForLayerResponse");
 }
 
 export interface GetLifecyclePolicyPreviewRequest {
-  __type?: "GetLifecyclePolicyPreviewRequest";
   /**
    * <p>The name of the repository.</p>
    */
@@ -958,11 +894,9 @@ export namespace GetLifecyclePolicyPreviewRequest {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyPreviewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyPreviewRequest => __isa(o, "GetLifecyclePolicyPreviewRequest");
 }
 
 export interface GetLifecyclePolicyPreviewResponse {
-  __type?: "GetLifecyclePolicyPreviewResponse";
   /**
    * <p>The results of the lifecycle policy preview request.</p>
    */
@@ -1007,11 +941,9 @@ export namespace GetLifecyclePolicyPreviewResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyPreviewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyPreviewResponse => __isa(o, "GetLifecyclePolicyPreviewResponse");
 }
 
 export interface GetLifecyclePolicyRequest {
-  __type?: "GetLifecyclePolicyRequest";
   /**
    * <p>The name of the repository.</p>
    */
@@ -1028,11 +960,9 @@ export namespace GetLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyRequest => __isa(o, "GetLifecyclePolicyRequest");
 }
 
 export interface GetLifecyclePolicyResponse {
-  __type?: "GetLifecyclePolicyResponse";
   /**
    * <p>The repository name associated with the request.</p>
    */
@@ -1058,11 +988,9 @@ export namespace GetLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyResponse => __isa(o, "GetLifecyclePolicyResponse");
 }
 
 export interface GetRepositoryPolicyRequest {
-  __type?: "GetRepositoryPolicyRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
@@ -1079,11 +1007,9 @@ export namespace GetRepositoryPolicyRequest {
   export const filterSensitiveLog = (obj: GetRepositoryPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryPolicyRequest => __isa(o, "GetRepositoryPolicyRequest");
 }
 
 export interface GetRepositoryPolicyResponse {
-  __type?: "GetRepositoryPolicyResponse";
   /**
    * <p>The registry ID associated with the request.</p>
    */
@@ -1104,14 +1030,12 @@ export namespace GetRepositoryPolicyResponse {
   export const filterSensitiveLog = (obj: GetRepositoryPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryPolicyResponse => __isa(o, "GetRepositoryPolicyResponse");
 }
 
 /**
  * <p>An object representing an Amazon ECR image.</p>
  */
 export interface Image {
-  __type?: "Image";
   /**
    * <p>The name of the repository associated with the image.</p>
    */
@@ -1142,7 +1066,6 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 export enum ImageActionType {
@@ -1166,7 +1089,6 @@ export namespace ImageAlreadyExistsException {
   export const filterSensitiveLog = (obj: ImageAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageAlreadyExistsException => __isa(o, "ImageAlreadyExistsException");
 }
 
 /**
@@ -1174,7 +1096,6 @@ export namespace ImageAlreadyExistsException {
  *             operation.</p>
  */
 export interface ImageDetail {
-  __type?: "ImageDetail";
   /**
    * <p>The list of tags associated with this image.</p>
    */
@@ -1229,7 +1150,6 @@ export namespace ImageDetail {
   export const filterSensitiveLog = (obj: ImageDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageDetail => __isa(o, "ImageDetail");
 }
 
 /**
@@ -1246,14 +1166,12 @@ export namespace ImageDigestDoesNotMatchException {
   export const filterSensitiveLog = (obj: ImageDigestDoesNotMatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageDigestDoesNotMatchException => __isa(o, "ImageDigestDoesNotMatchException");
 }
 
 /**
  * <p>An object representing an Amazon ECR image failure.</p>
  */
 export interface ImageFailure {
-  __type?: "ImageFailure";
   /**
    * <p>The image ID associated with the failure.</p>
    */
@@ -1274,7 +1192,6 @@ export namespace ImageFailure {
   export const filterSensitiveLog = (obj: ImageFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageFailure => __isa(o, "ImageFailure");
 }
 
 export enum ImageFailureCode {
@@ -1291,7 +1208,6 @@ export enum ImageFailureCode {
  * <p>An object with identifying information for an Amazon ECR image.</p>
  */
 export interface ImageIdentifier {
-  __type?: "ImageIdentifier";
   /**
    * <p>The tag used for the image.</p>
    */
@@ -1307,7 +1223,6 @@ export namespace ImageIdentifier {
   export const filterSensitiveLog = (obj: ImageIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageIdentifier => __isa(o, "ImageIdentifier");
 }
 
 /**
@@ -1323,14 +1238,12 @@ export namespace ImageNotFoundException {
   export const filterSensitiveLog = (obj: ImageNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageNotFoundException => __isa(o, "ImageNotFoundException");
 }
 
 /**
  * <p>Contains information about an image scan finding.</p>
  */
 export interface ImageScanFinding {
-  __type?: "ImageScanFinding";
   /**
    * <p>A collection of attributes of the host from which the finding is generated.</p>
    */
@@ -1361,14 +1274,12 @@ export namespace ImageScanFinding {
   export const filterSensitiveLog = (obj: ImageScanFinding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageScanFinding => __isa(o, "ImageScanFinding");
 }
 
 /**
  * <p>The details of an image scan.</p>
  */
 export interface ImageScanFindings {
-  __type?: "ImageScanFindings";
   /**
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
@@ -1394,14 +1305,12 @@ export namespace ImageScanFindings {
   export const filterSensitiveLog = (obj: ImageScanFindings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageScanFindings => __isa(o, "ImageScanFindings");
 }
 
 /**
  * <p>A summary of the last completed image scan.</p>
  */
 export interface ImageScanFindingsSummary {
-  __type?: "ImageScanFindingsSummary";
   /**
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
@@ -1422,14 +1331,12 @@ export namespace ImageScanFindingsSummary {
   export const filterSensitiveLog = (obj: ImageScanFindingsSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageScanFindingsSummary => __isa(o, "ImageScanFindingsSummary");
 }
 
 /**
  * <p>The image scanning configuration for a repository.</p>
  */
 export interface ImageScanningConfiguration {
-  __type?: "ImageScanningConfiguration";
   /**
    * <p>The setting that determines whether images are scanned after being pushed to a
    *             repository. If set to <code>true</code>, images will be scanned after being pushed. If
@@ -1443,14 +1350,12 @@ export namespace ImageScanningConfiguration {
   export const filterSensitiveLog = (obj: ImageScanningConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageScanningConfiguration => __isa(o, "ImageScanningConfiguration");
 }
 
 /**
  * <p>The current status of an image scan.</p>
  */
 export interface ImageScanStatus {
-  __type?: "ImageScanStatus";
   /**
    * <p>The current state of an image scan.</p>
    */
@@ -1466,7 +1371,6 @@ export namespace ImageScanStatus {
   export const filterSensitiveLog = (obj: ImageScanStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageScanStatus => __isa(o, "ImageScanStatus");
 }
 
 /**
@@ -1483,7 +1387,6 @@ export namespace ImageTagAlreadyExistsException {
   export const filterSensitiveLog = (obj: ImageTagAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageTagAlreadyExistsException => __isa(o, "ImageTagAlreadyExistsException");
 }
 
 export enum ImageTagMutability {
@@ -1492,7 +1395,6 @@ export enum ImageTagMutability {
 }
 
 export interface InitiateLayerUploadRequest {
-  __type?: "InitiateLayerUploadRequest";
   /**
    * <p>The name of the repository to which you intend to upload layers.</p>
    */
@@ -1509,11 +1411,9 @@ export namespace InitiateLayerUploadRequest {
   export const filterSensitiveLog = (obj: InitiateLayerUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateLayerUploadRequest => __isa(o, "InitiateLayerUploadRequest");
 }
 
 export interface InitiateLayerUploadResponse {
-  __type?: "InitiateLayerUploadResponse";
   /**
    * <p>The size, in bytes, that Amazon ECR expects future layer part uploads to be.</p>
    */
@@ -1530,7 +1430,6 @@ export namespace InitiateLayerUploadResponse {
   export const filterSensitiveLog = (obj: InitiateLayerUploadResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateLayerUploadResponse => __isa(o, "InitiateLayerUploadResponse");
 }
 
 /**
@@ -1550,7 +1449,6 @@ export namespace InvalidLayerException {
   export const filterSensitiveLog = (obj: InvalidLayerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLayerException => __isa(o, "InvalidLayerException");
 }
 
 /**
@@ -1591,7 +1489,6 @@ export namespace InvalidLayerPartException {
   export const filterSensitiveLog = (obj: InvalidLayerPartException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLayerPartException => __isa(o, "InvalidLayerPartException");
 }
 
 /**
@@ -1611,7 +1508,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1628,7 +1524,6 @@ export namespace InvalidTagParameterException {
   export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagParameterException => __isa(o, "InvalidTagParameterException");
 }
 
 /**
@@ -1648,14 +1543,12 @@ export namespace KmsException {
   export const filterSensitiveLog = (obj: KmsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KmsException => __isa(o, "KmsException");
 }
 
 /**
  * <p>An object representing an Amazon ECR image layer.</p>
  */
 export interface Layer {
-  __type?: "Layer";
   /**
    * <p>The <code>sha256</code> digest of the image layer.</p>
    */
@@ -1683,7 +1576,6 @@ export namespace Layer {
   export const filterSensitiveLog = (obj: Layer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
 
 /**
@@ -1702,7 +1594,6 @@ export namespace LayerAlreadyExistsException {
   export const filterSensitiveLog = (obj: LayerAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayerAlreadyExistsException => __isa(o, "LayerAlreadyExistsException");
 }
 
 export enum LayerAvailability {
@@ -1714,7 +1605,6 @@ export enum LayerAvailability {
  * <p>An object representing an Amazon ECR image layer failure.</p>
  */
 export interface LayerFailure {
-  __type?: "LayerFailure";
   /**
    * <p>The reason for the failure.</p>
    */
@@ -1735,7 +1625,6 @@ export namespace LayerFailure {
   export const filterSensitiveLog = (obj: LayerFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayerFailure => __isa(o, "LayerFailure");
 }
 
 export enum LayerFailureCode {
@@ -1760,7 +1649,6 @@ export namespace LayerInaccessibleException {
   export const filterSensitiveLog = (obj: LayerInaccessibleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayerInaccessibleException => __isa(o, "LayerInaccessibleException");
 }
 
 /**
@@ -1779,7 +1667,6 @@ export namespace LayerPartTooSmallException {
   export const filterSensitiveLog = (obj: LayerPartTooSmallException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayerPartTooSmallException => __isa(o, "LayerPartTooSmallException");
 }
 
 /**
@@ -1799,7 +1686,6 @@ export namespace LayersNotFoundException {
   export const filterSensitiveLog = (obj: LayersNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayersNotFoundException => __isa(o, "LayersNotFoundException");
 }
 
 /**
@@ -1816,14 +1702,12 @@ export namespace LifecyclePolicyNotFoundException {
   export const filterSensitiveLog = (obj: LifecyclePolicyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyNotFoundException => __isa(o, "LifecyclePolicyNotFoundException");
 }
 
 /**
  * <p>The filter for the lifecycle policy preview.</p>
  */
 export interface LifecyclePolicyPreviewFilter {
-  __type?: "LifecyclePolicyPreviewFilter";
   /**
    * <p>The tag status of the image.</p>
    */
@@ -1834,7 +1718,6 @@ export namespace LifecyclePolicyPreviewFilter {
   export const filterSensitiveLog = (obj: LifecyclePolicyPreviewFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewFilter => __isa(o, "LifecyclePolicyPreviewFilter");
 }
 
 /**
@@ -1851,8 +1734,6 @@ export namespace LifecyclePolicyPreviewInProgressException {
   export const filterSensitiveLog = (obj: LifecyclePolicyPreviewInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewInProgressException =>
-    __isa(o, "LifecyclePolicyPreviewInProgressException");
 }
 
 /**
@@ -1868,15 +1749,12 @@ export namespace LifecyclePolicyPreviewNotFoundException {
   export const filterSensitiveLog = (obj: LifecyclePolicyPreviewNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewNotFoundException =>
-    __isa(o, "LifecyclePolicyPreviewNotFoundException");
 }
 
 /**
  * <p>The result of the lifecycle policy preview.</p>
  */
 export interface LifecyclePolicyPreviewResult {
-  __type?: "LifecyclePolicyPreviewResult";
   /**
    * <p>The type of action to be taken.</p>
    */
@@ -1908,7 +1786,6 @@ export namespace LifecyclePolicyPreviewResult {
   export const filterSensitiveLog = (obj: LifecyclePolicyPreviewResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewResult => __isa(o, "LifecyclePolicyPreviewResult");
 }
 
 export enum LifecyclePolicyPreviewStatus {
@@ -1922,7 +1799,6 @@ export enum LifecyclePolicyPreviewStatus {
  * <p>The summary of the lifecycle policy preview request.</p>
  */
 export interface LifecyclePolicyPreviewSummary {
-  __type?: "LifecyclePolicyPreviewSummary";
   /**
    * <p>The number of expiring images.</p>
    */
@@ -1933,14 +1809,12 @@ export namespace LifecyclePolicyPreviewSummary {
   export const filterSensitiveLog = (obj: LifecyclePolicyPreviewSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyPreviewSummary => __isa(o, "LifecyclePolicyPreviewSummary");
 }
 
 /**
  * <p>The type of action to be taken.</p>
  */
 export interface LifecyclePolicyRuleAction {
-  __type?: "LifecyclePolicyRuleAction";
   /**
    * <p>The type of action to be taken.</p>
    */
@@ -1951,7 +1825,6 @@ export namespace LifecyclePolicyRuleAction {
   export const filterSensitiveLog = (obj: LifecyclePolicyRuleAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicyRuleAction => __isa(o, "LifecyclePolicyRuleAction");
 }
 
 /**
@@ -1972,14 +1845,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>An object representing a filter on a <a>ListImages</a> operation.</p>
  */
 export interface ListImagesFilter {
-  __type?: "ListImagesFilter";
   /**
    * <p>The tag status with which to filter your <a>ListImages</a> results. You can
    *             filter results based on whether they are <code>TAGGED</code> or
@@ -1992,11 +1863,9 @@ export namespace ListImagesFilter {
   export const filterSensitiveLog = (obj: ListImagesFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagesFilter => __isa(o, "ListImagesFilter");
 }
 
 export interface ListImagesRequest {
-  __type?: "ListImagesRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *                 <code>ListImages</code> request where <code>maxResults</code> was used and the
@@ -2044,11 +1913,9 @@ export namespace ListImagesRequest {
   export const filterSensitiveLog = (obj: ListImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagesRequest => __isa(o, "ListImagesRequest");
 }
 
 export interface ListImagesResponse {
-  __type?: "ListImagesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListImages</code>
    *             request. When the results of a <code>ListImages</code> request exceed
@@ -2068,11 +1935,9 @@ export namespace ListImagesResponse {
   export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagesResponse => __isa(o, "ListImagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
    *             only supported resource is an Amazon ECR repository.</p>
@@ -2084,11 +1949,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
    */
@@ -2099,11 +1962,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface PutImageRequest {
-  __type?: "PutImageRequest";
   /**
    * <p>The media type of the image manifest. If you push an image manifest that does not
    *             contain the <code>mediaType</code> field, you must specify the
@@ -2143,11 +2004,9 @@ export namespace PutImageRequest {
   export const filterSensitiveLog = (obj: PutImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageRequest => __isa(o, "PutImageRequest");
 }
 
 export interface PutImageResponse {
-  __type?: "PutImageResponse";
   /**
    * <p>Details of the image uploaded.</p>
    */
@@ -2158,11 +2017,9 @@ export namespace PutImageResponse {
   export const filterSensitiveLog = (obj: PutImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageResponse => __isa(o, "PutImageResponse");
 }
 
 export interface PutImageScanningConfigurationRequest {
-  __type?: "PutImageScanningConfigurationRequest";
   /**
    * <p>The name of the repository in which to update the image scanning configuration
    *             setting.</p>
@@ -2188,12 +2045,9 @@ export namespace PutImageScanningConfigurationRequest {
   export const filterSensitiveLog = (obj: PutImageScanningConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageScanningConfigurationRequest =>
-    __isa(o, "PutImageScanningConfigurationRequest");
 }
 
 export interface PutImageScanningConfigurationResponse {
-  __type?: "PutImageScanningConfigurationResponse";
   /**
    * <p>The image scanning configuration setting for the repository.</p>
    */
@@ -2214,12 +2068,9 @@ export namespace PutImageScanningConfigurationResponse {
   export const filterSensitiveLog = (obj: PutImageScanningConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageScanningConfigurationResponse =>
-    __isa(o, "PutImageScanningConfigurationResponse");
 }
 
 export interface PutImageTagMutabilityRequest {
-  __type?: "PutImageTagMutabilityRequest";
   /**
    * <p>The tag mutability setting for the repository. If <code>MUTABLE</code> is specified,
    *             image tags can be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
@@ -2245,11 +2096,9 @@ export namespace PutImageTagMutabilityRequest {
   export const filterSensitiveLog = (obj: PutImageTagMutabilityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageTagMutabilityRequest => __isa(o, "PutImageTagMutabilityRequest");
 }
 
 export interface PutImageTagMutabilityResponse {
-  __type?: "PutImageTagMutabilityResponse";
   /**
    * <p>The image tag mutability setting for the repository.</p>
    */
@@ -2270,11 +2119,9 @@ export namespace PutImageTagMutabilityResponse {
   export const filterSensitiveLog = (obj: PutImageTagMutabilityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageTagMutabilityResponse => __isa(o, "PutImageTagMutabilityResponse");
 }
 
 export interface PutLifecyclePolicyRequest {
-  __type?: "PutLifecyclePolicyRequest";
   /**
    * <p>The name of the repository to receive the policy.</p>
    */
@@ -2296,11 +2143,9 @@ export namespace PutLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: PutLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecyclePolicyRequest => __isa(o, "PutLifecyclePolicyRequest");
 }
 
 export interface PutLifecyclePolicyResponse {
-  __type?: "PutLifecyclePolicyResponse";
   /**
    * <p>The repository name associated with the request.</p>
    */
@@ -2321,7 +2166,6 @@ export namespace PutLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: PutLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecyclePolicyResponse => __isa(o, "PutLifecyclePolicyResponse");
 }
 
 /**
@@ -2337,14 +2181,12 @@ export namespace ReferencedImagesNotFoundException {
   export const filterSensitiveLog = (obj: ReferencedImagesNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReferencedImagesNotFoundException => __isa(o, "ReferencedImagesNotFoundException");
 }
 
 /**
  * <p>An object representing a repository.</p>
  */
 export interface Repository {
-  __type?: "Repository";
   /**
    * <p>The date and time, in JavaScript date format, when the repository was created.</p>
    */
@@ -2394,7 +2236,6 @@ export namespace Repository {
   export const filterSensitiveLog = (obj: Repository): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
 
 /**
@@ -2413,7 +2254,6 @@ export namespace RepositoryAlreadyExistsException {
   export const filterSensitiveLog = (obj: RepositoryAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryAlreadyExistsException => __isa(o, "RepositoryAlreadyExistsException");
 }
 
 /**
@@ -2433,7 +2273,6 @@ export namespace RepositoryNotEmptyException {
   export const filterSensitiveLog = (obj: RepositoryNotEmptyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNotEmptyException => __isa(o, "RepositoryNotEmptyException");
 }
 
 /**
@@ -2453,7 +2292,6 @@ export namespace RepositoryNotFoundException {
   export const filterSensitiveLog = (obj: RepositoryNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNotFoundException => __isa(o, "RepositoryNotFoundException");
 }
 
 /**
@@ -2473,7 +2311,6 @@ export namespace RepositoryPolicyNotFoundException {
   export const filterSensitiveLog = (obj: RepositoryPolicyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryPolicyNotFoundException => __isa(o, "RepositoryPolicyNotFoundException");
 }
 
 /**
@@ -2490,7 +2327,6 @@ export namespace ScanNotFoundException {
   export const filterSensitiveLog = (obj: ScanNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScanNotFoundException => __isa(o, "ScanNotFoundException");
 }
 
 export enum ScanStatus {
@@ -2515,11 +2351,9 @@ export namespace ServerException {
   export const filterSensitiveLog = (obj: ServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerException => __isa(o, "ServerException");
 }
 
 export interface SetRepositoryPolicyRequest {
-  __type?: "SetRepositoryPolicyRequest";
   /**
    * <p>The JSON repository policy text to apply to the repository. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Amazon ECR Repository
@@ -2550,11 +2384,9 @@ export namespace SetRepositoryPolicyRequest {
   export const filterSensitiveLog = (obj: SetRepositoryPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetRepositoryPolicyRequest => __isa(o, "SetRepositoryPolicyRequest");
 }
 
 export interface SetRepositoryPolicyResponse {
-  __type?: "SetRepositoryPolicyResponse";
   /**
    * <p>The repository name associated with the request.</p>
    */
@@ -2575,11 +2407,9 @@ export namespace SetRepositoryPolicyResponse {
   export const filterSensitiveLog = (obj: SetRepositoryPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetRepositoryPolicyResponse => __isa(o, "SetRepositoryPolicyResponse");
 }
 
 export interface StartImageScanRequest {
-  __type?: "StartImageScanRequest";
   /**
    * <p>An object with identifying information for an Amazon ECR image.</p>
    */
@@ -2601,11 +2431,9 @@ export namespace StartImageScanRequest {
   export const filterSensitiveLog = (obj: StartImageScanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImageScanRequest => __isa(o, "StartImageScanRequest");
 }
 
 export interface StartImageScanResponse {
-  __type?: "StartImageScanResponse";
   /**
    * <p>An object with identifying information for an Amazon ECR image.</p>
    */
@@ -2631,11 +2459,9 @@ export namespace StartImageScanResponse {
   export const filterSensitiveLog = (obj: StartImageScanResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImageScanResponse => __isa(o, "StartImageScanResponse");
 }
 
 export interface StartLifecyclePolicyPreviewRequest {
-  __type?: "StartLifecyclePolicyPreviewRequest";
   /**
    * <p>The AWS account ID associated with the registry that contains the repository.
    *             If you do not specify a registry, the default registry is assumed.</p>
@@ -2658,12 +2484,9 @@ export namespace StartLifecyclePolicyPreviewRequest {
   export const filterSensitiveLog = (obj: StartLifecyclePolicyPreviewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLifecyclePolicyPreviewRequest =>
-    __isa(o, "StartLifecyclePolicyPreviewRequest");
 }
 
 export interface StartLifecyclePolicyPreviewResponse {
-  __type?: "StartLifecyclePolicyPreviewResponse";
   /**
    * <p>The repository name associated with the request.</p>
    */
@@ -2689,8 +2512,6 @@ export namespace StartLifecyclePolicyPreviewResponse {
   export const filterSensitiveLog = (obj: StartLifecyclePolicyPreviewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLifecyclePolicyPreviewResponse =>
-    __isa(o, "StartLifecyclePolicyPreviewResponse");
 }
 
 /**
@@ -2700,7 +2521,6 @@ export namespace StartLifecyclePolicyPreviewResponse {
  *             a maximum length of 256 characters.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label
    *             that acts like a category for more specific tag values.</p>
@@ -2718,11 +2538,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.
    *             Tag keys can have a maximum character length of 128 characters, and tag values can have
@@ -2741,18 +2559,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TagStatus {
@@ -2775,7 +2589,6 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -2791,11 +2604,9 @@ export namespace UnsupportedImageTypeException {
   export const filterSensitiveLog = (obj: UnsupportedImageTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedImageTypeException => __isa(o, "UnsupportedImageTypeException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys of the tags to be removed.</p>
    */
@@ -2812,22 +2623,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UploadLayerPartRequest {
-  __type?: "UploadLayerPartRequest";
   /**
    * <p>The name of the repository to which you are uploading layer parts.</p>
    */
@@ -2865,11 +2671,9 @@ export namespace UploadLayerPartRequest {
   export const filterSensitiveLog = (obj: UploadLayerPartRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadLayerPartRequest => __isa(o, "UploadLayerPartRequest");
 }
 
 export interface UploadLayerPartResponse {
-  __type?: "UploadLayerPartResponse";
   /**
    * <p>The registry ID associated with the request.</p>
    */
@@ -2895,7 +2699,6 @@ export namespace UploadLayerPartResponse {
   export const filterSensitiveLog = (obj: UploadLayerPartResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadLayerPartResponse => __isa(o, "UploadLayerPartResponse");
 }
 
 /**
@@ -2915,5 +2718,4 @@ export namespace UploadNotFoundException {
   export const filterSensitiveLog = (obj: UploadNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadNotFoundException => __isa(o, "UploadNotFoundException");
 }

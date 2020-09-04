@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,14 +15,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * <p>Provides information about a bot alias.</p>
  */
 export interface BotAliasMetadata {
-  __type?: "BotAliasMetadata";
   /**
    * <p>Settings that determine how Amazon Lex uses conversation logs for the alias.</p>
    */
@@ -69,7 +67,6 @@ export namespace BotAliasMetadata {
   export const filterSensitiveLog = (obj: BotAliasMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BotAliasMetadata => __isa(o, "BotAliasMetadata");
 }
 
 /**
@@ -77,7 +74,6 @@ export namespace BotAliasMetadata {
  *       platform.</p>
  */
 export interface BotChannelAssociation {
-  __type?: "BotChannelAssociation";
   /**
    * <p>The status of the bot channel. </p>
    *          <ul>
@@ -152,14 +148,12 @@ export namespace BotChannelAssociation {
     ...obj,
     ...(obj.botConfiguration && { botConfiguration: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BotChannelAssociation => __isa(o, "BotChannelAssociation");
 }
 
 /**
  * <p>Provides information about a bot. .</p>
  */
 export interface BotMetadata {
-  __type?: "BotMetadata";
   /**
    * <p>The date that the bot was updated. When you create a bot, the creation date and last
    *       updated date are the same. </p>
@@ -197,14 +191,12 @@ export namespace BotMetadata {
   export const filterSensitiveLog = (obj: BotMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BotMetadata => __isa(o, "BotMetadata");
 }
 
 /**
  * <p>Provides metadata for a built-in intent.</p>
  */
 export interface BuiltinIntentMetadata {
-  __type?: "BuiltinIntentMetadata";
   /**
    * <p>A list of identifiers for the locales that the intent supports.</p>
    */
@@ -221,14 +213,12 @@ export namespace BuiltinIntentMetadata {
   export const filterSensitiveLog = (obj: BuiltinIntentMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuiltinIntentMetadata => __isa(o, "BuiltinIntentMetadata");
 }
 
 /**
  * <p>Provides information about a slot used in a built-in intent.</p>
  */
 export interface BuiltinIntentSlot {
-  __type?: "BuiltinIntentSlot";
   /**
    * <p>A list of the slots defined for the intent.</p>
    */
@@ -239,14 +229,12 @@ export namespace BuiltinIntentSlot {
   export const filterSensitiveLog = (obj: BuiltinIntentSlot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuiltinIntentSlot => __isa(o, "BuiltinIntentSlot");
 }
 
 /**
  * <p>Provides information about a built in slot type.</p>
  */
 export interface BuiltinSlotTypeMetadata {
-  __type?: "BuiltinSlotTypeMetadata";
   /**
    * <p>A list of target locales for the slot. </p>
    */
@@ -263,7 +251,6 @@ export namespace BuiltinSlotTypeMetadata {
   export const filterSensitiveLog = (obj: BuiltinSlotTypeMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuiltinSlotTypeMetadata => __isa(o, "BuiltinSlotTypeMetadata");
 }
 
 export enum ChannelStatus {
@@ -284,7 +271,6 @@ export enum ChannelType {
  *       request to a bot..</p>
  */
 export interface CodeHook {
-  __type?: "CodeHook";
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
    */
@@ -301,7 +287,6 @@ export namespace CodeHook {
   export const filterSensitiveLog = (obj: CodeHook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeHook => __isa(o, "CodeHook");
 }
 
 /**
@@ -317,7 +302,6 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ContentType {
@@ -330,7 +314,6 @@ export enum ContentType {
  * <p>Provides the settings needed for conversation logs.</p>
  */
 export interface ConversationLogsRequest {
-  __type?: "ConversationLogsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role with permission to write to your CloudWatch
    *       Logs for text logs and your S3 bucket for audio logs. If audio encryption is enabled, this
@@ -351,14 +334,12 @@ export namespace ConversationLogsRequest {
   export const filterSensitiveLog = (obj: ConversationLogsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConversationLogsRequest => __isa(o, "ConversationLogsRequest");
 }
 
 /**
  * <p>Contains information about conversation log settings.</p>
  */
 export interface ConversationLogsResponse {
-  __type?: "ConversationLogsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs
    *       or an S3 bucket.</p>
@@ -375,11 +356,9 @@ export namespace ConversationLogsResponse {
   export const filterSensitiveLog = (obj: ConversationLogsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConversationLogsResponse => __isa(o, "ConversationLogsResponse");
 }
 
 export interface CreateBotVersionRequest {
-  __type?: "CreateBotVersionRequest";
   /**
    * <p>The name of the bot that you want to create a new version of. The name is case
    *       sensitive. </p>
@@ -400,11 +379,9 @@ export namespace CreateBotVersionRequest {
   export const filterSensitiveLog = (obj: CreateBotVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBotVersionRequest => __isa(o, "CreateBotVersionRequest");
 }
 
 export interface CreateBotVersionResponse {
-  __type?: "CreateBotVersionResponse";
   /**
    * <p>The version of the bot. </p>
    */
@@ -518,11 +495,9 @@ export namespace CreateBotVersionResponse {
   export const filterSensitiveLog = (obj: CreateBotVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBotVersionResponse => __isa(o, "CreateBotVersionResponse");
 }
 
 export interface CreateIntentVersionRequest {
-  __type?: "CreateIntentVersionRequest";
   /**
    * <p>Checksum of the <code>$LATEST</code> version of the intent that should be used to
    *       create the new version. If you specify a checksum and the <code>$LATEST</code> version of the
@@ -543,11 +518,9 @@ export namespace CreateIntentVersionRequest {
   export const filterSensitiveLog = (obj: CreateIntentVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIntentVersionRequest => __isa(o, "CreateIntentVersionRequest");
 }
 
 export interface CreateIntentVersionResponse {
-  __type?: "CreateIntentVersionResponse";
   /**
    * <p>Configuration information, if any, for connectin an Amazon Kendra index with the
    *         <code>AMAZON.KendraSearchIntent</code> intent.</p>
@@ -639,11 +612,9 @@ export namespace CreateIntentVersionResponse {
   export const filterSensitiveLog = (obj: CreateIntentVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIntentVersionResponse => __isa(o, "CreateIntentVersionResponse");
 }
 
 export interface CreateSlotTypeVersionRequest {
-  __type?: "CreateSlotTypeVersionRequest";
   /**
    * <p>Checksum for the <code>$LATEST</code> version of the slot type that you want to
    *       publish. If you specify a checksum and the <code>$LATEST</code> version of the slot type has a
@@ -664,11 +635,9 @@ export namespace CreateSlotTypeVersionRequest {
   export const filterSensitiveLog = (obj: CreateSlotTypeVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSlotTypeVersionRequest => __isa(o, "CreateSlotTypeVersionRequest");
 }
 
 export interface CreateSlotTypeVersionResponse {
-  __type?: "CreateSlotTypeVersionResponse";
   /**
    * <p>The strategy that Amazon Lex uses to determine the value of the slot. For more information,
    *       see <a>PutSlotType</a>.</p>
@@ -727,11 +696,9 @@ export namespace CreateSlotTypeVersionResponse {
   export const filterSensitiveLog = (obj: CreateSlotTypeVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSlotTypeVersionResponse => __isa(o, "CreateSlotTypeVersionResponse");
 }
 
 export interface DeleteBotAliasRequest {
-  __type?: "DeleteBotAliasRequest";
   /**
    * <p>The name of the bot that the alias points to.</p>
    */
@@ -747,11 +714,9 @@ export namespace DeleteBotAliasRequest {
   export const filterSensitiveLog = (obj: DeleteBotAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBotAliasRequest => __isa(o, "DeleteBotAliasRequest");
 }
 
 export interface DeleteBotChannelAssociationRequest {
-  __type?: "DeleteBotChannelAssociationRequest";
   /**
    * <p>The name of the Amazon Lex bot.</p>
    */
@@ -773,12 +738,9 @@ export namespace DeleteBotChannelAssociationRequest {
   export const filterSensitiveLog = (obj: DeleteBotChannelAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBotChannelAssociationRequest =>
-    __isa(o, "DeleteBotChannelAssociationRequest");
 }
 
 export interface DeleteBotRequest {
-  __type?: "DeleteBotRequest";
   /**
    * <p>The name of the bot. The name is case sensitive. </p>
    */
@@ -789,11 +751,9 @@ export namespace DeleteBotRequest {
   export const filterSensitiveLog = (obj: DeleteBotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBotRequest => __isa(o, "DeleteBotRequest");
 }
 
 export interface DeleteBotVersionRequest {
-  __type?: "DeleteBotVersionRequest";
   /**
    * <p>The version of the bot to delete. You cannot delete the <code>$LATEST</code> version of
    *       the bot. To delete the <code>$LATEST</code> version, use the <a>DeleteBot</a>
@@ -811,11 +771,9 @@ export namespace DeleteBotVersionRequest {
   export const filterSensitiveLog = (obj: DeleteBotVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBotVersionRequest => __isa(o, "DeleteBotVersionRequest");
 }
 
 export interface DeleteIntentRequest {
-  __type?: "DeleteIntentRequest";
   /**
    * <p>The name of the intent. The name is case sensitive. </p>
    */
@@ -826,11 +784,9 @@ export namespace DeleteIntentRequest {
   export const filterSensitiveLog = (obj: DeleteIntentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIntentRequest => __isa(o, "DeleteIntentRequest");
 }
 
 export interface DeleteIntentVersionRequest {
-  __type?: "DeleteIntentVersionRequest";
   /**
    * <p>The name of the intent.</p>
    */
@@ -847,11 +803,9 @@ export namespace DeleteIntentVersionRequest {
   export const filterSensitiveLog = (obj: DeleteIntentVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIntentVersionRequest => __isa(o, "DeleteIntentVersionRequest");
 }
 
 export interface DeleteSlotTypeRequest {
-  __type?: "DeleteSlotTypeRequest";
   /**
    * <p>The name of the slot type. The name is case sensitive. </p>
    */
@@ -862,11 +816,9 @@ export namespace DeleteSlotTypeRequest {
   export const filterSensitiveLog = (obj: DeleteSlotTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSlotTypeRequest => __isa(o, "DeleteSlotTypeRequest");
 }
 
 export interface DeleteSlotTypeVersionRequest {
-  __type?: "DeleteSlotTypeVersionRequest";
   /**
    * <p>The version of the slot type to delete. You cannot delete the <code>$LATEST</code>
    *       version of the slot type. To delete the <code>$LATEST</code> version, use the <a>DeleteSlotType</a> operation.</p>
@@ -883,11 +835,9 @@ export namespace DeleteSlotTypeVersionRequest {
   export const filterSensitiveLog = (obj: DeleteSlotTypeVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSlotTypeVersionRequest => __isa(o, "DeleteSlotTypeVersionRequest");
 }
 
 export interface DeleteUtterancesRequest {
-  __type?: "DeleteUtterancesRequest";
   /**
    * <p>The name of the bot that stored the utterances.</p>
    */
@@ -905,7 +855,6 @@ export namespace DeleteUtterancesRequest {
   export const filterSensitiveLog = (obj: DeleteUtterancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUtterancesRequest => __isa(o, "DeleteUtterancesRequest");
 }
 
 export enum Destination {
@@ -931,7 +880,6 @@ export enum Destination {
  *          </ul>
  */
 export interface EnumerationValue {
-  __type?: "EnumerationValue";
   /**
    * <p>The value of the slot type.</p>
    */
@@ -947,7 +895,6 @@ export namespace EnumerationValue {
   export const filterSensitiveLog = (obj: EnumerationValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnumerationValue => __isa(o, "EnumerationValue");
 }
 
 export enum ExportStatus {
@@ -967,7 +914,6 @@ export enum ExportType {
  *       the user wants to order drinks.</p>
  */
 export interface FollowUpPrompt {
-  __type?: "FollowUpPrompt";
   /**
    * <p>If the user answers "no" to the question defined in the <code>prompt</code> field,
    *       Amazon Lex responds with this statement to acknowledge that the intent was canceled. </p>
@@ -984,7 +930,6 @@ export namespace FollowUpPrompt {
   export const filterSensitiveLog = (obj: FollowUpPrompt): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FollowUpPrompt => __isa(o, "FollowUpPrompt");
 }
 
 /**
@@ -1010,7 +955,6 @@ export namespace FollowUpPrompt {
  *          </ul>
  */
 export interface FulfillmentActivity {
-  __type?: "FulfillmentActivity";
   /**
    * <p> How the intent should be fulfilled, either by running a Lambda function or by
    *       returning the slot data to the client application. </p>
@@ -1027,7 +971,6 @@ export namespace FulfillmentActivity {
   export const filterSensitiveLog = (obj: FulfillmentActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FulfillmentActivity => __isa(o, "FulfillmentActivity");
 }
 
 export enum FulfillmentActivityType {
@@ -1036,7 +979,6 @@ export enum FulfillmentActivityType {
 }
 
 export interface GetBotAliasesRequest {
-  __type?: "GetBotAliasesRequest";
   /**
    * <p>A pagination token for fetching the next page of aliases. If the response to this call
    *       is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
@@ -1066,11 +1008,9 @@ export namespace GetBotAliasesRequest {
   export const filterSensitiveLog = (obj: GetBotAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotAliasesRequest => __isa(o, "GetBotAliasesRequest");
 }
 
 export interface GetBotAliasesResponse {
-  __type?: "GetBotAliasesResponse";
   /**
    * <p>An array of <code>BotAliasMetadata</code> objects, each describing a bot
    *       alias.</p>
@@ -1089,11 +1029,9 @@ export namespace GetBotAliasesResponse {
   export const filterSensitiveLog = (obj: GetBotAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotAliasesResponse => __isa(o, "GetBotAliasesResponse");
 }
 
 export interface GetBotAliasRequest {
-  __type?: "GetBotAliasRequest";
   /**
    * <p>The name of the bot.</p>
    */
@@ -1109,11 +1047,9 @@ export namespace GetBotAliasRequest {
   export const filterSensitiveLog = (obj: GetBotAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotAliasRequest => __isa(o, "GetBotAliasRequest");
 }
 
 export interface GetBotAliasResponse {
-  __type?: "GetBotAliasResponse";
   /**
    * <p>A description of the bot alias.</p>
    */
@@ -1160,11 +1096,9 @@ export namespace GetBotAliasResponse {
   export const filterSensitiveLog = (obj: GetBotAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotAliasResponse => __isa(o, "GetBotAliasResponse");
 }
 
 export interface GetBotChannelAssociationRequest {
-  __type?: "GetBotChannelAssociationRequest";
   /**
    * <p>The name of the association between the bot and the channel. The name is case
    *       sensitive. </p>
@@ -1187,11 +1121,9 @@ export namespace GetBotChannelAssociationRequest {
   export const filterSensitiveLog = (obj: GetBotChannelAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotChannelAssociationRequest => __isa(o, "GetBotChannelAssociationRequest");
 }
 
 export interface GetBotChannelAssociationResponse {
-  __type?: "GetBotChannelAssociationResponse";
   /**
    * <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is
    *       being made.</p>
@@ -1261,11 +1193,9 @@ export namespace GetBotChannelAssociationResponse {
     ...obj,
     ...(obj.botConfiguration && { botConfiguration: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetBotChannelAssociationResponse => __isa(o, "GetBotChannelAssociationResponse");
 }
 
 export interface GetBotChannelAssociationsRequest {
-  __type?: "GetBotChannelAssociationsRequest";
   /**
    * <p>Substring to match in channel association names. An association will be returned if any
    *       part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
@@ -1303,11 +1233,9 @@ export namespace GetBotChannelAssociationsRequest {
   export const filterSensitiveLog = (obj: GetBotChannelAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotChannelAssociationsRequest => __isa(o, "GetBotChannelAssociationsRequest");
 }
 
 export interface GetBotChannelAssociationsResponse {
-  __type?: "GetBotChannelAssociationsResponse";
   /**
    * <p>An array of objects, one for each association, that provides information about the
    *       Amazon Lex bot and its association with the channel. </p>
@@ -1329,11 +1257,9 @@ export namespace GetBotChannelAssociationsResponse {
       botChannelAssociations: obj.botChannelAssociations.map((item) => BotChannelAssociation.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is GetBotChannelAssociationsResponse => __isa(o, "GetBotChannelAssociationsResponse");
 }
 
 export interface GetBotRequest {
-  __type?: "GetBotRequest";
   /**
    * <p>The version or alias of the bot.</p>
    */
@@ -1349,11 +1275,9 @@ export namespace GetBotRequest {
   export const filterSensitiveLog = (obj: GetBotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotRequest => __isa(o, "GetBotRequest");
 }
 
 export interface GetBotResponse {
-  __type?: "GetBotResponse";
   /**
    * <p>The message that Amazon Lex returns when the user elects to end the conversation without
    *       completing it. For more information, see <a>PutBot</a>.</p>
@@ -1475,11 +1399,9 @@ export namespace GetBotResponse {
   export const filterSensitiveLog = (obj: GetBotResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotResponse => __isa(o, "GetBotResponse");
 }
 
 export interface GetBotsRequest {
-  __type?: "GetBotsRequest";
   /**
    * <p>A pagination token that fetches the next page of bots. If the response to this call is
    *       truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots,
@@ -1504,11 +1426,9 @@ export namespace GetBotsRequest {
   export const filterSensitiveLog = (obj: GetBotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotsRequest => __isa(o, "GetBotsRequest");
 }
 
 export interface GetBotsResponse {
-  __type?: "GetBotsResponse";
   /**
    * <p>If the response is truncated, it includes a pagination token that you can specify in
    *       your next request to fetch the next page of bots. </p>
@@ -1525,11 +1445,9 @@ export namespace GetBotsResponse {
   export const filterSensitiveLog = (obj: GetBotsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotsResponse => __isa(o, "GetBotsResponse");
 }
 
 export interface GetBotVersionsRequest {
-  __type?: "GetBotVersionsRequest";
   /**
    * <p>A pagination token for fetching the next page of bot versions. If the response to this
    *       call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
@@ -1553,11 +1471,9 @@ export namespace GetBotVersionsRequest {
   export const filterSensitiveLog = (obj: GetBotVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotVersionsRequest => __isa(o, "GetBotVersionsRequest");
 }
 
 export interface GetBotVersionsResponse {
-  __type?: "GetBotVersionsResponse";
   /**
    * <p>An array of <code>BotMetadata</code> objects, one for each numbered version of the bot
    *       plus one for the <code>$LATEST</code> version.</p>
@@ -1576,11 +1492,9 @@ export namespace GetBotVersionsResponse {
   export const filterSensitiveLog = (obj: GetBotVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotVersionsResponse => __isa(o, "GetBotVersionsResponse");
 }
 
 export interface GetBuiltinIntentRequest {
-  __type?: "GetBuiltinIntentRequest";
   /**
    * <p>The unique identifier for a built-in intent. To find the signature for an intent, see
    *         <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>
@@ -1592,11 +1506,9 @@ export namespace GetBuiltinIntentRequest {
   export const filterSensitiveLog = (obj: GetBuiltinIntentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBuiltinIntentRequest => __isa(o, "GetBuiltinIntentRequest");
 }
 
 export interface GetBuiltinIntentResponse {
-  __type?: "GetBuiltinIntentResponse";
   /**
    * <p>An array of <code>BuiltinIntentSlot</code> objects, one entry for each slot type in the
    *       intent.</p>
@@ -1618,11 +1530,9 @@ export namespace GetBuiltinIntentResponse {
   export const filterSensitiveLog = (obj: GetBuiltinIntentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBuiltinIntentResponse => __isa(o, "GetBuiltinIntentResponse");
 }
 
 export interface GetBuiltinIntentsRequest {
-  __type?: "GetBuiltinIntentsRequest";
   /**
    * <p>A pagination token that fetches the next page of intents. If this API call is
    *       truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
@@ -1652,11 +1562,9 @@ export namespace GetBuiltinIntentsRequest {
   export const filterSensitiveLog = (obj: GetBuiltinIntentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBuiltinIntentsRequest => __isa(o, "GetBuiltinIntentsRequest");
 }
 
 export interface GetBuiltinIntentsResponse {
-  __type?: "GetBuiltinIntentsResponse";
   /**
    * <p>An array of <code>builtinIntentMetadata</code> objects, one for each intent in the
    *       response.</p>
@@ -1675,11 +1583,9 @@ export namespace GetBuiltinIntentsResponse {
   export const filterSensitiveLog = (obj: GetBuiltinIntentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBuiltinIntentsResponse => __isa(o, "GetBuiltinIntentsResponse");
 }
 
 export interface GetBuiltinSlotTypesRequest {
-  __type?: "GetBuiltinSlotTypesRequest";
   /**
    * <p>A list of locales that the slot type supports.</p>
    */
@@ -1710,11 +1616,9 @@ export namespace GetBuiltinSlotTypesRequest {
   export const filterSensitiveLog = (obj: GetBuiltinSlotTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBuiltinSlotTypesRequest => __isa(o, "GetBuiltinSlotTypesRequest");
 }
 
 export interface GetBuiltinSlotTypesResponse {
-  __type?: "GetBuiltinSlotTypesResponse";
   /**
    * <p>An array of <code>BuiltInSlotTypeMetadata</code> objects, one entry for each slot type
    *       returned.</p>
@@ -1732,11 +1636,9 @@ export namespace GetBuiltinSlotTypesResponse {
   export const filterSensitiveLog = (obj: GetBuiltinSlotTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBuiltinSlotTypesResponse => __isa(o, "GetBuiltinSlotTypesResponse");
 }
 
 export interface GetExportRequest {
-  __type?: "GetExportRequest";
   /**
    * <p>The format of the exported data.</p>
    */
@@ -1762,11 +1664,9 @@ export namespace GetExportRequest {
   export const filterSensitiveLog = (obj: GetExportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportRequest => __isa(o, "GetExportRequest");
 }
 
 export interface GetExportResponse {
-  __type?: "GetExportResponse";
   /**
    * <p>The name of the bot being exported.</p>
    */
@@ -1824,11 +1724,9 @@ export namespace GetExportResponse {
   export const filterSensitiveLog = (obj: GetExportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportResponse => __isa(o, "GetExportResponse");
 }
 
 export interface GetImportRequest {
-  __type?: "GetImportRequest";
   /**
    * <p>The identifier of the import job information to return.</p>
    */
@@ -1839,11 +1737,9 @@ export namespace GetImportRequest {
   export const filterSensitiveLog = (obj: GetImportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImportRequest => __isa(o, "GetImportRequest");
 }
 
 export interface GetImportResponse {
-  __type?: "GetImportResponse";
   /**
    * <p>The name given to the import job.</p>
    */
@@ -1886,11 +1782,9 @@ export namespace GetImportResponse {
   export const filterSensitiveLog = (obj: GetImportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImportResponse => __isa(o, "GetImportResponse");
 }
 
 export interface GetIntentRequest {
-  __type?: "GetIntentRequest";
   /**
    * <p>The name of the intent. The name is case sensitive. </p>
    */
@@ -1906,11 +1800,9 @@ export namespace GetIntentRequest {
   export const filterSensitiveLog = (obj: GetIntentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntentRequest => __isa(o, "GetIntentRequest");
 }
 
 export interface GetIntentResponse {
-  __type?: "GetIntentResponse";
   /**
    * <p>A description of the intent.</p>
    */
@@ -2003,11 +1895,9 @@ export namespace GetIntentResponse {
   export const filterSensitiveLog = (obj: GetIntentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntentResponse => __isa(o, "GetIntentResponse");
 }
 
 export interface GetIntentsRequest {
-  __type?: "GetIntentsRequest";
   /**
    * <p>A pagination token that fetches the next page of intents. If the response to this API
    *       call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of
@@ -2031,11 +1921,9 @@ export namespace GetIntentsRequest {
   export const filterSensitiveLog = (obj: GetIntentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntentsRequest => __isa(o, "GetIntentsRequest");
 }
 
 export interface GetIntentsResponse {
-  __type?: "GetIntentsResponse";
   /**
    * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
    */
@@ -2052,11 +1940,9 @@ export namespace GetIntentsResponse {
   export const filterSensitiveLog = (obj: GetIntentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntentsResponse => __isa(o, "GetIntentsResponse");
 }
 
 export interface GetIntentVersionsRequest {
-  __type?: "GetIntentVersionsRequest";
   /**
    * <p>The name of the intent for which versions should be returned.</p>
    */
@@ -2080,11 +1966,9 @@ export namespace GetIntentVersionsRequest {
   export const filterSensitiveLog = (obj: GetIntentVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntentVersionsRequest => __isa(o, "GetIntentVersionsRequest");
 }
 
 export interface GetIntentVersionsResponse {
-  __type?: "GetIntentVersionsResponse";
   /**
    * <p>A pagination token for fetching the next page of intent versions. If the response to
    *       this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next
@@ -2103,11 +1987,9 @@ export namespace GetIntentVersionsResponse {
   export const filterSensitiveLog = (obj: GetIntentVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntentVersionsResponse => __isa(o, "GetIntentVersionsResponse");
 }
 
 export interface GetSlotTypeRequest {
-  __type?: "GetSlotTypeRequest";
   /**
    * <p>The name of the slot type. The name is case sensitive. </p>
    */
@@ -2123,11 +2005,9 @@ export namespace GetSlotTypeRequest {
   export const filterSensitiveLog = (obj: GetSlotTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSlotTypeRequest => __isa(o, "GetSlotTypeRequest");
 }
 
 export interface GetSlotTypeResponse {
-  __type?: "GetSlotTypeResponse";
   /**
    * <p>The date that the slot type was updated. When you create a resource, the creation date
    *       and last update date are the same.</p>
@@ -2186,11 +2066,9 @@ export namespace GetSlotTypeResponse {
   export const filterSensitiveLog = (obj: GetSlotTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSlotTypeResponse => __isa(o, "GetSlotTypeResponse");
 }
 
 export interface GetSlotTypesRequest {
-  __type?: "GetSlotTypesRequest";
   /**
    * <p>A pagination token that fetches the next page of slot types. If the response to this
    *       API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of
@@ -2215,11 +2093,9 @@ export namespace GetSlotTypesRequest {
   export const filterSensitiveLog = (obj: GetSlotTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSlotTypesRequest => __isa(o, "GetSlotTypesRequest");
 }
 
 export interface GetSlotTypesResponse {
-  __type?: "GetSlotTypesResponse";
   /**
    * <p>An array of objects, one for each slot type, that provides information such as the name
    *       of the slot type, the version, and a description.</p>
@@ -2237,11 +2113,9 @@ export namespace GetSlotTypesResponse {
   export const filterSensitiveLog = (obj: GetSlotTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSlotTypesResponse => __isa(o, "GetSlotTypesResponse");
 }
 
 export interface GetSlotTypeVersionsRequest {
-  __type?: "GetSlotTypeVersionsRequest";
   /**
    * <p>The maximum number of slot type versions to return in the response. The default is
    *       10.</p>
@@ -2265,11 +2139,9 @@ export namespace GetSlotTypeVersionsRequest {
   export const filterSensitiveLog = (obj: GetSlotTypeVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSlotTypeVersionsRequest => __isa(o, "GetSlotTypeVersionsRequest");
 }
 
 export interface GetSlotTypeVersionsResponse {
-  __type?: "GetSlotTypeVersionsResponse";
   /**
    * <p>An array of <code>SlotTypeMetadata</code> objects, one for each numbered version of the
    *       slot type plus one for the <code>$LATEST</code> version.</p>
@@ -2288,11 +2160,9 @@ export namespace GetSlotTypeVersionsResponse {
   export const filterSensitiveLog = (obj: GetSlotTypeVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSlotTypeVersionsResponse => __isa(o, "GetSlotTypeVersionsResponse");
 }
 
 export interface GetUtterancesViewRequest {
-  __type?: "GetUtterancesViewRequest";
   /**
    * <p>To return utterances that were recognized and handled, use <code>Detected</code>. To
    *       return utterances that were not recognized, use <code>Missed</code>.</p>
@@ -2315,11 +2185,9 @@ export namespace GetUtterancesViewRequest {
   export const filterSensitiveLog = (obj: GetUtterancesViewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUtterancesViewRequest => __isa(o, "GetUtterancesViewRequest");
 }
 
 export interface GetUtterancesViewResponse {
-  __type?: "GetUtterancesViewResponse";
   /**
    * <p>An array of <a>UtteranceList</a> objects, each containing a list of <a>UtteranceData</a> objects describing the utterances that were processed by your bot.
    *       The response contains a maximum of 100 <code>UtteranceData</code> objects for each version.
@@ -2337,7 +2205,6 @@ export namespace GetUtterancesViewResponse {
   export const filterSensitiveLog = (obj: GetUtterancesViewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUtterancesViewResponse => __isa(o, "GetUtterancesViewResponse");
 }
 
 export enum ImportStatus {
@@ -2350,7 +2217,6 @@ export enum ImportStatus {
  * <p>Identifies the specific version of an intent.</p>
  */
 export interface Intent {
-  __type?: "Intent";
   /**
    * <p>The version of the intent.</p>
    */
@@ -2366,14 +2232,12 @@ export namespace Intent {
   export const filterSensitiveLog = (obj: Intent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Intent => __isa(o, "Intent");
 }
 
 /**
  * <p>Provides information about an intent.</p>
  */
 export interface IntentMetadata {
-  __type?: "IntentMetadata";
   /**
    * <p>The date that the intent was created.</p>
    */
@@ -2405,7 +2269,6 @@ export namespace IntentMetadata {
   export const filterSensitiveLog = (obj: IntentMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IntentMetadata => __isa(o, "IntentMetadata");
 }
 
 /**
@@ -2421,7 +2284,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -2431,7 +2293,6 @@ export namespace InternalFailureException {
  *         AMAZON.KendraSearchIntent</a>.</p>
  */
 export interface KendraConfiguration {
-  __type?: "KendraConfiguration";
   /**
    * <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query.
    *       The filter is in the format defined by Amazon Kendra. For more information, see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering queries</a>.</p>
@@ -2460,7 +2321,6 @@ export namespace KendraConfiguration {
   export const filterSensitiveLog = (obj: KendraConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KendraConfiguration => __isa(o, "KendraConfiguration");
 }
 
 /**
@@ -2477,11 +2337,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get a list of tags for.</p>
    */
@@ -2492,11 +2350,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with a resource.</p>
    */
@@ -2507,7 +2363,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum Locale {
@@ -2520,7 +2375,6 @@ export enum Locale {
  * <p>Settings used to configure delivery mode and destination for conversation logs.</p>
  */
 export interface LogSettingsRequest {
-  __type?: "LogSettingsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the
    *       logs should be delivered.</p>
@@ -2551,14 +2405,12 @@ export namespace LogSettingsRequest {
   export const filterSensitiveLog = (obj: LogSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogSettingsRequest => __isa(o, "LogSettingsRequest");
 }
 
 /**
  * <p>The settings for conversation logs.</p>
  */
 export interface LogSettingsResponse {
-  __type?: "LogSettingsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3
    *       bucket.</p>
@@ -2593,7 +2445,6 @@ export namespace LogSettingsResponse {
   export const filterSensitiveLog = (obj: LogSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogSettingsResponse => __isa(o, "LogSettingsResponse");
 }
 
 export enum LogType {
@@ -2610,7 +2461,6 @@ export enum MergeStrategy {
  * <p>The message object that provides the message text and its type.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>The text of the message.</p>
    */
@@ -2632,7 +2482,6 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
@@ -2649,7 +2498,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum ObfuscationSetting {
@@ -2671,7 +2519,6 @@ export namespace PreconditionFailedException {
   export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreconditionFailedException => __isa(o, "PreconditionFailedException");
 }
 
 export enum ProcessBehavior {
@@ -2686,7 +2533,6 @@ export enum ProcessBehavior {
  *       see <a>how-it-works</a>.</p>
  */
 export interface Prompt {
-  __type?: "Prompt";
   /**
    * <p>A response card. Amazon Lex uses this prompt at runtime, in the <code>PostText</code> API
    *       response. It substitutes session attributes and slot values for placeholders in the response
@@ -2711,11 +2557,9 @@ export namespace Prompt {
   export const filterSensitiveLog = (obj: Prompt): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Prompt => __isa(o, "Prompt");
 }
 
 export interface PutBotAliasRequest {
-  __type?: "PutBotAliasRequest";
   /**
    * <p>The name of the bot.</p>
    */
@@ -2764,11 +2608,9 @@ export namespace PutBotAliasRequest {
   export const filterSensitiveLog = (obj: PutBotAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBotAliasRequest => __isa(o, "PutBotAliasRequest");
 }
 
 export interface PutBotAliasResponse {
-  __type?: "PutBotAliasResponse";
   /**
    * <p>A description of the alias.</p>
    */
@@ -2820,11 +2662,9 @@ export namespace PutBotAliasResponse {
   export const filterSensitiveLog = (obj: PutBotAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBotAliasResponse => __isa(o, "PutBotAliasResponse");
 }
 
 export interface PutBotRequest {
-  __type?: "PutBotRequest";
   /**
    * <p>The maximum time in seconds that Amazon Lex retains the data gathered in a
    *       conversation.</p>
@@ -2997,11 +2837,9 @@ export namespace PutBotRequest {
   export const filterSensitiveLog = (obj: PutBotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBotRequest => __isa(o, "PutBotRequest");
 }
 
 export interface PutBotResponse {
-  __type?: "PutBotResponse";
   /**
    * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. For more
    *       information, see <a>PutBot</a>.</p>
@@ -3139,11 +2977,9 @@ export namespace PutBotResponse {
   export const filterSensitiveLog = (obj: PutBotResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBotResponse => __isa(o, "PutBotResponse");
 }
 
 export interface PutIntentRequest {
-  __type?: "PutIntentRequest";
   /**
    * <p>Identifies a specific revision of the <code>$LATEST</code> version.</p>
    *          <p>When you create a new intent, leave the <code>checksum</code> field blank. If you
@@ -3298,11 +3134,9 @@ export namespace PutIntentRequest {
   export const filterSensitiveLog = (obj: PutIntentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutIntentRequest => __isa(o, "PutIntentRequest");
 }
 
 export interface PutIntentResponse {
-  __type?: "PutIntentResponse";
   /**
    * <p>After the Lambda function specified in the<code>fulfillmentActivity</code>intent
    *       fulfills the intent, Amazon Lex conveys this statement to the user.</p>
@@ -3405,11 +3239,9 @@ export namespace PutIntentResponse {
   export const filterSensitiveLog = (obj: PutIntentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutIntentResponse => __isa(o, "PutIntentResponse");
 }
 
 export interface PutSlotTypeRequest {
-  __type?: "PutSlotTypeRequest";
   /**
    * <p>When set to <code>true</code> a new numbered version of the slot type is created. This
    *       is the same as calling the <code>CreateSlotTypeVersion</code> operation. If you do not specify
@@ -3495,11 +3327,9 @@ export namespace PutSlotTypeRequest {
   export const filterSensitiveLog = (obj: PutSlotTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSlotTypeRequest => __isa(o, "PutSlotTypeRequest");
 }
 
 export interface PutSlotTypeResponse {
-  __type?: "PutSlotTypeResponse";
   /**
    * <p>Configuration information that extends the parent built-in slot type.</p>
    */
@@ -3567,7 +3397,6 @@ export namespace PutSlotTypeResponse {
   export const filterSensitiveLog = (obj: PutSlotTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSlotTypeResponse => __isa(o, "PutSlotTypeResponse");
 }
 
 export enum ReferenceType {
@@ -3608,7 +3437,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3617,7 +3445,6 @@ export namespace ResourceInUseException {
  *     </p>
  */
 export interface ResourceReference {
-  __type?: "ResourceReference";
   /**
    * <p>The name of the resource that is using the resource that you are trying to
    *       delete.</p>
@@ -3635,7 +3462,6 @@ export namespace ResourceReference {
   export const filterSensitiveLog = (obj: ResourceReference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceReference => __isa(o, "ResourceReference");
 }
 
 export enum ResourceType {
@@ -3648,7 +3474,6 @@ export enum ResourceType {
  * <p>Identifies the version of a specific slot.</p>
  */
 export interface Slot {
-  __type?: "Slot";
   /**
    * <p>A description of the slot.</p>
    */
@@ -3716,7 +3541,6 @@ export namespace Slot {
   export const filterSensitiveLog = (obj: Slot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Slot => __isa(o, "Slot");
 }
 
 export enum SlotConstraint {
@@ -3728,7 +3552,6 @@ export enum SlotConstraint {
  * <p>Provides configuration information for a slot type.</p>
  */
 export interface SlotTypeConfiguration {
-  __type?: "SlotTypeConfiguration";
   /**
    * <p>A regular expression used to validate the value of a slot.</p>
    */
@@ -3739,14 +3562,12 @@ export namespace SlotTypeConfiguration {
   export const filterSensitiveLog = (obj: SlotTypeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SlotTypeConfiguration => __isa(o, "SlotTypeConfiguration");
 }
 
 /**
  * <p>Provides information about a slot type..</p>
  */
 export interface SlotTypeMetadata {
-  __type?: "SlotTypeMetadata";
   /**
    * <p>The date that the slot type was created.</p>
    */
@@ -3778,14 +3599,12 @@ export namespace SlotTypeMetadata {
   export const filterSensitiveLog = (obj: SlotTypeMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SlotTypeMetadata => __isa(o, "SlotTypeMetadata");
 }
 
 /**
  * <p>Provides a regular expression used to validate the value of a slot.</p>
  */
 export interface SlotTypeRegexConfiguration {
-  __type?: "SlotTypeRegexConfiguration";
   /**
    * <p>A regular expression used to validate the value of a slot. </p>
    *          <p>Use a standard regular expression. Amazon Lex supports the following characters in the regular
@@ -3820,7 +3639,6 @@ export namespace SlotTypeRegexConfiguration {
   export const filterSensitiveLog = (obj: SlotTypeRegexConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SlotTypeRegexConfiguration => __isa(o, "SlotTypeRegexConfiguration");
 }
 
 export enum SlotValueSelectionStrategy {
@@ -3829,7 +3647,6 @@ export enum SlotValueSelectionStrategy {
 }
 
 export interface StartImportRequest {
-  __type?: "StartImportRequest";
   /**
    * <p>A list of tags to add to the imported bot. You can only add tags when you import a bot,
    *       you can't add tags to an intent or slot type.</p>
@@ -3879,11 +3696,9 @@ export namespace StartImportRequest {
   export const filterSensitiveLog = (obj: StartImportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImportRequest => __isa(o, "StartImportRequest");
 }
 
 export interface StartImportResponse {
-  __type?: "StartImportResponse";
   /**
    * <p>The identifier for the specific import job.</p>
    */
@@ -3925,7 +3740,6 @@ export namespace StartImportResponse {
   export const filterSensitiveLog = (obj: StartImportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImportResponse => __isa(o, "StartImportResponse");
 }
 
 /**
@@ -3933,7 +3747,6 @@ export namespace StartImportResponse {
  *       the message to convey. </p>
  */
 export interface Statement {
-  __type?: "Statement";
   /**
    * <p>A collection of message objects.</p>
    */
@@ -3951,7 +3764,6 @@ export namespace Statement {
   export const filterSensitiveLog = (obj: Statement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Statement => __isa(o, "Statement");
 }
 
 export enum Status {
@@ -3973,7 +3785,6 @@ export enum StatusType {
  *       _ . : / = + - @. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value associated with a key. The value may be an empty string but it can't be
    *       null.</p>
@@ -3990,11 +3801,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>A list of tag keys to add to the resource. If a tag key already exists, the existing value
    *       is replaced with the new value.</p>
@@ -4011,22 +3820,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove the tags from.</p>
    */
@@ -4043,25 +3847,20 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>Provides information about a single utterance that was made to your bot. </p>
  */
 export interface UtteranceData {
-  __type?: "UtteranceData";
   /**
    * <p>The text that was entered by the user or the text representation of an audio
    *       clip.</p>
@@ -4093,7 +3892,6 @@ export namespace UtteranceData {
   export const filterSensitiveLog = (obj: UtteranceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UtteranceData => __isa(o, "UtteranceData");
 }
 
 /**
@@ -4101,7 +3899,6 @@ export namespace UtteranceData {
  *       The list contains a maximum of 100 utterances.</p>
  */
 export interface UtteranceList {
-  __type?: "UtteranceList";
   /**
    * <p>One or more <a>UtteranceData</a> objects that contain information about the
    *       utterances that have been made to a bot. The maximum number of object is 100.</p>
@@ -4118,5 +3915,4 @@ export namespace UtteranceList {
   export const filterSensitiveLog = (obj: UtteranceList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UtteranceList => __isa(o, "UtteranceList");
 }

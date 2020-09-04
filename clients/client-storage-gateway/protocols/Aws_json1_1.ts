@@ -1423,7 +1423,6 @@ export const deserializeAws_json1_1ActivateGatewayCommand = async (
   contents = deserializeAws_json1_1ActivateGatewayOutput(data, context);
   const response: ActivateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivateGatewayOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1487,7 +1486,6 @@ export const deserializeAws_json1_1AddCacheCommand = async (
   contents = deserializeAws_json1_1AddCacheOutput(data, context);
   const response: AddCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddCacheOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1551,7 +1549,6 @@ export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   contents = deserializeAws_json1_1AddTagsToResourceOutput(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddTagsToResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1615,7 +1612,6 @@ export const deserializeAws_json1_1AddUploadBufferCommand = async (
   contents = deserializeAws_json1_1AddUploadBufferOutput(data, context);
   const response: AddUploadBufferCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddUploadBufferOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1679,7 +1675,6 @@ export const deserializeAws_json1_1AddWorkingStorageCommand = async (
   contents = deserializeAws_json1_1AddWorkingStorageOutput(data, context);
   const response: AddWorkingStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddWorkingStorageOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1743,7 +1738,6 @@ export const deserializeAws_json1_1AssignTapePoolCommand = async (
   contents = deserializeAws_json1_1AssignTapePoolOutput(data, context);
   const response: AssignTapePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssignTapePoolOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1807,7 +1801,6 @@ export const deserializeAws_json1_1AttachVolumeCommand = async (
   contents = deserializeAws_json1_1AttachVolumeOutput(data, context);
   const response: AttachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachVolumeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1871,7 +1864,6 @@ export const deserializeAws_json1_1CancelArchivalCommand = async (
   contents = deserializeAws_json1_1CancelArchivalOutput(data, context);
   const response: CancelArchivalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelArchivalOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1935,7 +1927,6 @@ export const deserializeAws_json1_1CancelRetrievalCommand = async (
   contents = deserializeAws_json1_1CancelRetrievalOutput(data, context);
   const response: CancelRetrievalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelRetrievalOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1999,7 +1990,6 @@ export const deserializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
   contents = deserializeAws_json1_1CreateCachediSCSIVolumeOutput(data, context);
   const response: CreateCachediSCSIVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCachediSCSIVolumeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2063,7 +2053,6 @@ export const deserializeAws_json1_1CreateNFSFileShareCommand = async (
   contents = deserializeAws_json1_1CreateNFSFileShareOutput(data, context);
   const response: CreateNFSFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNFSFileShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2127,7 +2116,6 @@ export const deserializeAws_json1_1CreateSMBFileShareCommand = async (
   contents = deserializeAws_json1_1CreateSMBFileShareOutput(data, context);
   const response: CreateSMBFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSMBFileShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2191,7 +2179,6 @@ export const deserializeAws_json1_1CreateSnapshotCommand = async (
   contents = deserializeAws_json1_1CreateSnapshotOutput(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSnapshotOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2263,7 +2250,6 @@ export const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand 
   contents = deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput(data, context);
   const response: CreateSnapshotFromVolumeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSnapshotFromVolumeRecoveryPointOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2335,7 +2321,6 @@ export const deserializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
   contents = deserializeAws_json1_1CreateStorediSCSIVolumeOutput(data, context);
   const response: CreateStorediSCSIVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStorediSCSIVolumeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2399,7 +2384,6 @@ export const deserializeAws_json1_1CreateTapesCommand = async (
   contents = deserializeAws_json1_1CreateTapesOutput(data, context);
   const response: CreateTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTapesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2463,7 +2447,6 @@ export const deserializeAws_json1_1CreateTapeWithBarcodeCommand = async (
   contents = deserializeAws_json1_1CreateTapeWithBarcodeOutput(data, context);
   const response: CreateTapeWithBarcodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTapeWithBarcodeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2527,7 +2510,6 @@ export const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = as
   contents = deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput(data, context);
   const response: DeleteAutomaticTapeCreationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAutomaticTapeCreationPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2591,7 +2573,6 @@ export const deserializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
   contents = deserializeAws_json1_1DeleteBandwidthRateLimitOutput(data, context);
   const response: DeleteBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBandwidthRateLimitOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2655,7 +2636,6 @@ export const deserializeAws_json1_1DeleteChapCredentialsCommand = async (
   contents = deserializeAws_json1_1DeleteChapCredentialsOutput(data, context);
   const response: DeleteChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteChapCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2719,7 +2699,6 @@ export const deserializeAws_json1_1DeleteFileShareCommand = async (
   contents = deserializeAws_json1_1DeleteFileShareOutput(data, context);
   const response: DeleteFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFileShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2783,7 +2762,6 @@ export const deserializeAws_json1_1DeleteGatewayCommand = async (
   contents = deserializeAws_json1_1DeleteGatewayOutput(data, context);
   const response: DeleteGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGatewayOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2847,7 +2825,6 @@ export const deserializeAws_json1_1DeleteSnapshotScheduleCommand = async (
   contents = deserializeAws_json1_1DeleteSnapshotScheduleOutput(data, context);
   const response: DeleteSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSnapshotScheduleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2911,7 +2888,6 @@ export const deserializeAws_json1_1DeleteTapeCommand = async (
   contents = deserializeAws_json1_1DeleteTapeOutput(data, context);
   const response: DeleteTapeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTapeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2975,7 +2951,6 @@ export const deserializeAws_json1_1DeleteTapeArchiveCommand = async (
   contents = deserializeAws_json1_1DeleteTapeArchiveOutput(data, context);
   const response: DeleteTapeArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTapeArchiveOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3039,7 +3014,6 @@ export const deserializeAws_json1_1DeleteVolumeCommand = async (
   contents = deserializeAws_json1_1DeleteVolumeOutput(data, context);
   const response: DeleteVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVolumeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3103,7 +3077,6 @@ export const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand = asyn
   contents = deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput(data, context);
   const response: DescribeAvailabilityMonitorTestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAvailabilityMonitorTestOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3167,7 +3140,6 @@ export const deserializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
   contents = deserializeAws_json1_1DescribeBandwidthRateLimitOutput(data, context);
   const response: DescribeBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBandwidthRateLimitOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3231,7 +3203,6 @@ export const deserializeAws_json1_1DescribeCacheCommand = async (
   contents = deserializeAws_json1_1DescribeCacheOutput(data, context);
   const response: DescribeCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCacheOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3295,7 +3266,6 @@ export const deserializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
   contents = deserializeAws_json1_1DescribeCachediSCSIVolumesOutput(data, context);
   const response: DescribeCachediSCSIVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCachediSCSIVolumesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3359,7 +3329,6 @@ export const deserializeAws_json1_1DescribeChapCredentialsCommand = async (
   contents = deserializeAws_json1_1DescribeChapCredentialsOutput(data, context);
   const response: DescribeChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeChapCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3423,7 +3392,6 @@ export const deserializeAws_json1_1DescribeGatewayInformationCommand = async (
   contents = deserializeAws_json1_1DescribeGatewayInformationOutput(data, context);
   const response: DescribeGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGatewayInformationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3487,7 +3455,6 @@ export const deserializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
   contents = deserializeAws_json1_1DescribeMaintenanceStartTimeOutput(data, context);
   const response: DescribeMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMaintenanceStartTimeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3551,7 +3518,6 @@ export const deserializeAws_json1_1DescribeNFSFileSharesCommand = async (
   contents = deserializeAws_json1_1DescribeNFSFileSharesOutput(data, context);
   const response: DescribeNFSFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNFSFileSharesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3615,7 +3581,6 @@ export const deserializeAws_json1_1DescribeSMBFileSharesCommand = async (
   contents = deserializeAws_json1_1DescribeSMBFileSharesOutput(data, context);
   const response: DescribeSMBFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSMBFileSharesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3679,7 +3644,6 @@ export const deserializeAws_json1_1DescribeSMBSettingsCommand = async (
   contents = deserializeAws_json1_1DescribeSMBSettingsOutput(data, context);
   const response: DescribeSMBSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSMBSettingsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3743,7 +3707,6 @@ export const deserializeAws_json1_1DescribeSnapshotScheduleCommand = async (
   contents = deserializeAws_json1_1DescribeSnapshotScheduleOutput(data, context);
   const response: DescribeSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSnapshotScheduleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3807,7 +3770,6 @@ export const deserializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
   contents = deserializeAws_json1_1DescribeStorediSCSIVolumesOutput(data, context);
   const response: DescribeStorediSCSIVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStorediSCSIVolumesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3871,7 +3833,6 @@ export const deserializeAws_json1_1DescribeTapeArchivesCommand = async (
   contents = deserializeAws_json1_1DescribeTapeArchivesOutput(data, context);
   const response: DescribeTapeArchivesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTapeArchivesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3935,7 +3896,6 @@ export const deserializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
   contents = deserializeAws_json1_1DescribeTapeRecoveryPointsOutput(data, context);
   const response: DescribeTapeRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTapeRecoveryPointsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3999,7 +3959,6 @@ export const deserializeAws_json1_1DescribeTapesCommand = async (
   contents = deserializeAws_json1_1DescribeTapesOutput(data, context);
   const response: DescribeTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTapesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4063,7 +4022,6 @@ export const deserializeAws_json1_1DescribeUploadBufferCommand = async (
   contents = deserializeAws_json1_1DescribeUploadBufferOutput(data, context);
   const response: DescribeUploadBufferCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUploadBufferOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4127,7 +4085,6 @@ export const deserializeAws_json1_1DescribeVTLDevicesCommand = async (
   contents = deserializeAws_json1_1DescribeVTLDevicesOutput(data, context);
   const response: DescribeVTLDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVTLDevicesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4191,7 +4148,6 @@ export const deserializeAws_json1_1DescribeWorkingStorageCommand = async (
   contents = deserializeAws_json1_1DescribeWorkingStorageOutput(data, context);
   const response: DescribeWorkingStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkingStorageOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4255,7 +4211,6 @@ export const deserializeAws_json1_1DetachVolumeCommand = async (
   contents = deserializeAws_json1_1DetachVolumeOutput(data, context);
   const response: DetachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachVolumeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4319,7 +4274,6 @@ export const deserializeAws_json1_1DisableGatewayCommand = async (
   contents = deserializeAws_json1_1DisableGatewayOutput(data, context);
   const response: DisableGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableGatewayOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4383,7 +4337,6 @@ export const deserializeAws_json1_1JoinDomainCommand = async (
   contents = deserializeAws_json1_1JoinDomainOutput(data, context);
   const response: JoinDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "JoinDomainOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4447,7 +4400,6 @@ export const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = as
   contents = deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput(data, context);
   const response: ListAutomaticTapeCreationPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAutomaticTapeCreationPoliciesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4511,7 +4463,6 @@ export const deserializeAws_json1_1ListFileSharesCommand = async (
   contents = deserializeAws_json1_1ListFileSharesOutput(data, context);
   const response: ListFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFileSharesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4575,7 +4526,6 @@ export const deserializeAws_json1_1ListGatewaysCommand = async (
   contents = deserializeAws_json1_1ListGatewaysOutput(data, context);
   const response: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGatewaysOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4639,7 +4589,6 @@ export const deserializeAws_json1_1ListLocalDisksCommand = async (
   contents = deserializeAws_json1_1ListLocalDisksOutput(data, context);
   const response: ListLocalDisksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLocalDisksOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4703,7 +4652,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4767,7 +4715,6 @@ export const deserializeAws_json1_1ListTapesCommand = async (
   contents = deserializeAws_json1_1ListTapesOutput(data, context);
   const response: ListTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTapesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4831,7 +4778,6 @@ export const deserializeAws_json1_1ListVolumeInitiatorsCommand = async (
   contents = deserializeAws_json1_1ListVolumeInitiatorsOutput(data, context);
   const response: ListVolumeInitiatorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVolumeInitiatorsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4895,7 +4841,6 @@ export const deserializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
   contents = deserializeAws_json1_1ListVolumeRecoveryPointsOutput(data, context);
   const response: ListVolumeRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVolumeRecoveryPointsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4959,7 +4904,6 @@ export const deserializeAws_json1_1ListVolumesCommand = async (
   contents = deserializeAws_json1_1ListVolumesOutput(data, context);
   const response: ListVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVolumesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5023,7 +4967,6 @@ export const deserializeAws_json1_1NotifyWhenUploadedCommand = async (
   contents = deserializeAws_json1_1NotifyWhenUploadedOutput(data, context);
   const response: NotifyWhenUploadedCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NotifyWhenUploadedOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5087,7 +5030,6 @@ export const deserializeAws_json1_1RefreshCacheCommand = async (
   contents = deserializeAws_json1_1RefreshCacheOutput(data, context);
   const response: RefreshCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RefreshCacheOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5151,7 +5093,6 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   contents = deserializeAws_json1_1RemoveTagsFromResourceOutput(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveTagsFromResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5215,7 +5156,6 @@ export const deserializeAws_json1_1ResetCacheCommand = async (
   contents = deserializeAws_json1_1ResetCacheOutput(data, context);
   const response: ResetCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetCacheOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5279,7 +5219,6 @@ export const deserializeAws_json1_1RetrieveTapeArchiveCommand = async (
   contents = deserializeAws_json1_1RetrieveTapeArchiveOutput(data, context);
   const response: RetrieveTapeArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RetrieveTapeArchiveOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5343,7 +5282,6 @@ export const deserializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
   contents = deserializeAws_json1_1RetrieveTapeRecoveryPointOutput(data, context);
   const response: RetrieveTapeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RetrieveTapeRecoveryPointOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5407,7 +5345,6 @@ export const deserializeAws_json1_1SetLocalConsolePasswordCommand = async (
   contents = deserializeAws_json1_1SetLocalConsolePasswordOutput(data, context);
   const response: SetLocalConsolePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetLocalConsolePasswordOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5471,7 +5408,6 @@ export const deserializeAws_json1_1SetSMBGuestPasswordCommand = async (
   contents = deserializeAws_json1_1SetSMBGuestPasswordOutput(data, context);
   const response: SetSMBGuestPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetSMBGuestPasswordOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5535,7 +5471,6 @@ export const deserializeAws_json1_1ShutdownGatewayCommand = async (
   contents = deserializeAws_json1_1ShutdownGatewayOutput(data, context);
   const response: ShutdownGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ShutdownGatewayOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5599,7 +5534,6 @@ export const deserializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
   contents = deserializeAws_json1_1StartAvailabilityMonitorTestOutput(data, context);
   const response: StartAvailabilityMonitorTestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartAvailabilityMonitorTestOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5663,7 +5597,6 @@ export const deserializeAws_json1_1StartGatewayCommand = async (
   contents = deserializeAws_json1_1StartGatewayOutput(data, context);
   const response: StartGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartGatewayOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5727,7 +5660,6 @@ export const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = as
   contents = deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput(data, context);
   const response: UpdateAutomaticTapeCreationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAutomaticTapeCreationPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5791,7 +5723,6 @@ export const deserializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   contents = deserializeAws_json1_1UpdateBandwidthRateLimitOutput(data, context);
   const response: UpdateBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBandwidthRateLimitOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5855,7 +5786,6 @@ export const deserializeAws_json1_1UpdateChapCredentialsCommand = async (
   contents = deserializeAws_json1_1UpdateChapCredentialsOutput(data, context);
   const response: UpdateChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateChapCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5919,7 +5849,6 @@ export const deserializeAws_json1_1UpdateGatewayInformationCommand = async (
   contents = deserializeAws_json1_1UpdateGatewayInformationOutput(data, context);
   const response: UpdateGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGatewayInformationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5983,7 +5912,6 @@ export const deserializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
   contents = deserializeAws_json1_1UpdateGatewaySoftwareNowOutput(data, context);
   const response: UpdateGatewaySoftwareNowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGatewaySoftwareNowOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6047,7 +5975,6 @@ export const deserializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
   contents = deserializeAws_json1_1UpdateMaintenanceStartTimeOutput(data, context);
   const response: UpdateMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMaintenanceStartTimeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6111,7 +6038,6 @@ export const deserializeAws_json1_1UpdateNFSFileShareCommand = async (
   contents = deserializeAws_json1_1UpdateNFSFileShareOutput(data, context);
   const response: UpdateNFSFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNFSFileShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6175,7 +6101,6 @@ export const deserializeAws_json1_1UpdateSMBFileShareCommand = async (
   contents = deserializeAws_json1_1UpdateSMBFileShareOutput(data, context);
   const response: UpdateSMBFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSMBFileShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6239,7 +6164,6 @@ export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   contents = deserializeAws_json1_1UpdateSMBSecurityStrategyOutput(data, context);
   const response: UpdateSMBSecurityStrategyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSMBSecurityStrategyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6303,7 +6227,6 @@ export const deserializeAws_json1_1UpdateSnapshotScheduleCommand = async (
   contents = deserializeAws_json1_1UpdateSnapshotScheduleOutput(data, context);
   const response: UpdateSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSnapshotScheduleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6367,7 +6290,6 @@ export const deserializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
   contents = deserializeAws_json1_1UpdateVTLDeviceTypeOutput(data, context);
   const response: UpdateVTLDeviceTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVTLDeviceTypeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7368,14 +7290,12 @@ const serializeAws_json1_1VTLDeviceARNs = (input: string[], context: __SerdeCont
 
 const deserializeAws_json1_1ActivateGatewayOutput = (output: any, context: __SerdeContext): ActivateGatewayOutput => {
   return {
-    __type: "ActivateGatewayOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AddCacheOutput = (output: any, context: __SerdeContext): AddCacheOutput => {
   return {
-    __type: "AddCacheOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -7385,14 +7305,12 @@ const deserializeAws_json1_1AddTagsToResourceOutput = (
   context: __SerdeContext
 ): AddTagsToResourceOutput => {
   return {
-    __type: "AddTagsToResourceOutput",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AddUploadBufferOutput = (output: any, context: __SerdeContext): AddUploadBufferOutput => {
   return {
-    __type: "AddUploadBufferOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -7402,21 +7320,18 @@ const deserializeAws_json1_1AddWorkingStorageOutput = (
   context: __SerdeContext
 ): AddWorkingStorageOutput => {
   return {
-    __type: "AddWorkingStorageOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AssignTapePoolOutput = (output: any, context: __SerdeContext): AssignTapePoolOutput => {
   return {
-    __type: "AssignTapePoolOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AttachVolumeOutput = (output: any, context: __SerdeContext): AttachVolumeOutput => {
   return {
-    __type: "AttachVolumeOutput",
     TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
@@ -7427,7 +7342,6 @@ const deserializeAws_json1_1AutomaticTapeCreationPolicyInfo = (
   context: __SerdeContext
 ): AutomaticTapeCreationPolicyInfo => {
   return {
-    __type: "AutomaticTapeCreationPolicyInfo",
     AutomaticTapeCreationRules:
       output.AutomaticTapeCreationRules !== undefined && output.AutomaticTapeCreationRules !== null
         ? deserializeAws_json1_1AutomaticTapeCreationRules(output.AutomaticTapeCreationRules, context)
@@ -7448,7 +7362,6 @@ const deserializeAws_json1_1AutomaticTapeCreationRule = (
   context: __SerdeContext
 ): AutomaticTapeCreationRule => {
   return {
-    __type: "AutomaticTapeCreationRule",
     MinimumNumTapes:
       output.MinimumNumTapes !== undefined && output.MinimumNumTapes !== null ? output.MinimumNumTapes : undefined,
     PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
@@ -7470,7 +7383,6 @@ const deserializeAws_json1_1AutomaticTapeCreationRules = (
 
 const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
   return {
-    __type: "CacheAttributes",
     CacheStaleTimeoutInSeconds:
       output.CacheStaleTimeoutInSeconds !== undefined && output.CacheStaleTimeoutInSeconds !== null
         ? output.CacheStaleTimeoutInSeconds
@@ -7480,7 +7392,6 @@ const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeContext): CachediSCSIVolume => {
   return {
-    __type: "CachediSCSIVolume",
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
@@ -7520,14 +7431,12 @@ const deserializeAws_json1_1CachediSCSIVolumes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1CancelArchivalOutput = (output: any, context: __SerdeContext): CancelArchivalOutput => {
   return {
-    __type: "CancelArchivalOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CancelRetrievalOutput = (output: any, context: __SerdeContext): CancelRetrievalOutput => {
   return {
-    __type: "CancelRetrievalOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
@@ -7538,7 +7447,6 @@ const deserializeAws_json1_1ChapCredentials = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ChapInfo = (output: any, context: __SerdeContext): ChapInfo => {
   return {
-    __type: "ChapInfo",
     InitiatorName:
       output.InitiatorName !== undefined && output.InitiatorName !== null ? output.InitiatorName : undefined,
     SecretToAuthenticateInitiator:
@@ -7558,7 +7466,6 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeOutput = (
   context: __SerdeContext
 ): CreateCachediSCSIVolumeOutput => {
   return {
-    __type: "CreateCachediSCSIVolumeOutput",
     TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
@@ -7569,7 +7476,6 @@ const deserializeAws_json1_1CreateNFSFileShareOutput = (
   context: __SerdeContext
 ): CreateNFSFileShareOutput => {
   return {
-    __type: "CreateNFSFileShareOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
   } as any;
 };
@@ -7579,7 +7485,6 @@ const deserializeAws_json1_1CreateSMBFileShareOutput = (
   context: __SerdeContext
 ): CreateSMBFileShareOutput => {
   return {
-    __type: "CreateSMBFileShareOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
   } as any;
 };
@@ -7589,7 +7494,6 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
   context: __SerdeContext
 ): CreateSnapshotFromVolumeRecoveryPointOutput => {
   return {
-    __type: "CreateSnapshotFromVolumeRecoveryPointOutput",
     SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeRecoveryPointTime:
@@ -7601,7 +7505,6 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
 
 const deserializeAws_json1_1CreateSnapshotOutput = (output: any, context: __SerdeContext): CreateSnapshotOutput => {
   return {
-    __type: "CreateSnapshotOutput",
     SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
@@ -7612,7 +7515,6 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   context: __SerdeContext
 ): CreateStorediSCSIVolumeOutput => {
   return {
-    __type: "CreateStorediSCSIVolumeOutput",
     TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeSizeInBytes:
@@ -7624,7 +7526,6 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
 
 const deserializeAws_json1_1CreateTapesOutput = (output: any, context: __SerdeContext): CreateTapesOutput => {
   return {
-    __type: "CreateTapesOutput",
     TapeARNs:
       output.TapeARNs !== undefined && output.TapeARNs !== null
         ? deserializeAws_json1_1TapeARNs(output.TapeARNs, context)
@@ -7637,7 +7538,6 @@ const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
   context: __SerdeContext
 ): CreateTapeWithBarcodeOutput => {
   return {
-    __type: "CreateTapeWithBarcodeOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
@@ -7647,7 +7547,6 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
   context: __SerdeContext
 ): DeleteAutomaticTapeCreationPolicyOutput => {
   return {
-    __type: "DeleteAutomaticTapeCreationPolicyOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -7657,7 +7556,6 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): DeleteBandwidthRateLimitOutput => {
   return {
-    __type: "DeleteBandwidthRateLimitOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -7667,7 +7565,6 @@ const deserializeAws_json1_1DeleteChapCredentialsOutput = (
   context: __SerdeContext
 ): DeleteChapCredentialsOutput => {
   return {
-    __type: "DeleteChapCredentialsOutput",
     InitiatorName:
       output.InitiatorName !== undefined && output.InitiatorName !== null ? output.InitiatorName : undefined,
     TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
@@ -7676,14 +7573,12 @@ const deserializeAws_json1_1DeleteChapCredentialsOutput = (
 
 const deserializeAws_json1_1DeleteFileShareOutput = (output: any, context: __SerdeContext): DeleteFileShareOutput => {
   return {
-    __type: "DeleteFileShareOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteGatewayOutput = (output: any, context: __SerdeContext): DeleteGatewayOutput => {
   return {
-    __type: "DeleteGatewayOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -7693,7 +7588,6 @@ const deserializeAws_json1_1DeleteSnapshotScheduleOutput = (
   context: __SerdeContext
 ): DeleteSnapshotScheduleOutput => {
   return {
-    __type: "DeleteSnapshotScheduleOutput",
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
 };
@@ -7703,21 +7597,18 @@ const deserializeAws_json1_1DeleteTapeArchiveOutput = (
   context: __SerdeContext
 ): DeleteTapeArchiveOutput => {
   return {
-    __type: "DeleteTapeArchiveOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteTapeOutput = (output: any, context: __SerdeContext): DeleteTapeOutput => {
   return {
-    __type: "DeleteTapeOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteVolumeOutput = (output: any, context: __SerdeContext): DeleteVolumeOutput => {
   return {
-    __type: "DeleteVolumeOutput",
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
 };
@@ -7727,7 +7618,6 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
   context: __SerdeContext
 ): DescribeAvailabilityMonitorTestOutput => {
   return {
-    __type: "DescribeAvailabilityMonitorTestOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
@@ -7742,7 +7632,6 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): DescribeBandwidthRateLimitOutput => {
   return {
-    __type: "DescribeBandwidthRateLimitOutput",
     AverageDownloadRateLimitInBitsPerSec:
       output.AverageDownloadRateLimitInBitsPerSec !== undefined && output.AverageDownloadRateLimitInBitsPerSec !== null
         ? output.AverageDownloadRateLimitInBitsPerSec
@@ -7760,7 +7649,6 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
   context: __SerdeContext
 ): DescribeCachediSCSIVolumesOutput => {
   return {
-    __type: "DescribeCachediSCSIVolumesOutput",
     CachediSCSIVolumes:
       output.CachediSCSIVolumes !== undefined && output.CachediSCSIVolumes !== null
         ? deserializeAws_json1_1CachediSCSIVolumes(output.CachediSCSIVolumes, context)
@@ -7770,7 +7658,6 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
 
 const deserializeAws_json1_1DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeCacheOutput => {
   return {
-    __type: "DescribeCacheOutput",
     CacheAllocatedInBytes:
       output.CacheAllocatedInBytes !== undefined && output.CacheAllocatedInBytes !== null
         ? output.CacheAllocatedInBytes
@@ -7804,7 +7691,6 @@ const deserializeAws_json1_1DescribeChapCredentialsOutput = (
   context: __SerdeContext
 ): DescribeChapCredentialsOutput => {
   return {
-    __type: "DescribeChapCredentialsOutput",
     ChapCredentials:
       output.ChapCredentials !== undefined && output.ChapCredentials !== null
         ? deserializeAws_json1_1ChapCredentials(output.ChapCredentials, context)
@@ -7817,7 +7703,6 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
   context: __SerdeContext
 ): DescribeGatewayInformationOutput => {
   return {
-    __type: "DescribeGatewayInformationOutput",
     CloudWatchLogGroupARN:
       output.CloudWatchLogGroupARN !== undefined && output.CloudWatchLogGroupARN !== null
         ? output.CloudWatchLogGroupARN
@@ -7861,7 +7746,6 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
   context: __SerdeContext
 ): DescribeMaintenanceStartTimeOutput => {
   return {
-    __type: "DescribeMaintenanceStartTimeOutput",
     DayOfMonth: output.DayOfMonth !== undefined && output.DayOfMonth !== null ? output.DayOfMonth : undefined,
     DayOfWeek: output.DayOfWeek !== undefined && output.DayOfWeek !== null ? output.DayOfWeek : undefined,
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
@@ -7876,7 +7760,6 @@ const deserializeAws_json1_1DescribeNFSFileSharesOutput = (
   context: __SerdeContext
 ): DescribeNFSFileSharesOutput => {
   return {
-    __type: "DescribeNFSFileSharesOutput",
     NFSFileShareInfoList:
       output.NFSFileShareInfoList !== undefined && output.NFSFileShareInfoList !== null
         ? deserializeAws_json1_1NFSFileShareInfoList(output.NFSFileShareInfoList, context)
@@ -7889,7 +7772,6 @@ const deserializeAws_json1_1DescribeSMBFileSharesOutput = (
   context: __SerdeContext
 ): DescribeSMBFileSharesOutput => {
   return {
-    __type: "DescribeSMBFileSharesOutput",
     SMBFileShareInfoList:
       output.SMBFileShareInfoList !== undefined && output.SMBFileShareInfoList !== null
         ? deserializeAws_json1_1SMBFileShareInfoList(output.SMBFileShareInfoList, context)
@@ -7902,7 +7784,6 @@ const deserializeAws_json1_1DescribeSMBSettingsOutput = (
   context: __SerdeContext
 ): DescribeSMBSettingsOutput => {
   return {
-    __type: "DescribeSMBSettingsOutput",
     ActiveDirectoryStatus:
       output.ActiveDirectoryStatus !== undefined && output.ActiveDirectoryStatus !== null
         ? output.ActiveDirectoryStatus
@@ -7925,7 +7806,6 @@ const deserializeAws_json1_1DescribeSnapshotScheduleOutput = (
   context: __SerdeContext
 ): DescribeSnapshotScheduleOutput => {
   return {
-    __type: "DescribeSnapshotScheduleOutput",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     RecurrenceInHours:
       output.RecurrenceInHours !== undefined && output.RecurrenceInHours !== null
@@ -7944,7 +7824,6 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesOutput = (
   context: __SerdeContext
 ): DescribeStorediSCSIVolumesOutput => {
   return {
-    __type: "DescribeStorediSCSIVolumesOutput",
     StorediSCSIVolumes:
       output.StorediSCSIVolumes !== undefined && output.StorediSCSIVolumes !== null
         ? deserializeAws_json1_1StorediSCSIVolumes(output.StorediSCSIVolumes, context)
@@ -7957,7 +7836,6 @@ const deserializeAws_json1_1DescribeTapeArchivesOutput = (
   context: __SerdeContext
 ): DescribeTapeArchivesOutput => {
   return {
-    __type: "DescribeTapeArchivesOutput",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     TapeArchives:
       output.TapeArchives !== undefined && output.TapeArchives !== null
@@ -7971,7 +7849,6 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
   context: __SerdeContext
 ): DescribeTapeRecoveryPointsOutput => {
   return {
-    __type: "DescribeTapeRecoveryPointsOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     TapeRecoveryPointInfos:
@@ -7983,7 +7860,6 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
 
 const deserializeAws_json1_1DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeTapesOutput => {
   return {
-    __type: "DescribeTapesOutput",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     Tapes:
       output.Tapes !== undefined && output.Tapes !== null
@@ -7997,7 +7873,6 @@ const deserializeAws_json1_1DescribeUploadBufferOutput = (
   context: __SerdeContext
 ): DescribeUploadBufferOutput => {
   return {
-    __type: "DescribeUploadBufferOutput",
     DiskIds:
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
@@ -8019,7 +7894,6 @@ const deserializeAws_json1_1DescribeVTLDevicesOutput = (
   context: __SerdeContext
 ): DescribeVTLDevicesOutput => {
   return {
-    __type: "DescribeVTLDevicesOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     VTLDevices:
@@ -8034,7 +7908,6 @@ const deserializeAws_json1_1DescribeWorkingStorageOutput = (
   context: __SerdeContext
 ): DescribeWorkingStorageOutput => {
   return {
-    __type: "DescribeWorkingStorageOutput",
     DiskIds:
       output.DiskIds !== undefined && output.DiskIds !== null
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
@@ -8053,14 +7926,12 @@ const deserializeAws_json1_1DescribeWorkingStorageOutput = (
 
 const deserializeAws_json1_1DetachVolumeOutput = (output: any, context: __SerdeContext): DetachVolumeOutput => {
   return {
-    __type: "DetachVolumeOutput",
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeviceiSCSIAttributes = (output: any, context: __SerdeContext): DeviceiSCSIAttributes => {
   return {
-    __type: "DeviceiSCSIAttributes",
     ChapEnabled: output.ChapEnabled !== undefined && output.ChapEnabled !== null ? output.ChapEnabled : undefined,
     NetworkInterfaceId:
       output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
@@ -8076,14 +7947,12 @@ const deserializeAws_json1_1DeviceiSCSIAttributes = (output: any, context: __Ser
 
 const deserializeAws_json1_1DisableGatewayOutput = (output: any, context: __SerdeContext): DisableGatewayOutput => {
   return {
-    __type: "DisableGatewayOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk => {
   return {
-    __type: "Disk",
     DiskAllocationResource:
       output.DiskAllocationResource !== undefined && output.DiskAllocationResource !== null
         ? output.DiskAllocationResource
@@ -8133,7 +8002,6 @@ const deserializeAws_json1_1FileShareClientList = (output: any, context: __Serde
 
 const deserializeAws_json1_1FileShareInfo = (output: any, context: __SerdeContext): FileShareInfo => {
   return {
-    __type: "FileShareInfo",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
     FileShareId: output.FileShareId !== undefined && output.FileShareId !== null ? output.FileShareId : undefined,
     FileShareStatus:
@@ -8154,7 +8022,6 @@ const deserializeAws_json1_1FileShareUserList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext): GatewayInfo => {
   return {
-    __type: "GatewayInfo",
     Ec2InstanceId:
       output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null ? output.Ec2InstanceId : undefined,
     Ec2InstanceRegion:
@@ -8186,7 +8053,6 @@ const deserializeAws_json1_1Initiators = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     error:
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
@@ -8200,7 +8066,6 @@ const deserializeAws_json1_1InvalidGatewayRequestException = (
   context: __SerdeContext
 ): InvalidGatewayRequestException => {
   return {
-    __type: "InvalidGatewayRequestException",
     error:
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
@@ -8211,7 +8076,6 @@ const deserializeAws_json1_1InvalidGatewayRequestException = (
 
 const deserializeAws_json1_1JoinDomainOutput = (output: any, context: __SerdeContext): JoinDomainOutput => {
   return {
-    __type: "JoinDomainOutput",
     ActiveDirectoryStatus:
       output.ActiveDirectoryStatus !== undefined && output.ActiveDirectoryStatus !== null
         ? output.ActiveDirectoryStatus
@@ -8225,7 +8089,6 @@ const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput = (
   context: __SerdeContext
 ): ListAutomaticTapeCreationPoliciesOutput => {
   return {
-    __type: "ListAutomaticTapeCreationPoliciesOutput",
     AutomaticTapeCreationPolicyInfos:
       output.AutomaticTapeCreationPolicyInfos !== undefined && output.AutomaticTapeCreationPolicyInfos !== null
         ? deserializeAws_json1_1AutomaticTapeCreationPolicyInfos(output.AutomaticTapeCreationPolicyInfos, context)
@@ -8235,7 +8098,6 @@ const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesOutput = (
 
 const deserializeAws_json1_1ListFileSharesOutput = (output: any, context: __SerdeContext): ListFileSharesOutput => {
   return {
-    __type: "ListFileSharesOutput",
     FileShareInfoList:
       output.FileShareInfoList !== undefined && output.FileShareInfoList !== null
         ? deserializeAws_json1_1FileShareInfoList(output.FileShareInfoList, context)
@@ -8247,7 +8109,6 @@ const deserializeAws_json1_1ListFileSharesOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1ListGatewaysOutput = (output: any, context: __SerdeContext): ListGatewaysOutput => {
   return {
-    __type: "ListGatewaysOutput",
     Gateways:
       output.Gateways !== undefined && output.Gateways !== null
         ? deserializeAws_json1_1Gateways(output.Gateways, context)
@@ -8258,7 +8119,6 @@ const deserializeAws_json1_1ListGatewaysOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ListLocalDisksOutput = (output: any, context: __SerdeContext): ListLocalDisksOutput => {
   return {
-    __type: "ListLocalDisksOutput",
     Disks:
       output.Disks !== undefined && output.Disks !== null
         ? deserializeAws_json1_1Disks(output.Disks, context)
@@ -8272,7 +8132,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    __type: "ListTagsForResourceOutput",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     Tags:
@@ -8282,7 +8141,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutput => {
   return {
-    __type: "ListTapesOutput",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     TapeInfos:
       output.TapeInfos !== undefined && output.TapeInfos !== null
@@ -8296,7 +8154,6 @@ const deserializeAws_json1_1ListVolumeInitiatorsOutput = (
   context: __SerdeContext
 ): ListVolumeInitiatorsOutput => {
   return {
-    __type: "ListVolumeInitiatorsOutput",
     Initiators:
       output.Initiators !== undefined && output.Initiators !== null
         ? deserializeAws_json1_1Initiators(output.Initiators, context)
@@ -8309,7 +8166,6 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
   context: __SerdeContext
 ): ListVolumeRecoveryPointsOutput => {
   return {
-    __type: "ListVolumeRecoveryPointsOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     VolumeRecoveryPointInfos:
       output.VolumeRecoveryPointInfos !== undefined && output.VolumeRecoveryPointInfos !== null
@@ -8320,7 +8176,6 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
 
 const deserializeAws_json1_1ListVolumesOutput = (output: any, context: __SerdeContext): ListVolumesOutput => {
   return {
-    __type: "ListVolumesOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     VolumeInfos:
@@ -8332,7 +8187,6 @@ const deserializeAws_json1_1ListVolumesOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    __type: "NetworkInterface",
     Ipv4Address: output.Ipv4Address !== undefined && output.Ipv4Address !== null ? output.Ipv4Address : undefined,
     Ipv6Address: output.Ipv6Address !== undefined && output.Ipv6Address !== null ? output.Ipv6Address : undefined,
     MacAddress: output.MacAddress !== undefined && output.MacAddress !== null ? output.MacAddress : undefined,
@@ -8341,7 +8195,6 @@ const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __SerdeContext): NFSFileShareDefaults => {
   return {
-    __type: "NFSFileShareDefaults",
     DirectoryMode:
       output.DirectoryMode !== undefined && output.DirectoryMode !== null ? output.DirectoryMode : undefined,
     FileMode: output.FileMode !== undefined && output.FileMode !== null ? output.FileMode : undefined,
@@ -8352,7 +8205,6 @@ const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __Serd
 
 const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeContext): NFSFileShareInfo => {
   return {
-    __type: "NFSFileShareInfo",
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
         ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
@@ -8404,7 +8256,6 @@ const deserializeAws_json1_1NotifyWhenUploadedOutput = (
   context: __SerdeContext
 ): NotifyWhenUploadedOutput => {
   return {
-    __type: "NotifyWhenUploadedOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
     NotificationId:
       output.NotificationId !== undefined && output.NotificationId !== null ? output.NotificationId : undefined,
@@ -8413,7 +8264,6 @@ const deserializeAws_json1_1NotifyWhenUploadedOutput = (
 
 const deserializeAws_json1_1RefreshCacheOutput = (output: any, context: __SerdeContext): RefreshCacheOutput => {
   return {
-    __type: "RefreshCacheOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
     NotificationId:
       output.NotificationId !== undefined && output.NotificationId !== null ? output.NotificationId : undefined,
@@ -8425,14 +8275,12 @@ const deserializeAws_json1_1RemoveTagsFromResourceOutput = (
   context: __SerdeContext
 ): RemoveTagsFromResourceOutput => {
   return {
-    __type: "RemoveTagsFromResourceOutput",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResetCacheOutput = (output: any, context: __SerdeContext): ResetCacheOutput => {
   return {
-    __type: "ResetCacheOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8442,7 +8290,6 @@ const deserializeAws_json1_1RetrieveTapeArchiveOutput = (
   context: __SerdeContext
 ): RetrieveTapeArchiveOutput => {
   return {
-    __type: "RetrieveTapeArchiveOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
@@ -8452,7 +8299,6 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointOutput = (
   context: __SerdeContext
 ): RetrieveTapeRecoveryPointOutput => {
   return {
-    __type: "RetrieveTapeRecoveryPointOutput",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
   } as any;
 };
@@ -8462,7 +8308,6 @@ const deserializeAws_json1_1ServiceUnavailableError = (
   context: __SerdeContext
 ): ServiceUnavailableError => {
   return {
-    __type: "ServiceUnavailableError",
     error:
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
@@ -8476,7 +8321,6 @@ const deserializeAws_json1_1SetLocalConsolePasswordOutput = (
   context: __SerdeContext
 ): SetLocalConsolePasswordOutput => {
   return {
-    __type: "SetLocalConsolePasswordOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8486,21 +8330,18 @@ const deserializeAws_json1_1SetSMBGuestPasswordOutput = (
   context: __SerdeContext
 ): SetSMBGuestPasswordOutput => {
   return {
-    __type: "SetSMBGuestPasswordOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ShutdownGatewayOutput = (output: any, context: __SerdeContext): ShutdownGatewayOutput => {
   return {
-    __type: "ShutdownGatewayOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeContext): SMBFileShareInfo => {
   return {
-    __type: "SMBFileShareInfo",
     AdminUserList:
       output.AdminUserList !== undefined && output.AdminUserList !== null
         ? deserializeAws_json1_1FileShareUserList(output.AdminUserList, context)
@@ -8565,21 +8406,18 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
   context: __SerdeContext
 ): StartAvailabilityMonitorTestOutput => {
   return {
-    __type: "StartAvailabilityMonitorTestOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StartGatewayOutput = (output: any, context: __SerdeContext): StartGatewayOutput => {
   return {
-    __type: "StartGatewayOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StorageGatewayError = (output: any, context: __SerdeContext): StorageGatewayError => {
   return {
-    __type: "StorageGatewayError",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorDetails:
       output.errorDetails !== undefined && output.errorDetails !== null
@@ -8590,7 +8428,6 @@ const deserializeAws_json1_1StorageGatewayError = (output: any, context: __Serde
 
 const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeContext): StorediSCSIVolume => {
   return {
-    __type: "StorediSCSIVolume",
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
@@ -8635,7 +8472,6 @@ const deserializeAws_json1_1StorediSCSIVolumes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8647,7 +8483,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape => {
   return {
-    __type: "Tape",
     KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
     Progress: output.Progress !== undefined && output.Progress !== null ? output.Progress : undefined,
@@ -8668,7 +8503,6 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
 
 const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext): TapeArchive => {
   return {
-    __type: "TapeArchive",
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
@@ -8700,7 +8534,6 @@ const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): s
 
 const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
   return {
-    __type: "TapeInfo",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
@@ -8717,7 +8550,6 @@ const deserializeAws_json1_1TapeInfos = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __SerdeContext): TapeRecoveryPointInfo => {
   return {
-    __type: "TapeRecoveryPointInfo",
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeRecoveryPointTime:
       output.TapeRecoveryPointTime !== undefined && output.TapeRecoveryPointTime !== null
@@ -8745,7 +8577,6 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput = (
   context: __SerdeContext
 ): UpdateAutomaticTapeCreationPolicyOutput => {
   return {
-    __type: "UpdateAutomaticTapeCreationPolicyOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8755,7 +8586,6 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (
   context: __SerdeContext
 ): UpdateBandwidthRateLimitOutput => {
   return {
-    __type: "UpdateBandwidthRateLimitOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8765,7 +8595,6 @@ const deserializeAws_json1_1UpdateChapCredentialsOutput = (
   context: __SerdeContext
 ): UpdateChapCredentialsOutput => {
   return {
-    __type: "UpdateChapCredentialsOutput",
     InitiatorName:
       output.InitiatorName !== undefined && output.InitiatorName !== null ? output.InitiatorName : undefined,
     TargetARN: output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
@@ -8777,7 +8606,6 @@ const deserializeAws_json1_1UpdateGatewayInformationOutput = (
   context: __SerdeContext
 ): UpdateGatewayInformationOutput => {
   return {
-    __type: "UpdateGatewayInformationOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayName: output.GatewayName !== undefined && output.GatewayName !== null ? output.GatewayName : undefined,
   } as any;
@@ -8788,7 +8616,6 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowOutput = (
   context: __SerdeContext
 ): UpdateGatewaySoftwareNowOutput => {
   return {
-    __type: "UpdateGatewaySoftwareNowOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8798,7 +8625,6 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeOutput = (
   context: __SerdeContext
 ): UpdateMaintenanceStartTimeOutput => {
   return {
-    __type: "UpdateMaintenanceStartTimeOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8808,7 +8634,6 @@ const deserializeAws_json1_1UpdateNFSFileShareOutput = (
   context: __SerdeContext
 ): UpdateNFSFileShareOutput => {
   return {
-    __type: "UpdateNFSFileShareOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
   } as any;
 };
@@ -8818,7 +8643,6 @@ const deserializeAws_json1_1UpdateSMBFileShareOutput = (
   context: __SerdeContext
 ): UpdateSMBFileShareOutput => {
   return {
-    __type: "UpdateSMBFileShareOutput",
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
   } as any;
 };
@@ -8828,7 +8652,6 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyOutput = (
   context: __SerdeContext
 ): UpdateSMBSecurityStrategyOutput => {
   return {
-    __type: "UpdateSMBSecurityStrategyOutput",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
@@ -8838,7 +8661,6 @@ const deserializeAws_json1_1UpdateSnapshotScheduleOutput = (
   context: __SerdeContext
 ): UpdateSnapshotScheduleOutput => {
   return {
-    __type: "UpdateSnapshotScheduleOutput",
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
   } as any;
 };
@@ -8848,14 +8670,12 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeOutput = (
   context: __SerdeContext
 ): UpdateVTLDeviceTypeOutput => {
   return {
-    __type: "UpdateVTLDeviceTypeOutput",
     VTLDeviceARN: output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null ? output.VTLDeviceARN : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext): VolumeInfo => {
   return {
-    __type: "VolumeInfo",
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayId: output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
@@ -8878,7 +8698,6 @@ const deserializeAws_json1_1VolumeInfos = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1VolumeiSCSIAttributes = (output: any, context: __SerdeContext): VolumeiSCSIAttributes => {
   return {
-    __type: "VolumeiSCSIAttributes",
     ChapEnabled: output.ChapEnabled !== undefined && output.ChapEnabled !== null ? output.ChapEnabled : undefined,
     LunNumber: output.LunNumber !== undefined && output.LunNumber !== null ? output.LunNumber : undefined,
     NetworkInterfaceId:
@@ -8898,7 +8717,6 @@ const deserializeAws_json1_1VolumeRecoveryPointInfo = (
   context: __SerdeContext
 ): VolumeRecoveryPointInfo => {
   return {
-    __type: "VolumeRecoveryPointInfo",
     VolumeARN: output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeRecoveryPointTime:
       output.VolumeRecoveryPointTime !== undefined && output.VolumeRecoveryPointTime !== null
@@ -8924,7 +8742,6 @@ const deserializeAws_json1_1VolumeRecoveryPointInfos = (
 
 const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): VTLDevice => {
   return {
-    __type: "VTLDevice",
     DeviceiSCSIAttributes:
       output.DeviceiSCSIAttributes !== undefined && output.DeviceiSCSIAttributes !== null
         ? deserializeAws_json1_1DeviceiSCSIAttributes(output.DeviceiSCSIAttributes, context)

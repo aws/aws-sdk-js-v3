@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -17,7 +17,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -26,7 +25,6 @@ export namespace AccessDeniedException {
  *        </p>
  */
 export interface AssetSummary {
-  __type?: "AssetSummary";
   /**
    * <p>
    *       The size of the asset.
@@ -53,11 +51,9 @@ export namespace AssetSummary {
   export const filterSensitiveLog = (obj: AssetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetSummary => __isa(o, "AssetSummary");
 }
 
 export interface AssociateExternalConnectionRequest {
-  __type?: "AssociateExternalConnectionRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -122,12 +118,9 @@ export namespace AssociateExternalConnectionRequest {
   export const filterSensitiveLog = (obj: AssociateExternalConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateExternalConnectionRequest =>
-    __isa(o, "AssociateExternalConnectionRequest");
 }
 
 export interface AssociateExternalConnectionResult {
-  __type?: "AssociateExternalConnectionResult";
   /**
    * <p>
    *         Information about the connected repository after processing the request.
@@ -140,7 +133,6 @@ export namespace AssociateExternalConnectionResult {
   export const filterSensitiveLog = (obj: AssociateExternalConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateExternalConnectionResult => __isa(o, "AssociateExternalConnectionResult");
 }
 
 /**
@@ -172,11 +164,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CopyPackageVersionsRequest {
-  __type?: "CopyPackageVersionsRequest";
   /**
    * <p>
    *         The name of the domain that contains the source and destination repositories.
@@ -311,11 +301,9 @@ export namespace CopyPackageVersionsRequest {
   export const filterSensitiveLog = (obj: CopyPackageVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyPackageVersionsRequest => __isa(o, "CopyPackageVersionsRequest");
 }
 
 export interface CopyPackageVersionsResult {
-  __type?: "CopyPackageVersionsResult";
   /**
    * <p>
    *       A list of the package versions that were successfully copied to your repository.
@@ -368,11 +356,9 @@ export namespace CopyPackageVersionsResult {
   export const filterSensitiveLog = (obj: CopyPackageVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyPackageVersionsResult => __isa(o, "CopyPackageVersionsResult");
 }
 
 export interface CreateDomainRequest {
-  __type?: "CreateDomainRequest";
   /**
    * <p> The name of the domain to create. All domain names in an AWS Region that are in the
    *       same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do
@@ -401,11 +387,9 @@ export namespace CreateDomainRequest {
   export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainRequest => __isa(o, "CreateDomainRequest");
 }
 
 export interface CreateDomainResult {
-  __type?: "CreateDomainResult";
   /**
    * <p>
    *         Contains information about the created domain after processing the request.
@@ -418,11 +402,9 @@ export namespace CreateDomainResult {
   export const filterSensitiveLog = (obj: CreateDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainResult => __isa(o, "CreateDomainResult");
 }
 
 export interface CreateRepositoryRequest {
-  __type?: "CreateRepositoryRequest";
   /**
    * <p> The name of the repository to create. </p>
    */
@@ -462,11 +444,9 @@ export namespace CreateRepositoryRequest {
   export const filterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryRequest => __isa(o, "CreateRepositoryRequest");
 }
 
 export interface CreateRepositoryResult {
-  __type?: "CreateRepositoryResult";
   /**
    * <p>
    *         Information about the created repository after processing the request.
@@ -479,11 +459,9 @@ export namespace CreateRepositoryResult {
   export const filterSensitiveLog = (obj: CreateRepositoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryResult => __isa(o, "CreateRepositoryResult");
 }
 
 export interface DeleteDomainPermissionsPolicyRequest {
-  __type?: "DeleteDomainPermissionsPolicyRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -512,12 +490,9 @@ export namespace DeleteDomainPermissionsPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteDomainPermissionsPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainPermissionsPolicyRequest =>
-    __isa(o, "DeleteDomainPermissionsPolicyRequest");
 }
 
 export interface DeleteDomainPermissionsPolicyResult {
-  __type?: "DeleteDomainPermissionsPolicyResult";
   /**
    * <p>
    *         Information about the deleted resource policy after processing the request.
@@ -530,12 +505,9 @@ export namespace DeleteDomainPermissionsPolicyResult {
   export const filterSensitiveLog = (obj: DeleteDomainPermissionsPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainPermissionsPolicyResult =>
-    __isa(o, "DeleteDomainPermissionsPolicyResult");
 }
 
 export interface DeleteDomainRequest {
-  __type?: "DeleteDomainRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -556,11 +528,9 @@ export namespace DeleteDomainRequest {
   export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainRequest => __isa(o, "DeleteDomainRequest");
 }
 
 export interface DeleteDomainResult {
-  __type?: "DeleteDomainResult";
   /**
    * <p>
    *         Contains information about the deleted domain after processing the request.
@@ -573,11 +543,9 @@ export namespace DeleteDomainResult {
   export const filterSensitiveLog = (obj: DeleteDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainResult => __isa(o, "DeleteDomainResult");
 }
 
 export interface DeletePackageVersionsRequest {
-  __type?: "DeletePackageVersionsRequest";
   /**
    * <p>
    *         The name of the domain that contains the package to delete.
@@ -703,11 +671,9 @@ export namespace DeletePackageVersionsRequest {
   export const filterSensitiveLog = (obj: DeletePackageVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackageVersionsRequest => __isa(o, "DeletePackageVersionsRequest");
 }
 
 export interface DeletePackageVersionsResult {
-  __type?: "DeletePackageVersionsResult";
   /**
    * <p>
    *        A <code>PackageVersionError</code> object that contains a map of errors codes for the
@@ -760,11 +726,9 @@ export namespace DeletePackageVersionsResult {
   export const filterSensitiveLog = (obj: DeletePackageVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackageVersionsResult => __isa(o, "DeletePackageVersionsResult");
 }
 
 export interface DeleteRepositoryPermissionsPolicyRequest {
-  __type?: "DeleteRepositoryPermissionsPolicyRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -800,12 +764,9 @@ export namespace DeleteRepositoryPermissionsPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteRepositoryPermissionsPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryPermissionsPolicyRequest =>
-    __isa(o, "DeleteRepositoryPermissionsPolicyRequest");
 }
 
 export interface DeleteRepositoryPermissionsPolicyResult {
-  __type?: "DeleteRepositoryPermissionsPolicyResult";
   /**
    * <p>
    *       Information about the deleted policy after processing the request.
@@ -818,12 +779,9 @@ export namespace DeleteRepositoryPermissionsPolicyResult {
   export const filterSensitiveLog = (obj: DeleteRepositoryPermissionsPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryPermissionsPolicyResult =>
-    __isa(o, "DeleteRepositoryPermissionsPolicyResult");
 }
 
 export interface DeleteRepositoryRequest {
-  __type?: "DeleteRepositoryRequest";
   /**
    * <p> The name of the repository to delete. </p>
    */
@@ -849,11 +807,9 @@ export namespace DeleteRepositoryRequest {
   export const filterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryRequest => __isa(o, "DeleteRepositoryRequest");
 }
 
 export interface DeleteRepositoryResult {
-  __type?: "DeleteRepositoryResult";
   /**
    * <p>
    *         Information about the deleted repository after processing the request.
@@ -866,11 +822,9 @@ export namespace DeleteRepositoryResult {
   export const filterSensitiveLog = (obj: DeleteRepositoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryResult => __isa(o, "DeleteRepositoryResult");
 }
 
 export interface DescribeDomainRequest {
-  __type?: "DescribeDomainRequest";
   /**
    * <p>
    *          A string that specifies the name of the requested domain.
@@ -891,11 +845,9 @@ export namespace DescribeDomainRequest {
   export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainRequest => __isa(o, "DescribeDomainRequest");
 }
 
 export interface DescribeDomainResult {
-  __type?: "DescribeDomainResult";
   /**
    * <p>
    *        Information about a domain. A domain is a container for repositories. When you create a domain, it is empty until you
@@ -909,11 +861,9 @@ export namespace DescribeDomainResult {
   export const filterSensitiveLog = (obj: DescribeDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainResult => __isa(o, "DescribeDomainResult");
 }
 
 export interface DescribePackageVersionRequest {
-  __type?: "DescribePackageVersionRequest";
   /**
    * <p>
    *       The name of the domain that contains the repository that contains the package version.
@@ -1001,11 +951,9 @@ export namespace DescribePackageVersionRequest {
   export const filterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackageVersionRequest => __isa(o, "DescribePackageVersionRequest");
 }
 
 export interface DescribePackageVersionResult {
-  __type?: "DescribePackageVersionResult";
   /**
    * <p>
    *       A <code>
@@ -1021,11 +969,9 @@ export namespace DescribePackageVersionResult {
   export const filterSensitiveLog = (obj: DescribePackageVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackageVersionResult => __isa(o, "DescribePackageVersionResult");
 }
 
 export interface DescribeRepositoryRequest {
-  __type?: "DescribeRepositoryRequest";
   /**
    * <p>
    *         A string that specifies the name of the requested repository.
@@ -1053,11 +999,9 @@ export namespace DescribeRepositoryRequest {
   export const filterSensitiveLog = (obj: DescribeRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoryRequest => __isa(o, "DescribeRepositoryRequest");
 }
 
 export interface DescribeRepositoryResult {
-  __type?: "DescribeRepositoryResult";
   /**
    * <p>
    *          A <code>RepositoryDescription</code> object that contains the requested repository information.
@@ -1070,11 +1014,9 @@ export namespace DescribeRepositoryResult {
   export const filterSensitiveLog = (obj: DescribeRepositoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoryResult => __isa(o, "DescribeRepositoryResult");
 }
 
 export interface DisassociateExternalConnectionRequest {
-  __type?: "DisassociateExternalConnectionRequest";
   /**
    * <p>The name of the repository from which the external connection will be removed. </p>
    */
@@ -1104,12 +1046,9 @@ export namespace DisassociateExternalConnectionRequest {
   export const filterSensitiveLog = (obj: DisassociateExternalConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateExternalConnectionRequest =>
-    __isa(o, "DisassociateExternalConnectionRequest");
 }
 
 export interface DisassociateExternalConnectionResult {
-  __type?: "DisassociateExternalConnectionResult";
   /**
    * <p>
    *       The repository associated with the removed external connection.
@@ -1122,12 +1061,9 @@ export namespace DisassociateExternalConnectionResult {
   export const filterSensitiveLog = (obj: DisassociateExternalConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateExternalConnectionResult =>
-    __isa(o, "DisassociateExternalConnectionResult");
 }
 
 export interface DisposePackageVersionsRequest {
-  __type?: "DisposePackageVersionsRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -1260,11 +1196,9 @@ export namespace DisposePackageVersionsRequest {
   export const filterSensitiveLog = (obj: DisposePackageVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisposePackageVersionsRequest => __isa(o, "DisposePackageVersionsRequest");
 }
 
 export interface DisposePackageVersionsResult {
-  __type?: "DisposePackageVersionsResult";
   /**
    * <p>
    *       A list of the package versions that were successfully disposed.
@@ -1317,7 +1251,6 @@ export namespace DisposePackageVersionsResult {
   export const filterSensitiveLog = (obj: DisposePackageVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisposePackageVersionsResult => __isa(o, "DisposePackageVersionsResult");
 }
 
 /**
@@ -1327,7 +1260,6 @@ export namespace DisposePackageVersionsResult {
  *       </p>
  */
 export interface DomainDescription {
-  __type?: "DomainDescription";
   /**
    * <p> The Amazon Resource Name (ARN) of the domain. </p>
    */
@@ -1393,7 +1325,6 @@ export namespace DomainDescription {
   export const filterSensitiveLog = (obj: DomainDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDescription => __isa(o, "DomainDescription");
 }
 
 export enum DomainStatus {
@@ -1409,7 +1340,6 @@ export enum DomainStatus {
  *       objects. </p>
  */
 export interface DomainSummary {
-  __type?: "DomainSummary";
   /**
    * <p>
    *       The key used to encrypt the domain.
@@ -1470,7 +1400,6 @@ export namespace DomainSummary {
   export const filterSensitiveLog = (obj: DomainSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainSummary => __isa(o, "DomainSummary");
 }
 
 export enum ExternalConnectionStatus {
@@ -1478,7 +1407,6 @@ export enum ExternalConnectionStatus {
 }
 
 export interface GetAuthorizationTokenRequest {
-  __type?: "GetAuthorizationTokenRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -1504,11 +1432,9 @@ export namespace GetAuthorizationTokenRequest {
   export const filterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizationTokenRequest => __isa(o, "GetAuthorizationTokenRequest");
 }
 
 export interface GetAuthorizationTokenResult {
-  __type?: "GetAuthorizationTokenResult";
   /**
    * <p>
    *       A timestamp that specifies the date and time the authorization token expires.
@@ -1528,11 +1454,9 @@ export namespace GetAuthorizationTokenResult {
   export const filterSensitiveLog = (obj: GetAuthorizationTokenResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizationTokenResult => __isa(o, "GetAuthorizationTokenResult");
 }
 
 export interface GetDomainPermissionsPolicyRequest {
-  __type?: "GetDomainPermissionsPolicyRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -1553,11 +1477,9 @@ export namespace GetDomainPermissionsPolicyRequest {
   export const filterSensitiveLog = (obj: GetDomainPermissionsPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainPermissionsPolicyRequest => __isa(o, "GetDomainPermissionsPolicyRequest");
 }
 
 export interface GetDomainPermissionsPolicyResult {
-  __type?: "GetDomainPermissionsPolicyResult";
   /**
    * <p>
    *         The returned resource policy.
@@ -1570,11 +1492,9 @@ export namespace GetDomainPermissionsPolicyResult {
   export const filterSensitiveLog = (obj: GetDomainPermissionsPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainPermissionsPolicyResult => __isa(o, "GetDomainPermissionsPolicyResult");
 }
 
 export interface GetPackageVersionAssetRequest {
-  __type?: "GetPackageVersionAssetRequest";
   /**
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
@@ -1680,11 +1600,9 @@ export namespace GetPackageVersionAssetRequest {
   export const filterSensitiveLog = (obj: GetPackageVersionAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPackageVersionAssetRequest => __isa(o, "GetPackageVersionAssetRequest");
 }
 
 export interface GetPackageVersionAssetResult {
-  __type?: "GetPackageVersionAssetResult";
   /**
    * <p>
    *       The name of the package version revision that contains the downloaded asset.
@@ -1716,11 +1634,9 @@ export namespace GetPackageVersionAssetResult {
   export const filterSensitiveLog = (obj: GetPackageVersionAssetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPackageVersionAssetResult => __isa(o, "GetPackageVersionAssetResult");
 }
 
 export interface GetPackageVersionReadmeRequest {
-  __type?: "GetPackageVersionReadmeRequest";
   /**
    * <p>
    *       The name of the package version that contains the requested readme file.
@@ -1812,11 +1728,9 @@ export namespace GetPackageVersionReadmeRequest {
   export const filterSensitiveLog = (obj: GetPackageVersionReadmeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPackageVersionReadmeRequest => __isa(o, "GetPackageVersionReadmeRequest");
 }
 
 export interface GetPackageVersionReadmeResult {
-  __type?: "GetPackageVersionReadmeResult";
   /**
    * <p>
    *       The namespace of the package. The package component that specifies its
@@ -1900,11 +1814,9 @@ export namespace GetPackageVersionReadmeResult {
   export const filterSensitiveLog = (obj: GetPackageVersionReadmeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPackageVersionReadmeResult => __isa(o, "GetPackageVersionReadmeResult");
 }
 
 export interface GetRepositoryEndpointRequest {
-  __type?: "GetRepositoryEndpointRequest";
   /**
    * <p>
    *          The name of the domain that contains the repository.
@@ -1957,11 +1869,9 @@ export namespace GetRepositoryEndpointRequest {
   export const filterSensitiveLog = (obj: GetRepositoryEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryEndpointRequest => __isa(o, "GetRepositoryEndpointRequest");
 }
 
 export interface GetRepositoryEndpointResult {
-  __type?: "GetRepositoryEndpointResult";
   /**
    * <p>
    *          A string that specifies the URL of the returned endpoint.
@@ -1974,11 +1884,9 @@ export namespace GetRepositoryEndpointResult {
   export const filterSensitiveLog = (obj: GetRepositoryEndpointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryEndpointResult => __isa(o, "GetRepositoryEndpointResult");
 }
 
 export interface GetRepositoryPermissionsPolicyRequest {
-  __type?: "GetRepositoryPermissionsPolicyRequest";
   /**
    * <p>
    *         The 12-digit account number of the AWS account that owns the domain. It does not include
@@ -2006,12 +1914,9 @@ export namespace GetRepositoryPermissionsPolicyRequest {
   export const filterSensitiveLog = (obj: GetRepositoryPermissionsPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryPermissionsPolicyRequest =>
-    __isa(o, "GetRepositoryPermissionsPolicyRequest");
 }
 
 export interface GetRepositoryPermissionsPolicyResult {
-  __type?: "GetRepositoryPermissionsPolicyResult";
   /**
    * <p>
    *         The returned resource policy.
@@ -2024,8 +1929,6 @@ export namespace GetRepositoryPermissionsPolicyResult {
   export const filterSensitiveLog = (obj: GetRepositoryPermissionsPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryPermissionsPolicyResult =>
-    __isa(o, "GetRepositoryPermissionsPolicyResult");
 }
 
 export enum HashAlgorithm {
@@ -2048,7 +1951,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -2057,7 +1959,6 @@ export namespace InternalServerException {
  *       </p>
  */
 export interface LicenseInfo {
-  __type?: "LicenseInfo";
   /**
    * <p>
    *         The URL for license data.
@@ -2077,11 +1978,9 @@ export namespace LicenseInfo {
   export const filterSensitiveLog = (obj: LicenseInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseInfo => __isa(o, "LicenseInfo");
 }
 
 export interface ListDomainsRequest {
-  __type?: "ListDomainsRequest";
   /**
    * <p>
    *         The maximum number of results to return per page.
@@ -2101,11 +2000,9 @@ export namespace ListDomainsRequest {
   export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsRequest => __isa(o, "ListDomainsRequest");
 }
 
 export interface ListDomainsResult {
-  __type?: "ListDomainsResult";
   /**
    * <p>
    *       The returned list of <code>
@@ -2127,11 +2024,9 @@ export namespace ListDomainsResult {
   export const filterSensitiveLog = (obj: ListDomainsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsResult => __isa(o, "ListDomainsResult");
 }
 
 export interface ListPackagesRequest {
-  __type?: "ListPackagesRequest";
   /**
    * <p>
    *       The namespace of the package. The package component that specifies its
@@ -2231,11 +2126,9 @@ export namespace ListPackagesRequest {
   export const filterSensitiveLog = (obj: ListPackagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagesRequest => __isa(o, "ListPackagesRequest");
 }
 
 export interface ListPackagesResult {
-  __type?: "ListPackagesResult";
   /**
    * <p>
    *         If there are additional results, this is the token for the next set of results.
@@ -2258,11 +2151,9 @@ export namespace ListPackagesResult {
   export const filterSensitiveLog = (obj: ListPackagesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagesResult => __isa(o, "ListPackagesResult");
 }
 
 export interface ListPackageVersionAssetsRequest {
-  __type?: "ListPackageVersionAssetsRequest";
   /**
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
@@ -2368,11 +2259,9 @@ export namespace ListPackageVersionAssetsRequest {
   export const filterSensitiveLog = (obj: ListPackageVersionAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackageVersionAssetsRequest => __isa(o, "ListPackageVersionAssetsRequest");
 }
 
 export interface ListPackageVersionAssetsResult {
-  __type?: "ListPackageVersionAssetsResult";
   /**
    * <p>
    *       The version of the package associated with the returned assets.
@@ -2448,11 +2337,9 @@ export namespace ListPackageVersionAssetsResult {
   export const filterSensitiveLog = (obj: ListPackageVersionAssetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackageVersionAssetsResult => __isa(o, "ListPackageVersionAssetsResult");
 }
 
 export interface ListPackageVersionDependenciesRequest {
-  __type?: "ListPackageVersionDependenciesRequest";
   /**
    * <p>
    *       The domain that contains the repository that contains the requested package version dependencies.
@@ -2551,12 +2438,9 @@ export namespace ListPackageVersionDependenciesRequest {
   export const filterSensitiveLog = (obj: ListPackageVersionDependenciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackageVersionDependenciesRequest =>
-    __isa(o, "ListPackageVersionDependenciesRequest");
 }
 
 export interface ListPackageVersionDependenciesResult {
-  __type?: "ListPackageVersionDependenciesResult";
   /**
    * <p>
    *       The namespace of the package. The package component that specifies its
@@ -2649,12 +2533,9 @@ export namespace ListPackageVersionDependenciesResult {
   export const filterSensitiveLog = (obj: ListPackageVersionDependenciesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackageVersionDependenciesResult =>
-    __isa(o, "ListPackageVersionDependenciesResult");
 }
 
 export interface ListPackageVersionsRequest {
-  __type?: "ListPackageVersionsRequest";
   /**
    * <p>
    *          The name of the repository that contains the package.
@@ -2794,11 +2675,9 @@ export namespace ListPackageVersionsRequest {
   export const filterSensitiveLog = (obj: ListPackageVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackageVersionsRequest => __isa(o, "ListPackageVersionsRequest");
 }
 
 export interface ListPackageVersionsResult {
-  __type?: "ListPackageVersionsResult";
   /**
    * <p>
    *         The returned list of
@@ -2899,11 +2778,9 @@ export namespace ListPackageVersionsResult {
   export const filterSensitiveLog = (obj: ListPackageVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackageVersionsResult => __isa(o, "ListPackageVersionsResult");
 }
 
 export interface ListRepositoriesInDomainRequest {
-  __type?: "ListRepositoriesInDomainRequest";
   /**
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
@@ -2953,11 +2830,9 @@ export namespace ListRepositoriesInDomainRequest {
   export const filterSensitiveLog = (obj: ListRepositoriesInDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesInDomainRequest => __isa(o, "ListRepositoriesInDomainRequest");
 }
 
 export interface ListRepositoriesInDomainResult {
-  __type?: "ListRepositoriesInDomainResult";
   /**
    * <p>
    *         If there are additional results, this is the token for the next set of results.
@@ -2977,11 +2852,9 @@ export namespace ListRepositoriesInDomainResult {
   export const filterSensitiveLog = (obj: ListRepositoriesInDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesInDomainResult => __isa(o, "ListRepositoriesInDomainResult");
 }
 
 export interface ListRepositoriesRequest {
-  __type?: "ListRepositoriesRequest";
   /**
    * <p> A prefix used to filter returned repositories. Only repositories with names that start
    *       with <code>repositoryPrefix</code> are returned.</p>
@@ -3007,11 +2880,9 @@ export namespace ListRepositoriesRequest {
   export const filterSensitiveLog = (obj: ListRepositoriesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesRequest => __isa(o, "ListRepositoriesRequest");
 }
 
 export interface ListRepositoriesResult {
-  __type?: "ListRepositoriesResult";
   /**
    * <p>
    *         If there are additional results, this is the token for the next set of results.
@@ -3034,7 +2905,6 @@ export namespace ListRepositoriesResult {
   export const filterSensitiveLog = (obj: ListRepositoriesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesResult => __isa(o, "ListRepositoriesResult");
 }
 
 /**
@@ -3043,7 +2913,6 @@ export namespace ListRepositoriesResult {
  *       </p>
  */
 export interface PackageDependency {
-  __type?: "PackageDependency";
   /**
    * <p>
    *         The required version, or version range, of the package that this package depends on. The version format
@@ -3098,7 +2967,6 @@ export namespace PackageDependency {
   export const filterSensitiveLog = (obj: PackageDependency): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageDependency => __isa(o, "PackageDependency");
 }
 
 export enum PackageFormat {
@@ -3117,7 +2985,6 @@ export enum PackageFormat {
  *     </p>
  */
 export interface PackageSummary {
-  __type?: "PackageSummary";
   /**
    * <p>
    *       The name of the package.
@@ -3180,7 +3047,6 @@ export namespace PackageSummary {
   export const filterSensitiveLog = (obj: PackageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageSummary => __isa(o, "PackageSummary");
 }
 
 /**
@@ -3189,7 +3055,6 @@ export namespace PackageSummary {
  *     </p>
  */
 export interface PackageVersionDescription {
-  __type?: "PackageVersionDescription";
   /**
    * <p>
    *       A summary of the package version. The summary is extracted from the package. The information in and
@@ -3346,7 +3211,6 @@ export namespace PackageVersionDescription {
   export const filterSensitiveLog = (obj: PackageVersionDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageVersionDescription => __isa(o, "PackageVersionDescription");
 }
 
 /**
@@ -3355,7 +3219,6 @@ export namespace PackageVersionDescription {
  *    </p>
  */
 export interface PackageVersionError {
-  __type?: "PackageVersionError";
   /**
    * <p>
    *          The error message associated with the error.
@@ -3405,7 +3268,6 @@ export namespace PackageVersionError {
   export const filterSensitiveLog = (obj: PackageVersionError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageVersionError => __isa(o, "PackageVersionError");
 }
 
 export enum PackageVersionErrorCode {
@@ -3440,7 +3302,6 @@ export enum PackageVersionStatus {
  *      </p>
  */
 export interface PackageVersionSummary {
-  __type?: "PackageVersionSummary";
   /**
    * <p>
    *         Information about a package version.
@@ -3494,11 +3355,9 @@ export namespace PackageVersionSummary {
   export const filterSensitiveLog = (obj: PackageVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageVersionSummary => __isa(o, "PackageVersionSummary");
 }
 
 export interface PutDomainPermissionsPolicyRequest {
-  __type?: "PutDomainPermissionsPolicyRequest";
   /**
    * <p>
    *         The current revision of the resource policy to be set. This revision is used for optimistic locking, which
@@ -3533,11 +3392,9 @@ export namespace PutDomainPermissionsPolicyRequest {
   export const filterSensitiveLog = (obj: PutDomainPermissionsPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDomainPermissionsPolicyRequest => __isa(o, "PutDomainPermissionsPolicyRequest");
 }
 
 export interface PutDomainPermissionsPolicyResult {
-  __type?: "PutDomainPermissionsPolicyResult";
   /**
    * <p> The resource policy that was set after processing the request. </p>
    */
@@ -3548,11 +3405,9 @@ export namespace PutDomainPermissionsPolicyResult {
   export const filterSensitiveLog = (obj: PutDomainPermissionsPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDomainPermissionsPolicyResult => __isa(o, "PutDomainPermissionsPolicyResult");
 }
 
 export interface PutRepositoryPermissionsPolicyRequest {
-  __type?: "PutRepositoryPermissionsPolicyRequest";
   /**
    * <p>
    *         Sets the revision of the resource policy that specifies permissions to access the repository.
@@ -3593,12 +3448,9 @@ export namespace PutRepositoryPermissionsPolicyRequest {
   export const filterSensitiveLog = (obj: PutRepositoryPermissionsPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRepositoryPermissionsPolicyRequest =>
-    __isa(o, "PutRepositoryPermissionsPolicyRequest");
 }
 
 export interface PutRepositoryPermissionsPolicyResult {
-  __type?: "PutRepositoryPermissionsPolicyResult";
   /**
    * <p> The resource policy that was set after processing the request. </p>
    */
@@ -3609,8 +3461,6 @@ export namespace PutRepositoryPermissionsPolicyResult {
   export const filterSensitiveLog = (obj: PutRepositoryPermissionsPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRepositoryPermissionsPolicyResult =>
-    __isa(o, "PutRepositoryPermissionsPolicyResult");
 }
 
 /**
@@ -3622,7 +3472,6 @@ export namespace PutRepositoryPermissionsPolicyResult {
  *       account. </p>
  */
 export interface RepositoryDescription {
-  __type?: "RepositoryDescription";
   /**
    * <p>
    *         The name of the domain that contains the repository.
@@ -3681,7 +3530,6 @@ export namespace RepositoryDescription {
   export const filterSensitiveLog = (obj: RepositoryDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryDescription => __isa(o, "RepositoryDescription");
 }
 
 /**
@@ -3690,7 +3538,6 @@ export namespace RepositoryDescription {
  *       </p>
  */
 export interface RepositoryExternalConnectionInfo {
-  __type?: "RepositoryExternalConnectionInfo";
   /**
    * <p>
    *         The package format associated with a repository's external connection. The valid package formats are:
@@ -3732,7 +3579,6 @@ export namespace RepositoryExternalConnectionInfo {
   export const filterSensitiveLog = (obj: RepositoryExternalConnectionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryExternalConnectionInfo => __isa(o, "RepositoryExternalConnectionInfo");
 }
 
 /**
@@ -3743,7 +3589,6 @@ export namespace RepositoryExternalConnectionInfo {
  *         <code>RepositorySummary</code> objects. </p>
  */
 export interface RepositorySummary {
-  __type?: "RepositorySummary";
   /**
    * <p>
    *          The AWS account ID that manages the repository.
@@ -3790,7 +3635,6 @@ export namespace RepositorySummary {
   export const filterSensitiveLog = (obj: RepositorySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositorySummary => __isa(o, "RepositorySummary");
 }
 
 /**
@@ -3822,7 +3666,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3831,7 +3674,6 @@ export namespace ResourceNotFoundException {
  *       </p>
  */
 export interface ResourcePolicy {
-  __type?: "ResourcePolicy";
   /**
    * <p>
    *       The resource policy formatted in JSON.
@@ -3858,7 +3700,6 @@ export namespace ResourcePolicy {
   export const filterSensitiveLog = (obj: ResourcePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourcePolicy => __isa(o, "ResourcePolicy");
 }
 
 export enum ResourceType {
@@ -3897,7 +3738,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -3906,7 +3746,6 @@ export namespace ServiceQuotaExceededException {
  *     </p>
  */
 export interface SuccessfulPackageVersionInfo {
-  __type?: "SuccessfulPackageVersionInfo";
   /**
    * <p>
    *       The revision of a package version.
@@ -3953,7 +3792,6 @@ export namespace SuccessfulPackageVersionInfo {
   export const filterSensitiveLog = (obj: SuccessfulPackageVersionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuccessfulPackageVersionInfo => __isa(o, "SuccessfulPackageVersionInfo");
 }
 
 /**
@@ -3977,11 +3815,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdatePackageVersionsStatusRequest {
-  __type?: "UpdatePackageVersionsStatusRequest";
   /**
    * <p>
    *       The domain that contains the repository that contains the package versions with a status to be updated.
@@ -4095,12 +3931,9 @@ export namespace UpdatePackageVersionsStatusRequest {
   export const filterSensitiveLog = (obj: UpdatePackageVersionsStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePackageVersionsStatusRequest =>
-    __isa(o, "UpdatePackageVersionsStatusRequest");
 }
 
 export interface UpdatePackageVersionsStatusResult {
-  __type?: "UpdatePackageVersionsStatusResult";
   /**
    * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
    *       with a status that successfully updated. </p>
@@ -4120,11 +3953,9 @@ export namespace UpdatePackageVersionsStatusResult {
   export const filterSensitiveLog = (obj: UpdatePackageVersionsStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePackageVersionsStatusResult => __isa(o, "UpdatePackageVersionsStatusResult");
 }
 
 export interface UpdateRepositoryRequest {
-  __type?: "UpdateRepositoryRequest";
   /**
    * <p>
    *          The name of the domain associated with the repository to update.
@@ -4166,11 +3997,9 @@ export namespace UpdateRepositoryRequest {
   export const filterSensitiveLog = (obj: UpdateRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRepositoryRequest => __isa(o, "UpdateRepositoryRequest");
 }
 
 export interface UpdateRepositoryResult {
-  __type?: "UpdateRepositoryResult";
   /**
    * <p>
    *          The updated repository.
@@ -4183,7 +4012,6 @@ export namespace UpdateRepositoryResult {
   export const filterSensitiveLog = (obj: UpdateRepositoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRepositoryResult => __isa(o, "UpdateRepositoryResult");
 }
 
 /**
@@ -4198,7 +4026,6 @@ export namespace UpdateRepositoryResult {
  *      </p>
  */
 export interface UpstreamRepository {
-  __type?: "UpstreamRepository";
   /**
    * <p> The name of an upstream repository. </p>
    */
@@ -4209,7 +4036,6 @@ export namespace UpstreamRepository {
   export const filterSensitiveLog = (obj: UpstreamRepository): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpstreamRepository => __isa(o, "UpstreamRepository");
 }
 
 /**
@@ -4218,7 +4044,6 @@ export namespace UpstreamRepository {
  *       </p>
  */
 export interface UpstreamRepositoryInfo {
-  __type?: "UpstreamRepositoryInfo";
   /**
    * <p> The name of an upstream repository. </p>
    */
@@ -4229,7 +4054,6 @@ export namespace UpstreamRepositoryInfo {
   export const filterSensitiveLog = (obj: UpstreamRepositoryInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpstreamRepositoryInfo => __isa(o, "UpstreamRepositoryInfo");
 }
 
 /**
@@ -4254,7 +4078,6 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 export enum ValidationExceptionReason {

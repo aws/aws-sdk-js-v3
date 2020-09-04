@@ -223,7 +223,6 @@ export const deserializeAws_json1_1AssociateS3ResourcesCommand = async (
   contents = deserializeAws_json1_1AssociateS3ResourcesResult(data, context);
   const response: AssociateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateS3ResourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -363,7 +362,6 @@ export const deserializeAws_json1_1DisassociateS3ResourcesCommand = async (
   contents = deserializeAws_json1_1DisassociateS3ResourcesResult(data, context);
   const response: DisassociateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateS3ResourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -435,7 +433,6 @@ export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   contents = deserializeAws_json1_1ListMemberAccountsResult(data, context);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMemberAccountsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -499,7 +496,6 @@ export const deserializeAws_json1_1ListS3ResourcesCommand = async (
   contents = deserializeAws_json1_1ListS3ResourcesResult(data, context);
   const response: ListS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListS3ResourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -571,7 +567,6 @@ export const deserializeAws_json1_1UpdateS3ResourcesCommand = async (
   contents = deserializeAws_json1_1UpdateS3ResourcesResult(data, context);
   const response: UpdateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateS3ResourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -833,7 +828,6 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -844,7 +838,6 @@ const deserializeAws_json1_1AssociateS3ResourcesResult = (
   context: __SerdeContext
 ): AssociateS3ResourcesResult => {
   return {
-    __type: "AssociateS3ResourcesResult",
     failedS3Resources:
       output.failedS3Resources !== undefined && output.failedS3Resources !== null
         ? deserializeAws_json1_1FailedS3Resources(output.failedS3Resources, context)
@@ -854,7 +847,6 @@ const deserializeAws_json1_1AssociateS3ResourcesResult = (
 
 const deserializeAws_json1_1ClassificationType = (output: any, context: __SerdeContext): ClassificationType => {
   return {
-    __type: "ClassificationType",
     continuous: output.continuous !== undefined && output.continuous !== null ? output.continuous : undefined,
     oneTime: output.oneTime !== undefined && output.oneTime !== null ? output.oneTime : undefined,
   } as any;
@@ -865,7 +857,6 @@ const deserializeAws_json1_1DisassociateS3ResourcesResult = (
   context: __SerdeContext
 ): DisassociateS3ResourcesResult => {
   return {
-    __type: "DisassociateS3ResourcesResult",
     failedS3Resources:
       output.failedS3Resources !== undefined && output.failedS3Resources !== null
         ? deserializeAws_json1_1FailedS3Resources(output.failedS3Resources, context)
@@ -875,7 +866,6 @@ const deserializeAws_json1_1DisassociateS3ResourcesResult = (
 
 const deserializeAws_json1_1FailedS3Resource = (output: any, context: __SerdeContext): FailedS3Resource => {
   return {
-    __type: "FailedS3Resource",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     failedItem:
@@ -891,7 +881,6 @@ const deserializeAws_json1_1FailedS3Resources = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
   return {
-    __type: "InternalException",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -899,7 +888,6 @@ const deserializeAws_json1_1InternalException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     fieldName: output.fieldName !== undefined && output.fieldName !== null ? output.fieldName : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -908,7 +896,6 @@ const deserializeAws_json1_1InvalidInputException = (output: any, context: __Ser
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
@@ -920,7 +907,6 @@ const deserializeAws_json1_1ListMemberAccountsResult = (
   context: __SerdeContext
 ): ListMemberAccountsResult => {
   return {
-    __type: "ListMemberAccountsResult",
     memberAccounts:
       output.memberAccounts !== undefined && output.memberAccounts !== null
         ? deserializeAws_json1_1MemberAccounts(output.memberAccounts, context)
@@ -931,7 +917,6 @@ const deserializeAws_json1_1ListMemberAccountsResult = (
 
 const deserializeAws_json1_1ListS3ResourcesResult = (output: any, context: __SerdeContext): ListS3ResourcesResult => {
   return {
-    __type: "ListS3ResourcesResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     s3Resources:
       output.s3Resources !== undefined && output.s3Resources !== null
@@ -942,7 +927,6 @@ const deserializeAws_json1_1ListS3ResourcesResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1MemberAccount = (output: any, context: __SerdeContext): MemberAccount => {
   return {
-    __type: "MemberAccount",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
   } as any;
 };
@@ -953,7 +937,6 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
   return {
-    __type: "S3Resource",
     bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
   } as any;
@@ -964,7 +947,6 @@ const deserializeAws_json1_1S3ResourceClassification = (
   context: __SerdeContext
 ): S3ResourceClassification => {
   return {
-    __type: "S3ResourceClassification",
     bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     classificationType:
       output.classificationType !== undefined && output.classificationType !== null
@@ -986,7 +968,6 @@ const deserializeAws_json1_1UpdateS3ResourcesResult = (
   context: __SerdeContext
 ): UpdateS3ResourcesResult => {
   return {
-    __type: "UpdateS3ResourcesResult",
     failedS3Resources:
       output.failedS3Resources !== undefined && output.failedS3Resources !== null
         ? deserializeAws_json1_1FailedS3Resources(output.failedS3Resources, context)

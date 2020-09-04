@@ -1343,7 +1343,6 @@ export const deserializeAws_queryAddTagsToResourceCommand = async (
   contents = deserializeAws_queryTagListMessage(data.AddTagsToResourceResult, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagListMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1425,7 +1424,6 @@ export const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = asy
   );
   const response: AuthorizeCacheSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AuthorizeCacheSecurityGroupIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1512,7 +1510,6 @@ export const deserializeAws_queryBatchApplyUpdateActionCommand = async (
   contents = deserializeAws_queryUpdateActionResultsMessage(data.BatchApplyUpdateActionResult, context);
   const response: BatchApplyUpdateActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateActionResultsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1575,7 +1572,6 @@ export const deserializeAws_queryBatchStopUpdateActionCommand = async (
   contents = deserializeAws_queryUpdateActionResultsMessage(data.BatchStopUpdateActionResult, context);
   const response: BatchStopUpdateActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateActionResultsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1638,7 +1634,6 @@ export const deserializeAws_queryCompleteMigrationCommand = async (
   contents = deserializeAws_queryCompleteMigrationResponse(data.CompleteMigrationResult, context);
   const response: CompleteMigrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CompleteMigrationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1709,7 +1704,6 @@ export const deserializeAws_queryCopySnapshotCommand = async (
   contents = deserializeAws_queryCopySnapshotResult(data.CopySnapshotResult, context);
   const response: CopySnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopySnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1804,7 +1798,6 @@ export const deserializeAws_queryCreateCacheClusterCommand = async (
   contents = deserializeAws_queryCreateCacheClusterResult(data.CreateCacheClusterResult, context);
   const response: CreateCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCacheClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1963,7 +1956,6 @@ export const deserializeAws_queryCreateCacheParameterGroupCommand = async (
   contents = deserializeAws_queryCreateCacheParameterGroupResult(data.CreateCacheParameterGroupResult, context);
   const response: CreateCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCacheParameterGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2050,7 +2042,6 @@ export const deserializeAws_queryCreateCacheSecurityGroupCommand = async (
   contents = deserializeAws_queryCreateCacheSecurityGroupResult(data.CreateCacheSecurityGroupResult, context);
   const response: CreateCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCacheSecurityGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2129,7 +2120,6 @@ export const deserializeAws_queryCreateCacheSubnetGroupCommand = async (
   contents = deserializeAws_queryCreateCacheSubnetGroupResult(data.CreateCacheSubnetGroupResult, context);
   const response: CreateCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCacheSubnetGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2208,7 +2198,6 @@ export const deserializeAws_queryCreateGlobalReplicationGroupCommand = async (
   contents = deserializeAws_queryCreateGlobalReplicationGroupResult(data.CreateGlobalReplicationGroupResult, context);
   const response: CreateGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2295,7 +2284,6 @@ export const deserializeAws_queryCreateReplicationGroupCommand = async (
   contents = deserializeAws_queryCreateReplicationGroupResult(data.CreateReplicationGroupResult, context);
   const response: CreateReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2478,7 +2466,6 @@ export const deserializeAws_queryCreateSnapshotCommand = async (
   contents = deserializeAws_queryCreateSnapshotResult(data.CreateSnapshotResult, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2600,7 +2587,6 @@ export const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupComma
   );
   const response: DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DecreaseNodeGroupsInGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2679,7 +2665,6 @@ export const deserializeAws_queryDecreaseReplicaCountCommand = async (
   contents = deserializeAws_queryDecreaseReplicaCountResult(data.DecreaseReplicaCountResult, context);
   const response: DecreaseReplicaCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DecreaseReplicaCountResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2822,7 +2807,6 @@ export const deserializeAws_queryDeleteCacheClusterCommand = async (
   contents = deserializeAws_queryDeleteCacheClusterResult(data.DeleteCacheClusterResult, context);
   const response: DeleteCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCacheClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3134,7 +3118,6 @@ export const deserializeAws_queryDeleteGlobalReplicationGroupCommand = async (
   contents = deserializeAws_queryDeleteGlobalReplicationGroupResult(data.DeleteGlobalReplicationGroupResult, context);
   const response: DeleteGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3205,7 +3188,6 @@ export const deserializeAws_queryDeleteReplicationGroupCommand = async (
   contents = deserializeAws_queryDeleteReplicationGroupResult(data.DeleteReplicationGroupResult, context);
   const response: DeleteReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3308,7 +3290,6 @@ export const deserializeAws_queryDeleteSnapshotCommand = async (
   contents = deserializeAws_queryDeleteSnapshotResult(data.DeleteSnapshotResult, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3387,7 +3368,6 @@ export const deserializeAws_queryDescribeCacheClustersCommand = async (
   contents = deserializeAws_queryCacheClusterMessage(data.DescribeCacheClustersResult, context);
   const response: DescribeCacheClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheClusterMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3458,7 +3438,6 @@ export const deserializeAws_queryDescribeCacheEngineVersionsCommand = async (
   contents = deserializeAws_queryCacheEngineVersionMessage(data.DescribeCacheEngineVersionsResult, context);
   const response: DescribeCacheEngineVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheEngineVersionMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3505,7 +3484,6 @@ export const deserializeAws_queryDescribeCacheParameterGroupsCommand = async (
   contents = deserializeAws_queryCacheParameterGroupsMessage(data.DescribeCacheParameterGroupsResult, context);
   const response: DescribeCacheParameterGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheParameterGroupsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3576,7 +3554,6 @@ export const deserializeAws_queryDescribeCacheParametersCommand = async (
   contents = deserializeAws_queryCacheParameterGroupDetails(data.DescribeCacheParametersResult, context);
   const response: DescribeCacheParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheParameterGroupDetails",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3647,7 +3624,6 @@ export const deserializeAws_queryDescribeCacheSecurityGroupsCommand = async (
   contents = deserializeAws_queryCacheSecurityGroupMessage(data.DescribeCacheSecurityGroupsResult, context);
   const response: DescribeCacheSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSecurityGroupMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3718,7 +3694,6 @@ export const deserializeAws_queryDescribeCacheSubnetGroupsCommand = async (
   contents = deserializeAws_queryCacheSubnetGroupMessage(data.DescribeCacheSubnetGroupsResult, context);
   const response: DescribeCacheSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSubnetGroupMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3776,7 +3751,6 @@ export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async 
   );
   const response: DescribeEngineDefaultParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEngineDefaultParametersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3839,7 +3813,6 @@ export const deserializeAws_queryDescribeEventsCommand = async (
   contents = deserializeAws_queryEventsMessage(data.DescribeEventsResult, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3905,7 +3878,6 @@ export const deserializeAws_queryDescribeGlobalReplicationGroupsCommand = async 
   );
   const response: DescribeGlobalReplicationGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGlobalReplicationGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3976,7 +3948,6 @@ export const deserializeAws_queryDescribeReplicationGroupsCommand = async (
   contents = deserializeAws_queryReplicationGroupMessage(data.DescribeReplicationGroupsResult, context);
   const response: DescribeReplicationGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroupMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4047,7 +4018,6 @@ export const deserializeAws_queryDescribeReservedCacheNodesCommand = async (
   contents = deserializeAws_queryReservedCacheNodeMessage(data.DescribeReservedCacheNodesResult, context);
   const response: DescribeReservedCacheNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReservedCacheNodeMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4121,7 +4091,6 @@ export const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand = as
   );
   const response: DescribeReservedCacheNodesOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReservedCacheNodesOfferingMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4192,7 +4161,6 @@ export const deserializeAws_queryDescribeServiceUpdatesCommand = async (
   contents = deserializeAws_queryServiceUpdatesMessage(data.DescribeServiceUpdatesResult, context);
   const response: DescribeServiceUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ServiceUpdatesMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4263,7 +4231,6 @@ export const deserializeAws_queryDescribeSnapshotsCommand = async (
   contents = deserializeAws_queryDescribeSnapshotsListMessage(data.DescribeSnapshotsResult, context);
   const response: DescribeSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSnapshotsListMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4342,7 +4309,6 @@ export const deserializeAws_queryDescribeUpdateActionsCommand = async (
   contents = deserializeAws_queryUpdateActionsMessage(data.DescribeUpdateActionsResult, context);
   const response: DescribeUpdateActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateActionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4408,7 +4374,6 @@ export const deserializeAws_queryDisassociateGlobalReplicationGroupCommand = asy
   );
   const response: DisassociateGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4490,7 +4455,6 @@ export const deserializeAws_queryFailoverGlobalReplicationGroupCommand = async (
   );
   const response: FailoverGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FailoverGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4572,7 +4536,6 @@ export const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupComma
   );
   const response: IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IncreaseNodeGroupsInGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4643,7 +4606,6 @@ export const deserializeAws_queryIncreaseReplicaCountCommand = async (
   contents = deserializeAws_queryIncreaseReplicaCountResult(data.IncreaseReplicaCountResult, context);
   const response: IncreaseReplicaCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IncreaseReplicaCountResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4789,7 +4751,6 @@ export const deserializeAws_queryListAllowedNodeTypeModificationsCommand = async
   );
   const response: ListAllowedNodeTypeModificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AllowedNodeTypeModificationsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4868,7 +4829,6 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   contents = deserializeAws_queryTagListMessage(data.ListTagsForResourceResult, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagListMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4939,7 +4899,6 @@ export const deserializeAws_queryModifyCacheClusterCommand = async (
   contents = deserializeAws_queryModifyCacheClusterResult(data.ModifyCacheClusterResult, context);
   const response: ModifyCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyCacheClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5074,7 +5033,6 @@ export const deserializeAws_queryModifyCacheParameterGroupCommand = async (
   contents = deserializeAws_queryCacheParameterGroupNameMessage(data.ModifyCacheParameterGroupResult, context);
   const response: ModifyCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheParameterGroupNameMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5161,7 +5119,6 @@ export const deserializeAws_queryModifyCacheSubnetGroupCommand = async (
   contents = deserializeAws_queryModifyCacheSubnetGroupResult(data.ModifyCacheSubnetGroupResult, context);
   const response: ModifyCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyCacheSubnetGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5240,7 +5197,6 @@ export const deserializeAws_queryModifyGlobalReplicationGroupCommand = async (
   contents = deserializeAws_queryModifyGlobalReplicationGroupResult(data.ModifyGlobalReplicationGroupResult, context);
   const response: ModifyGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5311,7 +5267,6 @@ export const deserializeAws_queryModifyReplicationGroupCommand = async (
   contents = deserializeAws_queryModifyReplicationGroupResult(data.ModifyReplicationGroupResult, context);
   const response: ModifyReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5473,7 +5428,6 @@ export const deserializeAws_queryModifyReplicationGroupShardConfigurationCommand
   );
   const response: ModifyReplicationGroupShardConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReplicationGroupShardConfigurationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5603,7 +5557,6 @@ export const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand = asy
   );
   const response: PurchaseReservedCacheNodesOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseReservedCacheNodesOfferingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5693,7 +5646,6 @@ export const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand =
   );
   const response: RebalanceSlotsInGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebalanceSlotsInGlobalReplicationGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5764,7 +5716,6 @@ export const deserializeAws_queryRebootCacheClusterCommand = async (
   contents = deserializeAws_queryRebootCacheClusterResult(data.RebootCacheClusterResult, context);
   const response: RebootCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootCacheClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5827,7 +5778,6 @@ export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
   contents = deserializeAws_queryTagListMessage(data.RemoveTagsFromResourceResult, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagListMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5906,7 +5856,6 @@ export const deserializeAws_queryResetCacheParameterGroupCommand = async (
   contents = deserializeAws_queryCacheParameterGroupNameMessage(data.ResetCacheParameterGroupResult, context);
   const response: ResetCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheParameterGroupNameMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5996,7 +5945,6 @@ export const deserializeAws_queryRevokeCacheSecurityGroupIngressCommand = async 
   );
   const response: RevokeCacheSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeCacheSecurityGroupIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6083,7 +6031,6 @@ export const deserializeAws_queryStartMigrationCommand = async (
   contents = deserializeAws_queryStartMigrationResponse(data.StartMigrationResult, context);
   const response: StartMigrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartMigrationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6162,7 +6109,6 @@ export const deserializeAws_queryTestFailoverCommand = async (
   contents = deserializeAws_queryTestFailoverResult(data.TestFailoverResult, context);
   const response: TestFailoverCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestFailoverResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8917,7 +8863,6 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
   context: __SerdeContext
 ): AllowedNodeTypeModificationsMessage => {
   let contents: any = {
-    __type: "AllowedNodeTypeModificationsMessage",
     ScaleUpModifications: undefined,
     ScaleDownModifications: undefined,
   };
@@ -8947,7 +8892,6 @@ const deserializeAws_queryAPICallRateForCustomerExceededFault = (
   context: __SerdeContext
 ): APICallRateForCustomerExceededFault => {
   let contents: any = {
-    __type: "APICallRateForCustomerExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8961,7 +8905,6 @@ const deserializeAws_queryAuthorizationAlreadyExistsFault = (
   context: __SerdeContext
 ): AuthorizationAlreadyExistsFault => {
   let contents: any = {
-    __type: "AuthorizationAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8975,7 +8918,6 @@ const deserializeAws_queryAuthorizationNotFoundFault = (
   context: __SerdeContext
 ): AuthorizationNotFoundFault => {
   let contents: any = {
-    __type: "AuthorizationNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8989,7 +8931,6 @@ const deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult = (
   context: __SerdeContext
 ): AuthorizeCacheSecurityGroupIngressResult => {
   let contents: any = {
-    __type: "AuthorizeCacheSecurityGroupIngressResult",
     CacheSecurityGroup: undefined,
   };
   if (output["CacheSecurityGroup"] !== undefined) {
@@ -9000,7 +8941,6 @@ const deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult = (
 
 const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   let contents: any = {
-    __type: "AvailabilityZone",
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -9015,7 +8955,6 @@ const deserializeAws_queryAvailabilityZonesList = (output: any, context: __Serde
 
 const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext): CacheCluster => {
   let contents: any = {
-    __type: "CacheCluster",
     ClientDownloadLandingPage: undefined,
     ConfigurationEndpoint: undefined,
     PendingModifiedValues: undefined,
@@ -9163,7 +9102,6 @@ const deserializeAws_queryCacheClusterAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheClusterAlreadyExistsFault => {
   let contents: any = {
-    __type: "CacheClusterAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9178,7 +9116,6 @@ const deserializeAws_queryCacheClusterList = (output: any, context: __SerdeConte
 
 const deserializeAws_queryCacheClusterMessage = (output: any, context: __SerdeContext): CacheClusterMessage => {
   let contents: any = {
-    __type: "CacheClusterMessage",
     CacheClusters: undefined,
     Marker: undefined,
   };
@@ -9202,7 +9139,6 @@ const deserializeAws_queryCacheClusterNotFoundFault = (
   context: __SerdeContext
 ): CacheClusterNotFoundFault => {
   let contents: any = {
-    __type: "CacheClusterNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9213,7 +9149,6 @@ const deserializeAws_queryCacheClusterNotFoundFault = (
 
 const deserializeAws_queryCacheEngineVersion = (output: any, context: __SerdeContext): CacheEngineVersion => {
   let contents: any = {
-    __type: "CacheEngineVersion",
     Engine: undefined,
     CacheEngineDescription: undefined,
     CacheParameterGroupFamily: undefined,
@@ -9247,7 +9182,6 @@ const deserializeAws_queryCacheEngineVersionMessage = (
   context: __SerdeContext
 ): CacheEngineVersionMessage => {
   let contents: any = {
-    __type: "CacheEngineVersionMessage",
     Marker: undefined,
     CacheEngineVersions: undefined,
   };
@@ -9271,7 +9205,6 @@ const deserializeAws_queryCacheEngineVersionMessage = (
 
 const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): CacheNode => {
   let contents: any = {
-    __type: "CacheNode",
     SourceCacheNodeId: undefined,
     CacheNodeCreateTime: undefined,
     ParameterGroupStatus: undefined,
@@ -9317,7 +9250,6 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
   context: __SerdeContext
 ): CacheNodeTypeSpecificParameter => {
   let contents: any = {
-    __type: "CacheNodeTypeSpecificParameter",
     Description: undefined,
     ChangeType: undefined,
     IsModifiable: undefined,
@@ -9379,7 +9311,6 @@ const deserializeAws_queryCacheNodeTypeSpecificValue = (
   context: __SerdeContext
 ): CacheNodeTypeSpecificValue => {
   let contents: any = {
-    __type: "CacheNodeTypeSpecificValue",
     CacheNodeType: undefined,
     Value: undefined,
   };
@@ -9401,7 +9332,6 @@ const deserializeAws_queryCacheNodeTypeSpecificValueList = (
 
 const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __SerdeContext): CacheNodeUpdateStatus => {
   let contents: any = {
-    __type: "CacheNodeUpdateStatus",
     NodeUpdateStatusModifiedDate: undefined,
     NodeUpdateStatus: undefined,
     NodeUpdateEndDate: undefined,
@@ -9447,7 +9377,6 @@ const deserializeAws_queryCacheNodeUpdateStatusList = (
 
 const deserializeAws_queryCacheParameterGroup = (output: any, context: __SerdeContext): CacheParameterGroup => {
   let contents: any = {
-    __type: "CacheParameterGroup",
     Description: undefined,
     CacheParameterGroupName: undefined,
     IsGlobal: undefined,
@@ -9477,7 +9406,6 @@ const deserializeAws_queryCacheParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheParameterGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "CacheParameterGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9491,7 +9419,6 @@ const deserializeAws_queryCacheParameterGroupDetails = (
   context: __SerdeContext
 ): CacheParameterGroupDetails => {
   let contents: any = {
-    __type: "CacheParameterGroupDetails",
     Parameters: undefined,
     Marker: undefined,
     CacheNodeTypeSpecificParameters: undefined,
@@ -9532,7 +9459,6 @@ const deserializeAws_queryCacheParameterGroupNameMessage = (
   context: __SerdeContext
 ): CacheParameterGroupNameMessage => {
   let contents: any = {
-    __type: "CacheParameterGroupNameMessage",
     CacheParameterGroupName: undefined,
   };
   if (output["CacheParameterGroupName"] !== undefined) {
@@ -9546,7 +9472,6 @@ const deserializeAws_queryCacheParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): CacheParameterGroupNotFoundFault => {
   let contents: any = {
-    __type: "CacheParameterGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9560,7 +9485,6 @@ const deserializeAws_queryCacheParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): CacheParameterGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "CacheParameterGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9574,7 +9498,6 @@ const deserializeAws_queryCacheParameterGroupsMessage = (
   context: __SerdeContext
 ): CacheParameterGroupsMessage => {
   let contents: any = {
-    __type: "CacheParameterGroupsMessage",
     Marker: undefined,
     CacheParameterGroups: undefined,
   };
@@ -9601,7 +9524,6 @@ const deserializeAws_queryCacheParameterGroupStatus = (
   context: __SerdeContext
 ): CacheParameterGroupStatus => {
   let contents: any = {
-    __type: "CacheParameterGroupStatus",
     CacheParameterGroupName: undefined,
     ParameterApplyStatus: undefined,
     CacheNodeIdsToReboot: undefined,
@@ -9626,7 +9548,6 @@ const deserializeAws_queryCacheParameterGroupStatus = (
 
 const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeContext): CacheSecurityGroup => {
   let contents: any = {
-    __type: "CacheSecurityGroup",
     CacheSecurityGroupName: undefined,
     ARN: undefined,
     OwnerId: undefined,
@@ -9662,7 +9583,6 @@ const deserializeAws_queryCacheSecurityGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheSecurityGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "CacheSecurityGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9676,7 +9596,6 @@ const deserializeAws_queryCacheSecurityGroupMembership = (
   context: __SerdeContext
 ): CacheSecurityGroupMembership => {
   let contents: any = {
-    __type: "CacheSecurityGroupMembership",
     Status: undefined,
     CacheSecurityGroupName: undefined,
   };
@@ -9701,7 +9620,6 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
   context: __SerdeContext
 ): CacheSecurityGroupMessage => {
   let contents: any = {
-    __type: "CacheSecurityGroupMessage",
     CacheSecurityGroups: undefined,
     Marker: undefined,
   };
@@ -9728,7 +9646,6 @@ const deserializeAws_queryCacheSecurityGroupNotFoundFault = (
   context: __SerdeContext
 ): CacheSecurityGroupNotFoundFault => {
   let contents: any = {
-    __type: "CacheSecurityGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9742,7 +9659,6 @@ const deserializeAws_queryCacheSecurityGroupQuotaExceededFault = (
   context: __SerdeContext
 ): CacheSecurityGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "CacheSecurityGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9757,7 +9673,6 @@ const deserializeAws_queryCacheSecurityGroups = (output: any, context: __SerdeCo
 
 const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeContext): CacheSubnetGroup => {
   let contents: any = {
-    __type: "CacheSubnetGroup",
     Subnets: undefined,
     CacheSubnetGroupName: undefined,
     ARN: undefined,
@@ -9790,7 +9705,6 @@ const deserializeAws_queryCacheSubnetGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheSubnetGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "CacheSubnetGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9801,7 +9715,6 @@ const deserializeAws_queryCacheSubnetGroupAlreadyExistsFault = (
 
 const deserializeAws_queryCacheSubnetGroupInUse = (output: any, context: __SerdeContext): CacheSubnetGroupInUse => {
   let contents: any = {
-    __type: "CacheSubnetGroupInUse",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9812,7 +9725,6 @@ const deserializeAws_queryCacheSubnetGroupInUse = (output: any, context: __Serde
 
 const deserializeAws_queryCacheSubnetGroupMessage = (output: any, context: __SerdeContext): CacheSubnetGroupMessage => {
   let contents: any = {
-    __type: "CacheSubnetGroupMessage",
     CacheSubnetGroups: undefined,
     Marker: undefined,
   };
@@ -9836,7 +9748,6 @@ const deserializeAws_queryCacheSubnetGroupNotFoundFault = (
   context: __SerdeContext
 ): CacheSubnetGroupNotFoundFault => {
   let contents: any = {
-    __type: "CacheSubnetGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9850,7 +9761,6 @@ const deserializeAws_queryCacheSubnetGroupQuotaExceededFault = (
   context: __SerdeContext
 ): CacheSubnetGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "CacheSubnetGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9868,7 +9778,6 @@ const deserializeAws_queryCacheSubnetQuotaExceededFault = (
   context: __SerdeContext
 ): CacheSubnetQuotaExceededFault => {
   let contents: any = {
-    __type: "CacheSubnetQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9886,7 +9795,6 @@ const deserializeAws_queryClusterQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): ClusterQuotaForCustomerExceededFault => {
   let contents: any = {
-    __type: "ClusterQuotaForCustomerExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9900,7 +9808,6 @@ const deserializeAws_queryCompleteMigrationResponse = (
   context: __SerdeContext
 ): CompleteMigrationResponse => {
   let contents: any = {
-    __type: "CompleteMigrationResponse",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -9911,7 +9818,6 @@ const deserializeAws_queryCompleteMigrationResponse = (
 
 const deserializeAws_queryCopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
   let contents: any = {
-    __type: "CopySnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -9925,7 +9831,6 @@ const deserializeAws_queryCreateCacheClusterResult = (
   context: __SerdeContext
 ): CreateCacheClusterResult => {
   let contents: any = {
-    __type: "CreateCacheClusterResult",
     CacheCluster: undefined,
   };
   if (output["CacheCluster"] !== undefined) {
@@ -9939,7 +9844,6 @@ const deserializeAws_queryCreateCacheParameterGroupResult = (
   context: __SerdeContext
 ): CreateCacheParameterGroupResult => {
   let contents: any = {
-    __type: "CreateCacheParameterGroupResult",
     CacheParameterGroup: undefined,
   };
   if (output["CacheParameterGroup"] !== undefined) {
@@ -9953,7 +9857,6 @@ const deserializeAws_queryCreateCacheSecurityGroupResult = (
   context: __SerdeContext
 ): CreateCacheSecurityGroupResult => {
   let contents: any = {
-    __type: "CreateCacheSecurityGroupResult",
     CacheSecurityGroup: undefined,
   };
   if (output["CacheSecurityGroup"] !== undefined) {
@@ -9967,7 +9870,6 @@ const deserializeAws_queryCreateCacheSubnetGroupResult = (
   context: __SerdeContext
 ): CreateCacheSubnetGroupResult => {
   let contents: any = {
-    __type: "CreateCacheSubnetGroupResult",
     CacheSubnetGroup: undefined,
   };
   if (output["CacheSubnetGroup"] !== undefined) {
@@ -9981,7 +9883,6 @@ const deserializeAws_queryCreateGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): CreateGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "CreateGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -9998,7 +9899,6 @@ const deserializeAws_queryCreateReplicationGroupResult = (
   context: __SerdeContext
 ): CreateReplicationGroupResult => {
   let contents: any = {
-    __type: "CreateReplicationGroupResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -10009,7 +9909,6 @@ const deserializeAws_queryCreateReplicationGroupResult = (
 
 const deserializeAws_queryCreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
   let contents: any = {
-    __type: "CreateSnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -10023,7 +9922,6 @@ const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): DecreaseNodeGroupsInGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "DecreaseNodeGroupsInGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -10040,7 +9938,6 @@ const deserializeAws_queryDecreaseReplicaCountResult = (
   context: __SerdeContext
 ): DecreaseReplicaCountResult => {
   let contents: any = {
-    __type: "DecreaseReplicaCountResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -10054,7 +9951,6 @@ const deserializeAws_queryDeleteCacheClusterResult = (
   context: __SerdeContext
 ): DeleteCacheClusterResult => {
   let contents: any = {
-    __type: "DeleteCacheClusterResult",
     CacheCluster: undefined,
   };
   if (output["CacheCluster"] !== undefined) {
@@ -10068,7 +9964,6 @@ const deserializeAws_queryDeleteGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): DeleteGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "DeleteGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -10085,7 +9980,6 @@ const deserializeAws_queryDeleteReplicationGroupResult = (
   context: __SerdeContext
 ): DeleteReplicationGroupResult => {
   let contents: any = {
-    __type: "DeleteReplicationGroupResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -10096,7 +9990,6 @@ const deserializeAws_queryDeleteReplicationGroupResult = (
 
 const deserializeAws_queryDeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
   let contents: any = {
-    __type: "DeleteSnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -10110,7 +10003,6 @@ const deserializeAws_queryDescribeEngineDefaultParametersResult = (
   context: __SerdeContext
 ): DescribeEngineDefaultParametersResult => {
   let contents: any = {
-    __type: "DescribeEngineDefaultParametersResult",
     EngineDefaults: undefined,
   };
   if (output["EngineDefaults"] !== undefined) {
@@ -10124,7 +10016,6 @@ const deserializeAws_queryDescribeGlobalReplicationGroupsResult = (
   context: __SerdeContext
 ): DescribeGlobalReplicationGroupsResult => {
   let contents: any = {
-    __type: "DescribeGlobalReplicationGroupsResult",
     Marker: undefined,
     GlobalReplicationGroups: undefined,
   };
@@ -10151,7 +10042,6 @@ const deserializeAws_queryDescribeSnapshotsListMessage = (
   context: __SerdeContext
 ): DescribeSnapshotsListMessage => {
   let contents: any = {
-    __type: "DescribeSnapshotsListMessage",
     Marker: undefined,
     Snapshots: undefined,
   };
@@ -10175,7 +10065,6 @@ const deserializeAws_queryDisassociateGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): DisassociateGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "DisassociateGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -10189,7 +10078,6 @@ const deserializeAws_queryDisassociateGlobalReplicationGroupResult = (
 
 const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
   let contents: any = {
-    __type: "EC2SecurityGroup",
     EC2SecurityGroupName: undefined,
     Status: undefined,
     EC2SecurityGroupOwnerId: undefined,
@@ -10212,7 +10100,6 @@ const deserializeAws_queryEC2SecurityGroupList = (output: any, context: __SerdeC
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
   let contents: any = {
-    __type: "Endpoint",
     Port: undefined,
     Address: undefined,
   };
@@ -10227,7 +10114,6 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
 
 const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
   let contents: any = {
-    __type: "EngineDefaults",
     CacheParameterGroupFamily: undefined,
     Marker: undefined,
     CacheNodeTypeSpecificParameters: undefined,
@@ -10265,7 +10151,6 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
 
 const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event => {
   let contents: any = {
-    __type: "Event",
     Date: undefined,
     SourceIdentifier: undefined,
     SourceType: undefined,
@@ -10292,7 +10177,6 @@ const deserializeAws_queryEventList = (output: any, context: __SerdeContext): Ev
 
 const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
   let contents: any = {
-    __type: "EventsMessage",
     Marker: undefined,
     Events: undefined,
   };
@@ -10313,7 +10197,6 @@ const deserializeAws_queryFailoverGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): FailoverGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "FailoverGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -10327,7 +10210,6 @@ const deserializeAws_queryFailoverGlobalReplicationGroupResult = (
 
 const deserializeAws_queryGlobalNodeGroup = (output: any, context: __SerdeContext): GlobalNodeGroup => {
   let contents: any = {
-    __type: "GlobalNodeGroup",
     Slots: undefined,
     GlobalNodeGroupId: undefined,
   };
@@ -10346,7 +10228,6 @@ const deserializeAws_queryGlobalNodeGroupList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __SerdeContext): GlobalReplicationGroup => {
   let contents: any = {
-    __type: "GlobalReplicationGroup",
     TransitEncryptionEnabled: undefined,
     ClusterEnabled: undefined,
     GlobalReplicationGroupDescription: undefined,
@@ -10420,7 +10301,6 @@ const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): GlobalReplicationGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "GlobalReplicationGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10434,7 +10314,6 @@ const deserializeAws_queryGlobalReplicationGroupInfo = (
   context: __SerdeContext
 ): GlobalReplicationGroupInfo => {
   let contents: any = {
-    __type: "GlobalReplicationGroupInfo",
     GlobalReplicationGroupMemberRole: undefined,
     GlobalReplicationGroupId: undefined,
   };
@@ -10459,7 +10338,6 @@ const deserializeAws_queryGlobalReplicationGroupMember = (
   context: __SerdeContext
 ): GlobalReplicationGroupMember => {
   let contents: any = {
-    __type: "GlobalReplicationGroupMember",
     Role: undefined,
     ReplicationGroupRegion: undefined,
     Status: undefined,
@@ -10496,7 +10374,6 @@ const deserializeAws_queryGlobalReplicationGroupNotFoundFault = (
   context: __SerdeContext
 ): GlobalReplicationGroupNotFoundFault => {
   let contents: any = {
-    __type: "GlobalReplicationGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10510,7 +10387,6 @@ const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): IncreaseNodeGroupsInGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "IncreaseNodeGroupsInGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -10527,7 +10403,6 @@ const deserializeAws_queryIncreaseReplicaCountResult = (
   context: __SerdeContext
 ): IncreaseReplicaCountResult => {
   let contents: any = {
-    __type: "IncreaseReplicaCountResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -10541,7 +10416,6 @@ const deserializeAws_queryInsufficientCacheClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientCacheClusterCapacityFault => {
   let contents: any = {
-    __type: "InsufficientCacheClusterCapacityFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10552,7 +10426,6 @@ const deserializeAws_queryInsufficientCacheClusterCapacityFault = (
 
 const deserializeAws_queryInvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
   let contents: any = {
-    __type: "InvalidARNFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10566,7 +10439,6 @@ const deserializeAws_queryInvalidCacheClusterStateFault = (
   context: __SerdeContext
 ): InvalidCacheClusterStateFault => {
   let contents: any = {
-    __type: "InvalidCacheClusterStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10580,7 +10452,6 @@ const deserializeAws_queryInvalidCacheParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidCacheParameterGroupStateFault => {
   let contents: any = {
-    __type: "InvalidCacheParameterGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10594,7 +10465,6 @@ const deserializeAws_queryInvalidCacheSecurityGroupStateFault = (
   context: __SerdeContext
 ): InvalidCacheSecurityGroupStateFault => {
   let contents: any = {
-    __type: "InvalidCacheSecurityGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10608,7 +10478,6 @@ const deserializeAws_queryInvalidGlobalReplicationGroupStateFault = (
   context: __SerdeContext
 ): InvalidGlobalReplicationGroupStateFault => {
   let contents: any = {
-    __type: "InvalidGlobalReplicationGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10619,7 +10488,6 @@ const deserializeAws_queryInvalidGlobalReplicationGroupStateFault = (
 
 const deserializeAws_queryInvalidKMSKeyFault = (output: any, context: __SerdeContext): InvalidKMSKeyFault => {
   let contents: any = {
-    __type: "InvalidKMSKeyFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10633,7 +10501,6 @@ const deserializeAws_queryInvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   let contents: any = {
-    __type: "InvalidParameterCombinationException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10647,7 +10514,6 @@ const deserializeAws_queryInvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   let contents: any = {
-    __type: "InvalidParameterValueException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10661,7 +10527,6 @@ const deserializeAws_queryInvalidReplicationGroupStateFault = (
   context: __SerdeContext
 ): InvalidReplicationGroupStateFault => {
   let contents: any = {
-    __type: "InvalidReplicationGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10675,7 +10540,6 @@ const deserializeAws_queryInvalidSnapshotStateFault = (
   context: __SerdeContext
 ): InvalidSnapshotStateFault => {
   let contents: any = {
-    __type: "InvalidSnapshotStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10686,7 +10550,6 @@ const deserializeAws_queryInvalidSnapshotStateFault = (
 
 const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   let contents: any = {
-    __type: "InvalidSubnet",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10700,7 +10563,6 @@ const deserializeAws_queryInvalidVPCNetworkStateFault = (
   context: __SerdeContext
 ): InvalidVPCNetworkStateFault => {
   let contents: any = {
-    __type: "InvalidVPCNetworkStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10714,7 +10576,6 @@ const deserializeAws_queryModifyCacheClusterResult = (
   context: __SerdeContext
 ): ModifyCacheClusterResult => {
   let contents: any = {
-    __type: "ModifyCacheClusterResult",
     CacheCluster: undefined,
   };
   if (output["CacheCluster"] !== undefined) {
@@ -10728,7 +10589,6 @@ const deserializeAws_queryModifyCacheSubnetGroupResult = (
   context: __SerdeContext
 ): ModifyCacheSubnetGroupResult => {
   let contents: any = {
-    __type: "ModifyCacheSubnetGroupResult",
     CacheSubnetGroup: undefined,
   };
   if (output["CacheSubnetGroup"] !== undefined) {
@@ -10742,7 +10602,6 @@ const deserializeAws_queryModifyGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): ModifyGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "ModifyGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -10759,7 +10618,6 @@ const deserializeAws_queryModifyReplicationGroupResult = (
   context: __SerdeContext
 ): ModifyReplicationGroupResult => {
   let contents: any = {
-    __type: "ModifyReplicationGroupResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -10773,7 +10631,6 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
   context: __SerdeContext
 ): ModifyReplicationGroupShardConfigurationResult => {
   let contents: any = {
-    __type: "ModifyReplicationGroupShardConfigurationResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -10784,7 +10641,6 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
 
 const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
   let contents: any = {
-    __type: "NodeGroup",
     NodeGroupMembers: undefined,
     PrimaryEndpoint: undefined,
     Slots: undefined,
@@ -10821,7 +10677,6 @@ const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): No
 
 const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __SerdeContext): NodeGroupConfiguration => {
   let contents: any = {
-    __type: "NodeGroupConfiguration",
     NodeGroupId: undefined,
     ReplicaAvailabilityZones: undefined,
     ReplicaCount: undefined,
@@ -10861,7 +10716,6 @@ const deserializeAws_queryNodeGroupList = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryNodeGroupMember = (output: any, context: __SerdeContext): NodeGroupMember => {
   let contents: any = {
-    __type: "NodeGroupMember",
     CurrentRole: undefined,
     CacheNodeId: undefined,
     PreferredAvailabilityZone: undefined,
@@ -10895,7 +10749,6 @@ const deserializeAws_queryNodeGroupMemberUpdateStatus = (
   context: __SerdeContext
 ): NodeGroupMemberUpdateStatus => {
   let contents: any = {
-    __type: "NodeGroupMemberUpdateStatus",
     NodeUpdateStatus: undefined,
     NodeUpdateStartDate: undefined,
     CacheClusterId: undefined,
@@ -10945,7 +10798,6 @@ const deserializeAws_queryNodeGroupMemberUpdateStatusList = (
 
 const deserializeAws_queryNodeGroupNotFoundFault = (output: any, context: __SerdeContext): NodeGroupNotFoundFault => {
   let contents: any = {
-    __type: "NodeGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10959,7 +10811,6 @@ const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault = (
   context: __SerdeContext
 ): NodeGroupsPerReplicationGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "NodeGroupsPerReplicationGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10970,7 +10821,6 @@ const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault = (
 
 const deserializeAws_queryNodeGroupUpdateStatus = (output: any, context: __SerdeContext): NodeGroupUpdateStatus => {
   let contents: any = {
-    __type: "NodeGroupUpdateStatus",
     NodeGroupId: undefined,
     NodeGroupMemberUpdateStatus: undefined,
   };
@@ -11004,7 +10854,6 @@ const deserializeAws_queryNodeQuotaForClusterExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForClusterExceededFault => {
   let contents: any = {
-    __type: "NodeQuotaForClusterExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11018,7 +10867,6 @@ const deserializeAws_queryNodeQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForCustomerExceededFault => {
   let contents: any = {
-    __type: "NodeQuotaForCustomerExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11029,7 +10877,6 @@ const deserializeAws_queryNodeQuotaForCustomerExceededFault = (
 
 const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext): NodeSnapshot => {
   let contents: any = {
-    __type: "NodeSnapshot",
     CacheNodeId: undefined,
     SnapshotCreateTime: undefined,
     NodeGroupConfiguration: undefined,
@@ -11075,7 +10922,6 @@ const deserializeAws_queryNodeTypeList = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryNoOperationFault = (output: any, context: __SerdeContext): NoOperationFault => {
   let contents: any = {
-    __type: "NoOperationFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11089,7 +10935,6 @@ const deserializeAws_queryNotificationConfiguration = (
   context: __SerdeContext
 ): NotificationConfiguration => {
   let contents: any = {
-    __type: "NotificationConfiguration",
     TopicStatus: undefined,
     TopicArn: undefined,
   };
@@ -11104,7 +10949,6 @@ const deserializeAws_queryNotificationConfiguration = (
 
 const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
   let contents: any = {
-    __type: "Parameter",
     Description: undefined,
     ChangeType: undefined,
     IsModifiable: undefined,
@@ -11151,7 +10995,6 @@ const deserializeAws_queryParametersList = (output: any, context: __SerdeContext
 
 const deserializeAws_queryPendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
   let contents: any = {
-    __type: "PendingModifiedValues",
     NumCacheNodes: undefined,
     CacheNodeIdsToRemove: undefined,
     EngineVersion: undefined,
@@ -11184,7 +11027,6 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
 
 const deserializeAws_queryProcessedUpdateAction = (output: any, context: __SerdeContext): ProcessedUpdateAction => {
   let contents: any = {
-    __type: "ProcessedUpdateAction",
     ServiceUpdateName: undefined,
     CacheClusterId: undefined,
     ReplicationGroupId: undefined,
@@ -11217,7 +11059,6 @@ const deserializeAws_queryPurchaseReservedCacheNodesOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedCacheNodesOfferingResult => {
   let contents: any = {
-    __type: "PurchaseReservedCacheNodesOfferingResult",
     ReservedCacheNode: undefined,
   };
   if (output["ReservedCacheNode"] !== undefined) {
@@ -11231,7 +11072,6 @@ const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): RebalanceSlotsInGlobalReplicationGroupResult => {
   let contents: any = {
-    __type: "RebalanceSlotsInGlobalReplicationGroupResult",
     GlobalReplicationGroup: undefined,
   };
   if (output["GlobalReplicationGroup"] !== undefined) {
@@ -11248,7 +11088,6 @@ const deserializeAws_queryRebootCacheClusterResult = (
   context: __SerdeContext
 ): RebootCacheClusterResult => {
   let contents: any = {
-    __type: "RebootCacheClusterResult",
     CacheCluster: undefined,
   };
   if (output["CacheCluster"] !== undefined) {
@@ -11259,7 +11098,6 @@ const deserializeAws_queryRebootCacheClusterResult = (
 
 const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   let contents: any = {
-    __type: "RecurringCharge",
     RecurringChargeAmount: undefined,
     RecurringChargeFrequency: undefined,
   };
@@ -11278,7 +11116,6 @@ const deserializeAws_queryRecurringChargeList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeContext): ReplicationGroup => {
   let contents: any = {
-    __type: "ReplicationGroup",
     AutomaticFailover: undefined,
     AuthTokenLastModifiedDate: undefined,
     ConfigurationEndpoint: undefined,
@@ -11390,7 +11227,6 @@ const deserializeAws_queryReplicationGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ReplicationGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "ReplicationGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11404,7 +11240,6 @@ const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFault = (
   context: __SerdeContext
 ): ReplicationGroupAlreadyUnderMigrationFault => {
   let contents: any = {
-    __type: "ReplicationGroupAlreadyUnderMigrationFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11419,7 +11254,6 @@ const deserializeAws_queryReplicationGroupList = (output: any, context: __SerdeC
 
 const deserializeAws_queryReplicationGroupMessage = (output: any, context: __SerdeContext): ReplicationGroupMessage => {
   let contents: any = {
-    __type: "ReplicationGroupMessage",
     ReplicationGroups: undefined,
     Marker: undefined,
   };
@@ -11443,7 +11277,6 @@ const deserializeAws_queryReplicationGroupNotFoundFault = (
   context: __SerdeContext
 ): ReplicationGroupNotFoundFault => {
   let contents: any = {
-    __type: "ReplicationGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11457,7 +11290,6 @@ const deserializeAws_queryReplicationGroupNotUnderMigrationFault = (
   context: __SerdeContext
 ): ReplicationGroupNotUnderMigrationFault => {
   let contents: any = {
-    __type: "ReplicationGroupNotUnderMigrationFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11471,7 +11303,6 @@ const deserializeAws_queryReplicationGroupPendingModifiedValues = (
   context: __SerdeContext
 ): ReplicationGroupPendingModifiedValues => {
   let contents: any = {
-    __type: "ReplicationGroupPendingModifiedValues",
     Resharding: undefined,
     PrimaryClusterId: undefined,
     AutomaticFailoverStatus: undefined,
@@ -11494,7 +11325,6 @@ const deserializeAws_queryReplicationGroupPendingModifiedValues = (
 
 const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeContext): ReservedCacheNode => {
   let contents: any = {
-    __type: "ReservedCacheNode",
     FixedPrice: undefined,
     ReservationARN: undefined,
     StartTime: undefined,
@@ -11562,7 +11392,6 @@ const deserializeAws_queryReservedCacheNodeAlreadyExistsFault = (
   context: __SerdeContext
 ): ReservedCacheNodeAlreadyExistsFault => {
   let contents: any = {
-    __type: "ReservedCacheNodeAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11580,7 +11409,6 @@ const deserializeAws_queryReservedCacheNodeMessage = (
   context: __SerdeContext
 ): ReservedCacheNodeMessage => {
   let contents: any = {
-    __type: "ReservedCacheNodeMessage",
     ReservedCacheNodes: undefined,
     Marker: undefined,
   };
@@ -11604,7 +11432,6 @@ const deserializeAws_queryReservedCacheNodeNotFoundFault = (
   context: __SerdeContext
 ): ReservedCacheNodeNotFoundFault => {
   let contents: any = {
-    __type: "ReservedCacheNodeNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11618,7 +11445,6 @@ const deserializeAws_queryReservedCacheNodeQuotaExceededFault = (
   context: __SerdeContext
 ): ReservedCacheNodeQuotaExceededFault => {
   let contents: any = {
-    __type: "ReservedCacheNodeQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11632,7 +11458,6 @@ const deserializeAws_queryReservedCacheNodesOffering = (
   context: __SerdeContext
 ): ReservedCacheNodesOffering => {
   let contents: any = {
-    __type: "ReservedCacheNodesOffering",
     CacheNodeType: undefined,
     Duration: undefined,
     ProductDescription: undefined,
@@ -11687,7 +11512,6 @@ const deserializeAws_queryReservedCacheNodesOfferingMessage = (
   context: __SerdeContext
 ): ReservedCacheNodesOfferingMessage => {
   let contents: any = {
-    __type: "ReservedCacheNodesOfferingMessage",
     Marker: undefined,
     ReservedCacheNodesOfferings: undefined,
   };
@@ -11714,7 +11538,6 @@ const deserializeAws_queryReservedCacheNodesOfferingNotFoundFault = (
   context: __SerdeContext
 ): ReservedCacheNodesOfferingNotFoundFault => {
   let contents: any = {
-    __type: "ReservedCacheNodesOfferingNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11725,7 +11548,6 @@ const deserializeAws_queryReservedCacheNodesOfferingNotFoundFault = (
 
 const deserializeAws_queryReshardingStatus = (output: any, context: __SerdeContext): ReshardingStatus => {
   let contents: any = {
-    __type: "ReshardingStatus",
     SlotMigration: undefined,
   };
   if (output["SlotMigration"] !== undefined) {
@@ -11739,7 +11561,6 @@ const deserializeAws_queryRevokeCacheSecurityGroupIngressResult = (
   context: __SerdeContext
 ): RevokeCacheSecurityGroupIngressResult => {
   let contents: any = {
-    __type: "RevokeCacheSecurityGroupIngressResult",
     CacheSecurityGroup: undefined,
   };
   if (output["CacheSecurityGroup"] !== undefined) {
@@ -11750,7 +11571,6 @@ const deserializeAws_queryRevokeCacheSecurityGroupIngressResult = (
 
 const deserializeAws_querySecurityGroupMembership = (output: any, context: __SerdeContext): SecurityGroupMembership => {
   let contents: any = {
-    __type: "SecurityGroupMembership",
     SecurityGroupId: undefined,
     Status: undefined,
   };
@@ -11775,7 +11595,6 @@ const deserializeAws_queryServiceLinkedRoleNotFoundFault = (
   context: __SerdeContext
 ): ServiceLinkedRoleNotFoundFault => {
   let contents: any = {
-    __type: "ServiceLinkedRoleNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11786,7 +11605,6 @@ const deserializeAws_queryServiceLinkedRoleNotFoundFault = (
 
 const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext): ServiceUpdate => {
   let contents: any = {
-    __type: "ServiceUpdate",
     AutoUpdateAfterRecommendedApplyByDate: undefined,
     ServiceUpdateSeverity: undefined,
     ServiceUpdateEndDate: undefined,
@@ -11848,7 +11666,6 @@ const deserializeAws_queryServiceUpdateNotFoundFault = (
   context: __SerdeContext
 ): ServiceUpdateNotFoundFault => {
   let contents: any = {
-    __type: "ServiceUpdateNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -11859,7 +11676,6 @@ const deserializeAws_queryServiceUpdateNotFoundFault = (
 
 const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __SerdeContext): ServiceUpdatesMessage => {
   let contents: any = {
-    __type: "ServiceUpdatesMessage",
     ServiceUpdates: undefined,
     Marker: undefined,
   };
@@ -11880,7 +11696,6 @@ const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __Serde
 
 const deserializeAws_querySlotMigration = (output: any, context: __SerdeContext): SlotMigration => {
   let contents: any = {
-    __type: "SlotMigration",
     ProgressPercentage: undefined,
   };
   if (output["ProgressPercentage"] !== undefined) {
@@ -11891,7 +11706,6 @@ const deserializeAws_querySlotMigration = (output: any, context: __SerdeContext)
 
 const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Snapshot => {
   let contents: any = {
-    __type: "Snapshot",
     CacheSubnetGroupName: undefined,
     KmsKeyId: undefined,
     EngineVersion: undefined,
@@ -12011,7 +11825,6 @@ const deserializeAws_querySnapshotAlreadyExistsFault = (
   context: __SerdeContext
 ): SnapshotAlreadyExistsFault => {
   let contents: any = {
-    __type: "SnapshotAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12025,7 +11838,6 @@ const deserializeAws_querySnapshotFeatureNotSupportedFault = (
   context: __SerdeContext
 ): SnapshotFeatureNotSupportedFault => {
   let contents: any = {
-    __type: "SnapshotFeatureNotSupportedFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12040,7 +11852,6 @@ const deserializeAws_querySnapshotList = (output: any, context: __SerdeContext):
 
 const deserializeAws_querySnapshotNotFoundFault = (output: any, context: __SerdeContext): SnapshotNotFoundFault => {
   let contents: any = {
-    __type: "SnapshotNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12054,7 +11865,6 @@ const deserializeAws_querySnapshotQuotaExceededFault = (
   context: __SerdeContext
 ): SnapshotQuotaExceededFault => {
   let contents: any = {
-    __type: "SnapshotQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12065,7 +11875,6 @@ const deserializeAws_querySnapshotQuotaExceededFault = (
 
 const deserializeAws_queryStartMigrationResponse = (output: any, context: __SerdeContext): StartMigrationResponse => {
   let contents: any = {
-    __type: "StartMigrationResponse",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -12076,7 +11885,6 @@ const deserializeAws_queryStartMigrationResponse = (output: any, context: __Serd
 
 const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {
   let contents: any = {
-    __type: "Subnet",
     SubnetIdentifier: undefined,
     SubnetAvailabilityZone: undefined,
   };
@@ -12091,7 +11899,6 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
 
 const deserializeAws_querySubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
   let contents: any = {
-    __type: "SubnetInUse",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12106,7 +11913,6 @@ const deserializeAws_querySubnetList = (output: any, context: __SerdeContext): S
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -12125,7 +11931,6 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 
 const deserializeAws_queryTagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
   let contents: any = {
-    __type: "TagListMessage",
     TagList: undefined,
   };
   if (output.TagList === "") {
@@ -12139,7 +11944,6 @@ const deserializeAws_queryTagListMessage = (output: any, context: __SerdeContext
 
 const deserializeAws_queryTagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
   let contents: any = {
-    __type: "TagNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12153,7 +11957,6 @@ const deserializeAws_queryTagQuotaPerResourceExceeded = (
   context: __SerdeContext
 ): TagQuotaPerResourceExceeded => {
   let contents: any = {
-    __type: "TagQuotaPerResourceExceeded",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12167,7 +11970,6 @@ const deserializeAws_queryTestFailoverNotAvailableFault = (
   context: __SerdeContext
 ): TestFailoverNotAvailableFault => {
   let contents: any = {
-    __type: "TestFailoverNotAvailableFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -12178,7 +11980,6 @@ const deserializeAws_queryTestFailoverNotAvailableFault = (
 
 const deserializeAws_queryTestFailoverResult = (output: any, context: __SerdeContext): TestFailoverResult => {
   let contents: any = {
-    __type: "TestFailoverResult",
     ReplicationGroup: undefined,
   };
   if (output["ReplicationGroup"] !== undefined) {
@@ -12189,7 +11990,6 @@ const deserializeAws_queryTestFailoverResult = (output: any, context: __SerdeCon
 
 const deserializeAws_queryUnprocessedUpdateAction = (output: any, context: __SerdeContext): UnprocessedUpdateAction => {
   let contents: any = {
-    __type: "UnprocessedUpdateAction",
     ReplicationGroupId: undefined,
     ServiceUpdateName: undefined,
     CacheClusterId: undefined,
@@ -12223,7 +12023,6 @@ const deserializeAws_queryUnprocessedUpdateActionList = (
 
 const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext): UpdateAction => {
   let contents: any = {
-    __type: "UpdateAction",
     ServiceUpdateType: undefined,
     UpdateActionStatusModifiedDate: undefined,
     ServiceUpdateSeverity: undefined,
@@ -12323,7 +12122,6 @@ const deserializeAws_queryUpdateActionResultsMessage = (
   context: __SerdeContext
 ): UpdateActionResultsMessage => {
   let contents: any = {
-    __type: "UpdateActionResultsMessage",
     UnprocessedUpdateActions: undefined,
     ProcessedUpdateActions: undefined,
   };
@@ -12356,7 +12154,6 @@ const deserializeAws_queryUpdateActionResultsMessage = (
 
 const deserializeAws_queryUpdateActionsMessage = (output: any, context: __SerdeContext): UpdateActionsMessage => {
   let contents: any = {
-    __type: "UpdateActionsMessage",
     Marker: undefined,
     UpdateActions: undefined,
   };

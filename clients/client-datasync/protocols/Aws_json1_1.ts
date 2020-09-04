@@ -565,7 +565,6 @@ export const deserializeAws_json1_1CancelTaskExecutionCommand = async (
   contents = deserializeAws_json1_1CancelTaskExecutionResponse(data, context);
   const response: CancelTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelTaskExecutionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -629,7 +628,6 @@ export const deserializeAws_json1_1CreateAgentCommand = async (
   contents = deserializeAws_json1_1CreateAgentResponse(data, context);
   const response: CreateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAgentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -693,7 +691,6 @@ export const deserializeAws_json1_1CreateLocationEfsCommand = async (
   contents = deserializeAws_json1_1CreateLocationEfsResponse(data, context);
   const response: CreateLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocationEfsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -757,7 +754,6 @@ export const deserializeAws_json1_1CreateLocationFsxWindowsCommand = async (
   contents = deserializeAws_json1_1CreateLocationFsxWindowsResponse(data, context);
   const response: CreateLocationFsxWindowsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocationFsxWindowsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -821,7 +817,6 @@ export const deserializeAws_json1_1CreateLocationNfsCommand = async (
   contents = deserializeAws_json1_1CreateLocationNfsResponse(data, context);
   const response: CreateLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocationNfsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -885,7 +880,6 @@ export const deserializeAws_json1_1CreateLocationObjectStorageCommand = async (
   contents = deserializeAws_json1_1CreateLocationObjectStorageResponse(data, context);
   const response: CreateLocationObjectStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocationObjectStorageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -949,7 +943,6 @@ export const deserializeAws_json1_1CreateLocationS3Command = async (
   contents = deserializeAws_json1_1CreateLocationS3Response(data, context);
   const response: CreateLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocationS3Response",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1013,7 +1006,6 @@ export const deserializeAws_json1_1CreateLocationSmbCommand = async (
   contents = deserializeAws_json1_1CreateLocationSmbResponse(data, context);
   const response: CreateLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocationSmbResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1077,7 +1069,6 @@ export const deserializeAws_json1_1CreateTaskCommand = async (
   contents = deserializeAws_json1_1CreateTaskResponse(data, context);
   const response: CreateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1141,7 +1132,6 @@ export const deserializeAws_json1_1DeleteAgentCommand = async (
   contents = deserializeAws_json1_1DeleteAgentResponse(data, context);
   const response: DeleteAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAgentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1205,7 +1195,6 @@ export const deserializeAws_json1_1DeleteLocationCommand = async (
   contents = deserializeAws_json1_1DeleteLocationResponse(data, context);
   const response: DeleteLocationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLocationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1269,7 +1258,6 @@ export const deserializeAws_json1_1DeleteTaskCommand = async (
   contents = deserializeAws_json1_1DeleteTaskResponse(data, context);
   const response: DeleteTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1333,7 +1321,6 @@ export const deserializeAws_json1_1DescribeAgentCommand = async (
   contents = deserializeAws_json1_1DescribeAgentResponse(data, context);
   const response: DescribeAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAgentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1397,7 +1384,6 @@ export const deserializeAws_json1_1DescribeLocationEfsCommand = async (
   contents = deserializeAws_json1_1DescribeLocationEfsResponse(data, context);
   const response: DescribeLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocationEfsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1461,7 +1447,6 @@ export const deserializeAws_json1_1DescribeLocationFsxWindowsCommand = async (
   contents = deserializeAws_json1_1DescribeLocationFsxWindowsResponse(data, context);
   const response: DescribeLocationFsxWindowsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocationFsxWindowsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1525,7 +1510,6 @@ export const deserializeAws_json1_1DescribeLocationNfsCommand = async (
   contents = deserializeAws_json1_1DescribeLocationNfsResponse(data, context);
   const response: DescribeLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocationNfsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1589,7 +1573,6 @@ export const deserializeAws_json1_1DescribeLocationObjectStorageCommand = async 
   contents = deserializeAws_json1_1DescribeLocationObjectStorageResponse(data, context);
   const response: DescribeLocationObjectStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocationObjectStorageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1653,7 +1636,6 @@ export const deserializeAws_json1_1DescribeLocationS3Command = async (
   contents = deserializeAws_json1_1DescribeLocationS3Response(data, context);
   const response: DescribeLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocationS3Response",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1717,7 +1699,6 @@ export const deserializeAws_json1_1DescribeLocationSmbCommand = async (
   contents = deserializeAws_json1_1DescribeLocationSmbResponse(data, context);
   const response: DescribeLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocationSmbResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1781,7 +1762,6 @@ export const deserializeAws_json1_1DescribeTaskCommand = async (
   contents = deserializeAws_json1_1DescribeTaskResponse(data, context);
   const response: DescribeTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1845,7 +1825,6 @@ export const deserializeAws_json1_1DescribeTaskExecutionCommand = async (
   contents = deserializeAws_json1_1DescribeTaskExecutionResponse(data, context);
   const response: DescribeTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTaskExecutionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1909,7 +1888,6 @@ export const deserializeAws_json1_1ListAgentsCommand = async (
   contents = deserializeAws_json1_1ListAgentsResponse(data, context);
   const response: ListAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAgentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1973,7 +1951,6 @@ export const deserializeAws_json1_1ListLocationsCommand = async (
   contents = deserializeAws_json1_1ListLocationsResponse(data, context);
   const response: ListLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLocationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2037,7 +2014,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2101,7 +2077,6 @@ export const deserializeAws_json1_1ListTaskExecutionsCommand = async (
   contents = deserializeAws_json1_1ListTaskExecutionsResponse(data, context);
   const response: ListTaskExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTaskExecutionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2165,7 +2140,6 @@ export const deserializeAws_json1_1ListTasksCommand = async (
   contents = deserializeAws_json1_1ListTasksResponse(data, context);
   const response: ListTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTasksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2229,7 +2203,6 @@ export const deserializeAws_json1_1StartTaskExecutionCommand = async (
   contents = deserializeAws_json1_1StartTaskExecutionResponse(data, context);
   const response: StartTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartTaskExecutionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2293,7 +2266,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2357,7 +2329,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2421,7 +2392,6 @@ export const deserializeAws_json1_1UpdateAgentCommand = async (
   contents = deserializeAws_json1_1UpdateAgentResponse(data, context);
   const response: UpdateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAgentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2485,7 +2455,6 @@ export const deserializeAws_json1_1UpdateTaskCommand = async (
   contents = deserializeAws_json1_1UpdateTaskResponse(data, context);
   const response: UpdateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2985,7 +2954,6 @@ const deserializeAws_json1_1AgentList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AgentListEntry = (output: any, context: __SerdeContext): AgentListEntry => {
   return {
-    __type: "AgentListEntry",
     AgentArn: output.AgentArn !== undefined && output.AgentArn !== null ? output.AgentArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -2996,14 +2964,11 @@ const deserializeAws_json1_1CancelTaskExecutionResponse = (
   output: any,
   context: __SerdeContext
 ): CancelTaskExecutionResponse => {
-  return {
-    __type: "CancelTaskExecutionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateAgentResponse = (output: any, context: __SerdeContext): CreateAgentResponse => {
   return {
-    __type: "CreateAgentResponse",
     AgentArn: output.AgentArn !== undefined && output.AgentArn !== null ? output.AgentArn : undefined,
   } as any;
 };
@@ -3013,7 +2978,6 @@ const deserializeAws_json1_1CreateLocationEfsResponse = (
   context: __SerdeContext
 ): CreateLocationEfsResponse => {
   return {
-    __type: "CreateLocationEfsResponse",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
@@ -3023,7 +2987,6 @@ const deserializeAws_json1_1CreateLocationFsxWindowsResponse = (
   context: __SerdeContext
 ): CreateLocationFsxWindowsResponse => {
   return {
-    __type: "CreateLocationFsxWindowsResponse",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
@@ -3033,7 +2996,6 @@ const deserializeAws_json1_1CreateLocationNfsResponse = (
   context: __SerdeContext
 ): CreateLocationNfsResponse => {
   return {
-    __type: "CreateLocationNfsResponse",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
@@ -3043,7 +3005,6 @@ const deserializeAws_json1_1CreateLocationObjectStorageResponse = (
   context: __SerdeContext
 ): CreateLocationObjectStorageResponse => {
   return {
-    __type: "CreateLocationObjectStorageResponse",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
@@ -3053,7 +3014,6 @@ const deserializeAws_json1_1CreateLocationS3Response = (
   context: __SerdeContext
 ): CreateLocationS3Response => {
   return {
-    __type: "CreateLocationS3Response",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
@@ -3063,39 +3023,30 @@ const deserializeAws_json1_1CreateLocationSmbResponse = (
   context: __SerdeContext
 ): CreateLocationSmbResponse => {
   return {
-    __type: "CreateLocationSmbResponse",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateTaskResponse = (output: any, context: __SerdeContext): CreateTaskResponse => {
   return {
-    __type: "CreateTaskResponse",
     TaskArn: output.TaskArn !== undefined && output.TaskArn !== null ? output.TaskArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteAgentResponse = (output: any, context: __SerdeContext): DeleteAgentResponse => {
-  return {
-    __type: "DeleteAgentResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteLocationResponse = (output: any, context: __SerdeContext): DeleteLocationResponse => {
-  return {
-    __type: "DeleteLocationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteTaskResponse = (output: any, context: __SerdeContext): DeleteTaskResponse => {
-  return {
-    __type: "DeleteTaskResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeAgentResponse = (output: any, context: __SerdeContext): DescribeAgentResponse => {
   return {
-    __type: "DescribeAgentResponse",
     AgentArn: output.AgentArn !== undefined && output.AgentArn !== null ? output.AgentArn : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
@@ -3120,7 +3071,6 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
   context: __SerdeContext
 ): DescribeLocationEfsResponse => {
   return {
-    __type: "DescribeLocationEfsResponse",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -3139,7 +3089,6 @@ const deserializeAws_json1_1DescribeLocationFsxWindowsResponse = (
   context: __SerdeContext
 ): DescribeLocationFsxWindowsResponse => {
   return {
-    __type: "DescribeLocationFsxWindowsResponse",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -3160,7 +3109,6 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
   context: __SerdeContext
 ): DescribeLocationNfsResponse => {
   return {
-    __type: "DescribeLocationNfsResponse",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -3183,7 +3131,6 @@ const deserializeAws_json1_1DescribeLocationObjectStorageResponse = (
   context: __SerdeContext
 ): DescribeLocationObjectStorageResponse => {
   return {
-    __type: "DescribeLocationObjectStorageResponse",
     AccessKey: output.AccessKey !== undefined && output.AccessKey !== null ? output.AccessKey : undefined,
     AgentArns:
       output.AgentArns !== undefined && output.AgentArns !== null
@@ -3206,7 +3153,6 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
   context: __SerdeContext
 ): DescribeLocationS3Response => {
   return {
-    __type: "DescribeLocationS3Response",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -3227,7 +3173,6 @@ const deserializeAws_json1_1DescribeLocationSmbResponse = (
   context: __SerdeContext
 ): DescribeLocationSmbResponse => {
   return {
-    __type: "DescribeLocationSmbResponse",
     AgentArns:
       output.AgentArns !== undefined && output.AgentArns !== null
         ? deserializeAws_json1_1AgentArnList(output.AgentArns, context)
@@ -3252,7 +3197,6 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
   context: __SerdeContext
 ): DescribeTaskExecutionResponse => {
   return {
-    __type: "DescribeTaskExecutionResponse",
     BytesTransferred:
       output.BytesTransferred !== undefined && output.BytesTransferred !== null ? output.BytesTransferred : undefined,
     BytesWritten: output.BytesWritten !== undefined && output.BytesWritten !== null ? output.BytesWritten : undefined,
@@ -3294,7 +3238,6 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
 
 const deserializeAws_json1_1DescribeTaskResponse = (output: any, context: __SerdeContext): DescribeTaskResponse => {
   return {
-    __type: "DescribeTaskResponse",
     CloudWatchLogGroupArn:
       output.CloudWatchLogGroupArn !== undefined && output.CloudWatchLogGroupArn !== null
         ? output.CloudWatchLogGroupArn
@@ -3349,7 +3292,6 @@ const deserializeAws_json1_1DestinationNetworkInterfaceArns = (output: any, cont
 
 const deserializeAws_json1_1Ec2Config = (output: any, context: __SerdeContext): Ec2Config => {
   return {
-    __type: "Ec2Config",
     SecurityGroupArns:
       output.SecurityGroupArns !== undefined && output.SecurityGroupArns !== null
         ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
@@ -3368,7 +3310,6 @@ const deserializeAws_json1_1FilterList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1FilterRule = (output: any, context: __SerdeContext): FilterRule => {
   return {
-    __type: "FilterRule",
     FilterType: output.FilterType !== undefined && output.FilterType !== null ? output.FilterType : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3376,7 +3317,6 @@ const deserializeAws_json1_1FilterRule = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
   return {
-    __type: "InternalException",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -3387,7 +3327,6 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -3395,7 +3334,6 @@ const deserializeAws_json1_1InvalidRequestException = (
 
 const deserializeAws_json1_1ListAgentsResponse = (output: any, context: __SerdeContext): ListAgentsResponse => {
   return {
-    __type: "ListAgentsResponse",
     Agents:
       output.Agents !== undefined && output.Agents !== null
         ? deserializeAws_json1_1AgentList(output.Agents, context)
@@ -3406,7 +3344,6 @@ const deserializeAws_json1_1ListAgentsResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ListLocationsResponse = (output: any, context: __SerdeContext): ListLocationsResponse => {
   return {
-    __type: "ListLocationsResponse",
     Locations:
       output.Locations !== undefined && output.Locations !== null
         ? deserializeAws_json1_1LocationList(output.Locations, context)
@@ -3420,7 +3357,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -3434,7 +3370,6 @@ const deserializeAws_json1_1ListTaskExecutionsResponse = (
   context: __SerdeContext
 ): ListTaskExecutionsResponse => {
   return {
-    __type: "ListTaskExecutionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TaskExecutions:
       output.TaskExecutions !== undefined && output.TaskExecutions !== null
@@ -3445,7 +3380,6 @@ const deserializeAws_json1_1ListTaskExecutionsResponse = (
 
 const deserializeAws_json1_1ListTasksResponse = (output: any, context: __SerdeContext): ListTasksResponse => {
   return {
-    __type: "ListTasksResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tasks:
       output.Tasks !== undefined && output.Tasks !== null
@@ -3460,7 +3394,6 @@ const deserializeAws_json1_1LocationList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1LocationListEntry = (output: any, context: __SerdeContext): LocationListEntry => {
   return {
-    __type: "LocationListEntry",
     LocationArn: output.LocationArn !== undefined && output.LocationArn !== null ? output.LocationArn : undefined,
     LocationUri: output.LocationUri !== undefined && output.LocationUri !== null ? output.LocationUri : undefined,
   } as any;
@@ -3468,14 +3401,12 @@ const deserializeAws_json1_1LocationListEntry = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1NfsMountOptions = (output: any, context: __SerdeContext): NfsMountOptions => {
   return {
-    __type: "NfsMountOptions",
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OnPremConfig = (output: any, context: __SerdeContext): OnPremConfig => {
   return {
-    __type: "OnPremConfig",
     AgentArns:
       output.AgentArns !== undefined && output.AgentArns !== null
         ? deserializeAws_json1_1AgentArnList(output.AgentArns, context)
@@ -3485,7 +3416,6 @@ const deserializeAws_json1_1OnPremConfig = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Options => {
   return {
-    __type: "Options",
     Atime: output.Atime !== undefined && output.Atime !== null ? output.Atime : undefined,
     BytesPerSecond:
       output.BytesPerSecond !== undefined && output.BytesPerSecond !== null ? output.BytesPerSecond : undefined,
@@ -3523,7 +3453,6 @@ const deserializeAws_json1_1PLSubnetArnList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1PrivateLinkConfig = (output: any, context: __SerdeContext): PrivateLinkConfig => {
   return {
-    __type: "PrivateLinkConfig",
     PrivateLinkEndpoint:
       output.PrivateLinkEndpoint !== undefined && output.PrivateLinkEndpoint !== null
         ? output.PrivateLinkEndpoint
@@ -3543,7 +3472,6 @@ const deserializeAws_json1_1PrivateLinkConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1S3Config = (output: any, context: __SerdeContext): S3Config => {
   return {
-    __type: "S3Config",
     BucketAccessRoleArn:
       output.BucketAccessRoleArn !== undefined && output.BucketAccessRoleArn !== null
         ? output.BucketAccessRoleArn
@@ -3553,7 +3481,6 @@ const deserializeAws_json1_1S3Config = (output: any, context: __SerdeContext): S
 
 const deserializeAws_json1_1SmbMountOptions = (output: any, context: __SerdeContext): SmbMountOptions => {
   return {
-    __type: "SmbMountOptions",
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
 };
@@ -3567,7 +3494,6 @@ const deserializeAws_json1_1StartTaskExecutionResponse = (
   context: __SerdeContext
 ): StartTaskExecutionResponse => {
   return {
-    __type: "StartTaskExecutionResponse",
     TaskExecutionArn:
       output.TaskExecutionArn !== undefined && output.TaskExecutionArn !== null ? output.TaskExecutionArn : undefined,
   } as any;
@@ -3575,16 +3501,13 @@ const deserializeAws_json1_1StartTaskExecutionResponse = (
 
 const deserializeAws_json1_1TagListEntry = (output: any, context: __SerdeContext): TagListEntry => {
   return {
-    __type: "TagListEntry",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TaskExecutionList = (output: any, context: __SerdeContext): TaskExecutionListEntry[] => {
@@ -3593,7 +3516,6 @@ const deserializeAws_json1_1TaskExecutionList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1TaskExecutionListEntry = (output: any, context: __SerdeContext): TaskExecutionListEntry => {
   return {
-    __type: "TaskExecutionListEntry",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TaskExecutionArn:
       output.TaskExecutionArn !== undefined && output.TaskExecutionArn !== null ? output.TaskExecutionArn : undefined,
@@ -3605,7 +3527,6 @@ const deserializeAws_json1_1TaskExecutionResultDetail = (
   context: __SerdeContext
 ): TaskExecutionResultDetail => {
   return {
-    __type: "TaskExecutionResultDetail",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorDetail: output.ErrorDetail !== undefined && output.ErrorDetail !== null ? output.ErrorDetail : undefined,
     PrepareDuration:
@@ -3630,7 +3551,6 @@ const deserializeAws_json1_1TaskList = (output: any, context: __SerdeContext): T
 
 const deserializeAws_json1_1TaskListEntry = (output: any, context: __SerdeContext): TaskListEntry => {
   return {
-    __type: "TaskListEntry",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TaskArn: output.TaskArn !== undefined && output.TaskArn !== null ? output.TaskArn : undefined,
@@ -3639,7 +3559,6 @@ const deserializeAws_json1_1TaskListEntry = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1TaskSchedule = (output: any, context: __SerdeContext): TaskSchedule => {
   return {
-    __type: "TaskSchedule",
     ScheduleExpression:
       output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
@@ -3648,21 +3567,15 @@ const deserializeAws_json1_1TaskSchedule = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateAgentResponse = (output: any, context: __SerdeContext): UpdateAgentResponse => {
-  return {
-    __type: "UpdateAgentResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateTaskResponse = (output: any, context: __SerdeContext): UpdateTaskResponse => {
-  return {
-    __type: "UpdateTaskResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

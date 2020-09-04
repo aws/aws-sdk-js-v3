@@ -269,7 +269,6 @@ export const deserializeAws_json1_1BatchGrantPermissionsCommand = async (
   contents = deserializeAws_json1_1BatchGrantPermissionsResponse(data, context);
   const response: BatchGrantPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGrantPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -333,7 +332,6 @@ export const deserializeAws_json1_1BatchRevokePermissionsCommand = async (
   contents = deserializeAws_json1_1BatchRevokePermissionsResponse(data, context);
   const response: BatchRevokePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchRevokePermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -397,7 +395,6 @@ export const deserializeAws_json1_1DeregisterResourceCommand = async (
   contents = deserializeAws_json1_1DeregisterResourceResponse(data, context);
   const response: DeregisterResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -477,7 +474,6 @@ export const deserializeAws_json1_1DescribeResourceCommand = async (
   contents = deserializeAws_json1_1DescribeResourceResponse(data, context);
   const response: DescribeResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -557,7 +553,6 @@ export const deserializeAws_json1_1GetDataLakeSettingsCommand = async (
   contents = deserializeAws_json1_1GetDataLakeSettingsResponse(data, context);
   const response: GetDataLakeSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDataLakeSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -629,7 +624,6 @@ export const deserializeAws_json1_1GetEffectivePermissionsForPathCommand = async
   contents = deserializeAws_json1_1GetEffectivePermissionsForPathResponse(data, context);
   const response: GetEffectivePermissionsForPathCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEffectivePermissionsForPathResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -709,7 +703,6 @@ export const deserializeAws_json1_1GrantPermissionsCommand = async (
   contents = deserializeAws_json1_1GrantPermissionsResponse(data, context);
   const response: GrantPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GrantPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -781,7 +774,6 @@ export const deserializeAws_json1_1ListPermissionsCommand = async (
   contents = deserializeAws_json1_1ListPermissionsResponse(data, context);
   const response: ListPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -853,7 +845,6 @@ export const deserializeAws_json1_1ListResourcesCommand = async (
   contents = deserializeAws_json1_1ListResourcesResponse(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourcesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -925,7 +916,6 @@ export const deserializeAws_json1_1PutDataLakeSettingsCommand = async (
   contents = deserializeAws_json1_1PutDataLakeSettingsResponse(data, context);
   const response: PutDataLakeSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDataLakeSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -989,7 +979,6 @@ export const deserializeAws_json1_1RegisterResourceCommand = async (
   contents = deserializeAws_json1_1RegisterResourceResponse(data, context);
   const response: RegisterResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1069,7 +1058,6 @@ export const deserializeAws_json1_1RevokePermissionsCommand = async (
   contents = deserializeAws_json1_1RevokePermissionsResponse(data, context);
   const response: RevokePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokePermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1141,7 +1129,6 @@ export const deserializeAws_json1_1UpdateResourceCommand = async (
   contents = deserializeAws_json1_1UpdateResourceResponse(data, context);
   const response: UpdateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1624,7 +1611,6 @@ const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest,
 
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   return {
-    __type: "AlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1634,7 +1620,6 @@ const deserializeAws_json1_1BatchGrantPermissionsResponse = (
   context: __SerdeContext
 ): BatchGrantPermissionsResponse => {
   return {
-    __type: "BatchGrantPermissionsResponse",
     Failures:
       output.Failures !== undefined && output.Failures !== null
         ? deserializeAws_json1_1BatchPermissionsFailureList(output.Failures, context)
@@ -1647,7 +1632,6 @@ const deserializeAws_json1_1BatchPermissionsFailureEntry = (
   context: __SerdeContext
 ): BatchPermissionsFailureEntry => {
   return {
-    __type: "BatchPermissionsFailureEntry",
     Error:
       output.Error !== undefined && output.Error !== null
         ? deserializeAws_json1_1ErrorDetail(output.Error, context)
@@ -1671,7 +1655,6 @@ const deserializeAws_json1_1BatchPermissionsRequestEntry = (
   context: __SerdeContext
 ): BatchPermissionsRequestEntry => {
   return {
-    __type: "BatchPermissionsRequestEntry",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
@@ -1697,7 +1680,6 @@ const deserializeAws_json1_1BatchRevokePermissionsResponse = (
   context: __SerdeContext
 ): BatchRevokePermissionsResponse => {
   return {
-    __type: "BatchRevokePermissionsResponse",
     Failures:
       output.Failures !== undefined && output.Failures !== null
         ? deserializeAws_json1_1BatchPermissionsFailureList(output.Failures, context)
@@ -1706,9 +1688,7 @@ const deserializeAws_json1_1BatchRevokePermissionsResponse = (
 };
 
 const deserializeAws_json1_1CatalogResource = (output: any, context: __SerdeContext): CatalogResource => {
-  return {
-    __type: "CatalogResource",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ColumnNames = (output: any, context: __SerdeContext): string[] => {
@@ -1717,7 +1697,6 @@ const deserializeAws_json1_1ColumnNames = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ColumnWildcard = (output: any, context: __SerdeContext): ColumnWildcard => {
   return {
-    __type: "ColumnWildcard",
     ExcludedColumnNames:
       output.ExcludedColumnNames !== undefined && output.ExcludedColumnNames !== null
         ? deserializeAws_json1_1ColumnNames(output.ExcludedColumnNames, context)
@@ -1730,14 +1709,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DatabaseResource = (output: any, context: __SerdeContext): DatabaseResource => {
   return {
-    __type: "DatabaseResource",
     CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -1745,7 +1722,6 @@ const deserializeAws_json1_1DatabaseResource = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1DataLakePrincipal = (output: any, context: __SerdeContext): DataLakePrincipal => {
   return {
-    __type: "DataLakePrincipal",
     DataLakePrincipalIdentifier:
       output.DataLakePrincipalIdentifier !== undefined && output.DataLakePrincipalIdentifier !== null
         ? output.DataLakePrincipalIdentifier
@@ -1759,7 +1735,6 @@ const deserializeAws_json1_1DataLakePrincipalList = (output: any, context: __Ser
 
 const deserializeAws_json1_1DataLakeSettings = (output: any, context: __SerdeContext): DataLakeSettings => {
   return {
-    __type: "DataLakeSettings",
     CreateDatabaseDefaultPermissions:
       output.CreateDatabaseDefaultPermissions !== undefined && output.CreateDatabaseDefaultPermissions !== null
         ? deserializeAws_json1_1PrincipalPermissionsList(output.CreateDatabaseDefaultPermissions, context)
@@ -1781,7 +1756,6 @@ const deserializeAws_json1_1DataLakeSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1DataLocationResource = (output: any, context: __SerdeContext): DataLocationResource => {
   return {
-    __type: "DataLocationResource",
     CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
   } as any;
@@ -1791,9 +1765,7 @@ const deserializeAws_json1_1DeregisterResourceResponse = (
   output: any,
   context: __SerdeContext
 ): DeregisterResourceResponse => {
-  return {
-    __type: "DeregisterResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeResourceResponse = (
@@ -1801,7 +1773,6 @@ const deserializeAws_json1_1DescribeResourceResponse = (
   context: __SerdeContext
 ): DescribeResourceResponse => {
   return {
-    __type: "DescribeResourceResponse",
     ResourceInfo:
       output.ResourceInfo !== undefined && output.ResourceInfo !== null
         ? deserializeAws_json1_1ResourceInfo(output.ResourceInfo, context)
@@ -1814,14 +1785,12 @@ const deserializeAws_json1_1EntityNotFoundException = (
   context: __SerdeContext
 ): EntityNotFoundException => {
   return {
-    __type: "EntityNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    __type: "ErrorDetail",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
@@ -1832,7 +1801,6 @@ const deserializeAws_json1_1GetDataLakeSettingsResponse = (
   context: __SerdeContext
 ): GetDataLakeSettingsResponse => {
   return {
-    __type: "GetDataLakeSettingsResponse",
     DataLakeSettings:
       output.DataLakeSettings !== undefined && output.DataLakeSettings !== null
         ? deserializeAws_json1_1DataLakeSettings(output.DataLakeSettings, context)
@@ -1845,7 +1813,6 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathResponse = (
   context: __SerdeContext
 ): GetEffectivePermissionsForPathResponse => {
   return {
-    __type: "GetEffectivePermissionsForPathResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
@@ -1858,9 +1825,7 @@ const deserializeAws_json1_1GrantPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): GrantPermissionsResponse => {
-  return {
-    __type: "GrantPermissionsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1InternalServiceException = (
@@ -1868,14 +1833,12 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    __type: "InternalServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1885,7 +1848,6 @@ const deserializeAws_json1_1ListPermissionsResponse = (
   context: __SerdeContext
 ): ListPermissionsResponse => {
   return {
-    __type: "ListPermissionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PrincipalResourcePermissions:
       output.PrincipalResourcePermissions !== undefined && output.PrincipalResourcePermissions !== null
@@ -1896,7 +1858,6 @@ const deserializeAws_json1_1ListPermissionsResponse = (
 
 const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __SerdeContext): ListResourcesResponse => {
   return {
-    __type: "ListResourcesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResourceInfoList:
       output.ResourceInfoList !== undefined && output.ResourceInfoList !== null
@@ -1910,7 +1871,6 @@ const deserializeAws_json1_1OperationTimeoutException = (
   context: __SerdeContext
 ): OperationTimeoutException => {
   return {
-    __type: "OperationTimeoutException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1921,7 +1881,6 @@ const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1PrincipalPermissions = (output: any, context: __SerdeContext): PrincipalPermissions => {
   return {
-    __type: "PrincipalPermissions",
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1PermissionList(output.Permissions, context)
@@ -1945,7 +1904,6 @@ const deserializeAws_json1_1PrincipalResourcePermissions = (
   context: __SerdeContext
 ): PrincipalResourcePermissions => {
   return {
-    __type: "PrincipalResourcePermissions",
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1PermissionList(output.Permissions, context)
@@ -1976,23 +1934,18 @@ const deserializeAws_json1_1PutDataLakeSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): PutDataLakeSettingsResponse => {
-  return {
-    __type: "PutDataLakeSettingsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RegisterResourceResponse = (
   output: any,
   context: __SerdeContext
 ): RegisterResourceResponse => {
-  return {
-    __type: "RegisterResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     Catalog:
       output.Catalog !== undefined && output.Catalog !== null
         ? deserializeAws_json1_1CatalogResource(output.Catalog, context)
@@ -2018,7 +1971,6 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
 
 const deserializeAws_json1_1ResourceInfo = (output: any, context: __SerdeContext): ResourceInfo => {
   return {
-    __type: "ResourceInfo",
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
@@ -2036,14 +1988,11 @@ const deserializeAws_json1_1RevokePermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): RevokePermissionsResponse => {
-  return {
-    __type: "RevokePermissionsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TableResource = (output: any, context: __SerdeContext): TableResource => {
   return {
-    __type: "TableResource",
     CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -2055,9 +2004,7 @@ const deserializeAws_json1_1TableResource = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1TableWildcard = (output: any, context: __SerdeContext): TableWildcard => {
-  return {
-    __type: "TableWildcard",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TableWithColumnsResource = (
@@ -2065,7 +2012,6 @@ const deserializeAws_json1_1TableWithColumnsResource = (
   context: __SerdeContext
 ): TableWithColumnsResource => {
   return {
-    __type: "TableWithColumnsResource",
     CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     ColumnNames:
       output.ColumnNames !== undefined && output.ColumnNames !== null
@@ -2085,9 +2031,7 @@ const deserializeAws_json1_1TrustedResourceOwners = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {
-  return {
-    __type: "UpdateResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

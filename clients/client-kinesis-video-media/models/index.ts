@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -16,7 +16,6 @@ export namespace ClientLimitExceededException {
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 /**
@@ -33,11 +32,9 @@ export namespace ConnectionLimitExceededException {
   export const filterSensitiveLog = (obj: ConnectionLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionLimitExceededException => __isa(o, "ConnectionLimitExceededException");
 }
 
 export interface GetMediaInput {
-  __type?: "GetMediaInput";
   /**
    * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
@@ -61,11 +58,9 @@ export namespace GetMediaInput {
   export const filterSensitiveLog = (obj: GetMediaInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMediaInput => __isa(o, "GetMediaInput");
 }
 
 export interface GetMediaOutput {
-  __type?: "GetMediaOutput";
   /**
    * <p>The content type of the requested media.</p>
    */
@@ -148,7 +143,6 @@ export namespace GetMediaOutput {
   export const filterSensitiveLog = (obj: GetMediaOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMediaOutput => __isa(o, "GetMediaOutput");
 }
 
 /**
@@ -164,7 +158,6 @@ export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -183,7 +176,6 @@ export namespace InvalidEndpointException {
   export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEndpointException => __isa(o, "InvalidEndpointException");
 }
 
 /**
@@ -200,7 +192,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -216,7 +207,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -241,7 +231,6 @@ export namespace ResourceNotFoundException {
  *          </ul>
  */
 export interface StartSelector {
-  __type?: "StartSelector";
   /**
    * <p>Continuation token that Kinesis Video Streams returned in the previous
    *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
@@ -298,7 +287,6 @@ export namespace StartSelector {
   export const filterSensitiveLog = (obj: StartSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSelector => __isa(o, "StartSelector");
 }
 
 export enum StartSelectorType {

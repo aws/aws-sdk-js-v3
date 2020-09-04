@@ -422,7 +422,6 @@ export const deserializeAws_queryEmptyInputAndEmptyOutputCommand = async (
   contents = deserializeAws_queryEmptyInputAndEmptyOutputOutput(data.EmptyInputAndEmptyOutputResult, context);
   const response: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EmptyInputAndEmptyOutputOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -469,7 +468,6 @@ export const deserializeAws_queryFlattenedXmlMapCommand = async (
   contents = deserializeAws_queryFlattenedXmlMapOutput(data.FlattenedXmlMapResult, context);
   const response: FlattenedXmlMapCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FlattenedXmlMapOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -516,7 +514,6 @@ export const deserializeAws_queryFlattenedXmlMapWithXmlNameCommand = async (
   contents = deserializeAws_queryFlattenedXmlMapWithXmlNameOutput(data.FlattenedXmlMapWithXmlNameResult, context);
   const response: FlattenedXmlMapWithXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FlattenedXmlMapWithXmlNameOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -563,7 +560,6 @@ export const deserializeAws_queryGreetingWithErrorsCommand = async (
   contents = deserializeAws_queryGreetingWithErrorsOutput(data.GreetingWithErrorsResult, context);
   const response: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GreetingWithErrorsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -626,7 +622,6 @@ export const deserializeAws_queryIgnoresWrappingXmlNameCommand = async (
   contents = deserializeAws_queryIgnoresWrappingXmlNameOutput(data.IgnoresWrappingXmlNameResult, context);
   const response: IgnoresWrappingXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IgnoresWrappingXmlNameOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -974,7 +969,6 @@ export const deserializeAws_queryRecursiveXmlShapesCommand = async (
   contents = deserializeAws_queryRecursiveXmlShapesOutput(data.RecursiveXmlShapesResult, context);
   const response: RecursiveXmlShapesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RecursiveXmlShapesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1064,7 +1058,6 @@ export const deserializeAws_querySimpleScalarXmlPropertiesCommand = async (
   contents = deserializeAws_querySimpleScalarXmlPropertiesOutput(data.SimpleScalarXmlPropertiesResult, context);
   const response: SimpleScalarXmlPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SimpleScalarXmlPropertiesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1111,7 +1104,6 @@ export const deserializeAws_queryXmlBlobsCommand = async (
   contents = deserializeAws_queryXmlBlobsOutput(data.XmlBlobsResult, context);
   const response: XmlBlobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlBlobsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1158,7 +1150,6 @@ export const deserializeAws_queryXmlEnumsCommand = async (
   contents = deserializeAws_queryXmlEnumsOutput(data.XmlEnumsResult, context);
   const response: XmlEnumsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlEnumsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1205,7 +1196,6 @@ export const deserializeAws_queryXmlListsCommand = async (
   contents = deserializeAws_queryXmlListsOutput(data.XmlListsResult, context);
   const response: XmlListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlListsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1252,7 +1242,6 @@ export const deserializeAws_queryXmlMapsCommand = async (
   contents = deserializeAws_queryXmlMapsOutput(data.XmlMapsResult, context);
   const response: XmlMapsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlMapsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1299,7 +1288,6 @@ export const deserializeAws_queryXmlMapsXmlNameCommand = async (
   contents = deserializeAws_queryXmlMapsXmlNameOutput(data.XmlMapsXmlNameResult, context);
   const response: XmlMapsXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlMapsXmlNameOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1346,7 +1334,6 @@ export const deserializeAws_queryXmlNamespacesCommand = async (
   contents = deserializeAws_queryXmlNamespacesOutput(data.XmlNamespacesResult, context);
   const response: XmlNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlNamespacesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1393,7 +1380,6 @@ export const deserializeAws_queryXmlTimestampsCommand = async (
   contents = deserializeAws_queryXmlTimestampsOutput(data.XmlTimestampsResult, context);
   const response: XmlTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlTimestampsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1742,7 +1728,6 @@ const serializeAws_queryStringMap = (input: { [key: string]: string }, context: 
 
 const deserializeAws_queryComplexError = (output: any, context: __SerdeContext): ComplexError => {
   let contents: any = {
-    __type: "ComplexError",
     TopLevel: undefined,
     Nested: undefined,
   };
@@ -1757,7 +1742,6 @@ const deserializeAws_queryComplexError = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   let contents: any = {
-    __type: "ComplexNestedErrorData",
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
@@ -1770,15 +1754,12 @@ const deserializeAws_queryEmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
-  let contents: any = {
-    __type: "EmptyInputAndEmptyOutputOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryFlattenedXmlMapOutput = (output: any, context: __SerdeContext): FlattenedXmlMapOutput => {
   let contents: any = {
-    __type: "FlattenedXmlMapOutput",
     myMap: undefined,
   };
   if (output.myMap === "") {
@@ -1795,7 +1776,6 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
   context: __SerdeContext
 ): FlattenedXmlMapWithXmlNameOutput => {
   let contents: any = {
-    __type: "FlattenedXmlMapWithXmlNameOutput",
     myMap: undefined,
   };
   if (output.KVP === "") {
@@ -1828,7 +1808,6 @@ const deserializeAws_queryGreetingWithErrorsOutput = (
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
   let contents: any = {
-    __type: "GreetingWithErrorsOutput",
     greeting: undefined,
   };
   if (output["greeting"] !== undefined) {
@@ -1842,7 +1821,6 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
   context: __SerdeContext
 ): IgnoresWrappingXmlNameOutput => {
   let contents: any = {
-    __type: "IgnoresWrappingXmlNameOutput",
     foo: undefined,
   };
   if (output["foo"] !== undefined) {
@@ -1853,7 +1831,6 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
 
 const deserializeAws_queryInvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
   let contents: any = {
-    __type: "InvalidGreeting",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -1867,7 +1844,6 @@ const deserializeAws_queryRecursiveXmlShapesOutput = (
   context: __SerdeContext
 ): RecursiveXmlShapesOutput => {
   let contents: any = {
-    __type: "RecursiveXmlShapesOutput",
     nested: undefined,
   };
   if (output["nested"] !== undefined) {
@@ -1881,7 +1857,6 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested1 = (
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested1 => {
   let contents: any = {
-    __type: "RecursiveXmlShapesOutputNested1",
     foo: undefined,
     nested: undefined,
   };
@@ -1899,7 +1874,6 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested2 = (
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested2 => {
   let contents: any = {
-    __type: "RecursiveXmlShapesOutputNested2",
     bar: undefined,
     recursiveMember: undefined,
   };
@@ -1921,7 +1895,6 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
   context: __SerdeContext
 ): SimpleScalarXmlPropertiesOutput => {
   let contents: any = {
-    __type: "SimpleScalarXmlPropertiesOutput",
     stringValue: undefined,
     emptyStringValue: undefined,
     trueBooleanValue: undefined,
@@ -1972,7 +1945,6 @@ const deserializeAws_queryStructureList = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryStructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   let contents: any = {
-    __type: "StructureListMember",
     a: undefined,
     b: undefined,
   };
@@ -1987,7 +1959,6 @@ const deserializeAws_queryStructureListMember = (output: any, context: __SerdeCo
 
 const deserializeAws_queryXmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput => {
   let contents: any = {
-    __type: "XmlBlobsOutput",
     data: undefined,
   };
   if (output["data"] !== undefined) {
@@ -1998,7 +1969,6 @@ const deserializeAws_queryXmlBlobsOutput = (output: any, context: __SerdeContext
 
 const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput => {
   let contents: any = {
-    __type: "XmlEnumsOutput",
     fooEnum1: undefined,
     fooEnum2: undefined,
     fooEnum3: undefined,
@@ -2047,7 +2017,6 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
 
 const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   let contents: any = {
-    __type: "XmlListsOutput",
     stringList: undefined,
     stringSet: undefined,
     integerList: undefined,
@@ -2158,7 +2127,6 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
 
 const deserializeAws_queryXmlMapsOutput = (output: any, context: __SerdeContext): XmlMapsOutput => {
   let contents: any = {
-    __type: "XmlMapsOutput",
     myMap: undefined,
   };
   if (output.myMap === "") {
@@ -2185,7 +2153,6 @@ const deserializeAws_queryXmlMapsOutputMap = (
 
 const deserializeAws_queryXmlMapsXmlNameOutput = (output: any, context: __SerdeContext): XmlMapsXmlNameOutput => {
   let contents: any = {
-    __type: "XmlMapsXmlNameOutput",
     myMap: undefined,
   };
   if (output.myMap === "") {
@@ -2219,7 +2186,6 @@ const deserializeAws_queryXmlNamespacedList = (output: any, context: __SerdeCont
 
 const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
   let contents: any = {
-    __type: "XmlNamespaceNested",
     foo: undefined,
     values: undefined,
   };
@@ -2240,7 +2206,6 @@ const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeCon
 
 const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamespacesOutput => {
   let contents: any = {
-    __type: "XmlNamespacesOutput",
     nested: undefined,
   };
   if (output["nested"] !== undefined) {
@@ -2251,7 +2216,6 @@ const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
   let contents: any = {
-    __type: "XmlTimestampsOutput",
     normal: undefined,
     dateTime: undefined,
     epochSeconds: undefined,
@@ -2296,7 +2260,6 @@ const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (
 
 const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   let contents: any = {
-    __type: "GreetingStruct",
     hi: undefined,
   };
   if (output["hi"] !== undefined) {

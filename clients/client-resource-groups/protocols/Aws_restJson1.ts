@@ -478,7 +478,6 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
   }
   const contents: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupOutput",
     Group: undefined,
     GroupConfiguration: undefined,
     ResourceQuery: undefined,
@@ -578,7 +577,6 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
   }
   const contents: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGroupOutput",
     Group: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -674,7 +672,6 @@ export const deserializeAws_restJson1GetGroupCommand = async (
   }
   const contents: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupOutput",
     Group: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -770,7 +767,6 @@ export const deserializeAws_restJson1GetGroupConfigurationCommand = async (
   }
   const contents: GetGroupConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupConfigurationOutput",
     GroupConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -866,7 +862,6 @@ export const deserializeAws_restJson1GetGroupQueryCommand = async (
   }
   const contents: GetGroupQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupQueryOutput",
     GroupQuery: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -962,7 +957,6 @@ export const deserializeAws_restJson1GetTagsCommand = async (
   }
   const contents: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTagsOutput",
     Arn: undefined,
     Tags: undefined,
   };
@@ -1062,7 +1056,6 @@ export const deserializeAws_restJson1GroupResourcesCommand = async (
   }
   const contents: GroupResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GroupResourcesOutput",
     Failed: undefined,
     Succeeded: undefined,
   };
@@ -1162,7 +1155,6 @@ export const deserializeAws_restJson1ListGroupResourcesCommand = async (
   }
   const contents: ListGroupResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupResourcesOutput",
     NextToken: undefined,
     QueryErrors: undefined,
     ResourceIdentifiers: undefined,
@@ -1274,7 +1266,6 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
   }
   const contents: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupsOutput",
     GroupIdentifiers: undefined,
     Groups: undefined,
     NextToken: undefined,
@@ -1370,7 +1361,6 @@ export const deserializeAws_restJson1SearchResourcesCommand = async (
   }
   const contents: SearchResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchResourcesOutput",
     NextToken: undefined,
     QueryErrors: undefined,
     ResourceIdentifiers: undefined,
@@ -1474,7 +1464,6 @@ export const deserializeAws_restJson1TagCommand = async (
   }
   const contents: TagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagOutput",
     Arn: undefined,
     Tags: undefined,
   };
@@ -1574,7 +1563,6 @@ export const deserializeAws_restJson1UngroupResourcesCommand = async (
   }
   const contents: UngroupResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UngroupResourcesOutput",
     Failed: undefined,
     Succeeded: undefined,
   };
@@ -1674,7 +1662,6 @@ export const deserializeAws_restJson1UntagCommand = async (
   }
   const contents: UntagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagOutput",
     Arn: undefined,
     Keys: undefined,
   };
@@ -1774,7 +1761,6 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
   }
   const contents: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGroupOutput",
     Group: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1870,7 +1856,6 @@ export const deserializeAws_restJson1UpdateGroupQueryCommand = async (
   }
   const contents: UpdateGroupQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGroupQueryOutput",
     GroupQuery: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2172,7 +2157,6 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
 
 const deserializeAws_restJson1FailedResource = (output: any, context: __SerdeContext): FailedResource => {
   return {
-    __type: "FailedResource",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
@@ -2185,7 +2169,6 @@ const deserializeAws_restJson1FailedResourceList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Group => {
   return {
-    __type: "Group",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -2194,7 +2177,6 @@ const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Gr
 
 const deserializeAws_restJson1GroupConfiguration = (output: any, context: __SerdeContext): GroupConfiguration => {
   return {
-    __type: "GroupConfiguration",
     Configuration:
       output.Configuration !== undefined && output.Configuration !== null
         ? deserializeAws_restJson1GroupConfigurationList(output.Configuration, context)
@@ -2214,7 +2196,6 @@ const deserializeAws_restJson1GroupConfigurationItem = (
   context: __SerdeContext
 ): GroupConfigurationItem => {
   return {
-    __type: "GroupConfigurationItem",
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_restJson1GroupParameterList(output.Parameters, context)
@@ -2235,7 +2216,6 @@ const deserializeAws_restJson1GroupConfigurationParameter = (
   context: __SerdeContext
 ): GroupConfigurationParameter => {
   return {
-    __type: "GroupConfigurationParameter",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
@@ -2253,7 +2233,6 @@ const deserializeAws_restJson1GroupConfigurationParameterValueList = (
 
 const deserializeAws_restJson1GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
   return {
-    __type: "GroupIdentifier",
     GroupArn: output.GroupArn !== undefined && output.GroupArn !== null ? output.GroupArn : undefined,
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
   } as any;
@@ -2276,7 +2255,6 @@ const deserializeAws_restJson1GroupParameterList = (
 
 const deserializeAws_restJson1GroupQuery = (output: any, context: __SerdeContext): GroupQuery => {
   return {
-    __type: "GroupQuery",
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
     ResourceQuery:
       output.ResourceQuery !== undefined && output.ResourceQuery !== null
@@ -2287,7 +2265,6 @@ const deserializeAws_restJson1GroupQuery = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1QueryError = (output: any, context: __SerdeContext): QueryError => {
   return {
-    __type: "QueryError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -2303,7 +2280,6 @@ const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
   return {
-    __type: "ResourceIdentifier",
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -2315,7 +2291,6 @@ const deserializeAws_restJson1ResourceIdentifierList = (output: any, context: __
 
 const deserializeAws_restJson1ResourceQuery = (output: any, context: __SerdeContext): ResourceQuery => {
   return {
-    __type: "ResourceQuery",
     Query: output.Query !== undefined && output.Query !== null ? output.Query : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;

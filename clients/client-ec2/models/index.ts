@@ -1,10 +1,9 @@
-import { SENSITIVE_STRING, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
  * <p>Contains the parameters for accepting the quote.</p>
  */
 export interface AcceptReservedInstancesExchangeQuoteRequest {
-  __type?: "AcceptReservedInstancesExchangeQuoteRequest";
   /**
    * <p>The IDs of the Convertible Reserved Instances to exchange for another Convertible
    *             Reserved Instance of the same or higher value.</p>
@@ -29,15 +28,12 @@ export namespace AcceptReservedInstancesExchangeQuoteRequest {
   export const filterSensitiveLog = (obj: AcceptReservedInstancesExchangeQuoteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptReservedInstancesExchangeQuoteRequest =>
-    __isa(o, "AcceptReservedInstancesExchangeQuoteRequest");
 }
 
 /**
  * <p>The result of the exchange and whether it was <code>successful</code>.</p>
  */
 export interface AcceptReservedInstancesExchangeQuoteResult {
-  __type?: "AcceptReservedInstancesExchangeQuoteResult";
   /**
    * <p>The ID of the successful exchange.</p>
    */
@@ -48,12 +44,9 @@ export namespace AcceptReservedInstancesExchangeQuoteResult {
   export const filterSensitiveLog = (obj: AcceptReservedInstancesExchangeQuoteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptReservedInstancesExchangeQuoteResult =>
-    __isa(o, "AcceptReservedInstancesExchangeQuoteResult");
 }
 
 export interface AcceptTransitGatewayPeeringAttachmentRequest {
-  __type?: "AcceptTransitGatewayPeeringAttachmentRequest";
   /**
    * <p>The ID of the transit gateway attachment.</p>
    */
@@ -71,12 +64,9 @@ export namespace AcceptTransitGatewayPeeringAttachmentRequest {
   export const filterSensitiveLog = (obj: AcceptTransitGatewayPeeringAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptTransitGatewayPeeringAttachmentRequest =>
-    __isa(o, "AcceptTransitGatewayPeeringAttachmentRequest");
 }
 
 export interface AcceptTransitGatewayPeeringAttachmentResult {
-  __type?: "AcceptTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
    */
@@ -87,12 +77,9 @@ export namespace AcceptTransitGatewayPeeringAttachmentResult {
   export const filterSensitiveLog = (obj: AcceptTransitGatewayPeeringAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptTransitGatewayPeeringAttachmentResult =>
-    __isa(o, "AcceptTransitGatewayPeeringAttachmentResult");
 }
 
 export interface AcceptTransitGatewayVpcAttachmentRequest {
-  __type?: "AcceptTransitGatewayVpcAttachmentRequest";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -110,12 +97,9 @@ export namespace AcceptTransitGatewayVpcAttachmentRequest {
   export const filterSensitiveLog = (obj: AcceptTransitGatewayVpcAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptTransitGatewayVpcAttachmentRequest =>
-    __isa(o, "AcceptTransitGatewayVpcAttachmentRequest");
 }
 
 export interface AcceptTransitGatewayVpcAttachmentResult {
-  __type?: "AcceptTransitGatewayVpcAttachmentResult";
   /**
    * <p>The VPC attachment.</p>
    */
@@ -126,12 +110,9 @@ export namespace AcceptTransitGatewayVpcAttachmentResult {
   export const filterSensitiveLog = (obj: AcceptTransitGatewayVpcAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptTransitGatewayVpcAttachmentResult =>
-    __isa(o, "AcceptTransitGatewayVpcAttachmentResult");
 }
 
 export interface AcceptVpcEndpointConnectionsRequest {
-  __type?: "AcceptVpcEndpointConnectionsRequest";
   /**
    * <p>The ID of the VPC endpoint service.</p>
    */
@@ -154,12 +135,9 @@ export namespace AcceptVpcEndpointConnectionsRequest {
   export const filterSensitiveLog = (obj: AcceptVpcEndpointConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptVpcEndpointConnectionsRequest =>
-    __isa(o, "AcceptVpcEndpointConnectionsRequest");
 }
 
 export interface AcceptVpcEndpointConnectionsResult {
-  __type?: "AcceptVpcEndpointConnectionsResult";
   /**
    * <p>Information about the interface endpoints that were not accepted, if
    *             applicable.</p>
@@ -171,12 +149,9 @@ export namespace AcceptVpcEndpointConnectionsResult {
   export const filterSensitiveLog = (obj: AcceptVpcEndpointConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptVpcEndpointConnectionsResult =>
-    __isa(o, "AcceptVpcEndpointConnectionsResult");
 }
 
 export interface AcceptVpcPeeringConnectionRequest {
-  __type?: "AcceptVpcPeeringConnectionRequest";
   /**
    * <p>The ID of the VPC peering connection. You must specify this parameter in the
    * 			request.</p>
@@ -195,11 +170,9 @@ export namespace AcceptVpcPeeringConnectionRequest {
   export const filterSensitiveLog = (obj: AcceptVpcPeeringConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptVpcPeeringConnectionRequest => __isa(o, "AcceptVpcPeeringConnectionRequest");
 }
 
 export interface AcceptVpcPeeringConnectionResult {
-  __type?: "AcceptVpcPeeringConnectionResult";
   /**
    * <p>Information about the VPC peering connection.</p>
    */
@@ -210,14 +183,12 @@ export namespace AcceptVpcPeeringConnectionResult {
   export const filterSensitiveLog = (obj: AcceptVpcPeeringConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptVpcPeeringConnectionResult => __isa(o, "AcceptVpcPeeringConnectionResult");
 }
 
 /**
  * <p>Describes an account attribute.</p>
  */
 export interface AccountAttribute {
-  __type?: "AccountAttribute";
   /**
    * <p>The name of the account attribute.</p>
    */
@@ -233,7 +204,6 @@ export namespace AccountAttribute {
   export const filterSensitiveLog = (obj: AccountAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountAttribute => __isa(o, "AccountAttribute");
 }
 
 export type AccountAttributeName = "default-vpc" | "supported-platforms";
@@ -242,7 +212,6 @@ export type AccountAttributeName = "default-vpc" | "supported-platforms";
  * <p>Describes a value of an account attribute.</p>
  */
 export interface AccountAttributeValue {
-  __type?: "AccountAttributeValue";
   /**
    * <p>The value of the attribute.</p>
    */
@@ -253,14 +222,12 @@ export namespace AccountAttributeValue {
   export const filterSensitiveLog = (obj: AccountAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountAttributeValue => __isa(o, "AccountAttributeValue");
 }
 
 /**
  * <p>Describes a running instance in a Spot Fleet.</p>
  */
 export interface ActiveInstance {
-  __type?: "ActiveInstance";
   /**
    * <p>The ID of the Spot Instance request.</p>
    */
@@ -288,7 +255,6 @@ export namespace ActiveInstance {
   export const filterSensitiveLog = (obj: ActiveInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveInstance => __isa(o, "ActiveInstance");
 }
 
 export enum ActivityStatus {
@@ -302,7 +268,6 @@ export enum ActivityStatus {
  * <p>An entry for a prefix list.</p>
  */
 export interface AddPrefixListEntry {
-  __type?: "AddPrefixListEntry";
   /**
    * <p>A description for the entry.</p>
    *         <p>Constraints: Up to 255 characters in length.</p>
@@ -319,14 +284,12 @@ export namespace AddPrefixListEntry {
   export const filterSensitiveLog = (obj: AddPrefixListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddPrefixListEntry => __isa(o, "AddPrefixListEntry");
 }
 
 /**
  * <p>Describes an Elastic IP address.</p>
  */
 export interface Address {
-  __type?: "Address";
   /**
    * <p>Indicates whether this Elastic IP address is for use with instances
    * 				in EC2-Classic (<code>standard</code>) or instances in a VPC (<code>vpc</code>).</p>
@@ -398,11 +361,9 @@ export namespace Address {
   export const filterSensitiveLog = (obj: Address): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Address => __isa(o, "Address");
 }
 
 export interface AdvertiseByoipCidrRequest {
-  __type?: "AdvertiseByoipCidrRequest";
   /**
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
    *          You can't advertise only a portion of the provisioned range.</p>
@@ -421,11 +382,9 @@ export namespace AdvertiseByoipCidrRequest {
   export const filterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdvertiseByoipCidrRequest => __isa(o, "AdvertiseByoipCidrRequest");
 }
 
 export interface AdvertiseByoipCidrResult {
-  __type?: "AdvertiseByoipCidrResult";
   /**
    * <p>Information about the address range.</p>
    */
@@ -436,13 +395,11 @@ export namespace AdvertiseByoipCidrResult {
   export const filterSensitiveLog = (obj: AdvertiseByoipCidrResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdvertiseByoipCidrResult => __isa(o, "AdvertiseByoipCidrResult");
 }
 
 export type Affinity = "default" | "host";
 
 export interface AllocateAddressRequest {
-  __type?: "AllocateAddressRequest";
   /**
    * <p>The location from which the IP address is advertised. Use this parameter to limit the address to this location.</p>
    *          <p>A network border group is a unique set of Availability Zones or Local Zones from where AWS
@@ -493,11 +450,9 @@ export namespace AllocateAddressRequest {
   export const filterSensitiveLog = (obj: AllocateAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllocateAddressRequest => __isa(o, "AllocateAddressRequest");
 }
 
 export interface AllocateAddressResult {
-  __type?: "AllocateAddressResult";
   /**
    * <p>The customer-owned IP address.</p>
    */
@@ -539,11 +494,9 @@ export namespace AllocateAddressResult {
   export const filterSensitiveLog = (obj: AllocateAddressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllocateAddressResult => __isa(o, "AllocateAddressResult");
 }
 
 export interface AllocateHostsRequest {
-  __type?: "AllocateHostsRequest";
   /**
    * <p>Indicates whether the host accepts any untargeted instance launches that
    *     		match its instance type configuration, or if it only accepts Host tenancy
@@ -616,14 +569,12 @@ export namespace AllocateHostsRequest {
   export const filterSensitiveLog = (obj: AllocateHostsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllocateHostsRequest => __isa(o, "AllocateHostsRequest");
 }
 
 /**
  * <p>Contains the output of AllocateHosts.</p>
  */
 export interface AllocateHostsResult {
-  __type?: "AllocateHostsResult";
   /**
    * <p>The ID of the allocated Dedicated Host. This is used to launch an instance onto a
    * 			specific host.</p>
@@ -635,7 +586,6 @@ export namespace AllocateHostsResult {
   export const filterSensitiveLog = (obj: AllocateHostsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllocateHostsResult => __isa(o, "AllocateHostsResult");
 }
 
 export type AllocationState =
@@ -656,7 +606,6 @@ export enum AllocationStrategy {
  * <p>Describes a principal.</p>
  */
 export interface AllowedPrincipal {
-  __type?: "AllowedPrincipal";
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    */
@@ -672,13 +621,11 @@ export namespace AllowedPrincipal {
   export const filterSensitiveLog = (obj: AllowedPrincipal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllowedPrincipal => __isa(o, "AllowedPrincipal");
 }
 
 export type AllowsMultipleInstanceTypes = "off" | "on";
 
 export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
-  __type?: "ApplySecurityGroupsToClientVpnTargetNetworkRequest";
   /**
    * <p>The ID of the Client VPN endpoint.</p>
    */
@@ -705,12 +652,9 @@ export namespace ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   export const filterSensitiveLog = (obj: ApplySecurityGroupsToClientVpnTargetNetworkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplySecurityGroupsToClientVpnTargetNetworkRequest =>
-    __isa(o, "ApplySecurityGroupsToClientVpnTargetNetworkRequest");
 }
 
 export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
-  __type?: "ApplySecurityGroupsToClientVpnTargetNetworkResult";
   /**
    * <p>The IDs of the applied security groups.</p>
    */
@@ -721,8 +665,6 @@ export namespace ApplySecurityGroupsToClientVpnTargetNetworkResult {
   export const filterSensitiveLog = (obj: ApplySecurityGroupsToClientVpnTargetNetworkResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplySecurityGroupsToClientVpnTargetNetworkResult =>
-    __isa(o, "ApplySecurityGroupsToClientVpnTargetNetworkResult");
 }
 
 export type ArchitectureType = "arm64" | "i386" | "x86_64";
@@ -733,7 +675,6 @@ export type ArchitectureValues = "arm64" | "i386" | "x86_64";
  * <p>Describes the private IP addresses assigned to a network interface.</p>
  */
 export interface AssignedPrivateIpAddress {
-  __type?: "AssignedPrivateIpAddress";
   /**
    * <p>The private IP address assigned to the network interface.</p>
    */
@@ -744,11 +685,9 @@ export namespace AssignedPrivateIpAddress {
   export const filterSensitiveLog = (obj: AssignedPrivateIpAddress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignedPrivateIpAddress => __isa(o, "AssignedPrivateIpAddress");
 }
 
 export interface AssignIpv6AddressesRequest {
-  __type?: "AssignIpv6AddressesRequest";
   /**
    * <p>One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
    */
@@ -771,11 +710,9 @@ export namespace AssignIpv6AddressesRequest {
   export const filterSensitiveLog = (obj: AssignIpv6AddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignIpv6AddressesRequest => __isa(o, "AssignIpv6AddressesRequest");
 }
 
 export interface AssignIpv6AddressesResult {
-  __type?: "AssignIpv6AddressesResult";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -791,14 +728,12 @@ export namespace AssignIpv6AddressesResult {
   export const filterSensitiveLog = (obj: AssignIpv6AddressesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignIpv6AddressesResult => __isa(o, "AssignIpv6AddressesResult");
 }
 
 /**
  * <p>Contains the parameters for AssignPrivateIpAddresses.</p>
  */
 export interface AssignPrivateIpAddressesRequest {
-  __type?: "AssignPrivateIpAddressesRequest";
   /**
    * <p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>
    */
@@ -825,11 +760,9 @@ export namespace AssignPrivateIpAddressesRequest {
   export const filterSensitiveLog = (obj: AssignPrivateIpAddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignPrivateIpAddressesRequest => __isa(o, "AssignPrivateIpAddressesRequest");
 }
 
 export interface AssignPrivateIpAddressesResult {
-  __type?: "AssignPrivateIpAddressesResult";
   /**
    * <p>The private IP addresses assigned to the network interface.</p>
    */
@@ -845,11 +778,9 @@ export namespace AssignPrivateIpAddressesResult {
   export const filterSensitiveLog = (obj: AssignPrivateIpAddressesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignPrivateIpAddressesResult => __isa(o, "AssignPrivateIpAddressesResult");
 }
 
 export interface AssociateAddressRequest {
-  __type?: "AssociateAddressRequest";
   /**
    * <p>[EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
    */
@@ -893,11 +824,9 @@ export namespace AssociateAddressRequest {
   export const filterSensitiveLog = (obj: AssociateAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateAddressRequest => __isa(o, "AssociateAddressRequest");
 }
 
 export interface AssociateAddressResult {
-  __type?: "AssociateAddressResult";
   /**
    * <p>[EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.</p>
    */
@@ -908,11 +837,9 @@ export namespace AssociateAddressResult {
   export const filterSensitiveLog = (obj: AssociateAddressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateAddressResult => __isa(o, "AssociateAddressResult");
 }
 
 export interface AssociateClientVpnTargetNetworkRequest {
-  __type?: "AssociateClientVpnTargetNetworkRequest";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
@@ -938,12 +865,9 @@ export namespace AssociateClientVpnTargetNetworkRequest {
   export const filterSensitiveLog = (obj: AssociateClientVpnTargetNetworkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateClientVpnTargetNetworkRequest =>
-    __isa(o, "AssociateClientVpnTargetNetworkRequest");
 }
 
 export interface AssociateClientVpnTargetNetworkResult {
-  __type?: "AssociateClientVpnTargetNetworkResult";
   /**
    * <p>The unique ID of the target network association.</p>
    */
@@ -959,12 +883,9 @@ export namespace AssociateClientVpnTargetNetworkResult {
   export const filterSensitiveLog = (obj: AssociateClientVpnTargetNetworkResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateClientVpnTargetNetworkResult =>
-    __isa(o, "AssociateClientVpnTargetNetworkResult");
 }
 
 export interface AssociateDhcpOptionsRequest {
-  __type?: "AssociateDhcpOptionsRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -988,7 +909,6 @@ export namespace AssociateDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: AssociateDhcpOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDhcpOptionsRequest => __isa(o, "AssociateDhcpOptionsRequest");
 }
 
 export type AssociatedNetworkType = "vpc";
@@ -997,7 +917,6 @@ export type AssociatedNetworkType = "vpc";
  * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
  */
 export interface AssociatedTargetNetwork {
-  __type?: "AssociatedTargetNetwork";
   /**
    * <p>The target network type.</p>
    */
@@ -1013,11 +932,9 @@ export namespace AssociatedTargetNetwork {
   export const filterSensitiveLog = (obj: AssociatedTargetNetwork): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatedTargetNetwork => __isa(o, "AssociatedTargetNetwork");
 }
 
 export interface AssociateIamInstanceProfileRequest {
-  __type?: "AssociateIamInstanceProfileRequest";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -1033,12 +950,9 @@ export namespace AssociateIamInstanceProfileRequest {
   export const filterSensitiveLog = (obj: AssociateIamInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateIamInstanceProfileRequest =>
-    __isa(o, "AssociateIamInstanceProfileRequest");
 }
 
 export interface AssociateIamInstanceProfileResult {
-  __type?: "AssociateIamInstanceProfileResult";
   /**
    * <p>Information about the IAM instance profile association.</p>
    */
@@ -1049,11 +963,9 @@ export namespace AssociateIamInstanceProfileResult {
   export const filterSensitiveLog = (obj: AssociateIamInstanceProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateIamInstanceProfileResult => __isa(o, "AssociateIamInstanceProfileResult");
 }
 
 export interface AssociateRouteTableRequest {
-  __type?: "AssociateRouteTableRequest";
   /**
    * <p>The ID of the subnet.</p>
    */
@@ -1081,11 +993,9 @@ export namespace AssociateRouteTableRequest {
   export const filterSensitiveLog = (obj: AssociateRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateRouteTableRequest => __isa(o, "AssociateRouteTableRequest");
 }
 
 export interface AssociateRouteTableResult {
-  __type?: "AssociateRouteTableResult";
   /**
    * <p>The state of the association.</p>
    */
@@ -1102,11 +1012,9 @@ export namespace AssociateRouteTableResult {
   export const filterSensitiveLog = (obj: AssociateRouteTableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateRouteTableResult => __isa(o, "AssociateRouteTableResult");
 }
 
 export interface AssociateSubnetCidrBlockRequest {
-  __type?: "AssociateSubnetCidrBlockRequest";
   /**
    * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
    *             length.</p>
@@ -1123,11 +1031,9 @@ export namespace AssociateSubnetCidrBlockRequest {
   export const filterSensitiveLog = (obj: AssociateSubnetCidrBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSubnetCidrBlockRequest => __isa(o, "AssociateSubnetCidrBlockRequest");
 }
 
 export interface AssociateSubnetCidrBlockResult {
-  __type?: "AssociateSubnetCidrBlockResult";
   /**
    * <p>The ID of the subnet.</p>
    */
@@ -1143,11 +1049,9 @@ export namespace AssociateSubnetCidrBlockResult {
   export const filterSensitiveLog = (obj: AssociateSubnetCidrBlockResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSubnetCidrBlockResult => __isa(o, "AssociateSubnetCidrBlockResult");
 }
 
 export interface AssociateTransitGatewayMulticastDomainRequest {
-  __type?: "AssociateTransitGatewayMulticastDomainRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -1175,12 +1079,9 @@ export namespace AssociateTransitGatewayMulticastDomainRequest {
   export const filterSensitiveLog = (obj: AssociateTransitGatewayMulticastDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTransitGatewayMulticastDomainRequest =>
-    __isa(o, "AssociateTransitGatewayMulticastDomainRequest");
 }
 
 export interface AssociateTransitGatewayMulticastDomainResult {
-  __type?: "AssociateTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the transit gateway multicast domain associations.</p>
    */
@@ -1191,12 +1092,9 @@ export namespace AssociateTransitGatewayMulticastDomainResult {
   export const filterSensitiveLog = (obj: AssociateTransitGatewayMulticastDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTransitGatewayMulticastDomainResult =>
-    __isa(o, "AssociateTransitGatewayMulticastDomainResult");
 }
 
 export interface AssociateTransitGatewayRouteTableRequest {
-  __type?: "AssociateTransitGatewayRouteTableRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -1219,12 +1117,9 @@ export namespace AssociateTransitGatewayRouteTableRequest {
   export const filterSensitiveLog = (obj: AssociateTransitGatewayRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTransitGatewayRouteTableRequest =>
-    __isa(o, "AssociateTransitGatewayRouteTableRequest");
 }
 
 export interface AssociateTransitGatewayRouteTableResult {
-  __type?: "AssociateTransitGatewayRouteTableResult";
   /**
    * <p>The ID of the association.</p>
    */
@@ -1235,12 +1130,9 @@ export namespace AssociateTransitGatewayRouteTableResult {
   export const filterSensitiveLog = (obj: AssociateTransitGatewayRouteTableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTransitGatewayRouteTableResult =>
-    __isa(o, "AssociateTransitGatewayRouteTableResult");
 }
 
 export interface AssociateVpcCidrBlockRequest {
-  __type?: "AssociateVpcCidrBlockRequest";
   /**
    * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
    */
@@ -1279,11 +1171,9 @@ export namespace AssociateVpcCidrBlockRequest {
   export const filterSensitiveLog = (obj: AssociateVpcCidrBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateVpcCidrBlockRequest => __isa(o, "AssociateVpcCidrBlockRequest");
 }
 
 export interface AssociateVpcCidrBlockResult {
-  __type?: "AssociateVpcCidrBlockResult";
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
    */
@@ -1304,14 +1194,12 @@ export namespace AssociateVpcCidrBlockResult {
   export const filterSensitiveLog = (obj: AssociateVpcCidrBlockResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateVpcCidrBlockResult => __isa(o, "AssociateVpcCidrBlockResult");
 }
 
 /**
  * <p>Describes the state of a target network association.</p>
  */
 export interface AssociationStatus {
-  __type?: "AssociationStatus";
   /**
    * <p>The state of the target network association.</p>
    */
@@ -1327,7 +1215,6 @@ export namespace AssociationStatus {
   export const filterSensitiveLog = (obj: AssociationStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociationStatus => __isa(o, "AssociationStatus");
 }
 
 export type AssociationStatusCode =
@@ -1338,7 +1225,6 @@ export type AssociationStatusCode =
   | "disassociating";
 
 export interface AttachClassicLinkVpcRequest {
-  __type?: "AttachClassicLinkVpcRequest";
   /**
    * <p>The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.</p>
    */
@@ -1366,11 +1252,9 @@ export namespace AttachClassicLinkVpcRequest {
   export const filterSensitiveLog = (obj: AttachClassicLinkVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachClassicLinkVpcRequest => __isa(o, "AttachClassicLinkVpcRequest");
 }
 
 export interface AttachClassicLinkVpcResult {
-  __type?: "AttachClassicLinkVpcResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -1381,11 +1265,9 @@ export namespace AttachClassicLinkVpcResult {
   export const filterSensitiveLog = (obj: AttachClassicLinkVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachClassicLinkVpcResult => __isa(o, "AttachClassicLinkVpcResult");
 }
 
 export interface AttachInternetGatewayRequest {
-  __type?: "AttachInternetGatewayRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -1408,7 +1290,6 @@ export namespace AttachInternetGatewayRequest {
   export const filterSensitiveLog = (obj: AttachInternetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachInternetGatewayRequest => __isa(o, "AttachInternetGatewayRequest");
 }
 
 export type AttachmentStatus = "attached" | "attaching" | "detached" | "detaching";
@@ -1417,7 +1298,6 @@ export type AttachmentStatus = "attached" | "attaching" | "detached" | "detachin
  * <p>Contains the parameters for AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceRequest {
-  __type?: "AttachNetworkInterfaceRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -1445,14 +1325,12 @@ export namespace AttachNetworkInterfaceRequest {
   export const filterSensitiveLog = (obj: AttachNetworkInterfaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachNetworkInterfaceRequest => __isa(o, "AttachNetworkInterfaceRequest");
 }
 
 /**
  * <p>Contains the output of AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceResult {
-  __type?: "AttachNetworkInterfaceResult";
   /**
    * <p>The ID of the network interface attachment.</p>
    */
@@ -1463,11 +1341,9 @@ export namespace AttachNetworkInterfaceResult {
   export const filterSensitiveLog = (obj: AttachNetworkInterfaceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachNetworkInterfaceResult => __isa(o, "AttachNetworkInterfaceResult");
 }
 
 export interface AttachVolumeRequest {
-  __type?: "AttachVolumeRequest";
   /**
    * <p>The ID of the EBS volume. The volume and instance must be within the same Availability
    *       Zone.</p>
@@ -1496,14 +1372,12 @@ export namespace AttachVolumeRequest {
   export const filterSensitiveLog = (obj: AttachVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachVolumeRequest => __isa(o, "AttachVolumeRequest");
 }
 
 /**
  * <p>Contains the parameters for AttachVpnGateway.</p>
  */
 export interface AttachVpnGatewayRequest {
-  __type?: "AttachVpnGatewayRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -1526,14 +1400,12 @@ export namespace AttachVpnGatewayRequest {
   export const filterSensitiveLog = (obj: AttachVpnGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachVpnGatewayRequest => __isa(o, "AttachVpnGatewayRequest");
 }
 
 /**
  * <p>Contains the output of AttachVpnGateway.</p>
  */
 export interface AttachVpnGatewayResult {
-  __type?: "AttachVpnGatewayResult";
   /**
    * <p>Information about the attachment.</p>
    */
@@ -1544,14 +1416,12 @@ export namespace AttachVpnGatewayResult {
   export const filterSensitiveLog = (obj: AttachVpnGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachVpnGatewayResult => __isa(o, "AttachVpnGatewayResult");
 }
 
 /**
  * <p>Describes a value for a resource attribute that is a Boolean value.</p>
  */
 export interface AttributeBooleanValue {
-  __type?: "AttributeBooleanValue";
   /**
    * <p>The attribute value. The valid values are <code>true</code> or <code>false</code>.</p>
    */
@@ -1562,14 +1432,12 @@ export namespace AttributeBooleanValue {
   export const filterSensitiveLog = (obj: AttributeBooleanValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeBooleanValue => __isa(o, "AttributeBooleanValue");
 }
 
 /**
  * <p>Describes a value for a resource attribute that is a String.</p>
  */
 export interface AttributeValue {
-  __type?: "AttributeValue";
   /**
    * <p>The attribute value. The value is case-sensitive.</p>
    */
@@ -1580,14 +1448,12 @@ export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
  * <p>Information about an authorization rule.</p>
  */
 export interface AuthorizationRule {
-  __type?: "AuthorizationRule";
   /**
    * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
    */
@@ -1623,11 +1489,9 @@ export namespace AuthorizationRule {
   export const filterSensitiveLog = (obj: AuthorizationRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationRule => __isa(o, "AuthorizationRule");
 }
 
 export interface AuthorizeClientVpnIngressRequest {
-  __type?: "AuthorizeClientVpnIngressRequest";
   /**
    * <p>A brief description of the authorization rule.</p>
    */
@@ -1670,11 +1534,9 @@ export namespace AuthorizeClientVpnIngressRequest {
   export const filterSensitiveLog = (obj: AuthorizeClientVpnIngressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeClientVpnIngressRequest => __isa(o, "AuthorizeClientVpnIngressRequest");
 }
 
 export interface AuthorizeClientVpnIngressResult {
-  __type?: "AuthorizeClientVpnIngressResult";
   /**
    * <p>The current state of the authorization rule.</p>
    */
@@ -1685,11 +1547,9 @@ export namespace AuthorizeClientVpnIngressResult {
   export const filterSensitiveLog = (obj: AuthorizeClientVpnIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeClientVpnIngressResult => __isa(o, "AuthorizeClientVpnIngressResult");
 }
 
 export interface AuthorizeSecurityGroupEgressRequest {
-  __type?: "AuthorizeSecurityGroupEgressRequest";
   /**
    * <p>Not supported. Use a set of IP permissions to specify the port.</p>
    */
@@ -1746,12 +1606,9 @@ export namespace AuthorizeSecurityGroupEgressRequest {
   export const filterSensitiveLog = (obj: AuthorizeSecurityGroupEgressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeSecurityGroupEgressRequest =>
-    __isa(o, "AuthorizeSecurityGroupEgressRequest");
 }
 
 export interface AuthorizeSecurityGroupIngressRequest {
-  __type?: "AuthorizeSecurityGroupIngressRequest";
   /**
    * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number.
    * 			For the ICMP code number, use <code>-1</code> to specify all codes. If you
@@ -1833,8 +1690,6 @@ export namespace AuthorizeSecurityGroupIngressRequest {
   export const filterSensitiveLog = (obj: AuthorizeSecurityGroupIngressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeSecurityGroupIngressRequest =>
-    __isa(o, "AuthorizeSecurityGroupIngressRequest");
 }
 
 export type AutoAcceptSharedAttachmentsValue = "disable" | "enable";
@@ -1845,7 +1700,6 @@ export type AutoPlacement = "off" | "on";
  * <p>Describes a Zone.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The ID of the zone that handles some of the Local Zone control plane operations, such as
    *       API calls.</p>
@@ -1911,14 +1765,12 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
  * <p>Describes a message about a Zone.</p>
  */
 export interface AvailabilityZoneMessage {
-  __type?: "AvailabilityZoneMessage";
   /**
    * <p>The message about the Zone.</p>
    */
@@ -1929,7 +1781,6 @@ export namespace AvailabilityZoneMessage {
   export const filterSensitiveLog = (obj: AvailabilityZoneMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZoneMessage => __isa(o, "AvailabilityZoneMessage");
 }
 
 export type AvailabilityZoneOptInStatus = "not-opted-in" | "opt-in-not-required" | "opted-in";
@@ -1940,7 +1791,6 @@ export type AvailabilityZoneState = "available" | "impaired" | "information" | "
  * <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
  */
 export interface AvailableCapacity {
-  __type?: "AvailableCapacity";
   /**
    * <p>The number of vCPUs available for launching instances onto the Dedicated Host.</p>
    */
@@ -1959,7 +1809,6 @@ export namespace AvailableCapacity {
   export const filterSensitiveLog = (obj: AvailableCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailableCapacity => __isa(o, "AvailableCapacity");
 }
 
 export enum BatchState {
@@ -1973,7 +1822,6 @@ export enum BatchState {
 }
 
 export interface BlobAttributeValue {
-  __type?: "BlobAttributeValue";
   Value?: Uint8Array;
 }
 
@@ -1981,14 +1829,12 @@ export namespace BlobAttributeValue {
   export const filterSensitiveLog = (obj: BlobAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlobAttributeValue => __isa(o, "BlobAttributeValue");
 }
 
 /**
  * <p>Describes a block device mapping.</p>
  */
 export interface BlockDeviceMapping {
-  __type?: "BlockDeviceMapping";
   /**
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
    */
@@ -2025,14 +1871,12 @@ export namespace BlockDeviceMapping {
   export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockDeviceMapping => __isa(o, "BlockDeviceMapping");
 }
 
 /**
  * <p>Contains the parameters for BundleInstance.</p>
  */
 export interface BundleInstanceRequest {
-  __type?: "BundleInstanceRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -2058,14 +1902,12 @@ export namespace BundleInstanceRequest {
   export const filterSensitiveLog = (obj: BundleInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BundleInstanceRequest => __isa(o, "BundleInstanceRequest");
 }
 
 /**
  * <p>Contains the output of BundleInstance.</p>
  */
 export interface BundleInstanceResult {
-  __type?: "BundleInstanceResult";
   /**
    * <p>Information about the bundle task.</p>
    */
@@ -2076,14 +1918,12 @@ export namespace BundleInstanceResult {
   export const filterSensitiveLog = (obj: BundleInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BundleInstanceResult => __isa(o, "BundleInstanceResult");
 }
 
 /**
  * <p>Describes a bundle task.</p>
  */
 export interface BundleTask {
-  __type?: "BundleTask";
   /**
    * <p>The ID of the instance associated with this bundle task.</p>
    */
@@ -2129,14 +1969,12 @@ export namespace BundleTask {
   export const filterSensitiveLog = (obj: BundleTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BundleTask => __isa(o, "BundleTask");
 }
 
 /**
  * <p>Describes an error for <a>BundleInstance</a>.</p>
  */
 export interface BundleTaskError {
-  __type?: "BundleTaskError";
   /**
    * <p>The error code.</p>
    */
@@ -2152,7 +1990,6 @@ export namespace BundleTaskError {
   export const filterSensitiveLog = (obj: BundleTaskError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BundleTaskError => __isa(o, "BundleTaskError");
 }
 
 export type BundleTaskState =
@@ -2169,7 +2006,6 @@ export type BundleTaskState =
  *          through bring your own IP addresses (BYOIP).</p>
  */
 export interface ByoipCidr {
-  __type?: "ByoipCidr";
   /**
    * <p>The state of the address pool.</p>
    */
@@ -2195,7 +2031,6 @@ export namespace ByoipCidr {
   export const filterSensitiveLog = (obj: ByoipCidr): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ByoipCidr => __isa(o, "ByoipCidr");
 }
 
 export type ByoipCidrState =
@@ -2219,7 +2054,6 @@ export enum CancelBatchErrorCode {
  * <p>Contains the parameters for CancelBundleTask.</p>
  */
 export interface CancelBundleTaskRequest {
-  __type?: "CancelBundleTaskRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -2237,14 +2071,12 @@ export namespace CancelBundleTaskRequest {
   export const filterSensitiveLog = (obj: CancelBundleTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelBundleTaskRequest => __isa(o, "CancelBundleTaskRequest");
 }
 
 /**
  * <p>Contains the output of CancelBundleTask.</p>
  */
 export interface CancelBundleTaskResult {
-  __type?: "CancelBundleTaskResult";
   /**
    * <p>Information about the bundle task.</p>
    */
@@ -2255,11 +2087,9 @@ export namespace CancelBundleTaskResult {
   export const filterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelBundleTaskResult => __isa(o, "CancelBundleTaskResult");
 }
 
 export interface CancelCapacityReservationRequest {
-  __type?: "CancelCapacityReservationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -2275,11 +2105,9 @@ export namespace CancelCapacityReservationRequest {
   export const filterSensitiveLog = (obj: CancelCapacityReservationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelCapacityReservationRequest => __isa(o, "CancelCapacityReservationRequest");
 }
 
 export interface CancelCapacityReservationResult {
-  __type?: "CancelCapacityReservationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -2290,11 +2118,9 @@ export namespace CancelCapacityReservationResult {
   export const filterSensitiveLog = (obj: CancelCapacityReservationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelCapacityReservationResult => __isa(o, "CancelCapacityReservationResult");
 }
 
 export interface CancelConversionRequest {
-  __type?: "CancelConversionRequest";
   /**
    * <p>The reason for canceling the conversion task.</p>
    */
@@ -2317,11 +2143,9 @@ export namespace CancelConversionRequest {
   export const filterSensitiveLog = (obj: CancelConversionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelConversionRequest => __isa(o, "CancelConversionRequest");
 }
 
 export interface CancelExportTaskRequest {
-  __type?: "CancelExportTaskRequest";
   /**
    * <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
    */
@@ -2332,11 +2156,9 @@ export namespace CancelExportTaskRequest {
   export const filterSensitiveLog = (obj: CancelExportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelExportTaskRequest => __isa(o, "CancelExportTaskRequest");
 }
 
 export interface CancelImportTaskRequest {
-  __type?: "CancelImportTaskRequest";
   /**
    * <p>The ID of the import image or import snapshot task to be canceled.</p>
    */
@@ -2359,11 +2181,9 @@ export namespace CancelImportTaskRequest {
   export const filterSensitiveLog = (obj: CancelImportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelImportTaskRequest => __isa(o, "CancelImportTaskRequest");
 }
 
 export interface CancelImportTaskResult {
-  __type?: "CancelImportTaskResult";
   /**
    * <p>The current state of the task being canceled.</p>
    */
@@ -2384,14 +2204,12 @@ export namespace CancelImportTaskResult {
   export const filterSensitiveLog = (obj: CancelImportTaskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelImportTaskResult => __isa(o, "CancelImportTaskResult");
 }
 
 /**
  * <p>Describes a request to cancel a Spot Instance.</p>
  */
 export interface CancelledSpotInstanceRequest {
-  __type?: "CancelledSpotInstanceRequest";
   /**
    * <p>The state of the Spot Instance request.</p>
    */
@@ -2407,14 +2225,12 @@ export namespace CancelledSpotInstanceRequest {
   export const filterSensitiveLog = (obj: CancelledSpotInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelledSpotInstanceRequest => __isa(o, "CancelledSpotInstanceRequest");
 }
 
 /**
  * <p>Contains the parameters for CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingRequest {
-  __type?: "CancelReservedInstancesListingRequest";
   /**
    * <p>The ID of the Reserved Instance listing.</p>
    */
@@ -2425,15 +2241,12 @@ export namespace CancelReservedInstancesListingRequest {
   export const filterSensitiveLog = (obj: CancelReservedInstancesListingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelReservedInstancesListingRequest =>
-    __isa(o, "CancelReservedInstancesListingRequest");
 }
 
 /**
  * <p>Contains the output of CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingResult {
-  __type?: "CancelReservedInstancesListingResult";
   /**
    * <p>The Reserved Instance listing.</p>
    */
@@ -2444,15 +2257,12 @@ export namespace CancelReservedInstancesListingResult {
   export const filterSensitiveLog = (obj: CancelReservedInstancesListingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelReservedInstancesListingResult =>
-    __isa(o, "CancelReservedInstancesListingResult");
 }
 
 /**
  * <p>Describes a Spot Fleet error.</p>
  */
 export interface CancelSpotFleetRequestsError {
-  __type?: "CancelSpotFleetRequestsError";
   /**
    * <p>The description for the error code.</p>
    */
@@ -2468,14 +2278,12 @@ export namespace CancelSpotFleetRequestsError {
   export const filterSensitiveLog = (obj: CancelSpotFleetRequestsError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsError => __isa(o, "CancelSpotFleetRequestsError");
 }
 
 /**
  * <p>Describes a Spot Fleet request that was not successfully canceled.</p>
  */
 export interface CancelSpotFleetRequestsErrorItem {
-  __type?: "CancelSpotFleetRequestsErrorItem";
   /**
    * <p>The ID of the Spot Fleet request.</p>
    */
@@ -2491,14 +2299,12 @@ export namespace CancelSpotFleetRequestsErrorItem {
   export const filterSensitiveLog = (obj: CancelSpotFleetRequestsErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsErrorItem => __isa(o, "CancelSpotFleetRequestsErrorItem");
 }
 
 /**
  * <p>Contains the parameters for CancelSpotFleetRequests.</p>
  */
 export interface CancelSpotFleetRequestsRequest {
-  __type?: "CancelSpotFleetRequestsRequest";
   /**
    * <p>The IDs of the Spot Fleet requests.</p>
    */
@@ -2521,14 +2327,12 @@ export namespace CancelSpotFleetRequestsRequest {
   export const filterSensitiveLog = (obj: CancelSpotFleetRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsRequest => __isa(o, "CancelSpotFleetRequestsRequest");
 }
 
 /**
  * <p>Contains the output of CancelSpotFleetRequests.</p>
  */
 export interface CancelSpotFleetRequestsResponse {
-  __type?: "CancelSpotFleetRequestsResponse";
   /**
    * <p>Information about the Spot Fleet requests that are successfully canceled.</p>
    */
@@ -2544,14 +2348,12 @@ export namespace CancelSpotFleetRequestsResponse {
   export const filterSensitiveLog = (obj: CancelSpotFleetRequestsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsResponse => __isa(o, "CancelSpotFleetRequestsResponse");
 }
 
 /**
  * <p>Describes a Spot Fleet request that was successfully canceled.</p>
  */
 export interface CancelSpotFleetRequestsSuccessItem {
-  __type?: "CancelSpotFleetRequestsSuccessItem";
   /**
    * <p>The previous state of the Spot Fleet request.</p>
    */
@@ -2572,15 +2374,12 @@ export namespace CancelSpotFleetRequestsSuccessItem {
   export const filterSensitiveLog = (obj: CancelSpotFleetRequestsSuccessItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotFleetRequestsSuccessItem =>
-    __isa(o, "CancelSpotFleetRequestsSuccessItem");
 }
 
 /**
  * <p>Contains the parameters for CancelSpotInstanceRequests.</p>
  */
 export interface CancelSpotInstanceRequestsRequest {
-  __type?: "CancelSpotInstanceRequestsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -2598,14 +2397,12 @@ export namespace CancelSpotInstanceRequestsRequest {
   export const filterSensitiveLog = (obj: CancelSpotInstanceRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotInstanceRequestsRequest => __isa(o, "CancelSpotInstanceRequestsRequest");
 }
 
 /**
  * <p>Contains the output of CancelSpotInstanceRequests.</p>
  */
 export interface CancelSpotInstanceRequestsResult {
-  __type?: "CancelSpotInstanceRequestsResult";
   /**
    * <p>One or more Spot Instance requests.</p>
    */
@@ -2616,7 +2413,6 @@ export namespace CancelSpotInstanceRequestsResult {
   export const filterSensitiveLog = (obj: CancelSpotInstanceRequestsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSpotInstanceRequestsResult => __isa(o, "CancelSpotInstanceRequestsResult");
 }
 
 export type CancelSpotInstanceRequestState = "active" | "cancelled" | "closed" | "completed" | "open";
@@ -2625,7 +2421,6 @@ export type CancelSpotInstanceRequestState = "active" | "cancelled" | "closed" |
  * <p>Describes a Capacity Reservation.</p>
  */
 export interface CapacityReservation {
-  __type?: "CapacityReservation";
   /**
    * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
    */
@@ -2790,14 +2585,12 @@ export namespace CapacityReservation {
   export const filterSensitiveLog = (obj: CapacityReservation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservation => __isa(o, "CapacityReservation");
 }
 
 /**
  * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
  */
 export interface CapacityReservationGroup {
-  __type?: "CapacityReservationGroup";
   /**
    * <p>The ARN of the resource group.</p>
    */
@@ -2813,7 +2606,6 @@ export namespace CapacityReservationGroup {
   export const filterSensitiveLog = (obj: CapacityReservationGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationGroup => __isa(o, "CapacityReservationGroup");
 }
 
 export enum CapacityReservationInstancePlatform {
@@ -2844,7 +2636,6 @@ export enum CapacityReservationInstancePlatform {
  *             Configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface CapacityReservationOptions {
-  __type?: "CapacityReservationOptions";
   /**
    * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
    *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
@@ -2864,7 +2655,6 @@ export namespace CapacityReservationOptions {
   export const filterSensitiveLog = (obj: CapacityReservationOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationOptions => __isa(o, "CapacityReservationOptions");
 }
 
 /**
@@ -2879,7 +2669,6 @@ export namespace CapacityReservationOptions {
  *             Configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface CapacityReservationOptionsRequest {
-  __type?: "CapacityReservationOptionsRequest";
   /**
    * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
    *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
@@ -2899,7 +2688,6 @@ export namespace CapacityReservationOptionsRequest {
   export const filterSensitiveLog = (obj: CapacityReservationOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationOptionsRequest => __isa(o, "CapacityReservationOptionsRequest");
 }
 
 export type CapacityReservationPreference = "none" | "open";
@@ -2915,7 +2703,6 @@ export type CapacityReservationPreference = "none" | "open";
  * 			   	Capacity Reservation or a Capacity Reservation group.</p>
  */
 export interface CapacityReservationSpecification {
-  __type?: "CapacityReservationSpecification";
   /**
    * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
    */
@@ -2943,7 +2730,6 @@ export namespace CapacityReservationSpecification {
   export const filterSensitiveLog = (obj: CapacityReservationSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationSpecification => __isa(o, "CapacityReservationSpecification");
 }
 
 /**
@@ -2955,7 +2741,6 @@ export namespace CapacityReservationSpecification {
  *             response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group.</p>
  */
 export interface CapacityReservationSpecificationResponse {
-  __type?: "CapacityReservationSpecificationResponse";
   /**
    * <p>Information about the targeted Capacity Reservation or Capacity Reservation group.</p>
    */
@@ -2983,8 +2768,6 @@ export namespace CapacityReservationSpecificationResponse {
   export const filterSensitiveLog = (obj: CapacityReservationSpecificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationSpecificationResponse =>
-    __isa(o, "CapacityReservationSpecificationResponse");
 }
 
 export type CapacityReservationState = "active" | "cancelled" | "expired" | "failed" | "pending";
@@ -2993,7 +2776,6 @@ export type CapacityReservationState = "active" | "cancelled" | "expired" | "fai
  * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
  */
 export interface CapacityReservationTarget {
-  __type?: "CapacityReservationTarget";
   /**
    * <p>The ID of the Capacity Reservation in which to run the instance.</p>
    */
@@ -3009,14 +2791,12 @@ export namespace CapacityReservationTarget {
   export const filterSensitiveLog = (obj: CapacityReservationTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationTarget => __isa(o, "CapacityReservationTarget");
 }
 
 /**
  * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
  */
 export interface CapacityReservationTargetResponse {
-  __type?: "CapacityReservationTargetResponse";
   /**
    * <p>The ID of the targeted Capacity Reservation.</p>
    */
@@ -3032,7 +2812,6 @@ export namespace CapacityReservationTargetResponse {
   export const filterSensitiveLog = (obj: CapacityReservationTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityReservationTargetResponse => __isa(o, "CapacityReservationTargetResponse");
 }
 
 export type CapacityReservationTenancy = "dedicated" | "default";
@@ -3041,7 +2820,6 @@ export type CapacityReservationTenancy = "dedicated" | "default";
  * <p>Information about the client certificate used for authentication.</p>
  */
 export interface CertificateAuthentication {
-  __type?: "CertificateAuthentication";
   /**
    * <p>The ARN of the client certificate. </p>
    */
@@ -3052,14 +2830,12 @@ export namespace CertificateAuthentication {
   export const filterSensitiveLog = (obj: CertificateAuthentication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateAuthentication => __isa(o, "CertificateAuthentication");
 }
 
 /**
  * <p>Information about the client certificate to be used for authentication.</p>
  */
 export interface CertificateAuthenticationRequest {
-  __type?: "CertificateAuthenticationRequest";
   /**
    * <p>The ARN of the client certificate. The certificate must be signed by a certificate
    * 			authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).</p>
@@ -3071,7 +2847,6 @@ export namespace CertificateAuthenticationRequest {
   export const filterSensitiveLog = (obj: CertificateAuthenticationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateAuthenticationRequest => __isa(o, "CertificateAuthenticationRequest");
 }
 
 /**
@@ -3079,7 +2854,6 @@ export namespace CertificateAuthenticationRequest {
  *          AWS account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Prepare to Bring Your Address Range to Your AWS Account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface CidrAuthorizationContext {
-  __type?: "CidrAuthorizationContext";
   /**
    * <p>The signed authorization message for the prefix and account.</p>
    */
@@ -3095,14 +2869,12 @@ export namespace CidrAuthorizationContext {
   export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CidrAuthorizationContext => __isa(o, "CidrAuthorizationContext");
 }
 
 /**
  * <p>Describes an IPv4 CIDR block.</p>
  */
 export interface CidrBlock {
-  __type?: "CidrBlock";
   /**
    * <p>The IPv4 CIDR block.</p>
    */
@@ -3113,14 +2885,12 @@ export namespace CidrBlock {
   export const filterSensitiveLog = (obj: CidrBlock): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CidrBlock => __isa(o, "CidrBlock");
 }
 
 /**
  * <p>Describes the ClassicLink DNS support status of a VPC.</p>
  */
 export interface ClassicLinkDnsSupport {
-  __type?: "ClassicLinkDnsSupport";
   /**
    * <p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>
    */
@@ -3136,14 +2906,12 @@ export namespace ClassicLinkDnsSupport {
   export const filterSensitiveLog = (obj: ClassicLinkDnsSupport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassicLinkDnsSupport => __isa(o, "ClassicLinkDnsSupport");
 }
 
 /**
  * <p>Describes a linked EC2-Classic instance.</p>
  */
 export interface ClassicLinkInstance {
-  __type?: "ClassicLinkInstance";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -3169,14 +2937,12 @@ export namespace ClassicLinkInstance {
   export const filterSensitiveLog = (obj: ClassicLinkInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassicLinkInstance => __isa(o, "ClassicLinkInstance");
 }
 
 /**
  * <p>Describes a Classic Load Balancer.</p>
  */
 export interface ClassicLoadBalancer {
-  __type?: "ClassicLoadBalancer";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -3187,7 +2953,6 @@ export namespace ClassicLoadBalancer {
   export const filterSensitiveLog = (obj: ClassicLoadBalancer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassicLoadBalancer => __isa(o, "ClassicLoadBalancer");
 }
 
 /**
@@ -3195,7 +2960,6 @@ export namespace ClassicLoadBalancer {
  *             with these Classic Load Balancers.</p>
  */
 export interface ClassicLoadBalancersConfig {
-  __type?: "ClassicLoadBalancersConfig";
   /**
    * <p>One or more Classic Load Balancers.</p>
    */
@@ -3206,14 +2970,12 @@ export namespace ClassicLoadBalancersConfig {
   export const filterSensitiveLog = (obj: ClassicLoadBalancersConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassicLoadBalancersConfig => __isa(o, "ClassicLoadBalancersConfig");
 }
 
 /**
  * <p>Describes the state of a client certificate revocation list.</p>
  */
 export interface ClientCertificateRevocationListStatus {
-  __type?: "ClientCertificateRevocationListStatus";
   /**
    * <p>The state of the client certificate revocation list.</p>
    */
@@ -3229,8 +2991,6 @@ export namespace ClientCertificateRevocationListStatus {
   export const filterSensitiveLog = (obj: ClientCertificateRevocationListStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientCertificateRevocationListStatus =>
-    __isa(o, "ClientCertificateRevocationListStatus");
 }
 
 export type ClientCertificateRevocationListStatusCode = "active" | "pending";
@@ -3239,7 +2999,6 @@ export type ClientCertificateRevocationListStatusCode = "active" | "pending";
  * <p>Describes the client-specific data.</p>
  */
 export interface ClientData {
-  __type?: "ClientData";
   /**
    * <p>A user-defined comment about the disk upload.</p>
    */
@@ -3265,7 +3024,6 @@ export namespace ClientData {
   export const filterSensitiveLog = (obj: ClientData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientData => __isa(o, "ClientData");
 }
 
 /**
@@ -3273,7 +3031,6 @@ export namespace ClientData {
  * 			in the <i>AWS Client VPN Administrator Guide</i>.</p>
  */
 export interface ClientVpnAuthentication {
-  __type?: "ClientVpnAuthentication";
   /**
    * <p>Information about the Active Directory, if applicable.</p>
    */
@@ -3299,7 +3056,6 @@ export namespace ClientVpnAuthentication {
   export const filterSensitiveLog = (obj: ClientVpnAuthentication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnAuthentication => __isa(o, "ClientVpnAuthentication");
 }
 
 /**
@@ -3307,7 +3063,6 @@ export namespace ClientVpnAuthentication {
  * 			in the <i>AWS Client VPN Administrator Guide</i>.</p>
  */
 export interface ClientVpnAuthenticationRequest {
-  __type?: "ClientVpnAuthenticationRequest";
   /**
    * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
    */
@@ -3333,7 +3088,6 @@ export namespace ClientVpnAuthenticationRequest {
   export const filterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnAuthenticationRequest => __isa(o, "ClientVpnAuthenticationRequest");
 }
 
 export type ClientVpnAuthenticationType =
@@ -3345,7 +3099,6 @@ export type ClientVpnAuthenticationType =
  * <p>Describes the state of an authorization rule.</p>
  */
 export interface ClientVpnAuthorizationRuleStatus {
-  __type?: "ClientVpnAuthorizationRuleStatus";
   /**
    * <p>The state of the authorization rule.</p>
    */
@@ -3361,7 +3114,6 @@ export namespace ClientVpnAuthorizationRuleStatus {
   export const filterSensitiveLog = (obj: ClientVpnAuthorizationRuleStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnAuthorizationRuleStatus => __isa(o, "ClientVpnAuthorizationRuleStatus");
 }
 
 export type ClientVpnAuthorizationRuleStatusCode = "active" | "authorizing" | "failed" | "revoking";
@@ -3370,7 +3122,6 @@ export type ClientVpnAuthorizationRuleStatusCode = "active" | "authorizing" | "f
  * <p>Describes a client connection.</p>
  */
 export interface ClientVpnConnection {
-  __type?: "ClientVpnConnection";
   /**
    * <p>The number of packets received by the client.</p>
    */
@@ -3443,14 +3194,12 @@ export namespace ClientVpnConnection {
   export const filterSensitiveLog = (obj: ClientVpnConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnConnection => __isa(o, "ClientVpnConnection");
 }
 
 /**
  * <p>Describes the status of a client connection.</p>
  */
 export interface ClientVpnConnectionStatus {
-  __type?: "ClientVpnConnectionStatus";
   /**
    * <p>A message about the status of the client connection, if applicable.</p>
    */
@@ -3466,7 +3215,6 @@ export namespace ClientVpnConnectionStatus {
   export const filterSensitiveLog = (obj: ClientVpnConnectionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnConnectionStatus => __isa(o, "ClientVpnConnectionStatus");
 }
 
 export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminated" | "terminating";
@@ -3475,7 +3223,6 @@ export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "
  * <p>Describes a Client VPN endpoint.</p>
  */
 export interface ClientVpnEndpoint {
-  __type?: "ClientVpnEndpoint";
   /**
    * <p>The ARN of the server certificate.</p>
    */
@@ -3578,14 +3325,12 @@ export namespace ClientVpnEndpoint {
   export const filterSensitiveLog = (obj: ClientVpnEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnEndpoint => __isa(o, "ClientVpnEndpoint");
 }
 
 /**
  * <p>Describes the state of a Client VPN endpoint.</p>
  */
 export interface ClientVpnEndpointStatus {
-  __type?: "ClientVpnEndpointStatus";
   /**
    * <p>The state of the Client VPN endpoint. Possible states include:</p>
    * 		       <ul>
@@ -3623,7 +3368,6 @@ export namespace ClientVpnEndpointStatus {
   export const filterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnEndpointStatus => __isa(o, "ClientVpnEndpointStatus");
 }
 
 export type ClientVpnEndpointStatusCode = "available" | "deleted" | "deleting" | "pending-associate";
@@ -3632,7 +3376,6 @@ export type ClientVpnEndpointStatusCode = "available" | "deleted" | "deleting" |
  * <p>Information about a Client VPN endpoint route.</p>
  */
 export interface ClientVpnRoute {
-  __type?: "ClientVpnRoute";
   /**
    * <p>The ID of the subnet through which traffic is routed.</p>
    */
@@ -3676,14 +3419,12 @@ export namespace ClientVpnRoute {
   export const filterSensitiveLog = (obj: ClientVpnRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnRoute => __isa(o, "ClientVpnRoute");
 }
 
 /**
  * <p>Describes the state of a Client VPN endpoint route.</p>
  */
 export interface ClientVpnRouteStatus {
-  __type?: "ClientVpnRouteStatus";
   /**
    * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
    */
@@ -3699,7 +3440,6 @@ export namespace ClientVpnRouteStatus {
   export const filterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientVpnRouteStatus => __isa(o, "ClientVpnRouteStatus");
 }
 
 export type ClientVpnRouteStatusCode = "active" | "creating" | "deleting" | "failed";
@@ -3708,7 +3448,6 @@ export type ClientVpnRouteStatusCode = "active" | "creating" | "deleting" | "fai
  * <p>Describes address usage for a customer-owned address pool.</p>
  */
 export interface CoipAddressUsage {
-  __type?: "CoipAddressUsage";
   /**
    * <p>The AWS service.</p>
    */
@@ -3734,14 +3473,12 @@ export namespace CoipAddressUsage {
   export const filterSensitiveLog = (obj: CoipAddressUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CoipAddressUsage => __isa(o, "CoipAddressUsage");
 }
 
 /**
  * <p>Describes a customer-owned address pool.</p>
  */
 export interface CoipPool {
-  __type?: "CoipPool";
   /**
    * <p>The ID of the address pool.</p>
    */
@@ -3772,11 +3509,9 @@ export namespace CoipPool {
   export const filterSensitiveLog = (obj: CoipPool): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CoipPool => __isa(o, "CoipPool");
 }
 
 export interface ConfirmProductInstanceRequest {
-  __type?: "ConfirmProductInstanceRequest";
   /**
    * <p>The product code. This must be a product code that you own.</p>
    */
@@ -3799,11 +3534,9 @@ export namespace ConfirmProductInstanceRequest {
   export const filterSensitiveLog = (obj: ConfirmProductInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmProductInstanceRequest => __isa(o, "ConfirmProductInstanceRequest");
 }
 
 export interface ConfirmProductInstanceResult {
-  __type?: "ConfirmProductInstanceResult";
   /**
    * <p>The AWS account ID of the instance owner. This is only present if the product code is
    *             attached to the instance.</p>
@@ -3821,14 +3554,12 @@ export namespace ConfirmProductInstanceResult {
   export const filterSensitiveLog = (obj: ConfirmProductInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmProductInstanceResult => __isa(o, "ConfirmProductInstanceResult");
 }
 
 /**
  * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
  */
 export interface ConnectionLogOptions {
-  __type?: "ConnectionLogOptions";
   /**
    * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
    */
@@ -3849,14 +3580,12 @@ export namespace ConnectionLogOptions {
   export const filterSensitiveLog = (obj: ConnectionLogOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionLogOptions => __isa(o, "ConnectionLogOptions");
 }
 
 /**
  * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
  */
 export interface ConnectionLogResponseOptions {
-  __type?: "ConnectionLogResponseOptions";
   /**
    * <p>The name of the Amazon CloudWatch Logs log group to which connection logging data is published.</p>
    */
@@ -3877,7 +3606,6 @@ export namespace ConnectionLogResponseOptions {
   export const filterSensitiveLog = (obj: ConnectionLogResponseOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionLogResponseOptions => __isa(o, "ConnectionLogResponseOptions");
 }
 
 /**
@@ -3885,7 +3613,6 @@ export namespace ConnectionLogResponseOptions {
  *             service.</p>
  */
 export interface ConnectionNotification {
-  __type?: "ConnectionNotification";
   /**
    * <p>The state of the notification.</p>
    */
@@ -3927,7 +3654,6 @@ export namespace ConnectionNotification {
   export const filterSensitiveLog = (obj: ConnectionNotification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionNotification => __isa(o, "ConnectionNotification");
 }
 
 export enum ConnectionNotificationState {
@@ -3945,7 +3671,6 @@ export type ContainerFormat = "ova";
  * <p>Describes a conversion task.</p>
  */
 export interface ConversionTask {
-  __type?: "ConversionTask";
   /**
    * <p>If the task is for importing a volume, this contains information about the import volume task.</p>
    */
@@ -3987,13 +3712,11 @@ export namespace ConversionTask {
   export const filterSensitiveLog = (obj: ConversionTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConversionTask => __isa(o, "ConversionTask");
 }
 
 export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "completed";
 
 export interface CopyFpgaImageRequest {
-  __type?: "CopyFpgaImageRequest";
   /**
    * <p>The ID of the source AFI.</p>
    */
@@ -4032,11 +3755,9 @@ export namespace CopyFpgaImageRequest {
   export const filterSensitiveLog = (obj: CopyFpgaImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyFpgaImageRequest => __isa(o, "CopyFpgaImageRequest");
 }
 
 export interface CopyFpgaImageResult {
-  __type?: "CopyFpgaImageResult";
   /**
    * <p>The ID of the new AFI.</p>
    */
@@ -4047,14 +3768,12 @@ export namespace CopyFpgaImageResult {
   export const filterSensitiveLog = (obj: CopyFpgaImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyFpgaImageResult => __isa(o, "CopyFpgaImageResult");
 }
 
 /**
  * <p>Contains the parameters for CopyImage.</p>
  */
 export interface CopyImageRequest {
-  __type?: "CopyImageRequest";
   /**
    * <p>The name of the Region that contains the AMI to copy.</p>
    */
@@ -4135,14 +3854,12 @@ export namespace CopyImageRequest {
   export const filterSensitiveLog = (obj: CopyImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyImageRequest => __isa(o, "CopyImageRequest");
 }
 
 /**
  * <p>Contains the output of CopyImage.</p>
  */
 export interface CopyImageResult {
-  __type?: "CopyImageResult";
   /**
    * <p>The ID of the new AMI.</p>
    */
@@ -4153,11 +3870,9 @@ export namespace CopyImageResult {
   export const filterSensitiveLog = (obj: CopyImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyImageResult => __isa(o, "CopyImageResult");
 }
 
 export interface CopySnapshotRequest {
-  __type?: "CopySnapshotRequest";
   /**
    * <p>A description for the EBS snapshot.</p>
    */
@@ -4252,11 +3967,9 @@ export namespace CopySnapshotRequest {
   export const filterSensitiveLog = (obj: CopySnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotRequest => __isa(o, "CopySnapshotRequest");
 }
 
 export interface CopySnapshotResult {
-  __type?: "CopySnapshotResult";
   /**
    * <p>The ID of the new snapshot.</p>
    */
@@ -4272,7 +3985,6 @@ export namespace CopySnapshotResult {
   export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotResult => __isa(o, "CopySnapshotResult");
 }
 
 export type CopyTagsFromSource = "volume";
@@ -4281,7 +3993,6 @@ export type CopyTagsFromSource = "volume";
  * <p>The CPU options for the instance.</p>
  */
 export interface CpuOptions {
-  __type?: "CpuOptions";
   /**
    * <p>The number of threads per CPU core.</p>
    */
@@ -4297,7 +4008,6 @@ export namespace CpuOptions {
   export const filterSensitiveLog = (obj: CpuOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CpuOptions => __isa(o, "CpuOptions");
 }
 
 /**
@@ -4305,7 +4015,6 @@ export namespace CpuOptions {
  *             specified in the request.</p>
  */
 export interface CpuOptionsRequest {
-  __type?: "CpuOptionsRequest";
   /**
    * <p>The number of threads per CPU core. To disable multithreading for
    *             the instance, specify a value of <code>1</code>. Otherwise, specify the default value of
@@ -4323,11 +4032,9 @@ export namespace CpuOptionsRequest {
   export const filterSensitiveLog = (obj: CpuOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CpuOptionsRequest => __isa(o, "CpuOptionsRequest");
 }
 
 export interface CreateCapacityReservationRequest {
-  __type?: "CreateCapacityReservationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -4459,11 +4166,9 @@ export namespace CreateCapacityReservationRequest {
   export const filterSensitiveLog = (obj: CreateCapacityReservationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCapacityReservationRequest => __isa(o, "CreateCapacityReservationRequest");
 }
 
 export interface CreateCapacityReservationResult {
-  __type?: "CreateCapacityReservationResult";
   /**
    * <p>Information about the Capacity Reservation.</p>
    */
@@ -4474,11 +4179,9 @@ export namespace CreateCapacityReservationResult {
   export const filterSensitiveLog = (obj: CreateCapacityReservationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCapacityReservationResult => __isa(o, "CreateCapacityReservationResult");
 }
 
 export interface CreateClientVpnEndpointRequest {
-  __type?: "CreateClientVpnEndpointRequest";
   /**
    * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
    * 	        <p>Valid Values: <code>443</code> | <code>1194</code>
@@ -4581,11 +4284,9 @@ export namespace CreateClientVpnEndpointRequest {
   export const filterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnEndpointRequest => __isa(o, "CreateClientVpnEndpointRequest");
 }
 
 export interface CreateClientVpnEndpointResult {
-  __type?: "CreateClientVpnEndpointResult";
   /**
    * <p>The DNS name to be used by clients when establishing their VPN session.</p>
    */
@@ -4606,11 +4307,9 @@ export namespace CreateClientVpnEndpointResult {
   export const filterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnEndpointResult => __isa(o, "CreateClientVpnEndpointResult");
 }
 
 export interface CreateClientVpnRouteRequest {
-  __type?: "CreateClientVpnRouteRequest";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
@@ -4660,11 +4359,9 @@ export namespace CreateClientVpnRouteRequest {
   export const filterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnRouteRequest => __isa(o, "CreateClientVpnRouteRequest");
 }
 
 export interface CreateClientVpnRouteResult {
-  __type?: "CreateClientVpnRouteResult";
   /**
    * <p>The current state of the route.</p>
    */
@@ -4675,14 +4372,12 @@ export namespace CreateClientVpnRouteResult {
   export const filterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClientVpnRouteResult => __isa(o, "CreateClientVpnRouteResult");
 }
 
 /**
  * <p>Contains the parameters for CreateCustomerGateway.</p>
  */
 export interface CreateCustomerGatewayRequest {
-  __type?: "CreateCustomerGatewayRequest";
   /**
    * <p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
    */
@@ -4727,14 +4422,12 @@ export namespace CreateCustomerGatewayRequest {
   export const filterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomerGatewayRequest => __isa(o, "CreateCustomerGatewayRequest");
 }
 
 /**
  * <p>Contains the output of CreateCustomerGateway.</p>
  */
 export interface CreateCustomerGatewayResult {
-  __type?: "CreateCustomerGatewayResult";
   /**
    * <p>Information about the customer gateway.</p>
    */
@@ -4745,11 +4438,9 @@ export namespace CreateCustomerGatewayResult {
   export const filterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomerGatewayResult => __isa(o, "CreateCustomerGatewayResult");
 }
 
 export interface CreateDefaultSubnetRequest {
-  __type?: "CreateDefaultSubnetRequest";
   /**
    * <p>The Availability Zone in which to create the default subnet.</p>
    */
@@ -4767,11 +4458,9 @@ export namespace CreateDefaultSubnetRequest {
   export const filterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultSubnetRequest => __isa(o, "CreateDefaultSubnetRequest");
 }
 
 export interface CreateDefaultSubnetResult {
-  __type?: "CreateDefaultSubnetResult";
   /**
    * <p>Information about the subnet.</p>
    */
@@ -4782,11 +4471,9 @@ export namespace CreateDefaultSubnetResult {
   export const filterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultSubnetResult => __isa(o, "CreateDefaultSubnetResult");
 }
 
 export interface CreateDefaultVpcRequest {
-  __type?: "CreateDefaultVpcRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -4799,11 +4486,9 @@ export namespace CreateDefaultVpcRequest {
   export const filterSensitiveLog = (obj: CreateDefaultVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultVpcRequest => __isa(o, "CreateDefaultVpcRequest");
 }
 
 export interface CreateDefaultVpcResult {
-  __type?: "CreateDefaultVpcResult";
   /**
    * <p>Information about the VPC.</p>
    */
@@ -4814,11 +4499,9 @@ export namespace CreateDefaultVpcResult {
   export const filterSensitiveLog = (obj: CreateDefaultVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDefaultVpcResult => __isa(o, "CreateDefaultVpcResult");
 }
 
 export interface CreateDhcpOptionsRequest {
-  __type?: "CreateDhcpOptionsRequest";
   /**
    * <p>A DHCP configuration option.</p>
    */
@@ -4841,11 +4524,9 @@ export namespace CreateDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDhcpOptionsRequest => __isa(o, "CreateDhcpOptionsRequest");
 }
 
 export interface CreateDhcpOptionsResult {
-  __type?: "CreateDhcpOptionsResult";
   /**
    * <p>A set of DHCP options.</p>
    */
@@ -4856,11 +4537,9 @@ export namespace CreateDhcpOptionsResult {
   export const filterSensitiveLog = (obj: CreateDhcpOptionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDhcpOptionsResult => __isa(o, "CreateDhcpOptionsResult");
 }
 
 export interface CreateEgressOnlyInternetGatewayRequest {
-  __type?: "CreateEgressOnlyInternetGatewayRequest";
   /**
    * <p>The ID of the VPC for which to create the egress-only internet gateway.</p>
    */
@@ -4890,12 +4569,9 @@ export namespace CreateEgressOnlyInternetGatewayRequest {
   export const filterSensitiveLog = (obj: CreateEgressOnlyInternetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEgressOnlyInternetGatewayRequest =>
-    __isa(o, "CreateEgressOnlyInternetGatewayRequest");
 }
 
 export interface CreateEgressOnlyInternetGatewayResult {
-  __type?: "CreateEgressOnlyInternetGatewayResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * 			request.</p>
@@ -4912,15 +4588,12 @@ export namespace CreateEgressOnlyInternetGatewayResult {
   export const filterSensitiveLog = (obj: CreateEgressOnlyInternetGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEgressOnlyInternetGatewayResult =>
-    __isa(o, "CreateEgressOnlyInternetGatewayResult");
 }
 
 /**
  * <p>Describes the instances that could not be launched by the fleet.</p>
  */
 export interface CreateFleetError {
-  __type?: "CreateFleetError";
   /**
    * <p>The error message that describes why the instance could not be launched. For more
    *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
@@ -4949,14 +4622,12 @@ export namespace CreateFleetError {
   export const filterSensitiveLog = (obj: CreateFleetError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetError => __isa(o, "CreateFleetError");
 }
 
 /**
  * <p>Describes the instances that were launched by the fleet.</p>
  */
 export interface CreateFleetInstance {
-  __type?: "CreateFleetInstance";
   /**
    * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
    */
@@ -4989,11 +4660,9 @@ export namespace CreateFleetInstance {
   export const filterSensitiveLog = (obj: CreateFleetInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetInstance => __isa(o, "CreateFleetInstance");
 }
 
 export interface CreateFleetRequest {
-  __type?: "CreateFleetRequest";
   /**
    * <p>The start date and time of the request, in UTC format (for example,
    *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -5084,11 +4753,9 @@ export namespace CreateFleetRequest {
   export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetRequest => __isa(o, "CreateFleetRequest");
 }
 
 export interface CreateFleetResult {
-  __type?: "CreateFleetResult";
   /**
    * <p>Information about the instances that could not be launched by the fleet. Valid only when
    *             <b>Type</b> is set to <code>instant</code>.</p>
@@ -5111,11 +4778,9 @@ export namespace CreateFleetResult {
   export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetResult => __isa(o, "CreateFleetResult");
 }
 
 export interface CreateFlowLogsRequest {
-  __type?: "CreateFlowLogsRequest";
   /**
    * <p>The type of resource for which to create the flow log. For example, if you specified a VPC ID for
    *             the <code>ResourceId</code> property, specify <code>VPC</code> for this property.</p>
@@ -5218,11 +4883,9 @@ export namespace CreateFlowLogsRequest {
   export const filterSensitiveLog = (obj: CreateFlowLogsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlowLogsRequest => __isa(o, "CreateFlowLogsRequest");
 }
 
 export interface CreateFlowLogsResult {
-  __type?: "CreateFlowLogsResult";
   /**
    * <p>Information about the flow logs that could not be created successfully.</p>
    */
@@ -5244,11 +4907,9 @@ export namespace CreateFlowLogsResult {
   export const filterSensitiveLog = (obj: CreateFlowLogsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlowLogsResult => __isa(o, "CreateFlowLogsResult");
 }
 
 export interface CreateFpgaImageRequest {
-  __type?: "CreateFpgaImageRequest";
   /**
    * <p>The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.</p>
    */
@@ -5292,11 +4953,9 @@ export namespace CreateFpgaImageRequest {
   export const filterSensitiveLog = (obj: CreateFpgaImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFpgaImageRequest => __isa(o, "CreateFpgaImageRequest");
 }
 
 export interface CreateFpgaImageResult {
-  __type?: "CreateFpgaImageResult";
   /**
    * <p>The FPGA image identifier (AFI ID).</p>
    */
@@ -5312,11 +4971,9 @@ export namespace CreateFpgaImageResult {
   export const filterSensitiveLog = (obj: CreateFpgaImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFpgaImageResult => __isa(o, "CreateFpgaImageResult");
 }
 
 export interface CreateImageRequest {
-  __type?: "CreateImageRequest";
   /**
    * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.</p>
    */
@@ -5355,11 +5012,9 @@ export namespace CreateImageRequest {
   export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageRequest => __isa(o, "CreateImageRequest");
 }
 
 export interface CreateImageResult {
-  __type?: "CreateImageResult";
   /**
    * <p>The ID of the new AMI.</p>
    */
@@ -5370,11 +5025,9 @@ export namespace CreateImageResult {
   export const filterSensitiveLog = (obj: CreateImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageResult => __isa(o, "CreateImageResult");
 }
 
 export interface CreateInstanceExportTaskRequest {
-  __type?: "CreateInstanceExportTaskRequest";
   /**
    * <p>The target virtualization environment.</p>
    */
@@ -5405,11 +5058,9 @@ export namespace CreateInstanceExportTaskRequest {
   export const filterSensitiveLog = (obj: CreateInstanceExportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceExportTaskRequest => __isa(o, "CreateInstanceExportTaskRequest");
 }
 
 export interface CreateInstanceExportTaskResult {
-  __type?: "CreateInstanceExportTaskResult";
   /**
    * <p>Information about the instance export task.</p>
    */
@@ -5420,11 +5071,9 @@ export namespace CreateInstanceExportTaskResult {
   export const filterSensitiveLog = (obj: CreateInstanceExportTaskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceExportTaskResult => __isa(o, "CreateInstanceExportTaskResult");
 }
 
 export interface CreateInternetGatewayRequest {
-  __type?: "CreateInternetGatewayRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -5442,11 +5091,9 @@ export namespace CreateInternetGatewayRequest {
   export const filterSensitiveLog = (obj: CreateInternetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInternetGatewayRequest => __isa(o, "CreateInternetGatewayRequest");
 }
 
 export interface CreateInternetGatewayResult {
-  __type?: "CreateInternetGatewayResult";
   /**
    * <p>Information about the internet gateway.</p>
    */
@@ -5457,11 +5104,9 @@ export namespace CreateInternetGatewayResult {
   export const filterSensitiveLog = (obj: CreateInternetGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInternetGatewayResult => __isa(o, "CreateInternetGatewayResult");
 }
 
 export interface CreateKeyPairRequest {
-  __type?: "CreateKeyPairRequest";
   /**
    * <p>The tags to apply to the new key pair.</p>
    */
@@ -5485,11 +5130,9 @@ export namespace CreateKeyPairRequest {
   export const filterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateKeyPairRequest => __isa(o, "CreateKeyPairRequest");
 }
 
 export interface CreateLaunchTemplateRequest {
-  __type?: "CreateLaunchTemplateRequest";
   /**
    * <p>The tags to apply to the launch template during creation.</p>
    */
@@ -5531,11 +5174,9 @@ export namespace CreateLaunchTemplateRequest {
   export const filterSensitiveLog = (obj: CreateLaunchTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateRequest => __isa(o, "CreateLaunchTemplateRequest");
 }
 
 export interface CreateLaunchTemplateResult {
-  __type?: "CreateLaunchTemplateResult";
   /**
    * <p>Information about the launch template.</p>
    */
@@ -5551,11 +5192,9 @@ export namespace CreateLaunchTemplateResult {
   export const filterSensitiveLog = (obj: CreateLaunchTemplateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateResult => __isa(o, "CreateLaunchTemplateResult");
 }
 
 export interface CreateLaunchTemplateVersionRequest {
-  __type?: "CreateLaunchTemplateVersionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
@@ -5608,12 +5247,9 @@ export namespace CreateLaunchTemplateVersionRequest {
   export const filterSensitiveLog = (obj: CreateLaunchTemplateVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateVersionRequest =>
-    __isa(o, "CreateLaunchTemplateVersionRequest");
 }
 
 export interface CreateLaunchTemplateVersionResult {
-  __type?: "CreateLaunchTemplateVersionResult";
   /**
    * <p>If the new version of the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.</p>
    */
@@ -5629,11 +5265,9 @@ export namespace CreateLaunchTemplateVersionResult {
   export const filterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchTemplateVersionResult => __isa(o, "CreateLaunchTemplateVersionResult");
 }
 
 export interface CreateLocalGatewayRouteRequest {
-  __type?: "CreateLocalGatewayRouteRequest";
   /**
    * <p>The ID of the virtual interface group.</p>
    */
@@ -5662,11 +5296,9 @@ export namespace CreateLocalGatewayRouteRequest {
   export const filterSensitiveLog = (obj: CreateLocalGatewayRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocalGatewayRouteRequest => __isa(o, "CreateLocalGatewayRouteRequest");
 }
 
 export interface CreateLocalGatewayRouteResult {
-  __type?: "CreateLocalGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
    */
@@ -5677,11 +5309,9 @@ export namespace CreateLocalGatewayRouteResult {
   export const filterSensitiveLog = (obj: CreateLocalGatewayRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocalGatewayRouteResult => __isa(o, "CreateLocalGatewayRouteResult");
 }
 
 export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
-  __type?: "CreateLocalGatewayRouteTableVpcAssociationRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -5709,12 +5339,9 @@ export namespace CreateLocalGatewayRouteTableVpcAssociationRequest {
   export const filterSensitiveLog = (obj: CreateLocalGatewayRouteTableVpcAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocalGatewayRouteTableVpcAssociationRequest =>
-    __isa(o, "CreateLocalGatewayRouteTableVpcAssociationRequest");
 }
 
 export interface CreateLocalGatewayRouteTableVpcAssociationResult {
-  __type?: "CreateLocalGatewayRouteTableVpcAssociationResult";
   /**
    * <p>Information about the association.</p>
    */
@@ -5725,12 +5352,9 @@ export namespace CreateLocalGatewayRouteTableVpcAssociationResult {
   export const filterSensitiveLog = (obj: CreateLocalGatewayRouteTableVpcAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLocalGatewayRouteTableVpcAssociationResult =>
-    __isa(o, "CreateLocalGatewayRouteTableVpcAssociationResult");
 }
 
 export interface CreateManagedPrefixListRequest {
-  __type?: "CreateManagedPrefixListRequest";
   /**
    * <p>The IP address type.</p>
    *         <p>Valid Values: <code>IPv4</code> | <code>IPv6</code>
@@ -5779,11 +5403,9 @@ export namespace CreateManagedPrefixListRequest {
   export const filterSensitiveLog = (obj: CreateManagedPrefixListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateManagedPrefixListRequest => __isa(o, "CreateManagedPrefixListRequest");
 }
 
 export interface CreateManagedPrefixListResult {
-  __type?: "CreateManagedPrefixListResult";
   /**
    * <p>Information about the prefix list.</p>
    */
@@ -5794,11 +5416,9 @@ export namespace CreateManagedPrefixListResult {
   export const filterSensitiveLog = (obj: CreateManagedPrefixListResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateManagedPrefixListResult => __isa(o, "CreateManagedPrefixListResult");
 }
 
 export interface CreateNatGatewayRequest {
-  __type?: "CreateNatGatewayRequest";
   /**
    * <p>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
    */
@@ -5834,11 +5454,9 @@ export namespace CreateNatGatewayRequest {
   export const filterSensitiveLog = (obj: CreateNatGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNatGatewayRequest => __isa(o, "CreateNatGatewayRequest");
 }
 
 export interface CreateNatGatewayResult {
-  __type?: "CreateNatGatewayResult";
   /**
    * <p>Information about the NAT gateway.</p>
    */
@@ -5854,11 +5472,9 @@ export namespace CreateNatGatewayResult {
   export const filterSensitiveLog = (obj: CreateNatGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNatGatewayResult => __isa(o, "CreateNatGatewayResult");
 }
 
 export interface CreateNetworkAclEntryRequest {
-  __type?: "CreateNetworkAclEntryRequest";
   /**
    * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
    * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
@@ -5926,11 +5542,9 @@ export namespace CreateNetworkAclEntryRequest {
   export const filterSensitiveLog = (obj: CreateNetworkAclEntryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkAclEntryRequest => __isa(o, "CreateNetworkAclEntryRequest");
 }
 
 export interface CreateNetworkAclRequest {
-  __type?: "CreateNetworkAclRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -5953,11 +5567,9 @@ export namespace CreateNetworkAclRequest {
   export const filterSensitiveLog = (obj: CreateNetworkAclRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkAclRequest => __isa(o, "CreateNetworkAclRequest");
 }
 
 export interface CreateNetworkAclResult {
-  __type?: "CreateNetworkAclResult";
   /**
    * <p>Information about the network ACL.</p>
    */
@@ -5968,14 +5580,12 @@ export namespace CreateNetworkAclResult {
   export const filterSensitiveLog = (obj: CreateNetworkAclResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkAclResult => __isa(o, "CreateNetworkAclResult");
 }
 
 /**
  * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
  */
 export interface CreateNetworkInterfacePermissionRequest {
-  __type?: "CreateNetworkInterfacePermissionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -6008,15 +5618,12 @@ export namespace CreateNetworkInterfacePermissionRequest {
   export const filterSensitiveLog = (obj: CreateNetworkInterfacePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkInterfacePermissionRequest =>
-    __isa(o, "CreateNetworkInterfacePermissionRequest");
 }
 
 /**
  * <p>Contains the output of CreateNetworkInterfacePermission.</p>
  */
 export interface CreateNetworkInterfacePermissionResult {
-  __type?: "CreateNetworkInterfacePermissionResult";
   /**
    * <p>Information about the permission for the network interface.</p>
    */
@@ -6027,15 +5634,12 @@ export namespace CreateNetworkInterfacePermissionResult {
   export const filterSensitiveLog = (obj: CreateNetworkInterfacePermissionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkInterfacePermissionResult =>
-    __isa(o, "CreateNetworkInterfacePermissionResult");
 }
 
 /**
  * <p>Contains the parameters for CreateNetworkInterface.</p>
  */
 export interface CreateNetworkInterfaceRequest {
-  __type?: "CreateNetworkInterfaceRequest";
   /**
    * <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
    *             You can't use this option if you're specifying a number of IPv6 addresses.</p>
@@ -6114,14 +5718,12 @@ export namespace CreateNetworkInterfaceRequest {
   export const filterSensitiveLog = (obj: CreateNetworkInterfaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkInterfaceRequest => __isa(o, "CreateNetworkInterfaceRequest");
 }
 
 /**
  * <p>Contains the output of CreateNetworkInterface.</p>
  */
 export interface CreateNetworkInterfaceResult {
-  __type?: "CreateNetworkInterfaceResult";
   /**
    * <p>Information about the network interface.</p>
    */
@@ -6132,11 +5734,9 @@ export namespace CreateNetworkInterfaceResult {
   export const filterSensitiveLog = (obj: CreateNetworkInterfaceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkInterfaceResult => __isa(o, "CreateNetworkInterfaceResult");
 }
 
 export interface CreatePlacementGroupRequest {
-  __type?: "CreatePlacementGroupRequest";
   /**
    * <p>A name for the placement group. Must be unique within the scope of your account for
    *             the Region.</p>
@@ -6172,11 +5772,9 @@ export namespace CreatePlacementGroupRequest {
   export const filterSensitiveLog = (obj: CreatePlacementGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlacementGroupRequest => __isa(o, "CreatePlacementGroupRequest");
 }
 
 export interface CreatePlacementGroupResult {
-  __type?: "CreatePlacementGroupResult";
   /**
    * <p>Describes a placement group.</p>
    */
@@ -6187,14 +5785,12 @@ export namespace CreatePlacementGroupResult {
   export const filterSensitiveLog = (obj: CreatePlacementGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlacementGroupResult => __isa(o, "CreatePlacementGroupResult");
 }
 
 /**
  * <p>Contains the parameters for CreateReservedInstancesListing.</p>
  */
 export interface CreateReservedInstancesListingRequest {
-  __type?: "CreateReservedInstancesListingRequest";
   /**
    * <p>The ID of the active Standard Reserved Instance.</p>
    */
@@ -6222,15 +5818,12 @@ export namespace CreateReservedInstancesListingRequest {
   export const filterSensitiveLog = (obj: CreateReservedInstancesListingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReservedInstancesListingRequest =>
-    __isa(o, "CreateReservedInstancesListingRequest");
 }
 
 /**
  * <p>Contains the output of CreateReservedInstancesListing.</p>
  */
 export interface CreateReservedInstancesListingResult {
-  __type?: "CreateReservedInstancesListingResult";
   /**
    * <p>Information about the Standard Reserved Instance listing.</p>
    */
@@ -6241,12 +5834,9 @@ export namespace CreateReservedInstancesListingResult {
   export const filterSensitiveLog = (obj: CreateReservedInstancesListingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReservedInstancesListingResult =>
-    __isa(o, "CreateReservedInstancesListingResult");
 }
 
 export interface CreateRouteRequest {
-  __type?: "CreateRouteRequest";
   /**
    * <p>The ID of a VPC peering connection.</p>
    */
@@ -6320,11 +5910,9 @@ export namespace CreateRouteRequest {
   export const filterSensitiveLog = (obj: CreateRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteRequest => __isa(o, "CreateRouteRequest");
 }
 
 export interface CreateRouteResult {
-  __type?: "CreateRouteResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -6335,11 +5923,9 @@ export namespace CreateRouteResult {
   export const filterSensitiveLog = (obj: CreateRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteResult => __isa(o, "CreateRouteResult");
 }
 
 export interface CreateRouteTableRequest {
-  __type?: "CreateRouteTableRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -6362,11 +5948,9 @@ export namespace CreateRouteTableRequest {
   export const filterSensitiveLog = (obj: CreateRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteTableRequest => __isa(o, "CreateRouteTableRequest");
 }
 
 export interface CreateRouteTableResult {
-  __type?: "CreateRouteTableResult";
   /**
    * <p>Information about the route table.</p>
    */
@@ -6377,11 +5961,9 @@ export namespace CreateRouteTableResult {
   export const filterSensitiveLog = (obj: CreateRouteTableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteTableResult => __isa(o, "CreateRouteTableResult");
 }
 
 export interface CreateSecurityGroupRequest {
-  __type?: "CreateSecurityGroupRequest";
   /**
    * <p>The tags to assign to the security group.</p>
    */
@@ -6421,11 +6003,9 @@ export namespace CreateSecurityGroupRequest {
   export const filterSensitiveLog = (obj: CreateSecurityGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityGroupRequest => __isa(o, "CreateSecurityGroupRequest");
 }
 
 export interface CreateSecurityGroupResult {
-  __type?: "CreateSecurityGroupResult";
   /**
    * <p>The ID of the security group.</p>
    */
@@ -6441,11 +6021,9 @@ export namespace CreateSecurityGroupResult {
   export const filterSensitiveLog = (obj: CreateSecurityGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityGroupResult => __isa(o, "CreateSecurityGroupResult");
 }
 
 export interface CreateSnapshotRequest {
-  __type?: "CreateSnapshotRequest";
   /**
    * <p>A description for the snapshot.</p>
    */
@@ -6473,11 +6051,9 @@ export namespace CreateSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotRequest => __isa(o, "CreateSnapshotRequest");
 }
 
 export interface CreateSnapshotsRequest {
-  __type?: "CreateSnapshotsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -6510,11 +6086,9 @@ export namespace CreateSnapshotsRequest {
   export const filterSensitiveLog = (obj: CreateSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotsRequest => __isa(o, "CreateSnapshotsRequest");
 }
 
 export interface CreateSnapshotsResult {
-  __type?: "CreateSnapshotsResult";
   /**
    * <p>List of snapshots.</p>
    */
@@ -6525,14 +6099,12 @@ export namespace CreateSnapshotsResult {
   export const filterSensitiveLog = (obj: CreateSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotsResult => __isa(o, "CreateSnapshotsResult");
 }
 
 /**
  * <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
  */
 export interface CreateSpotDatafeedSubscriptionRequest {
-  __type?: "CreateSpotDatafeedSubscriptionRequest";
   /**
    * <p>A prefix for the data feed file names.</p>
    */
@@ -6555,15 +6127,12 @@ export namespace CreateSpotDatafeedSubscriptionRequest {
   export const filterSensitiveLog = (obj: CreateSpotDatafeedSubscriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSpotDatafeedSubscriptionRequest =>
-    __isa(o, "CreateSpotDatafeedSubscriptionRequest");
 }
 
 /**
  * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
  */
 export interface CreateSpotDatafeedSubscriptionResult {
-  __type?: "CreateSpotDatafeedSubscriptionResult";
   /**
    * <p>The Spot Instance data feed subscription.</p>
    */
@@ -6574,12 +6143,9 @@ export namespace CreateSpotDatafeedSubscriptionResult {
   export const filterSensitiveLog = (obj: CreateSpotDatafeedSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSpotDatafeedSubscriptionResult =>
-    __isa(o, "CreateSpotDatafeedSubscriptionResult");
 }
 
 export interface CreateSubnetRequest {
-  __type?: "CreateSubnetRequest";
   /**
    * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
    *             /64 prefix length.</p>
@@ -6636,11 +6202,9 @@ export namespace CreateSubnetRequest {
   export const filterSensitiveLog = (obj: CreateSubnetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubnetRequest => __isa(o, "CreateSubnetRequest");
 }
 
 export interface CreateSubnetResult {
-  __type?: "CreateSubnetResult";
   /**
    * <p>Information about the subnet.</p>
    */
@@ -6651,11 +6215,9 @@ export namespace CreateSubnetResult {
   export const filterSensitiveLog = (obj: CreateSubnetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubnetResult => __isa(o, "CreateSubnetResult");
 }
 
 export interface CreateTagsRequest {
-  __type?: "CreateTagsRequest";
   /**
    * <p>The IDs of the resources, separated by spaces.</p>
    *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
@@ -6680,11 +6242,9 @@ export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 export interface CreateTrafficMirrorFilterRequest {
-  __type?: "CreateTrafficMirrorFilterRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -6712,11 +6272,9 @@ export namespace CreateTrafficMirrorFilterRequest {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorFilterRequest => __isa(o, "CreateTrafficMirrorFilterRequest");
 }
 
 export interface CreateTrafficMirrorFilterResult {
-  __type?: "CreateTrafficMirrorFilterResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
@@ -6732,11 +6290,9 @@ export namespace CreateTrafficMirrorFilterResult {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorFilterResult => __isa(o, "CreateTrafficMirrorFilterResult");
 }
 
 export interface CreateTrafficMirrorFilterRuleRequest {
-  __type?: "CreateTrafficMirrorFilterRuleRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -6806,12 +6362,9 @@ export namespace CreateTrafficMirrorFilterRuleRequest {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorFilterRuleRequest =>
-    __isa(o, "CreateTrafficMirrorFilterRuleRequest");
 }
 
 export interface CreateTrafficMirrorFilterRuleResult {
-  __type?: "CreateTrafficMirrorFilterRuleResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
@@ -6827,12 +6380,9 @@ export namespace CreateTrafficMirrorFilterRuleResult {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorFilterRuleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorFilterRuleResult =>
-    __isa(o, "CreateTrafficMirrorFilterRuleResult");
 }
 
 export interface CreateTrafficMirrorSessionRequest {
-  __type?: "CreateTrafficMirrorSessionRequest";
   /**
    * <p>The description of the Traffic Mirror session.</p>
    */
@@ -6899,11 +6449,9 @@ export namespace CreateTrafficMirrorSessionRequest {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorSessionRequest => __isa(o, "CreateTrafficMirrorSessionRequest");
 }
 
 export interface CreateTrafficMirrorSessionResult {
-  __type?: "CreateTrafficMirrorSessionResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
@@ -6919,11 +6467,9 @@ export namespace CreateTrafficMirrorSessionResult {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorSessionResult => __isa(o, "CreateTrafficMirrorSessionResult");
 }
 
 export interface CreateTrafficMirrorTargetRequest {
-  __type?: "CreateTrafficMirrorTargetRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.</p>
    */
@@ -6961,11 +6507,9 @@ export namespace CreateTrafficMirrorTargetRequest {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorTargetRequest => __isa(o, "CreateTrafficMirrorTargetRequest");
 }
 
 export interface CreateTrafficMirrorTargetResult {
-  __type?: "CreateTrafficMirrorTargetResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
@@ -6981,11 +6525,9 @@ export namespace CreateTrafficMirrorTargetResult {
   export const filterSensitiveLog = (obj: CreateTrafficMirrorTargetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficMirrorTargetResult => __isa(o, "CreateTrafficMirrorTargetResult");
 }
 
 export interface CreateTransitGatewayMulticastDomainRequest {
-  __type?: "CreateTransitGatewayMulticastDomainRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -7008,12 +6550,9 @@ export namespace CreateTransitGatewayMulticastDomainRequest {
   export const filterSensitiveLog = (obj: CreateTransitGatewayMulticastDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayMulticastDomainRequest =>
-    __isa(o, "CreateTransitGatewayMulticastDomainRequest");
 }
 
 export interface CreateTransitGatewayMulticastDomainResult {
-  __type?: "CreateTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the transit gateway multicast domain.</p>
    */
@@ -7024,12 +6563,9 @@ export namespace CreateTransitGatewayMulticastDomainResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayMulticastDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayMulticastDomainResult =>
-    __isa(o, "CreateTransitGatewayMulticastDomainResult");
 }
 
 export interface CreateTransitGatewayPeeringAttachmentRequest {
-  __type?: "CreateTransitGatewayPeeringAttachmentRequest";
   /**
    * <p>The ID of the transit gateway.</p>
    */
@@ -7067,12 +6603,9 @@ export namespace CreateTransitGatewayPeeringAttachmentRequest {
   export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayPeeringAttachmentRequest =>
-    __isa(o, "CreateTransitGatewayPeeringAttachmentRequest");
 }
 
 export interface CreateTransitGatewayPeeringAttachmentResult {
-  __type?: "CreateTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
    */
@@ -7083,12 +6616,9 @@ export namespace CreateTransitGatewayPeeringAttachmentResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayPeeringAttachmentResult =>
-    __isa(o, "CreateTransitGatewayPeeringAttachmentResult");
 }
 
 export interface CreateTransitGatewayRequest {
-  __type?: "CreateTransitGatewayRequest";
   /**
    * <p>The tags to apply to the transit gateway.</p>
    */
@@ -7116,11 +6646,9 @@ export namespace CreateTransitGatewayRequest {
   export const filterSensitiveLog = (obj: CreateTransitGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRequest => __isa(o, "CreateTransitGatewayRequest");
 }
 
 export interface CreateTransitGatewayResult {
-  __type?: "CreateTransitGatewayResult";
   /**
    * <p>Information about the transit gateway.</p>
    */
@@ -7131,11 +6659,9 @@ export namespace CreateTransitGatewayResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayResult => __isa(o, "CreateTransitGatewayResult");
 }
 
 export interface CreateTransitGatewayRouteRequest {
-  __type?: "CreateTransitGatewayRouteRequest";
   /**
    * <p>The ID of the transit gateway route table.</p>
    */
@@ -7169,11 +6695,9 @@ export namespace CreateTransitGatewayRouteRequest {
   export const filterSensitiveLog = (obj: CreateTransitGatewayRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRouteRequest => __isa(o, "CreateTransitGatewayRouteRequest");
 }
 
 export interface CreateTransitGatewayRouteResult {
-  __type?: "CreateTransitGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
    */
@@ -7184,11 +6708,9 @@ export namespace CreateTransitGatewayRouteResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRouteResult => __isa(o, "CreateTransitGatewayRouteResult");
 }
 
 export interface CreateTransitGatewayRouteTableRequest {
-  __type?: "CreateTransitGatewayRouteTableRequest";
   /**
    * <p>The ID of the transit gateway.</p>
    */
@@ -7211,12 +6733,9 @@ export namespace CreateTransitGatewayRouteTableRequest {
   export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRouteTableRequest =>
-    __isa(o, "CreateTransitGatewayRouteTableRequest");
 }
 
 export interface CreateTransitGatewayRouteTableResult {
-  __type?: "CreateTransitGatewayRouteTableResult";
   /**
    * <p>Information about the transit gateway route table.</p>
    */
@@ -7227,12 +6746,9 @@ export namespace CreateTransitGatewayRouteTableResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayRouteTableResult =>
-    __isa(o, "CreateTransitGatewayRouteTableResult");
 }
 
 export interface CreateTransitGatewayVpcAttachmentRequest {
-  __type?: "CreateTransitGatewayVpcAttachmentRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -7272,15 +6788,12 @@ export namespace CreateTransitGatewayVpcAttachmentRequest {
   export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayVpcAttachmentRequest =>
-    __isa(o, "CreateTransitGatewayVpcAttachmentRequest");
 }
 
 /**
  * <p>Describes the options for a VPC attachment.</p>
  */
 export interface CreateTransitGatewayVpcAttachmentRequestOptions {
-  __type?: "CreateTransitGatewayVpcAttachmentRequestOptions";
   /**
    * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
    */
@@ -7296,12 +6809,9 @@ export namespace CreateTransitGatewayVpcAttachmentRequestOptions {
   export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentRequestOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayVpcAttachmentRequestOptions =>
-    __isa(o, "CreateTransitGatewayVpcAttachmentRequestOptions");
 }
 
 export interface CreateTransitGatewayVpcAttachmentResult {
-  __type?: "CreateTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the VPC attachment.</p>
    */
@@ -7312,8 +6822,6 @@ export namespace CreateTransitGatewayVpcAttachmentResult {
   export const filterSensitiveLog = (obj: CreateTransitGatewayVpcAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransitGatewayVpcAttachmentResult =>
-    __isa(o, "CreateTransitGatewayVpcAttachmentResult");
 }
 
 /**
@@ -7321,7 +6829,6 @@ export namespace CreateTransitGatewayVpcAttachmentResult {
  *       permissions for a volume.</p>
  */
 export interface CreateVolumePermission {
-  __type?: "CreateVolumePermission";
   /**
    * <p>The AWS account ID to be added or removed.</p>
    */
@@ -7337,14 +6844,12 @@ export namespace CreateVolumePermission {
   export const filterSensitiveLog = (obj: CreateVolumePermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVolumePermission => __isa(o, "CreateVolumePermission");
 }
 
 /**
  * <p>Describes modifications to the list of create volume permissions for a volume.</p>
  */
 export interface CreateVolumePermissionModifications {
-  __type?: "CreateVolumePermissionModifications";
   /**
    * <p>Removes the specified AWS account ID or group from the list.</p>
    */
@@ -7360,12 +6865,9 @@ export namespace CreateVolumePermissionModifications {
   export const filterSensitiveLog = (obj: CreateVolumePermissionModifications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVolumePermissionModifications =>
-    __isa(o, "CreateVolumePermissionModifications");
 }
 
 export interface CreateVolumeRequest {
-  __type?: "CreateVolumeRequest";
   /**
    * <p>The Availability Zone in which to create the volume.</p>
    */
@@ -7474,11 +6976,9 @@ export namespace CreateVolumeRequest {
   export const filterSensitiveLog = (obj: CreateVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVolumeRequest => __isa(o, "CreateVolumeRequest");
 }
 
 export interface CreateVpcEndpointConnectionNotificationRequest {
-  __type?: "CreateVpcEndpointConnectionNotificationRequest";
   /**
    * <p>The ID of the endpoint.</p>
    */
@@ -7520,12 +7020,9 @@ export namespace CreateVpcEndpointConnectionNotificationRequest {
   export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointConnectionNotificationRequest =>
-    __isa(o, "CreateVpcEndpointConnectionNotificationRequest");
 }
 
 export interface CreateVpcEndpointConnectionNotificationResult {
-  __type?: "CreateVpcEndpointConnectionNotificationResult";
   /**
    * <p>Information about the notification.</p>
    */
@@ -7542,15 +7039,12 @@ export namespace CreateVpcEndpointConnectionNotificationResult {
   export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointConnectionNotificationResult =>
-    __isa(o, "CreateVpcEndpointConnectionNotificationResult");
 }
 
 /**
  * <p>Contains the parameters for CreateVpcEndpoint.</p>
  */
 export interface CreateVpcEndpointRequest {
-  __type?: "CreateVpcEndpointRequest";
   /**
    * <p>(Interface endpoint) The ID of one or more subnets in which to create an endpoint
    *             network interface.</p>
@@ -7633,14 +7127,12 @@ export namespace CreateVpcEndpointRequest {
   export const filterSensitiveLog = (obj: CreateVpcEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointRequest => __isa(o, "CreateVpcEndpointRequest");
 }
 
 /**
  * <p>Contains the output of CreateVpcEndpoint.</p>
  */
 export interface CreateVpcEndpointResult {
-  __type?: "CreateVpcEndpointResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
@@ -7657,11 +7149,9 @@ export namespace CreateVpcEndpointResult {
   export const filterSensitiveLog = (obj: CreateVpcEndpointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointResult => __isa(o, "CreateVpcEndpointResult");
 }
 
 export interface CreateVpcEndpointServiceConfigurationRequest {
-  __type?: "CreateVpcEndpointServiceConfigurationRequest";
   /**
    * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
    *             service.</p>
@@ -7703,12 +7193,9 @@ export namespace CreateVpcEndpointServiceConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointServiceConfigurationRequest =>
-    __isa(o, "CreateVpcEndpointServiceConfigurationRequest");
 }
 
 export interface CreateVpcEndpointServiceConfigurationResult {
-  __type?: "CreateVpcEndpointServiceConfigurationResult";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
@@ -7725,12 +7212,9 @@ export namespace CreateVpcEndpointServiceConfigurationResult {
   export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcEndpointServiceConfigurationResult =>
-    __isa(o, "CreateVpcEndpointServiceConfigurationResult");
 }
 
 export interface CreateVpcPeeringConnectionRequest {
-  __type?: "CreateVpcPeeringConnectionRequest";
   /**
    * <p>The ID of the requester VPC. You must specify this parameter in the
    * 			request.</p>
@@ -7773,11 +7257,9 @@ export namespace CreateVpcPeeringConnectionRequest {
   export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringConnectionRequest => __isa(o, "CreateVpcPeeringConnectionRequest");
 }
 
 export interface CreateVpcPeeringConnectionResult {
-  __type?: "CreateVpcPeeringConnectionResult";
   /**
    * <p>Information about the VPC peering connection.</p>
    */
@@ -7788,11 +7270,9 @@ export namespace CreateVpcPeeringConnectionResult {
   export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringConnectionResult => __isa(o, "CreateVpcPeeringConnectionResult");
 }
 
 export interface CreateVpcRequest {
-  __type?: "CreateVpcRequest";
   /**
    * <p>The tags to assign to the VPC.</p>
    */
@@ -7852,11 +7332,9 @@ export namespace CreateVpcRequest {
   export const filterSensitiveLog = (obj: CreateVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcRequest => __isa(o, "CreateVpcRequest");
 }
 
 export interface CreateVpcResult {
-  __type?: "CreateVpcResult";
   /**
    * <p>Information about the VPC.</p>
    */
@@ -7867,14 +7345,12 @@ export namespace CreateVpcResult {
   export const filterSensitiveLog = (obj: CreateVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcResult => __isa(o, "CreateVpcResult");
 }
 
 /**
  * <p>Contains the parameters for CreateVpnConnection.</p>
  */
 export interface CreateVpnConnectionRequest {
-  __type?: "CreateVpnConnectionRequest";
   /**
    * <p>The type of VPN connection (<code>ipsec.1</code>).</p>
    */
@@ -7917,14 +7393,12 @@ export namespace CreateVpnConnectionRequest {
   export const filterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpnConnectionRequest => __isa(o, "CreateVpnConnectionRequest");
 }
 
 /**
  * <p>Contains the output of CreateVpnConnection.</p>
  */
 export interface CreateVpnConnectionResult {
-  __type?: "CreateVpnConnectionResult";
   /**
    * <p>Information about the VPN connection.</p>
    */
@@ -7935,14 +7409,12 @@ export namespace CreateVpnConnectionResult {
   export const filterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpnConnectionResult => __isa(o, "CreateVpnConnectionResult");
 }
 
 /**
  * <p>Contains the parameters for CreateVpnConnectionRoute.</p>
  */
 export interface CreateVpnConnectionRouteRequest {
-  __type?: "CreateVpnConnectionRouteRequest";
   /**
    * <p>The ID of the VPN connection.</p>
    */
@@ -7958,14 +7430,12 @@ export namespace CreateVpnConnectionRouteRequest {
   export const filterSensitiveLog = (obj: CreateVpnConnectionRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpnConnectionRouteRequest => __isa(o, "CreateVpnConnectionRouteRequest");
 }
 
 /**
  * <p>Contains the parameters for CreateVpnGateway.</p>
  */
 export interface CreateVpnGatewayRequest {
-  __type?: "CreateVpnGatewayRequest";
   /**
    * <p>The Availability Zone for the virtual private gateway.</p>
    */
@@ -7999,14 +7469,12 @@ export namespace CreateVpnGatewayRequest {
   export const filterSensitiveLog = (obj: CreateVpnGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpnGatewayRequest => __isa(o, "CreateVpnGatewayRequest");
 }
 
 /**
  * <p>Contains the output of CreateVpnGateway.</p>
  */
 export interface CreateVpnGatewayResult {
-  __type?: "CreateVpnGatewayResult";
   /**
    * <p>Information about the virtual private gateway.</p>
    */
@@ -8017,14 +7485,12 @@ export namespace CreateVpnGatewayResult {
   export const filterSensitiveLog = (obj: CreateVpnGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpnGatewayResult => __isa(o, "CreateVpnGatewayResult");
 }
 
 /**
  * <p>Describes the credit option for CPU usage of a T2, T3, or T3a instance.</p>
  */
 export interface CreditSpecification {
-  __type?: "CreditSpecification";
   /**
    * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
    *                 <code>standard</code> and <code>unlimited</code>.</p>
@@ -8036,14 +7502,12 @@ export namespace CreditSpecification {
   export const filterSensitiveLog = (obj: CreditSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreditSpecification => __isa(o, "CreditSpecification");
 }
 
 /**
  * <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
  */
 export interface CreditSpecificationRequest {
-  __type?: "CreditSpecificationRequest";
   /**
    * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
    *                 <code>standard</code> and <code>unlimited</code>.</p>
@@ -8055,7 +7519,6 @@ export namespace CreditSpecificationRequest {
   export const filterSensitiveLog = (obj: CreditSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreditSpecificationRequest => __isa(o, "CreditSpecificationRequest");
 }
 
 export type CurrencyCodeValues = "USD";
@@ -8064,7 +7527,6 @@ export type CurrencyCodeValues = "USD";
  * <p>Describes a customer gateway.</p>
  */
 export interface CustomerGateway {
-  __type?: "CustomerGateway";
   /**
    * <p>The Internet-routable IP address of the customer gateway's outside interface.</p>
    */
@@ -8111,7 +7573,6 @@ export namespace CustomerGateway {
   export const filterSensitiveLog = (obj: CustomerGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerGateway => __isa(o, "CustomerGateway");
 }
 
 export type DatafeedSubscriptionState = "Active" | "Inactive";
@@ -8126,7 +7587,6 @@ export enum DefaultTargetCapacityType {
 }
 
 export interface DeleteClientVpnEndpointRequest {
-  __type?: "DeleteClientVpnEndpointRequest";
   /**
    * <p>The ID of the Client VPN to be deleted.</p>
    */
@@ -8142,11 +7602,9 @@ export namespace DeleteClientVpnEndpointRequest {
   export const filterSensitiveLog = (obj: DeleteClientVpnEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnEndpointRequest => __isa(o, "DeleteClientVpnEndpointRequest");
 }
 
 export interface DeleteClientVpnEndpointResult {
-  __type?: "DeleteClientVpnEndpointResult";
   /**
    * <p>The current state of the Client VPN endpoint.</p>
    */
@@ -8157,11 +7615,9 @@ export namespace DeleteClientVpnEndpointResult {
   export const filterSensitiveLog = (obj: DeleteClientVpnEndpointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnEndpointResult => __isa(o, "DeleteClientVpnEndpointResult");
 }
 
 export interface DeleteClientVpnRouteRequest {
-  __type?: "DeleteClientVpnRouteRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -8187,11 +7643,9 @@ export namespace DeleteClientVpnRouteRequest {
   export const filterSensitiveLog = (obj: DeleteClientVpnRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnRouteRequest => __isa(o, "DeleteClientVpnRouteRequest");
 }
 
 export interface DeleteClientVpnRouteResult {
-  __type?: "DeleteClientVpnRouteResult";
   /**
    * <p>The current state of the route.</p>
    */
@@ -8202,14 +7656,12 @@ export namespace DeleteClientVpnRouteResult {
   export const filterSensitiveLog = (obj: DeleteClientVpnRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClientVpnRouteResult => __isa(o, "DeleteClientVpnRouteResult");
 }
 
 /**
  * <p>Contains the parameters for DeleteCustomerGateway.</p>
  */
 export interface DeleteCustomerGatewayRequest {
-  __type?: "DeleteCustomerGatewayRequest";
   /**
    * <p>The ID of the customer gateway.</p>
    */
@@ -8227,11 +7679,9 @@ export namespace DeleteCustomerGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteCustomerGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomerGatewayRequest => __isa(o, "DeleteCustomerGatewayRequest");
 }
 
 export interface DeleteDhcpOptionsRequest {
-  __type?: "DeleteDhcpOptionsRequest";
   /**
    * <p>The ID of the DHCP options set.</p>
    */
@@ -8249,11 +7699,9 @@ export namespace DeleteDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: DeleteDhcpOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDhcpOptionsRequest => __isa(o, "DeleteDhcpOptionsRequest");
 }
 
 export interface DeleteEgressOnlyInternetGatewayRequest {
-  __type?: "DeleteEgressOnlyInternetGatewayRequest";
   /**
    * <p>The ID of the egress-only internet gateway.</p>
    */
@@ -8271,12 +7719,9 @@ export namespace DeleteEgressOnlyInternetGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteEgressOnlyInternetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEgressOnlyInternetGatewayRequest =>
-    __isa(o, "DeleteEgressOnlyInternetGatewayRequest");
 }
 
 export interface DeleteEgressOnlyInternetGatewayResult {
-  __type?: "DeleteEgressOnlyInternetGatewayResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -8287,15 +7732,12 @@ export namespace DeleteEgressOnlyInternetGatewayResult {
   export const filterSensitiveLog = (obj: DeleteEgressOnlyInternetGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEgressOnlyInternetGatewayResult =>
-    __isa(o, "DeleteEgressOnlyInternetGatewayResult");
 }
 
 /**
  * <p>Describes an EC2 Fleet error.</p>
  */
 export interface DeleteFleetError {
-  __type?: "DeleteFleetError";
   /**
    * <p>The error code.</p>
    */
@@ -8311,7 +7753,6 @@ export namespace DeleteFleetError {
   export const filterSensitiveLog = (obj: DeleteFleetError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetError => __isa(o, "DeleteFleetError");
 }
 
 export enum DeleteFleetErrorCode {
@@ -8325,7 +7766,6 @@ export enum DeleteFleetErrorCode {
  * <p>Describes an EC2 Fleet that was not successfully deleted.</p>
  */
 export interface DeleteFleetErrorItem {
-  __type?: "DeleteFleetErrorItem";
   /**
    * <p>The ID of the EC2 Fleet.</p>
    */
@@ -8341,11 +7781,9 @@ export namespace DeleteFleetErrorItem {
   export const filterSensitiveLog = (obj: DeleteFleetErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetErrorItem => __isa(o, "DeleteFleetErrorItem");
 }
 
 export interface DeleteFleetsRequest {
-  __type?: "DeleteFleetsRequest";
   /**
    * <p>The IDs of the EC2 Fleets.</p>
    */
@@ -8369,11 +7807,9 @@ export namespace DeleteFleetsRequest {
   export const filterSensitiveLog = (obj: DeleteFleetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetsRequest => __isa(o, "DeleteFleetsRequest");
 }
 
 export interface DeleteFleetsResult {
-  __type?: "DeleteFleetsResult";
   /**
    * <p>Information about the EC2 Fleets that are not successfully deleted.</p>
    */
@@ -8389,14 +7825,12 @@ export namespace DeleteFleetsResult {
   export const filterSensitiveLog = (obj: DeleteFleetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetsResult => __isa(o, "DeleteFleetsResult");
 }
 
 /**
  * <p>Describes an EC2 Fleet that was successfully deleted.</p>
  */
 export interface DeleteFleetSuccessItem {
-  __type?: "DeleteFleetSuccessItem";
   /**
    * <p>The ID of the EC2 Fleet.</p>
    */
@@ -8417,11 +7851,9 @@ export namespace DeleteFleetSuccessItem {
   export const filterSensitiveLog = (obj: DeleteFleetSuccessItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetSuccessItem => __isa(o, "DeleteFleetSuccessItem");
 }
 
 export interface DeleteFlowLogsRequest {
-  __type?: "DeleteFlowLogsRequest";
   /**
    * <p>One or more flow log IDs.</p>
    *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
@@ -8440,11 +7872,9 @@ export namespace DeleteFlowLogsRequest {
   export const filterSensitiveLog = (obj: DeleteFlowLogsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowLogsRequest => __isa(o, "DeleteFlowLogsRequest");
 }
 
 export interface DeleteFlowLogsResult {
-  __type?: "DeleteFlowLogsResult";
   /**
    * <p>Information about the flow logs that could not be deleted successfully.</p>
    */
@@ -8455,11 +7885,9 @@ export namespace DeleteFlowLogsResult {
   export const filterSensitiveLog = (obj: DeleteFlowLogsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowLogsResult => __isa(o, "DeleteFlowLogsResult");
 }
 
 export interface DeleteFpgaImageRequest {
-  __type?: "DeleteFpgaImageRequest";
   /**
    * <p>The ID of the AFI.</p>
    */
@@ -8477,11 +7905,9 @@ export namespace DeleteFpgaImageRequest {
   export const filterSensitiveLog = (obj: DeleteFpgaImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFpgaImageRequest => __isa(o, "DeleteFpgaImageRequest");
 }
 
 export interface DeleteFpgaImageResult {
-  __type?: "DeleteFpgaImageResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
@@ -8492,11 +7918,9 @@ export namespace DeleteFpgaImageResult {
   export const filterSensitiveLog = (obj: DeleteFpgaImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFpgaImageResult => __isa(o, "DeleteFpgaImageResult");
 }
 
 export interface DeleteInternetGatewayRequest {
-  __type?: "DeleteInternetGatewayRequest";
   /**
    * <p>The ID of the internet gateway.</p>
    */
@@ -8514,11 +7938,9 @@ export namespace DeleteInternetGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteInternetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInternetGatewayRequest => __isa(o, "DeleteInternetGatewayRequest");
 }
 
 export interface DeleteKeyPairRequest {
-  __type?: "DeleteKeyPairRequest";
   /**
    * <p>The ID of the key pair.</p>
    */
@@ -8541,11 +7963,9 @@ export namespace DeleteKeyPairRequest {
   export const filterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteKeyPairRequest => __isa(o, "DeleteKeyPairRequest");
 }
 
 export interface DeleteLaunchTemplateRequest {
-  __type?: "DeleteLaunchTemplateRequest";
   /**
    * <p>The name of the launch template. You must specify either the launch template ID or
    *             launch template name in the request.</p>
@@ -8571,11 +7991,9 @@ export namespace DeleteLaunchTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateRequest => __isa(o, "DeleteLaunchTemplateRequest");
 }
 
 export interface DeleteLaunchTemplateResult {
-  __type?: "DeleteLaunchTemplateResult";
   /**
    * <p>Information about the launch template.</p>
    */
@@ -8586,11 +8004,9 @@ export namespace DeleteLaunchTemplateResult {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateResult => __isa(o, "DeleteLaunchTemplateResult");
 }
 
 export interface DeleteLaunchTemplateVersionsRequest {
-  __type?: "DeleteLaunchTemplateVersionsRequest";
   /**
    * <p>The ID of the launch template. You must specify either the launch template ID or
    *             launch template name in the request.</p>
@@ -8621,15 +8037,12 @@ export namespace DeleteLaunchTemplateVersionsRequest {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateVersionsRequest =>
-    __isa(o, "DeleteLaunchTemplateVersionsRequest");
 }
 
 /**
  * <p>Describes a launch template version that could not be deleted.</p>
  */
 export interface DeleteLaunchTemplateVersionsResponseErrorItem {
-  __type?: "DeleteLaunchTemplateVersionsResponseErrorItem";
   /**
    * <p>The name of the launch template.</p>
    */
@@ -8655,15 +8068,12 @@ export namespace DeleteLaunchTemplateVersionsResponseErrorItem {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateVersionsResponseErrorItem =>
-    __isa(o, "DeleteLaunchTemplateVersionsResponseErrorItem");
 }
 
 /**
  * <p>Describes a launch template version that was successfully deleted.</p>
  */
 export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
-  __type?: "DeleteLaunchTemplateVersionsResponseSuccessItem";
   /**
    * <p>The name of the launch template.</p>
    */
@@ -8684,12 +8094,9 @@ export namespace DeleteLaunchTemplateVersionsResponseSuccessItem {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseSuccessItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateVersionsResponseSuccessItem =>
-    __isa(o, "DeleteLaunchTemplateVersionsResponseSuccessItem");
 }
 
 export interface DeleteLaunchTemplateVersionsResult {
-  __type?: "DeleteLaunchTemplateVersionsResult";
   /**
    * <p>Information about the launch template versions that could not be deleted.</p>
    */
@@ -8706,12 +8113,9 @@ export namespace DeleteLaunchTemplateVersionsResult {
   export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLaunchTemplateVersionsResult =>
-    __isa(o, "DeleteLaunchTemplateVersionsResult");
 }
 
 export interface DeleteLocalGatewayRouteRequest {
-  __type?: "DeleteLocalGatewayRouteRequest";
   /**
    * <p>The ID of the local gateway route table.</p>
    */
@@ -8734,11 +8138,9 @@ export namespace DeleteLocalGatewayRouteRequest {
   export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLocalGatewayRouteRequest => __isa(o, "DeleteLocalGatewayRouteRequest");
 }
 
 export interface DeleteLocalGatewayRouteResult {
-  __type?: "DeleteLocalGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
    */
@@ -8749,11 +8151,9 @@ export namespace DeleteLocalGatewayRouteResult {
   export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLocalGatewayRouteResult => __isa(o, "DeleteLocalGatewayRouteResult");
 }
 
 export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
-  __type?: "DeleteLocalGatewayRouteTableVpcAssociationRequest";
   /**
    * <p>The ID of the association.</p>
    */
@@ -8771,12 +8171,9 @@ export namespace DeleteLocalGatewayRouteTableVpcAssociationRequest {
   export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteTableVpcAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLocalGatewayRouteTableVpcAssociationRequest =>
-    __isa(o, "DeleteLocalGatewayRouteTableVpcAssociationRequest");
 }
 
 export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
-  __type?: "DeleteLocalGatewayRouteTableVpcAssociationResult";
   /**
    * <p>Information about the association.</p>
    */
@@ -8787,12 +8184,9 @@ export namespace DeleteLocalGatewayRouteTableVpcAssociationResult {
   export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteTableVpcAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLocalGatewayRouteTableVpcAssociationResult =>
-    __isa(o, "DeleteLocalGatewayRouteTableVpcAssociationResult");
 }
 
 export interface DeleteManagedPrefixListRequest {
-  __type?: "DeleteManagedPrefixListRequest";
   /**
    * <p>The ID of the prefix list.</p>
    */
@@ -8810,11 +8204,9 @@ export namespace DeleteManagedPrefixListRequest {
   export const filterSensitiveLog = (obj: DeleteManagedPrefixListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteManagedPrefixListRequest => __isa(o, "DeleteManagedPrefixListRequest");
 }
 
 export interface DeleteManagedPrefixListResult {
-  __type?: "DeleteManagedPrefixListResult";
   /**
    * <p>Information about the prefix list.</p>
    */
@@ -8825,11 +8217,9 @@ export namespace DeleteManagedPrefixListResult {
   export const filterSensitiveLog = (obj: DeleteManagedPrefixListResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteManagedPrefixListResult => __isa(o, "DeleteManagedPrefixListResult");
 }
 
 export interface DeleteNatGatewayRequest {
-  __type?: "DeleteNatGatewayRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -8847,11 +8237,9 @@ export namespace DeleteNatGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteNatGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNatGatewayRequest => __isa(o, "DeleteNatGatewayRequest");
 }
 
 export interface DeleteNatGatewayResult {
-  __type?: "DeleteNatGatewayResult";
   /**
    * <p>The ID of the NAT gateway.</p>
    */
@@ -8862,11 +8250,9 @@ export namespace DeleteNatGatewayResult {
   export const filterSensitiveLog = (obj: DeleteNatGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNatGatewayResult => __isa(o, "DeleteNatGatewayResult");
 }
 
 export interface DeleteNetworkAclEntryRequest {
-  __type?: "DeleteNetworkAclEntryRequest";
   /**
    * <p>The ID of the network ACL.</p>
    */
@@ -8894,11 +8280,9 @@ export namespace DeleteNetworkAclEntryRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkAclEntryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkAclEntryRequest => __isa(o, "DeleteNetworkAclEntryRequest");
 }
 
 export interface DeleteNetworkAclRequest {
-  __type?: "DeleteNetworkAclRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -8916,14 +8300,12 @@ export namespace DeleteNetworkAclRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkAclRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkAclRequest => __isa(o, "DeleteNetworkAclRequest");
 }
 
 /**
  * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
  */
 export interface DeleteNetworkInterfacePermissionRequest {
-  __type?: "DeleteNetworkInterfacePermissionRequest";
   /**
    * <p>The ID of the network interface permission.</p>
    */
@@ -8947,15 +8329,12 @@ export namespace DeleteNetworkInterfacePermissionRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkInterfacePermissionRequest =>
-    __isa(o, "DeleteNetworkInterfacePermissionRequest");
 }
 
 /**
  * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
  */
 export interface DeleteNetworkInterfacePermissionResult {
-  __type?: "DeleteNetworkInterfacePermissionResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
    */
@@ -8966,15 +8345,12 @@ export namespace DeleteNetworkInterfacePermissionResult {
   export const filterSensitiveLog = (obj: DeleteNetworkInterfacePermissionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkInterfacePermissionResult =>
-    __isa(o, "DeleteNetworkInterfacePermissionResult");
 }
 
 /**
  * <p>Contains the parameters for DeleteNetworkInterface.</p>
  */
 export interface DeleteNetworkInterfaceRequest {
-  __type?: "DeleteNetworkInterfaceRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -8992,11 +8368,9 @@ export namespace DeleteNetworkInterfaceRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkInterfaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkInterfaceRequest => __isa(o, "DeleteNetworkInterfaceRequest");
 }
 
 export interface DeletePlacementGroupRequest {
-  __type?: "DeletePlacementGroupRequest";
   /**
    * <p>The name of the placement group.</p>
    */
@@ -9014,14 +8388,12 @@ export namespace DeletePlacementGroupRequest {
   export const filterSensitiveLog = (obj: DeletePlacementGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePlacementGroupRequest => __isa(o, "DeletePlacementGroupRequest");
 }
 
 /**
  * <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
  */
 export interface DeleteQueuedReservedInstancesError {
-  __type?: "DeleteQueuedReservedInstancesError";
   /**
    * <p>The error message.</p>
    */
@@ -9037,8 +8409,6 @@ export namespace DeleteQueuedReservedInstancesError {
   export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueuedReservedInstancesError =>
-    __isa(o, "DeleteQueuedReservedInstancesError");
 }
 
 export enum DeleteQueuedReservedInstancesErrorCode {
@@ -9048,7 +8418,6 @@ export enum DeleteQueuedReservedInstancesErrorCode {
 }
 
 export interface DeleteQueuedReservedInstancesRequest {
-  __type?: "DeleteQueuedReservedInstancesRequest";
   /**
    * <p>The IDs of the Reserved Instances.</p>
    */
@@ -9066,12 +8435,9 @@ export namespace DeleteQueuedReservedInstancesRequest {
   export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueuedReservedInstancesRequest =>
-    __isa(o, "DeleteQueuedReservedInstancesRequest");
 }
 
 export interface DeleteQueuedReservedInstancesResult {
-  __type?: "DeleteQueuedReservedInstancesResult";
   /**
    * <p>Information about the queued purchases that were successfully deleted.</p>
    */
@@ -9087,12 +8453,9 @@ export namespace DeleteQueuedReservedInstancesResult {
   export const filterSensitiveLog = (obj: DeleteQueuedReservedInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueuedReservedInstancesResult =>
-    __isa(o, "DeleteQueuedReservedInstancesResult");
 }
 
 export interface DeleteRouteRequest {
-  __type?: "DeleteRouteRequest";
   /**
    * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
    */
@@ -9125,11 +8488,9 @@ export namespace DeleteRouteRequest {
   export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteRequest => __isa(o, "DeleteRouteRequest");
 }
 
 export interface DeleteRouteTableRequest {
-  __type?: "DeleteRouteTableRequest";
   /**
    * <p>The ID of the route table.</p>
    */
@@ -9147,11 +8508,9 @@ export namespace DeleteRouteTableRequest {
   export const filterSensitiveLog = (obj: DeleteRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteTableRequest => __isa(o, "DeleteRouteTableRequest");
 }
 
 export interface DeleteSecurityGroupRequest {
-  __type?: "DeleteSecurityGroupRequest";
   /**
    * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.</p>
    */
@@ -9174,11 +8533,9 @@ export namespace DeleteSecurityGroupRequest {
   export const filterSensitiveLog = (obj: DeleteSecurityGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityGroupRequest => __isa(o, "DeleteSecurityGroupRequest");
 }
 
 export interface DeleteSnapshotRequest {
-  __type?: "DeleteSnapshotRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9196,14 +8553,12 @@ export namespace DeleteSnapshotRequest {
   export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotRequest => __isa(o, "DeleteSnapshotRequest");
 }
 
 /**
  * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
  */
 export interface DeleteSpotDatafeedSubscriptionRequest {
-  __type?: "DeleteSpotDatafeedSubscriptionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9216,12 +8571,9 @@ export namespace DeleteSpotDatafeedSubscriptionRequest {
   export const filterSensitiveLog = (obj: DeleteSpotDatafeedSubscriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSpotDatafeedSubscriptionRequest =>
-    __isa(o, "DeleteSpotDatafeedSubscriptionRequest");
 }
 
 export interface DeleteSubnetRequest {
-  __type?: "DeleteSubnetRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9239,11 +8591,9 @@ export namespace DeleteSubnetRequest {
   export const filterSensitiveLog = (obj: DeleteSubnetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSubnetRequest => __isa(o, "DeleteSubnetRequest");
 }
 
 export interface DeleteTagsRequest {
-  __type?: "DeleteTagsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9273,11 +8623,9 @@ export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteTrafficMirrorFilterRequest {
-  __type?: "DeleteTrafficMirrorFilterRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9295,11 +8643,9 @@ export namespace DeleteTrafficMirrorFilterRequest {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorFilterRequest => __isa(o, "DeleteTrafficMirrorFilterRequest");
 }
 
 export interface DeleteTrafficMirrorFilterResult {
-  __type?: "DeleteTrafficMirrorFilterResult";
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
    */
@@ -9310,11 +8656,9 @@ export namespace DeleteTrafficMirrorFilterResult {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorFilterResult => __isa(o, "DeleteTrafficMirrorFilterResult");
 }
 
 export interface DeleteTrafficMirrorFilterRuleRequest {
-  __type?: "DeleteTrafficMirrorFilterRuleRequest";
   /**
    * <p>The ID of the Traffic Mirror rule.</p>
    */
@@ -9332,12 +8676,9 @@ export namespace DeleteTrafficMirrorFilterRuleRequest {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorFilterRuleRequest =>
-    __isa(o, "DeleteTrafficMirrorFilterRuleRequest");
 }
 
 export interface DeleteTrafficMirrorFilterRuleResult {
-  __type?: "DeleteTrafficMirrorFilterRuleResult";
   /**
    * <p>The ID of the deleted Traffic Mirror rule.</p>
    */
@@ -9348,12 +8689,9 @@ export namespace DeleteTrafficMirrorFilterRuleResult {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorFilterRuleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorFilterRuleResult =>
-    __isa(o, "DeleteTrafficMirrorFilterRuleResult");
 }
 
 export interface DeleteTrafficMirrorSessionRequest {
-  __type?: "DeleteTrafficMirrorSessionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9371,11 +8709,9 @@ export namespace DeleteTrafficMirrorSessionRequest {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorSessionRequest => __isa(o, "DeleteTrafficMirrorSessionRequest");
 }
 
 export interface DeleteTrafficMirrorSessionResult {
-  __type?: "DeleteTrafficMirrorSessionResult";
   /**
    * <p>The ID of the deleted Traffic Mirror session.</p>
    */
@@ -9386,11 +8722,9 @@ export namespace DeleteTrafficMirrorSessionResult {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorSessionResult => __isa(o, "DeleteTrafficMirrorSessionResult");
 }
 
 export interface DeleteTrafficMirrorTargetRequest {
-  __type?: "DeleteTrafficMirrorTargetRequest";
   /**
    * <p>The ID of the Traffic Mirror target.</p>
    */
@@ -9408,11 +8742,9 @@ export namespace DeleteTrafficMirrorTargetRequest {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorTargetRequest => __isa(o, "DeleteTrafficMirrorTargetRequest");
 }
 
 export interface DeleteTrafficMirrorTargetResult {
-  __type?: "DeleteTrafficMirrorTargetResult";
   /**
    * <p>The ID of the deleted Traffic Mirror target.</p>
    */
@@ -9423,11 +8755,9 @@ export namespace DeleteTrafficMirrorTargetResult {
   export const filterSensitiveLog = (obj: DeleteTrafficMirrorTargetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficMirrorTargetResult => __isa(o, "DeleteTrafficMirrorTargetResult");
 }
 
 export interface DeleteTransitGatewayMulticastDomainRequest {
-  __type?: "DeleteTransitGatewayMulticastDomainRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9445,12 +8775,9 @@ export namespace DeleteTransitGatewayMulticastDomainRequest {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayMulticastDomainRequest =>
-    __isa(o, "DeleteTransitGatewayMulticastDomainRequest");
 }
 
 export interface DeleteTransitGatewayMulticastDomainResult {
-  __type?: "DeleteTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the deleted transit gateway multicast domain.</p>
    */
@@ -9461,12 +8788,9 @@ export namespace DeleteTransitGatewayMulticastDomainResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayMulticastDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayMulticastDomainResult =>
-    __isa(o, "DeleteTransitGatewayMulticastDomainResult");
 }
 
 export interface DeleteTransitGatewayPeeringAttachmentRequest {
-  __type?: "DeleteTransitGatewayPeeringAttachmentRequest";
   /**
    * <p>The ID of the transit gateway peering attachment.</p>
    */
@@ -9484,12 +8808,9 @@ export namespace DeleteTransitGatewayPeeringAttachmentRequest {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayPeeringAttachmentRequest =>
-    __isa(o, "DeleteTransitGatewayPeeringAttachmentRequest");
 }
 
 export interface DeleteTransitGatewayPeeringAttachmentResult {
-  __type?: "DeleteTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
    */
@@ -9500,12 +8821,9 @@ export namespace DeleteTransitGatewayPeeringAttachmentResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayPeeringAttachmentResult =>
-    __isa(o, "DeleteTransitGatewayPeeringAttachmentResult");
 }
 
 export interface DeleteTransitGatewayRequest {
-  __type?: "DeleteTransitGatewayRequest";
   /**
    * <p>The ID of the transit gateway.</p>
    */
@@ -9523,11 +8841,9 @@ export namespace DeleteTransitGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRequest => __isa(o, "DeleteTransitGatewayRequest");
 }
 
 export interface DeleteTransitGatewayResult {
-  __type?: "DeleteTransitGatewayResult";
   /**
    * <p>Information about the deleted transit gateway.</p>
    */
@@ -9538,11 +8854,9 @@ export namespace DeleteTransitGatewayResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayResult => __isa(o, "DeleteTransitGatewayResult");
 }
 
 export interface DeleteTransitGatewayRouteRequest {
-  __type?: "DeleteTransitGatewayRouteRequest";
   /**
    * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
    */
@@ -9565,11 +8879,9 @@ export namespace DeleteTransitGatewayRouteRequest {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRouteRequest => __isa(o, "DeleteTransitGatewayRouteRequest");
 }
 
 export interface DeleteTransitGatewayRouteResult {
-  __type?: "DeleteTransitGatewayRouteResult";
   /**
    * <p>Information about the route.</p>
    */
@@ -9580,11 +8892,9 @@ export namespace DeleteTransitGatewayRouteResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRouteResult => __isa(o, "DeleteTransitGatewayRouteResult");
 }
 
 export interface DeleteTransitGatewayRouteTableRequest {
-  __type?: "DeleteTransitGatewayRouteTableRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9602,12 +8912,9 @@ export namespace DeleteTransitGatewayRouteTableRequest {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRouteTableRequest =>
-    __isa(o, "DeleteTransitGatewayRouteTableRequest");
 }
 
 export interface DeleteTransitGatewayRouteTableResult {
-  __type?: "DeleteTransitGatewayRouteTableResult";
   /**
    * <p>Information about the deleted transit gateway route table.</p>
    */
@@ -9618,12 +8925,9 @@ export namespace DeleteTransitGatewayRouteTableResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayRouteTableResult =>
-    __isa(o, "DeleteTransitGatewayRouteTableResult");
 }
 
 export interface DeleteTransitGatewayVpcAttachmentRequest {
-  __type?: "DeleteTransitGatewayVpcAttachmentRequest";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -9641,12 +8945,9 @@ export namespace DeleteTransitGatewayVpcAttachmentRequest {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayVpcAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayVpcAttachmentRequest =>
-    __isa(o, "DeleteTransitGatewayVpcAttachmentRequest");
 }
 
 export interface DeleteTransitGatewayVpcAttachmentResult {
-  __type?: "DeleteTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the deleted VPC attachment.</p>
    */
@@ -9657,12 +8958,9 @@ export namespace DeleteTransitGatewayVpcAttachmentResult {
   export const filterSensitiveLog = (obj: DeleteTransitGatewayVpcAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTransitGatewayVpcAttachmentResult =>
-    __isa(o, "DeleteTransitGatewayVpcAttachmentResult");
 }
 
 export interface DeleteVolumeRequest {
-  __type?: "DeleteVolumeRequest";
   /**
    * <p>The ID of the volume.</p>
    */
@@ -9680,11 +8978,9 @@ export namespace DeleteVolumeRequest {
   export const filterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVolumeRequest => __isa(o, "DeleteVolumeRequest");
 }
 
 export interface DeleteVpcEndpointConnectionNotificationsRequest {
-  __type?: "DeleteVpcEndpointConnectionNotificationsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9702,12 +8998,9 @@ export namespace DeleteVpcEndpointConnectionNotificationsRequest {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointConnectionNotificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointConnectionNotificationsRequest =>
-    __isa(o, "DeleteVpcEndpointConnectionNotificationsRequest");
 }
 
 export interface DeleteVpcEndpointConnectionNotificationsResult {
-  __type?: "DeleteVpcEndpointConnectionNotificationsResult";
   /**
    * <p>Information about the notifications that could not be deleted
    *             successfully.</p>
@@ -9719,12 +9012,9 @@ export namespace DeleteVpcEndpointConnectionNotificationsResult {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointConnectionNotificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointConnectionNotificationsResult =>
-    __isa(o, "DeleteVpcEndpointConnectionNotificationsResult");
 }
 
 export interface DeleteVpcEndpointServiceConfigurationsRequest {
-  __type?: "DeleteVpcEndpointServiceConfigurationsRequest";
   /**
    * <p>The IDs of one or more services.</p>
    */
@@ -9742,12 +9032,9 @@ export namespace DeleteVpcEndpointServiceConfigurationsRequest {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointServiceConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointServiceConfigurationsRequest =>
-    __isa(o, "DeleteVpcEndpointServiceConfigurationsRequest");
 }
 
 export interface DeleteVpcEndpointServiceConfigurationsResult {
-  __type?: "DeleteVpcEndpointServiceConfigurationsResult";
   /**
    * <p>Information about the service configurations that were not deleted, if
    *             applicable.</p>
@@ -9759,15 +9046,12 @@ export namespace DeleteVpcEndpointServiceConfigurationsResult {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointServiceConfigurationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointServiceConfigurationsResult =>
-    __isa(o, "DeleteVpcEndpointServiceConfigurationsResult");
 }
 
 /**
  * <p>Contains the parameters for DeleteVpcEndpoints.</p>
  */
 export interface DeleteVpcEndpointsRequest {
-  __type?: "DeleteVpcEndpointsRequest";
   /**
    * <p>One or more VPC endpoint IDs.</p>
    */
@@ -9785,14 +9069,12 @@ export namespace DeleteVpcEndpointsRequest {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointsRequest => __isa(o, "DeleteVpcEndpointsRequest");
 }
 
 /**
  * <p>Contains the output of DeleteVpcEndpoints.</p>
  */
 export interface DeleteVpcEndpointsResult {
-  __type?: "DeleteVpcEndpointsResult";
   /**
    * <p>Information about the VPC endpoints that were not successfully deleted.</p>
    */
@@ -9803,11 +9085,9 @@ export namespace DeleteVpcEndpointsResult {
   export const filterSensitiveLog = (obj: DeleteVpcEndpointsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcEndpointsResult => __isa(o, "DeleteVpcEndpointsResult");
 }
 
 export interface DeleteVpcPeeringConnectionRequest {
-  __type?: "DeleteVpcPeeringConnectionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9825,11 +9105,9 @@ export namespace DeleteVpcPeeringConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringConnectionRequest => __isa(o, "DeleteVpcPeeringConnectionRequest");
 }
 
 export interface DeleteVpcPeeringConnectionResult {
-  __type?: "DeleteVpcPeeringConnectionResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -9840,11 +9118,9 @@ export namespace DeleteVpcPeeringConnectionResult {
   export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringConnectionResult => __isa(o, "DeleteVpcPeeringConnectionResult");
 }
 
 export interface DeleteVpcRequest {
-  __type?: "DeleteVpcRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -9862,14 +9138,12 @@ export namespace DeleteVpcRequest {
   export const filterSensitiveLog = (obj: DeleteVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcRequest => __isa(o, "DeleteVpcRequest");
 }
 
 /**
  * <p>Contains the parameters for DeleteVpnConnection.</p>
  */
 export interface DeleteVpnConnectionRequest {
-  __type?: "DeleteVpnConnectionRequest";
   /**
    * <p>The ID of the VPN connection.</p>
    */
@@ -9887,14 +9161,12 @@ export namespace DeleteVpnConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteVpnConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpnConnectionRequest => __isa(o, "DeleteVpnConnectionRequest");
 }
 
 /**
  * <p>Contains the parameters for DeleteVpnConnectionRoute.</p>
  */
 export interface DeleteVpnConnectionRouteRequest {
-  __type?: "DeleteVpnConnectionRouteRequest";
   /**
    * <p>The ID of the VPN connection.</p>
    */
@@ -9910,14 +9182,12 @@ export namespace DeleteVpnConnectionRouteRequest {
   export const filterSensitiveLog = (obj: DeleteVpnConnectionRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpnConnectionRouteRequest => __isa(o, "DeleteVpnConnectionRouteRequest");
 }
 
 /**
  * <p>Contains the parameters for DeleteVpnGateway.</p>
  */
 export interface DeleteVpnGatewayRequest {
-  __type?: "DeleteVpnGatewayRequest";
   /**
    * <p>The ID of the virtual private gateway.</p>
    */
@@ -9935,11 +9205,9 @@ export namespace DeleteVpnGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteVpnGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpnGatewayRequest => __isa(o, "DeleteVpnGatewayRequest");
 }
 
 export interface DeprovisionByoipCidrRequest {
-  __type?: "DeprovisionByoipCidrRequest";
   /**
    * <p>The address range, in CIDR notation. The prefix must be the same prefix
    *          that you specified when you provisioned the address range.</p>
@@ -9958,11 +9226,9 @@ export namespace DeprovisionByoipCidrRequest {
   export const filterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprovisionByoipCidrRequest => __isa(o, "DeprovisionByoipCidrRequest");
 }
 
 export interface DeprovisionByoipCidrResult {
-  __type?: "DeprovisionByoipCidrResult";
   /**
    * <p>Information about the address range.</p>
    */
@@ -9973,14 +9239,12 @@ export namespace DeprovisionByoipCidrResult {
   export const filterSensitiveLog = (obj: DeprovisionByoipCidrResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprovisionByoipCidrResult => __isa(o, "DeprovisionByoipCidrResult");
 }
 
 /**
  * <p>Contains the parameters for DeregisterImage.</p>
  */
 export interface DeregisterImageRequest {
-  __type?: "DeregisterImageRequest";
   /**
    * <p>The ID of the AMI.</p>
    */
@@ -9998,11 +9262,9 @@ export namespace DeregisterImageRequest {
   export const filterSensitiveLog = (obj: DeregisterImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterImageRequest => __isa(o, "DeregisterImageRequest");
 }
 
 export interface DeregisterInstanceEventNotificationAttributesRequest {
-  __type?: "DeregisterInstanceEventNotificationAttributesRequest";
   /**
    * <p>Information about the tag keys to deregister.</p>
    */
@@ -10020,12 +9282,9 @@ export namespace DeregisterInstanceEventNotificationAttributesRequest {
   export const filterSensitiveLog = (obj: DeregisterInstanceEventNotificationAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterInstanceEventNotificationAttributesRequest =>
-    __isa(o, "DeregisterInstanceEventNotificationAttributesRequest");
 }
 
 export interface DeregisterInstanceEventNotificationAttributesResult {
-  __type?: "DeregisterInstanceEventNotificationAttributesResult";
   /**
    * <p>The resulting set of tag keys.</p>
    */
@@ -10036,8 +9295,6 @@ export namespace DeregisterInstanceEventNotificationAttributesResult {
   export const filterSensitiveLog = (obj: DeregisterInstanceEventNotificationAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterInstanceEventNotificationAttributesResult =>
-    __isa(o, "DeregisterInstanceEventNotificationAttributesResult");
 }
 
 /**
@@ -10046,7 +9303,6 @@ export namespace DeregisterInstanceEventNotificationAttributesResult {
  *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
  */
 export interface DeregisterInstanceTagAttributeRequest {
-  __type?: "DeregisterInstanceTagAttributeRequest";
   /**
    * <p>Information about the tag keys to deregister.</p>
    */
@@ -10063,12 +9319,9 @@ export namespace DeregisterInstanceTagAttributeRequest {
   export const filterSensitiveLog = (obj: DeregisterInstanceTagAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterInstanceTagAttributeRequest =>
-    __isa(o, "DeregisterInstanceTagAttributeRequest");
 }
 
 export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
-  __type?: "DeregisterTransitGatewayMulticastGroupMembersRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -10096,12 +9349,9 @@ export namespace DeregisterTransitGatewayMulticastGroupMembersRequest {
   export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupMembersRequest =>
-    __isa(o, "DeregisterTransitGatewayMulticastGroupMembersRequest");
 }
 
 export interface DeregisterTransitGatewayMulticastGroupMembersResult {
-  __type?: "DeregisterTransitGatewayMulticastGroupMembersResult";
   /**
    * <p>Information about the deregistered members.</p>
    */
@@ -10112,12 +9362,9 @@ export namespace DeregisterTransitGatewayMulticastGroupMembersResult {
   export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupMembersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupMembersResult =>
-    __isa(o, "DeregisterTransitGatewayMulticastGroupMembersResult");
 }
 
 export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
-  __type?: "DeregisterTransitGatewayMulticastGroupSourcesRequest";
   /**
    * <p>The IDs of the group sources' network interfaces.</p>
    */
@@ -10145,12 +9392,9 @@ export namespace DeregisterTransitGatewayMulticastGroupSourcesRequest {
   export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupSourcesRequest =>
-    __isa(o, "DeregisterTransitGatewayMulticastGroupSourcesRequest");
 }
 
 export interface DeregisterTransitGatewayMulticastGroupSourcesResult {
-  __type?: "DeregisterTransitGatewayMulticastGroupSourcesResult";
   /**
    * <p>Information about the deregistered group sources.</p>
    */
@@ -10161,12 +9405,9 @@ export namespace DeregisterTransitGatewayMulticastGroupSourcesResult {
   export const filterSensitiveLog = (obj: DeregisterTransitGatewayMulticastGroupSourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTransitGatewayMulticastGroupSourcesResult =>
-    __isa(o, "DeregisterTransitGatewayMulticastGroupSourcesResult");
 }
 
 export interface DescribeAccountAttributesRequest {
-  __type?: "DescribeAccountAttributesRequest";
   /**
    * <p>The account attribute names.</p>
    */
@@ -10184,11 +9425,9 @@ export namespace DescribeAccountAttributesRequest {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesRequest => __isa(o, "DescribeAccountAttributesRequest");
 }
 
 export interface DescribeAccountAttributesResult {
-  __type?: "DescribeAccountAttributesResult";
   /**
    * <p>Information about the account attributes.</p>
    */
@@ -10199,11 +9438,9 @@ export namespace DescribeAccountAttributesResult {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesResult => __isa(o, "DescribeAccountAttributesResult");
 }
 
 export interface DescribeAddressesRequest {
-  __type?: "DescribeAddressesRequest";
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
    *          <ul>
@@ -10280,11 +9517,9 @@ export namespace DescribeAddressesRequest {
   export const filterSensitiveLog = (obj: DescribeAddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressesRequest => __isa(o, "DescribeAddressesRequest");
 }
 
 export interface DescribeAddressesResult {
-  __type?: "DescribeAddressesResult";
   /**
    * <p>Information about the Elastic IP addresses.</p>
    */
@@ -10295,11 +9530,9 @@ export namespace DescribeAddressesResult {
   export const filterSensitiveLog = (obj: DescribeAddressesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressesResult => __isa(o, "DescribeAddressesResult");
 }
 
 export interface DescribeAggregateIdFormatRequest {
-  __type?: "DescribeAggregateIdFormatRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -10312,11 +9545,9 @@ export namespace DescribeAggregateIdFormatRequest {
   export const filterSensitiveLog = (obj: DescribeAggregateIdFormatRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAggregateIdFormatRequest => __isa(o, "DescribeAggregateIdFormatRequest");
 }
 
 export interface DescribeAggregateIdFormatResult {
-  __type?: "DescribeAggregateIdFormatResult";
   /**
    * <p>Information about each resource's ID format.</p>
    */
@@ -10334,11 +9565,9 @@ export namespace DescribeAggregateIdFormatResult {
   export const filterSensitiveLog = (obj: DescribeAggregateIdFormatResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAggregateIdFormatResult => __isa(o, "DescribeAggregateIdFormatResult");
 }
 
 export interface DescribeAvailabilityZonesRequest {
-  __type?: "DescribeAvailabilityZonesRequest";
   /**
    * <p>Include all Availability Zones and Local Zones regardless of your opt in status.</p>
    *          <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
@@ -10421,11 +9650,9 @@ export namespace DescribeAvailabilityZonesRequest {
   export const filterSensitiveLog = (obj: DescribeAvailabilityZonesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAvailabilityZonesRequest => __isa(o, "DescribeAvailabilityZonesRequest");
 }
 
 export interface DescribeAvailabilityZonesResult {
-  __type?: "DescribeAvailabilityZonesResult";
   /**
    * <p>Information about the Zones.</p>
    */
@@ -10436,11 +9663,9 @@ export namespace DescribeAvailabilityZonesResult {
   export const filterSensitiveLog = (obj: DescribeAvailabilityZonesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAvailabilityZonesResult => __isa(o, "DescribeAvailabilityZonesResult");
 }
 
 export interface DescribeBundleTasksRequest {
-  __type?: "DescribeBundleTasksRequest";
   /**
    * <p>The bundle task IDs.</p>
    *          <p>Default: Describes all your bundle tasks.</p>
@@ -10507,11 +9732,9 @@ export namespace DescribeBundleTasksRequest {
   export const filterSensitiveLog = (obj: DescribeBundleTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleTasksRequest => __isa(o, "DescribeBundleTasksRequest");
 }
 
 export interface DescribeBundleTasksResult {
-  __type?: "DescribeBundleTasksResult";
   /**
    * <p>Information about the bundle tasks.</p>
    */
@@ -10522,11 +9745,9 @@ export namespace DescribeBundleTasksResult {
   export const filterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleTasksResult => __isa(o, "DescribeBundleTasksResult");
 }
 
 export interface DescribeByoipCidrsRequest {
-  __type?: "DescribeByoipCidrsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -10550,11 +9771,9 @@ export namespace DescribeByoipCidrsRequest {
   export const filterSensitiveLog = (obj: DescribeByoipCidrsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeByoipCidrsRequest => __isa(o, "DescribeByoipCidrsRequest");
 }
 
 export interface DescribeByoipCidrsResult {
-  __type?: "DescribeByoipCidrsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -10570,11 +9789,9 @@ export namespace DescribeByoipCidrsResult {
   export const filterSensitiveLog = (obj: DescribeByoipCidrsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeByoipCidrsResult => __isa(o, "DescribeByoipCidrsResult");
 }
 
 export interface DescribeCapacityReservationsRequest {
-  __type?: "DescribeCapacityReservationsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -10709,12 +9926,9 @@ export namespace DescribeCapacityReservationsRequest {
   export const filterSensitiveLog = (obj: DescribeCapacityReservationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCapacityReservationsRequest =>
-    __isa(o, "DescribeCapacityReservationsRequest");
 }
 
 export interface DescribeCapacityReservationsResult {
-  __type?: "DescribeCapacityReservationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -10730,12 +9944,9 @@ export namespace DescribeCapacityReservationsResult {
   export const filterSensitiveLog = (obj: DescribeCapacityReservationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCapacityReservationsResult =>
-    __isa(o, "DescribeCapacityReservationsResult");
 }
 
 export interface DescribeClassicLinkInstancesRequest {
-  __type?: "DescribeClassicLinkInstancesRequest";
   /**
    * <p>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
    */
@@ -10799,12 +10010,9 @@ export namespace DescribeClassicLinkInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeClassicLinkInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClassicLinkInstancesRequest =>
-    __isa(o, "DescribeClassicLinkInstancesRequest");
 }
 
 export interface DescribeClassicLinkInstancesResult {
-  __type?: "DescribeClassicLinkInstancesResult";
   /**
    * <p>Information about one or more linked EC2-Classic instances.</p>
    */
@@ -10820,12 +10028,9 @@ export namespace DescribeClassicLinkInstancesResult {
   export const filterSensitiveLog = (obj: DescribeClassicLinkInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClassicLinkInstancesResult =>
-    __isa(o, "DescribeClassicLinkInstancesResult");
 }
 
 export interface DescribeClientVpnAuthorizationRulesRequest {
-  __type?: "DescribeClientVpnAuthorizationRulesRequest";
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
    * 	        <ul>
@@ -10871,12 +10076,9 @@ export namespace DescribeClientVpnAuthorizationRulesRequest {
   export const filterSensitiveLog = (obj: DescribeClientVpnAuthorizationRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnAuthorizationRulesRequest =>
-    __isa(o, "DescribeClientVpnAuthorizationRulesRequest");
 }
 
 export interface DescribeClientVpnAuthorizationRulesResult {
-  __type?: "DescribeClientVpnAuthorizationRulesResult";
   /**
    * <p>Information about the authorization rules.</p>
    */
@@ -10892,12 +10094,9 @@ export namespace DescribeClientVpnAuthorizationRulesResult {
   export const filterSensitiveLog = (obj: DescribeClientVpnAuthorizationRulesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnAuthorizationRulesResult =>
-    __isa(o, "DescribeClientVpnAuthorizationRulesResult");
 }
 
 export interface DescribeClientVpnConnectionsRequest {
-  __type?: "DescribeClientVpnConnectionsRequest";
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
    */
@@ -10939,12 +10138,9 @@ export namespace DescribeClientVpnConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnConnectionsRequest =>
-    __isa(o, "DescribeClientVpnConnectionsRequest");
 }
 
 export interface DescribeClientVpnConnectionsResult {
-  __type?: "DescribeClientVpnConnectionsResult";
   /**
    * <p>Information about the active and terminated client connections.</p>
    */
@@ -10960,12 +10156,9 @@ export namespace DescribeClientVpnConnectionsResult {
   export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnConnectionsResult =>
-    __isa(o, "DescribeClientVpnConnectionsResult");
 }
 
 export interface DescribeClientVpnEndpointsRequest {
-  __type?: "DescribeClientVpnEndpointsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -11007,11 +10200,9 @@ export namespace DescribeClientVpnEndpointsRequest {
   export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnEndpointsRequest => __isa(o, "DescribeClientVpnEndpointsRequest");
 }
 
 export interface DescribeClientVpnEndpointsResult {
-  __type?: "DescribeClientVpnEndpointsResult";
   /**
    * <p>Information about the Client VPN endpoints.</p>
    */
@@ -11027,11 +10218,9 @@ export namespace DescribeClientVpnEndpointsResult {
   export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnEndpointsResult => __isa(o, "DescribeClientVpnEndpointsResult");
 }
 
 export interface DescribeClientVpnRoutesRequest {
-  __type?: "DescribeClientVpnRoutesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -11076,11 +10265,9 @@ export namespace DescribeClientVpnRoutesRequest {
   export const filterSensitiveLog = (obj: DescribeClientVpnRoutesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnRoutesRequest => __isa(o, "DescribeClientVpnRoutesRequest");
 }
 
 export interface DescribeClientVpnRoutesResult {
-  __type?: "DescribeClientVpnRoutesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -11096,11 +10283,9 @@ export namespace DescribeClientVpnRoutesResult {
   export const filterSensitiveLog = (obj: DescribeClientVpnRoutesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnRoutesResult => __isa(o, "DescribeClientVpnRoutesResult");
 }
 
 export interface DescribeClientVpnTargetNetworksRequest {
-  __type?: "DescribeClientVpnTargetNetworksRequest";
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
    * 	        <ul>
@@ -11150,12 +10335,9 @@ export namespace DescribeClientVpnTargetNetworksRequest {
   export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnTargetNetworksRequest =>
-    __isa(o, "DescribeClientVpnTargetNetworksRequest");
 }
 
 export interface DescribeClientVpnTargetNetworksResult {
-  __type?: "DescribeClientVpnTargetNetworksResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -11171,12 +10353,9 @@ export namespace DescribeClientVpnTargetNetworksResult {
   export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientVpnTargetNetworksResult =>
-    __isa(o, "DescribeClientVpnTargetNetworksResult");
 }
 
 export interface DescribeCoipPoolsRequest {
-  __type?: "DescribeCoipPoolsRequest";
   /**
    * <p>The filters. The following are the possible values:</p>
    *          <ul>
@@ -11224,11 +10403,9 @@ export namespace DescribeCoipPoolsRequest {
   export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCoipPoolsRequest => __isa(o, "DescribeCoipPoolsRequest");
 }
 
 export interface DescribeCoipPoolsResult {
-  __type?: "DescribeCoipPoolsResult";
   /**
    * <p>Information about the address pools.</p>
    */
@@ -11244,11 +10421,9 @@ export namespace DescribeCoipPoolsResult {
   export const filterSensitiveLog = (obj: DescribeCoipPoolsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCoipPoolsResult => __isa(o, "DescribeCoipPoolsResult");
 }
 
 export interface DescribeConversionTasksRequest {
-  __type?: "DescribeConversionTasksRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -11266,11 +10441,9 @@ export namespace DescribeConversionTasksRequest {
   export const filterSensitiveLog = (obj: DescribeConversionTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConversionTasksRequest => __isa(o, "DescribeConversionTasksRequest");
 }
 
 export interface DescribeConversionTasksResult {
-  __type?: "DescribeConversionTasksResult";
   /**
    * <p>Information about the conversion tasks.</p>
    */
@@ -11281,14 +10454,12 @@ export namespace DescribeConversionTasksResult {
   export const filterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConversionTasksResult => __isa(o, "DescribeConversionTasksResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeCustomerGateways.</p>
  */
 export interface DescribeCustomerGatewaysRequest {
-  __type?: "DescribeCustomerGatewaysRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -11343,14 +10514,12 @@ export namespace DescribeCustomerGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeCustomerGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCustomerGatewaysRequest => __isa(o, "DescribeCustomerGatewaysRequest");
 }
 
 /**
  * <p>Contains the output of DescribeCustomerGateways.</p>
  */
 export interface DescribeCustomerGatewaysResult {
-  __type?: "DescribeCustomerGatewaysResult";
   /**
    * <p>Information about one or more customer gateways.</p>
    */
@@ -11361,11 +10530,9 @@ export namespace DescribeCustomerGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeCustomerGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCustomerGatewaysResult => __isa(o, "DescribeCustomerGatewaysResult");
 }
 
 export interface DescribeDhcpOptionsRequest {
-  __type?: "DescribeDhcpOptionsRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -11427,11 +10594,9 @@ export namespace DescribeDhcpOptionsRequest {
   export const filterSensitiveLog = (obj: DescribeDhcpOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDhcpOptionsRequest => __isa(o, "DescribeDhcpOptionsRequest");
 }
 
 export interface DescribeDhcpOptionsResult {
-  __type?: "DescribeDhcpOptionsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -11447,11 +10612,9 @@ export namespace DescribeDhcpOptionsResult {
   export const filterSensitiveLog = (obj: DescribeDhcpOptionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDhcpOptionsResult => __isa(o, "DescribeDhcpOptionsResult");
 }
 
 export interface DescribeEgressOnlyInternetGatewaysRequest {
-  __type?: "DescribeEgressOnlyInternetGatewaysRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -11496,12 +10659,9 @@ export namespace DescribeEgressOnlyInternetGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeEgressOnlyInternetGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEgressOnlyInternetGatewaysRequest =>
-    __isa(o, "DescribeEgressOnlyInternetGatewaysRequest");
 }
 
 export interface DescribeEgressOnlyInternetGatewaysResult {
-  __type?: "DescribeEgressOnlyInternetGatewaysResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -11517,12 +10677,9 @@ export namespace DescribeEgressOnlyInternetGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeEgressOnlyInternetGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEgressOnlyInternetGatewaysResult =>
-    __isa(o, "DescribeEgressOnlyInternetGatewaysResult");
 }
 
 export interface DescribeElasticGpusRequest {
-  __type?: "DescribeElasticGpusRequest";
   /**
    * <p>The Elastic Graphics accelerator IDs.</p>
    */
@@ -11584,11 +10741,9 @@ export namespace DescribeElasticGpusRequest {
   export const filterSensitiveLog = (obj: DescribeElasticGpusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticGpusRequest => __isa(o, "DescribeElasticGpusRequest");
 }
 
 export interface DescribeElasticGpusResult {
-  __type?: "DescribeElasticGpusResult";
   /**
    * <p>The total number of items to return. If the total number of items available is more
    *             than the value specified in max-items then a Next-Token will be provided in the output
@@ -11612,11 +10767,9 @@ export namespace DescribeElasticGpusResult {
   export const filterSensitiveLog = (obj: DescribeElasticGpusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticGpusResult => __isa(o, "DescribeElasticGpusResult");
 }
 
 export interface DescribeExportImageTasksRequest {
-  __type?: "DescribeExportImageTasksRequest";
   /**
    * <p>A token that indicates the next page of results.</p>
    */
@@ -11650,11 +10803,9 @@ export namespace DescribeExportImageTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportImageTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportImageTasksRequest => __isa(o, "DescribeExportImageTasksRequest");
 }
 
 export interface DescribeExportImageTasksResult {
-  __type?: "DescribeExportImageTasksResult";
   /**
    * <p>Information about the export image tasks.</p>
    */
@@ -11671,11 +10822,9 @@ export namespace DescribeExportImageTasksResult {
   export const filterSensitiveLog = (obj: DescribeExportImageTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportImageTasksResult => __isa(o, "DescribeExportImageTasksResult");
 }
 
 export interface DescribeExportTasksRequest {
-  __type?: "DescribeExportTasksRequest";
   /**
    * <p>the filters for the export tasks.</p>
    */
@@ -11691,11 +10840,9 @@ export namespace DescribeExportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksRequest => __isa(o, "DescribeExportTasksRequest");
 }
 
 export interface DescribeExportTasksResult {
-  __type?: "DescribeExportTasksResult";
   /**
    * <p>Information about the export tasks.</p>
    */
@@ -11706,11 +10853,9 @@ export namespace DescribeExportTasksResult {
   export const filterSensitiveLog = (obj: DescribeExportTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksResult => __isa(o, "DescribeExportTasksResult");
 }
 
 export interface DescribeFastSnapshotRestoresRequest {
-  __type?: "DescribeFastSnapshotRestoresRequest";
   /**
    * <p>The filters. The possible values are:</p>
    *          <ul>
@@ -11762,12 +10907,9 @@ export namespace DescribeFastSnapshotRestoresRequest {
   export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoresRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFastSnapshotRestoresRequest =>
-    __isa(o, "DescribeFastSnapshotRestoresRequest");
 }
 
 export interface DescribeFastSnapshotRestoresResult {
-  __type?: "DescribeFastSnapshotRestoresResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -11783,15 +10925,12 @@ export namespace DescribeFastSnapshotRestoresResult {
   export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoresResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFastSnapshotRestoresResult =>
-    __isa(o, "DescribeFastSnapshotRestoresResult");
 }
 
 /**
  * <p>Describes fast snapshot restores for a snapshot.</p>
  */
 export interface DescribeFastSnapshotRestoreSuccessItem {
-  __type?: "DescribeFastSnapshotRestoreSuccessItem";
   /**
    * <p>The ID of the snapshot.</p>
    */
@@ -11864,15 +11003,12 @@ export namespace DescribeFastSnapshotRestoreSuccessItem {
   export const filterSensitiveLog = (obj: DescribeFastSnapshotRestoreSuccessItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFastSnapshotRestoreSuccessItem =>
-    __isa(o, "DescribeFastSnapshotRestoreSuccessItem");
 }
 
 /**
  * <p>Describes the instances that could not be launched by the fleet.</p>
  */
 export interface DescribeFleetError {
-  __type?: "DescribeFleetError";
   /**
    * <p>The error code that indicates why the instance could not be launched. For more
    *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
@@ -11901,11 +11037,9 @@ export namespace DescribeFleetError {
   export const filterSensitiveLog = (obj: DescribeFleetError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetError => __isa(o, "DescribeFleetError");
 }
 
 export interface DescribeFleetHistoryRequest {
-  __type?: "DescribeFleetHistoryRequest";
   /**
    * <p>The ID of the EC2 Fleet.</p>
    */
@@ -11946,11 +11080,9 @@ export namespace DescribeFleetHistoryRequest {
   export const filterSensitiveLog = (obj: DescribeFleetHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetHistoryRequest => __isa(o, "DescribeFleetHistoryRequest");
 }
 
 export interface DescribeFleetHistoryResult {
-  __type?: "DescribeFleetHistoryResult";
   /**
    * <p>Information about the events in the history of the EC2 Fleet.</p>
    */
@@ -11986,11 +11118,9 @@ export namespace DescribeFleetHistoryResult {
   export const filterSensitiveLog = (obj: DescribeFleetHistoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetHistoryResult => __isa(o, "DescribeFleetHistoryResult");
 }
 
 export interface DescribeFleetInstancesRequest {
-  __type?: "DescribeFleetInstancesRequest";
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -12031,11 +11161,9 @@ export namespace DescribeFleetInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeFleetInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetInstancesRequest => __isa(o, "DescribeFleetInstancesRequest");
 }
 
 export interface DescribeFleetInstancesResult {
-  __type?: "DescribeFleetInstancesResult";
   /**
    * <p>The running instances. This list is refreshed periodically and might be out of
    *          date.</p>
@@ -12057,14 +11185,12 @@ export namespace DescribeFleetInstancesResult {
   export const filterSensitiveLog = (obj: DescribeFleetInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetInstancesResult => __isa(o, "DescribeFleetInstancesResult");
 }
 
 /**
  * <p>Describes the instances that were launched by the fleet.</p>
  */
 export interface DescribeFleetsInstances {
-  __type?: "DescribeFleetsInstances";
   /**
    * <p>The IDs of the instances.</p>
    */
@@ -12097,11 +11223,9 @@ export namespace DescribeFleetsInstances {
   export const filterSensitiveLog = (obj: DescribeFleetsInstances): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsInstances => __isa(o, "DescribeFleetsInstances");
 }
 
 export interface DescribeFleetsRequest {
-  __type?: "DescribeFleetsRequest";
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -12167,11 +11291,9 @@ export namespace DescribeFleetsRequest {
   export const filterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsRequest => __isa(o, "DescribeFleetsRequest");
 }
 
 export interface DescribeFleetsResult {
-  __type?: "DescribeFleetsResult";
   /**
    * <p>Information about the EC2 Fleets.</p>
    */
@@ -12187,11 +11309,9 @@ export namespace DescribeFleetsResult {
   export const filterSensitiveLog = (obj: DescribeFleetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsResult => __isa(o, "DescribeFleetsResult");
 }
 
 export interface DescribeFlowLogsRequest {
-  __type?: "DescribeFlowLogsRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -12265,11 +11385,9 @@ export namespace DescribeFlowLogsRequest {
   export const filterSensitiveLog = (obj: DescribeFlowLogsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowLogsRequest => __isa(o, "DescribeFlowLogsRequest");
 }
 
 export interface DescribeFlowLogsResult {
-  __type?: "DescribeFlowLogsResult";
   /**
    * <p>Information about the flow logs.</p>
    */
@@ -12285,11 +11403,9 @@ export namespace DescribeFlowLogsResult {
   export const filterSensitiveLog = (obj: DescribeFlowLogsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowLogsResult => __isa(o, "DescribeFlowLogsResult");
 }
 
 export interface DescribeFpgaImageAttributeRequest {
-  __type?: "DescribeFpgaImageAttributeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -12312,11 +11428,9 @@ export namespace DescribeFpgaImageAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeFpgaImageAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImageAttributeRequest => __isa(o, "DescribeFpgaImageAttributeRequest");
 }
 
 export interface DescribeFpgaImageAttributeResult {
-  __type?: "DescribeFpgaImageAttributeResult";
   /**
    * <p>Information about the attribute.</p>
    */
@@ -12327,11 +11441,9 @@ export namespace DescribeFpgaImageAttributeResult {
   export const filterSensitiveLog = (obj: DescribeFpgaImageAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImageAttributeResult => __isa(o, "DescribeFpgaImageAttributeResult");
 }
 
 export interface DescribeFpgaImagesRequest {
-  __type?: "DescribeFpgaImagesRequest";
   /**
    * <p>Filters the AFI by owner. Specify an AWS account ID, <code>self</code> (owner is the sender of the request), or an AWS owner alias (valid values are <code>amazon</code> | <code>aws-marketplace</code>).</p>
    */
@@ -12416,11 +11528,9 @@ export namespace DescribeFpgaImagesRequest {
   export const filterSensitiveLog = (obj: DescribeFpgaImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImagesRequest => __isa(o, "DescribeFpgaImagesRequest");
 }
 
 export interface DescribeFpgaImagesResult {
-  __type?: "DescribeFpgaImagesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -12436,11 +11546,9 @@ export namespace DescribeFpgaImagesResult {
   export const filterSensitiveLog = (obj: DescribeFpgaImagesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFpgaImagesResult => __isa(o, "DescribeFpgaImagesResult");
 }
 
 export interface DescribeHostReservationOfferingsRequest {
-  __type?: "DescribeHostReservationOfferingsRequest";
   /**
    * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
    *             Reservations are available in one-year and three-year terms. The number of seconds
@@ -12494,12 +11602,9 @@ export namespace DescribeHostReservationOfferingsRequest {
   export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHostReservationOfferingsRequest =>
-    __isa(o, "DescribeHostReservationOfferingsRequest");
 }
 
 export interface DescribeHostReservationOfferingsResult {
-  __type?: "DescribeHostReservationOfferingsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -12515,12 +11620,9 @@ export namespace DescribeHostReservationOfferingsResult {
   export const filterSensitiveLog = (obj: DescribeHostReservationOfferingsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHostReservationOfferingsResult =>
-    __isa(o, "DescribeHostReservationOfferingsResult");
 }
 
 export interface DescribeHostReservationsRequest {
-  __type?: "DescribeHostReservationsRequest";
   /**
    * <p>The filters.</p>
    *         <ul>
@@ -12573,11 +11675,9 @@ export namespace DescribeHostReservationsRequest {
   export const filterSensitiveLog = (obj: DescribeHostReservationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHostReservationsRequest => __isa(o, "DescribeHostReservationsRequest");
 }
 
 export interface DescribeHostReservationsResult {
-  __type?: "DescribeHostReservationsResult";
   /**
    * <p>Details about the reservation's configuration.</p>
    */
@@ -12593,11 +11693,9 @@ export namespace DescribeHostReservationsResult {
   export const filterSensitiveLog = (obj: DescribeHostReservationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHostReservationsResult => __isa(o, "DescribeHostReservationsResult");
 }
 
 export interface DescribeHostsRequest {
-  __type?: "DescribeHostsRequest";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -12663,11 +11761,9 @@ export namespace DescribeHostsRequest {
   export const filterSensitiveLog = (obj: DescribeHostsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHostsRequest => __isa(o, "DescribeHostsRequest");
 }
 
 export interface DescribeHostsResult {
-  __type?: "DescribeHostsResult";
   /**
    * <p>Information about the Dedicated Hosts.</p>
    */
@@ -12683,11 +11779,9 @@ export namespace DescribeHostsResult {
   export const filterSensitiveLog = (obj: DescribeHostsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHostsResult => __isa(o, "DescribeHostsResult");
 }
 
 export interface DescribeIamInstanceProfileAssociationsRequest {
-  __type?: "DescribeIamInstanceProfileAssociationsRequest";
   /**
    * <p>The IAM instance profile associations.</p>
    */
@@ -12725,12 +11819,9 @@ export namespace DescribeIamInstanceProfileAssociationsRequest {
   export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIamInstanceProfileAssociationsRequest =>
-    __isa(o, "DescribeIamInstanceProfileAssociationsRequest");
 }
 
 export interface DescribeIamInstanceProfileAssociationsResult {
-  __type?: "DescribeIamInstanceProfileAssociationsResult";
   /**
    * <p>Information about the IAM instance profile associations.</p>
    */
@@ -12746,12 +11837,9 @@ export namespace DescribeIamInstanceProfileAssociationsResult {
   export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIamInstanceProfileAssociationsResult =>
-    __isa(o, "DescribeIamInstanceProfileAssociationsResult");
 }
 
 export interface DescribeIdentityIdFormatRequest {
-  __type?: "DescribeIdentityIdFormatRequest";
   /**
    * <p>The type of resource: <code>bundle</code> |
    *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -12780,11 +11868,9 @@ export namespace DescribeIdentityIdFormatRequest {
   export const filterSensitiveLog = (obj: DescribeIdentityIdFormatRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityIdFormatRequest => __isa(o, "DescribeIdentityIdFormatRequest");
 }
 
 export interface DescribeIdentityIdFormatResult {
-  __type?: "DescribeIdentityIdFormatResult";
   /**
    * <p>Information about the ID format for the resources.</p>
    */
@@ -12795,11 +11881,9 @@ export namespace DescribeIdentityIdFormatResult {
   export const filterSensitiveLog = (obj: DescribeIdentityIdFormatResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityIdFormatResult => __isa(o, "DescribeIdentityIdFormatResult");
 }
 
 export interface DescribeIdFormatRequest {
-  __type?: "DescribeIdFormatRequest";
   /**
    * <p>The type of resource: <code>bundle</code> |
    *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -12823,11 +11907,9 @@ export namespace DescribeIdFormatRequest {
   export const filterSensitiveLog = (obj: DescribeIdFormatRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdFormatRequest => __isa(o, "DescribeIdFormatRequest");
 }
 
 export interface DescribeIdFormatResult {
-  __type?: "DescribeIdFormatResult";
   /**
    * <p>Information about the ID format for the resource.</p>
    */
@@ -12838,14 +11920,12 @@ export namespace DescribeIdFormatResult {
   export const filterSensitiveLog = (obj: DescribeIdFormatResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdFormatResult => __isa(o, "DescribeIdFormatResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeImageAttribute.</p>
  */
 export interface DescribeImageAttributeRequest {
-  __type?: "DescribeImageAttributeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -12872,11 +11952,9 @@ export namespace DescribeImageAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeImageAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImageAttributeRequest => __isa(o, "DescribeImageAttributeRequest");
 }
 
 export interface DescribeImagesRequest {
-  __type?: "DescribeImagesRequest";
   /**
    * <p>Scopes the results to images with the specified owners. You can specify a combination of
    *       AWS account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
@@ -13062,11 +12140,9 @@ export namespace DescribeImagesRequest {
   export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResult {
-  __type?: "DescribeImagesResult";
   /**
    * <p>Information about the images.</p>
    */
@@ -13077,11 +12153,9 @@ export namespace DescribeImagesResult {
   export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesResult => __isa(o, "DescribeImagesResult");
 }
 
 export interface DescribeImportImageTasksRequest {
-  __type?: "DescribeImportImageTasksRequest";
   /**
    * <p>A token that indicates the next page of results.</p>
    */
@@ -13115,11 +12189,9 @@ export namespace DescribeImportImageTasksRequest {
   export const filterSensitiveLog = (obj: DescribeImportImageTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImportImageTasksRequest => __isa(o, "DescribeImportImageTasksRequest");
 }
 
 export interface DescribeImportImageTasksResult {
-  __type?: "DescribeImportImageTasksResult";
   /**
    * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
    *    previous 7 days.</p>
@@ -13137,11 +12209,9 @@ export namespace DescribeImportImageTasksResult {
   export const filterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImportImageTasksResult => __isa(o, "DescribeImportImageTasksResult");
 }
 
 export interface DescribeImportSnapshotTasksRequest {
-  __type?: "DescribeImportSnapshotTasksRequest";
   /**
    * <p>A list of import snapshot task IDs.</p>
    */
@@ -13175,12 +12245,9 @@ export namespace DescribeImportSnapshotTasksRequest {
   export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImportSnapshotTasksRequest =>
-    __isa(o, "DescribeImportSnapshotTasksRequest");
 }
 
 export interface DescribeImportSnapshotTasksResult {
-  __type?: "DescribeImportSnapshotTasksResult";
   /**
    * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
    *    to return.</p>
@@ -13198,11 +12265,9 @@ export namespace DescribeImportSnapshotTasksResult {
   export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImportSnapshotTasksResult => __isa(o, "DescribeImportSnapshotTasksResult");
 }
 
 export interface DescribeInstanceAttributeRequest {
-  __type?: "DescribeInstanceAttributeRequest";
   /**
    * <p>The instance attribute.</p>
    *         <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
@@ -13226,11 +12291,9 @@ export namespace DescribeInstanceAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceAttributeRequest => __isa(o, "DescribeInstanceAttributeRequest");
 }
 
 export interface DescribeInstanceCreditSpecificationsRequest {
-  __type?: "DescribeInstanceCreditSpecificationsRequest";
   /**
    * <p>The filters.</p>
    *         <ul>
@@ -13274,12 +12337,9 @@ export namespace DescribeInstanceCreditSpecificationsRequest {
   export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceCreditSpecificationsRequest =>
-    __isa(o, "DescribeInstanceCreditSpecificationsRequest");
 }
 
 export interface DescribeInstanceCreditSpecificationsResult {
-  __type?: "DescribeInstanceCreditSpecificationsResult";
   /**
    * <p>Information about the credit option for CPU usage of an instance.</p>
    */
@@ -13296,12 +12356,9 @@ export namespace DescribeInstanceCreditSpecificationsResult {
   export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceCreditSpecificationsResult =>
-    __isa(o, "DescribeInstanceCreditSpecificationsResult");
 }
 
 export interface DescribeInstanceEventNotificationAttributesRequest {
-  __type?: "DescribeInstanceEventNotificationAttributesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -13314,12 +12371,9 @@ export namespace DescribeInstanceEventNotificationAttributesRequest {
   export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceEventNotificationAttributesRequest =>
-    __isa(o, "DescribeInstanceEventNotificationAttributesRequest");
 }
 
 export interface DescribeInstanceEventNotificationAttributesResult {
-  __type?: "DescribeInstanceEventNotificationAttributesResult";
   /**
    * <p>Information about the registered tag keys.</p>
    */
@@ -13330,12 +12384,9 @@ export namespace DescribeInstanceEventNotificationAttributesResult {
   export const filterSensitiveLog = (obj: DescribeInstanceEventNotificationAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceEventNotificationAttributesResult =>
-    __isa(o, "DescribeInstanceEventNotificationAttributesResult");
 }
 
 export interface DescribeInstancesRequest {
-  __type?: "DescribeInstancesRequest";
   /**
    * <p>The instance IDs.</p>
    *         <p>Default: Describes all your instances.</p>
@@ -13823,11 +12874,9 @@ export namespace DescribeInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesRequest => __isa(o, "DescribeInstancesRequest");
 }
 
 export interface DescribeInstancesResult {
-  __type?: "DescribeInstancesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *             when there are no more results to return.</p>
@@ -13844,11 +12893,9 @@ export namespace DescribeInstancesResult {
   export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesResult => __isa(o, "DescribeInstancesResult");
 }
 
 export interface DescribeInstanceStatusRequest {
-  __type?: "DescribeInstanceStatusRequest";
   /**
    * <p>The filters.</p>
    *         <ul>
@@ -13970,11 +13017,9 @@ export namespace DescribeInstanceStatusRequest {
   export const filterSensitiveLog = (obj: DescribeInstanceStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceStatusRequest => __isa(o, "DescribeInstanceStatusRequest");
 }
 
 export interface DescribeInstanceStatusResult {
-  __type?: "DescribeInstanceStatusResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *             when there are no more results to return.</p>
@@ -13991,11 +13036,9 @@ export namespace DescribeInstanceStatusResult {
   export const filterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceStatusResult => __isa(o, "DescribeInstanceStatusResult");
 }
 
 export interface DescribeInstanceTypeOfferingsRequest {
-  __type?: "DescribeInstanceTypeOfferingsRequest";
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results
    *          can be seen by sending another request with the next token value.</p>
@@ -14040,12 +13083,9 @@ export namespace DescribeInstanceTypeOfferingsRequest {
   export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceTypeOfferingsRequest =>
-    __isa(o, "DescribeInstanceTypeOfferingsRequest");
 }
 
 export interface DescribeInstanceTypeOfferingsResult {
-  __type?: "DescribeInstanceTypeOfferingsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
    *          are no more results to return.</p>
@@ -14062,12 +13102,9 @@ export namespace DescribeInstanceTypeOfferingsResult {
   export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceTypeOfferingsResult =>
-    __isa(o, "DescribeInstanceTypeOfferingsResult");
 }
 
 export interface DescribeInstanceTypesRequest {
-  __type?: "DescribeInstanceTypesRequest";
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results
    *          can be seen by sending another request with the next token value.</p>
@@ -14258,11 +13295,9 @@ export namespace DescribeInstanceTypesRequest {
   export const filterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceTypesRequest => __isa(o, "DescribeInstanceTypesRequest");
 }
 
 export interface DescribeInstanceTypesResult {
-  __type?: "DescribeInstanceTypesResult";
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
@@ -14280,11 +13315,9 @@ export namespace DescribeInstanceTypesResult {
   export const filterSensitiveLog = (obj: DescribeInstanceTypesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceTypesResult => __isa(o, "DescribeInstanceTypesResult");
 }
 
 export interface DescribeInternetGatewaysRequest {
-  __type?: "DescribeInternetGatewaysRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -14347,11 +13380,9 @@ export namespace DescribeInternetGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeInternetGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInternetGatewaysRequest => __isa(o, "DescribeInternetGatewaysRequest");
 }
 
 export interface DescribeInternetGatewaysResult {
-  __type?: "DescribeInternetGatewaysResult";
   /**
    * <p>Information about one or more internet gateways.</p>
    */
@@ -14367,11 +13398,9 @@ export namespace DescribeInternetGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeInternetGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInternetGatewaysResult => __isa(o, "DescribeInternetGatewaysResult");
 }
 
 export interface DescribeIpv6PoolsRequest {
-  __type?: "DescribeIpv6PoolsRequest";
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -14416,11 +13445,9 @@ export namespace DescribeIpv6PoolsRequest {
   export const filterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIpv6PoolsRequest => __isa(o, "DescribeIpv6PoolsRequest");
 }
 
 export interface DescribeIpv6PoolsResult {
-  __type?: "DescribeIpv6PoolsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -14436,11 +13463,9 @@ export namespace DescribeIpv6PoolsResult {
   export const filterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIpv6PoolsResult => __isa(o, "DescribeIpv6PoolsResult");
 }
 
 export interface DescribeKeyPairsRequest {
-  __type?: "DescribeKeyPairsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -14492,11 +13517,9 @@ export namespace DescribeKeyPairsRequest {
   export const filterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyPairsRequest => __isa(o, "DescribeKeyPairsRequest");
 }
 
 export interface DescribeKeyPairsResult {
-  __type?: "DescribeKeyPairsResult";
   /**
    * <p>Information about the key pairs.</p>
    */
@@ -14507,11 +13530,9 @@ export namespace DescribeKeyPairsResult {
   export const filterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyPairsResult => __isa(o, "DescribeKeyPairsResult");
 }
 
 export interface DescribeLaunchTemplatesRequest {
-  __type?: "DescribeLaunchTemplatesRequest";
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *             results, make another call with the returned <code>NextToken</code> value. This value
@@ -14571,11 +13592,9 @@ export namespace DescribeLaunchTemplatesRequest {
   export const filterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLaunchTemplatesRequest => __isa(o, "DescribeLaunchTemplatesRequest");
 }
 
 export interface DescribeLaunchTemplatesResult {
-  __type?: "DescribeLaunchTemplatesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is
    *                 <code>null</code> when there are no more results to return.</p>
@@ -14592,11 +13611,9 @@ export namespace DescribeLaunchTemplatesResult {
   export const filterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLaunchTemplatesResult => __isa(o, "DescribeLaunchTemplatesResult");
 }
 
 export interface DescribeLaunchTemplateVersionsRequest {
-  __type?: "DescribeLaunchTemplateVersionsRequest";
   /**
    * <p>The name of the launch template. To describe one or more versions of a specified
    *             launch template, you must specify either the launch template ID or the launch template
@@ -14701,12 +13718,9 @@ export namespace DescribeLaunchTemplateVersionsRequest {
   export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLaunchTemplateVersionsRequest =>
-    __isa(o, "DescribeLaunchTemplateVersionsRequest");
 }
 
 export interface DescribeLaunchTemplateVersionsResult {
-  __type?: "DescribeLaunchTemplateVersionsResult";
   /**
    * <p>Information about the launch template versions.</p>
    */
@@ -14723,12 +13737,9 @@ export namespace DescribeLaunchTemplateVersionsResult {
   export const filterSensitiveLog = (obj: DescribeLaunchTemplateVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLaunchTemplateVersionsResult =>
-    __isa(o, "DescribeLaunchTemplateVersionsResult");
 }
 
 export interface DescribeLocalGatewayRouteTablesRequest {
-  __type?: "DescribeLocalGatewayRouteTablesRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -14780,12 +13791,9 @@ export namespace DescribeLocalGatewayRouteTablesRequest {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTablesRequest =>
-    __isa(o, "DescribeLocalGatewayRouteTablesRequest");
 }
 
 export interface DescribeLocalGatewayRouteTablesResult {
-  __type?: "DescribeLocalGatewayRouteTablesResult";
   /**
    * <p>Information about the local gateway route tables.</p>
    */
@@ -14801,12 +13809,9 @@ export namespace DescribeLocalGatewayRouteTablesResult {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTablesResult =>
-    __isa(o, "DescribeLocalGatewayRouteTablesResult");
 }
 
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
-  __type?: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest";
   /**
    * <p>The IDs of the associations.</p>
    */
@@ -14864,12 +13869,9 @@ export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   ): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest =>
-    __isa(o, "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest");
 }
 
 export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
-  __type?: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult";
   /**
    * <p>Information about the associations.</p>
    */
@@ -14887,12 +13889,9 @@ export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   ): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult =>
-    __isa(o, "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult");
 }
 
 export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  __type?: "DescribeLocalGatewayRouteTableVpcAssociationsRequest";
   /**
    * <p>The IDs of the associations.</p>
    */
@@ -14948,12 +13947,9 @@ export namespace DescribeLocalGatewayRouteTableVpcAssociationsRequest {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVpcAssociationsRequest =>
-    __isa(o, "DescribeLocalGatewayRouteTableVpcAssociationsRequest");
 }
 
 export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  __type?: "DescribeLocalGatewayRouteTableVpcAssociationsResult";
   /**
    * <p>Information about the associations.</p>
    */
@@ -14969,12 +13965,9 @@ export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayRouteTableVpcAssociationsResult =>
-    __isa(o, "DescribeLocalGatewayRouteTableVpcAssociationsResult");
 }
 
 export interface DescribeLocalGatewaysRequest {
-  __type?: "DescribeLocalGatewaysRequest";
   /**
    * <p>One or more filters.</p>
    */
@@ -15034,11 +14027,9 @@ export namespace DescribeLocalGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewaysRequest => __isa(o, "DescribeLocalGatewaysRequest");
 }
 
 export interface DescribeLocalGatewaysResult {
-  __type?: "DescribeLocalGatewaysResult";
   /**
    * <p>Information about the local gateways.</p>
    */
@@ -15054,11 +14045,9 @@ export namespace DescribeLocalGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewaysResult => __isa(o, "DescribeLocalGatewaysResult");
 }
 
 export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
-  __type?: "DescribeLocalGatewayVirtualInterfaceGroupsRequest";
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -15106,12 +14095,9 @@ export namespace DescribeLocalGatewayVirtualInterfaceGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfaceGroupsRequest =>
-    __isa(o, "DescribeLocalGatewayVirtualInterfaceGroupsRequest");
 }
 
 export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
-  __type?: "DescribeLocalGatewayVirtualInterfaceGroupsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -15127,12 +14113,9 @@ export namespace DescribeLocalGatewayVirtualInterfaceGroupsResult {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfaceGroupsResult =>
-    __isa(o, "DescribeLocalGatewayVirtualInterfaceGroupsResult");
 }
 
 export interface DescribeLocalGatewayVirtualInterfacesRequest {
-  __type?: "DescribeLocalGatewayVirtualInterfacesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -15166,12 +14149,9 @@ export namespace DescribeLocalGatewayVirtualInterfacesRequest {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfacesRequest =>
-    __isa(o, "DescribeLocalGatewayVirtualInterfacesRequest");
 }
 
 export interface DescribeLocalGatewayVirtualInterfacesResult {
-  __type?: "DescribeLocalGatewayVirtualInterfacesResult";
   /**
    * <p>Information about the virtual interfaces.</p>
    */
@@ -15187,12 +14167,9 @@ export namespace DescribeLocalGatewayVirtualInterfacesResult {
   export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLocalGatewayVirtualInterfacesResult =>
-    __isa(o, "DescribeLocalGatewayVirtualInterfacesResult");
 }
 
 export interface DescribeManagedPrefixListsRequest {
-  __type?: "DescribeManagedPrefixListsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -15240,11 +14217,9 @@ export namespace DescribeManagedPrefixListsRequest {
   export const filterSensitiveLog = (obj: DescribeManagedPrefixListsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeManagedPrefixListsRequest => __isa(o, "DescribeManagedPrefixListsRequest");
 }
 
 export interface DescribeManagedPrefixListsResult {
-  __type?: "DescribeManagedPrefixListsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -15260,11 +14235,9 @@ export namespace DescribeManagedPrefixListsResult {
   export const filterSensitiveLog = (obj: DescribeManagedPrefixListsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeManagedPrefixListsResult => __isa(o, "DescribeManagedPrefixListsResult");
 }
 
 export interface DescribeMovingAddressesRequest {
-  __type?: "DescribeMovingAddressesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -15308,11 +14281,9 @@ export namespace DescribeMovingAddressesRequest {
   export const filterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMovingAddressesRequest => __isa(o, "DescribeMovingAddressesRequest");
 }
 
 export interface DescribeMovingAddressesResult {
-  __type?: "DescribeMovingAddressesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -15328,11 +14299,9 @@ export namespace DescribeMovingAddressesResult {
   export const filterSensitiveLog = (obj: DescribeMovingAddressesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMovingAddressesResult => __isa(o, "DescribeMovingAddressesResult");
 }
 
 export interface DescribeNatGatewaysRequest {
-  __type?: "DescribeNatGatewaysRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -15394,11 +14363,9 @@ export namespace DescribeNatGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeNatGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNatGatewaysRequest => __isa(o, "DescribeNatGatewaysRequest");
 }
 
 export interface DescribeNatGatewaysResult {
-  __type?: "DescribeNatGatewaysResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -15414,11 +14381,9 @@ export namespace DescribeNatGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeNatGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNatGatewaysResult => __isa(o, "DescribeNatGatewaysResult");
 }
 
 export interface DescribeNetworkAclsRequest {
-  __type?: "DescribeNetworkAclsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -15529,11 +14494,9 @@ export namespace DescribeNetworkAclsRequest {
   export const filterSensitiveLog = (obj: DescribeNetworkAclsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkAclsRequest => __isa(o, "DescribeNetworkAclsRequest");
 }
 
 export interface DescribeNetworkAclsResult {
-  __type?: "DescribeNetworkAclsResult";
   /**
    * <p>Information about one or more network ACLs.</p>
    */
@@ -15549,14 +14512,12 @@ export namespace DescribeNetworkAclsResult {
   export const filterSensitiveLog = (obj: DescribeNetworkAclsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkAclsResult => __isa(o, "DescribeNetworkAclsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
  */
 export interface DescribeNetworkInterfaceAttributeRequest {
-  __type?: "DescribeNetworkInterfaceAttributeRequest";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -15579,15 +14540,12 @@ export namespace DescribeNetworkInterfaceAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfaceAttributeRequest =>
-    __isa(o, "DescribeNetworkInterfaceAttributeRequest");
 }
 
 /**
  * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
  */
 export interface DescribeNetworkInterfaceAttributeResult {
-  __type?: "DescribeNetworkInterfaceAttributeResult";
   /**
    * <p>The security groups associated with the network interface.</p>
    */
@@ -15618,15 +14576,12 @@ export namespace DescribeNetworkInterfaceAttributeResult {
   export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfaceAttributeResult =>
-    __isa(o, "DescribeNetworkInterfaceAttributeResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
  */
 export interface DescribeNetworkInterfacePermissionsRequest {
-  __type?: "DescribeNetworkInterfacePermissionsRequest";
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
    * 			make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
@@ -15681,15 +14636,12 @@ export namespace DescribeNetworkInterfacePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfacePermissionsRequest =>
-    __isa(o, "DescribeNetworkInterfacePermissionsRequest");
 }
 
 /**
  * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
  */
 export interface DescribeNetworkInterfacePermissionsResult {
-  __type?: "DescribeNetworkInterfacePermissionsResult";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -15705,15 +14657,12 @@ export namespace DescribeNetworkInterfacePermissionsResult {
   export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfacePermissionsResult =>
-    __isa(o, "DescribeNetworkInterfacePermissionsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeNetworkInterfaces.</p>
  */
 export interface DescribeNetworkInterfacesRequest {
-  __type?: "DescribeNetworkInterfacesRequest";
   /**
    * <p>The token to retrieve the next page of results.</p>
    */
@@ -15902,14 +14851,12 @@ export namespace DescribeNetworkInterfacesRequest {
   export const filterSensitiveLog = (obj: DescribeNetworkInterfacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfacesRequest => __isa(o, "DescribeNetworkInterfacesRequest");
 }
 
 /**
  * <p>Contains the output of DescribeNetworkInterfaces.</p>
  */
 export interface DescribeNetworkInterfacesResult {
-  __type?: "DescribeNetworkInterfacesResult";
   /**
    * <p>Information about one or more network interfaces.</p>
    */
@@ -15925,11 +14872,9 @@ export namespace DescribeNetworkInterfacesResult {
   export const filterSensitiveLog = (obj: DescribeNetworkInterfacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNetworkInterfacesResult => __isa(o, "DescribeNetworkInterfacesResult");
 }
 
 export interface DescribePlacementGroupsRequest {
-  __type?: "DescribePlacementGroupsRequest";
   /**
    * <p>The IDs of the placement groups.</p>
    */
@@ -15986,11 +14931,9 @@ export namespace DescribePlacementGroupsRequest {
   export const filterSensitiveLog = (obj: DescribePlacementGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePlacementGroupsRequest => __isa(o, "DescribePlacementGroupsRequest");
 }
 
 export interface DescribePlacementGroupsResult {
-  __type?: "DescribePlacementGroupsResult";
   /**
    * <p>Information about the placement groups.</p>
    */
@@ -16001,11 +14944,9 @@ export namespace DescribePlacementGroupsResult {
   export const filterSensitiveLog = (obj: DescribePlacementGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePlacementGroupsResult => __isa(o, "DescribePlacementGroupsResult");
 }
 
 export interface DescribePrefixListsRequest {
-  __type?: "DescribePrefixListsRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -16049,11 +14990,9 @@ export namespace DescribePrefixListsRequest {
   export const filterSensitiveLog = (obj: DescribePrefixListsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePrefixListsRequest => __isa(o, "DescribePrefixListsRequest");
 }
 
 export interface DescribePrefixListsResult {
-  __type?: "DescribePrefixListsResult";
   /**
    * <p>All available prefix lists.</p>
    */
@@ -16069,11 +15008,9 @@ export namespace DescribePrefixListsResult {
   export const filterSensitiveLog = (obj: DescribePrefixListsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePrefixListsResult => __isa(o, "DescribePrefixListsResult");
 }
 
 export interface DescribePrincipalIdFormatRequest {
-  __type?: "DescribePrincipalIdFormatRequest";
   /**
    * <p>The token to request the next page of results.</p>
    */
@@ -16115,11 +15052,9 @@ export namespace DescribePrincipalIdFormatRequest {
   export const filterSensitiveLog = (obj: DescribePrincipalIdFormatRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePrincipalIdFormatRequest => __isa(o, "DescribePrincipalIdFormatRequest");
 }
 
 export interface DescribePrincipalIdFormatResult {
-  __type?: "DescribePrincipalIdFormatResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
    */
@@ -16135,11 +15070,9 @@ export namespace DescribePrincipalIdFormatResult {
   export const filterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePrincipalIdFormatResult => __isa(o, "DescribePrincipalIdFormatResult");
 }
 
 export interface DescribePublicIpv4PoolsRequest {
-  __type?: "DescribePublicIpv4PoolsRequest";
   /**
    * <p>The IDs of the address pools.</p>
    */
@@ -16177,11 +15110,9 @@ export namespace DescribePublicIpv4PoolsRequest {
   export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePublicIpv4PoolsRequest => __isa(o, "DescribePublicIpv4PoolsRequest");
 }
 
 export interface DescribePublicIpv4PoolsResult {
-  __type?: "DescribePublicIpv4PoolsResult";
   /**
    * <p>Information about the address pools.</p>
    */
@@ -16197,11 +15128,9 @@ export namespace DescribePublicIpv4PoolsResult {
   export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePublicIpv4PoolsResult => __isa(o, "DescribePublicIpv4PoolsResult");
 }
 
 export interface DescribeRegionsRequest {
-  __type?: "DescribeRegionsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -16244,11 +15173,9 @@ export namespace DescribeRegionsRequest {
   export const filterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRegionsRequest => __isa(o, "DescribeRegionsRequest");
 }
 
 export interface DescribeRegionsResult {
-  __type?: "DescribeRegionsResult";
   /**
    * <p>Information about the Regions.</p>
    */
@@ -16259,14 +15186,12 @@ export namespace DescribeRegionsResult {
   export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRegionsResult => __isa(o, "DescribeRegionsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
  */
 export interface DescribeReservedInstancesListingsRequest {
-  __type?: "DescribeReservedInstancesListingsRequest";
   /**
    * <p>One or more Reserved Instance listing IDs.</p>
    */
@@ -16306,15 +15231,12 @@ export namespace DescribeReservedInstancesListingsRequest {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesListingsRequest =>
-    __isa(o, "DescribeReservedInstancesListingsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeReservedInstancesListings.</p>
  */
 export interface DescribeReservedInstancesListingsResult {
-  __type?: "DescribeReservedInstancesListingsResult";
   /**
    * <p>Information about the Reserved Instance listing.</p>
    */
@@ -16325,15 +15247,12 @@ export namespace DescribeReservedInstancesListingsResult {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesListingsResult =>
-    __isa(o, "DescribeReservedInstancesListingsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
  */
 export interface DescribeReservedInstancesModificationsRequest {
-  __type?: "DescribeReservedInstancesModificationsRequest";
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -16409,15 +15328,12 @@ export namespace DescribeReservedInstancesModificationsRequest {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesModificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesModificationsRequest =>
-    __isa(o, "DescribeReservedInstancesModificationsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeReservedInstancesModifications.</p>
  */
 export interface DescribeReservedInstancesModificationsResult {
-  __type?: "DescribeReservedInstancesModificationsResult";
   /**
    * <p>The Reserved Instance modification information.</p>
    */
@@ -16434,15 +15350,12 @@ export namespace DescribeReservedInstancesModificationsResult {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesModificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesModificationsResult =>
-    __isa(o, "DescribeReservedInstancesModificationsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeReservedInstancesOfferings.</p>
  */
 export interface DescribeReservedInstancesOfferingsRequest {
-  __type?: "DescribeReservedInstancesOfferingsRequest";
   /**
    * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
    */
@@ -16598,15 +15511,12 @@ export namespace DescribeReservedInstancesOfferingsRequest {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesOfferingsRequest =>
-    __isa(o, "DescribeReservedInstancesOfferingsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeReservedInstancesOfferings.</p>
  */
 export interface DescribeReservedInstancesOfferingsResult {
-  __type?: "DescribeReservedInstancesOfferingsResult";
   /**
    * <p>A list of Reserved Instances offerings.</p>
    */
@@ -16623,15 +15533,12 @@ export namespace DescribeReservedInstancesOfferingsResult {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesOfferingsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesOfferingsResult =>
-    __isa(o, "DescribeReservedInstancesOfferingsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeReservedInstances.</p>
  */
 export interface DescribeReservedInstancesRequest {
-  __type?: "DescribeReservedInstancesRequest";
   /**
    * <p>One or more Reserved Instance IDs.</p>
    *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
@@ -16732,14 +15639,12 @@ export namespace DescribeReservedInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesRequest => __isa(o, "DescribeReservedInstancesRequest");
 }
 
 /**
  * <p>Contains the output for DescribeReservedInstances.</p>
  */
 export interface DescribeReservedInstancesResult {
-  __type?: "DescribeReservedInstancesResult";
   /**
    * <p>A list of Reserved Instances.</p>
    */
@@ -16750,11 +15655,9 @@ export namespace DescribeReservedInstancesResult {
   export const filterSensitiveLog = (obj: DescribeReservedInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedInstancesResult => __isa(o, "DescribeReservedInstancesResult");
 }
 
 export interface DescribeRouteTablesRequest {
-  __type?: "DescribeRouteTablesRequest";
   /**
    * <p>One or more route table IDs.</p>
    * 		       <p>Default: Describes all your route tables.</p>
@@ -16890,14 +15793,12 @@ export namespace DescribeRouteTablesRequest {
   export const filterSensitiveLog = (obj: DescribeRouteTablesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRouteTablesRequest => __isa(o, "DescribeRouteTablesRequest");
 }
 
 /**
  * <p>Contains the output of DescribeRouteTables.</p>
  */
 export interface DescribeRouteTablesResult {
-  __type?: "DescribeRouteTablesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -16913,14 +15814,12 @@ export namespace DescribeRouteTablesResult {
   export const filterSensitiveLog = (obj: DescribeRouteTablesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRouteTablesResult => __isa(o, "DescribeRouteTablesResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
  */
 export interface DescribeScheduledInstanceAvailabilityRequest {
-  __type?: "DescribeScheduledInstanceAvailabilityRequest";
   /**
    * <p>The time period for the first schedule to start.</p>
    */
@@ -16990,15 +15889,12 @@ export namespace DescribeScheduledInstanceAvailabilityRequest {
   export const filterSensitiveLog = (obj: DescribeScheduledInstanceAvailabilityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledInstanceAvailabilityRequest =>
-    __isa(o, "DescribeScheduledInstanceAvailabilityRequest");
 }
 
 /**
  * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
  */
 export interface DescribeScheduledInstanceAvailabilityResult {
-  __type?: "DescribeScheduledInstanceAvailabilityResult";
   /**
    * <p>Information about the available Scheduled Instances.</p>
    */
@@ -17014,15 +15910,12 @@ export namespace DescribeScheduledInstanceAvailabilityResult {
   export const filterSensitiveLog = (obj: DescribeScheduledInstanceAvailabilityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledInstanceAvailabilityResult =>
-    __isa(o, "DescribeScheduledInstanceAvailabilityResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeScheduledInstances.</p>
  */
 export interface DescribeScheduledInstancesRequest {
-  __type?: "DescribeScheduledInstancesRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -17081,14 +15974,12 @@ export namespace DescribeScheduledInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeScheduledInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledInstancesRequest => __isa(o, "DescribeScheduledInstancesRequest");
 }
 
 /**
  * <p>Contains the output of DescribeScheduledInstances.</p>
  */
 export interface DescribeScheduledInstancesResult {
-  __type?: "DescribeScheduledInstancesResult";
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -17104,11 +15995,9 @@ export namespace DescribeScheduledInstancesResult {
   export const filterSensitiveLog = (obj: DescribeScheduledInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledInstancesResult => __isa(o, "DescribeScheduledInstancesResult");
 }
 
 export interface DescribeSecurityGroupReferencesRequest {
-  __type?: "DescribeSecurityGroupReferencesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -17126,12 +16015,9 @@ export namespace DescribeSecurityGroupReferencesRequest {
   export const filterSensitiveLog = (obj: DescribeSecurityGroupReferencesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityGroupReferencesRequest =>
-    __isa(o, "DescribeSecurityGroupReferencesRequest");
 }
 
 export interface DescribeSecurityGroupReferencesResult {
-  __type?: "DescribeSecurityGroupReferencesResult";
   /**
    * <p>Information about the VPCs with the referencing security groups.</p>
    */
@@ -17142,12 +16028,9 @@ export namespace DescribeSecurityGroupReferencesResult {
   export const filterSensitiveLog = (obj: DescribeSecurityGroupReferencesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityGroupReferencesResult =>
-    __isa(o, "DescribeSecurityGroupReferencesResult");
 }
 
 export interface DescribeSecurityGroupsRequest {
-  __type?: "DescribeSecurityGroupsRequest";
   /**
    * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
    *          <p>Default: Describes all your security groups.</p>
@@ -17314,11 +16197,9 @@ export namespace DescribeSecurityGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeSecurityGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityGroupsRequest => __isa(o, "DescribeSecurityGroupsRequest");
 }
 
 export interface DescribeSecurityGroupsResult {
-  __type?: "DescribeSecurityGroupsResult";
   /**
    * <p>Information about the security groups.</p>
    */
@@ -17334,11 +16215,9 @@ export namespace DescribeSecurityGroupsResult {
   export const filterSensitiveLog = (obj: DescribeSecurityGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityGroupsResult => __isa(o, "DescribeSecurityGroupsResult");
 }
 
 export interface DescribeSnapshotAttributeRequest {
-  __type?: "DescribeSnapshotAttributeRequest";
   /**
    * <p>The ID of the EBS snapshot.</p>
    */
@@ -17361,11 +16240,9 @@ export namespace DescribeSnapshotAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeSnapshotAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotAttributeRequest => __isa(o, "DescribeSnapshotAttributeRequest");
 }
 
 export interface DescribeSnapshotAttributeResult {
-  __type?: "DescribeSnapshotAttributeResult";
   /**
    * <p>The ID of the EBS snapshot.</p>
    */
@@ -17387,11 +16264,9 @@ export namespace DescribeSnapshotAttributeResult {
   export const filterSensitiveLog = (obj: DescribeSnapshotAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotAttributeResult => __isa(o, "DescribeSnapshotAttributeResult");
 }
 
 export interface DescribeSnapshotsRequest {
-  __type?: "DescribeSnapshotsRequest";
   /**
    * <p>The IDs of the AWS accounts that can create volumes from the snapshot.</p>
    */
@@ -17506,11 +16381,9 @@ export namespace DescribeSnapshotsRequest {
   export const filterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotsRequest => __isa(o, "DescribeSnapshotsRequest");
 }
 
 export interface DescribeSnapshotsResult {
-  __type?: "DescribeSnapshotsResult";
   /**
    * <p>Information about the snapshots.</p>
    */
@@ -17529,14 +16402,12 @@ export namespace DescribeSnapshotsResult {
   export const filterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotsResult => __isa(o, "DescribeSnapshotsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeSpotDatafeedSubscription.</p>
  */
 export interface DescribeSpotDatafeedSubscriptionRequest {
-  __type?: "DescribeSpotDatafeedSubscriptionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -17549,15 +16420,12 @@ export namespace DescribeSpotDatafeedSubscriptionRequest {
   export const filterSensitiveLog = (obj: DescribeSpotDatafeedSubscriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotDatafeedSubscriptionRequest =>
-    __isa(o, "DescribeSpotDatafeedSubscriptionRequest");
 }
 
 /**
  * <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
  */
 export interface DescribeSpotDatafeedSubscriptionResult {
-  __type?: "DescribeSpotDatafeedSubscriptionResult";
   /**
    * <p>The Spot Instance data feed subscription.</p>
    */
@@ -17568,15 +16436,12 @@ export namespace DescribeSpotDatafeedSubscriptionResult {
   export const filterSensitiveLog = (obj: DescribeSpotDatafeedSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotDatafeedSubscriptionResult =>
-    __isa(o, "DescribeSpotDatafeedSubscriptionResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeSpotFleetInstances.</p>
  */
 export interface DescribeSpotFleetInstancesRequest {
-  __type?: "DescribeSpotFleetInstancesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -17607,14 +16472,12 @@ export namespace DescribeSpotFleetInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeSpotFleetInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetInstancesRequest => __isa(o, "DescribeSpotFleetInstancesRequest");
 }
 
 /**
  * <p>Contains the output of DescribeSpotFleetInstances.</p>
  */
 export interface DescribeSpotFleetInstancesResponse {
-  __type?: "DescribeSpotFleetInstancesResponse";
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -17636,15 +16499,12 @@ export namespace DescribeSpotFleetInstancesResponse {
   export const filterSensitiveLog = (obj: DescribeSpotFleetInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetInstancesResponse =>
-    __isa(o, "DescribeSpotFleetInstancesResponse");
 }
 
 /**
  * <p>Contains the parameters for DescribeSpotFleetRequestHistory.</p>
  */
 export interface DescribeSpotFleetRequestHistoryRequest {
-  __type?: "DescribeSpotFleetRequestHistoryRequest";
   /**
    * <p>The type of events to describe. By default, all events are described.</p>
    */
@@ -17685,15 +16545,12 @@ export namespace DescribeSpotFleetRequestHistoryRequest {
   export const filterSensitiveLog = (obj: DescribeSpotFleetRequestHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetRequestHistoryRequest =>
-    __isa(o, "DescribeSpotFleetRequestHistoryRequest");
 }
 
 /**
  * <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
  */
 export interface DescribeSpotFleetRequestHistoryResponse {
-  __type?: "DescribeSpotFleetRequestHistoryResponse";
   /**
    * <p>Information about the events in the history of the Spot Fleet request.</p>
    */
@@ -17726,15 +16583,12 @@ export namespace DescribeSpotFleetRequestHistoryResponse {
   export const filterSensitiveLog = (obj: DescribeSpotFleetRequestHistoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetRequestHistoryResponse =>
-    __isa(o, "DescribeSpotFleetRequestHistoryResponse");
 }
 
 /**
  * <p>Contains the parameters for DescribeSpotFleetRequests.</p>
  */
 export interface DescribeSpotFleetRequestsRequest {
-  __type?: "DescribeSpotFleetRequestsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -17765,14 +16619,12 @@ export namespace DescribeSpotFleetRequestsRequest {
   export const filterSensitiveLog = (obj: DescribeSpotFleetRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetRequestsRequest => __isa(o, "DescribeSpotFleetRequestsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeSpotFleetRequests.</p>
  */
 export interface DescribeSpotFleetRequestsResponse {
-  __type?: "DescribeSpotFleetRequestsResponse";
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -17788,14 +16640,12 @@ export namespace DescribeSpotFleetRequestsResponse {
   export const filterSensitiveLog = (obj: DescribeSpotFleetRequestsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotFleetRequestsResponse => __isa(o, "DescribeSpotFleetRequestsResponse");
 }
 
 /**
  * <p>Contains the parameters for DescribeSpotInstanceRequests.</p>
  */
 export interface DescribeSpotInstanceRequestsRequest {
-  __type?: "DescribeSpotInstanceRequestsRequest";
   /**
    * <p>The token to request the next set of results. This value is <code>null</code> when
    *             there are no more results to return.</p>
@@ -18001,15 +16851,12 @@ export namespace DescribeSpotInstanceRequestsRequest {
   export const filterSensitiveLog = (obj: DescribeSpotInstanceRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotInstanceRequestsRequest =>
-    __isa(o, "DescribeSpotInstanceRequestsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeSpotInstanceRequests.</p>
  */
 export interface DescribeSpotInstanceRequestsResult {
-  __type?: "DescribeSpotInstanceRequestsResult";
   /**
    * <p>One or more Spot Instance requests.</p>
    */
@@ -18026,15 +16873,12 @@ export namespace DescribeSpotInstanceRequestsResult {
   export const filterSensitiveLog = (obj: DescribeSpotInstanceRequestsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotInstanceRequestsResult =>
-    __isa(o, "DescribeSpotInstanceRequestsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeSpotPriceHistory.</p>
  */
 export interface DescribeSpotPriceHistoryRequest {
-  __type?: "DescribeSpotPriceHistoryRequest";
   /**
    * <p>The date and time, up to the current date, from which to stop retrieving the price history data,
    *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
@@ -18119,14 +16963,12 @@ export namespace DescribeSpotPriceHistoryRequest {
   export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotPriceHistoryRequest => __isa(o, "DescribeSpotPriceHistoryRequest");
 }
 
 /**
  * <p>Contains the output of DescribeSpotPriceHistory.</p>
  */
 export interface DescribeSpotPriceHistoryResult {
-  __type?: "DescribeSpotPriceHistoryResult";
   /**
    * <p>The token required to retrieve the next set of results. This value is null or an empty
    *             string when there are no more results to return.</p>
@@ -18143,11 +16985,9 @@ export namespace DescribeSpotPriceHistoryResult {
   export const filterSensitiveLog = (obj: DescribeSpotPriceHistoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSpotPriceHistoryResult => __isa(o, "DescribeSpotPriceHistoryResult");
 }
 
 export interface DescribeStaleSecurityGroupsRequest {
-  __type?: "DescribeStaleSecurityGroupsRequest";
   /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
    */
@@ -18175,12 +17015,9 @@ export namespace DescribeStaleSecurityGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStaleSecurityGroupsRequest =>
-    __isa(o, "DescribeStaleSecurityGroupsRequest");
 }
 
 export interface DescribeStaleSecurityGroupsResult {
-  __type?: "DescribeStaleSecurityGroupsResult";
   /**
    * <p>Information about the stale security groups.</p>
    */
@@ -18196,11 +17033,9 @@ export namespace DescribeStaleSecurityGroupsResult {
   export const filterSensitiveLog = (obj: DescribeStaleSecurityGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStaleSecurityGroupsResult => __isa(o, "DescribeStaleSecurityGroupsResult");
 }
 
 export interface DescribeSubnetsRequest {
-  __type?: "DescribeSubnetsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -18308,11 +17143,9 @@ export namespace DescribeSubnetsRequest {
   export const filterSensitiveLog = (obj: DescribeSubnetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubnetsRequest => __isa(o, "DescribeSubnetsRequest");
 }
 
 export interface DescribeSubnetsResult {
-  __type?: "DescribeSubnetsResult";
   /**
    * <p>Information about one or more subnets.</p>
    */
@@ -18328,11 +17161,9 @@ export namespace DescribeSubnetsResult {
   export const filterSensitiveLog = (obj: DescribeSubnetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubnetsResult => __isa(o, "DescribeSubnetsResult");
 }
 
 export interface DescribeTagsRequest {
-  __type?: "DescribeTagsRequest";
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -18386,11 +17217,9 @@ export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResult {
-  __type?: "DescribeTagsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is
    *          <code>null</code> when there are no more results to return.</p>
@@ -18407,11 +17236,9 @@ export namespace DescribeTagsResult {
   export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResult => __isa(o, "DescribeTagsResult");
 }
 
 export interface DescribeTrafficMirrorFiltersRequest {
-  __type?: "DescribeTrafficMirrorFiltersRequest";
   /**
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
@@ -18455,12 +17282,9 @@ export namespace DescribeTrafficMirrorFiltersRequest {
   export const filterSensitiveLog = (obj: DescribeTrafficMirrorFiltersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrafficMirrorFiltersRequest =>
-    __isa(o, "DescribeTrafficMirrorFiltersRequest");
 }
 
 export interface DescribeTrafficMirrorFiltersResult {
-  __type?: "DescribeTrafficMirrorFiltersResult";
   /**
    * <p>Information about one or more Traffic Mirror filters.</p>
    */
@@ -18476,12 +17300,9 @@ export namespace DescribeTrafficMirrorFiltersResult {
   export const filterSensitiveLog = (obj: DescribeTrafficMirrorFiltersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrafficMirrorFiltersResult =>
-    __isa(o, "DescribeTrafficMirrorFiltersResult");
 }
 
 export interface DescribeTrafficMirrorSessionsRequest {
-  __type?: "DescribeTrafficMirrorSessionsRequest";
   /**
    * <p>The ID of the Traffic Mirror session.</p>
    */
@@ -18553,12 +17374,9 @@ export namespace DescribeTrafficMirrorSessionsRequest {
   export const filterSensitiveLog = (obj: DescribeTrafficMirrorSessionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrafficMirrorSessionsRequest =>
-    __isa(o, "DescribeTrafficMirrorSessionsRequest");
 }
 
 export interface DescribeTrafficMirrorSessionsResult {
-  __type?: "DescribeTrafficMirrorSessionsResult";
   /**
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
    */
@@ -18574,12 +17392,9 @@ export namespace DescribeTrafficMirrorSessionsResult {
   export const filterSensitiveLog = (obj: DescribeTrafficMirrorSessionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrafficMirrorSessionsResult =>
-    __isa(o, "DescribeTrafficMirrorSessionsResult");
 }
 
 export interface DescribeTrafficMirrorTargetsRequest {
-  __type?: "DescribeTrafficMirrorTargetsRequest";
   /**
    * <p>The ID of the Traffic Mirror targets.</p>
    */
@@ -18635,12 +17450,9 @@ export namespace DescribeTrafficMirrorTargetsRequest {
   export const filterSensitiveLog = (obj: DescribeTrafficMirrorTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrafficMirrorTargetsRequest =>
-    __isa(o, "DescribeTrafficMirrorTargetsRequest");
 }
 
 export interface DescribeTrafficMirrorTargetsResult {
-  __type?: "DescribeTrafficMirrorTargetsResult";
   /**
    * <p>Information about one or more Traffic Mirror targets.</p>
    */
@@ -18656,12 +17468,9 @@ export namespace DescribeTrafficMirrorTargetsResult {
   export const filterSensitiveLog = (obj: DescribeTrafficMirrorTargetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrafficMirrorTargetsResult =>
-    __isa(o, "DescribeTrafficMirrorTargetsResult");
 }
 
 export interface DescribeTransitGatewayAttachmentsRequest {
-  __type?: "DescribeTransitGatewayAttachmentsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -18734,12 +17543,9 @@ export namespace DescribeTransitGatewayAttachmentsRequest {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayAttachmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayAttachmentsRequest =>
-    __isa(o, "DescribeTransitGatewayAttachmentsRequest");
 }
 
 export interface DescribeTransitGatewayAttachmentsResult {
-  __type?: "DescribeTransitGatewayAttachmentsResult";
   /**
    * <p>Information about the attachments.</p>
    */
@@ -18755,12 +17561,9 @@ export namespace DescribeTransitGatewayAttachmentsResult {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayAttachmentsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayAttachmentsResult =>
-    __isa(o, "DescribeTransitGatewayAttachmentsResult");
 }
 
 export interface DescribeTransitGatewayMulticastDomainsRequest {
-  __type?: "DescribeTransitGatewayMulticastDomainsRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -18808,12 +17611,9 @@ export namespace DescribeTransitGatewayMulticastDomainsRequest {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayMulticastDomainsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayMulticastDomainsRequest =>
-    __isa(o, "DescribeTransitGatewayMulticastDomainsRequest");
 }
 
 export interface DescribeTransitGatewayMulticastDomainsResult {
-  __type?: "DescribeTransitGatewayMulticastDomainsResult";
   /**
    * <p>Information about the transit gateway multicast domains.</p>
    */
@@ -18829,12 +17629,9 @@ export namespace DescribeTransitGatewayMulticastDomainsResult {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayMulticastDomainsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayMulticastDomainsResult =>
-    __isa(o, "DescribeTransitGatewayMulticastDomainsResult");
 }
 
 export interface DescribeTransitGatewayPeeringAttachmentsRequest {
-  __type?: "DescribeTransitGatewayPeeringAttachmentsRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -18890,12 +17687,9 @@ export namespace DescribeTransitGatewayPeeringAttachmentsRequest {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayPeeringAttachmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayPeeringAttachmentsRequest =>
-    __isa(o, "DescribeTransitGatewayPeeringAttachmentsRequest");
 }
 
 export interface DescribeTransitGatewayPeeringAttachmentsResult {
-  __type?: "DescribeTransitGatewayPeeringAttachmentsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -18911,12 +17705,9 @@ export namespace DescribeTransitGatewayPeeringAttachmentsResult {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayPeeringAttachmentsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayPeeringAttachmentsResult =>
-    __isa(o, "DescribeTransitGatewayPeeringAttachmentsResult");
 }
 
 export interface DescribeTransitGatewayRouteTablesRequest {
-  __type?: "DescribeTransitGatewayRouteTablesRequest";
   /**
    * <p>The IDs of the transit gateway route tables.</p>
    */
@@ -18974,12 +17765,9 @@ export namespace DescribeTransitGatewayRouteTablesRequest {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayRouteTablesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayRouteTablesRequest =>
-    __isa(o, "DescribeTransitGatewayRouteTablesRequest");
 }
 
 export interface DescribeTransitGatewayRouteTablesResult {
-  __type?: "DescribeTransitGatewayRouteTablesResult";
   /**
    * <p>Information about the transit gateway route tables.</p>
    */
@@ -18995,12 +17783,9 @@ export namespace DescribeTransitGatewayRouteTablesResult {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayRouteTablesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayRouteTablesResult =>
-    __isa(o, "DescribeTransitGatewayRouteTablesResult");
 }
 
 export interface DescribeTransitGatewaysRequest {
-  __type?: "DescribeTransitGatewaysRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -19082,11 +17867,9 @@ export namespace DescribeTransitGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeTransitGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewaysRequest => __isa(o, "DescribeTransitGatewaysRequest");
 }
 
 export interface DescribeTransitGatewaysResult {
-  __type?: "DescribeTransitGatewaysResult";
   /**
    * <p>Information about the transit gateways.</p>
    */
@@ -19102,11 +17885,9 @@ export namespace DescribeTransitGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeTransitGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewaysResult => __isa(o, "DescribeTransitGatewaysResult");
 }
 
 export interface DescribeTransitGatewayVpcAttachmentsRequest {
-  __type?: "DescribeTransitGatewayVpcAttachmentsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -19158,12 +17939,9 @@ export namespace DescribeTransitGatewayVpcAttachmentsRequest {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayVpcAttachmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayVpcAttachmentsRequest =>
-    __isa(o, "DescribeTransitGatewayVpcAttachmentsRequest");
 }
 
 export interface DescribeTransitGatewayVpcAttachmentsResult {
-  __type?: "DescribeTransitGatewayVpcAttachmentsResult";
   /**
    * <p>Information about the VPC attachments.</p>
    */
@@ -19179,12 +17957,9 @@ export namespace DescribeTransitGatewayVpcAttachmentsResult {
   export const filterSensitiveLog = (obj: DescribeTransitGatewayVpcAttachmentsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransitGatewayVpcAttachmentsResult =>
-    __isa(o, "DescribeTransitGatewayVpcAttachmentsResult");
 }
 
 export interface DescribeVolumeAttributeRequest {
-  __type?: "DescribeVolumeAttributeRequest";
   /**
    * <p>The attribute of the volume. This parameter is required.</p>
    */
@@ -19207,11 +17982,9 @@ export namespace DescribeVolumeAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeVolumeAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeAttributeRequest => __isa(o, "DescribeVolumeAttributeRequest");
 }
 
 export interface DescribeVolumeAttributeResult {
-  __type?: "DescribeVolumeAttributeResult";
   /**
    * <p>The ID of the volume.</p>
    */
@@ -19232,11 +18005,9 @@ export namespace DescribeVolumeAttributeResult {
   export const filterSensitiveLog = (obj: DescribeVolumeAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeAttributeResult => __isa(o, "DescribeVolumeAttributeResult");
 }
 
 export interface DescribeVolumesModificationsRequest {
-  __type?: "DescribeVolumesModificationsRequest";
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -19319,12 +18090,9 @@ export namespace DescribeVolumesModificationsRequest {
   export const filterSensitiveLog = (obj: DescribeVolumesModificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesModificationsRequest =>
-    __isa(o, "DescribeVolumesModificationsRequest");
 }
 
 export interface DescribeVolumesModificationsResult {
-  __type?: "DescribeVolumesModificationsResult";
   /**
    * <p>Information about the volume modifications.</p>
    */
@@ -19340,12 +18108,9 @@ export namespace DescribeVolumesModificationsResult {
   export const filterSensitiveLog = (obj: DescribeVolumesModificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesModificationsResult =>
-    __isa(o, "DescribeVolumesModificationsResult");
 }
 
 export interface DescribeVolumesRequest {
-  __type?: "DescribeVolumesRequest";
   /**
    * <p>The volume IDs.</p>
    */
@@ -19475,11 +18240,9 @@ export namespace DescribeVolumesRequest {
   export const filterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesRequest => __isa(o, "DescribeVolumesRequest");
 }
 
 export interface DescribeVolumesResult {
-  __type?: "DescribeVolumesResult";
   /**
    * <p>Information about the volumes.</p>
    */
@@ -19498,11 +18261,9 @@ export namespace DescribeVolumesResult {
   export const filterSensitiveLog = (obj: DescribeVolumesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesResult => __isa(o, "DescribeVolumesResult");
 }
 
 export interface DescribeVolumeStatusRequest {
-  __type?: "DescribeVolumeStatusRequest";
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -19607,11 +18368,9 @@ export namespace DescribeVolumeStatusRequest {
   export const filterSensitiveLog = (obj: DescribeVolumeStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeStatusRequest => __isa(o, "DescribeVolumeStatusRequest");
 }
 
 export interface DescribeVolumeStatusResult {
-  __type?: "DescribeVolumeStatusResult";
   /**
    * <p>Information about the status of the volumes.</p>
    */
@@ -19628,11 +18387,9 @@ export namespace DescribeVolumeStatusResult {
   export const filterSensitiveLog = (obj: DescribeVolumeStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumeStatusResult => __isa(o, "DescribeVolumeStatusResult");
 }
 
 export interface DescribeVpcAttributeRequest {
-  __type?: "DescribeVpcAttributeRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -19655,11 +18412,9 @@ export namespace DescribeVpcAttributeRequest {
   export const filterSensitiveLog = (obj: DescribeVpcAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcAttributeRequest => __isa(o, "DescribeVpcAttributeRequest");
 }
 
 export interface DescribeVpcAttributeResult {
-  __type?: "DescribeVpcAttributeResult";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -19685,11 +18440,9 @@ export namespace DescribeVpcAttributeResult {
   export const filterSensitiveLog = (obj: DescribeVpcAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcAttributeResult => __isa(o, "DescribeVpcAttributeResult");
 }
 
 export interface DescribeVpcClassicLinkDnsSupportRequest {
-  __type?: "DescribeVpcClassicLinkDnsSupportRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -19711,12 +18464,9 @@ export namespace DescribeVpcClassicLinkDnsSupportRequest {
   export const filterSensitiveLog = (obj: DescribeVpcClassicLinkDnsSupportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcClassicLinkDnsSupportRequest =>
-    __isa(o, "DescribeVpcClassicLinkDnsSupportRequest");
 }
 
 export interface DescribeVpcClassicLinkDnsSupportResult {
-  __type?: "DescribeVpcClassicLinkDnsSupportResult";
   /**
    * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
    */
@@ -19732,12 +18482,9 @@ export namespace DescribeVpcClassicLinkDnsSupportResult {
   export const filterSensitiveLog = (obj: DescribeVpcClassicLinkDnsSupportResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcClassicLinkDnsSupportResult =>
-    __isa(o, "DescribeVpcClassicLinkDnsSupportResult");
 }
 
 export interface DescribeVpcClassicLinkRequest {
-  __type?: "DescribeVpcClassicLinkRequest";
   /**
    * <p>One or more filters.</p>
    * 		       <ul>
@@ -19776,11 +18523,9 @@ export namespace DescribeVpcClassicLinkRequest {
   export const filterSensitiveLog = (obj: DescribeVpcClassicLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcClassicLinkRequest => __isa(o, "DescribeVpcClassicLinkRequest");
 }
 
 export interface DescribeVpcClassicLinkResult {
-  __type?: "DescribeVpcClassicLinkResult";
   /**
    * <p>The ClassicLink status of one or more VPCs.</p>
    */
@@ -19791,11 +18536,9 @@ export namespace DescribeVpcClassicLinkResult {
   export const filterSensitiveLog = (obj: DescribeVpcClassicLinkResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcClassicLinkResult => __isa(o, "DescribeVpcClassicLinkResult");
 }
 
 export interface DescribeVpcEndpointConnectionNotificationsRequest {
-  __type?: "DescribeVpcEndpointConnectionNotificationsRequest";
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -19859,12 +18602,9 @@ export namespace DescribeVpcEndpointConnectionNotificationsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionNotificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointConnectionNotificationsRequest =>
-    __isa(o, "DescribeVpcEndpointConnectionNotificationsRequest");
 }
 
 export interface DescribeVpcEndpointConnectionNotificationsResult {
-  __type?: "DescribeVpcEndpointConnectionNotificationsResult";
   /**
    * <p>One or more notifications.</p>
    */
@@ -19881,12 +18621,9 @@ export namespace DescribeVpcEndpointConnectionNotificationsResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionNotificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointConnectionNotificationsResult =>
-    __isa(o, "DescribeVpcEndpointConnectionNotificationsResult");
 }
 
 export interface DescribeVpcEndpointConnectionsRequest {
-  __type?: "DescribeVpcEndpointConnectionsRequest";
   /**
    * <p>One or more filters.</p>
    * 		       <ul>
@@ -19940,12 +18677,9 @@ export namespace DescribeVpcEndpointConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointConnectionsRequest =>
-    __isa(o, "DescribeVpcEndpointConnectionsRequest");
 }
 
 export interface DescribeVpcEndpointConnectionsResult {
-  __type?: "DescribeVpcEndpointConnectionsResult";
   /**
    * <p>Information about one or more VPC endpoint connections.</p>
    */
@@ -19961,12 +18695,9 @@ export namespace DescribeVpcEndpointConnectionsResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointConnectionsResult =>
-    __isa(o, "DescribeVpcEndpointConnectionsResult");
 }
 
 export interface DescribeVpcEndpointServiceConfigurationsRequest {
-  __type?: "DescribeVpcEndpointServiceConfigurationsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20027,12 +18758,9 @@ export namespace DescribeVpcEndpointServiceConfigurationsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointServiceConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServiceConfigurationsRequest =>
-    __isa(o, "DescribeVpcEndpointServiceConfigurationsRequest");
 }
 
 export interface DescribeVpcEndpointServiceConfigurationsResult {
-  __type?: "DescribeVpcEndpointServiceConfigurationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -20048,12 +18776,9 @@ export namespace DescribeVpcEndpointServiceConfigurationsResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointServiceConfigurationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServiceConfigurationsResult =>
-    __isa(o, "DescribeVpcEndpointServiceConfigurationsResult");
 }
 
 export interface DescribeVpcEndpointServicePermissionsRequest {
-  __type?: "DescribeVpcEndpointServicePermissionsRequest";
   /**
    * <p>One or more filters.</p>
    * 		       <ul>
@@ -20102,12 +18827,9 @@ export namespace DescribeVpcEndpointServicePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointServicePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServicePermissionsRequest =>
-    __isa(o, "DescribeVpcEndpointServicePermissionsRequest");
 }
 
 export interface DescribeVpcEndpointServicePermissionsResult {
-  __type?: "DescribeVpcEndpointServicePermissionsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -20123,15 +18845,12 @@ export namespace DescribeVpcEndpointServicePermissionsResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointServicePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServicePermissionsResult =>
-    __isa(o, "DescribeVpcEndpointServicePermissionsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeVpcEndpointServices.</p>
  */
 export interface DescribeVpcEndpointServicesRequest {
-  __type?: "DescribeVpcEndpointServicesRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
    */
@@ -20179,15 +18898,12 @@ export namespace DescribeVpcEndpointServicesRequest {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServicesRequest =>
-    __isa(o, "DescribeVpcEndpointServicesRequest");
 }
 
 /**
  * <p>Contains the output of DescribeVpcEndpointServices.</p>
  */
 export interface DescribeVpcEndpointServicesResult {
-  __type?: "DescribeVpcEndpointServicesResult";
   /**
    * <p>A list of supported services.</p>
    */
@@ -20208,14 +18924,12 @@ export namespace DescribeVpcEndpointServicesResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointServicesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointServicesResult => __isa(o, "DescribeVpcEndpointServicesResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeVpcEndpoints.</p>
  */
 export interface DescribeVpcEndpointsRequest {
-  __type?: "DescribeVpcEndpointsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20278,14 +18992,12 @@ export namespace DescribeVpcEndpointsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointsRequest => __isa(o, "DescribeVpcEndpointsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeVpcEndpoints.</p>
  */
 export interface DescribeVpcEndpointsResult {
-  __type?: "DescribeVpcEndpointsResult";
   /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
    */
@@ -20301,11 +19013,9 @@ export namespace DescribeVpcEndpointsResult {
   export const filterSensitiveLog = (obj: DescribeVpcEndpointsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcEndpointsResult => __isa(o, "DescribeVpcEndpointsResult");
 }
 
 export interface DescribeVpcPeeringConnectionsRequest {
-  __type?: "DescribeVpcPeeringConnectionsRequest";
   /**
    * <p>One or more VPC peering connection IDs.</p>
    *          <p>Default: Describes all your VPC peering connections.</p>
@@ -20401,12 +19111,9 @@ export namespace DescribeVpcPeeringConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcPeeringConnectionsRequest =>
-    __isa(o, "DescribeVpcPeeringConnectionsRequest");
 }
 
 export interface DescribeVpcPeeringConnectionsResult {
-  __type?: "DescribeVpcPeeringConnectionsResult";
   /**
    * <p>Information about the VPC peering connections.</p>
    */
@@ -20422,12 +19129,9 @@ export namespace DescribeVpcPeeringConnectionsResult {
   export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcPeeringConnectionsResult =>
-    __isa(o, "DescribeVpcPeeringConnectionsResult");
 }
 
 export interface DescribeVpcsRequest {
-  __type?: "DescribeVpcsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20534,11 +19238,9 @@ export namespace DescribeVpcsRequest {
   export const filterSensitiveLog = (obj: DescribeVpcsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcsRequest => __isa(o, "DescribeVpcsRequest");
 }
 
 export interface DescribeVpcsResult {
-  __type?: "DescribeVpcsResult";
   /**
    * <p>Information about one or more VPCs.</p>
    */
@@ -20554,14 +19256,12 @@ export namespace DescribeVpcsResult {
   export const filterSensitiveLog = (obj: DescribeVpcsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcsResult => __isa(o, "DescribeVpcsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeVpnConnections.</p>
  */
 export interface DescribeVpnConnectionsRequest {
-  __type?: "DescribeVpnConnectionsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20636,14 +19336,12 @@ export namespace DescribeVpnConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeVpnConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnConnectionsRequest => __isa(o, "DescribeVpnConnectionsRequest");
 }
 
 /**
  * <p>Contains the output of DescribeVpnConnections.</p>
  */
 export interface DescribeVpnConnectionsResult {
-  __type?: "DescribeVpnConnectionsResult";
   /**
    * <p>Information about one or more VPN connections.</p>
    */
@@ -20654,14 +19352,12 @@ export namespace DescribeVpnConnectionsResult {
   export const filterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnConnectionsResult => __isa(o, "DescribeVpnConnectionsResult");
 }
 
 /**
  * <p>Contains the parameters for DescribeVpnGateways.</p>
  */
 export interface DescribeVpnGatewaysRequest {
-  __type?: "DescribeVpnGatewaysRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20724,14 +19420,12 @@ export namespace DescribeVpnGatewaysRequest {
   export const filterSensitiveLog = (obj: DescribeVpnGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnGatewaysRequest => __isa(o, "DescribeVpnGatewaysRequest");
 }
 
 /**
  * <p>Contains the output of DescribeVpnGateways.</p>
  */
 export interface DescribeVpnGatewaysResult {
-  __type?: "DescribeVpnGatewaysResult";
   /**
    * <p>Information about one or more virtual private gateways.</p>
    */
@@ -20742,11 +19436,9 @@ export namespace DescribeVpnGatewaysResult {
   export const filterSensitiveLog = (obj: DescribeVpnGatewaysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpnGatewaysResult => __isa(o, "DescribeVpnGatewaysResult");
 }
 
 export interface DetachClassicLinkVpcRequest {
-  __type?: "DetachClassicLinkVpcRequest";
   /**
    * <p>The ID of the VPC to which the instance is linked.</p>
    */
@@ -20769,11 +19461,9 @@ export namespace DetachClassicLinkVpcRequest {
   export const filterSensitiveLog = (obj: DetachClassicLinkVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachClassicLinkVpcRequest => __isa(o, "DetachClassicLinkVpcRequest");
 }
 
 export interface DetachClassicLinkVpcResult {
-  __type?: "DetachClassicLinkVpcResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -20784,11 +19474,9 @@ export namespace DetachClassicLinkVpcResult {
   export const filterSensitiveLog = (obj: DetachClassicLinkVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachClassicLinkVpcResult => __isa(o, "DetachClassicLinkVpcResult");
 }
 
 export interface DetachInternetGatewayRequest {
-  __type?: "DetachInternetGatewayRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20811,14 +19499,12 @@ export namespace DetachInternetGatewayRequest {
   export const filterSensitiveLog = (obj: DetachInternetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachInternetGatewayRequest => __isa(o, "DetachInternetGatewayRequest");
 }
 
 /**
  * <p>Contains the parameters for DetachNetworkInterface.</p>
  */
 export interface DetachNetworkInterfaceRequest {
-  __type?: "DetachNetworkInterfaceRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -20858,11 +19544,9 @@ export namespace DetachNetworkInterfaceRequest {
   export const filterSensitiveLog = (obj: DetachNetworkInterfaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachNetworkInterfaceRequest => __isa(o, "DetachNetworkInterfaceRequest");
 }
 
 export interface DetachVolumeRequest {
-  __type?: "DetachVolumeRequest";
   /**
    * <p>The ID of the volume.</p>
    */
@@ -20900,14 +19584,12 @@ export namespace DetachVolumeRequest {
   export const filterSensitiveLog = (obj: DetachVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachVolumeRequest => __isa(o, "DetachVolumeRequest");
 }
 
 /**
  * <p>Contains the parameters for DetachVpnGateway.</p>
  */
 export interface DetachVpnGatewayRequest {
-  __type?: "DetachVpnGatewayRequest";
   /**
    * <p>The ID of the virtual private gateway.</p>
    */
@@ -20930,7 +19612,6 @@ export namespace DetachVpnGatewayRequest {
   export const filterSensitiveLog = (obj: DetachVpnGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachVpnGatewayRequest => __isa(o, "DetachVpnGatewayRequest");
 }
 
 export type DeviceType = "ebs" | "instance-store";
@@ -20939,7 +19620,6 @@ export type DeviceType = "ebs" | "instance-store";
  * <p>Describes a DHCP configuration option.</p>
  */
 export interface DhcpConfiguration {
-  __type?: "DhcpConfiguration";
   /**
    * <p>The name of a DHCP option.</p>
    */
@@ -20955,14 +19635,12 @@ export namespace DhcpConfiguration {
   export const filterSensitiveLog = (obj: DhcpConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DhcpConfiguration => __isa(o, "DhcpConfiguration");
 }
 
 /**
  * <p>Describes a set of DHCP options.</p>
  */
 export interface DhcpOptions {
-  __type?: "DhcpOptions";
   /**
    * <p>One or more DHCP options in the set.</p>
    */
@@ -20988,14 +19666,12 @@ export namespace DhcpOptions {
   export const filterSensitiveLog = (obj: DhcpOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DhcpOptions => __isa(o, "DhcpOptions");
 }
 
 /**
  * <p>Describes an Active Directory.</p>
  */
 export interface DirectoryServiceAuthentication {
-  __type?: "DirectoryServiceAuthentication";
   /**
    * <p>The ID of the Active Directory used for authentication.</p>
    */
@@ -21006,14 +19682,12 @@ export namespace DirectoryServiceAuthentication {
   export const filterSensitiveLog = (obj: DirectoryServiceAuthentication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DirectoryServiceAuthentication => __isa(o, "DirectoryServiceAuthentication");
 }
 
 /**
  * <p>Describes the Active Directory to be used for client authentication.</p>
  */
 export interface DirectoryServiceAuthenticationRequest {
-  __type?: "DirectoryServiceAuthenticationRequest";
   /**
    * <p>The ID of the Active Directory to be used for authentication.</p>
    */
@@ -21024,12 +19698,9 @@ export namespace DirectoryServiceAuthenticationRequest {
   export const filterSensitiveLog = (obj: DirectoryServiceAuthenticationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DirectoryServiceAuthenticationRequest =>
-    __isa(o, "DirectoryServiceAuthenticationRequest");
 }
 
 export interface DisableEbsEncryptionByDefaultRequest {
-  __type?: "DisableEbsEncryptionByDefaultRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -21042,12 +19713,9 @@ export namespace DisableEbsEncryptionByDefaultRequest {
   export const filterSensitiveLog = (obj: DisableEbsEncryptionByDefaultRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableEbsEncryptionByDefaultRequest =>
-    __isa(o, "DisableEbsEncryptionByDefaultRequest");
 }
 
 export interface DisableEbsEncryptionByDefaultResult {
-  __type?: "DisableEbsEncryptionByDefaultResult";
   /**
    * <p>The updated status of encryption by default.</p>
    */
@@ -21058,15 +19726,12 @@ export namespace DisableEbsEncryptionByDefaultResult {
   export const filterSensitiveLog = (obj: DisableEbsEncryptionByDefaultResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableEbsEncryptionByDefaultResult =>
-    __isa(o, "DisableEbsEncryptionByDefaultResult");
 }
 
 /**
  * <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
  */
 export interface DisableFastSnapshotRestoreErrorItem {
-  __type?: "DisableFastSnapshotRestoreErrorItem";
   /**
    * <p>The ID of the snapshot.</p>
    */
@@ -21082,12 +19747,9 @@ export namespace DisableFastSnapshotRestoreErrorItem {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoreErrorItem =>
-    __isa(o, "DisableFastSnapshotRestoreErrorItem");
 }
 
 export interface DisableFastSnapshotRestoresRequest {
-  __type?: "DisableFastSnapshotRestoresRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -21110,12 +19772,9 @@ export namespace DisableFastSnapshotRestoresRequest {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoresRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoresRequest =>
-    __isa(o, "DisableFastSnapshotRestoresRequest");
 }
 
 export interface DisableFastSnapshotRestoresResult {
-  __type?: "DisableFastSnapshotRestoresResult";
   /**
    * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
    */
@@ -21131,14 +19790,12 @@ export namespace DisableFastSnapshotRestoresResult {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoresResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoresResult => __isa(o, "DisableFastSnapshotRestoresResult");
 }
 
 /**
  * <p>Describes an error that occurred when disabling fast snapshot restores.</p>
  */
 export interface DisableFastSnapshotRestoreStateError {
-  __type?: "DisableFastSnapshotRestoreStateError";
   /**
    * <p>The error code.</p>
    */
@@ -21154,15 +19811,12 @@ export namespace DisableFastSnapshotRestoreStateError {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreStateError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoreStateError =>
-    __isa(o, "DisableFastSnapshotRestoreStateError");
 }
 
 /**
  * <p>Contains information about an error that occurred when disabling fast snapshot restores.</p>
  */
 export interface DisableFastSnapshotRestoreStateErrorItem {
-  __type?: "DisableFastSnapshotRestoreStateErrorItem";
   /**
    * <p>The Availability Zone.</p>
    */
@@ -21178,15 +19832,12 @@ export namespace DisableFastSnapshotRestoreStateErrorItem {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreStateErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoreStateErrorItem =>
-    __isa(o, "DisableFastSnapshotRestoreStateErrorItem");
 }
 
 /**
  * <p>Describes fast snapshot restores that were successfully disabled.</p>
  */
 export interface DisableFastSnapshotRestoreSuccessItem {
-  __type?: "DisableFastSnapshotRestoreSuccessItem";
   /**
    * <p>The state of fast snapshot restores for the snapshot.</p>
    */
@@ -21259,12 +19910,9 @@ export namespace DisableFastSnapshotRestoreSuccessItem {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreSuccessItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableFastSnapshotRestoreSuccessItem =>
-    __isa(o, "DisableFastSnapshotRestoreSuccessItem");
 }
 
 export interface DisableTransitGatewayRouteTablePropagationRequest {
-  __type?: "DisableTransitGatewayRouteTablePropagationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -21287,12 +19935,9 @@ export namespace DisableTransitGatewayRouteTablePropagationRequest {
   export const filterSensitiveLog = (obj: DisableTransitGatewayRouteTablePropagationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableTransitGatewayRouteTablePropagationRequest =>
-    __isa(o, "DisableTransitGatewayRouteTablePropagationRequest");
 }
 
 export interface DisableTransitGatewayRouteTablePropagationResult {
-  __type?: "DisableTransitGatewayRouteTablePropagationResult";
   /**
    * <p>Information about route propagation.</p>
    */
@@ -21303,15 +19948,12 @@ export namespace DisableTransitGatewayRouteTablePropagationResult {
   export const filterSensitiveLog = (obj: DisableTransitGatewayRouteTablePropagationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableTransitGatewayRouteTablePropagationResult =>
-    __isa(o, "DisableTransitGatewayRouteTablePropagationResult");
 }
 
 /**
  * <p>Contains the parameters for DisableVgwRoutePropagation.</p>
  */
 export interface DisableVgwRoutePropagationRequest {
-  __type?: "DisableVgwRoutePropagationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -21334,11 +19976,9 @@ export namespace DisableVgwRoutePropagationRequest {
   export const filterSensitiveLog = (obj: DisableVgwRoutePropagationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableVgwRoutePropagationRequest => __isa(o, "DisableVgwRoutePropagationRequest");
 }
 
 export interface DisableVpcClassicLinkDnsSupportRequest {
-  __type?: "DisableVpcClassicLinkDnsSupportRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -21349,12 +19989,9 @@ export namespace DisableVpcClassicLinkDnsSupportRequest {
   export const filterSensitiveLog = (obj: DisableVpcClassicLinkDnsSupportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableVpcClassicLinkDnsSupportRequest =>
-    __isa(o, "DisableVpcClassicLinkDnsSupportRequest");
 }
 
 export interface DisableVpcClassicLinkDnsSupportResult {
-  __type?: "DisableVpcClassicLinkDnsSupportResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -21365,12 +20002,9 @@ export namespace DisableVpcClassicLinkDnsSupportResult {
   export const filterSensitiveLog = (obj: DisableVpcClassicLinkDnsSupportResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableVpcClassicLinkDnsSupportResult =>
-    __isa(o, "DisableVpcClassicLinkDnsSupportResult");
 }
 
 export interface DisableVpcClassicLinkRequest {
-  __type?: "DisableVpcClassicLinkRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -21388,11 +20022,9 @@ export namespace DisableVpcClassicLinkRequest {
   export const filterSensitiveLog = (obj: DisableVpcClassicLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableVpcClassicLinkRequest => __isa(o, "DisableVpcClassicLinkRequest");
 }
 
 export interface DisableVpcClassicLinkResult {
-  __type?: "DisableVpcClassicLinkResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -21403,11 +20035,9 @@ export namespace DisableVpcClassicLinkResult {
   export const filterSensitiveLog = (obj: DisableVpcClassicLinkResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableVpcClassicLinkResult => __isa(o, "DisableVpcClassicLinkResult");
 }
 
 export interface DisassociateAddressRequest {
-  __type?: "DisassociateAddressRequest";
   /**
    * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
    */
@@ -21430,11 +20060,9 @@ export namespace DisassociateAddressRequest {
   export const filterSensitiveLog = (obj: DisassociateAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateAddressRequest => __isa(o, "DisassociateAddressRequest");
 }
 
 export interface DisassociateClientVpnTargetNetworkRequest {
-  __type?: "DisassociateClientVpnTargetNetworkRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -21455,12 +20083,9 @@ export namespace DisassociateClientVpnTargetNetworkRequest {
   export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateClientVpnTargetNetworkRequest =>
-    __isa(o, "DisassociateClientVpnTargetNetworkRequest");
 }
 
 export interface DisassociateClientVpnTargetNetworkResult {
-  __type?: "DisassociateClientVpnTargetNetworkResult";
   /**
    * <p>The ID of the target network association.</p>
    */
@@ -21476,12 +20101,9 @@ export namespace DisassociateClientVpnTargetNetworkResult {
   export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateClientVpnTargetNetworkResult =>
-    __isa(o, "DisassociateClientVpnTargetNetworkResult");
 }
 
 export interface DisassociateIamInstanceProfileRequest {
-  __type?: "DisassociateIamInstanceProfileRequest";
   /**
    * <p>The ID of the IAM instance profile association.</p>
    */
@@ -21492,12 +20114,9 @@ export namespace DisassociateIamInstanceProfileRequest {
   export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateIamInstanceProfileRequest =>
-    __isa(o, "DisassociateIamInstanceProfileRequest");
 }
 
 export interface DisassociateIamInstanceProfileResult {
-  __type?: "DisassociateIamInstanceProfileResult";
   /**
    * <p>Information about the IAM instance profile association.</p>
    */
@@ -21508,12 +20127,9 @@ export namespace DisassociateIamInstanceProfileResult {
   export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateIamInstanceProfileResult =>
-    __isa(o, "DisassociateIamInstanceProfileResult");
 }
 
 export interface DisassociateRouteTableRequest {
-  __type?: "DisassociateRouteTableRequest";
   /**
    * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
    */
@@ -21531,11 +20147,9 @@ export namespace DisassociateRouteTableRequest {
   export const filterSensitiveLog = (obj: DisassociateRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateRouteTableRequest => __isa(o, "DisassociateRouteTableRequest");
 }
 
 export interface DisassociateSubnetCidrBlockRequest {
-  __type?: "DisassociateSubnetCidrBlockRequest";
   /**
    * <p>The association ID for the CIDR block.</p>
    */
@@ -21546,12 +20160,9 @@ export namespace DisassociateSubnetCidrBlockRequest {
   export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSubnetCidrBlockRequest =>
-    __isa(o, "DisassociateSubnetCidrBlockRequest");
 }
 
 export interface DisassociateSubnetCidrBlockResult {
-  __type?: "DisassociateSubnetCidrBlockResult";
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
    */
@@ -21567,11 +20178,9 @@ export namespace DisassociateSubnetCidrBlockResult {
   export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSubnetCidrBlockResult => __isa(o, "DisassociateSubnetCidrBlockResult");
 }
 
 export interface DisassociateTransitGatewayMulticastDomainRequest {
-  __type?: "DisassociateTransitGatewayMulticastDomainRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -21599,12 +20208,9 @@ export namespace DisassociateTransitGatewayMulticastDomainRequest {
   export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTransitGatewayMulticastDomainRequest =>
-    __isa(o, "DisassociateTransitGatewayMulticastDomainRequest");
 }
 
 export interface DisassociateTransitGatewayMulticastDomainResult {
-  __type?: "DisassociateTransitGatewayMulticastDomainResult";
   /**
    * <p>Information about the association.</p>
    */
@@ -21615,12 +20221,9 @@ export namespace DisassociateTransitGatewayMulticastDomainResult {
   export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTransitGatewayMulticastDomainResult =>
-    __isa(o, "DisassociateTransitGatewayMulticastDomainResult");
 }
 
 export interface DisassociateTransitGatewayRouteTableRequest {
-  __type?: "DisassociateTransitGatewayRouteTableRequest";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -21643,12 +20246,9 @@ export namespace DisassociateTransitGatewayRouteTableRequest {
   export const filterSensitiveLog = (obj: DisassociateTransitGatewayRouteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTransitGatewayRouteTableRequest =>
-    __isa(o, "DisassociateTransitGatewayRouteTableRequest");
 }
 
 export interface DisassociateTransitGatewayRouteTableResult {
-  __type?: "DisassociateTransitGatewayRouteTableResult";
   /**
    * <p>Information about the association.</p>
    */
@@ -21659,12 +20259,9 @@ export namespace DisassociateTransitGatewayRouteTableResult {
   export const filterSensitiveLog = (obj: DisassociateTransitGatewayRouteTableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTransitGatewayRouteTableResult =>
-    __isa(o, "DisassociateTransitGatewayRouteTableResult");
 }
 
 export interface DisassociateVpcCidrBlockRequest {
-  __type?: "DisassociateVpcCidrBlockRequest";
   /**
    * <p>The association ID for the CIDR block.</p>
    */
@@ -21675,11 +20272,9 @@ export namespace DisassociateVpcCidrBlockRequest {
   export const filterSensitiveLog = (obj: DisassociateVpcCidrBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateVpcCidrBlockRequest => __isa(o, "DisassociateVpcCidrBlockRequest");
 }
 
 export interface DisassociateVpcCidrBlockResult {
-  __type?: "DisassociateVpcCidrBlockResult";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -21700,14 +20295,12 @@ export namespace DisassociateVpcCidrBlockResult {
   export const filterSensitiveLog = (obj: DisassociateVpcCidrBlockResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateVpcCidrBlockResult => __isa(o, "DisassociateVpcCidrBlockResult");
 }
 
 /**
  * <p>Describes a disk image.</p>
  */
 export interface DiskImage {
-  __type?: "DiskImage";
   /**
    * <p>A description of the disk image.</p>
    */
@@ -21728,14 +20321,12 @@ export namespace DiskImage {
   export const filterSensitiveLog = (obj: DiskImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskImage => __isa(o, "DiskImage");
 }
 
 /**
  * <p>Describes a disk image.</p>
  */
 export interface DiskImageDescription {
-  __type?: "DiskImageDescription";
   /**
    * <p>The checksum computed for the disk image.</p>
    */
@@ -21764,14 +20355,12 @@ export namespace DiskImageDescription {
   export const filterSensitiveLog = (obj: DiskImageDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskImageDescription => __isa(o, "DiskImageDescription");
 }
 
 /**
  * <p>Describes a disk image.</p>
  */
 export interface DiskImageDetail {
-  __type?: "DiskImageDetail";
   /**
    * <p>The size of the disk image, in GiB.</p>
    */
@@ -21796,7 +20385,6 @@ export namespace DiskImageDetail {
   export const filterSensitiveLog = (obj: DiskImageDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskImageDetail => __isa(o, "DiskImageDetail");
 }
 
 export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
@@ -21805,7 +20393,6 @@ export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
  * <p>Describes a disk image volume.</p>
  */
 export interface DiskImageVolumeDescription {
-  __type?: "DiskImageVolumeDescription";
   /**
    * <p>The volume identifier.</p>
    */
@@ -21821,14 +20408,12 @@ export namespace DiskImageVolumeDescription {
   export const filterSensitiveLog = (obj: DiskImageVolumeDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskImageVolumeDescription => __isa(o, "DiskImageVolumeDescription");
 }
 
 /**
  * <p>Describes the disk.</p>
  */
 export interface DiskInfo {
-  __type?: "DiskInfo";
   /**
    * <p>The size of the disk in GB.</p>
    */
@@ -21849,7 +20434,6 @@ export namespace DiskInfo {
   export const filterSensitiveLog = (obj: DiskInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskInfo => __isa(o, "DiskInfo");
 }
 
 export type DiskType = "hdd" | "ssd";
@@ -21858,7 +20442,6 @@ export type DiskType = "hdd" | "ssd";
  * <p>Describes a DNS entry.</p>
  */
 export interface DnsEntry {
-  __type?: "DnsEntry";
   /**
    * <p>The ID of the private hosted zone.</p>
    */
@@ -21874,7 +20457,6 @@ export namespace DnsEntry {
   export const filterSensitiveLog = (obj: DnsEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsEntry => __isa(o, "DnsEntry");
 }
 
 export enum DnsNameState {
@@ -21887,7 +20469,6 @@ export enum DnsNameState {
  * <p>Information about the DNS server to be used.</p>
  */
 export interface DnsServersOptionsModifyStructure {
-  __type?: "DnsServersOptionsModifyStructure";
   /**
    * <p>The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to
    * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
@@ -21906,7 +20487,6 @@ export namespace DnsServersOptionsModifyStructure {
   export const filterSensitiveLog = (obj: DnsServersOptionsModifyStructure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsServersOptionsModifyStructure => __isa(o, "DnsServersOptionsModifyStructure");
 }
 
 export type DnsSupportValue = "disable" | "enable";
@@ -21917,7 +20497,6 @@ export type DomainType = "standard" | "vpc";
  * <p>Describes a block device for an EBS volume.</p>
  */
 export interface EbsBlockDevice {
-  __type?: "EbsBlockDevice";
   /**
    * <p>The volume type. If you set the type to <code>io1</code>, you must also specify
    *         	the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
@@ -22000,7 +20579,6 @@ export namespace EbsBlockDevice {
   export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsBlockDevice => __isa(o, "EbsBlockDevice");
 }
 
 export type EbsEncryptionSupport = "supported" | "unsupported";
@@ -22009,7 +20587,6 @@ export type EbsEncryptionSupport = "supported" | "unsupported";
  * <p>Describes the Amazon EBS features supported by the instance type.</p>
  */
 export interface EbsInfo {
-  __type?: "EbsInfo";
   /**
    * <p>Indicates that the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized Instances</a> in <i>Amazon EC2 User Guide for
    *     Linux Instances</i>.</p>
@@ -22036,14 +20613,12 @@ export namespace EbsInfo {
   export const filterSensitiveLog = (obj: EbsInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsInfo => __isa(o, "EbsInfo");
 }
 
 /**
  * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
  */
 export interface EbsInstanceBlockDevice {
-  __type?: "EbsInstanceBlockDevice";
   /**
    * <p>Indicates whether the volume is deleted on instance termination.</p>
    */
@@ -22069,7 +20644,6 @@ export namespace EbsInstanceBlockDevice {
   export const filterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsInstanceBlockDevice => __isa(o, "EbsInstanceBlockDevice");
 }
 
 /**
@@ -22077,7 +20651,6 @@ export namespace EbsInstanceBlockDevice {
  *             mapping.</p>
  */
 export interface EbsInstanceBlockDeviceSpecification {
-  __type?: "EbsInstanceBlockDeviceSpecification";
   /**
    * <p>The ID of the EBS volume.</p>
    */
@@ -22093,8 +20666,6 @@ export namespace EbsInstanceBlockDeviceSpecification {
   export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsInstanceBlockDeviceSpecification =>
-    __isa(o, "EbsInstanceBlockDeviceSpecification");
 }
 
 export enum EbsNvmeSupport {
@@ -22107,7 +20678,6 @@ export enum EbsNvmeSupport {
  * <p>Describes the optimized EBS performance for supported instance types.</p>
  */
 export interface EbsOptimizedInfo {
-  __type?: "EbsOptimizedInfo";
   /**
    * <p>The baseline throughput performance for an EBS-optimized instance type, in MBps.</p>
    */
@@ -22143,7 +20713,6 @@ export namespace EbsOptimizedInfo {
   export const filterSensitiveLog = (obj: EbsOptimizedInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsOptimizedInfo => __isa(o, "EbsOptimizedInfo");
 }
 
 export type EbsOptimizedSupport = "default" | "supported" | "unsupported";
@@ -22152,7 +20721,6 @@ export type EbsOptimizedSupport = "default" | "supported" | "unsupported";
  * <p>Describes an egress-only internet gateway.</p>
  */
 export interface EgressOnlyInternetGateway {
-  __type?: "EgressOnlyInternetGateway";
   /**
    * <p>The ID of the egress-only internet gateway.</p>
    */
@@ -22173,14 +20741,12 @@ export namespace EgressOnlyInternetGateway {
   export const filterSensitiveLog = (obj: EgressOnlyInternetGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EgressOnlyInternetGateway => __isa(o, "EgressOnlyInternetGateway");
 }
 
 /**
  * <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuAssociation {
-  __type?: "ElasticGpuAssociation";
   /**
    * <p>The ID of the Elastic Graphics accelerator.</p>
    */
@@ -22207,14 +20773,12 @@ export namespace ElasticGpuAssociation {
   export const filterSensitiveLog = (obj: ElasticGpuAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuAssociation => __isa(o, "ElasticGpuAssociation");
 }
 
 /**
  * <p>Describes the status of an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuHealth {
-  __type?: "ElasticGpuHealth";
   /**
    * <p>The health status.</p>
    */
@@ -22225,14 +20789,12 @@ export namespace ElasticGpuHealth {
   export const filterSensitiveLog = (obj: ElasticGpuHealth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuHealth => __isa(o, "ElasticGpuHealth");
 }
 
 /**
  * <p>Describes an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpus {
-  __type?: "ElasticGpus";
   /**
    * <p>The ID of the Elastic Graphics accelerator.</p>
    */
@@ -22273,14 +20835,12 @@ export namespace ElasticGpus {
   export const filterSensitiveLog = (obj: ElasticGpus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticGpus => __isa(o, "ElasticGpus");
 }
 
 /**
  * <p>A specification for an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuSpecification {
-  __type?: "ElasticGpuSpecification";
   /**
    * <p>The type of Elastic Graphics accelerator. For more information about the values to specify for
    *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the <i>Amazon Elastic Compute Cloud User Guide for Windows
@@ -22293,14 +20853,12 @@ export namespace ElasticGpuSpecification {
   export const filterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuSpecification => __isa(o, "ElasticGpuSpecification");
 }
 
 /**
  * <p>Describes an elastic GPU.</p>
  */
 export interface ElasticGpuSpecificationResponse {
-  __type?: "ElasticGpuSpecificationResponse";
   /**
    * <p>The elastic GPU type.</p>
    */
@@ -22311,7 +20869,6 @@ export namespace ElasticGpuSpecificationResponse {
   export const filterSensitiveLog = (obj: ElasticGpuSpecificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticGpuSpecificationResponse => __isa(o, "ElasticGpuSpecificationResponse");
 }
 
 export enum ElasticGpuState {
@@ -22329,7 +20886,6 @@ export enum ElasticGpuStatus {
  *         </p>
  */
 export interface ElasticInferenceAccelerator {
-  __type?: "ElasticInferenceAccelerator";
   /**
    * <p>
    *             The number of elastic inference accelerators to attach to the instance.
@@ -22350,7 +20906,6 @@ export namespace ElasticInferenceAccelerator {
   export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticInferenceAccelerator => __isa(o, "ElasticInferenceAccelerator");
 }
 
 /**
@@ -22359,7 +20914,6 @@ export namespace ElasticInferenceAccelerator {
  *         </p>
  */
 export interface ElasticInferenceAcceleratorAssociation {
-  __type?: "ElasticInferenceAcceleratorAssociation";
   /**
    * <p>
    *             The ID of the association.
@@ -22393,12 +20947,9 @@ export namespace ElasticInferenceAcceleratorAssociation {
   export const filterSensitiveLog = (obj: ElasticInferenceAcceleratorAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticInferenceAcceleratorAssociation =>
-    __isa(o, "ElasticInferenceAcceleratorAssociation");
 }
 
 export interface EnableEbsEncryptionByDefaultRequest {
-  __type?: "EnableEbsEncryptionByDefaultRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -22411,12 +20962,9 @@ export namespace EnableEbsEncryptionByDefaultRequest {
   export const filterSensitiveLog = (obj: EnableEbsEncryptionByDefaultRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableEbsEncryptionByDefaultRequest =>
-    __isa(o, "EnableEbsEncryptionByDefaultRequest");
 }
 
 export interface EnableEbsEncryptionByDefaultResult {
-  __type?: "EnableEbsEncryptionByDefaultResult";
   /**
    * <p>The updated status of encryption by default.</p>
    */
@@ -22427,15 +20975,12 @@ export namespace EnableEbsEncryptionByDefaultResult {
   export const filterSensitiveLog = (obj: EnableEbsEncryptionByDefaultResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableEbsEncryptionByDefaultResult =>
-    __isa(o, "EnableEbsEncryptionByDefaultResult");
 }
 
 /**
  * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
  */
 export interface EnableFastSnapshotRestoreErrorItem {
-  __type?: "EnableFastSnapshotRestoreErrorItem";
   /**
    * <p>The errors.</p>
    */
@@ -22451,12 +20996,9 @@ export namespace EnableFastSnapshotRestoreErrorItem {
   export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoreErrorItem =>
-    __isa(o, "EnableFastSnapshotRestoreErrorItem");
 }
 
 export interface EnableFastSnapshotRestoresRequest {
-  __type?: "EnableFastSnapshotRestoresRequest";
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
    */
@@ -22480,11 +21022,9 @@ export namespace EnableFastSnapshotRestoresRequest {
   export const filterSensitiveLog = (obj: EnableFastSnapshotRestoresRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoresRequest => __isa(o, "EnableFastSnapshotRestoresRequest");
 }
 
 export interface EnableFastSnapshotRestoresResult {
-  __type?: "EnableFastSnapshotRestoresResult";
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
    */
@@ -22500,14 +21040,12 @@ export namespace EnableFastSnapshotRestoresResult {
   export const filterSensitiveLog = (obj: EnableFastSnapshotRestoresResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoresResult => __isa(o, "EnableFastSnapshotRestoresResult");
 }
 
 /**
  * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
  */
 export interface EnableFastSnapshotRestoreStateError {
-  __type?: "EnableFastSnapshotRestoreStateError";
   /**
    * <p>The error message.</p>
    */
@@ -22523,15 +21061,12 @@ export namespace EnableFastSnapshotRestoreStateError {
   export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreStateError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoreStateError =>
-    __isa(o, "EnableFastSnapshotRestoreStateError");
 }
 
 /**
  * <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
  */
 export interface EnableFastSnapshotRestoreStateErrorItem {
-  __type?: "EnableFastSnapshotRestoreStateErrorItem";
   /**
    * <p>The error.</p>
    */
@@ -22547,15 +21082,12 @@ export namespace EnableFastSnapshotRestoreStateErrorItem {
   export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreStateErrorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoreStateErrorItem =>
-    __isa(o, "EnableFastSnapshotRestoreStateErrorItem");
 }
 
 /**
  * <p>Describes fast snapshot restores that were successfully enabled.</p>
  */
 export interface EnableFastSnapshotRestoreSuccessItem {
-  __type?: "EnableFastSnapshotRestoreSuccessItem";
   /**
    * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
    */
@@ -22628,12 +21160,9 @@ export namespace EnableFastSnapshotRestoreSuccessItem {
   export const filterSensitiveLog = (obj: EnableFastSnapshotRestoreSuccessItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableFastSnapshotRestoreSuccessItem =>
-    __isa(o, "EnableFastSnapshotRestoreSuccessItem");
 }
 
 export interface EnableTransitGatewayRouteTablePropagationRequest {
-  __type?: "EnableTransitGatewayRouteTablePropagationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -22656,12 +21185,9 @@ export namespace EnableTransitGatewayRouteTablePropagationRequest {
   export const filterSensitiveLog = (obj: EnableTransitGatewayRouteTablePropagationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableTransitGatewayRouteTablePropagationRequest =>
-    __isa(o, "EnableTransitGatewayRouteTablePropagationRequest");
 }
 
 export interface EnableTransitGatewayRouteTablePropagationResult {
-  __type?: "EnableTransitGatewayRouteTablePropagationResult";
   /**
    * <p>Information about route propagation.</p>
    */
@@ -22672,15 +21198,12 @@ export namespace EnableTransitGatewayRouteTablePropagationResult {
   export const filterSensitiveLog = (obj: EnableTransitGatewayRouteTablePropagationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableTransitGatewayRouteTablePropagationResult =>
-    __isa(o, "EnableTransitGatewayRouteTablePropagationResult");
 }
 
 /**
  * <p>Contains the parameters for EnableVgwRoutePropagation.</p>
  */
 export interface EnableVgwRoutePropagationRequest {
-  __type?: "EnableVgwRoutePropagationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -22703,11 +21226,9 @@ export namespace EnableVgwRoutePropagationRequest {
   export const filterSensitiveLog = (obj: EnableVgwRoutePropagationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableVgwRoutePropagationRequest => __isa(o, "EnableVgwRoutePropagationRequest");
 }
 
 export interface EnableVolumeIORequest {
-  __type?: "EnableVolumeIORequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -22725,11 +21246,9 @@ export namespace EnableVolumeIORequest {
   export const filterSensitiveLog = (obj: EnableVolumeIORequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableVolumeIORequest => __isa(o, "EnableVolumeIORequest");
 }
 
 export interface EnableVpcClassicLinkDnsSupportRequest {
-  __type?: "EnableVpcClassicLinkDnsSupportRequest";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -22740,12 +21259,9 @@ export namespace EnableVpcClassicLinkDnsSupportRequest {
   export const filterSensitiveLog = (obj: EnableVpcClassicLinkDnsSupportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableVpcClassicLinkDnsSupportRequest =>
-    __isa(o, "EnableVpcClassicLinkDnsSupportRequest");
 }
 
 export interface EnableVpcClassicLinkDnsSupportResult {
-  __type?: "EnableVpcClassicLinkDnsSupportResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -22756,12 +21272,9 @@ export namespace EnableVpcClassicLinkDnsSupportResult {
   export const filterSensitiveLog = (obj: EnableVpcClassicLinkDnsSupportResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableVpcClassicLinkDnsSupportResult =>
-    __isa(o, "EnableVpcClassicLinkDnsSupportResult");
 }
 
 export interface EnableVpcClassicLinkRequest {
-  __type?: "EnableVpcClassicLinkRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -22779,11 +21292,9 @@ export namespace EnableVpcClassicLinkRequest {
   export const filterSensitiveLog = (obj: EnableVpcClassicLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableVpcClassicLinkRequest => __isa(o, "EnableVpcClassicLinkRequest");
 }
 
 export interface EnableVpcClassicLinkResult {
-  __type?: "EnableVpcClassicLinkResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -22794,7 +21305,6 @@ export namespace EnableVpcClassicLinkResult {
   export const filterSensitiveLog = (obj: EnableVpcClassicLinkResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableVpcClassicLinkResult => __isa(o, "EnableVpcClassicLinkResult");
 }
 
 export type EnaSupport = "required" | "supported" | "unsupported";
@@ -22812,7 +21322,6 @@ export type EventCode =
  * <p>Describes an EC2 Fleet or Spot Fleet event.</p>
  */
 export interface EventInformation {
-  __type?: "EventInformation";
   /**
    * <p>The ID of the instance. This information is available only for <code>instanceChange</code> events.</p>
    */
@@ -22935,7 +21444,6 @@ export namespace EventInformation {
   export const filterSensitiveLog = (obj: EventInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventInformation => __isa(o, "EventInformation");
 }
 
 export enum EventType {
@@ -22951,7 +21459,6 @@ export enum ExcessCapacityTerminationPolicy {
 }
 
 export interface ExportClientVpnClientCertificateRevocationListRequest {
-  __type?: "ExportClientVpnClientCertificateRevocationListRequest";
   /**
    * <p>The ID of the Client VPN endpoint.</p>
    */
@@ -22967,12 +21474,9 @@ export namespace ExportClientVpnClientCertificateRevocationListRequest {
   export const filterSensitiveLog = (obj: ExportClientVpnClientCertificateRevocationListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportClientVpnClientCertificateRevocationListRequest =>
-    __isa(o, "ExportClientVpnClientCertificateRevocationListRequest");
 }
 
 export interface ExportClientVpnClientCertificateRevocationListResult {
-  __type?: "ExportClientVpnClientCertificateRevocationListResult";
   /**
    * <p>The current state of the client certificate revocation list.</p>
    */
@@ -22988,12 +21492,9 @@ export namespace ExportClientVpnClientCertificateRevocationListResult {
   export const filterSensitiveLog = (obj: ExportClientVpnClientCertificateRevocationListResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportClientVpnClientCertificateRevocationListResult =>
-    __isa(o, "ExportClientVpnClientCertificateRevocationListResult");
 }
 
 export interface ExportClientVpnClientConfigurationRequest {
-  __type?: "ExportClientVpnClientConfigurationRequest";
   /**
    * <p>The ID of the Client VPN endpoint.</p>
    */
@@ -23009,12 +21510,9 @@ export namespace ExportClientVpnClientConfigurationRequest {
   export const filterSensitiveLog = (obj: ExportClientVpnClientConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportClientVpnClientConfigurationRequest =>
-    __isa(o, "ExportClientVpnClientConfigurationRequest");
 }
 
 export interface ExportClientVpnClientConfigurationResult {
-  __type?: "ExportClientVpnClientConfigurationResult";
   /**
    * <p>The contents of the Client VPN endpoint configuration file.</p>
    */
@@ -23025,14 +21523,11 @@ export namespace ExportClientVpnClientConfigurationResult {
   export const filterSensitiveLog = (obj: ExportClientVpnClientConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportClientVpnClientConfigurationResult =>
-    __isa(o, "ExportClientVpnClientConfigurationResult");
 }
 
 export type ExportEnvironment = "citrix" | "microsoft" | "vmware";
 
 export interface ExportImageRequest {
-  __type?: "ExportImageRequest";
   /**
    * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
    *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
@@ -23082,11 +21577,9 @@ export namespace ExportImageRequest {
   export const filterSensitiveLog = (obj: ExportImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportImageRequest => __isa(o, "ExportImageRequest");
 }
 
 export interface ExportImageResult {
-  __type?: "ExportImageResult";
   /**
    * <p>The disk image format for the exported image.</p>
    */
@@ -23144,14 +21637,12 @@ export namespace ExportImageResult {
   export const filterSensitiveLog = (obj: ExportImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportImageResult => __isa(o, "ExportImageResult");
 }
 
 /**
  * <p>Describes an export image task.</p>
  */
 export interface ExportImageTask {
-  __type?: "ExportImageTask";
   /**
    * <p>The status message for the export image task.</p>
    */
@@ -23198,14 +21689,12 @@ export namespace ExportImageTask {
   export const filterSensitiveLog = (obj: ExportImageTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportImageTask => __isa(o, "ExportImageTask");
 }
 
 /**
  * <p>Describes an instance export task.</p>
  */
 export interface ExportTask {
-  __type?: "ExportTask";
   /**
    * <p>The status message related to the export task.</p>
    */
@@ -23246,14 +21735,12 @@ export namespace ExportTask {
   export const filterSensitiveLog = (obj: ExportTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTask => __isa(o, "ExportTask");
 }
 
 /**
  * <p>Describes the destination for an export image task.</p>
  */
 export interface ExportTaskS3Location {
-  __type?: "ExportTaskS3Location";
   /**
    * <p>The prefix (logical hierarchy) in the bucket.</p>
    */
@@ -23269,14 +21756,12 @@ export namespace ExportTaskS3Location {
   export const filterSensitiveLog = (obj: ExportTaskS3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTaskS3Location => __isa(o, "ExportTaskS3Location");
 }
 
 /**
  * <p>Describes the destination for an export image task.</p>
  */
 export interface ExportTaskS3LocationRequest {
-  __type?: "ExportTaskS3LocationRequest";
   /**
    * <p>The prefix (logical hierarchy) in the bucket.</p>
    */
@@ -23292,7 +21777,6 @@ export namespace ExportTaskS3LocationRequest {
   export const filterSensitiveLog = (obj: ExportTaskS3LocationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTaskS3LocationRequest => __isa(o, "ExportTaskS3LocationRequest");
 }
 
 export type ExportTaskState = "active" | "cancelled" | "cancelling" | "completed";
@@ -23301,7 +21785,6 @@ export type ExportTaskState = "active" | "cancelled" | "cancelling" | "completed
  * <p>Describes the format and location for an instance export task.</p>
  */
 export interface ExportToS3Task {
-  __type?: "ExportToS3Task";
   /**
    * <p>The encryption key for your S3 bucket.</p>
    */
@@ -23330,14 +21813,12 @@ export namespace ExportToS3Task {
   export const filterSensitiveLog = (obj: ExportToS3Task): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportToS3Task => __isa(o, "ExportToS3Task");
 }
 
 /**
  * <p>Describes an instance export task.</p>
  */
 export interface ExportToS3TaskSpecification {
-  __type?: "ExportToS3TaskSpecification";
   /**
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
@@ -23367,11 +21848,9 @@ export namespace ExportToS3TaskSpecification {
   export const filterSensitiveLog = (obj: ExportToS3TaskSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportToS3TaskSpecification => __isa(o, "ExportToS3TaskSpecification");
 }
 
 export interface ExportTransitGatewayRoutesRequest {
-  __type?: "ExportTransitGatewayRoutesRequest";
   /**
    * <p>The name of the S3 bucket.</p>
    */
@@ -23438,11 +21917,9 @@ export namespace ExportTransitGatewayRoutesRequest {
   export const filterSensitiveLog = (obj: ExportTransitGatewayRoutesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTransitGatewayRoutesRequest => __isa(o, "ExportTransitGatewayRoutesRequest");
 }
 
 export interface ExportTransitGatewayRoutesResult {
-  __type?: "ExportTransitGatewayRoutesResult";
   /**
    * <p>The URL of the exported file in Amazon S3. For example,
    *          s3://<i>bucket_name</i>/VPCTransitGateway/TransitGatewayRouteTables/<i>file_name</i>.</p>
@@ -23454,14 +21931,12 @@ export namespace ExportTransitGatewayRoutesResult {
   export const filterSensitiveLog = (obj: ExportTransitGatewayRoutesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportTransitGatewayRoutesResult => __isa(o, "ExportTransitGatewayRoutesResult");
 }
 
 /**
  * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
  */
 export interface FailedQueuedPurchaseDeletion {
-  __type?: "FailedQueuedPurchaseDeletion";
   /**
    * <p>The ID of the Reserved Instance.</p>
    */
@@ -23477,7 +21952,6 @@ export namespace FailedQueuedPurchaseDeletion {
   export const filterSensitiveLog = (obj: FailedQueuedPurchaseDeletion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedQueuedPurchaseDeletion => __isa(o, "FailedQueuedPurchaseDeletion");
 }
 
 export type FastSnapshotRestoreStateCode = "disabled" | "disabling" | "enabled" | "enabling" | "optimizing";
@@ -23486,7 +21960,6 @@ export type FastSnapshotRestoreStateCode = "disabled" | "disabling" | "enabled" 
  * <p>Describes the IAM SAML identity provider used for federated authentication.</p>
  */
 export interface FederatedAuthentication {
-  __type?: "FederatedAuthentication";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
    */
@@ -23497,14 +21970,12 @@ export namespace FederatedAuthentication {
   export const filterSensitiveLog = (obj: FederatedAuthentication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FederatedAuthentication => __isa(o, "FederatedAuthentication");
 }
 
 /**
  * <p>The IAM SAML identity provider used for federated authentication.</p>
  */
 export interface FederatedAuthenticationRequest {
-  __type?: "FederatedAuthenticationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
    */
@@ -23515,7 +21986,6 @@ export namespace FederatedAuthenticationRequest {
   export const filterSensitiveLog = (obj: FederatedAuthenticationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FederatedAuthenticationRequest => __isa(o, "FederatedAuthenticationRequest");
 }
 
 /**
@@ -23576,7 +22046,6 @@ export namespace FederatedAuthenticationRequest {
  *          </ul>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The filter values. Filter values are case-sensitive.</p>
    */
@@ -23592,7 +22061,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FleetActivityStatus {
@@ -23610,7 +22078,6 @@ export enum FleetCapacityReservationUsageStrategy {
  * <p>Describes an EC2 Fleet.</p>
  */
 export interface FleetData {
-  __type?: "FleetData";
   /**
    * <p>Indicates whether EC2 Fleet should replace unhealthy instances.</p>
    */
@@ -23742,7 +22209,6 @@ export namespace FleetData {
   export const filterSensitiveLog = (obj: FleetData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetData => __isa(o, "FleetData");
 }
 
 export enum FleetEventType {
@@ -23760,7 +22226,6 @@ export enum FleetExcessCapacityTerminationPolicy {
  * <p>Describes a launch template and overrides.</p>
  */
 export interface FleetLaunchTemplateConfig {
-  __type?: "FleetLaunchTemplateConfig";
   /**
    * <p>The launch template.</p>
    */
@@ -23777,14 +22242,12 @@ export namespace FleetLaunchTemplateConfig {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateConfig => __isa(o, "FleetLaunchTemplateConfig");
 }
 
 /**
  * <p>Describes a launch template and overrides.</p>
  */
 export interface FleetLaunchTemplateConfigRequest {
-  __type?: "FleetLaunchTemplateConfigRequest";
   /**
    * <p>The launch template to use. You must specify either the launch template ID or launch
    *          template name in the request. </p>
@@ -23802,14 +22265,12 @@ export namespace FleetLaunchTemplateConfigRequest {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateConfigRequest => __isa(o, "FleetLaunchTemplateConfigRequest");
 }
 
 /**
  * <p>Describes overrides for a launch template.</p>
  */
 export interface FleetLaunchTemplateOverrides {
-  __type?: "FleetLaunchTemplateOverrides";
   /**
    * <p>The number of units provided by the specified instance type.</p>
    */
@@ -23854,14 +22315,12 @@ export namespace FleetLaunchTemplateOverrides {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateOverrides => __isa(o, "FleetLaunchTemplateOverrides");
 }
 
 /**
  * <p>Describes overrides for a launch template.</p>
  */
 export interface FleetLaunchTemplateOverridesRequest {
-  __type?: "FleetLaunchTemplateOverridesRequest";
   /**
    * <p>The instance type.</p>
    */
@@ -23906,8 +22365,6 @@ export namespace FleetLaunchTemplateOverridesRequest {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateOverridesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateOverridesRequest =>
-    __isa(o, "FleetLaunchTemplateOverridesRequest");
 }
 
 /**
@@ -23917,7 +22374,6 @@ export namespace FleetLaunchTemplateOverridesRequest {
  *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
 export interface FleetLaunchTemplateSpecification {
-  __type?: "FleetLaunchTemplateSpecification";
   /**
    * <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
    */
@@ -23940,7 +22396,6 @@ export namespace FleetLaunchTemplateSpecification {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateSpecification => __isa(o, "FleetLaunchTemplateSpecification");
 }
 
 /**
@@ -23950,7 +22405,6 @@ export namespace FleetLaunchTemplateSpecification {
  *          <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface FleetLaunchTemplateSpecificationRequest {
-  __type?: "FleetLaunchTemplateSpecificationRequest";
   /**
    * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p>
    *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p>
@@ -23973,8 +22427,6 @@ export namespace FleetLaunchTemplateSpecificationRequest {
   export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetLaunchTemplateSpecificationRequest =>
-    __isa(o, "FleetLaunchTemplateSpecificationRequest");
 }
 
 export enum FleetOnDemandAllocationStrategy {
@@ -24002,7 +22454,6 @@ export enum FleetType {
  * <p>Describes a flow log.</p>
  */
 export interface FlowLog {
-  __type?: "FlowLog";
   /**
    * <p>Specifies the type of destination to which the flow log data is published. Flow log data can be
    *             published to CloudWatch Logs or Amazon S3.</p>
@@ -24093,7 +22544,6 @@ export namespace FlowLog {
   export const filterSensitiveLog = (obj: FlowLog): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FlowLog => __isa(o, "FlowLog");
 }
 
 export type FlowLogsResourceType = "NetworkInterface" | "Subnet" | "VPC";
@@ -24102,7 +22552,6 @@ export type FlowLogsResourceType = "NetworkInterface" | "Subnet" | "VPC";
  * <p>Describes the FPGA accelerator for the instance type.</p>
  */
 export interface FpgaDeviceInfo {
-  __type?: "FpgaDeviceInfo";
   /**
    * <p>The name of the FPGA accelerator.</p>
    */
@@ -24128,14 +22577,12 @@ export namespace FpgaDeviceInfo {
   export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FpgaDeviceInfo => __isa(o, "FpgaDeviceInfo");
 }
 
 /**
  * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
  */
 export interface FpgaDeviceMemoryInfo {
-  __type?: "FpgaDeviceMemoryInfo";
   /**
    * <p>The size (in MiB) for the memory available to the FPGA accelerator.</p>
    */
@@ -24146,14 +22593,12 @@ export namespace FpgaDeviceMemoryInfo {
   export const filterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FpgaDeviceMemoryInfo => __isa(o, "FpgaDeviceMemoryInfo");
 }
 
 /**
  * <p>Describes an Amazon FPGA image (AFI).</p>
  */
 export interface FpgaImage {
-  __type?: "FpgaImage";
   /**
    * <p>The time of the most recent update to the AFI.</p>
    */
@@ -24234,14 +22679,12 @@ export namespace FpgaImage {
   export const filterSensitiveLog = (obj: FpgaImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FpgaImage => __isa(o, "FpgaImage");
 }
 
 /**
  * <p>Describes an Amazon FPGA image (AFI) attribute.</p>
  */
 export interface FpgaImageAttribute {
-  __type?: "FpgaImageAttribute";
   /**
    * <p>The load permissions.</p>
    */
@@ -24272,7 +22715,6 @@ export namespace FpgaImageAttribute {
   export const filterSensitiveLog = (obj: FpgaImageAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FpgaImageAttribute => __isa(o, "FpgaImageAttribute");
 }
 
 export type FpgaImageAttributeName = "description" | "loadPermission" | "name" | "productCodes";
@@ -24281,7 +22723,6 @@ export type FpgaImageAttributeName = "description" | "loadPermission" | "name" |
  * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
  */
 export interface FpgaImageState {
-  __type?: "FpgaImageState";
   /**
    * <p>The state. The following are the possible values:</p>
    * 		       <ul>
@@ -24315,7 +22756,6 @@ export namespace FpgaImageState {
   export const filterSensitiveLog = (obj: FpgaImageState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FpgaImageState => __isa(o, "FpgaImageState");
 }
 
 export type FpgaImageStateCode = "available" | "failed" | "pending" | "unavailable";
@@ -24324,7 +22764,6 @@ export type FpgaImageStateCode = "available" | "failed" | "pending" | "unavailab
  * <p>Describes the FPGAs for the instance type.</p>
  */
 export interface FpgaInfo {
-  __type?: "FpgaInfo";
   /**
    * <p>The total memory of all FPGA accelerators for the instance type.</p>
    */
@@ -24340,13 +22779,11 @@ export namespace FpgaInfo {
   export const filterSensitiveLog = (obj: FpgaInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FpgaInfo => __isa(o, "FpgaInfo");
 }
 
 export type GatewayType = "ipsec.1";
 
 export interface GetAssociatedIpv6PoolCidrsRequest {
-  __type?: "GetAssociatedIpv6PoolCidrsRequest";
   /**
    * <p>The ID of the IPv6 address pool.</p>
    */
@@ -24375,11 +22812,9 @@ export namespace GetAssociatedIpv6PoolCidrsRequest {
   export const filterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssociatedIpv6PoolCidrsRequest => __isa(o, "GetAssociatedIpv6PoolCidrsRequest");
 }
 
 export interface GetAssociatedIpv6PoolCidrsResult {
-  __type?: "GetAssociatedIpv6PoolCidrsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -24395,11 +22830,9 @@ export namespace GetAssociatedIpv6PoolCidrsResult {
   export const filterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssociatedIpv6PoolCidrsResult => __isa(o, "GetAssociatedIpv6PoolCidrsResult");
 }
 
 export interface GetCapacityReservationUsageRequest {
-  __type?: "GetCapacityReservationUsageRequest";
   /**
    * <p>The ID of the Capacity Reservation.</p>
    */
@@ -24426,12 +22859,9 @@ export namespace GetCapacityReservationUsageRequest {
   export const filterSensitiveLog = (obj: GetCapacityReservationUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCapacityReservationUsageRequest =>
-    __isa(o, "GetCapacityReservationUsageRequest");
 }
 
 export interface GetCapacityReservationUsageResult {
-  __type?: "GetCapacityReservationUsageResult";
   /**
    * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
    */
@@ -24499,11 +22929,9 @@ export namespace GetCapacityReservationUsageResult {
   export const filterSensitiveLog = (obj: GetCapacityReservationUsageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCapacityReservationUsageResult => __isa(o, "GetCapacityReservationUsageResult");
 }
 
 export interface GetCoipPoolUsageRequest {
-  __type?: "GetCoipPoolUsageRequest";
   /**
    * <p>The ID of the address pool.</p>
    */
@@ -24565,11 +22993,9 @@ export namespace GetCoipPoolUsageRequest {
   export const filterSensitiveLog = (obj: GetCoipPoolUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCoipPoolUsageRequest => __isa(o, "GetCoipPoolUsageRequest");
 }
 
 export interface GetCoipPoolUsageResult {
-  __type?: "GetCoipPoolUsageResult";
   /**
    * <p>Information about the address usage.</p>
    */
@@ -24590,11 +23016,9 @@ export namespace GetCoipPoolUsageResult {
   export const filterSensitiveLog = (obj: GetCoipPoolUsageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCoipPoolUsageResult => __isa(o, "GetCoipPoolUsageResult");
 }
 
 export interface GetConsoleOutputRequest {
-  __type?: "GetConsoleOutputRequest";
   /**
    * <p>When enabled, retrieves the latest console output for the instance.</p>
    *         <p>Default: disabled (<code>false</code>)</p>
@@ -24618,11 +23042,9 @@ export namespace GetConsoleOutputRequest {
   export const filterSensitiveLog = (obj: GetConsoleOutputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConsoleOutputRequest => __isa(o, "GetConsoleOutputRequest");
 }
 
 export interface GetConsoleOutputResult {
-  __type?: "GetConsoleOutputResult";
   /**
    * <p>The console output, base64-encoded. If you are using a command line tool, the tool
    *             decodes the output for you.</p>
@@ -24644,11 +23066,9 @@ export namespace GetConsoleOutputResult {
   export const filterSensitiveLog = (obj: GetConsoleOutputResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConsoleOutputResult => __isa(o, "GetConsoleOutputResult");
 }
 
 export interface GetConsoleScreenshotRequest {
-  __type?: "GetConsoleScreenshotRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -24672,11 +23092,9 @@ export namespace GetConsoleScreenshotRequest {
   export const filterSensitiveLog = (obj: GetConsoleScreenshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConsoleScreenshotRequest => __isa(o, "GetConsoleScreenshotRequest");
 }
 
 export interface GetConsoleScreenshotResult {
-  __type?: "GetConsoleScreenshotResult";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -24692,11 +23110,9 @@ export namespace GetConsoleScreenshotResult {
   export const filterSensitiveLog = (obj: GetConsoleScreenshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConsoleScreenshotResult => __isa(o, "GetConsoleScreenshotResult");
 }
 
 export interface GetDefaultCreditSpecificationRequest {
-  __type?: "GetDefaultCreditSpecificationRequest";
   /**
    * <p>The instance family.</p>
    */
@@ -24714,12 +23130,9 @@ export namespace GetDefaultCreditSpecificationRequest {
   export const filterSensitiveLog = (obj: GetDefaultCreditSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDefaultCreditSpecificationRequest =>
-    __isa(o, "GetDefaultCreditSpecificationRequest");
 }
 
 export interface GetDefaultCreditSpecificationResult {
-  __type?: "GetDefaultCreditSpecificationResult";
   /**
    * <p>The default credit option for CPU usage of the instance family.</p>
    */
@@ -24730,12 +23143,9 @@ export namespace GetDefaultCreditSpecificationResult {
   export const filterSensitiveLog = (obj: GetDefaultCreditSpecificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDefaultCreditSpecificationResult =>
-    __isa(o, "GetDefaultCreditSpecificationResult");
 }
 
 export interface GetEbsDefaultKmsKeyIdRequest {
-  __type?: "GetEbsDefaultKmsKeyIdRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -24748,11 +23158,9 @@ export namespace GetEbsDefaultKmsKeyIdRequest {
   export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEbsDefaultKmsKeyIdRequest => __isa(o, "GetEbsDefaultKmsKeyIdRequest");
 }
 
 export interface GetEbsDefaultKmsKeyIdResult {
-  __type?: "GetEbsDefaultKmsKeyIdResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the default CMK for encryption by default.</p>
    */
@@ -24763,11 +23171,9 @@ export namespace GetEbsDefaultKmsKeyIdResult {
   export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEbsDefaultKmsKeyIdResult => __isa(o, "GetEbsDefaultKmsKeyIdResult");
 }
 
 export interface GetEbsEncryptionByDefaultRequest {
-  __type?: "GetEbsEncryptionByDefaultRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -24780,11 +23186,9 @@ export namespace GetEbsEncryptionByDefaultRequest {
   export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEbsEncryptionByDefaultRequest => __isa(o, "GetEbsEncryptionByDefaultRequest");
 }
 
 export interface GetEbsEncryptionByDefaultResult {
-  __type?: "GetEbsEncryptionByDefaultResult";
   /**
    * <p>Indicates whether encryption by default is enabled.</p>
    */
@@ -24795,11 +23199,9 @@ export namespace GetEbsEncryptionByDefaultResult {
   export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEbsEncryptionByDefaultResult => __isa(o, "GetEbsEncryptionByDefaultResult");
 }
 
 export interface GetGroupsForCapacityReservationRequest {
-  __type?: "GetGroupsForCapacityReservationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -24825,12 +23227,9 @@ export namespace GetGroupsForCapacityReservationRequest {
   export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupsForCapacityReservationRequest =>
-    __isa(o, "GetGroupsForCapacityReservationRequest");
 }
 
 export interface GetGroupsForCapacityReservationResult {
-  __type?: "GetGroupsForCapacityReservationResult";
   /**
    * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
    */
@@ -24846,12 +23245,9 @@ export namespace GetGroupsForCapacityReservationResult {
   export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupsForCapacityReservationResult =>
-    __isa(o, "GetGroupsForCapacityReservationResult");
 }
 
 export interface GetHostReservationPurchasePreviewRequest {
-  __type?: "GetHostReservationPurchasePreviewRequest";
   /**
    * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
    */
@@ -24867,12 +23263,9 @@ export namespace GetHostReservationPurchasePreviewRequest {
   export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostReservationPurchasePreviewRequest =>
-    __isa(o, "GetHostReservationPurchasePreviewRequest");
 }
 
 export interface GetHostReservationPurchasePreviewResult {
-  __type?: "GetHostReservationPurchasePreviewResult";
   /**
    * <p>The currency in which the <code>totalUpfrontPrice</code> and
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
@@ -24901,12 +23294,9 @@ export namespace GetHostReservationPurchasePreviewResult {
   export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostReservationPurchasePreviewResult =>
-    __isa(o, "GetHostReservationPurchasePreviewResult");
 }
 
 export interface GetLaunchTemplateDataRequest {
-  __type?: "GetLaunchTemplateDataRequest";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -24925,11 +23315,9 @@ export namespace GetLaunchTemplateDataRequest {
   export const filterSensitiveLog = (obj: GetLaunchTemplateDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLaunchTemplateDataRequest => __isa(o, "GetLaunchTemplateDataRequest");
 }
 
 export interface GetLaunchTemplateDataResult {
-  __type?: "GetLaunchTemplateDataResult";
   /**
    * <p>The instance data.</p>
    */
@@ -24940,11 +23328,9 @@ export namespace GetLaunchTemplateDataResult {
   export const filterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLaunchTemplateDataResult => __isa(o, "GetLaunchTemplateDataResult");
 }
 
 export interface GetManagedPrefixListAssociationsRequest {
-  __type?: "GetManagedPrefixListAssociationsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -24973,12 +23359,9 @@ export namespace GetManagedPrefixListAssociationsRequest {
   export const filterSensitiveLog = (obj: GetManagedPrefixListAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetManagedPrefixListAssociationsRequest =>
-    __isa(o, "GetManagedPrefixListAssociationsRequest");
 }
 
 export interface GetManagedPrefixListAssociationsResult {
-  __type?: "GetManagedPrefixListAssociationsResult";
   /**
    * <p>Information about the associations.</p>
    */
@@ -24994,12 +23377,9 @@ export namespace GetManagedPrefixListAssociationsResult {
   export const filterSensitiveLog = (obj: GetManagedPrefixListAssociationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetManagedPrefixListAssociationsResult =>
-    __isa(o, "GetManagedPrefixListAssociationsResult");
 }
 
 export interface GetManagedPrefixListEntriesRequest {
-  __type?: "GetManagedPrefixListEntriesRequest";
   /**
    * <p>The version of the prefix list for which to return the entries. The default is the current version.</p>
    */
@@ -25033,12 +23413,9 @@ export namespace GetManagedPrefixListEntriesRequest {
   export const filterSensitiveLog = (obj: GetManagedPrefixListEntriesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetManagedPrefixListEntriesRequest =>
-    __isa(o, "GetManagedPrefixListEntriesRequest");
 }
 
 export interface GetManagedPrefixListEntriesResult {
-  __type?: "GetManagedPrefixListEntriesResult";
   /**
    * <p>Information about the prefix list entries.</p>
    */
@@ -25054,11 +23431,9 @@ export namespace GetManagedPrefixListEntriesResult {
   export const filterSensitiveLog = (obj: GetManagedPrefixListEntriesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetManagedPrefixListEntriesResult => __isa(o, "GetManagedPrefixListEntriesResult");
 }
 
 export interface GetPasswordDataRequest {
-  __type?: "GetPasswordDataRequest";
   /**
    * <p>The ID of the Windows instance.</p>
    */
@@ -25076,11 +23451,9 @@ export namespace GetPasswordDataRequest {
   export const filterSensitiveLog = (obj: GetPasswordDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPasswordDataRequest => __isa(o, "GetPasswordDataRequest");
 }
 
 export interface GetPasswordDataResult {
-  __type?: "GetPasswordDataResult";
   /**
    * <p>The ID of the Windows instance.</p>
    */
@@ -25102,14 +23475,12 @@ export namespace GetPasswordDataResult {
   export const filterSensitiveLog = (obj: GetPasswordDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPasswordDataResult => __isa(o, "GetPasswordDataResult");
 }
 
 /**
  * <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
  */
 export interface GetReservedInstancesExchangeQuoteRequest {
-  __type?: "GetReservedInstancesExchangeQuoteRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -25133,15 +23504,12 @@ export namespace GetReservedInstancesExchangeQuoteRequest {
   export const filterSensitiveLog = (obj: GetReservedInstancesExchangeQuoteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReservedInstancesExchangeQuoteRequest =>
-    __isa(o, "GetReservedInstancesExchangeQuoteRequest");
 }
 
 /**
  * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
  */
 export interface GetReservedInstancesExchangeQuoteResult {
-  __type?: "GetReservedInstancesExchangeQuoteResult";
   /**
    * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be completed.</p>
    */
@@ -25192,12 +23560,9 @@ export namespace GetReservedInstancesExchangeQuoteResult {
   export const filterSensitiveLog = (obj: GetReservedInstancesExchangeQuoteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReservedInstancesExchangeQuoteResult =>
-    __isa(o, "GetReservedInstancesExchangeQuoteResult");
 }
 
 export interface GetTransitGatewayAttachmentPropagationsRequest {
-  __type?: "GetTransitGatewayAttachmentPropagationsRequest";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -25237,12 +23602,9 @@ export namespace GetTransitGatewayAttachmentPropagationsRequest {
   export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayAttachmentPropagationsRequest =>
-    __isa(o, "GetTransitGatewayAttachmentPropagationsRequest");
 }
 
 export interface GetTransitGatewayAttachmentPropagationsResult {
-  __type?: "GetTransitGatewayAttachmentPropagationsResult";
   /**
    * <p>Information about the propagation route tables.</p>
    */
@@ -25258,12 +23620,9 @@ export namespace GetTransitGatewayAttachmentPropagationsResult {
   export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayAttachmentPropagationsResult =>
-    __isa(o, "GetTransitGatewayAttachmentPropagationsResult");
 }
 
 export interface GetTransitGatewayMulticastDomainAssociationsRequest {
-  __type?: "GetTransitGatewayMulticastDomainAssociationsRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -25323,12 +23682,9 @@ export namespace GetTransitGatewayMulticastDomainAssociationsRequest {
   export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayMulticastDomainAssociationsRequest =>
-    __isa(o, "GetTransitGatewayMulticastDomainAssociationsRequest");
 }
 
 export interface GetTransitGatewayMulticastDomainAssociationsResult {
-  __type?: "GetTransitGatewayMulticastDomainAssociationsResult";
   /**
    * <p>Information about the multicast domain associations.</p>
    */
@@ -25344,12 +23700,9 @@ export namespace GetTransitGatewayMulticastDomainAssociationsResult {
   export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayMulticastDomainAssociationsResult =>
-    __isa(o, "GetTransitGatewayMulticastDomainAssociationsResult");
 }
 
 export interface GetTransitGatewayRouteTableAssociationsRequest {
-  __type?: "GetTransitGatewayRouteTableAssociationsRequest";
   /**
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
@@ -25397,12 +23750,9 @@ export namespace GetTransitGatewayRouteTableAssociationsRequest {
   export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayRouteTableAssociationsRequest =>
-    __isa(o, "GetTransitGatewayRouteTableAssociationsRequest");
 }
 
 export interface GetTransitGatewayRouteTableAssociationsResult {
-  __type?: "GetTransitGatewayRouteTableAssociationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -25418,12 +23768,9 @@ export namespace GetTransitGatewayRouteTableAssociationsResult {
   export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAssociationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayRouteTableAssociationsResult =>
-    __isa(o, "GetTransitGatewayRouteTableAssociationsResult");
 }
 
 export interface GetTransitGatewayRouteTablePropagationsRequest {
-  __type?: "GetTransitGatewayRouteTablePropagationsRequest";
   /**
    * <p>The ID of the transit gateway route table.</p>
    */
@@ -25471,12 +23818,9 @@ export namespace GetTransitGatewayRouteTablePropagationsRequest {
   export const filterSensitiveLog = (obj: GetTransitGatewayRouteTablePropagationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayRouteTablePropagationsRequest =>
-    __isa(o, "GetTransitGatewayRouteTablePropagationsRequest");
 }
 
 export interface GetTransitGatewayRouteTablePropagationsResult {
-  __type?: "GetTransitGatewayRouteTablePropagationsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -25492,15 +23836,12 @@ export namespace GetTransitGatewayRouteTablePropagationsResult {
   export const filterSensitiveLog = (obj: GetTransitGatewayRouteTablePropagationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayRouteTablePropagationsResult =>
-    __isa(o, "GetTransitGatewayRouteTablePropagationsResult");
 }
 
 /**
  * <p>Describes the GPU accelerators for the instance type.</p>
  */
 export interface GpuDeviceInfo {
-  __type?: "GpuDeviceInfo";
   /**
    * <p>The name of the GPU accelerator.</p>
    */
@@ -25526,14 +23867,12 @@ export namespace GpuDeviceInfo {
   export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GpuDeviceInfo => __isa(o, "GpuDeviceInfo");
 }
 
 /**
  * <p>Describes the memory available to the GPU accelerator.</p>
  */
 export interface GpuDeviceMemoryInfo {
-  __type?: "GpuDeviceMemoryInfo";
   /**
    * <p>The size (in MiB) for the memory available to the GPU accelerator.</p>
    */
@@ -25544,14 +23883,12 @@ export namespace GpuDeviceMemoryInfo {
   export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GpuDeviceMemoryInfo => __isa(o, "GpuDeviceMemoryInfo");
 }
 
 /**
  * <p>Describes the GPU accelerators for the instance type.</p>
  */
 export interface GpuInfo {
-  __type?: "GpuInfo";
   /**
    * <p>The total size of the memory for the GPU accelerators for the instance type.</p>
    */
@@ -25567,14 +23904,12 @@ export namespace GpuInfo {
   export const filterSensitiveLog = (obj: GpuInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GpuInfo => __isa(o, "GpuInfo");
 }
 
 /**
  * <p>Describes a security group.</p>
  */
 export interface GroupIdentifier {
-  __type?: "GroupIdentifier";
   /**
    * <p>The name of the security group.</p>
    */
@@ -25590,7 +23925,6 @@ export namespace GroupIdentifier {
   export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupIdentifier => __isa(o, "GroupIdentifier");
 }
 
 /**
@@ -25601,7 +23935,6 @@ export namespace GroupIdentifier {
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface HibernationOptions {
-  __type?: "HibernationOptions";
   /**
    * <p>If this parameter is set to <code>true</code>, your instance is enabled for
    *             hibernation; otherwise, it is not enabled for hibernation.</p>
@@ -25613,7 +23946,6 @@ export namespace HibernationOptions {
   export const filterSensitiveLog = (obj: HibernationOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HibernationOptions => __isa(o, "HibernationOptions");
 }
 
 /**
@@ -25624,7 +23956,6 @@ export namespace HibernationOptions {
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface HibernationOptionsRequest {
-  __type?: "HibernationOptionsRequest";
   /**
    * <p>If you set this parameter to <code>true</code>, your instance is enabled for
    *             hibernation.</p>
@@ -25638,14 +23969,12 @@ export namespace HibernationOptionsRequest {
   export const filterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HibernationOptionsRequest => __isa(o, "HibernationOptionsRequest");
 }
 
 /**
  * <p>Describes an event in the history of the Spot Fleet request.</p>
  */
 export interface HistoryRecord {
-  __type?: "HistoryRecord";
   /**
    * <p>The date and time of the event, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
@@ -25684,14 +24013,12 @@ export namespace HistoryRecord {
   export const filterSensitiveLog = (obj: HistoryRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HistoryRecord => __isa(o, "HistoryRecord");
 }
 
 /**
  * <p>Describes an event in the history of an EC2 Fleet.</p>
  */
 export interface HistoryRecordEntry {
-  __type?: "HistoryRecordEntry";
   /**
    * <p>Information about the event.</p>
    */
@@ -25713,14 +24040,12 @@ export namespace HistoryRecordEntry {
   export const filterSensitiveLog = (obj: HistoryRecordEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HistoryRecordEntry => __isa(o, "HistoryRecordEntry");
 }
 
 /**
  * <p>Describes the properties of the Dedicated Host.</p>
  */
 export interface Host {
-  __type?: "Host";
   /**
    * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
    */
@@ -25818,14 +24143,12 @@ export namespace Host {
   export const filterSensitiveLog = (obj: Host): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Host => __isa(o, "Host");
 }
 
 /**
  * <p>Describes an instance running on a Dedicated Host.</p>
  */
 export interface HostInstance {
-  __type?: "HostInstance";
   /**
    * <p>The instance type (for example, <code>m3.medium</code>) of the running instance.</p>
    */
@@ -25846,14 +24169,12 @@ export namespace HostInstance {
   export const filterSensitiveLog = (obj: HostInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostInstance => __isa(o, "HostInstance");
 }
 
 /**
  * <p>Details about the Dedicated Host Reservation offering.</p>
  */
 export interface HostOffering {
-  __type?: "HostOffering";
   /**
    * <p>The upfront price of the offering. Does not apply to No Upfront
    *             offerings.</p>
@@ -25895,14 +24216,12 @@ export namespace HostOffering {
   export const filterSensitiveLog = (obj: HostOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostOffering => __isa(o, "HostOffering");
 }
 
 /**
  * <p>Describes the properties of a Dedicated Host.</p>
  */
 export interface HostProperties {
-  __type?: "HostProperties";
   /**
    * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
    *         	If the host supports multiple instance types, no <b>instanceType</b>
@@ -25935,7 +24254,6 @@ export namespace HostProperties {
   export const filterSensitiveLog = (obj: HostProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostProperties => __isa(o, "HostProperties");
 }
 
 export type HostRecovery = "off" | "on";
@@ -25945,7 +24263,6 @@ export type HostRecovery = "off" | "on";
  *             Hosts.</p>
  */
 export interface HostReservation {
-  __type?: "HostReservation";
   /**
    * <p>The state of the reservation.</p>
    */
@@ -26027,7 +24344,6 @@ export namespace HostReservation {
   export const filterSensitiveLog = (obj: HostReservation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostReservation => __isa(o, "HostReservation");
 }
 
 export type HostTenancy = "dedicated" | "host";
@@ -26043,7 +24359,6 @@ export type HypervisorType = "ovm" | "xen";
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfile {
-  __type?: "IamInstanceProfile";
   /**
    * <p>The ID of the instance profile.</p>
    */
@@ -26059,14 +24374,12 @@ export namespace IamInstanceProfile {
   export const filterSensitiveLog = (obj: IamInstanceProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamInstanceProfile => __isa(o, "IamInstanceProfile");
 }
 
 /**
  * <p>Describes an association between an IAM instance profile and an instance.</p>
  */
 export interface IamInstanceProfileAssociation {
-  __type?: "IamInstanceProfileAssociation";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -26097,7 +24410,6 @@ export namespace IamInstanceProfileAssociation {
   export const filterSensitiveLog = (obj: IamInstanceProfileAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamInstanceProfileAssociation => __isa(o, "IamInstanceProfileAssociation");
 }
 
 export enum IamInstanceProfileAssociationState {
@@ -26111,7 +24423,6 @@ export enum IamInstanceProfileAssociationState {
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfileSpecification {
-  __type?: "IamInstanceProfileSpecification";
   /**
    * <p>The name of the instance profile.</p>
    */
@@ -26127,14 +24438,12 @@ export namespace IamInstanceProfileSpecification {
   export const filterSensitiveLog = (obj: IamInstanceProfileSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamInstanceProfileSpecification => __isa(o, "IamInstanceProfileSpecification");
 }
 
 /**
  * <p>Describes the ICMP type and code.</p>
  */
 export interface IcmpTypeCode {
-  __type?: "IcmpTypeCode";
   /**
    * <p>The ICMP type. A value of -1 means all types.</p>
    */
@@ -26150,14 +24459,12 @@ export namespace IcmpTypeCode {
   export const filterSensitiveLog = (obj: IcmpTypeCode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IcmpTypeCode => __isa(o, "IcmpTypeCode");
 }
 
 /**
  * <p>Describes the ID format for a resource.</p>
  */
 export interface IdFormat {
-  __type?: "IdFormat";
   /**
    * <p>The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.</p>
    */
@@ -26178,14 +24485,12 @@ export namespace IdFormat {
   export const filterSensitiveLog = (obj: IdFormat): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdFormat => __isa(o, "IdFormat");
 }
 
 /**
  * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
  */
 export interface IKEVersionsListValue {
-  __type?: "IKEVersionsListValue";
   /**
    * <p>The IKE version.</p>
    */
@@ -26196,14 +24501,12 @@ export namespace IKEVersionsListValue {
   export const filterSensitiveLog = (obj: IKEVersionsListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IKEVersionsListValue => __isa(o, "IKEVersionsListValue");
 }
 
 /**
  * <p>The IKE version that is permitted for the VPN tunnel.</p>
  */
 export interface IKEVersionsRequestListValue {
-  __type?: "IKEVersionsRequestListValue";
   /**
    * <p>The IKE version.</p>
    */
@@ -26214,14 +24517,12 @@ export namespace IKEVersionsRequestListValue {
   export const filterSensitiveLog = (obj: IKEVersionsRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IKEVersionsRequestListValue => __isa(o, "IKEVersionsRequestListValue");
 }
 
 /**
  * <p>Describes an image.</p>
  */
 export interface Image {
-  __type?: "Image";
   /**
    * <p>Specifies whether enhanced networking with ENA is enabled.</p>
    */
@@ -26365,14 +24666,12 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 /**
  * <p>Describes an image attribute.</p>
  */
 export interface ImageAttribute {
-  __type?: "ImageAttribute";
   /**
    * <p>The RAM disk ID.</p>
    */
@@ -26418,7 +24717,6 @@ export namespace ImageAttribute {
   export const filterSensitiveLog = (obj: ImageAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageAttribute => __isa(o, "ImageAttribute");
 }
 
 export type ImageAttributeName =
@@ -26434,7 +24732,6 @@ export type ImageAttributeName =
  * <p>Describes the disk container object for an import image task.</p>
  */
 export interface ImageDiskContainer {
-  __type?: "ImageDiskContainer";
   /**
    * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
    *    Amazon S3 URL (s3://..)</p>
@@ -26473,7 +24770,6 @@ export namespace ImageDiskContainer {
   export const filterSensitiveLog = (obj: ImageDiskContainer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageDiskContainer => __isa(o, "ImageDiskContainer");
 }
 
 export type ImageState = "available" | "deregistered" | "error" | "failed" | "invalid" | "pending" | "transient";
@@ -26481,7 +24777,6 @@ export type ImageState = "available" | "deregistered" | "error" | "failed" | "in
 export type ImageTypeValues = "kernel" | "machine" | "ramdisk";
 
 export interface ImportClientVpnClientCertificateRevocationListRequest {
-  __type?: "ImportClientVpnClientCertificateRevocationListRequest";
   /**
    * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
    */
@@ -26503,12 +24798,9 @@ export namespace ImportClientVpnClientCertificateRevocationListRequest {
   export const filterSensitiveLog = (obj: ImportClientVpnClientCertificateRevocationListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportClientVpnClientCertificateRevocationListRequest =>
-    __isa(o, "ImportClientVpnClientCertificateRevocationListRequest");
 }
 
 export interface ImportClientVpnClientCertificateRevocationListResult {
-  __type?: "ImportClientVpnClientCertificateRevocationListResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -26519,15 +24811,12 @@ export namespace ImportClientVpnClientCertificateRevocationListResult {
   export const filterSensitiveLog = (obj: ImportClientVpnClientCertificateRevocationListResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportClientVpnClientCertificateRevocationListResult =>
-    __isa(o, "ImportClientVpnClientCertificateRevocationListResult");
 }
 
 /**
  * <p>The request information of license configurations.</p>
  */
 export interface ImportImageLicenseConfigurationRequest {
-  __type?: "ImportImageLicenseConfigurationRequest";
   /**
    * <p>The ARN of a license configuration.</p>
    */
@@ -26538,15 +24827,12 @@ export namespace ImportImageLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportImageLicenseConfigurationRequest =>
-    __isa(o, "ImportImageLicenseConfigurationRequest");
 }
 
 /**
  * <p> The response information for license configurations.</p>
  */
 export interface ImportImageLicenseConfigurationResponse {
-  __type?: "ImportImageLicenseConfigurationResponse";
   /**
    * <p>The ARN of a license configuration.</p>
    */
@@ -26557,12 +24843,9 @@ export namespace ImportImageLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportImageLicenseConfigurationResponse =>
-    __isa(o, "ImportImageLicenseConfigurationResponse");
 }
 
 export interface ImportImageRequest {
-  __type?: "ImportImageRequest";
   /**
    * <p>The ARNs of the license configurations.</p>
    */
@@ -26676,11 +24959,9 @@ export namespace ImportImageRequest {
   export const filterSensitiveLog = (obj: ImportImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportImageRequest => __isa(o, "ImportImageRequest");
 }
 
 export interface ImportImageResult {
-  __type?: "ImportImageResult";
   /**
    * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
    */
@@ -26762,14 +25043,12 @@ export namespace ImportImageResult {
   export const filterSensitiveLog = (obj: ImportImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportImageResult => __isa(o, "ImportImageResult");
 }
 
 /**
  * <p>Describes an import image task.</p>
  */
 export interface ImportImageTask {
-  __type?: "ImportImageTask";
   /**
    * <p>A brief status for the import image task.</p>
    */
@@ -26855,14 +25134,12 @@ export namespace ImportImageTask {
   export const filterSensitiveLog = (obj: ImportImageTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportImageTask => __isa(o, "ImportImageTask");
 }
 
 /**
  * <p>Describes the launch specification for VM import.</p>
  */
 export interface ImportInstanceLaunchSpecification {
-  __type?: "ImportInstanceLaunchSpecification";
   /**
    * <p>Indicates whether monitoring is enabled.</p>
    */
@@ -26926,11 +25203,9 @@ export namespace ImportInstanceLaunchSpecification {
     ...obj,
     ...(obj.UserData && { UserData: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ImportInstanceLaunchSpecification => __isa(o, "ImportInstanceLaunchSpecification");
 }
 
 export interface ImportInstanceRequest {
-  __type?: "ImportInstanceRequest";
   /**
    * <p>A description for the instance being imported.</p>
    */
@@ -26966,11 +25241,9 @@ export namespace ImportInstanceRequest {
       LaunchSpecification: ImportInstanceLaunchSpecification.filterSensitiveLog(obj.LaunchSpecification),
     }),
   });
-  export const isa = (o: any): o is ImportInstanceRequest => __isa(o, "ImportInstanceRequest");
 }
 
 export interface ImportInstanceResult {
-  __type?: "ImportInstanceResult";
   /**
    * <p>Information about the conversion task.</p>
    */
@@ -26981,14 +25254,12 @@ export namespace ImportInstanceResult {
   export const filterSensitiveLog = (obj: ImportInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportInstanceResult => __isa(o, "ImportInstanceResult");
 }
 
 /**
  * <p>Describes an import instance task.</p>
  */
 export interface ImportInstanceTaskDetails {
-  __type?: "ImportInstanceTaskDetails";
   /**
    * <p>The instance operating system.</p>
    */
@@ -27014,14 +25285,12 @@ export namespace ImportInstanceTaskDetails {
   export const filterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportInstanceTaskDetails => __isa(o, "ImportInstanceTaskDetails");
 }
 
 /**
  * <p>Describes an import volume task.</p>
  */
 export interface ImportInstanceVolumeDetailItem {
-  __type?: "ImportInstanceVolumeDetailItem";
   /**
    * <p>The status information or errors related to the disk image.</p>
    */
@@ -27062,11 +25331,9 @@ export namespace ImportInstanceVolumeDetailItem {
   export const filterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportInstanceVolumeDetailItem => __isa(o, "ImportInstanceVolumeDetailItem");
 }
 
 export interface ImportKeyPairRequest {
-  __type?: "ImportKeyPairRequest";
   /**
    * <p>A unique name for the key pair.</p>
    */
@@ -27094,11 +25361,9 @@ export namespace ImportKeyPairRequest {
   export const filterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportKeyPairRequest => __isa(o, "ImportKeyPairRequest");
 }
 
 export interface ImportKeyPairResult {
-  __type?: "ImportKeyPairResult";
   /**
    * <p>The key pair name you provided.</p>
    */
@@ -27124,11 +25389,9 @@ export namespace ImportKeyPairResult {
   export const filterSensitiveLog = (obj: ImportKeyPairResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportKeyPairResult => __isa(o, "ImportKeyPairResult");
 }
 
 export interface ImportSnapshotRequest {
-  __type?: "ImportSnapshotRequest";
   /**
    * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
    */
@@ -27205,11 +25468,9 @@ export namespace ImportSnapshotRequest {
   export const filterSensitiveLog = (obj: ImportSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportSnapshotRequest => __isa(o, "ImportSnapshotRequest");
 }
 
 export interface ImportSnapshotResult {
-  __type?: "ImportSnapshotResult";
   /**
    * <p>A description of the import snapshot task.</p>
    */
@@ -27235,14 +25496,12 @@ export namespace ImportSnapshotResult {
   export const filterSensitiveLog = (obj: ImportSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportSnapshotResult => __isa(o, "ImportSnapshotResult");
 }
 
 /**
  * <p>Describes an import snapshot task.</p>
  */
 export interface ImportSnapshotTask {
-  __type?: "ImportSnapshotTask";
   /**
    * <p>The ID of the import snapshot task.</p>
    */
@@ -27268,11 +25527,9 @@ export namespace ImportSnapshotTask {
   export const filterSensitiveLog = (obj: ImportSnapshotTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportSnapshotTask => __isa(o, "ImportSnapshotTask");
 }
 
 export interface ImportVolumeRequest {
-  __type?: "ImportVolumeRequest";
   /**
    * <p>The Availability Zone for the resulting EBS volume.</p>
    */
@@ -27305,11 +25562,9 @@ export namespace ImportVolumeRequest {
   export const filterSensitiveLog = (obj: ImportVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportVolumeRequest => __isa(o, "ImportVolumeRequest");
 }
 
 export interface ImportVolumeResult {
-  __type?: "ImportVolumeResult";
   /**
    * <p>Information about the conversion task.</p>
    */
@@ -27320,14 +25575,12 @@ export namespace ImportVolumeResult {
   export const filterSensitiveLog = (obj: ImportVolumeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportVolumeResult => __isa(o, "ImportVolumeResult");
 }
 
 /**
  * <p>Describes an import volume task.</p>
  */
 export interface ImportVolumeTaskDetails {
-  __type?: "ImportVolumeTaskDetails";
   /**
    * <p>The image.</p>
    */
@@ -27358,14 +25611,12 @@ export namespace ImportVolumeTaskDetails {
   export const filterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportVolumeTaskDetails => __isa(o, "ImportVolumeTaskDetails");
 }
 
 /**
  * <p>Describes the Inference accelerators for the instance type.</p>
  */
 export interface InferenceAcceleratorInfo {
-  __type?: "InferenceAcceleratorInfo";
   /**
    * <p>Describes the Inference accelerators for the instance type.</p>
    */
@@ -27376,14 +25627,12 @@ export namespace InferenceAcceleratorInfo {
   export const filterSensitiveLog = (obj: InferenceAcceleratorInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferenceAcceleratorInfo => __isa(o, "InferenceAcceleratorInfo");
 }
 
 /**
  * <p>Describes the Inference accelerators for the instance type.</p>
  */
 export interface InferenceDeviceInfo {
-  __type?: "InferenceDeviceInfo";
   /**
    * <p>The manufacturer of the Inference accelerator.</p>
    */
@@ -27404,14 +25653,12 @@ export namespace InferenceDeviceInfo {
   export const filterSensitiveLog = (obj: InferenceDeviceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferenceDeviceInfo => __isa(o, "InferenceDeviceInfo");
 }
 
 /**
  * <p>Describes an instance.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>The ID of the Capacity Reservation.</p>
    */
@@ -27675,14 +25922,12 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
  * <p>Describes an instance attribute.</p>
  */
 export interface InstanceAttribute {
-  __type?: "InstanceAttribute";
   /**
    * <p>The security groups associated with the instance.</p>
    */
@@ -27769,7 +26014,6 @@ export namespace InstanceAttribute {
   export const filterSensitiveLog = (obj: InstanceAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceAttribute => __isa(o, "InstanceAttribute");
 }
 
 export type InstanceAttributeName =
@@ -27792,7 +26036,6 @@ export type InstanceAttributeName =
  * <p>Describes a block device mapping.</p>
  */
 export interface InstanceBlockDeviceMapping {
-  __type?: "InstanceBlockDeviceMapping";
   /**
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
    */
@@ -27809,14 +26052,12 @@ export namespace InstanceBlockDeviceMapping {
   export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceBlockDeviceMapping => __isa(o, "InstanceBlockDeviceMapping");
 }
 
 /**
  * <p>Describes a block device mapping entry.</p>
  */
 export interface InstanceBlockDeviceMappingSpecification {
-  __type?: "InstanceBlockDeviceMappingSpecification";
   /**
    * <p>The virtual device name.</p>
    */
@@ -27843,8 +26084,6 @@ export namespace InstanceBlockDeviceMappingSpecification {
   export const filterSensitiveLog = (obj: InstanceBlockDeviceMappingSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceBlockDeviceMappingSpecification =>
-    __isa(o, "InstanceBlockDeviceMappingSpecification");
 }
 
 /**
@@ -27852,7 +26091,6 @@ export namespace InstanceBlockDeviceMappingSpecification {
  *     		Host.</p>
  */
 export interface InstanceCapacity {
-  __type?: "InstanceCapacity";
   /**
    * <p>The number of instances that can be launched onto the Dedicated Host based on the
    *     		host's available capacity.</p>
@@ -27875,14 +26113,12 @@ export namespace InstanceCapacity {
   export const filterSensitiveLog = (obj: InstanceCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceCapacity => __isa(o, "InstanceCapacity");
 }
 
 /**
  * <p>Describes a Reserved Instance listing state.</p>
  */
 export interface InstanceCount {
-  __type?: "InstanceCount";
   /**
    * <p>The states of the listed Reserved Instances.</p>
    */
@@ -27898,14 +26134,12 @@ export namespace InstanceCount {
   export const filterSensitiveLog = (obj: InstanceCount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceCount => __isa(o, "InstanceCount");
 }
 
 /**
  * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
  */
 export interface InstanceCreditSpecification {
-  __type?: "InstanceCreditSpecification";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -27922,14 +26156,12 @@ export namespace InstanceCreditSpecification {
   export const filterSensitiveLog = (obj: InstanceCreditSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceCreditSpecification => __isa(o, "InstanceCreditSpecification");
 }
 
 /**
  * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
  */
 export interface InstanceCreditSpecificationRequest {
-  __type?: "InstanceCreditSpecificationRequest";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -27946,15 +26178,12 @@ export namespace InstanceCreditSpecificationRequest {
   export const filterSensitiveLog = (obj: InstanceCreditSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceCreditSpecificationRequest =>
-    __isa(o, "InstanceCreditSpecificationRequest");
 }
 
 /**
  * <p>Describes an instance to export.</p>
  */
 export interface InstanceExportDetails {
-  __type?: "InstanceExportDetails";
   /**
    * <p>The ID of the resource being exported.</p>
    */
@@ -27970,14 +26199,12 @@ export namespace InstanceExportDetails {
   export const filterSensitiveLog = (obj: InstanceExportDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceExportDetails => __isa(o, "InstanceExportDetails");
 }
 
 /**
  * <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
  */
 export interface InstanceFamilyCreditSpecification {
-  __type?: "InstanceFamilyCreditSpecification";
   /**
    * <p>The instance family.</p>
    */
@@ -27993,7 +26220,6 @@ export namespace InstanceFamilyCreditSpecification {
   export const filterSensitiveLog = (obj: InstanceFamilyCreditSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFamilyCreditSpecification => __isa(o, "InstanceFamilyCreditSpecification");
 }
 
 export enum InstanceHealthStatus {
@@ -28007,7 +26233,6 @@ export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
  * <p>Describes an IPv6 address.</p>
  */
 export interface InstanceIpv6Address {
-  __type?: "InstanceIpv6Address";
   /**
    * <p>The IPv6 address.</p>
    */
@@ -28018,14 +26243,12 @@ export namespace InstanceIpv6Address {
   export const filterSensitiveLog = (obj: InstanceIpv6Address): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceIpv6Address => __isa(o, "InstanceIpv6Address");
 }
 
 /**
  * <p>Describes an IPv6 address.</p>
  */
 export interface InstanceIpv6AddressRequest {
-  __type?: "InstanceIpv6AddressRequest";
   /**
    * <p>The IPv6 address.</p>
    */
@@ -28036,7 +26259,6 @@ export namespace InstanceIpv6AddressRequest {
   export const filterSensitiveLog = (obj: InstanceIpv6AddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceIpv6AddressRequest => __isa(o, "InstanceIpv6AddressRequest");
 }
 
 export enum InstanceLifecycle {
@@ -28050,7 +26272,6 @@ export type InstanceLifecycleType = "scheduled" | "spot";
  * <p>Describes the market (purchasing) option for the instances.</p>
  */
 export interface InstanceMarketOptionsRequest {
-  __type?: "InstanceMarketOptionsRequest";
   /**
    * <p>The options for Spot Instances.</p>
    */
@@ -28066,7 +26287,6 @@ export namespace InstanceMarketOptionsRequest {
   export const filterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceMarketOptionsRequest => __isa(o, "InstanceMarketOptionsRequest");
 }
 
 export type InstanceMatchCriteria = "open" | "targeted";
@@ -28077,7 +26297,6 @@ export type InstanceMetadataEndpointState = "disabled" | "enabled";
  * <p>The metadata options for the instance.</p>
  */
 export interface InstanceMetadataOptionsRequest {
-  __type?: "InstanceMetadataOptionsRequest";
   /**
    * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
    *             the parameter is not specified, the default state is <code>enabled</code>.</p>
@@ -28116,14 +26335,12 @@ export namespace InstanceMetadataOptionsRequest {
   export const filterSensitiveLog = (obj: InstanceMetadataOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceMetadataOptionsRequest => __isa(o, "InstanceMetadataOptionsRequest");
 }
 
 /**
  * <p>The metadata options for the instance.</p>
  */
 export interface InstanceMetadataOptionsResponse {
-  __type?: "InstanceMetadataOptionsResponse";
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
    *             number, the further instance metadata requests can travel.</p>
@@ -28173,7 +26390,6 @@ export namespace InstanceMetadataOptionsResponse {
   export const filterSensitiveLog = (obj: InstanceMetadataOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceMetadataOptionsResponse => __isa(o, "InstanceMetadataOptionsResponse");
 }
 
 export type InstanceMetadataOptionsState = "applied" | "pending";
@@ -28182,7 +26398,6 @@ export type InstanceMetadataOptionsState = "applied" | "pending";
  * <p>Describes the monitoring of an instance.</p>
  */
 export interface InstanceMonitoring {
-  __type?: "InstanceMonitoring";
   /**
    * <p>The monitoring for the instance.</p>
    */
@@ -28198,14 +26413,12 @@ export namespace InstanceMonitoring {
   export const filterSensitiveLog = (obj: InstanceMonitoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceMonitoring => __isa(o, "InstanceMonitoring");
 }
 
 /**
  * <p>Describes a network interface.</p>
  */
 export interface InstanceNetworkInterface {
-  __type?: "InstanceNetworkInterface";
   /**
    * <p>The association information for an Elastic IPv4 associated with the network
    *             interface.</p>
@@ -28294,14 +26507,12 @@ export namespace InstanceNetworkInterface {
   export const filterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNetworkInterface => __isa(o, "InstanceNetworkInterface");
 }
 
 /**
  * <p>Describes association information for an Elastic IP address (IPv4).</p>
  */
 export interface InstanceNetworkInterfaceAssociation {
-  __type?: "InstanceNetworkInterfaceAssociation";
   /**
    * <p>The public IP address or Elastic IP address bound to the network interface.</p>
    */
@@ -28322,15 +26533,12 @@ export namespace InstanceNetworkInterfaceAssociation {
   export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNetworkInterfaceAssociation =>
-    __isa(o, "InstanceNetworkInterfaceAssociation");
 }
 
 /**
  * <p>Describes a network interface attachment.</p>
  */
 export interface InstanceNetworkInterfaceAttachment {
-  __type?: "InstanceNetworkInterfaceAttachment";
   /**
    * <p>The ID of the network interface attachment.</p>
    */
@@ -28361,15 +26569,12 @@ export namespace InstanceNetworkInterfaceAttachment {
   export const filterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNetworkInterfaceAttachment =>
-    __isa(o, "InstanceNetworkInterfaceAttachment");
 }
 
 /**
  * <p>Describes a network interface.</p>
  */
 export interface InstanceNetworkInterfaceSpecification {
-  __type?: "InstanceNetworkInterfaceSpecification";
   /**
    * <p>If set to <code>true</code>, the interface is deleted when the instance is terminated. You can
    *             specify <code>true</code> only if creating a new network interface when launching an
@@ -28464,15 +26669,12 @@ export namespace InstanceNetworkInterfaceSpecification {
   export const filterSensitiveLog = (obj: InstanceNetworkInterfaceSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNetworkInterfaceSpecification =>
-    __isa(o, "InstanceNetworkInterfaceSpecification");
 }
 
 /**
  * <p>Describes a private IPv4 address.</p>
  */
 export interface InstancePrivateIpAddress {
-  __type?: "InstancePrivateIpAddress";
   /**
    * <p>The private IPv4 address of the network interface.</p>
    */
@@ -28498,14 +26700,12 @@ export namespace InstancePrivateIpAddress {
   export const filterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstancePrivateIpAddress => __isa(o, "InstancePrivateIpAddress");
 }
 
 /**
  * <p>The instance details to specify which volumes should be snapshotted.</p>
  */
 export interface InstanceSpecification {
-  __type?: "InstanceSpecification";
   /**
    * <p>The instance to specify which volumes should be snapshotted.</p>
    */
@@ -28521,14 +26721,12 @@ export namespace InstanceSpecification {
   export const filterSensitiveLog = (obj: InstanceSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceSpecification => __isa(o, "InstanceSpecification");
 }
 
 /**
  * <p>Describes the current state of an instance.</p>
  */
 export interface InstanceState {
-  __type?: "InstanceState";
   /**
    * <p>The current state of the instance.</p>
    */
@@ -28585,14 +26783,12 @@ export namespace InstanceState {
   export const filterSensitiveLog = (obj: InstanceState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceState => __isa(o, "InstanceState");
 }
 
 /**
  * <p>Describes an instance state change.</p>
  */
 export interface InstanceStateChange {
-  __type?: "InstanceStateChange";
   /**
    * <p>The previous state of the instance.</p>
    */
@@ -28613,7 +26809,6 @@ export namespace InstanceStateChange {
   export const filterSensitiveLog = (obj: InstanceStateChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStateChange => __isa(o, "InstanceStateChange");
 }
 
 export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopped" | "stopping" | "terminated";
@@ -28622,7 +26817,6 @@ export type InstanceStateName = "pending" | "running" | "shutting-down" | "stopp
  * <p>Describes the status of an instance.</p>
  */
 export interface InstanceStatus {
-  __type?: "InstanceStatus";
   /**
    * <p>Reports impaired functionality that stems from issues related to the systems that
    *             support an instance, such as hardware failures and network connectivity problems.</p>
@@ -28666,14 +26860,12 @@ export namespace InstanceStatus {
   export const filterSensitiveLog = (obj: InstanceStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStatus => __isa(o, "InstanceStatus");
 }
 
 /**
  * <p>Describes the instance status.</p>
  */
 export interface InstanceStatusDetails {
-  __type?: "InstanceStatusDetails";
   /**
    * <p>The time when a status check failed. For an instance that was launched and impaired,
    *             this is the time when the instance was launched.</p>
@@ -28695,14 +26887,12 @@ export namespace InstanceStatusDetails {
   export const filterSensitiveLog = (obj: InstanceStatusDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStatusDetails => __isa(o, "InstanceStatusDetails");
 }
 
 /**
  * <p>Describes a scheduled event for an instance.</p>
  */
 export interface InstanceStatusEvent {
-  __type?: "InstanceStatusEvent";
   /**
    * <p>The event code.</p>
    */
@@ -28741,14 +26931,12 @@ export namespace InstanceStatusEvent {
   export const filterSensitiveLog = (obj: InstanceStatusEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStatusEvent => __isa(o, "InstanceStatusEvent");
 }
 
 /**
  * <p>Describes the status of an instance.</p>
  */
 export interface InstanceStatusSummary {
-  __type?: "InstanceStatusSummary";
   /**
    * <p>The system instance health or application instance health.</p>
    */
@@ -28764,14 +26952,12 @@ export namespace InstanceStatusSummary {
   export const filterSensitiveLog = (obj: InstanceStatusSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStatusSummary => __isa(o, "InstanceStatusSummary");
 }
 
 /**
  * <p>Describes the disks that are available for the instance type.</p>
  */
 export interface InstanceStorageInfo {
-  __type?: "InstanceStorageInfo";
   /**
    * <p>Array describing the disks that are available for the instance type.</p>
    */
@@ -28787,14 +26973,12 @@ export namespace InstanceStorageInfo {
   export const filterSensitiveLog = (obj: InstanceStorageInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStorageInfo => __isa(o, "InstanceStorageInfo");
 }
 
 /**
  * <p>Describes the registered tag keys for the current Region.</p>
  */
 export interface InstanceTagNotificationAttribute {
-  __type?: "InstanceTagNotificationAttribute";
   /**
    * <p>The registered tag keys.</p>
    */
@@ -28811,7 +26995,6 @@ export namespace InstanceTagNotificationAttribute {
   export const filterSensitiveLog = (obj: InstanceTagNotificationAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTagNotificationAttribute => __isa(o, "InstanceTagNotificationAttribute");
 }
 
 export type _InstanceType =
@@ -29159,7 +27342,6 @@ export enum InstanceTypeHypervisor {
  * <p>Describes the instance type.</p>
  */
 export interface InstanceTypeInfo {
-  __type?: "InstanceTypeInfo";
   /**
    * <p>Indicates the hypervisor used for the instance type.</p>
    */
@@ -29281,14 +27463,12 @@ export namespace InstanceTypeInfo {
   export const filterSensitiveLog = (obj: InstanceTypeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeInfo => __isa(o, "InstanceTypeInfo");
 }
 
 /**
  * <p>The instance types offered.</p>
  */
 export interface InstanceTypeOffering {
-  __type?: "InstanceTypeOffering";
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
@@ -29311,14 +27491,12 @@ export namespace InstanceTypeOffering {
   export const filterSensitiveLog = (obj: InstanceTypeOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeOffering => __isa(o, "InstanceTypeOffering");
 }
 
 /**
  * <p>Information about the Capacity Reservation usage.</p>
  */
 export interface InstanceUsage {
-  __type?: "InstanceUsage";
   /**
    * <p>The number of instances the AWS account currently has in the Capacity Reservation.</p>
    */
@@ -29334,7 +27512,6 @@ export namespace InstanceUsage {
   export const filterSensitiveLog = (obj: InstanceUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceUsage => __isa(o, "InstanceUsage");
 }
 
 export type InterfacePermissionType = "EIP-ASSOCIATE" | "INSTANCE-ATTACH";
@@ -29343,7 +27520,6 @@ export type InterfacePermissionType = "EIP-ASSOCIATE" | "INSTANCE-ATTACH";
  * <p>Describes an internet gateway.</p>
  */
 export interface InternetGateway {
-  __type?: "InternetGateway";
   /**
    * <p>The ID of the internet gateway.</p>
    */
@@ -29369,7 +27545,6 @@ export namespace InternetGateway {
   export const filterSensitiveLog = (obj: InternetGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternetGateway => __isa(o, "InternetGateway");
 }
 
 /**
@@ -29377,7 +27552,6 @@ export namespace InternetGateway {
  * 			gateway.</p>
  */
 export interface InternetGatewayAttachment {
-  __type?: "InternetGatewayAttachment";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -29395,14 +27569,12 @@ export namespace InternetGatewayAttachment {
   export const filterSensitiveLog = (obj: InternetGatewayAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternetGatewayAttachment => __isa(o, "InternetGatewayAttachment");
 }
 
 /**
  * <p>Describes a set of permissions for a security group rule.</p>
  */
 export interface IpPermission {
-  __type?: "IpPermission";
   /**
    * <p>The IPv4 ranges.</p>
    */
@@ -29454,14 +27626,12 @@ export namespace IpPermission {
   export const filterSensitiveLog = (obj: IpPermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpPermission => __isa(o, "IpPermission");
 }
 
 /**
  * <p>Describes an IPv4 range.</p>
  */
 export interface IpRange {
-  __type?: "IpRange";
   /**
    * <p>The IPv4 CIDR range. You can either specify a CIDR range or a source security group,
    *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
@@ -29480,14 +27650,12 @@ export namespace IpRange {
   export const filterSensitiveLog = (obj: IpRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpRange => __isa(o, "IpRange");
 }
 
 /**
  * <p>Describes an IPv6 CIDR block association.</p>
  */
 export interface Ipv6CidrAssociation {
-  __type?: "Ipv6CidrAssociation";
   /**
    * <p>The resource that's associated with the IPv6 CIDR block.</p>
    */
@@ -29503,14 +27671,12 @@ export namespace Ipv6CidrAssociation {
   export const filterSensitiveLog = (obj: Ipv6CidrAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ipv6CidrAssociation => __isa(o, "Ipv6CidrAssociation");
 }
 
 /**
  * <p>Describes an IPv6 CIDR block.</p>
  */
 export interface Ipv6CidrBlock {
-  __type?: "Ipv6CidrBlock";
   /**
    * <p>The IPv6 CIDR block.</p>
    */
@@ -29521,14 +27687,12 @@ export namespace Ipv6CidrBlock {
   export const filterSensitiveLog = (obj: Ipv6CidrBlock): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ipv6CidrBlock => __isa(o, "Ipv6CidrBlock");
 }
 
 /**
  * <p>Describes an IPv6 address pool.</p>
  */
 export interface Ipv6Pool {
-  __type?: "Ipv6Pool";
   /**
    * <p>Any tags for the address pool.</p>
    */
@@ -29554,14 +27718,12 @@ export namespace Ipv6Pool {
   export const filterSensitiveLog = (obj: Ipv6Pool): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ipv6Pool => __isa(o, "Ipv6Pool");
 }
 
 /**
  * <p>[EC2-VPC only] Describes an IPv6 range.</p>
  */
 export interface Ipv6Range {
-  __type?: "Ipv6Range";
   /**
    * <p>The IPv6 CIDR range. You can either specify a CIDR range or a source security group,
    *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
@@ -29580,7 +27742,6 @@ export namespace Ipv6Range {
   export const filterSensitiveLog = (obj: Ipv6Range): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ipv6Range => __isa(o, "Ipv6Range");
 }
 
 export type Ipv6SupportValue = "disable" | "enable";
@@ -29589,7 +27750,6 @@ export type Ipv6SupportValue = "disable" | "enable";
  * <p>Describes a key pair.</p>
  */
 export interface KeyPair {
-  __type?: "KeyPair";
   /**
    * <p>The SHA-1 digest of the DER encoded private key.</p>
    */
@@ -29621,14 +27781,12 @@ export namespace KeyPair {
     ...obj,
     ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is KeyPair => __isa(o, "KeyPair");
 }
 
 /**
  * <p>Describes a key pair.</p>
  */
 export interface KeyPairInfo {
-  __type?: "KeyPairInfo";
   /**
    * <p>Any tags applied to the key pair.</p>
    */
@@ -29655,14 +27813,12 @@ export namespace KeyPairInfo {
   export const filterSensitiveLog = (obj: KeyPairInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPairInfo => __isa(o, "KeyPairInfo");
 }
 
 /**
  * <p>The last error that occurred for a VPC endpoint.</p>
  */
 export interface LastError {
-  __type?: "LastError";
   /**
    * <p>The error code for the VPC endpoint error.</p>
    */
@@ -29678,14 +27834,12 @@ export namespace LastError {
   export const filterSensitiveLog = (obj: LastError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LastError => __isa(o, "LastError");
 }
 
 /**
  * <p>Describes a launch permission.</p>
  */
 export interface LaunchPermission {
-  __type?: "LaunchPermission";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -29701,14 +27855,12 @@ export namespace LaunchPermission {
   export const filterSensitiveLog = (obj: LaunchPermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchPermission => __isa(o, "LaunchPermission");
 }
 
 /**
  * <p>Describes a launch permission modification.</p>
  */
 export interface LaunchPermissionModifications {
-  __type?: "LaunchPermissionModifications";
   /**
    * <p>The AWS account ID to remove from the list of launch permissions for the AMI.</p>
    */
@@ -29724,14 +27876,12 @@ export namespace LaunchPermissionModifications {
   export const filterSensitiveLog = (obj: LaunchPermissionModifications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchPermissionModifications => __isa(o, "LaunchPermissionModifications");
 }
 
 /**
  * <p>Describes the launch specification for an instance.</p>
  */
 export interface LaunchSpecification {
-  __type?: "LaunchSpecification";
   /**
    * <p>One or more block device mapping entries.</p>
    */
@@ -29815,14 +27965,12 @@ export namespace LaunchSpecification {
   export const filterSensitiveLog = (obj: LaunchSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchSpecification => __isa(o, "LaunchSpecification");
 }
 
 /**
  * <p>Describes a launch template.</p>
  */
 export interface LaunchTemplate {
-  __type?: "LaunchTemplate";
   /**
    * <p>The version number of the default version of the launch template.</p>
    */
@@ -29863,14 +28011,12 @@ export namespace LaunchTemplate {
   export const filterSensitiveLog = (obj: LaunchTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplate => __isa(o, "LaunchTemplate");
 }
 
 /**
  * <p>Describes a launch template and overrides.</p>
  */
 export interface LaunchTemplateAndOverridesResponse {
-  __type?: "LaunchTemplateAndOverridesResponse";
   /**
    * <p>The launch template.</p>
    */
@@ -29887,15 +28033,12 @@ export namespace LaunchTemplateAndOverridesResponse {
   export const filterSensitiveLog = (obj: LaunchTemplateAndOverridesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateAndOverridesResponse =>
-    __isa(o, "LaunchTemplateAndOverridesResponse");
 }
 
 /**
  * <p>Describes a block device mapping.</p>
  */
 export interface LaunchTemplateBlockDeviceMapping {
-  __type?: "LaunchTemplateBlockDeviceMapping";
   /**
    * <p>Information about the block device for an EBS volume.</p>
    */
@@ -29921,14 +28064,12 @@ export namespace LaunchTemplateBlockDeviceMapping {
   export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateBlockDeviceMapping => __isa(o, "LaunchTemplateBlockDeviceMapping");
 }
 
 /**
  * <p>Describes a block device mapping.</p>
  */
 export interface LaunchTemplateBlockDeviceMappingRequest {
-  __type?: "LaunchTemplateBlockDeviceMappingRequest";
   /**
    * <p>The device name (for example, /dev/sdh or xvdh).</p>
    */
@@ -29954,8 +28095,6 @@ export namespace LaunchTemplateBlockDeviceMappingRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateBlockDeviceMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateBlockDeviceMappingRequest =>
-    __isa(o, "LaunchTemplateBlockDeviceMappingRequest");
 }
 
 /**
@@ -29966,7 +28105,6 @@ export namespace LaunchTemplateBlockDeviceMappingRequest {
  * 			a Capacity Reservation group.</p>
  */
 export interface LaunchTemplateCapacityReservationSpecificationRequest {
-  __type?: "LaunchTemplateCapacityReservationSpecificationRequest";
   /**
    * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
    */
@@ -29994,15 +28132,12 @@ export namespace LaunchTemplateCapacityReservationSpecificationRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateCapacityReservationSpecificationRequest =>
-    __isa(o, "LaunchTemplateCapacityReservationSpecificationRequest");
 }
 
 /**
  * <p>Information about the Capacity Reservation targeting option.</p>
  */
 export interface LaunchTemplateCapacityReservationSpecificationResponse {
-  __type?: "LaunchTemplateCapacityReservationSpecificationResponse";
   /**
    * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
    */
@@ -30030,15 +28165,12 @@ export namespace LaunchTemplateCapacityReservationSpecificationResponse {
   export const filterSensitiveLog = (obj: LaunchTemplateCapacityReservationSpecificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateCapacityReservationSpecificationResponse =>
-    __isa(o, "LaunchTemplateCapacityReservationSpecificationResponse");
 }
 
 /**
  * <p>Describes a launch template and overrides.</p>
  */
 export interface LaunchTemplateConfig {
-  __type?: "LaunchTemplateConfig";
   /**
    * <p>The launch template.</p>
    */
@@ -30054,14 +28186,12 @@ export namespace LaunchTemplateConfig {
   export const filterSensitiveLog = (obj: LaunchTemplateConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateConfig => __isa(o, "LaunchTemplateConfig");
 }
 
 /**
  * <p>The CPU options for the instance.</p>
  */
 export interface LaunchTemplateCpuOptions {
-  __type?: "LaunchTemplateCpuOptions";
   /**
    * <p>The number of CPU cores for the instance.</p>
    */
@@ -30077,7 +28207,6 @@ export namespace LaunchTemplateCpuOptions {
   export const filterSensitiveLog = (obj: LaunchTemplateCpuOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateCpuOptions => __isa(o, "LaunchTemplateCpuOptions");
 }
 
 /**
@@ -30085,7 +28214,6 @@ export namespace LaunchTemplateCpuOptions {
  * 			must be specified in the request.</p>
  */
 export interface LaunchTemplateCpuOptionsRequest {
-  __type?: "LaunchTemplateCpuOptionsRequest";
   /**
    * <p>The number of CPU cores for the instance.</p>
    */
@@ -30102,14 +28230,12 @@ export namespace LaunchTemplateCpuOptionsRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateCpuOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateCpuOptionsRequest => __isa(o, "LaunchTemplateCpuOptionsRequest");
 }
 
 /**
  * <p>Describes a block device for an EBS volume.</p>
  */
 export interface LaunchTemplateEbsBlockDevice {
-  __type?: "LaunchTemplateEbsBlockDevice";
   /**
    * <p>The volume type.</p>
    */
@@ -30150,14 +28276,12 @@ export namespace LaunchTemplateEbsBlockDevice {
   export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateEbsBlockDevice => __isa(o, "LaunchTemplateEbsBlockDevice");
 }
 
 /**
  * <p>The parameters for a block device for an EBS volume.</p>
  */
 export interface LaunchTemplateEbsBlockDeviceRequest {
-  __type?: "LaunchTemplateEbsBlockDeviceRequest";
   /**
    * <p>The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for
    *             encryption.</p>
@@ -30201,8 +28325,6 @@ export namespace LaunchTemplateEbsBlockDeviceRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateEbsBlockDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateEbsBlockDeviceRequest =>
-    __isa(o, "LaunchTemplateEbsBlockDeviceRequest");
 }
 
 /**
@@ -30211,7 +28333,6 @@ export namespace LaunchTemplateEbsBlockDeviceRequest {
  *         </p>
  */
 export interface LaunchTemplateElasticInferenceAccelerator {
-  __type?: "LaunchTemplateElasticInferenceAccelerator";
   /**
    * <p>
    *             The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
@@ -30232,8 +28353,6 @@ export namespace LaunchTemplateElasticInferenceAccelerator {
   export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAccelerator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateElasticInferenceAccelerator =>
-    __isa(o, "LaunchTemplateElasticInferenceAccelerator");
 }
 
 /**
@@ -30242,7 +28361,6 @@ export namespace LaunchTemplateElasticInferenceAccelerator {
  *         </p>
  */
 export interface LaunchTemplateElasticInferenceAcceleratorResponse {
-  __type?: "LaunchTemplateElasticInferenceAcceleratorResponse";
   /**
    * <p>
    *     		The number of elastic inference accelerators to attach to the instance.
@@ -30263,8 +28381,6 @@ export namespace LaunchTemplateElasticInferenceAcceleratorResponse {
   export const filterSensitiveLog = (obj: LaunchTemplateElasticInferenceAcceleratorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateElasticInferenceAcceleratorResponse =>
-    __isa(o, "LaunchTemplateElasticInferenceAcceleratorResponse");
 }
 
 export enum LaunchTemplateErrorCode {
@@ -30280,7 +28396,6 @@ export enum LaunchTemplateErrorCode {
  * <p>Indicates whether an instance is configured for hibernation.</p>
  */
 export interface LaunchTemplateHibernationOptions {
-  __type?: "LaunchTemplateHibernationOptions";
   /**
    * <p>If this parameter is set to <code>true</code>, the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.</p>
    */
@@ -30291,7 +28406,6 @@ export namespace LaunchTemplateHibernationOptions {
   export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateHibernationOptions => __isa(o, "LaunchTemplateHibernationOptions");
 }
 
 /**
@@ -30300,7 +28414,6 @@ export namespace LaunchTemplateHibernationOptions {
  *                 prerequisites</a>.</p>
  */
 export interface LaunchTemplateHibernationOptionsRequest {
-  __type?: "LaunchTemplateHibernationOptionsRequest";
   /**
    * <p>If you set this parameter to <code>true</code>, the instance is enabled for hibernation.</p>
    *          <p>Default: <code>false</code>
@@ -30313,8 +28426,6 @@ export namespace LaunchTemplateHibernationOptionsRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateHibernationOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateHibernationOptionsRequest =>
-    __isa(o, "LaunchTemplateHibernationOptionsRequest");
 }
 
 export enum LaunchTemplateHttpTokensState {
@@ -30326,7 +28437,6 @@ export enum LaunchTemplateHttpTokensState {
  * <p>Describes an IAM instance profile.</p>
  */
 export interface LaunchTemplateIamInstanceProfileSpecification {
-  __type?: "LaunchTemplateIamInstanceProfileSpecification";
   /**
    * <p>The name of the instance profile.</p>
    */
@@ -30342,15 +28452,12 @@ export namespace LaunchTemplateIamInstanceProfileSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateIamInstanceProfileSpecification =>
-    __isa(o, "LaunchTemplateIamInstanceProfileSpecification");
 }
 
 /**
  * <p>An IAM instance profile.</p>
  */
 export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
-  __type?: "LaunchTemplateIamInstanceProfileSpecificationRequest";
   /**
    * <p>The name of the instance profile.</p>
    */
@@ -30366,15 +28473,12 @@ export namespace LaunchTemplateIamInstanceProfileSpecificationRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateIamInstanceProfileSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateIamInstanceProfileSpecificationRequest =>
-    __isa(o, "LaunchTemplateIamInstanceProfileSpecificationRequest");
 }
 
 /**
  * <p>The market (purchasing) option for the instances.</p>
  */
 export interface LaunchTemplateInstanceMarketOptions {
-  __type?: "LaunchTemplateInstanceMarketOptions";
   /**
    * <p>The options for Spot Instances.</p>
    */
@@ -30390,15 +28494,12 @@ export namespace LaunchTemplateInstanceMarketOptions {
   export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateInstanceMarketOptions =>
-    __isa(o, "LaunchTemplateInstanceMarketOptions");
 }
 
 /**
  * <p>The market (purchasing) option for the instances.</p>
  */
 export interface LaunchTemplateInstanceMarketOptionsRequest {
-  __type?: "LaunchTemplateInstanceMarketOptionsRequest";
   /**
    * <p>The options for Spot Instances.</p>
    */
@@ -30414,8 +28515,6 @@ export namespace LaunchTemplateInstanceMarketOptionsRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateInstanceMarketOptionsRequest =>
-    __isa(o, "LaunchTemplateInstanceMarketOptionsRequest");
 }
 
 export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
@@ -30425,7 +28524,6 @@ export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled"
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface LaunchTemplateInstanceMetadataOptions {
-  __type?: "LaunchTemplateInstanceMetadataOptions";
   /**
    * <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>
@@ -30463,8 +28561,6 @@ export namespace LaunchTemplateInstanceMetadataOptions {
   export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateInstanceMetadataOptions =>
-    __isa(o, "LaunchTemplateInstanceMetadataOptions");
 }
 
 /**
@@ -30472,7 +28568,6 @@ export namespace LaunchTemplateInstanceMetadataOptions {
  *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface LaunchTemplateInstanceMetadataOptionsRequest {
-  __type?: "LaunchTemplateInstanceMetadataOptionsRequest";
   /**
    * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>
    *          <note>
@@ -30501,8 +28596,6 @@ export namespace LaunchTemplateInstanceMetadataOptionsRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateInstanceMetadataOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateInstanceMetadataOptionsRequest =>
-    __isa(o, "LaunchTemplateInstanceMetadataOptionsRequest");
 }
 
 export type LaunchTemplateInstanceMetadataOptionsState = "applied" | "pending";
@@ -30511,7 +28604,6 @@ export type LaunchTemplateInstanceMetadataOptionsState = "applied" | "pending";
  * <p>Describes a network interface.</p>
  */
 export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
-  __type?: "LaunchTemplateInstanceNetworkInterfaceSpecification";
   /**
    * <p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p>
    */
@@ -30582,15 +28674,12 @@ export namespace LaunchTemplateInstanceNetworkInterfaceSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateInstanceNetworkInterfaceSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateInstanceNetworkInterfaceSpecification =>
-    __isa(o, "LaunchTemplateInstanceNetworkInterfaceSpecification");
 }
 
 /**
  * <p>The parameters for a network interface.</p>
  */
 export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
-  __type?: "LaunchTemplateInstanceNetworkInterfaceSpecificationRequest";
   /**
    * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.</p>
    */
@@ -30666,15 +28755,12 @@ export namespace LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateInstanceNetworkInterfaceSpecificationRequest =>
-    __isa(o, "LaunchTemplateInstanceNetworkInterfaceSpecificationRequest");
 }
 
 /**
  * <p>Describes a license configuration.</p>
  */
 export interface LaunchTemplateLicenseConfiguration {
-  __type?: "LaunchTemplateLicenseConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -30685,15 +28771,12 @@ export namespace LaunchTemplateLicenseConfiguration {
   export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateLicenseConfiguration =>
-    __isa(o, "LaunchTemplateLicenseConfiguration");
 }
 
 /**
  * <p>Describes a license configuration.</p>
  */
 export interface LaunchTemplateLicenseConfigurationRequest {
-  __type?: "LaunchTemplateLicenseConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -30704,15 +28787,12 @@ export namespace LaunchTemplateLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateLicenseConfigurationRequest =>
-    __isa(o, "LaunchTemplateLicenseConfigurationRequest");
 }
 
 /**
  * <p>Describes overrides for a launch template.</p>
  */
 export interface LaunchTemplateOverrides {
-  __type?: "LaunchTemplateOverrides";
   /**
    * <p>The priority for the launch template override. If <b>OnDemandAllocationStrategy</b> is set to <code>prioritized</code>, Spot Fleet uses
    *             priority to determine which launch template override to use first in fulfilling
@@ -30752,14 +28832,12 @@ export namespace LaunchTemplateOverrides {
   export const filterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateOverrides => __isa(o, "LaunchTemplateOverrides");
 }
 
 /**
  * <p>Describes the placement of an instance.</p>
  */
 export interface LaunchTemplatePlacement {
-  __type?: "LaunchTemplatePlacement";
   /**
    * <p>The ID of the Dedicated Host for the instance.</p>
    */
@@ -30806,14 +28884,12 @@ export namespace LaunchTemplatePlacement {
   export const filterSensitiveLog = (obj: LaunchTemplatePlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatePlacement => __isa(o, "LaunchTemplatePlacement");
 }
 
 /**
  * <p>Describes the placement of an instance.</p>
  */
 export interface LaunchTemplatePlacementRequest {
-  __type?: "LaunchTemplatePlacementRequest";
   /**
    * <p>The number of the partition the instance should launch in. Valid only if the placement group strategy is set to <code>partition</code>.</p>
    */
@@ -30862,14 +28938,12 @@ export namespace LaunchTemplatePlacementRequest {
   export const filterSensitiveLog = (obj: LaunchTemplatePlacementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatePlacementRequest => __isa(o, "LaunchTemplatePlacementRequest");
 }
 
 /**
  * <p>Describes the monitoring for the instance.</p>
  */
 export interface LaunchTemplatesMonitoring {
-  __type?: "LaunchTemplatesMonitoring";
   /**
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
@@ -30881,14 +28955,12 @@ export namespace LaunchTemplatesMonitoring {
   export const filterSensitiveLog = (obj: LaunchTemplatesMonitoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatesMonitoring => __isa(o, "LaunchTemplatesMonitoring");
 }
 
 /**
  * <p>Describes the monitoring for the instance.</p>
  */
 export interface LaunchTemplatesMonitoringRequest {
-  __type?: "LaunchTemplatesMonitoringRequest";
   /**
    * <p>Specify <code>true</code> to enable detailed monitoring. Otherwise, basic monitoring is enabled.</p>
    */
@@ -30899,7 +28971,6 @@ export namespace LaunchTemplatesMonitoringRequest {
   export const filterSensitiveLog = (obj: LaunchTemplatesMonitoringRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplatesMonitoringRequest => __isa(o, "LaunchTemplatesMonitoringRequest");
 }
 
 /**
@@ -30907,7 +28978,6 @@ export namespace LaunchTemplatesMonitoringRequest {
  *             launch template name in the request, but not both.</p>
  */
 export interface LaunchTemplateSpecification {
-  __type?: "LaunchTemplateSpecification";
   /**
    * <p>The version number of the launch template.</p>
    *         <p>Default: The default version for the launch template.</p>
@@ -30929,14 +28999,12 @@ export namespace LaunchTemplateSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpecification => __isa(o, "LaunchTemplateSpecification");
 }
 
 /**
  * <p>The options for Spot Instances.</p>
  */
 export interface LaunchTemplateSpotMarketOptions {
-  __type?: "LaunchTemplateSpotMarketOptions";
   /**
    * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
    */
@@ -30967,14 +29035,12 @@ export namespace LaunchTemplateSpotMarketOptions {
   export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpotMarketOptions => __isa(o, "LaunchTemplateSpotMarketOptions");
 }
 
 /**
  * <p>The options for Spot Instances.</p>
  */
 export interface LaunchTemplateSpotMarketOptionsRequest {
-  __type?: "LaunchTemplateSpotMarketOptionsRequest";
   /**
    * <p>The Spot Instance request type.</p>
    */
@@ -31008,15 +29074,12 @@ export namespace LaunchTemplateSpotMarketOptionsRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpotMarketOptionsRequest =>
-    __isa(o, "LaunchTemplateSpotMarketOptionsRequest");
 }
 
 /**
  * <p>The tag specification for the launch template.</p>
  */
 export interface LaunchTemplateTagSpecification {
-  __type?: "LaunchTemplateTagSpecification";
   /**
    * <p>The type of resource.</p>
    */
@@ -31032,14 +29095,12 @@ export namespace LaunchTemplateTagSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateTagSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateTagSpecification => __isa(o, "LaunchTemplateTagSpecification");
 }
 
 /**
  * <p>The tags specification for the launch template.</p>
  */
 export interface LaunchTemplateTagSpecificationRequest {
-  __type?: "LaunchTemplateTagSpecificationRequest";
   /**
    * <p>The type of resource to tag. Currently, the resource types that support tagging on
    *             creation are <code>instance</code> and <code>volume</code>. To tag a resource after it
@@ -31057,15 +29118,12 @@ export namespace LaunchTemplateTagSpecificationRequest {
   export const filterSensitiveLog = (obj: LaunchTemplateTagSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateTagSpecificationRequest =>
-    __isa(o, "LaunchTemplateTagSpecificationRequest");
 }
 
 /**
  * <p>Describes a launch template version.</p>
  */
 export interface LaunchTemplateVersion {
-  __type?: "LaunchTemplateVersion";
   /**
    * <p>The description for the version.</p>
    */
@@ -31111,14 +29169,12 @@ export namespace LaunchTemplateVersion {
   export const filterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateVersion => __isa(o, "LaunchTemplateVersion");
 }
 
 /**
  * <p>Describes a license configuration.</p>
  */
 export interface LicenseConfiguration {
-  __type?: "LicenseConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -31129,14 +29185,12 @@ export namespace LicenseConfiguration {
   export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseConfiguration => __isa(o, "LicenseConfiguration");
 }
 
 /**
  * <p>Describes a license configuration.</p>
  */
 export interface LicenseConfigurationRequest {
-  __type?: "LicenseConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -31147,7 +29201,6 @@ export namespace LicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: LicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseConfigurationRequest => __isa(o, "LicenseConfigurationRequest");
 }
 
 export type ListingState = "available" | "cancelled" | "pending" | "sold";
@@ -31158,7 +29211,6 @@ export type ListingStatus = "active" | "cancelled" | "closed" | "pending";
  * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet request.</p>
  */
 export interface LoadBalancersConfig {
-  __type?: "LoadBalancersConfig";
   /**
    * <p>The target groups.</p>
    */
@@ -31174,14 +29226,12 @@ export namespace LoadBalancersConfig {
   export const filterSensitiveLog = (obj: LoadBalancersConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancersConfig => __isa(o, "LoadBalancersConfig");
 }
 
 /**
  * <p>Describes a load permission.</p>
  */
 export interface LoadPermission {
-  __type?: "LoadPermission";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -31197,14 +29247,12 @@ export namespace LoadPermission {
   export const filterSensitiveLog = (obj: LoadPermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadPermission => __isa(o, "LoadPermission");
 }
 
 /**
  * <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
  */
 export interface LoadPermissionModifications {
-  __type?: "LoadPermissionModifications";
   /**
    * <p>The load permissions to remove.</p>
    */
@@ -31220,14 +29268,12 @@ export namespace LoadPermissionModifications {
   export const filterSensitiveLog = (obj: LoadPermissionModifications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadPermissionModifications => __isa(o, "LoadPermissionModifications");
 }
 
 /**
  * <p>Describes a load permission.</p>
  */
 export interface LoadPermissionRequest {
-  __type?: "LoadPermissionRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -31243,14 +29289,12 @@ export namespace LoadPermissionRequest {
   export const filterSensitiveLog = (obj: LoadPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadPermissionRequest => __isa(o, "LoadPermissionRequest");
 }
 
 /**
  * <p>Describes a local gateway.</p>
  */
 export interface LocalGateway {
-  __type?: "LocalGateway";
   /**
    * <p>The state of the local gateway.</p>
    */
@@ -31281,14 +29325,12 @@ export namespace LocalGateway {
   export const filterSensitiveLog = (obj: LocalGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGateway => __isa(o, "LocalGateway");
 }
 
 /**
  * <p>Describes a route for a local gateway route table.</p>
  */
 export interface LocalGatewayRoute {
-  __type?: "LocalGatewayRoute";
   /**
    * <p>The state of the route.</p>
    */
@@ -31319,7 +29361,6 @@ export namespace LocalGatewayRoute {
   export const filterSensitiveLog = (obj: LocalGatewayRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayRoute => __isa(o, "LocalGatewayRoute");
 }
 
 export type LocalGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
@@ -31328,7 +29369,6 @@ export type LocalGatewayRouteState = "active" | "blackhole" | "deleted" | "delet
  * <p>Describes a local gateway route table.</p>
  */
 export interface LocalGatewayRouteTable {
-  __type?: "LocalGatewayRouteTable";
   /**
    * <p>The tags assigned to the local gateway route table.</p>
    */
@@ -31359,14 +29399,12 @@ export namespace LocalGatewayRouteTable {
   export const filterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayRouteTable => __isa(o, "LocalGatewayRouteTable");
 }
 
 /**
  * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
  */
 export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  __type?: "LocalGatewayRouteTableVirtualInterfaceGroupAssociation";
   /**
    * <p>The ID of the association.</p>
    */
@@ -31402,15 +29440,12 @@ export namespace LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
   export const filterSensitiveLog = (obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayRouteTableVirtualInterfaceGroupAssociation =>
-    __isa(o, "LocalGatewayRouteTableVirtualInterfaceGroupAssociation");
 }
 
 /**
  * <p>Describes an association between a local gateway route table and a VPC.</p>
  */
 export interface LocalGatewayRouteTableVpcAssociation {
-  __type?: "LocalGatewayRouteTableVpcAssociation";
   /**
    * <p>The ID of the association.</p>
    */
@@ -31446,8 +29481,6 @@ export namespace LocalGatewayRouteTableVpcAssociation {
   export const filterSensitiveLog = (obj: LocalGatewayRouteTableVpcAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayRouteTableVpcAssociation =>
-    __isa(o, "LocalGatewayRouteTableVpcAssociation");
 }
 
 export type LocalGatewayRouteType = "propagated" | "static";
@@ -31456,7 +29489,6 @@ export type LocalGatewayRouteType = "propagated" | "static";
  * <p>Describes a local gateway virtual interface.</p>
  */
 export interface LocalGatewayVirtualInterface {
-  __type?: "LocalGatewayVirtualInterface";
   /**
    * <p>The ID of the VLAN.</p>
    */
@@ -31502,14 +29534,12 @@ export namespace LocalGatewayVirtualInterface {
   export const filterSensitiveLog = (obj: LocalGatewayVirtualInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayVirtualInterface => __isa(o, "LocalGatewayVirtualInterface");
 }
 
 /**
  * <p>Describes a local gateway virtual interface group.</p>
  */
 export interface LocalGatewayVirtualInterfaceGroup {
-  __type?: "LocalGatewayVirtualInterfaceGroup";
   /**
    * <p>The ID of the virtual interface group.</p>
    */
@@ -31535,7 +29565,6 @@ export namespace LocalGatewayVirtualInterfaceGroup {
   export const filterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalGatewayVirtualInterfaceGroup => __isa(o, "LocalGatewayVirtualInterfaceGroup");
 }
 
 export type LocationType = "availability-zone" | "availability-zone-id" | "region";
@@ -31546,7 +29575,6 @@ export type LogDestinationType = "cloud-watch-logs" | "s3";
  * <p>Describes a managed prefix list.</p>
  */
 export interface ManagedPrefixList {
-  __type?: "ManagedPrefixList";
   /**
    * <p>The state message.</p>
    */
@@ -31602,7 +29630,6 @@ export namespace ManagedPrefixList {
   export const filterSensitiveLog = (obj: ManagedPrefixList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedPrefixList => __isa(o, "ManagedPrefixList");
 }
 
 export type MarketType = "spot";
@@ -31613,7 +29640,6 @@ export type MembershipType = "igmp" | "static";
  * <p>Describes the memory for the instance type.</p>
  */
 export interface MemoryInfo {
-  __type?: "MemoryInfo";
   /**
    * <p>Size of the memory, in MiB.</p>
    */
@@ -31624,11 +29650,9 @@ export namespace MemoryInfo {
   export const filterSensitiveLog = (obj: MemoryInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemoryInfo => __isa(o, "MemoryInfo");
 }
 
 export interface ModifyAvailabilityZoneGroupRequest {
-  __type?: "ModifyAvailabilityZoneGroupRequest";
   /**
    * <p>Indicates whether to enable or disable  membership. The valid values are
    *         <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">AWS Support</a> to disable an Availability Zone group.</p>
@@ -31652,12 +29676,9 @@ export namespace ModifyAvailabilityZoneGroupRequest {
   export const filterSensitiveLog = (obj: ModifyAvailabilityZoneGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyAvailabilityZoneGroupRequest =>
-    __isa(o, "ModifyAvailabilityZoneGroupRequest");
 }
 
 export interface ModifyAvailabilityZoneGroupResult {
-  __type?: "ModifyAvailabilityZoneGroupResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
@@ -31668,13 +29689,11 @@ export namespace ModifyAvailabilityZoneGroupResult {
   export const filterSensitiveLog = (obj: ModifyAvailabilityZoneGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyAvailabilityZoneGroupResult => __isa(o, "ModifyAvailabilityZoneGroupResult");
 }
 
 export type ModifyAvailabilityZoneOptInStatus = "not-opted-in" | "opted-in";
 
 export interface ModifyCapacityReservationRequest {
-  __type?: "ModifyCapacityReservationRequest";
   /**
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
    * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
@@ -31727,11 +29746,9 @@ export namespace ModifyCapacityReservationRequest {
   export const filterSensitiveLog = (obj: ModifyCapacityReservationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCapacityReservationRequest => __isa(o, "ModifyCapacityReservationRequest");
 }
 
 export interface ModifyCapacityReservationResult {
-  __type?: "ModifyCapacityReservationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -31742,11 +29759,9 @@ export namespace ModifyCapacityReservationResult {
   export const filterSensitiveLog = (obj: ModifyCapacityReservationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCapacityReservationResult => __isa(o, "ModifyCapacityReservationResult");
 }
 
 export interface ModifyClientVpnEndpointRequest {
-  __type?: "ModifyClientVpnEndpointRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
@@ -31825,11 +29840,9 @@ export namespace ModifyClientVpnEndpointRequest {
   export const filterSensitiveLog = (obj: ModifyClientVpnEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClientVpnEndpointRequest => __isa(o, "ModifyClientVpnEndpointRequest");
 }
 
 export interface ModifyClientVpnEndpointResult {
-  __type?: "ModifyClientVpnEndpointResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -31840,11 +29853,9 @@ export namespace ModifyClientVpnEndpointResult {
   export const filterSensitiveLog = (obj: ModifyClientVpnEndpointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClientVpnEndpointResult => __isa(o, "ModifyClientVpnEndpointResult");
 }
 
 export interface ModifyDefaultCreditSpecificationRequest {
-  __type?: "ModifyDefaultCreditSpecificationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -31869,12 +29880,9 @@ export namespace ModifyDefaultCreditSpecificationRequest {
   export const filterSensitiveLog = (obj: ModifyDefaultCreditSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDefaultCreditSpecificationRequest =>
-    __isa(o, "ModifyDefaultCreditSpecificationRequest");
 }
 
 export interface ModifyDefaultCreditSpecificationResult {
-  __type?: "ModifyDefaultCreditSpecificationResult";
   /**
    * <p>The default credit option for CPU usage of the instance family.</p>
    */
@@ -31885,12 +29893,9 @@ export namespace ModifyDefaultCreditSpecificationResult {
   export const filterSensitiveLog = (obj: ModifyDefaultCreditSpecificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDefaultCreditSpecificationResult =>
-    __isa(o, "ModifyDefaultCreditSpecificationResult");
 }
 
 export interface ModifyEbsDefaultKmsKeyIdRequest {
-  __type?: "ModifyEbsDefaultKmsKeyIdRequest";
   /**
    * <p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption.
    *       If this parameter is not specified, your AWS managed CMK for EBS is used. If <code>KmsKeyId</code> is
@@ -31928,11 +29933,9 @@ export namespace ModifyEbsDefaultKmsKeyIdRequest {
   export const filterSensitiveLog = (obj: ModifyEbsDefaultKmsKeyIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEbsDefaultKmsKeyIdRequest => __isa(o, "ModifyEbsDefaultKmsKeyIdRequest");
 }
 
 export interface ModifyEbsDefaultKmsKeyIdResult {
-  __type?: "ModifyEbsDefaultKmsKeyIdResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the default CMK for encryption by default.</p>
    */
@@ -31943,11 +29946,9 @@ export namespace ModifyEbsDefaultKmsKeyIdResult {
   export const filterSensitiveLog = (obj: ModifyEbsDefaultKmsKeyIdResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEbsDefaultKmsKeyIdResult => __isa(o, "ModifyEbsDefaultKmsKeyIdResult");
 }
 
 export interface ModifyFleetRequest {
-  __type?: "ModifyFleetRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -31976,11 +29977,9 @@ export namespace ModifyFleetRequest {
   export const filterSensitiveLog = (obj: ModifyFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyFleetRequest => __isa(o, "ModifyFleetRequest");
 }
 
 export interface ModifyFleetResult {
-  __type?: "ModifyFleetResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
@@ -31991,11 +29990,9 @@ export namespace ModifyFleetResult {
   export const filterSensitiveLog = (obj: ModifyFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyFleetResult => __isa(o, "ModifyFleetResult");
 }
 
 export interface ModifyFpgaImageAttributeRequest {
-  __type?: "ModifyFpgaImageAttributeRequest";
   /**
    * <p>The user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
    */
@@ -32054,11 +30051,9 @@ export namespace ModifyFpgaImageAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyFpgaImageAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyFpgaImageAttributeRequest => __isa(o, "ModifyFpgaImageAttributeRequest");
 }
 
 export interface ModifyFpgaImageAttributeResult {
-  __type?: "ModifyFpgaImageAttributeResult";
   /**
    * <p>Information about the attribute.</p>
    */
@@ -32069,11 +30064,9 @@ export namespace ModifyFpgaImageAttributeResult {
   export const filterSensitiveLog = (obj: ModifyFpgaImageAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyFpgaImageAttributeResult => __isa(o, "ModifyFpgaImageAttributeResult");
 }
 
 export interface ModifyHostsRequest {
-  __type?: "ModifyHostsRequest";
   /**
    * <p>Specify whether to enable or disable auto-placement.</p>
    */
@@ -32119,11 +30112,9 @@ export namespace ModifyHostsRequest {
   export const filterSensitiveLog = (obj: ModifyHostsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyHostsRequest => __isa(o, "ModifyHostsRequest");
 }
 
 export interface ModifyHostsResult {
-  __type?: "ModifyHostsResult";
   /**
    * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the
    *             setting you requested can be used.</p>
@@ -32140,11 +30131,9 @@ export namespace ModifyHostsResult {
   export const filterSensitiveLog = (obj: ModifyHostsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyHostsResult => __isa(o, "ModifyHostsResult");
 }
 
 export interface ModifyIdentityIdFormatRequest {
-  __type?: "ModifyIdentityIdFormatRequest";
   /**
    * <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
    */
@@ -32178,11 +30167,9 @@ export namespace ModifyIdentityIdFormatRequest {
   export const filterSensitiveLog = (obj: ModifyIdentityIdFormatRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyIdentityIdFormatRequest => __isa(o, "ModifyIdentityIdFormatRequest");
 }
 
 export interface ModifyIdFormatRequest {
-  __type?: "ModifyIdFormatRequest";
   /**
    * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
    */
@@ -32209,14 +30196,12 @@ export namespace ModifyIdFormatRequest {
   export const filterSensitiveLog = (obj: ModifyIdFormatRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyIdFormatRequest => __isa(o, "ModifyIdFormatRequest");
 }
 
 /**
  * <p>Contains the parameters for ModifyImageAttribute.</p>
  */
 export interface ModifyImageAttributeRequest {
-  __type?: "ModifyImageAttributeRequest";
   /**
    * <p>The value of the attribute being modified.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>productCodes</code>.</p>
@@ -32279,11 +30264,9 @@ export namespace ModifyImageAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyImageAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyImageAttributeRequest => __isa(o, "ModifyImageAttributeRequest");
 }
 
 export interface ModifyInstanceAttributeRequest {
-  __type?: "ModifyInstanceAttributeRequest";
   /**
    * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
    *                 types</a>. If the instance type is not valid, the error returned is
@@ -32403,11 +30386,9 @@ export namespace ModifyInstanceAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyInstanceAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceAttributeRequest => __isa(o, "ModifyInstanceAttributeRequest");
 }
 
 export interface ModifyInstanceCapacityReservationAttributesRequest {
-  __type?: "ModifyInstanceCapacityReservationAttributesRequest";
   /**
    * <p>The ID of the instance to be modified.</p>
    */
@@ -32428,12 +30409,9 @@ export namespace ModifyInstanceCapacityReservationAttributesRequest {
   export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceCapacityReservationAttributesRequest =>
-    __isa(o, "ModifyInstanceCapacityReservationAttributesRequest");
 }
 
 export interface ModifyInstanceCapacityReservationAttributesResult {
-  __type?: "ModifyInstanceCapacityReservationAttributesResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -32444,12 +30422,9 @@ export namespace ModifyInstanceCapacityReservationAttributesResult {
   export const filterSensitiveLog = (obj: ModifyInstanceCapacityReservationAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceCapacityReservationAttributesResult =>
-    __isa(o, "ModifyInstanceCapacityReservationAttributesResult");
 }
 
 export interface ModifyInstanceCreditSpecificationRequest {
-  __type?: "ModifyInstanceCreditSpecificationRequest";
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
@@ -32474,12 +30449,9 @@ export namespace ModifyInstanceCreditSpecificationRequest {
   export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceCreditSpecificationRequest =>
-    __isa(o, "ModifyInstanceCreditSpecificationRequest");
 }
 
 export interface ModifyInstanceCreditSpecificationResult {
-  __type?: "ModifyInstanceCreditSpecificationResult";
   /**
    * <p>Information about the instances whose credit option for CPU usage was successfully
    *             modified.</p>
@@ -32497,12 +30469,9 @@ export namespace ModifyInstanceCreditSpecificationResult {
   export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceCreditSpecificationResult =>
-    __isa(o, "ModifyInstanceCreditSpecificationResult");
 }
 
 export interface ModifyInstanceEventStartTimeRequest {
-  __type?: "ModifyInstanceEventStartTimeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -32530,12 +30499,9 @@ export namespace ModifyInstanceEventStartTimeRequest {
   export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceEventStartTimeRequest =>
-    __isa(o, "ModifyInstanceEventStartTimeRequest");
 }
 
 export interface ModifyInstanceEventStartTimeResult {
-  __type?: "ModifyInstanceEventStartTimeResult";
   /**
    * <p>Describes a scheduled event for an instance.</p>
    */
@@ -32546,12 +30512,9 @@ export namespace ModifyInstanceEventStartTimeResult {
   export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceEventStartTimeResult =>
-    __isa(o, "ModifyInstanceEventStartTimeResult");
 }
 
 export interface ModifyInstanceMetadataOptionsRequest {
-  __type?: "ModifyInstanceMetadataOptionsRequest";
   /**
    * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
    *             the parameter is not specified, the existing state is maintained.</p>
@@ -32599,12 +30562,9 @@ export namespace ModifyInstanceMetadataOptionsRequest {
   export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceMetadataOptionsRequest =>
-    __isa(o, "ModifyInstanceMetadataOptionsRequest");
 }
 
 export interface ModifyInstanceMetadataOptionsResult {
-  __type?: "ModifyInstanceMetadataOptionsResult";
   /**
    * <p>The metadata options for the instance.</p>
    */
@@ -32620,12 +30580,9 @@ export namespace ModifyInstanceMetadataOptionsResult {
   export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceMetadataOptionsResult =>
-    __isa(o, "ModifyInstanceMetadataOptionsResult");
 }
 
 export interface ModifyInstancePlacementRequest {
-  __type?: "ModifyInstancePlacementRequest";
   /**
    * <p>The affinity setting for the instance.</p>
    */
@@ -32671,11 +30628,9 @@ export namespace ModifyInstancePlacementRequest {
   export const filterSensitiveLog = (obj: ModifyInstancePlacementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstancePlacementRequest => __isa(o, "ModifyInstancePlacementRequest");
 }
 
 export interface ModifyInstancePlacementResult {
-  __type?: "ModifyInstancePlacementResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
@@ -32686,11 +30641,9 @@ export namespace ModifyInstancePlacementResult {
   export const filterSensitiveLog = (obj: ModifyInstancePlacementResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstancePlacementResult => __isa(o, "ModifyInstancePlacementResult");
 }
 
 export interface ModifyLaunchTemplateRequest {
-  __type?: "ModifyLaunchTemplateRequest";
   /**
    * <p>The ID of the launch template. You must specify either the launch template ID or
    *             launch template name in the request.</p>
@@ -32729,11 +30682,9 @@ export namespace ModifyLaunchTemplateRequest {
   export const filterSensitiveLog = (obj: ModifyLaunchTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyLaunchTemplateRequest => __isa(o, "ModifyLaunchTemplateRequest");
 }
 
 export interface ModifyLaunchTemplateResult {
-  __type?: "ModifyLaunchTemplateResult";
   /**
    * <p>Information about the launch template.</p>
    */
@@ -32744,11 +30695,9 @@ export namespace ModifyLaunchTemplateResult {
   export const filterSensitiveLog = (obj: ModifyLaunchTemplateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyLaunchTemplateResult => __isa(o, "ModifyLaunchTemplateResult");
 }
 
 export interface ModifyManagedPrefixListRequest {
-  __type?: "ModifyManagedPrefixListRequest";
   /**
    * <p>One or more entries to add to the prefix list.</p>
    */
@@ -32786,11 +30735,9 @@ export namespace ModifyManagedPrefixListRequest {
   export const filterSensitiveLog = (obj: ModifyManagedPrefixListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyManagedPrefixListRequest => __isa(o, "ModifyManagedPrefixListRequest");
 }
 
 export interface ModifyManagedPrefixListResult {
-  __type?: "ModifyManagedPrefixListResult";
   /**
    * <p>Information about the prefix list.</p>
    */
@@ -32801,14 +30748,12 @@ export namespace ModifyManagedPrefixListResult {
   export const filterSensitiveLog = (obj: ModifyManagedPrefixListResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyManagedPrefixListResult => __isa(o, "ModifyManagedPrefixListResult");
 }
 
 /**
  * <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
  */
 export interface ModifyNetworkInterfaceAttributeRequest {
-  __type?: "ModifyNetworkInterfaceAttributeRequest";
   /**
    * <p>Indicates whether source/destination checking is enabled.
    *             A value of <code>true</code> means checking
@@ -32851,15 +30796,12 @@ export namespace ModifyNetworkInterfaceAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyNetworkInterfaceAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyNetworkInterfaceAttributeRequest =>
-    __isa(o, "ModifyNetworkInterfaceAttributeRequest");
 }
 
 /**
  * <p>Contains the parameters for ModifyReservedInstances.</p>
  */
 export interface ModifyReservedInstancesRequest {
-  __type?: "ModifyReservedInstancesRequest";
   /**
    * <p>The configuration settings for the Reserved Instances to modify.</p>
    */
@@ -32881,14 +30823,12 @@ export namespace ModifyReservedInstancesRequest {
   export const filterSensitiveLog = (obj: ModifyReservedInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReservedInstancesRequest => __isa(o, "ModifyReservedInstancesRequest");
 }
 
 /**
  * <p>Contains the output of ModifyReservedInstances.</p>
  */
 export interface ModifyReservedInstancesResult {
-  __type?: "ModifyReservedInstancesResult";
   /**
    * <p>The ID for the modification.</p>
    */
@@ -32899,11 +30839,9 @@ export namespace ModifyReservedInstancesResult {
   export const filterSensitiveLog = (obj: ModifyReservedInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReservedInstancesResult => __isa(o, "ModifyReservedInstancesResult");
 }
 
 export interface ModifySnapshotAttributeRequest {
-  __type?: "ModifySnapshotAttributeRequest";
   /**
    * <p>The account ID to modify for the snapshot.</p>
    */
@@ -32946,14 +30884,12 @@ export namespace ModifySnapshotAttributeRequest {
   export const filterSensitiveLog = (obj: ModifySnapshotAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySnapshotAttributeRequest => __isa(o, "ModifySnapshotAttributeRequest");
 }
 
 /**
  * <p>Contains the parameters for ModifySpotFleetRequest.</p>
  */
 export interface ModifySpotFleetRequestRequest {
-  __type?: "ModifySpotFleetRequestRequest";
   /**
    * <p>The ID of the Spot Fleet request.</p>
    */
@@ -32979,14 +30915,12 @@ export namespace ModifySpotFleetRequestRequest {
   export const filterSensitiveLog = (obj: ModifySpotFleetRequestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySpotFleetRequestRequest => __isa(o, "ModifySpotFleetRequestRequest");
 }
 
 /**
  * <p>Contains the output of ModifySpotFleetRequest.</p>
  */
 export interface ModifySpotFleetRequestResponse {
-  __type?: "ModifySpotFleetRequestResponse";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
@@ -32997,11 +30931,9 @@ export namespace ModifySpotFleetRequestResponse {
   export const filterSensitiveLog = (obj: ModifySpotFleetRequestResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySpotFleetRequestResponse => __isa(o, "ModifySpotFleetRequestResponse");
 }
 
 export interface ModifySubnetAttributeRequest {
-  __type?: "ModifySubnetAttributeRequest";
   /**
    * <p>The ID of the subnet.</p>
    */
@@ -33042,11 +30974,9 @@ export namespace ModifySubnetAttributeRequest {
   export const filterSensitiveLog = (obj: ModifySubnetAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySubnetAttributeRequest => __isa(o, "ModifySubnetAttributeRequest");
 }
 
 export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
-  __type?: "ModifyTrafficMirrorFilterNetworkServicesRequest";
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
    */
@@ -33074,12 +31004,9 @@ export namespace ModifyTrafficMirrorFilterNetworkServicesRequest {
   export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorFilterNetworkServicesRequest =>
-    __isa(o, "ModifyTrafficMirrorFilterNetworkServicesRequest");
 }
 
 export interface ModifyTrafficMirrorFilterNetworkServicesResult {
-  __type?: "ModifyTrafficMirrorFilterNetworkServicesResult";
   /**
    * <p>The Traffic Mirror filter that the network service is associated with.</p>
    */
@@ -33090,12 +31017,9 @@ export namespace ModifyTrafficMirrorFilterNetworkServicesResult {
   export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorFilterNetworkServicesResult =>
-    __isa(o, "ModifyTrafficMirrorFilterNetworkServicesResult");
 }
 
 export interface ModifyTrafficMirrorFilterRuleRequest {
-  __type?: "ModifyTrafficMirrorFilterRuleRequest";
   /**
    * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
    *          direction. The rules are processed in ascending order by rule number.</p>
@@ -33165,12 +31089,9 @@ export namespace ModifyTrafficMirrorFilterRuleRequest {
   export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorFilterRuleRequest =>
-    __isa(o, "ModifyTrafficMirrorFilterRuleRequest");
 }
 
 export interface ModifyTrafficMirrorFilterRuleResult {
-  __type?: "ModifyTrafficMirrorFilterRuleResult";
   /**
    * <p>Modifies a Traffic Mirror rule.</p>
    */
@@ -33181,12 +31102,9 @@ export namespace ModifyTrafficMirrorFilterRuleResult {
   export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorFilterRuleResult =>
-    __isa(o, "ModifyTrafficMirrorFilterRuleResult");
 }
 
 export interface ModifyTrafficMirrorSessionRequest {
-  __type?: "ModifyTrafficMirrorSessionRequest";
   /**
    * <p>The description to assign to the Traffic Mirror session.</p>
    */
@@ -33241,11 +31159,9 @@ export namespace ModifyTrafficMirrorSessionRequest {
   export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorSessionRequest => __isa(o, "ModifyTrafficMirrorSessionRequest");
 }
 
 export interface ModifyTrafficMirrorSessionResult {
-  __type?: "ModifyTrafficMirrorSessionResult";
   /**
    * <p>Information about the Traffic Mirror session.</p>
    */
@@ -33256,11 +31172,9 @@ export namespace ModifyTrafficMirrorSessionResult {
   export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTrafficMirrorSessionResult => __isa(o, "ModifyTrafficMirrorSessionResult");
 }
 
 export interface ModifyTransitGatewayVpcAttachmentRequest {
-  __type?: "ModifyTransitGatewayVpcAttachmentRequest";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -33296,15 +31210,12 @@ export namespace ModifyTransitGatewayVpcAttachmentRequest {
   export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTransitGatewayVpcAttachmentRequest =>
-    __isa(o, "ModifyTransitGatewayVpcAttachmentRequest");
 }
 
 /**
  * <p>Describes the options for a VPC attachment.</p>
  */
 export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
-  __type?: "ModifyTransitGatewayVpcAttachmentRequestOptions";
   /**
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
    */
@@ -33320,12 +31231,9 @@ export namespace ModifyTransitGatewayVpcAttachmentRequestOptions {
   export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequestOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTransitGatewayVpcAttachmentRequestOptions =>
-    __isa(o, "ModifyTransitGatewayVpcAttachmentRequestOptions");
 }
 
 export interface ModifyTransitGatewayVpcAttachmentResult {
-  __type?: "ModifyTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the modified attachment.</p>
    */
@@ -33336,12 +31244,9 @@ export namespace ModifyTransitGatewayVpcAttachmentResult {
   export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyTransitGatewayVpcAttachmentResult =>
-    __isa(o, "ModifyTransitGatewayVpcAttachmentResult");
 }
 
 export interface ModifyVolumeAttributeRequest {
-  __type?: "ModifyVolumeAttributeRequest";
   /**
    * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
    */
@@ -33364,11 +31269,9 @@ export namespace ModifyVolumeAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyVolumeAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVolumeAttributeRequest => __isa(o, "ModifyVolumeAttributeRequest");
 }
 
 export interface ModifyVolumeRequest {
-  __type?: "ModifyVolumeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -33410,11 +31313,9 @@ export namespace ModifyVolumeRequest {
   export const filterSensitiveLog = (obj: ModifyVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVolumeRequest => __isa(o, "ModifyVolumeRequest");
 }
 
 export interface ModifyVolumeResult {
-  __type?: "ModifyVolumeResult";
   /**
    * <p>Information about the volume modification.</p>
    */
@@ -33425,11 +31326,9 @@ export namespace ModifyVolumeResult {
   export const filterSensitiveLog = (obj: ModifyVolumeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVolumeResult => __isa(o, "ModifyVolumeResult");
 }
 
 export interface ModifyVpcAttributeRequest {
-  __type?: "ModifyVpcAttributeRequest";
   /**
    * <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to
    * 			the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP
@@ -33456,11 +31355,9 @@ export namespace ModifyVpcAttributeRequest {
   export const filterSensitiveLog = (obj: ModifyVpcAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcAttributeRequest => __isa(o, "ModifyVpcAttributeRequest");
 }
 
 export interface ModifyVpcEndpointConnectionNotificationRequest {
-  __type?: "ModifyVpcEndpointConnectionNotificationRequest";
   /**
    * <p>The ARN for the SNS topic for the notification.</p>
    */
@@ -33489,12 +31386,9 @@ export namespace ModifyVpcEndpointConnectionNotificationRequest {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointConnectionNotificationRequest =>
-    __isa(o, "ModifyVpcEndpointConnectionNotificationRequest");
 }
 
 export interface ModifyVpcEndpointConnectionNotificationResult {
-  __type?: "ModifyVpcEndpointConnectionNotificationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -33505,15 +31399,12 @@ export namespace ModifyVpcEndpointConnectionNotificationResult {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointConnectionNotificationResult =>
-    __isa(o, "ModifyVpcEndpointConnectionNotificationResult");
 }
 
 /**
  * <p>Contains the parameters for ModifyVpcEndpoint.</p>
  */
 export interface ModifyVpcEndpointRequest {
-  __type?: "ModifyVpcEndpointRequest";
   /**
    * <p>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</p>
    */
@@ -33579,11 +31470,9 @@ export namespace ModifyVpcEndpointRequest {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointRequest => __isa(o, "ModifyVpcEndpointRequest");
 }
 
 export interface ModifyVpcEndpointResult {
-  __type?: "ModifyVpcEndpointResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -33594,11 +31483,9 @@ export namespace ModifyVpcEndpointResult {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointResult => __isa(o, "ModifyVpcEndpointResult");
 }
 
 export interface ModifyVpcEndpointServiceConfigurationRequest {
-  __type?: "ModifyVpcEndpointServiceConfigurationRequest";
   /**
    * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
    *             configuration.</p>
@@ -33643,12 +31530,9 @@ export namespace ModifyVpcEndpointServiceConfigurationRequest {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointServiceConfigurationRequest =>
-    __isa(o, "ModifyVpcEndpointServiceConfigurationRequest");
 }
 
 export interface ModifyVpcEndpointServiceConfigurationResult {
-  __type?: "ModifyVpcEndpointServiceConfigurationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -33659,12 +31543,9 @@ export namespace ModifyVpcEndpointServiceConfigurationResult {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointServiceConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointServiceConfigurationResult =>
-    __isa(o, "ModifyVpcEndpointServiceConfigurationResult");
 }
 
 export interface ModifyVpcEndpointServicePermissionsRequest {
-  __type?: "ModifyVpcEndpointServicePermissionsRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -33695,12 +31576,9 @@ export namespace ModifyVpcEndpointServicePermissionsRequest {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointServicePermissionsRequest =>
-    __isa(o, "ModifyVpcEndpointServicePermissionsRequest");
 }
 
 export interface ModifyVpcEndpointServicePermissionsResult {
-  __type?: "ModifyVpcEndpointServicePermissionsResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -33711,12 +31589,9 @@ export namespace ModifyVpcEndpointServicePermissionsResult {
   export const filterSensitiveLog = (obj: ModifyVpcEndpointServicePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcEndpointServicePermissionsResult =>
-    __isa(o, "ModifyVpcEndpointServicePermissionsResult");
 }
 
 export interface ModifyVpcPeeringConnectionOptionsRequest {
-  __type?: "ModifyVpcPeeringConnectionOptionsRequest";
   /**
    * <p>The ID of the VPC peering connection.</p>
    */
@@ -33744,12 +31619,9 @@ export namespace ModifyVpcPeeringConnectionOptionsRequest {
   export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcPeeringConnectionOptionsRequest =>
-    __isa(o, "ModifyVpcPeeringConnectionOptionsRequest");
 }
 
 export interface ModifyVpcPeeringConnectionOptionsResult {
-  __type?: "ModifyVpcPeeringConnectionOptionsResult";
   /**
    * <p>Information about the VPC peering connection options for the accepter VPC.</p>
    */
@@ -33765,12 +31637,9 @@ export namespace ModifyVpcPeeringConnectionOptionsResult {
   export const filterSensitiveLog = (obj: ModifyVpcPeeringConnectionOptionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcPeeringConnectionOptionsResult =>
-    __isa(o, "ModifyVpcPeeringConnectionOptionsResult");
 }
 
 export interface ModifyVpcTenancyRequest {
-  __type?: "ModifyVpcTenancyRequest";
   /**
    * <p>The instance tenancy attribute for the VPC. </p>
    */
@@ -33793,11 +31662,9 @@ export namespace ModifyVpcTenancyRequest {
   export const filterSensitiveLog = (obj: ModifyVpcTenancyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcTenancyRequest => __isa(o, "ModifyVpcTenancyRequest");
 }
 
 export interface ModifyVpcTenancyResult {
-  __type?: "ModifyVpcTenancyResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
    *             error.</p>
@@ -33809,11 +31676,9 @@ export namespace ModifyVpcTenancyResult {
   export const filterSensitiveLog = (obj: ModifyVpcTenancyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpcTenancyResult => __isa(o, "ModifyVpcTenancyResult");
 }
 
 export interface ModifyVpnConnectionRequest {
-  __type?: "ModifyVpnConnectionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -33846,11 +31711,9 @@ export namespace ModifyVpnConnectionRequest {
   export const filterSensitiveLog = (obj: ModifyVpnConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnConnectionRequest => __isa(o, "ModifyVpnConnectionRequest");
 }
 
 export interface ModifyVpnConnectionResult {
-  __type?: "ModifyVpnConnectionResult";
   /**
    * <p>Describes a VPN connection.</p>
    */
@@ -33861,11 +31724,9 @@ export namespace ModifyVpnConnectionResult {
   export const filterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnConnectionResult => __isa(o, "ModifyVpnConnectionResult");
 }
 
 export interface ModifyVpnTunnelCertificateRequest {
-  __type?: "ModifyVpnTunnelCertificateRequest";
   /**
    * <p>The ID of the AWS Site-to-Site VPN connection.</p>
    */
@@ -33888,11 +31749,9 @@ export namespace ModifyVpnTunnelCertificateRequest {
   export const filterSensitiveLog = (obj: ModifyVpnTunnelCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelCertificateRequest => __isa(o, "ModifyVpnTunnelCertificateRequest");
 }
 
 export interface ModifyVpnTunnelCertificateResult {
-  __type?: "ModifyVpnTunnelCertificateResult";
   /**
    * <p>Describes a VPN connection.</p>
    */
@@ -33903,11 +31762,9 @@ export namespace ModifyVpnTunnelCertificateResult {
   export const filterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelCertificateResult => __isa(o, "ModifyVpnTunnelCertificateResult");
 }
 
 export interface ModifyVpnTunnelOptionsRequest {
-  __type?: "ModifyVpnTunnelOptionsRequest";
   /**
    * <p>The ID of the AWS Site-to-Site VPN connection.</p>
    */
@@ -33935,11 +31792,9 @@ export namespace ModifyVpnTunnelOptionsRequest {
   export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelOptionsRequest => __isa(o, "ModifyVpnTunnelOptionsRequest");
 }
 
 export interface ModifyVpnTunnelOptionsResult {
-  __type?: "ModifyVpnTunnelOptionsResult";
   /**
    * <p>Describes a VPN connection.</p>
    */
@@ -33950,14 +31805,12 @@ export namespace ModifyVpnTunnelOptionsResult {
   export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelOptionsResult => __isa(o, "ModifyVpnTunnelOptionsResult");
 }
 
 /**
  * <p>The AWS Site-to-Site VPN tunnel options to modify.</p>
  */
 export interface ModifyVpnTunnelOptionsSpecification {
-  __type?: "ModifyVpnTunnelOptionsSpecification";
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
    *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for <code>Phase1LifetimeSeconds</code>.</p>
@@ -34114,15 +31967,12 @@ export namespace ModifyVpnTunnelOptionsSpecification {
   export const filterSensitiveLog = (obj: ModifyVpnTunnelOptionsSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyVpnTunnelOptionsSpecification =>
-    __isa(o, "ModifyVpnTunnelOptionsSpecification");
 }
 
 /**
  * <p>Describes the monitoring of an instance.</p>
  */
 export interface Monitoring {
-  __type?: "Monitoring";
   /**
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
@@ -34134,13 +31984,11 @@ export namespace Monitoring {
   export const filterSensitiveLog = (obj: Monitoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Monitoring => __isa(o, "Monitoring");
 }
 
 export type MonitoringState = "disabled" | "disabling" | "enabled" | "pending";
 
 export interface MonitorInstancesRequest {
-  __type?: "MonitorInstancesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -34158,11 +32006,9 @@ export namespace MonitorInstancesRequest {
   export const filterSensitiveLog = (obj: MonitorInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitorInstancesRequest => __isa(o, "MonitorInstancesRequest");
 }
 
 export interface MonitorInstancesResult {
-  __type?: "MonitorInstancesResult";
   /**
    * <p>The monitoring information.</p>
    */
@@ -34173,11 +32019,9 @@ export namespace MonitorInstancesResult {
   export const filterSensitiveLog = (obj: MonitorInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitorInstancesResult => __isa(o, "MonitorInstancesResult");
 }
 
 export interface MoveAddressToVpcRequest {
-  __type?: "MoveAddressToVpcRequest";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -34195,11 +32039,9 @@ export namespace MoveAddressToVpcRequest {
   export const filterSensitiveLog = (obj: MoveAddressToVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MoveAddressToVpcRequest => __isa(o, "MoveAddressToVpcRequest");
 }
 
 export interface MoveAddressToVpcResult {
-  __type?: "MoveAddressToVpcResult";
   /**
    * <p>The status of the move of the IP address.</p>
    */
@@ -34215,7 +32057,6 @@ export namespace MoveAddressToVpcResult {
   export const filterSensitiveLog = (obj: MoveAddressToVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MoveAddressToVpcResult => __isa(o, "MoveAddressToVpcResult");
 }
 
 export type MoveStatus = "movingToVpc" | "restoringToClassic";
@@ -34224,7 +32065,6 @@ export type MoveStatus = "movingToVpc" | "restoringToClassic";
  * <p>Describes the status of a moving Elastic IP address.</p>
  */
 export interface MovingAddressStatus {
-  __type?: "MovingAddressStatus";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -34240,7 +32080,6 @@ export namespace MovingAddressStatus {
   export const filterSensitiveLog = (obj: MovingAddressStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MovingAddressStatus => __isa(o, "MovingAddressStatus");
 }
 
 export type MulticastSupportValue = "disable" | "enable";
@@ -34249,7 +32088,6 @@ export type MulticastSupportValue = "disable" | "enable";
  * <p>Describes a NAT gateway.</p>
  */
 export interface NatGateway {
-  __type?: "NatGateway";
   /**
    * <p>The ID of the VPC in which the NAT gateway is located.</p>
    */
@@ -34360,14 +32198,12 @@ export namespace NatGateway {
   export const filterSensitiveLog = (obj: NatGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NatGateway => __isa(o, "NatGateway");
 }
 
 /**
  * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
  */
 export interface NatGatewayAddress {
-  __type?: "NatGatewayAddress";
   /**
    * <p>The ID of the network interface associated with the NAT gateway.</p>
    */
@@ -34393,7 +32229,6 @@ export namespace NatGatewayAddress {
   export const filterSensitiveLog = (obj: NatGatewayAddress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NatGatewayAddress => __isa(o, "NatGatewayAddress");
 }
 
 export enum NatGatewayState {
@@ -34408,7 +32243,6 @@ export enum NatGatewayState {
  * <p>Describes a network ACL.</p>
  */
 export interface NetworkAcl {
-  __type?: "NetworkAcl";
   /**
    * <p>Any tags assigned to the network ACL.</p>
    */
@@ -34449,14 +32283,12 @@ export namespace NetworkAcl {
   export const filterSensitiveLog = (obj: NetworkAcl): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkAcl => __isa(o, "NetworkAcl");
 }
 
 /**
  * <p>Describes an association between a network ACL and a subnet.</p>
  */
 export interface NetworkAclAssociation {
-  __type?: "NetworkAclAssociation";
   /**
    * <p>The ID of the association between a network ACL and a subnet.</p>
    */
@@ -34477,14 +32309,12 @@ export namespace NetworkAclAssociation {
   export const filterSensitiveLog = (obj: NetworkAclAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkAclAssociation => __isa(o, "NetworkAclAssociation");
 }
 
 /**
  * <p>Describes an entry in a network ACL.</p>
  */
 export interface NetworkAclEntry {
-  __type?: "NetworkAclEntry";
   /**
    * <p>ICMP protocol: The ICMP type and code.</p>
    */
@@ -34530,14 +32360,12 @@ export namespace NetworkAclEntry {
   export const filterSensitiveLog = (obj: NetworkAclEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkAclEntry => __isa(o, "NetworkAclEntry");
 }
 
 /**
  * <p>Describes the networking features of the instance type.</p>
  */
 export interface NetworkInfo {
-  __type?: "NetworkInfo";
   /**
    * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
    */
@@ -34578,14 +32406,12 @@ export namespace NetworkInfo {
   export const filterSensitiveLog = (obj: NetworkInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInfo => __isa(o, "NetworkInfo");
 }
 
 /**
  * <p>Describes a network interface.</p>
  */
 export interface NetworkInterface {
-  __type?: "NetworkInterface";
   /**
    * <p>Any security groups for the network interface.</p>
    */
@@ -34696,14 +32522,12 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
  * <p>Describes association information for an Elastic IP address (IPv4 only).</p>
  */
 export interface NetworkInterfaceAssociation {
-  __type?: "NetworkInterfaceAssociation";
   /**
    * <p>The public DNS name.</p>
    */
@@ -34734,14 +32558,12 @@ export namespace NetworkInterfaceAssociation {
   export const filterSensitiveLog = (obj: NetworkInterfaceAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceAssociation => __isa(o, "NetworkInterfaceAssociation");
 }
 
 /**
  * <p>Describes a network interface attachment.</p>
  */
 export interface NetworkInterfaceAttachment {
-  __type?: "NetworkInterfaceAttachment";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -34782,14 +32604,12 @@ export namespace NetworkInterfaceAttachment {
   export const filterSensitiveLog = (obj: NetworkInterfaceAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceAttachment => __isa(o, "NetworkInterfaceAttachment");
 }
 
 /**
  * <p>Describes an attachment change.</p>
  */
 export interface NetworkInterfaceAttachmentChanges {
-  __type?: "NetworkInterfaceAttachmentChanges";
   /**
    * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
    */
@@ -34805,7 +32625,6 @@ export namespace NetworkInterfaceAttachmentChanges {
   export const filterSensitiveLog = (obj: NetworkInterfaceAttachmentChanges): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceAttachmentChanges => __isa(o, "NetworkInterfaceAttachmentChanges");
 }
 
 export type NetworkInterfaceAttribute = "attachment" | "description" | "groupSet" | "sourceDestCheck";
@@ -34816,7 +32635,6 @@ export type NetworkInterfaceCreationType = "efa";
  * <p>Describes an IPv6 address associated with a network interface.</p>
  */
 export interface NetworkInterfaceIpv6Address {
-  __type?: "NetworkInterfaceIpv6Address";
   /**
    * <p>The IPv6 address.</p>
    */
@@ -34827,14 +32645,12 @@ export namespace NetworkInterfaceIpv6Address {
   export const filterSensitiveLog = (obj: NetworkInterfaceIpv6Address): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceIpv6Address => __isa(o, "NetworkInterfaceIpv6Address");
 }
 
 /**
  * <p>Describes a permission for a network interface.</p>
  */
 export interface NetworkInterfacePermission {
-  __type?: "NetworkInterfacePermission";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -34870,14 +32686,12 @@ export namespace NetworkInterfacePermission {
   export const filterSensitiveLog = (obj: NetworkInterfacePermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfacePermission => __isa(o, "NetworkInterfacePermission");
 }
 
 /**
  * <p>Describes the state of a network interface permission.</p>
  */
 export interface NetworkInterfacePermissionState {
-  __type?: "NetworkInterfacePermissionState";
   /**
    * <p>A status message, if applicable.</p>
    */
@@ -34893,7 +32707,6 @@ export namespace NetworkInterfacePermissionState {
   export const filterSensitiveLog = (obj: NetworkInterfacePermissionState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfacePermissionState => __isa(o, "NetworkInterfacePermissionState");
 }
 
 export type NetworkInterfacePermissionStateCode = "granted" | "pending" | "revoked" | "revoking";
@@ -34902,7 +32715,6 @@ export type NetworkInterfacePermissionStateCode = "granted" | "pending" | "revok
  * <p>Describes the private IPv4 address of a network interface.</p>
  */
 export interface NetworkInterfacePrivateIpAddress {
-  __type?: "NetworkInterfacePrivateIpAddress";
   /**
    * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
    */
@@ -34928,7 +32740,6 @@ export namespace NetworkInterfacePrivateIpAddress {
   export const filterSensitiveLog = (obj: NetworkInterfacePrivateIpAddress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfacePrivateIpAddress => __isa(o, "NetworkInterfacePrivateIpAddress");
 }
 
 export type NetworkInterfaceStatus = "associated" | "attaching" | "available" | "detaching" | "in-use";
@@ -34939,7 +32750,6 @@ export type NetworkInterfaceType = "efa" | "interface" | "natGateway";
  * <p>Describes a DHCP configuration option.</p>
  */
 export interface NewDhcpConfiguration {
-  __type?: "NewDhcpConfiguration";
   /**
    * <p>One or more values for the DHCP option.</p>
    */
@@ -34955,7 +32765,6 @@ export namespace NewDhcpConfiguration {
   export const filterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NewDhcpConfiguration => __isa(o, "NewDhcpConfiguration");
 }
 
 export enum OfferingClassType {
@@ -34980,7 +32789,6 @@ export enum OnDemandAllocationStrategy {
  * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
  */
 export interface OnDemandOptions {
-  __type?: "OnDemandOptions";
   /**
    * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
    *          Supported only for fleets of type <code>instant</code>.</p>
@@ -35024,14 +32832,12 @@ export namespace OnDemandOptions {
   export const filterSensitiveLog = (obj: OnDemandOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnDemandOptions => __isa(o, "OnDemandOptions");
 }
 
 /**
  * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
  */
 export interface OnDemandOptionsRequest {
-  __type?: "OnDemandOptionsRequest";
   /**
    * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
    *          you specify <code>lowest-price</code>, EC2 Fleet uses price to determine the order, launching
@@ -35075,7 +32881,6 @@ export namespace OnDemandOptionsRequest {
   export const filterSensitiveLog = (obj: OnDemandOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnDemandOptionsRequest => __isa(o, "OnDemandOptionsRequest");
 }
 
 export type OperationType = "add" | "remove";
@@ -35090,7 +32895,6 @@ export enum PaymentOption {
  * <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
  */
 export interface PciId {
-  __type?: "PciId";
   /**
    * <p>The ID of the vendor.</p>
    */
@@ -35116,14 +32920,12 @@ export namespace PciId {
   export const filterSensitiveLog = (obj: PciId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PciId => __isa(o, "PciId");
 }
 
 /**
  * <p>The status of the transit gateway peering attachment.</p>
  */
 export interface PeeringAttachmentStatus {
-  __type?: "PeeringAttachmentStatus";
   /**
    * <p>The status code.</p>
    */
@@ -35139,14 +32941,12 @@ export namespace PeeringAttachmentStatus {
   export const filterSensitiveLog = (obj: PeeringAttachmentStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PeeringAttachmentStatus => __isa(o, "PeeringAttachmentStatus");
 }
 
 /**
  * <p>Describes the VPC peering connection options.</p>
  */
 export interface PeeringConnectionOptions {
-  __type?: "PeeringConnectionOptions";
   /**
    * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
    *             a local VPC using ClassicLink to instances in a peer VPC.</p>
@@ -35170,14 +32970,12 @@ export namespace PeeringConnectionOptions {
   export const filterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PeeringConnectionOptions => __isa(o, "PeeringConnectionOptions");
 }
 
 /**
  * <p>The VPC peering connection options.</p>
  */
 export interface PeeringConnectionOptionsRequest {
-  __type?: "PeeringConnectionOptionsRequest";
   /**
    * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.</p>
    */
@@ -35200,14 +32998,12 @@ export namespace PeeringConnectionOptionsRequest {
   export const filterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PeeringConnectionOptionsRequest => __isa(o, "PeeringConnectionOptionsRequest");
 }
 
 /**
  * <p>Information about the transit gateway in the peering attachment.</p>
  */
 export interface PeeringTgwInfo {
-  __type?: "PeeringTgwInfo";
   /**
    * <p>The AWS account ID of the owner of the transit gateway.</p>
    */
@@ -35228,7 +33024,6 @@ export namespace PeeringTgwInfo {
   export const filterSensitiveLog = (obj: PeeringTgwInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PeeringTgwInfo => __isa(o, "PeeringTgwInfo");
 }
 
 export type PermissionGroup = "all";
@@ -35237,7 +33032,6 @@ export type PermissionGroup = "all";
  * <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
  */
 export interface Phase1DHGroupNumbersListValue {
-  __type?: "Phase1DHGroupNumbersListValue";
   /**
    * <p>The Diffie-Hellmann group number.</p>
    */
@@ -35248,14 +33042,12 @@ export namespace Phase1DHGroupNumbersListValue {
   export const filterSensitiveLog = (obj: Phase1DHGroupNumbersListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase1DHGroupNumbersListValue => __isa(o, "Phase1DHGroupNumbersListValue");
 }
 
 /**
  * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.</p>
  */
 export interface Phase1DHGroupNumbersRequestListValue {
-  __type?: "Phase1DHGroupNumbersRequestListValue";
   /**
    * <p>The Diffie-Hellmann group number.</p>
    */
@@ -35266,15 +33058,12 @@ export namespace Phase1DHGroupNumbersRequestListValue {
   export const filterSensitiveLog = (obj: Phase1DHGroupNumbersRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase1DHGroupNumbersRequestListValue =>
-    __isa(o, "Phase1DHGroupNumbersRequestListValue");
 }
 
 /**
  * <p>The encryption algorithm for phase 1 IKE negotiations.</p>
  */
 export interface Phase1EncryptionAlgorithmsListValue {
-  __type?: "Phase1EncryptionAlgorithmsListValue";
   /**
    * <p>The value for the encryption algorithm.</p>
    */
@@ -35285,15 +33074,12 @@ export namespace Phase1EncryptionAlgorithmsListValue {
   export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase1EncryptionAlgorithmsListValue =>
-    __isa(o, "Phase1EncryptionAlgorithmsListValue");
 }
 
 /**
  * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.</p>
  */
 export interface Phase1EncryptionAlgorithmsRequestListValue {
-  __type?: "Phase1EncryptionAlgorithmsRequestListValue";
   /**
    * <p>The value for the encryption algorithm.</p>
    */
@@ -35304,15 +33090,12 @@ export namespace Phase1EncryptionAlgorithmsRequestListValue {
   export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase1EncryptionAlgorithmsRequestListValue =>
-    __isa(o, "Phase1EncryptionAlgorithmsRequestListValue");
 }
 
 /**
  * <p>The integrity algorithm for phase 1 IKE negotiations.</p>
  */
 export interface Phase1IntegrityAlgorithmsListValue {
-  __type?: "Phase1IntegrityAlgorithmsListValue";
   /**
    * <p>The value for the integrity algorithm.</p>
    */
@@ -35323,15 +33106,12 @@ export namespace Phase1IntegrityAlgorithmsListValue {
   export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase1IntegrityAlgorithmsListValue =>
-    __isa(o, "Phase1IntegrityAlgorithmsListValue");
 }
 
 /**
  * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.</p>
  */
 export interface Phase1IntegrityAlgorithmsRequestListValue {
-  __type?: "Phase1IntegrityAlgorithmsRequestListValue";
   /**
    * <p>The value for the integrity algorithm.</p>
    */
@@ -35342,15 +33122,12 @@ export namespace Phase1IntegrityAlgorithmsRequestListValue {
   export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase1IntegrityAlgorithmsRequestListValue =>
-    __isa(o, "Phase1IntegrityAlgorithmsRequestListValue");
 }
 
 /**
  * <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
  */
 export interface Phase2DHGroupNumbersListValue {
-  __type?: "Phase2DHGroupNumbersListValue";
   /**
    * <p>The Diffie-Hellmann group number.</p>
    */
@@ -35361,14 +33138,12 @@ export namespace Phase2DHGroupNumbersListValue {
   export const filterSensitiveLog = (obj: Phase2DHGroupNumbersListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase2DHGroupNumbersListValue => __isa(o, "Phase2DHGroupNumbersListValue");
 }
 
 /**
  * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.</p>
  */
 export interface Phase2DHGroupNumbersRequestListValue {
-  __type?: "Phase2DHGroupNumbersRequestListValue";
   /**
    * <p>The Diffie-Hellmann group number.</p>
    */
@@ -35379,15 +33154,12 @@ export namespace Phase2DHGroupNumbersRequestListValue {
   export const filterSensitiveLog = (obj: Phase2DHGroupNumbersRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase2DHGroupNumbersRequestListValue =>
-    __isa(o, "Phase2DHGroupNumbersRequestListValue");
 }
 
 /**
  * <p>The encryption algorithm for phase 2 IKE negotiations.</p>
  */
 export interface Phase2EncryptionAlgorithmsListValue {
-  __type?: "Phase2EncryptionAlgorithmsListValue";
   /**
    * <p>The encryption algorithm.</p>
    */
@@ -35398,15 +33170,12 @@ export namespace Phase2EncryptionAlgorithmsListValue {
   export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase2EncryptionAlgorithmsListValue =>
-    __isa(o, "Phase2EncryptionAlgorithmsListValue");
 }
 
 /**
  * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.</p>
  */
 export interface Phase2EncryptionAlgorithmsRequestListValue {
-  __type?: "Phase2EncryptionAlgorithmsRequestListValue";
   /**
    * <p>The encryption algorithm.</p>
    */
@@ -35417,15 +33186,12 @@ export namespace Phase2EncryptionAlgorithmsRequestListValue {
   export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase2EncryptionAlgorithmsRequestListValue =>
-    __isa(o, "Phase2EncryptionAlgorithmsRequestListValue");
 }
 
 /**
  * <p>The integrity algorithm for phase 2 IKE negotiations.</p>
  */
 export interface Phase2IntegrityAlgorithmsListValue {
-  __type?: "Phase2IntegrityAlgorithmsListValue";
   /**
    * <p>The integrity algorithm.</p>
    */
@@ -35436,15 +33202,12 @@ export namespace Phase2IntegrityAlgorithmsListValue {
   export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase2IntegrityAlgorithmsListValue =>
-    __isa(o, "Phase2IntegrityAlgorithmsListValue");
 }
 
 /**
  * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.</p>
  */
 export interface Phase2IntegrityAlgorithmsRequestListValue {
-  __type?: "Phase2IntegrityAlgorithmsRequestListValue";
   /**
    * <p>The integrity algorithm.</p>
    */
@@ -35455,15 +33218,12 @@ export namespace Phase2IntegrityAlgorithmsRequestListValue {
   export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsRequestListValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Phase2IntegrityAlgorithmsRequestListValue =>
-    __isa(o, "Phase2IntegrityAlgorithmsRequestListValue");
 }
 
 /**
  * <p>Describes the placement of an instance.</p>
  */
 export interface Placement {
-  __type?: "Placement";
   /**
    * <p>Reserved for future use.</p>
    *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
@@ -35525,14 +33285,12 @@ export namespace Placement {
   export const filterSensitiveLog = (obj: Placement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Placement => __isa(o, "Placement");
 }
 
 /**
  * <p>Describes a placement group.</p>
  */
 export interface PlacementGroup {
-  __type?: "PlacementGroup";
   /**
    * <p>The state of the placement group.</p>
    */
@@ -35569,14 +33327,12 @@ export namespace PlacementGroup {
   export const filterSensitiveLog = (obj: PlacementGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementGroup => __isa(o, "PlacementGroup");
 }
 
 /**
  * <p>Describes the placement group support of the instance type.</p>
  */
 export interface PlacementGroupInfo {
-  __type?: "PlacementGroupInfo";
   /**
    * <p>A list of supported placement groups types.</p>
    */
@@ -35587,7 +33343,6 @@ export namespace PlacementGroupInfo {
   export const filterSensitiveLog = (obj: PlacementGroupInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementGroupInfo => __isa(o, "PlacementGroupInfo");
 }
 
 export type PlacementGroupState = "available" | "deleted" | "deleting" | "pending";
@@ -35598,7 +33353,6 @@ export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
  * <p>Describes the placement of an instance.</p>
  */
 export interface PlacementResponse {
-  __type?: "PlacementResponse";
   /**
    * <p>The name of the placement group that the instance is in.</p>
    */
@@ -35609,7 +33363,6 @@ export namespace PlacementResponse {
   export const filterSensitiveLog = (obj: PlacementResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementResponse => __isa(o, "PlacementResponse");
 }
 
 export type PlacementStrategy = "cluster" | "partition" | "spread";
@@ -35620,7 +33373,6 @@ export type PlatformValues = "Windows";
  * <p>Describes a CIDR block for an address pool.</p>
  */
 export interface PoolCidrBlock {
-  __type?: "PoolCidrBlock";
   /**
    * <p>The CIDR block.</p>
    */
@@ -35631,14 +33383,12 @@ export namespace PoolCidrBlock {
   export const filterSensitiveLog = (obj: PoolCidrBlock): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PoolCidrBlock => __isa(o, "PoolCidrBlock");
 }
 
 /**
  * <p>Describes a range of ports.</p>
  */
 export interface PortRange {
-  __type?: "PortRange";
   /**
    * <p>The first port in the range.</p>
    */
@@ -35654,14 +33404,12 @@ export namespace PortRange {
   export const filterSensitiveLog = (obj: PortRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortRange => __isa(o, "PortRange");
 }
 
 /**
  * <p>Describes prefixes for AWS services.</p>
  */
 export interface PrefixList {
-  __type?: "PrefixList";
   /**
    * <p>The IP address range of the AWS service.</p>
    */
@@ -35682,14 +33430,12 @@ export namespace PrefixList {
   export const filterSensitiveLog = (obj: PrefixList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrefixList => __isa(o, "PrefixList");
 }
 
 /**
  * <p>Describes the resource with which a prefix list is associated.</p>
  */
 export interface PrefixListAssociation {
-  __type?: "PrefixListAssociation";
   /**
    * <p>The owner of the resource.</p>
    */
@@ -35705,14 +33451,12 @@ export namespace PrefixListAssociation {
   export const filterSensitiveLog = (obj: PrefixListAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrefixListAssociation => __isa(o, "PrefixListAssociation");
 }
 
 /**
  * <p>Describes a prefix list entry.</p>
  */
 export interface PrefixListEntry {
-  __type?: "PrefixListEntry";
   /**
    * <p>The CIDR block.</p>
    */
@@ -35728,14 +33472,12 @@ export namespace PrefixListEntry {
   export const filterSensitiveLog = (obj: PrefixListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrefixListEntry => __isa(o, "PrefixListEntry");
 }
 
 /**
  * <p>Describes a prefix list ID.</p>
  */
 export interface PrefixListId {
-  __type?: "PrefixListId";
   /**
    * <p>A description for the security group rule that references this prefix list ID.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
@@ -35753,7 +33495,6 @@ export namespace PrefixListId {
   export const filterSensitiveLog = (obj: PrefixListId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrefixListId => __isa(o, "PrefixListId");
 }
 
 export type PrefixListState =
@@ -35774,7 +33515,6 @@ export type PrefixListState =
  * <p>Describes the price for a Reserved Instance.</p>
  */
 export interface PriceSchedule {
-  __type?: "PriceSchedule";
   /**
    * <p>The fixed price for the term.</p>
    */
@@ -35802,14 +33542,12 @@ export namespace PriceSchedule {
   export const filterSensitiveLog = (obj: PriceSchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PriceSchedule => __isa(o, "PriceSchedule");
 }
 
 /**
  * <p>Describes the price for a Reserved Instance.</p>
  */
 export interface PriceScheduleSpecification {
-  __type?: "PriceScheduleSpecification";
   /**
    * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
    */
@@ -35831,14 +33569,12 @@ export namespace PriceScheduleSpecification {
   export const filterSensitiveLog = (obj: PriceScheduleSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PriceScheduleSpecification => __isa(o, "PriceScheduleSpecification");
 }
 
 /**
  * <p>Describes a Reserved Instance offering.</p>
  */
 export interface PricingDetail {
-  __type?: "PricingDetail";
   /**
    * <p>The number of reservations available for the price.</p>
    */
@@ -35854,14 +33590,12 @@ export namespace PricingDetail {
   export const filterSensitiveLog = (obj: PricingDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PricingDetail => __isa(o, "PricingDetail");
 }
 
 /**
  * <p>PrincipalIdFormat description</p>
  */
 export interface PrincipalIdFormat {
-  __type?: "PrincipalIdFormat";
   /**
    * <p>PrincipalIdFormatARN description</p>
    */
@@ -35877,7 +33611,6 @@ export namespace PrincipalIdFormat {
   export const filterSensitiveLog = (obj: PrincipalIdFormat): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrincipalIdFormat => __isa(o, "PrincipalIdFormat");
 }
 
 export enum PrincipalType {
@@ -35896,7 +33629,6 @@ export enum PrincipalType {
  *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  */
 export interface PrivateDnsNameConfiguration {
-  __type?: "PrivateDnsNameConfiguration";
   /**
    * <p>The endpoint service verification type, for example TXT.</p>
    */
@@ -35925,14 +33657,12 @@ export namespace PrivateDnsNameConfiguration {
   export const filterSensitiveLog = (obj: PrivateDnsNameConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrivateDnsNameConfiguration => __isa(o, "PrivateDnsNameConfiguration");
 }
 
 /**
  * <p>Describes a secondary private IPv4 address for a network interface.</p>
  */
 export interface PrivateIpAddressSpecification {
-  __type?: "PrivateIpAddressSpecification";
   /**
    * <p>Indicates whether the private IPv4 address is the primary private IPv4 address. Only
    *             one IPv4 address can be designated as primary.</p>
@@ -35949,14 +33679,12 @@ export namespace PrivateIpAddressSpecification {
   export const filterSensitiveLog = (obj: PrivateIpAddressSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrivateIpAddressSpecification => __isa(o, "PrivateIpAddressSpecification");
 }
 
 /**
  * <p>Describes the processor used by the instance type.</p>
  */
 export interface ProcessorInfo {
-  __type?: "ProcessorInfo";
   /**
    * <p>A list of architectures supported by the instance type.</p>
    */
@@ -35972,14 +33700,12 @@ export namespace ProcessorInfo {
   export const filterSensitiveLog = (obj: ProcessorInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessorInfo => __isa(o, "ProcessorInfo");
 }
 
 /**
  * <p>Describes a product code.</p>
  */
 export interface ProductCode {
-  __type?: "ProductCode";
   /**
    * <p>The product code.</p>
    */
@@ -35995,7 +33721,6 @@ export namespace ProductCode {
   export const filterSensitiveLog = (obj: ProductCode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductCode => __isa(o, "ProductCode");
 }
 
 export type ProductCodeValues = "devpay" | "marketplace";
@@ -36004,7 +33729,6 @@ export type ProductCodeValues = "devpay" | "marketplace";
  * <p>Describes a virtual private gateway propagating route.</p>
  */
 export interface PropagatingVgw {
-  __type?: "PropagatingVgw";
   /**
    * <p>The ID of the virtual private gateway.</p>
    */
@@ -36015,11 +33739,9 @@ export namespace PropagatingVgw {
   export const filterSensitiveLog = (obj: PropagatingVgw): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropagatingVgw => __isa(o, "PropagatingVgw");
 }
 
 export interface ProvisionByoipCidrRequest {
-  __type?: "ProvisionByoipCidrRequest";
   /**
    * <p>The tags to apply to the address pool.</p>
    */
@@ -36062,11 +33784,9 @@ export namespace ProvisionByoipCidrRequest {
   export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionByoipCidrRequest => __isa(o, "ProvisionByoipCidrRequest");
 }
 
 export interface ProvisionByoipCidrResult {
-  __type?: "ProvisionByoipCidrResult";
   /**
    * <p>Information about the address range.</p>
    */
@@ -36077,14 +33797,12 @@ export namespace ProvisionByoipCidrResult {
   export const filterSensitiveLog = (obj: ProvisionByoipCidrResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionByoipCidrResult => __isa(o, "ProvisionByoipCidrResult");
 }
 
 /**
  * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 export interface ProvisionedBandwidth {
-  __type?: "ProvisionedBandwidth";
   /**
    * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
    */
@@ -36115,14 +33833,12 @@ export namespace ProvisionedBandwidth {
   export const filterSensitiveLog = (obj: ProvisionedBandwidth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedBandwidth => __isa(o, "ProvisionedBandwidth");
 }
 
 /**
  * <p>Describes an IPv4 address pool.</p>
  */
 export interface PublicIpv4Pool {
-  __type?: "PublicIpv4Pool";
   /**
    * <p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.</p>
    */
@@ -36163,14 +33879,12 @@ export namespace PublicIpv4Pool {
   export const filterSensitiveLog = (obj: PublicIpv4Pool): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicIpv4Pool => __isa(o, "PublicIpv4Pool");
 }
 
 /**
  * <p>Describes an address range of an IPv4 address pool.</p>
  */
 export interface PublicIpv4PoolRange {
-  __type?: "PublicIpv4PoolRange";
   /**
    * <p>The last IP address in the range.</p>
    */
@@ -36196,14 +33910,12 @@ export namespace PublicIpv4PoolRange {
   export const filterSensitiveLog = (obj: PublicIpv4PoolRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicIpv4PoolRange => __isa(o, "PublicIpv4PoolRange");
 }
 
 /**
  * <p>Describes the result of the purchase.</p>
  */
 export interface Purchase {
-  __type?: "Purchase";
   /**
    * <p>The payment option for the reservation.</p>
    */
@@ -36252,11 +33964,9 @@ export namespace Purchase {
   export const filterSensitiveLog = (obj: Purchase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Purchase => __isa(o, "Purchase");
 }
 
 export interface PurchaseHostReservationRequest {
-  __type?: "PurchaseHostReservationRequest";
   /**
    * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
    */
@@ -36299,11 +34009,9 @@ export namespace PurchaseHostReservationRequest {
   export const filterSensitiveLog = (obj: PurchaseHostReservationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseHostReservationRequest => __isa(o, "PurchaseHostReservationRequest");
 }
 
 export interface PurchaseHostReservationResult {
-  __type?: "PurchaseHostReservationResult";
   /**
    * <p>The currency in which the <code>totalUpfrontPrice</code> and
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
@@ -36336,14 +34044,12 @@ export namespace PurchaseHostReservationResult {
   export const filterSensitiveLog = (obj: PurchaseHostReservationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseHostReservationResult => __isa(o, "PurchaseHostReservationResult");
 }
 
 /**
  * <p>Describes a request to purchase Scheduled Instances.</p>
  */
 export interface PurchaseRequest {
-  __type?: "PurchaseRequest";
   /**
    * <p>The purchase token.</p>
    */
@@ -36359,14 +34065,12 @@ export namespace PurchaseRequest {
   export const filterSensitiveLog = (obj: PurchaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseRequest => __isa(o, "PurchaseRequest");
 }
 
 /**
  * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
  */
 export interface PurchaseReservedInstancesOfferingRequest {
-  __type?: "PurchaseReservedInstancesOfferingRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -36399,15 +34103,12 @@ export namespace PurchaseReservedInstancesOfferingRequest {
   export const filterSensitiveLog = (obj: PurchaseReservedInstancesOfferingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedInstancesOfferingRequest =>
-    __isa(o, "PurchaseReservedInstancesOfferingRequest");
 }
 
 /**
  * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
  */
 export interface PurchaseReservedInstancesOfferingResult {
-  __type?: "PurchaseReservedInstancesOfferingResult";
   /**
    * <p>The IDs of the purchased Reserved Instances.</p>
    */
@@ -36418,15 +34119,12 @@ export namespace PurchaseReservedInstancesOfferingResult {
   export const filterSensitiveLog = (obj: PurchaseReservedInstancesOfferingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedInstancesOfferingResult =>
-    __isa(o, "PurchaseReservedInstancesOfferingResult");
 }
 
 /**
  * <p>Contains the parameters for PurchaseScheduledInstances.</p>
  */
 export interface PurchaseScheduledInstancesRequest {
-  __type?: "PurchaseScheduledInstancesRequest";
   /**
    * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
    *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
@@ -36450,14 +34148,12 @@ export namespace PurchaseScheduledInstancesRequest {
   export const filterSensitiveLog = (obj: PurchaseScheduledInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseScheduledInstancesRequest => __isa(o, "PurchaseScheduledInstancesRequest");
 }
 
 /**
  * <p>Contains the output of PurchaseScheduledInstances.</p>
  */
 export interface PurchaseScheduledInstancesResult {
-  __type?: "PurchaseScheduledInstancesResult";
   /**
    * <p>Information about the Scheduled Instances.</p>
    */
@@ -36468,11 +34164,9 @@ export namespace PurchaseScheduledInstancesResult {
   export const filterSensitiveLog = (obj: PurchaseScheduledInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseScheduledInstancesResult => __isa(o, "PurchaseScheduledInstancesResult");
 }
 
 export interface RebootInstancesRequest {
-  __type?: "RebootInstancesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -36490,14 +34184,12 @@ export namespace RebootInstancesRequest {
   export const filterSensitiveLog = (obj: RebootInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootInstancesRequest => __isa(o, "RebootInstancesRequest");
 }
 
 /**
  * <p>Describes a recurring charge.</p>
  */
 export interface RecurringCharge {
-  __type?: "RecurringCharge";
   /**
    * <p>The frequency of the recurring charge.</p>
    */
@@ -36513,7 +34205,6 @@ export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 export type RecurringChargeFrequency = "Hourly";
@@ -36522,7 +34213,6 @@ export type RecurringChargeFrequency = "Hourly";
  * <p>Describes a Region.</p>
  */
 export interface Region {
-  __type?: "Region";
   /**
    * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
    *         <code>not-opted-in</code>.</p>
@@ -36544,14 +34234,12 @@ export namespace Region {
   export const filterSensitiveLog = (obj: Region): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Region => __isa(o, "Region");
 }
 
 /**
  * <p>Contains the parameters for RegisterImage.</p>
  */
 export interface RegisterImageRequest {
-  __type?: "RegisterImageRequest";
   /**
    * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
    *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
@@ -36636,14 +34324,12 @@ export namespace RegisterImageRequest {
   export const filterSensitiveLog = (obj: RegisterImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterImageRequest => __isa(o, "RegisterImageRequest");
 }
 
 /**
  * <p>Contains the output of RegisterImage.</p>
  */
 export interface RegisterImageResult {
-  __type?: "RegisterImageResult";
   /**
    * <p>The ID of the newly registered AMI.</p>
    */
@@ -36654,11 +34340,9 @@ export namespace RegisterImageResult {
   export const filterSensitiveLog = (obj: RegisterImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterImageResult => __isa(o, "RegisterImageResult");
 }
 
 export interface RegisterInstanceEventNotificationAttributesRequest {
-  __type?: "RegisterInstanceEventNotificationAttributesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -36676,12 +34360,9 @@ export namespace RegisterInstanceEventNotificationAttributesRequest {
   export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceEventNotificationAttributesRequest =>
-    __isa(o, "RegisterInstanceEventNotificationAttributesRequest");
 }
 
 export interface RegisterInstanceEventNotificationAttributesResult {
-  __type?: "RegisterInstanceEventNotificationAttributesResult";
   /**
    * <p>The resulting set of tag keys.</p>
    */
@@ -36692,8 +34373,6 @@ export namespace RegisterInstanceEventNotificationAttributesResult {
   export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceEventNotificationAttributesResult =>
-    __isa(o, "RegisterInstanceEventNotificationAttributesResult");
 }
 
 /**
@@ -36702,7 +34381,6 @@ export namespace RegisterInstanceEventNotificationAttributesResult {
  *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
  */
 export interface RegisterInstanceTagAttributeRequest {
-  __type?: "RegisterInstanceTagAttributeRequest";
   /**
    * <p>The tag keys to register.</p>
    */
@@ -36719,12 +34397,9 @@ export namespace RegisterInstanceTagAttributeRequest {
   export const filterSensitiveLog = (obj: RegisterInstanceTagAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceTagAttributeRequest =>
-    __isa(o, "RegisterInstanceTagAttributeRequest");
 }
 
 export interface RegisterTransitGatewayMulticastGroupMembersRequest {
-  __type?: "RegisterTransitGatewayMulticastGroupMembersRequest";
   /**
    * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
    */
@@ -36752,12 +34427,9 @@ export namespace RegisterTransitGatewayMulticastGroupMembersRequest {
   export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupMembersRequest =>
-    __isa(o, "RegisterTransitGatewayMulticastGroupMembersRequest");
 }
 
 export interface RegisterTransitGatewayMulticastGroupMembersResult {
-  __type?: "RegisterTransitGatewayMulticastGroupMembersResult";
   /**
    * <p>Information about the registered  transit gateway multicast group members.</p>
    */
@@ -36768,12 +34440,9 @@ export namespace RegisterTransitGatewayMulticastGroupMembersResult {
   export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupMembersResult =>
-    __isa(o, "RegisterTransitGatewayMulticastGroupMembersResult");
 }
 
 export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
-  __type?: "RegisterTransitGatewayMulticastGroupSourcesRequest";
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
    */
@@ -36801,12 +34470,9 @@ export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
   export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupSourcesRequest =>
-    __isa(o, "RegisterTransitGatewayMulticastGroupSourcesRequest");
 }
 
 export interface RegisterTransitGatewayMulticastGroupSourcesResult {
-  __type?: "RegisterTransitGatewayMulticastGroupSourcesResult";
   /**
    * <p>Information about the  transit gateway multicast group sources.</p>
    */
@@ -36817,12 +34483,9 @@ export namespace RegisterTransitGatewayMulticastGroupSourcesResult {
   export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTransitGatewayMulticastGroupSourcesResult =>
-    __isa(o, "RegisterTransitGatewayMulticastGroupSourcesResult");
 }
 
 export interface RejectTransitGatewayPeeringAttachmentRequest {
-  __type?: "RejectTransitGatewayPeeringAttachmentRequest";
   /**
    * <p>The ID of the transit gateway peering attachment.</p>
    */
@@ -36840,12 +34503,9 @@ export namespace RejectTransitGatewayPeeringAttachmentRequest {
   export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectTransitGatewayPeeringAttachmentRequest =>
-    __isa(o, "RejectTransitGatewayPeeringAttachmentRequest");
 }
 
 export interface RejectTransitGatewayPeeringAttachmentResult {
-  __type?: "RejectTransitGatewayPeeringAttachmentResult";
   /**
    * <p>The transit gateway peering attachment.</p>
    */
@@ -36856,12 +34516,9 @@ export namespace RejectTransitGatewayPeeringAttachmentResult {
   export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectTransitGatewayPeeringAttachmentResult =>
-    __isa(o, "RejectTransitGatewayPeeringAttachmentResult");
 }
 
 export interface RejectTransitGatewayVpcAttachmentRequest {
-  __type?: "RejectTransitGatewayVpcAttachmentRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -36879,12 +34536,9 @@ export namespace RejectTransitGatewayVpcAttachmentRequest {
   export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectTransitGatewayVpcAttachmentRequest =>
-    __isa(o, "RejectTransitGatewayVpcAttachmentRequest");
 }
 
 export interface RejectTransitGatewayVpcAttachmentResult {
-  __type?: "RejectTransitGatewayVpcAttachmentResult";
   /**
    * <p>Information about the attachment.</p>
    */
@@ -36895,12 +34549,9 @@ export namespace RejectTransitGatewayVpcAttachmentResult {
   export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectTransitGatewayVpcAttachmentResult =>
-    __isa(o, "RejectTransitGatewayVpcAttachmentResult");
 }
 
 export interface RejectVpcEndpointConnectionsRequest {
-  __type?: "RejectVpcEndpointConnectionsRequest";
   /**
    * <p>The IDs of one or more VPC endpoints.</p>
    */
@@ -36923,12 +34574,9 @@ export namespace RejectVpcEndpointConnectionsRequest {
   export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectVpcEndpointConnectionsRequest =>
-    __isa(o, "RejectVpcEndpointConnectionsRequest");
 }
 
 export interface RejectVpcEndpointConnectionsResult {
-  __type?: "RejectVpcEndpointConnectionsResult";
   /**
    * <p>Information about the endpoints that were not rejected, if applicable.</p>
    */
@@ -36939,12 +34587,9 @@ export namespace RejectVpcEndpointConnectionsResult {
   export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectVpcEndpointConnectionsResult =>
-    __isa(o, "RejectVpcEndpointConnectionsResult");
 }
 
 export interface RejectVpcPeeringConnectionRequest {
-  __type?: "RejectVpcPeeringConnectionRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -36962,11 +34607,9 @@ export namespace RejectVpcPeeringConnectionRequest {
   export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectVpcPeeringConnectionRequest => __isa(o, "RejectVpcPeeringConnectionRequest");
 }
 
 export interface RejectVpcPeeringConnectionResult {
-  __type?: "RejectVpcPeeringConnectionResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -36977,11 +34620,9 @@ export namespace RejectVpcPeeringConnectionResult {
   export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectVpcPeeringConnectionResult => __isa(o, "RejectVpcPeeringConnectionResult");
 }
 
 export interface ReleaseAddressRequest {
-  __type?: "ReleaseAddressRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -37013,11 +34654,9 @@ export namespace ReleaseAddressRequest {
   export const filterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReleaseAddressRequest => __isa(o, "ReleaseAddressRequest");
 }
 
 export interface ReleaseHostsRequest {
-  __type?: "ReleaseHostsRequest";
   /**
    * <p>The IDs of the Dedicated Hosts to release.</p>
    */
@@ -37028,11 +34667,9 @@ export namespace ReleaseHostsRequest {
   export const filterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReleaseHostsRequest => __isa(o, "ReleaseHostsRequest");
 }
 
 export interface ReleaseHostsResult {
-  __type?: "ReleaseHostsResult";
   /**
    * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
    */
@@ -37049,14 +34686,12 @@ export namespace ReleaseHostsResult {
   export const filterSensitiveLog = (obj: ReleaseHostsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReleaseHostsResult => __isa(o, "ReleaseHostsResult");
 }
 
 /**
  * <p>An entry for a prefix list.</p>
  */
 export interface RemovePrefixListEntry {
-  __type?: "RemovePrefixListEntry";
   /**
    * <p>The CIDR block.</p>
    */
@@ -37067,11 +34702,9 @@ export namespace RemovePrefixListEntry {
   export const filterSensitiveLog = (obj: RemovePrefixListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemovePrefixListEntry => __isa(o, "RemovePrefixListEntry");
 }
 
 export interface ReplaceIamInstanceProfileAssociationRequest {
-  __type?: "ReplaceIamInstanceProfileAssociationRequest";
   /**
    * <p>The IAM instance profile.</p>
    */
@@ -37087,12 +34720,9 @@ export namespace ReplaceIamInstanceProfileAssociationRequest {
   export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceIamInstanceProfileAssociationRequest =>
-    __isa(o, "ReplaceIamInstanceProfileAssociationRequest");
 }
 
 export interface ReplaceIamInstanceProfileAssociationResult {
-  __type?: "ReplaceIamInstanceProfileAssociationResult";
   /**
    * <p>Information about the IAM instance profile association.</p>
    */
@@ -37103,12 +34733,9 @@ export namespace ReplaceIamInstanceProfileAssociationResult {
   export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceIamInstanceProfileAssociationResult =>
-    __isa(o, "ReplaceIamInstanceProfileAssociationResult");
 }
 
 export interface ReplaceNetworkAclAssociationRequest {
-  __type?: "ReplaceNetworkAclAssociationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -37131,12 +34758,9 @@ export namespace ReplaceNetworkAclAssociationRequest {
   export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceNetworkAclAssociationRequest =>
-    __isa(o, "ReplaceNetworkAclAssociationRequest");
 }
 
 export interface ReplaceNetworkAclAssociationResult {
-  __type?: "ReplaceNetworkAclAssociationResult";
   /**
    * <p>The ID of the new association.</p>
    */
@@ -37147,12 +34771,9 @@ export namespace ReplaceNetworkAclAssociationResult {
   export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceNetworkAclAssociationResult =>
-    __isa(o, "ReplaceNetworkAclAssociationResult");
 }
 
 export interface ReplaceNetworkAclEntryRequest {
-  __type?: "ReplaceNetworkAclEntryRequest";
   /**
    * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
    *                 <code>172.16.0.0/24</code>).</p>
@@ -37220,11 +34841,9 @@ export namespace ReplaceNetworkAclEntryRequest {
   export const filterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceNetworkAclEntryRequest => __isa(o, "ReplaceNetworkAclEntryRequest");
 }
 
 export interface ReplaceRouteRequest {
-  __type?: "ReplaceRouteRequest";
   /**
    * <p>The ID of the route table.</p>
    */
@@ -37304,11 +34923,9 @@ export namespace ReplaceRouteRequest {
   export const filterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceRouteRequest => __isa(o, "ReplaceRouteRequest");
 }
 
 export interface ReplaceRouteTableAssociationRequest {
-  __type?: "ReplaceRouteTableAssociationRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -37331,12 +34948,9 @@ export namespace ReplaceRouteTableAssociationRequest {
   export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceRouteTableAssociationRequest =>
-    __isa(o, "ReplaceRouteTableAssociationRequest");
 }
 
 export interface ReplaceRouteTableAssociationResult {
-  __type?: "ReplaceRouteTableAssociationResult";
   /**
    * <p>The ID of the new association.</p>
    */
@@ -37352,12 +34966,9 @@ export namespace ReplaceRouteTableAssociationResult {
   export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceRouteTableAssociationResult =>
-    __isa(o, "ReplaceRouteTableAssociationResult");
 }
 
 export interface ReplaceTransitGatewayRouteRequest {
-  __type?: "ReplaceTransitGatewayRouteRequest";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -37390,11 +35001,9 @@ export namespace ReplaceTransitGatewayRouteRequest {
   export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceTransitGatewayRouteRequest => __isa(o, "ReplaceTransitGatewayRouteRequest");
 }
 
 export interface ReplaceTransitGatewayRouteResult {
-  __type?: "ReplaceTransitGatewayRouteResult";
   /**
    * <p>Information about the modified route.</p>
    */
@@ -37405,7 +35014,6 @@ export namespace ReplaceTransitGatewayRouteResult {
   export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceTransitGatewayRouteResult => __isa(o, "ReplaceTransitGatewayRouteResult");
 }
 
 export type ReportInstanceReasonCodes =
@@ -37420,7 +35028,6 @@ export type ReportInstanceReasonCodes =
   | "unresponsive";
 
 export interface ReportInstanceStatusRequest {
-  __type?: "ReportInstanceStatusRequest";
   /**
    * <p>The time at which the reported instance health state began.</p>
    */
@@ -37507,7 +35114,6 @@ export namespace ReportInstanceStatusRequest {
   export const filterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportInstanceStatusRequest => __isa(o, "ReportInstanceStatusRequest");
 }
 
 export type ReportStatusType = "impaired" | "ok";
@@ -37516,7 +35122,6 @@ export type ReportStatusType = "impaired" | "ok";
  * <p>The information to include in the launch template.</p>
  */
 export interface RequestLaunchTemplateData {
-  __type?: "RequestLaunchTemplateData";
   /**
    * <p>One or more network interfaces. If you specify a network interface, you must specify
    *             any security groups and subnets as part of the network interface.</p>
@@ -37701,14 +35306,12 @@ export namespace RequestLaunchTemplateData {
   export const filterSensitiveLog = (obj: RequestLaunchTemplateData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestLaunchTemplateData => __isa(o, "RequestLaunchTemplateData");
 }
 
 /**
  * <p>Contains the parameters for RequestSpotFleet.</p>
  */
 export interface RequestSpotFleetRequest {
-  __type?: "RequestSpotFleetRequest";
   /**
    * <p>The configuration for the Spot Fleet request.</p>
    */
@@ -37726,14 +35329,12 @@ export namespace RequestSpotFleetRequest {
   export const filterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestSpotFleetRequest => __isa(o, "RequestSpotFleetRequest");
 }
 
 /**
  * <p>Contains the output of RequestSpotFleet.</p>
  */
 export interface RequestSpotFleetResponse {
-  __type?: "RequestSpotFleetResponse";
   /**
    * <p>The ID of the Spot Fleet request.</p>
    */
@@ -37744,14 +35345,12 @@ export namespace RequestSpotFleetResponse {
   export const filterSensitiveLog = (obj: RequestSpotFleetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestSpotFleetResponse => __isa(o, "RequestSpotFleetResponse");
 }
 
 /**
  * <p>Contains the parameters for RequestSpotInstances.</p>
  */
 export interface RequestSpotInstancesRequest {
-  __type?: "RequestSpotInstancesRequest";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
    *        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>
@@ -37842,14 +35441,12 @@ export namespace RequestSpotInstancesRequest {
   export const filterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestSpotInstancesRequest => __isa(o, "RequestSpotInstancesRequest");
 }
 
 /**
  * <p>Contains the output of RequestSpotInstances.</p>
  */
 export interface RequestSpotInstancesResult {
-  __type?: "RequestSpotInstancesResult";
   /**
    * <p>One or more Spot Instance requests.</p>
    */
@@ -37860,14 +35457,12 @@ export namespace RequestSpotInstancesResult {
   export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestSpotInstancesResult => __isa(o, "RequestSpotInstancesResult");
 }
 
 /**
  * <p>Describes the launch specification for an instance.</p>
  */
 export interface RequestSpotLaunchSpecification {
-  __type?: "RequestSpotLaunchSpecification";
   /**
    * <p>The ID of the RAM disk.</p>
    */
@@ -37960,14 +35555,12 @@ export namespace RequestSpotLaunchSpecification {
   export const filterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestSpotLaunchSpecification => __isa(o, "RequestSpotLaunchSpecification");
 }
 
 /**
  * <p>Describes a reservation.</p>
  */
 export interface Reservation {
-  __type?: "Reservation";
   /**
    * <p>[EC2-Classic only] The security groups.</p>
    */
@@ -37999,7 +35592,6 @@ export namespace Reservation {
   export const filterSensitiveLog = (obj: Reservation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Reservation => __isa(o, "Reservation");
 }
 
 export enum ReservationState {
@@ -38013,7 +35605,6 @@ export enum ReservationState {
  * <p>The cost associated with the Reserved Instance.</p>
  */
 export interface ReservationValue {
-  __type?: "ReservationValue";
   /**
    * <p>The hourly rate of the reservation.</p>
    */
@@ -38034,14 +35625,12 @@ export namespace ReservationValue {
   export const filterSensitiveLog = (obj: ReservationValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservationValue => __isa(o, "ReservationValue");
 }
 
 /**
  * <p>Describes the limit price of a Reserved Instance offering.</p>
  */
 export interface ReservedInstanceLimitPrice {
-  __type?: "ReservedInstanceLimitPrice";
   /**
    * <p>The currency in which the <code>limitPrice</code> amount is specified.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
@@ -38058,14 +35647,12 @@ export namespace ReservedInstanceLimitPrice {
   export const filterSensitiveLog = (obj: ReservedInstanceLimitPrice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstanceLimitPrice => __isa(o, "ReservedInstanceLimitPrice");
 }
 
 /**
  * <p>The total value of the Convertible Reserved Instance.</p>
  */
 export interface ReservedInstanceReservationValue {
-  __type?: "ReservedInstanceReservationValue";
   /**
    * <p>The ID of the Convertible Reserved Instance that you are exchanging.</p>
    */
@@ -38081,14 +35668,12 @@ export namespace ReservedInstanceReservationValue {
   export const filterSensitiveLog = (obj: ReservedInstanceReservationValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstanceReservationValue => __isa(o, "ReservedInstanceReservationValue");
 }
 
 /**
  * <p>Describes a Reserved Instance.</p>
  */
 export interface ReservedInstances {
-  __type?: "ReservedInstances";
   /**
    * <p>The tenancy of the instance.</p>
    */
@@ -38185,14 +35770,12 @@ export namespace ReservedInstances {
   export const filterSensitiveLog = (obj: ReservedInstances): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstances => __isa(o, "ReservedInstances");
 }
 
 /**
  * <p>Describes the configuration settings for the modified Reserved Instances.</p>
  */
 export interface ReservedInstancesConfiguration {
-  __type?: "ReservedInstancesConfiguration";
   /**
    * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
    */
@@ -38226,14 +35809,12 @@ export namespace ReservedInstancesConfiguration {
   export const filterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesConfiguration => __isa(o, "ReservedInstancesConfiguration");
 }
 
 /**
  * <p>Describes the ID of a Reserved Instance.</p>
  */
 export interface ReservedInstancesId {
-  __type?: "ReservedInstancesId";
   /**
    * <p>The ID of the Reserved Instance.</p>
    */
@@ -38244,14 +35825,12 @@ export namespace ReservedInstancesId {
   export const filterSensitiveLog = (obj: ReservedInstancesId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesId => __isa(o, "ReservedInstancesId");
 }
 
 /**
  * <p>Describes a Reserved Instance listing.</p>
  */
 export interface ReservedInstancesListing {
-  __type?: "ReservedInstancesListing";
   /**
    * <p>The reason for the current status of the Reserved Instance listing. The response can be blank.</p>
    */
@@ -38308,14 +35887,12 @@ export namespace ReservedInstancesListing {
   export const filterSensitiveLog = (obj: ReservedInstancesListing): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesListing => __isa(o, "ReservedInstancesListing");
 }
 
 /**
  * <p>Describes a Reserved Instance modification.</p>
  */
 export interface ReservedInstancesModification {
-  __type?: "ReservedInstancesModification";
   /**
    * <p>The IDs of one or more Reserved Instances.</p>
    */
@@ -38368,14 +35945,12 @@ export namespace ReservedInstancesModification {
   export const filterSensitiveLog = (obj: ReservedInstancesModification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesModification => __isa(o, "ReservedInstancesModification");
 }
 
 /**
  * <p>Describes the modification request/s.</p>
  */
 export interface ReservedInstancesModificationResult {
-  __type?: "ReservedInstancesModificationResult";
   /**
    * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
    */
@@ -38391,15 +35966,12 @@ export namespace ReservedInstancesModificationResult {
   export const filterSensitiveLog = (obj: ReservedInstancesModificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesModificationResult =>
-    __isa(o, "ReservedInstancesModificationResult");
 }
 
 /**
  * <p>Describes a Reserved Instance offering.</p>
  */
 export interface ReservedInstancesOffering {
-  __type?: "ReservedInstancesOffering";
   /**
    * <p>The Availability Zone in which the Reserved Instance can be used.</p>
    */
@@ -38486,7 +36058,6 @@ export namespace ReservedInstancesOffering {
   export const filterSensitiveLog = (obj: ReservedInstancesOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedInstancesOffering => __isa(o, "ReservedInstancesOffering");
 }
 
 export type ReservedInstanceState =
@@ -38498,7 +36069,6 @@ export type ReservedInstanceState =
   | "retired";
 
 export interface ResetEbsDefaultKmsKeyIdRequest {
-  __type?: "ResetEbsDefaultKmsKeyIdRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -38511,11 +36081,9 @@ export namespace ResetEbsDefaultKmsKeyIdRequest {
   export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetEbsDefaultKmsKeyIdRequest => __isa(o, "ResetEbsDefaultKmsKeyIdRequest");
 }
 
 export interface ResetEbsDefaultKmsKeyIdResult {
-  __type?: "ResetEbsDefaultKmsKeyIdResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the default CMK for EBS encryption by default.</p>
    */
@@ -38526,13 +36094,11 @@ export namespace ResetEbsDefaultKmsKeyIdResult {
   export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetEbsDefaultKmsKeyIdResult => __isa(o, "ResetEbsDefaultKmsKeyIdResult");
 }
 
 export type ResetFpgaImageAttributeName = "loadPermission";
 
 export interface ResetFpgaImageAttributeRequest {
-  __type?: "ResetFpgaImageAttributeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -38555,11 +36121,9 @@ export namespace ResetFpgaImageAttributeRequest {
   export const filterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetFpgaImageAttributeRequest => __isa(o, "ResetFpgaImageAttributeRequest");
 }
 
 export interface ResetFpgaImageAttributeResult {
-  __type?: "ResetFpgaImageAttributeResult";
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
@@ -38570,7 +36134,6 @@ export namespace ResetFpgaImageAttributeResult {
   export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetFpgaImageAttributeResult => __isa(o, "ResetFpgaImageAttributeResult");
 }
 
 export type ResetImageAttributeName = "launchPermission";
@@ -38579,7 +36142,6 @@ export type ResetImageAttributeName = "launchPermission";
  * <p>Contains the parameters for ResetImageAttribute.</p>
  */
 export interface ResetImageAttributeRequest {
-  __type?: "ResetImageAttributeRequest";
   /**
    * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
    */
@@ -38602,11 +36164,9 @@ export namespace ResetImageAttributeRequest {
   export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetImageAttributeRequest => __isa(o, "ResetImageAttributeRequest");
 }
 
 export interface ResetInstanceAttributeRequest {
-  __type?: "ResetInstanceAttributeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -38634,14 +36194,12 @@ export namespace ResetInstanceAttributeRequest {
   export const filterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetInstanceAttributeRequest => __isa(o, "ResetInstanceAttributeRequest");
 }
 
 /**
  * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
  */
 export interface ResetNetworkInterfaceAttributeRequest {
-  __type?: "ResetNetworkInterfaceAttributeRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -38664,12 +36222,9 @@ export namespace ResetNetworkInterfaceAttributeRequest {
   export const filterSensitiveLog = (obj: ResetNetworkInterfaceAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetNetworkInterfaceAttributeRequest =>
-    __isa(o, "ResetNetworkInterfaceAttributeRequest");
 }
 
 export interface ResetSnapshotAttributeRequest {
-  __type?: "ResetSnapshotAttributeRequest";
   /**
    * <p>The ID of the snapshot.</p>
    */
@@ -38693,7 +36248,6 @@ export namespace ResetSnapshotAttributeRequest {
   export const filterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetSnapshotAttributeRequest => __isa(o, "ResetSnapshotAttributeRequest");
 }
 
 export type ResourceType =
@@ -38746,7 +36300,6 @@ export type ResourceType =
  *             version.</p>
  */
 export interface ResponseError {
-  __type?: "ResponseError";
   /**
    * <p>The error code.</p>
    */
@@ -38762,14 +36315,12 @@ export namespace ResponseError {
   export const filterSensitiveLog = (obj: ResponseError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResponseError => __isa(o, "ResponseError");
 }
 
 /**
  * <p>The information for a launch template. </p>
  */
 export interface ResponseLaunchTemplateData {
-  __type?: "ResponseLaunchTemplateData";
   /**
    * <p>The user data for the instance. </p>
    */
@@ -38913,11 +36464,9 @@ export namespace ResponseLaunchTemplateData {
   export const filterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResponseLaunchTemplateData => __isa(o, "ResponseLaunchTemplateData");
 }
 
 export interface RestoreAddressToClassicRequest {
-  __type?: "RestoreAddressToClassicRequest";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -38935,11 +36484,9 @@ export namespace RestoreAddressToClassicRequest {
   export const filterSensitiveLog = (obj: RestoreAddressToClassicRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreAddressToClassicRequest => __isa(o, "RestoreAddressToClassicRequest");
 }
 
 export interface RestoreAddressToClassicResult {
-  __type?: "RestoreAddressToClassicResult";
   /**
    * <p>The move status for the IP address.</p>
    */
@@ -38955,11 +36502,9 @@ export namespace RestoreAddressToClassicResult {
   export const filterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreAddressToClassicResult => __isa(o, "RestoreAddressToClassicResult");
 }
 
 export interface RestoreManagedPrefixListVersionRequest {
-  __type?: "RestoreManagedPrefixListVersionRequest";
   /**
    * <p>The ID of the prefix list.</p>
    */
@@ -38987,12 +36532,9 @@ export namespace RestoreManagedPrefixListVersionRequest {
   export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreManagedPrefixListVersionRequest =>
-    __isa(o, "RestoreManagedPrefixListVersionRequest");
 }
 
 export interface RestoreManagedPrefixListVersionResult {
-  __type?: "RestoreManagedPrefixListVersionResult";
   /**
    * <p>Information about the prefix list.</p>
    */
@@ -39003,12 +36545,9 @@ export namespace RestoreManagedPrefixListVersionResult {
   export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreManagedPrefixListVersionResult =>
-    __isa(o, "RestoreManagedPrefixListVersionResult");
 }
 
 export interface RevokeClientVpnIngressRequest {
-  __type?: "RevokeClientVpnIngressRequest";
   /**
    * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
    */
@@ -39039,11 +36578,9 @@ export namespace RevokeClientVpnIngressRequest {
   export const filterSensitiveLog = (obj: RevokeClientVpnIngressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeClientVpnIngressRequest => __isa(o, "RevokeClientVpnIngressRequest");
 }
 
 export interface RevokeClientVpnIngressResult {
-  __type?: "RevokeClientVpnIngressResult";
   /**
    * <p>The current state of the authorization rule.</p>
    */
@@ -39054,11 +36591,9 @@ export namespace RevokeClientVpnIngressResult {
   export const filterSensitiveLog = (obj: RevokeClientVpnIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeClientVpnIngressResult => __isa(o, "RevokeClientVpnIngressResult");
 }
 
 export interface RevokeSecurityGroupEgressRequest {
-  __type?: "RevokeSecurityGroupEgressRequest";
   /**
    * <p>Not supported. Use a set of IP permissions to specify the port.</p>
    */
@@ -39114,11 +36649,9 @@ export namespace RevokeSecurityGroupEgressRequest {
   export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeSecurityGroupEgressRequest => __isa(o, "RevokeSecurityGroupEgressRequest");
 }
 
 export interface RevokeSecurityGroupIngressRequest {
-  __type?: "RevokeSecurityGroupIngressRequest";
   /**
    * <p>The ID of the security group. You must specify either the security group ID or the
    *            security group name in the request. For security groups in a nondefault VPC, you must
@@ -39183,7 +36716,6 @@ export namespace RevokeSecurityGroupIngressRequest {
   export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeSecurityGroupIngressRequest => __isa(o, "RevokeSecurityGroupIngressRequest");
 }
 
 export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
@@ -39194,7 +36726,6 @@ export type RootDeviceType = "ebs" | "instance-store";
  * <p>Describes a route in a route table.</p>
  */
 export interface Route {
-  __type?: "Route";
   /**
    * <p>The ID of the local gateway.</p>
    */
@@ -39286,7 +36817,6 @@ export namespace Route {
   export const filterSensitiveLog = (obj: Route): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Route => __isa(o, "Route");
 }
 
 export type RouteOrigin = "CreateRoute" | "CreateRouteTable" | "EnableVgwRoutePropagation";
@@ -39297,7 +36827,6 @@ export type RouteState = "active" | "blackhole";
  * <p>Describes a route table.</p>
  */
 export interface RouteTable {
-  __type?: "RouteTable";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -39338,14 +36867,12 @@ export namespace RouteTable {
   export const filterSensitiveLog = (obj: RouteTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteTable => __isa(o, "RouteTable");
 }
 
 /**
  * <p>Describes an association between a route table and a subnet or gateway.</p>
  */
 export interface RouteTableAssociation {
-  __type?: "RouteTableAssociation";
   /**
    * <p>The state of the association.</p>
    */
@@ -39381,14 +36908,12 @@ export namespace RouteTableAssociation {
   export const filterSensitiveLog = (obj: RouteTableAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteTableAssociation => __isa(o, "RouteTableAssociation");
 }
 
 /**
  * <p>Describes the state of an association between a route table and a subnet or gateway.</p>
  */
 export interface RouteTableAssociationState {
-  __type?: "RouteTableAssociationState";
   /**
    * <p>The status message, if applicable.</p>
    */
@@ -39404,7 +36929,6 @@ export namespace RouteTableAssociationState {
   export const filterSensitiveLog = (obj: RouteTableAssociationState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteTableAssociationState => __isa(o, "RouteTableAssociationState");
 }
 
 export type RouteTableAssociationStateCode =
@@ -39420,7 +36944,6 @@ export type RuleAction = "allow" | "deny";
  * <p>Describes the monitoring of an instance.</p>
  */
 export interface RunInstancesMonitoringEnabled {
-  __type?: "RunInstancesMonitoringEnabled";
   /**
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
@@ -39432,11 +36955,9 @@ export namespace RunInstancesMonitoringEnabled {
   export const filterSensitiveLog = (obj: RunInstancesMonitoringEnabled): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunInstancesMonitoringEnabled => __isa(o, "RunInstancesMonitoringEnabled");
 }
 
 export interface RunInstancesRequest {
-  __type?: "RunInstancesRequest";
   /**
    * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
    *             interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You
@@ -39733,14 +37254,12 @@ export namespace RunInstancesRequest {
   export const filterSensitiveLog = (obj: RunInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunInstancesRequest => __isa(o, "RunInstancesRequest");
 }
 
 /**
  * <p>Contains the parameters for RunScheduledInstances.</p>
  */
 export interface RunScheduledInstancesRequest {
-  __type?: "RunScheduledInstancesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -39776,14 +37295,12 @@ export namespace RunScheduledInstancesRequest {
   export const filterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunScheduledInstancesRequest => __isa(o, "RunScheduledInstancesRequest");
 }
 
 /**
  * <p>Contains the output of RunScheduledInstances.</p>
  */
 export interface RunScheduledInstancesResult {
-  __type?: "RunScheduledInstancesResult";
   /**
    * <p>The IDs of the newly launched instances.</p>
    */
@@ -39794,14 +37311,12 @@ export namespace RunScheduledInstancesResult {
   export const filterSensitiveLog = (obj: RunScheduledInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunScheduledInstancesResult => __isa(o, "RunScheduledInstancesResult");
 }
 
 /**
  * <p>Describes the storage parameters for S3 and S3 buckets for an instance store-backed AMI.</p>
  */
 export interface S3Storage {
-  __type?: "S3Storage";
   /**
    * <p>The beginning of the file name of the AMI.</p>
    */
@@ -39833,14 +37348,12 @@ export namespace S3Storage {
   export const filterSensitiveLog = (obj: S3Storage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Storage => __isa(o, "S3Storage");
 }
 
 /**
  * <p>Describes a Scheduled Instance.</p>
  */
 export interface ScheduledInstance {
-  __type?: "ScheduledInstance";
   /**
    * <p>The number of instances.</p>
    */
@@ -39921,14 +37434,12 @@ export namespace ScheduledInstance {
   export const filterSensitiveLog = (obj: ScheduledInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstance => __isa(o, "ScheduledInstance");
 }
 
 /**
  * <p>Describes a schedule that is available for your Scheduled Instances.</p>
  */
 export interface ScheduledInstanceAvailability {
-  __type?: "ScheduledInstanceAvailability";
   /**
    * <p>The Availability Zone.</p>
    */
@@ -39999,14 +37510,12 @@ export namespace ScheduledInstanceAvailability {
   export const filterSensitiveLog = (obj: ScheduledInstanceAvailability): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstanceAvailability => __isa(o, "ScheduledInstanceAvailability");
 }
 
 /**
  * <p>Describes the recurring schedule for a Scheduled Instance.</p>
  */
 export interface ScheduledInstanceRecurrence {
-  __type?: "ScheduledInstanceRecurrence";
   /**
    * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
    */
@@ -40038,14 +37547,12 @@ export namespace ScheduledInstanceRecurrence {
   export const filterSensitiveLog = (obj: ScheduledInstanceRecurrence): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstanceRecurrence => __isa(o, "ScheduledInstanceRecurrence");
 }
 
 /**
  * <p>Describes the recurring schedule for a Scheduled Instance.</p>
  */
 export interface ScheduledInstanceRecurrenceRequest {
-  __type?: "ScheduledInstanceRecurrenceRequest";
   /**
    * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
    *          weeks or every 2 months.</p>
@@ -40080,15 +37587,12 @@ export namespace ScheduledInstanceRecurrenceRequest {
   export const filterSensitiveLog = (obj: ScheduledInstanceRecurrenceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstanceRecurrenceRequest =>
-    __isa(o, "ScheduledInstanceRecurrenceRequest");
 }
 
 /**
  * <p>Describes a block device mapping for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesBlockDeviceMapping {
-  __type?: "ScheduledInstancesBlockDeviceMapping";
   /**
    * <p>Parameters used to set up EBS volumes automatically when the instance is launched.</p>
    */
@@ -40119,15 +37623,12 @@ export namespace ScheduledInstancesBlockDeviceMapping {
   export const filterSensitiveLog = (obj: ScheduledInstancesBlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesBlockDeviceMapping =>
-    __isa(o, "ScheduledInstancesBlockDeviceMapping");
 }
 
 /**
  * <p>Describes an EBS volume for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesEbs {
-  __type?: "ScheduledInstancesEbs";
   /**
    * <p>Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.</p>
    */
@@ -40178,14 +37679,12 @@ export namespace ScheduledInstancesEbs {
   export const filterSensitiveLog = (obj: ScheduledInstancesEbs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesEbs => __isa(o, "ScheduledInstancesEbs");
 }
 
 /**
  * <p>Describes an IAM instance profile for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesIamInstanceProfile {
-  __type?: "ScheduledInstancesIamInstanceProfile";
   /**
    * <p>The Amazon Resource Name (ARN).</p>
    */
@@ -40201,15 +37700,12 @@ export namespace ScheduledInstancesIamInstanceProfile {
   export const filterSensitiveLog = (obj: ScheduledInstancesIamInstanceProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesIamInstanceProfile =>
-    __isa(o, "ScheduledInstancesIamInstanceProfile");
 }
 
 /**
  * <p>Describes an IPv6 address.</p>
  */
 export interface ScheduledInstancesIpv6Address {
-  __type?: "ScheduledInstancesIpv6Address";
   /**
    * <p>The IPv6 address.</p>
    */
@@ -40220,7 +37716,6 @@ export namespace ScheduledInstancesIpv6Address {
   export const filterSensitiveLog = (obj: ScheduledInstancesIpv6Address): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesIpv6Address => __isa(o, "ScheduledInstancesIpv6Address");
 }
 
 /**
@@ -40229,7 +37724,6 @@ export namespace ScheduledInstancesIpv6Address {
  *           You can specify the subnet using either <code>SubnetId</code> or <code>NetworkInterface</code>.</p>
  */
 export interface ScheduledInstancesLaunchSpecification {
-  __type?: "ScheduledInstancesLaunchSpecification";
   /**
    * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p>
    *          <p>Default: <code>false</code>
@@ -40307,15 +37801,12 @@ export namespace ScheduledInstancesLaunchSpecification {
   export const filterSensitiveLog = (obj: ScheduledInstancesLaunchSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesLaunchSpecification =>
-    __isa(o, "ScheduledInstancesLaunchSpecification");
 }
 
 /**
  * <p>Describes whether monitoring is enabled for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesMonitoring {
-  __type?: "ScheduledInstancesMonitoring";
   /**
    * <p>Indicates whether monitoring is enabled.</p>
    */
@@ -40326,14 +37817,12 @@ export namespace ScheduledInstancesMonitoring {
   export const filterSensitiveLog = (obj: ScheduledInstancesMonitoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesMonitoring => __isa(o, "ScheduledInstancesMonitoring");
 }
 
 /**
  * <p>Describes a network interface for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesNetworkInterface {
-  __type?: "ScheduledInstancesNetworkInterface";
   /**
    * <p>The IDs of the security groups.</p>
    */
@@ -40403,15 +37892,12 @@ export namespace ScheduledInstancesNetworkInterface {
   export const filterSensitiveLog = (obj: ScheduledInstancesNetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesNetworkInterface =>
-    __isa(o, "ScheduledInstancesNetworkInterface");
 }
 
 /**
  * <p>Describes the placement for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesPlacement {
-  __type?: "ScheduledInstancesPlacement";
   /**
    * <p>The Availability Zone.</p>
    */
@@ -40427,14 +37913,12 @@ export namespace ScheduledInstancesPlacement {
   export const filterSensitiveLog = (obj: ScheduledInstancesPlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesPlacement => __isa(o, "ScheduledInstancesPlacement");
 }
 
 /**
  * <p>Describes a private IPv4 address for a Scheduled Instance.</p>
  */
 export interface ScheduledInstancesPrivateIpAddressConfig {
-  __type?: "ScheduledInstancesPrivateIpAddressConfig";
   /**
    * <p>The IPv4 address.</p>
    */
@@ -40450,8 +37934,6 @@ export namespace ScheduledInstancesPrivateIpAddressConfig {
   export const filterSensitiveLog = (obj: ScheduledInstancesPrivateIpAddressConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledInstancesPrivateIpAddressConfig =>
-    __isa(o, "ScheduledInstancesPrivateIpAddressConfig");
 }
 
 export enum Scope {
@@ -40460,7 +37942,6 @@ export enum Scope {
 }
 
 export interface SearchLocalGatewayRoutesRequest {
-  __type?: "SearchLocalGatewayRoutesRequest";
   /**
    * <p>One or more filters.</p>
    */
@@ -40494,11 +37975,9 @@ export namespace SearchLocalGatewayRoutesRequest {
   export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchLocalGatewayRoutesRequest => __isa(o, "SearchLocalGatewayRoutesRequest");
 }
 
 export interface SearchLocalGatewayRoutesResult {
-  __type?: "SearchLocalGatewayRoutesResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -40514,11 +37993,9 @@ export namespace SearchLocalGatewayRoutesResult {
   export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchLocalGatewayRoutesResult => __isa(o, "SearchLocalGatewayRoutesResult");
 }
 
 export interface SearchTransitGatewayMulticastGroupsRequest {
-  __type?: "SearchTransitGatewayMulticastGroupsRequest";
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
@@ -40594,12 +38071,9 @@ export namespace SearchTransitGatewayMulticastGroupsRequest {
   export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchTransitGatewayMulticastGroupsRequest =>
-    __isa(o, "SearchTransitGatewayMulticastGroupsRequest");
 }
 
 export interface SearchTransitGatewayMulticastGroupsResult {
-  __type?: "SearchTransitGatewayMulticastGroupsResult";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -40615,12 +38089,9 @@ export namespace SearchTransitGatewayMulticastGroupsResult {
   export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchTransitGatewayMulticastGroupsResult =>
-    __isa(o, "SearchTransitGatewayMulticastGroupsResult");
 }
 
 export interface SearchTransitGatewayRoutesRequest {
-  __type?: "SearchTransitGatewayRoutesRequest";
   /**
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
@@ -40687,11 +38158,9 @@ export namespace SearchTransitGatewayRoutesRequest {
   export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchTransitGatewayRoutesRequest => __isa(o, "SearchTransitGatewayRoutesRequest");
 }
 
 export interface SearchTransitGatewayRoutesResult {
-  __type?: "SearchTransitGatewayRoutesResult";
   /**
    * <p>Information about the routes.</p>
    */
@@ -40707,14 +38176,12 @@ export namespace SearchTransitGatewayRoutesResult {
   export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchTransitGatewayRoutesResult => __isa(o, "SearchTransitGatewayRoutesResult");
 }
 
 /**
  * <p>Describes a security group</p>
  */
 export interface SecurityGroup {
-  __type?: "SecurityGroup";
   /**
    * <p>[VPC only] The outbound rules associated with the security group.</p>
    */
@@ -40760,14 +38227,12 @@ export namespace SecurityGroup {
   export const filterSensitiveLog = (obj: SecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroup => __isa(o, "SecurityGroup");
 }
 
 /**
  * <p>Describes a security group.</p>
  */
 export interface SecurityGroupIdentifier {
-  __type?: "SecurityGroupIdentifier";
   /**
    * <p>The name of the security group.</p>
    */
@@ -40783,14 +38248,12 @@ export namespace SecurityGroupIdentifier {
   export const filterSensitiveLog = (obj: SecurityGroupIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupIdentifier => __isa(o, "SecurityGroupIdentifier");
 }
 
 /**
  * <p>Describes a VPC with a security group that references your security group.</p>
  */
 export interface SecurityGroupReference {
-  __type?: "SecurityGroupReference";
   /**
    * <p>The ID of your security group.</p>
    */
@@ -40811,11 +38274,9 @@ export namespace SecurityGroupReference {
   export const filterSensitiveLog = (obj: SecurityGroupReference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupReference => __isa(o, "SecurityGroupReference");
 }
 
 export interface SendDiagnosticInterruptRequest {
-  __type?: "SendDiagnosticInterruptRequest";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -40833,14 +38294,12 @@ export namespace SendDiagnosticInterruptRequest {
   export const filterSensitiveLog = (obj: SendDiagnosticInterruptRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendDiagnosticInterruptRequest => __isa(o, "SendDiagnosticInterruptRequest");
 }
 
 /**
  * <p>Describes a service configuration for a VPC endpoint service.</p>
  */
 export interface ServiceConfiguration {
-  __type?: "ServiceConfiguration";
   /**
    * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
    *             endpoints using the VPC endpoint API is restricted.</p>
@@ -40907,14 +38366,12 @@ export namespace ServiceConfiguration {
   export const filterSensitiveLog = (obj: ServiceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceConfiguration => __isa(o, "ServiceConfiguration");
 }
 
 /**
  * <p>Describes a VPC endpoint service.</p>
  */
 export interface ServiceDetail {
-  __type?: "ServiceDetail";
   /**
    * <p>Indicates whether the service supports endpoint policies.</p>
    */
@@ -40982,7 +38439,6 @@ export namespace ServiceDetail {
   export const filterSensitiveLog = (obj: ServiceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceDetail => __isa(o, "ServiceDetail");
 }
 
 export enum ServiceState {
@@ -41002,7 +38458,6 @@ export enum ServiceType {
  * <p>Describes the type of service for a VPC endpoint.</p>
  */
 export interface ServiceTypeDetail {
-  __type?: "ServiceTypeDetail";
   /**
    * <p>The type of service.</p>
    */
@@ -41013,7 +38468,6 @@ export namespace ServiceTypeDetail {
   export const filterSensitiveLog = (obj: ServiceTypeDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceTypeDetail => __isa(o, "ServiceTypeDetail");
 }
 
 export type ShutdownBehavior = "stop" | "terminate";
@@ -41022,7 +38476,6 @@ export type ShutdownBehavior = "stop" | "terminate";
  * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
  */
 export interface SlotDateTimeRangeRequest {
-  __type?: "SlotDateTimeRangeRequest";
   /**
    * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
    */
@@ -41038,14 +38491,12 @@ export namespace SlotDateTimeRangeRequest {
   export const filterSensitiveLog = (obj: SlotDateTimeRangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SlotDateTimeRangeRequest => __isa(o, "SlotDateTimeRangeRequest");
 }
 
 /**
  * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
  */
 export interface SlotStartTimeRangeRequest {
-  __type?: "SlotStartTimeRangeRequest";
   /**
    * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
    */
@@ -41061,14 +38512,12 @@ export namespace SlotStartTimeRangeRequest {
   export const filterSensitiveLog = (obj: SlotStartTimeRangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SlotStartTimeRangeRequest => __isa(o, "SlotStartTimeRangeRequest");
 }
 
 /**
  * <p>Describes a snapshot.</p>
  */
 export interface Snapshot {
-  __type?: "Snapshot";
   /**
    * <p>The AWS account ID of the EBS snapshot owner.</p>
    */
@@ -41156,7 +38605,6 @@ export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
 
 export type SnapshotAttributeName = "createVolumePermission" | "productCodes";
@@ -41165,7 +38613,6 @@ export type SnapshotAttributeName = "createVolumePermission" | "productCodes";
  * <p>Describes the snapshot created from the imported disk.</p>
  */
 export interface SnapshotDetail {
-  __type?: "SnapshotDetail";
   /**
    * <p>The snapshot ID of the disk being imported.</p>
    */
@@ -41221,14 +38668,12 @@ export namespace SnapshotDetail {
   export const filterSensitiveLog = (obj: SnapshotDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotDetail => __isa(o, "SnapshotDetail");
 }
 
 /**
  * <p>The disk container object for the import snapshot request.</p>
  */
 export interface SnapshotDiskContainer {
-  __type?: "SnapshotDiskContainer";
   /**
    * <p>The description of the disk image being imported.</p>
    */
@@ -41257,14 +38702,12 @@ export namespace SnapshotDiskContainer {
   export const filterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotDiskContainer => __isa(o, "SnapshotDiskContainer");
 }
 
 /**
  * <p>Information about a snapshot.</p>
  */
 export interface SnapshotInfo {
-  __type?: "SnapshotInfo";
   /**
    * <p>Description specified by the CreateSnapshotRequest that has been applied to all
    *     snapshots.</p>
@@ -41322,7 +38765,6 @@ export namespace SnapshotInfo {
   export const filterSensitiveLog = (obj: SnapshotInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotInfo => __isa(o, "SnapshotInfo");
 }
 
 export type SnapshotState = "completed" | "error" | "pending";
@@ -41331,7 +38773,6 @@ export type SnapshotState = "completed" | "error" | "pending";
  * <p>Details about the import snapshot task.</p>
  */
 export interface SnapshotTaskDetail {
-  __type?: "SnapshotTaskDetail";
   /**
    * <p>The snapshot ID of the disk being imported.</p>
    */
@@ -41393,7 +38834,6 @@ export namespace SnapshotTaskDetail {
   export const filterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotTaskDetail => __isa(o, "SnapshotTaskDetail");
 }
 
 export enum SpotAllocationStrategy {
@@ -41406,7 +38846,6 @@ export enum SpotAllocationStrategy {
  * <p>Describes the data feed for a Spot Instance.</p>
  */
 export interface SpotDatafeedSubscription {
-  __type?: "SpotDatafeedSubscription";
   /**
    * <p>The prefix that is prepended to data feed files.</p>
    */
@@ -41437,7 +38876,6 @@ export namespace SpotDatafeedSubscription {
   export const filterSensitiveLog = (obj: SpotDatafeedSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotDatafeedSubscription => __isa(o, "SpotDatafeedSubscription");
 }
 
 /**
@@ -41446,7 +38884,6 @@ export namespace SpotDatafeedSubscription {
  *                 <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
  */
 export interface SpotFleetLaunchSpecification {
-  __type?: "SpotFleetLaunchSpecification";
   /**
    * <p>One or more block devices that are mapped to the Spot Instances. You can't specify both
    *             a snapshot ID and an encryption value. This is because only blank volumes can be
@@ -41553,14 +38990,12 @@ export namespace SpotFleetLaunchSpecification {
   export const filterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotFleetLaunchSpecification => __isa(o, "SpotFleetLaunchSpecification");
 }
 
 /**
  * <p>Describes whether monitoring is enabled.</p>
  */
 export interface SpotFleetMonitoring {
-  __type?: "SpotFleetMonitoring";
   /**
    * <p>Enables monitoring for the instance.</p>
    *          <p>Default: <code>false</code>
@@ -41573,14 +39008,12 @@ export namespace SpotFleetMonitoring {
   export const filterSensitiveLog = (obj: SpotFleetMonitoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotFleetMonitoring => __isa(o, "SpotFleetMonitoring");
 }
 
 /**
  * <p>Describes a Spot Fleet request.</p>
  */
 export interface SpotFleetRequestConfig {
-  __type?: "SpotFleetRequestConfig";
   /**
    * <p>The ID of the Spot Fleet request.</p>
    */
@@ -41621,14 +39054,12 @@ export namespace SpotFleetRequestConfig {
   export const filterSensitiveLog = (obj: SpotFleetRequestConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotFleetRequestConfig => __isa(o, "SpotFleetRequestConfig");
 }
 
 /**
  * <p>Describes the configuration of a Spot Fleet request.</p>
  */
 export interface SpotFleetRequestConfigData {
-  __type?: "SpotFleetRequestConfigData";
   /**
    * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
    *                 <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the
@@ -41824,14 +39255,12 @@ export namespace SpotFleetRequestConfigData {
   export const filterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotFleetRequestConfigData => __isa(o, "SpotFleetRequestConfigData");
 }
 
 /**
  * <p>The tags for a Spot Fleet resource.</p>
  */
 export interface SpotFleetTagSpecification {
-  __type?: "SpotFleetTagSpecification";
   /**
    * <p>The tags.</p>
    */
@@ -41851,7 +39280,6 @@ export namespace SpotFleetTagSpecification {
   export const filterSensitiveLog = (obj: SpotFleetTagSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotFleetTagSpecification => __isa(o, "SpotFleetTagSpecification");
 }
 
 export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
@@ -41860,7 +39288,6 @@ export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate
  * <p>Describes a Spot Instance request.</p>
  */
 export interface SpotInstanceRequest {
-  __type?: "SpotInstanceRequest";
   /**
    * <p>The fault codes for the Spot Instance request, if any.</p>
    */
@@ -41967,7 +39394,6 @@ export namespace SpotInstanceRequest {
   export const filterSensitiveLog = (obj: SpotInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotInstanceRequest => __isa(o, "SpotInstanceRequest");
 }
 
 export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "open";
@@ -41976,7 +39402,6 @@ export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "
  * <p>Describes a Spot Instance state change.</p>
  */
 export interface SpotInstanceStateFault {
-  __type?: "SpotInstanceStateFault";
   /**
    * <p>The message for the Spot Instance state change.</p>
    */
@@ -41992,14 +39417,12 @@ export namespace SpotInstanceStateFault {
   export const filterSensitiveLog = (obj: SpotInstanceStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotInstanceStateFault => __isa(o, "SpotInstanceStateFault");
 }
 
 /**
  * <p>Describes the status of a Spot Instance request.</p>
  */
 export interface SpotInstanceStatus {
-  __type?: "SpotInstanceStatus";
   /**
    * <p>The date and time of the most recent status update, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
@@ -42021,7 +39444,6 @@ export namespace SpotInstanceStatus {
   export const filterSensitiveLog = (obj: SpotInstanceStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotInstanceStatus => __isa(o, "SpotInstanceStatus");
 }
 
 export type SpotInstanceType = "one-time" | "persistent";
@@ -42030,7 +39452,6 @@ export type SpotInstanceType = "one-time" | "persistent";
  * <p>The options for Spot Instances.</p>
  */
 export interface SpotMarketOptions {
-  __type?: "SpotMarketOptions";
   /**
    * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot
    *             Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or
@@ -42069,14 +39490,12 @@ export namespace SpotMarketOptions {
   export const filterSensitiveLog = (obj: SpotMarketOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotMarketOptions => __isa(o, "SpotMarketOptions");
 }
 
 /**
  * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
  */
 export interface SpotOptions {
-  __type?: "SpotOptions";
   /**
    * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported
    *          only for fleets of type <code>instant</code>.</p>
@@ -42131,14 +39550,12 @@ export namespace SpotOptions {
   export const filterSensitiveLog = (obj: SpotOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotOptions => __isa(o, "SpotOptions");
 }
 
 /**
  * <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
  */
 export interface SpotOptionsRequest {
-  __type?: "SpotOptionsRequest";
   /**
    * <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
    */
@@ -42193,14 +39610,12 @@ export namespace SpotOptionsRequest {
   export const filterSensitiveLog = (obj: SpotOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotOptionsRequest => __isa(o, "SpotOptionsRequest");
 }
 
 /**
  * <p>Describes Spot Instance placement.</p>
  */
 export interface SpotPlacement {
-  __type?: "SpotPlacement";
   /**
    * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy
    *        of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not
@@ -42224,14 +39639,12 @@ export namespace SpotPlacement {
   export const filterSensitiveLog = (obj: SpotPlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotPlacement => __isa(o, "SpotPlacement");
 }
 
 /**
  * <p>Describes the maximum price per hour that you are willing to pay for a Spot Instance.</p>
  */
 export interface SpotPrice {
-  __type?: "SpotPrice";
   /**
    * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
    */
@@ -42262,14 +39675,12 @@ export namespace SpotPrice {
   export const filterSensitiveLog = (obj: SpotPrice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotPrice => __isa(o, "SpotPrice");
 }
 
 /**
  * <p>Describes a stale rule in a security group.</p>
  */
 export interface StaleIpPermission {
-  __type?: "StaleIpPermission";
   /**
    * <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
    *         <code>-1</code> indicates all ICMP types. </p>
@@ -42307,14 +39718,12 @@ export namespace StaleIpPermission {
   export const filterSensitiveLog = (obj: StaleIpPermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StaleIpPermission => __isa(o, "StaleIpPermission");
 }
 
 /**
  * <p>Describes a stale security group (a security group that contains stale rules).</p>
  */
 export interface StaleSecurityGroup {
-  __type?: "StaleSecurityGroup";
   /**
    * <p>The name of the security group.</p>
    */
@@ -42350,11 +39759,9 @@ export namespace StaleSecurityGroup {
   export const filterSensitiveLog = (obj: StaleSecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StaleSecurityGroup => __isa(o, "StaleSecurityGroup");
 }
 
 export interface StartInstancesRequest {
-  __type?: "StartInstancesRequest";
   /**
    * <p>The IDs of the instances.</p>
    */
@@ -42377,11 +39784,9 @@ export namespace StartInstancesRequest {
   export const filterSensitiveLog = (obj: StartInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstancesRequest => __isa(o, "StartInstancesRequest");
 }
 
 export interface StartInstancesResult {
-  __type?: "StartInstancesResult";
   /**
    * <p>Information about the started instances.</p>
    */
@@ -42392,11 +39797,9 @@ export namespace StartInstancesResult {
   export const filterSensitiveLog = (obj: StartInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstancesResult => __isa(o, "StartInstancesResult");
 }
 
 export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
-  __type?: "StartVpcEndpointServicePrivateDnsVerificationRequest";
   /**
    * <p>The ID of the endpoint service.</p>
    */
@@ -42414,12 +39817,9 @@ export namespace StartVpcEndpointServicePrivateDnsVerificationRequest {
   export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartVpcEndpointServicePrivateDnsVerificationRequest =>
-    __isa(o, "StartVpcEndpointServicePrivateDnsVerificationRequest");
 }
 
 export interface StartVpcEndpointServicePrivateDnsVerificationResult {
-  __type?: "StartVpcEndpointServicePrivateDnsVerificationResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
@@ -42430,8 +39830,6 @@ export namespace StartVpcEndpointServicePrivateDnsVerificationResult {
   export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartVpcEndpointServicePrivateDnsVerificationResult =>
-    __isa(o, "StartVpcEndpointServicePrivateDnsVerificationResult");
 }
 
 export enum State {
@@ -42449,7 +39847,6 @@ export enum State {
  * <p>Describes a state change.</p>
  */
 export interface StateReason {
-  __type?: "StateReason";
   /**
    * <p>The reason code for the state change.</p>
    */
@@ -42532,7 +39929,6 @@ export namespace StateReason {
   export const filterSensitiveLog = (obj: StateReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateReason => __isa(o, "StateReason");
 }
 
 export enum Status {
@@ -42546,7 +39942,6 @@ export type StatusName = "reachability";
 export type StatusType = "failed" | "initializing" | "insufficient-data" | "passed";
 
 export interface StopInstancesRequest {
-  __type?: "StopInstancesRequest";
   /**
    * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
    *             system caches or file system metadata. If you use this option, you must perform file
@@ -42584,11 +39979,9 @@ export namespace StopInstancesRequest {
   export const filterSensitiveLog = (obj: StopInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopInstancesRequest => __isa(o, "StopInstancesRequest");
 }
 
 export interface StopInstancesResult {
-  __type?: "StopInstancesResult";
   /**
    * <p>Information about the stopped instances.</p>
    */
@@ -42599,14 +39992,12 @@ export namespace StopInstancesResult {
   export const filterSensitiveLog = (obj: StopInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopInstancesResult => __isa(o, "StopInstancesResult");
 }
 
 /**
  * <p>Describes the storage location for an instance store-backed AMI.</p>
  */
 export interface Storage {
-  __type?: "Storage";
   /**
    * <p>An Amazon S3 storage location.</p>
    */
@@ -42617,14 +40008,12 @@ export namespace Storage {
   export const filterSensitiveLog = (obj: Storage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Storage => __isa(o, "Storage");
 }
 
 /**
  * <p>Describes a storage location in Amazon S3.</p>
  */
 export interface StorageLocation {
-  __type?: "StorageLocation";
   /**
    * <p>The name of the S3 bucket.</p>
    */
@@ -42640,14 +40029,12 @@ export namespace StorageLocation {
   export const filterSensitiveLog = (obj: StorageLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageLocation => __isa(o, "StorageLocation");
 }
 
 /**
  * <p>Describes a subnet.</p>
  */
 export interface Subnet {
-  __type?: "Subnet";
   /**
    * <p>The Availability Zone of the subnet.</p>
    */
@@ -42741,14 +40128,12 @@ export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
 
 /**
  * <p>Describes the subnet association with the transit gateway multicast domain.</p>
  */
 export interface SubnetAssociation {
-  __type?: "SubnetAssociation";
   /**
    * <p>The state of the subnet association.</p>
    */
@@ -42764,14 +40149,12 @@ export namespace SubnetAssociation {
   export const filterSensitiveLog = (obj: SubnetAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetAssociation => __isa(o, "SubnetAssociation");
 }
 
 /**
  * <p>Describes the state of a CIDR block.</p>
  */
 export interface SubnetCidrBlockState {
-  __type?: "SubnetCidrBlockState";
   /**
    * <p>A message about the status of the CIDR block, if applicable.</p>
    */
@@ -42787,7 +40170,6 @@ export namespace SubnetCidrBlockState {
   export const filterSensitiveLog = (obj: SubnetCidrBlockState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetCidrBlockState => __isa(o, "SubnetCidrBlockState");
 }
 
 export type SubnetCidrBlockStateCode =
@@ -42802,7 +40184,6 @@ export type SubnetCidrBlockStateCode =
  * <p>Describes an IPv6 CIDR block associated with a subnet.</p>
  */
 export interface SubnetIpv6CidrBlockAssociation {
-  __type?: "SubnetIpv6CidrBlockAssociation";
   /**
    * <p>The IPv6 CIDR block.</p>
    */
@@ -42823,7 +40204,6 @@ export namespace SubnetIpv6CidrBlockAssociation {
   export const filterSensitiveLog = (obj: SubnetIpv6CidrBlockAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetIpv6CidrBlockAssociation => __isa(o, "SubnetIpv6CidrBlockAssociation");
 }
 
 export type SubnetState = "available" | "pending";
@@ -42833,7 +40213,6 @@ export type SubnetState = "available" | "pending";
  *             successfully modified.</p>
  */
 export interface SuccessfulInstanceCreditSpecificationItem {
-  __type?: "SuccessfulInstanceCreditSpecificationItem";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -42844,15 +40223,12 @@ export namespace SuccessfulInstanceCreditSpecificationItem {
   export const filterSensitiveLog = (obj: SuccessfulInstanceCreditSpecificationItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuccessfulInstanceCreditSpecificationItem =>
-    __isa(o, "SuccessfulInstanceCreditSpecificationItem");
 }
 
 /**
  * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
  */
 export interface SuccessfulQueuedPurchaseDeletion {
-  __type?: "SuccessfulQueuedPurchaseDeletion";
   /**
    * <p>The ID of the Reserved Instance.</p>
    */
@@ -42863,7 +40239,6 @@ export namespace SuccessfulQueuedPurchaseDeletion {
   export const filterSensitiveLog = (obj: SuccessfulQueuedPurchaseDeletion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuccessfulQueuedPurchaseDeletion => __isa(o, "SuccessfulQueuedPurchaseDeletion");
 }
 
 export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";
@@ -42872,7 +40247,6 @@ export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | 
  * <p>Describes a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.</p>
@@ -42891,14 +40265,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Describes a tag.</p>
  */
 export interface TagDescription {
-  __type?: "TagDescription";
   /**
    * <p>The tag value.</p>
    */
@@ -42924,14 +40296,12 @@ export namespace TagDescription {
   export const filterSensitiveLog = (obj: TagDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagDescription => __isa(o, "TagDescription");
 }
 
 /**
  * <p>The tags to apply to a resource when the resource is being created.</p>
  */
 export interface TagSpecification {
-  __type?: "TagSpecification";
   /**
    * <p>The type of resource to tag. Currently, the resource types that support tagging on
    *             creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> |
@@ -42967,7 +40337,6 @@ export namespace TagSpecification {
   export const filterSensitiveLog = (obj: TagSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagSpecification => __isa(o, "TagSpecification");
 }
 
 /**
@@ -42985,7 +40354,6 @@ export namespace TagSpecification {
  *          </p>
  */
 export interface TargetCapacitySpecification {
-  __type?: "TargetCapacitySpecification";
   /**
    * <p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>
    */
@@ -43013,7 +40381,6 @@ export namespace TargetCapacitySpecification {
   export const filterSensitiveLog = (obj: TargetCapacitySpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetCapacitySpecification => __isa(o, "TargetCapacitySpecification");
 }
 
 /**
@@ -43030,7 +40397,6 @@ export namespace TargetCapacitySpecification {
  *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  */
 export interface TargetCapacitySpecificationRequest {
-  __type?: "TargetCapacitySpecificationRequest";
   /**
    * <p>The number of units to request, filled using
    *          <code>DefaultTargetCapacityType</code>.</p>
@@ -43058,15 +40424,12 @@ export namespace TargetCapacitySpecificationRequest {
   export const filterSensitiveLog = (obj: TargetCapacitySpecificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetCapacitySpecificationRequest =>
-    __isa(o, "TargetCapacitySpecificationRequest");
 }
 
 /**
  * <p>Information about the Convertible Reserved Instance offering.</p>
  */
 export interface TargetConfiguration {
-  __type?: "TargetConfiguration";
   /**
    * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is
    *       reserved and cannot be specified in a request</p>
@@ -43083,14 +40446,12 @@ export namespace TargetConfiguration {
   export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetConfiguration => __isa(o, "TargetConfiguration");
 }
 
 /**
  * <p>Details about the target configuration.</p>
  */
 export interface TargetConfigurationRequest {
-  __type?: "TargetConfigurationRequest";
   /**
    * <p>The Convertible Reserved Instance offering ID.</p>
    */
@@ -43107,14 +40468,12 @@ export namespace TargetConfigurationRequest {
   export const filterSensitiveLog = (obj: TargetConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetConfigurationRequest => __isa(o, "TargetConfigurationRequest");
 }
 
 /**
  * <p>Describes a load balancer target group.</p>
  */
 export interface TargetGroup {
-  __type?: "TargetGroup";
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
@@ -43125,7 +40484,6 @@ export namespace TargetGroup {
   export const filterSensitiveLog = (obj: TargetGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetGroup => __isa(o, "TargetGroup");
 }
 
 /**
@@ -43133,7 +40491,6 @@ export namespace TargetGroup {
  *             with these target groups.</p>
  */
 export interface TargetGroupsConfig {
-  __type?: "TargetGroupsConfig";
   /**
    * <p>One or more target groups.</p>
    */
@@ -43144,14 +40501,12 @@ export namespace TargetGroupsConfig {
   export const filterSensitiveLog = (obj: TargetGroupsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetGroupsConfig => __isa(o, "TargetGroupsConfig");
 }
 
 /**
  * <p>Describes a target network associated with a Client VPN endpoint.</p>
  */
 export interface TargetNetwork {
-  __type?: "TargetNetwork";
   /**
    * <p>The IDs of the security groups applied to the target network association.</p>
    */
@@ -43187,14 +40542,12 @@ export namespace TargetNetwork {
   export const filterSensitiveLog = (obj: TargetNetwork): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetNetwork => __isa(o, "TargetNetwork");
 }
 
 /**
  * <p>The total value of the new Convertible Reserved Instances.</p>
  */
 export interface TargetReservationValue {
-  __type?: "TargetReservationValue";
   /**
    * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of
    *       the list value, remaining upfront price, and additional upfront cost of the exchange.</p>
@@ -43211,7 +40564,6 @@ export namespace TargetReservationValue {
   export const filterSensitiveLog = (obj: TargetReservationValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetReservationValue => __isa(o, "TargetReservationValue");
 }
 
 export type TelemetryStatus = "DOWN" | "UP";
@@ -43219,7 +40571,6 @@ export type TelemetryStatus = "DOWN" | "UP";
 export type Tenancy = "dedicated" | "default" | "host";
 
 export interface TerminateClientVpnConnectionsRequest {
-  __type?: "TerminateClientVpnConnectionsRequest";
   /**
    * <p>The ID of the client connection to be terminated.</p>
    */
@@ -43246,12 +40597,9 @@ export namespace TerminateClientVpnConnectionsRequest {
   export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateClientVpnConnectionsRequest =>
-    __isa(o, "TerminateClientVpnConnectionsRequest");
 }
 
 export interface TerminateClientVpnConnectionsResult {
-  __type?: "TerminateClientVpnConnectionsResult";
   /**
    * <p>The current state of the client connections.</p>
    */
@@ -43272,15 +40620,12 @@ export namespace TerminateClientVpnConnectionsResult {
   export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateClientVpnConnectionsResult =>
-    __isa(o, "TerminateClientVpnConnectionsResult");
 }
 
 /**
  * <p>Information about a terminated Client VPN endpoint client connection.</p>
  */
 export interface TerminateConnectionStatus {
-  __type?: "TerminateConnectionStatus";
   /**
    * <p>The state of the client connection.</p>
    */
@@ -43301,11 +40646,9 @@ export namespace TerminateConnectionStatus {
   export const filterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateConnectionStatus => __isa(o, "TerminateConnectionStatus");
 }
 
 export interface TerminateInstancesRequest {
-  __type?: "TerminateInstancesRequest";
   /**
    * <p>The IDs of the instances.</p>
    *         <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
@@ -43325,11 +40668,9 @@ export namespace TerminateInstancesRequest {
   export const filterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateInstancesRequest => __isa(o, "TerminateInstancesRequest");
 }
 
 export interface TerminateInstancesResult {
-  __type?: "TerminateInstancesResult";
   /**
    * <p>Information about the terminated instances.</p>
    */
@@ -43340,7 +40681,6 @@ export namespace TerminateInstancesResult {
   export const filterSensitiveLog = (obj: TerminateInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateInstancesResult => __isa(o, "TerminateInstancesResult");
 }
 
 export type TrafficDirection = "egress" | "ingress";
@@ -43349,7 +40689,6 @@ export type TrafficDirection = "egress" | "ingress";
  * <p>Describes the Traffic Mirror filter.</p>
  */
 export interface TrafficMirrorFilter {
-  __type?: "TrafficMirrorFilter";
   /**
    * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
    */
@@ -43385,14 +40724,12 @@ export namespace TrafficMirrorFilter {
   export const filterSensitiveLog = (obj: TrafficMirrorFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorFilter => __isa(o, "TrafficMirrorFilter");
 }
 
 /**
  * <p>Describes the Traffic Mirror rule.</p>
  */
 export interface TrafficMirrorFilterRule {
-  __type?: "TrafficMirrorFilterRule";
   /**
    * <p>The source port range assigned to the Traffic Mirror rule.</p>
    */
@@ -43453,7 +40790,6 @@ export namespace TrafficMirrorFilterRule {
   export const filterSensitiveLog = (obj: TrafficMirrorFilterRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorFilterRule => __isa(o, "TrafficMirrorFilterRule");
 }
 
 export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";
@@ -43464,7 +40800,6 @@ export type TrafficMirrorNetworkService = "amazon-dns";
  * <p>Describes the Traffic Mirror port range.</p>
  */
 export interface TrafficMirrorPortRange {
-  __type?: "TrafficMirrorPortRange";
   /**
    * <p>The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
    */
@@ -43480,14 +40815,12 @@ export namespace TrafficMirrorPortRange {
   export const filterSensitiveLog = (obj: TrafficMirrorPortRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorPortRange => __isa(o, "TrafficMirrorPortRange");
 }
 
 /**
  * <p>Information about the Traffic Mirror filter rule port range.</p>
  */
 export interface TrafficMirrorPortRangeRequest {
-  __type?: "TrafficMirrorPortRangeRequest";
   /**
    * <p>The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
    */
@@ -43503,7 +40836,6 @@ export namespace TrafficMirrorPortRangeRequest {
   export const filterSensitiveLog = (obj: TrafficMirrorPortRangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorPortRangeRequest => __isa(o, "TrafficMirrorPortRangeRequest");
 }
 
 export type TrafficMirrorRuleAction = "accept" | "reject";
@@ -43512,7 +40844,6 @@ export type TrafficMirrorRuleAction = "accept" | "reject";
  * <p>Describes a Traffic Mirror session.</p>
  */
 export interface TrafficMirrorSession {
-  __type?: "TrafficMirrorSession";
   /**
    * <p>The ID of the Traffic Mirror target.</p>
    */
@@ -43569,7 +40900,6 @@ export namespace TrafficMirrorSession {
   export const filterSensitiveLog = (obj: TrafficMirrorSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorSession => __isa(o, "TrafficMirrorSession");
 }
 
 export type TrafficMirrorSessionField = "description" | "packet-length" | "virtual-network-id";
@@ -43578,7 +40908,6 @@ export type TrafficMirrorSessionField = "description" | "packet-length" | "virtu
  * <p>Describes a Traffic Mirror target.</p>
  */
 export interface TrafficMirrorTarget {
-  __type?: "TrafficMirrorTarget";
   /**
    * <p>The network interface ID that is attached to the target.</p>
    */
@@ -43619,7 +40948,6 @@ export namespace TrafficMirrorTarget {
   export const filterSensitiveLog = (obj: TrafficMirrorTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficMirrorTarget => __isa(o, "TrafficMirrorTarget");
 }
 
 export type TrafficMirrorTargetType = "network-interface" | "network-load-balancer";
@@ -43630,7 +40958,6 @@ export type TrafficType = "ACCEPT" | "ALL" | "REJECT";
  * <p>Describes a transit gateway.</p>
  */
 export interface TransitGateway {
-  __type?: "TransitGateway";
   /**
    * <p>The ID of the AWS account ID that owns the transit gateway.</p>
    */
@@ -43676,14 +41003,12 @@ export namespace TransitGateway {
   export const filterSensitiveLog = (obj: TransitGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGateway => __isa(o, "TransitGateway");
 }
 
 /**
  * <p>Describes an association between a resource attachment and a transit gateway route table.</p>
  */
 export interface TransitGatewayAssociation {
-  __type?: "TransitGatewayAssociation";
   /**
    * <p>The state of the association.</p>
    */
@@ -43714,7 +41039,6 @@ export namespace TransitGatewayAssociation {
   export const filterSensitiveLog = (obj: TransitGatewayAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayAssociation => __isa(o, "TransitGatewayAssociation");
 }
 
 export type TransitGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating";
@@ -43723,7 +41047,6 @@ export type TransitGatewayAssociationState = "associated" | "associating" | "dis
  * <p>Describes an attachment between a resource and a transit gateway.</p>
  */
 export interface TransitGatewayAttachment {
-  __type?: "TransitGatewayAttachment";
   /**
    * <p>The ID of the resource.</p>
    */
@@ -43779,14 +41102,12 @@ export namespace TransitGatewayAttachment {
   export const filterSensitiveLog = (obj: TransitGatewayAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayAttachment => __isa(o, "TransitGatewayAttachment");
 }
 
 /**
  * <p>Describes an association.</p>
  */
 export interface TransitGatewayAttachmentAssociation {
-  __type?: "TransitGatewayAttachmentAssociation";
   /**
    * <p>The state of the association.</p>
    */
@@ -43802,15 +41123,12 @@ export namespace TransitGatewayAttachmentAssociation {
   export const filterSensitiveLog = (obj: TransitGatewayAttachmentAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayAttachmentAssociation =>
-    __isa(o, "TransitGatewayAttachmentAssociation");
 }
 
 /**
  * <p>Describes a propagation route table.</p>
  */
 export interface TransitGatewayAttachmentPropagation {
-  __type?: "TransitGatewayAttachmentPropagation";
   /**
    * <p>The ID of the propagation route table.</p>
    */
@@ -43826,8 +41144,6 @@ export namespace TransitGatewayAttachmentPropagation {
   export const filterSensitiveLog = (obj: TransitGatewayAttachmentPropagation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayAttachmentPropagation =>
-    __isa(o, "TransitGatewayAttachmentPropagation");
 }
 
 export type TransitGatewayAttachmentResourceType = "direct-connect-gateway" | "tgw-peering" | "vpc" | "vpn";
@@ -43856,7 +41172,6 @@ export type TransitGatewayMulitcastDomainAssociationState =
  * <p>Describes the deregistered  transit gateway multicast group members.</p>
  */
 export interface TransitGatewayMulticastDeregisteredGroupMembers {
-  __type?: "TransitGatewayMulticastDeregisteredGroupMembers";
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
    */
@@ -43877,15 +41192,12 @@ export namespace TransitGatewayMulticastDeregisteredGroupMembers {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastDeregisteredGroupMembers): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastDeregisteredGroupMembers =>
-    __isa(o, "TransitGatewayMulticastDeregisteredGroupMembers");
 }
 
 /**
  * <p>Describes the deregistered  transit gateway multicast group sources.</p>
  */
 export interface TransitGatewayMulticastDeregisteredGroupSources {
-  __type?: "TransitGatewayMulticastDeregisteredGroupSources";
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
@@ -43906,15 +41218,12 @@ export namespace TransitGatewayMulticastDeregisteredGroupSources {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastDeregisteredGroupSources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastDeregisteredGroupSources =>
-    __isa(o, "TransitGatewayMulticastDeregisteredGroupSources");
 }
 
 /**
  * <p>Describes the transit gateway multicast domain.</p>
  */
 export interface TransitGatewayMulticastDomain {
-  __type?: "TransitGatewayMulticastDomain";
   /**
    * <p>The time the transit gateway multicast domain was created.</p>
    */
@@ -43945,14 +41254,12 @@ export namespace TransitGatewayMulticastDomain {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastDomain): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastDomain => __isa(o, "TransitGatewayMulticastDomain");
 }
 
 /**
  * <p>Describes the resources associated with the transit gateway multicast domain.</p>
  */
 export interface TransitGatewayMulticastDomainAssociation {
-  __type?: "TransitGatewayMulticastDomainAssociation";
   /**
    * <p>The ID of the resource.</p>
    */
@@ -43978,15 +41285,12 @@ export namespace TransitGatewayMulticastDomainAssociation {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastDomainAssociation =>
-    __isa(o, "TransitGatewayMulticastDomainAssociation");
 }
 
 /**
  * <p>Describes the multicast domain associations.</p>
  */
 export interface TransitGatewayMulticastDomainAssociations {
-  __type?: "TransitGatewayMulticastDomainAssociations";
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
@@ -44017,8 +41321,6 @@ export namespace TransitGatewayMulticastDomainAssociations {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastDomainAssociations =>
-    __isa(o, "TransitGatewayMulticastDomainAssociations");
 }
 
 export type TransitGatewayMulticastDomainState = "available" | "deleted" | "deleting" | "pending";
@@ -44027,7 +41329,6 @@ export type TransitGatewayMulticastDomainState = "available" | "deleted" | "dele
  * <p>Describes the  transit gateway multicast group resources.</p>
  */
 export interface TransitGatewayMulticastGroup {
-  __type?: "TransitGatewayMulticastGroup";
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
    */
@@ -44083,14 +41384,12 @@ export namespace TransitGatewayMulticastGroup {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastGroup => __isa(o, "TransitGatewayMulticastGroup");
 }
 
 /**
  * <p>Describes the registered  transit gateway multicast group members.</p>
  */
 export interface TransitGatewayMulticastRegisteredGroupMembers {
-  __type?: "TransitGatewayMulticastRegisteredGroupMembers";
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
@@ -44111,15 +41410,12 @@ export namespace TransitGatewayMulticastRegisteredGroupMembers {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupMembers): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastRegisteredGroupMembers =>
-    __isa(o, "TransitGatewayMulticastRegisteredGroupMembers");
 }
 
 /**
  * <p>Describes the members registered with the  transit gateway multicast group.</p>
  */
 export interface TransitGatewayMulticastRegisteredGroupSources {
-  __type?: "TransitGatewayMulticastRegisteredGroupSources";
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
@@ -44140,15 +41436,12 @@ export namespace TransitGatewayMulticastRegisteredGroupSources {
   export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupSources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayMulticastRegisteredGroupSources =>
-    __isa(o, "TransitGatewayMulticastRegisteredGroupSources");
 }
 
 /**
  * <p>Describes the options for a transit gateway.</p>
  */
 export interface TransitGatewayOptions {
-  __type?: "TransitGatewayOptions";
   /**
    * <p>The ID of the default propagation route table.</p>
    */
@@ -44200,14 +41493,12 @@ export namespace TransitGatewayOptions {
   export const filterSensitiveLog = (obj: TransitGatewayOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayOptions => __isa(o, "TransitGatewayOptions");
 }
 
 /**
  * <p>Describes the transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeeringAttachment {
-  __type?: "TransitGatewayPeeringAttachment";
   /**
    * <p>The time the transit gateway peering attachment was created.</p>
    */
@@ -44248,14 +41539,12 @@ export namespace TransitGatewayPeeringAttachment {
   export const filterSensitiveLog = (obj: TransitGatewayPeeringAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayPeeringAttachment => __isa(o, "TransitGatewayPeeringAttachment");
 }
 
 /**
  * <p>Describes route propagation.</p>
  */
 export interface TransitGatewayPropagation {
-  __type?: "TransitGatewayPropagation";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -44286,7 +41575,6 @@ export namespace TransitGatewayPropagation {
   export const filterSensitiveLog = (obj: TransitGatewayPropagation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayPropagation => __isa(o, "TransitGatewayPropagation");
 }
 
 export type TransitGatewayPropagationState = "disabled" | "disabling" | "enabled" | "enabling";
@@ -44295,7 +41583,6 @@ export type TransitGatewayPropagationState = "disabled" | "disabling" | "enabled
  * <p>Describes the options for a transit gateway.</p>
  */
 export interface TransitGatewayRequestOptions {
-  __type?: "TransitGatewayRequestOptions";
   /**
    * <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
    */
@@ -44337,14 +41624,12 @@ export namespace TransitGatewayRequestOptions {
   export const filterSensitiveLog = (obj: TransitGatewayRequestOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRequestOptions => __isa(o, "TransitGatewayRequestOptions");
 }
 
 /**
  * <p>Describes a route for a transit gateway route table.</p>
  */
 export interface TransitGatewayRoute {
-  __type?: "TransitGatewayRoute";
   /**
    * <p>The CIDR block used for destination matches.</p>
    */
@@ -44370,14 +41655,12 @@ export namespace TransitGatewayRoute {
   export const filterSensitiveLog = (obj: TransitGatewayRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRoute => __isa(o, "TransitGatewayRoute");
 }
 
 /**
  * <p>Describes a route attachment.</p>
  */
 export interface TransitGatewayRouteAttachment {
-  __type?: "TransitGatewayRouteAttachment";
   /**
    * <p>The ID of the attachment.</p>
    */
@@ -44398,7 +41681,6 @@ export namespace TransitGatewayRouteAttachment {
   export const filterSensitiveLog = (obj: TransitGatewayRouteAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRouteAttachment => __isa(o, "TransitGatewayRouteAttachment");
 }
 
 export type TransitGatewayRouteState = "active" | "blackhole" | "deleted" | "deleting" | "pending";
@@ -44407,7 +41689,6 @@ export type TransitGatewayRouteState = "active" | "blackhole" | "deleted" | "del
  * <p>Describes a transit gateway route table.</p>
  */
 export interface TransitGatewayRouteTable {
-  __type?: "TransitGatewayRouteTable";
   /**
    * <p>Indicates whether this is the default propagation route table for the transit gateway.</p>
    */
@@ -44448,14 +41729,12 @@ export namespace TransitGatewayRouteTable {
   export const filterSensitiveLog = (obj: TransitGatewayRouteTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRouteTable => __isa(o, "TransitGatewayRouteTable");
 }
 
 /**
  * <p>Describes an association between a route table and a resource attachment.</p>
  */
 export interface TransitGatewayRouteTableAssociation {
-  __type?: "TransitGatewayRouteTableAssociation";
   /**
    * <p>The ID of the resource.</p>
    */
@@ -44481,15 +41760,12 @@ export namespace TransitGatewayRouteTableAssociation {
   export const filterSensitiveLog = (obj: TransitGatewayRouteTableAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRouteTableAssociation =>
-    __isa(o, "TransitGatewayRouteTableAssociation");
 }
 
 /**
  * <p>Describes a route table propagation.</p>
  */
 export interface TransitGatewayRouteTablePropagation {
-  __type?: "TransitGatewayRouteTablePropagation";
   /**
    * <p>The type of resource.</p>
    */
@@ -44515,8 +41791,6 @@ export namespace TransitGatewayRouteTablePropagation {
   export const filterSensitiveLog = (obj: TransitGatewayRouteTablePropagation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRouteTablePropagation =>
-    __isa(o, "TransitGatewayRouteTablePropagation");
 }
 
 export type TransitGatewayRouteTableState = "available" | "deleted" | "deleting" | "pending";
@@ -44529,7 +41803,6 @@ export type TransitGatewayState = "available" | "deleted" | "deleting" | "modify
  * <p>Describes a VPC attachment.</p>
  */
 export interface TransitGatewayVpcAttachment {
-  __type?: "TransitGatewayVpcAttachment";
   /**
    * <p>The VPC attachment options.</p>
    */
@@ -44580,14 +41853,12 @@ export namespace TransitGatewayVpcAttachment {
   export const filterSensitiveLog = (obj: TransitGatewayVpcAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayVpcAttachment => __isa(o, "TransitGatewayVpcAttachment");
 }
 
 /**
  * <p>Describes the VPC attachment options.</p>
  */
 export interface TransitGatewayVpcAttachmentOptions {
-  __type?: "TransitGatewayVpcAttachmentOptions";
   /**
    * <p>Indicates whether IPv6 support is disabled.</p>
    */
@@ -44603,8 +41874,6 @@ export namespace TransitGatewayVpcAttachmentOptions {
   export const filterSensitiveLog = (obj: TransitGatewayVpcAttachmentOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayVpcAttachmentOptions =>
-    __isa(o, "TransitGatewayVpcAttachmentOptions");
 }
 
 export type TransportProtocol = "tcp" | "udp";
@@ -44613,7 +41882,6 @@ export type TransportProtocol = "tcp" | "udp";
  * <p>The VPN tunnel options.</p>
  */
 export interface TunnelOption {
-  __type?: "TunnelOption";
   /**
    * <p>The number of packets in an IKE replay window.</p>
    */
@@ -44700,11 +41968,9 @@ export namespace TunnelOption {
   export const filterSensitiveLog = (obj: TunnelOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TunnelOption => __isa(o, "TunnelOption");
 }
 
 export interface UnassignIpv6AddressesRequest {
-  __type?: "UnassignIpv6AddressesRequest";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -44720,11 +41986,9 @@ export namespace UnassignIpv6AddressesRequest {
   export const filterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnassignIpv6AddressesRequest => __isa(o, "UnassignIpv6AddressesRequest");
 }
 
 export interface UnassignIpv6AddressesResult {
-  __type?: "UnassignIpv6AddressesResult";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -44740,14 +42004,12 @@ export namespace UnassignIpv6AddressesResult {
   export const filterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnassignIpv6AddressesResult => __isa(o, "UnassignIpv6AddressesResult");
 }
 
 /**
  * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
  */
 export interface UnassignPrivateIpAddressesRequest {
-  __type?: "UnassignPrivateIpAddressesRequest";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -44763,13 +42025,11 @@ export namespace UnassignPrivateIpAddressesRequest {
   export const filterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnassignPrivateIpAddressesRequest => __isa(o, "UnassignPrivateIpAddressesRequest");
 }
 
 export type UnlimitedSupportedInstanceFamily = "t2" | "t3" | "t3a";
 
 export interface UnmonitorInstancesRequest {
-  __type?: "UnmonitorInstancesRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -44787,11 +42047,9 @@ export namespace UnmonitorInstancesRequest {
   export const filterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnmonitorInstancesRequest => __isa(o, "UnmonitorInstancesRequest");
 }
 
 export interface UnmonitorInstancesResult {
-  __type?: "UnmonitorInstancesResult";
   /**
    * <p>The monitoring information.</p>
    */
@@ -44802,7 +42060,6 @@ export namespace UnmonitorInstancesResult {
   export const filterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnmonitorInstancesResult => __isa(o, "UnmonitorInstancesResult");
 }
 
 export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
@@ -44817,7 +42074,6 @@ export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
  *             modified.</p>
  */
 export interface UnsuccessfulInstanceCreditSpecificationItem {
-  __type?: "UnsuccessfulInstanceCreditSpecificationItem";
   /**
    * <p>The applicable error for the burstable performance instance whose credit option for
    *             CPU usage was not modified.</p>
@@ -44834,8 +42090,6 @@ export namespace UnsuccessfulInstanceCreditSpecificationItem {
   export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsuccessfulInstanceCreditSpecificationItem =>
-    __isa(o, "UnsuccessfulInstanceCreditSpecificationItem");
 }
 
 /**
@@ -44843,7 +42097,6 @@ export namespace UnsuccessfulInstanceCreditSpecificationItem {
  *             for CPU usage was not modified.</p>
  */
 export interface UnsuccessfulInstanceCreditSpecificationItemError {
-  __type?: "UnsuccessfulInstanceCreditSpecificationItemError";
   /**
    * <p>The error code.</p>
    */
@@ -44859,15 +42112,12 @@ export namespace UnsuccessfulInstanceCreditSpecificationItemError {
   export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItemError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsuccessfulInstanceCreditSpecificationItemError =>
-    __isa(o, "UnsuccessfulInstanceCreditSpecificationItemError");
 }
 
 /**
  * <p>Information about items that were not successfully processed in a batch call.</p>
  */
 export interface UnsuccessfulItem {
-  __type?: "UnsuccessfulItem";
   /**
    * <p>The ID of the resource.</p>
    */
@@ -44883,14 +42133,12 @@ export namespace UnsuccessfulItem {
   export const filterSensitiveLog = (obj: UnsuccessfulItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsuccessfulItem => __isa(o, "UnsuccessfulItem");
 }
 
 /**
  * <p>Information about the error that occurred. For more information about errors, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
  */
 export interface UnsuccessfulItemError {
-  __type?: "UnsuccessfulItemError";
   /**
    * <p>The error code.</p>
    */
@@ -44906,11 +42154,9 @@ export namespace UnsuccessfulItemError {
   export const filterSensitiveLog = (obj: UnsuccessfulItemError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsuccessfulItemError => __isa(o, "UnsuccessfulItemError");
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
-  __type?: "UpdateSecurityGroupRuleDescriptionsEgressRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -44941,12 +42187,9 @@ export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
   export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsEgressRequest =>
-    __isa(o, "UpdateSecurityGroupRuleDescriptionsEgressRequest");
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
-  __type?: "UpdateSecurityGroupRuleDescriptionsEgressResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
    */
@@ -44957,12 +42200,9 @@ export namespace UpdateSecurityGroupRuleDescriptionsEgressResult {
   export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsEgressResult =>
-    __isa(o, "UpdateSecurityGroupRuleDescriptionsEgressResult");
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
-  __type?: "UpdateSecurityGroupRuleDescriptionsIngressRequest";
   /**
    * <p>The IP permissions for the security group rule. </p>
    */
@@ -44993,12 +42233,9 @@ export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {
   export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsIngressRequest =>
-    __isa(o, "UpdateSecurityGroupRuleDescriptionsIngressRequest");
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
-  __type?: "UpdateSecurityGroupRuleDescriptionsIngressResult";
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
    */
@@ -45009,8 +42246,6 @@ export namespace UpdateSecurityGroupRuleDescriptionsIngressResult {
   export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityGroupRuleDescriptionsIngressResult =>
-    __isa(o, "UpdateSecurityGroupRuleDescriptionsIngressResult");
 }
 
 export type UsageClassType = "on-demand" | "spot";
@@ -45019,7 +42254,6 @@ export type UsageClassType = "on-demand" | "spot";
  * <p>Describes the Amazon S3 bucket for the disk image.</p>
  */
 export interface UserBucket {
-  __type?: "UserBucket";
   /**
    * <p>The file name of the disk image.</p>
    */
@@ -45035,14 +42269,12 @@ export namespace UserBucket {
   export const filterSensitiveLog = (obj: UserBucket): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserBucket => __isa(o, "UserBucket");
 }
 
 /**
  * <p>Describes the Amazon S3 bucket for the disk image.</p>
  */
 export interface UserBucketDetails {
-  __type?: "UserBucketDetails";
   /**
    * <p>The file name of the disk image.</p>
    */
@@ -45058,14 +42290,12 @@ export namespace UserBucketDetails {
   export const filterSensitiveLog = (obj: UserBucketDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserBucketDetails => __isa(o, "UserBucketDetails");
 }
 
 /**
  * <p>Describes the user data for an instance.</p>
  */
 export interface UserData {
-  __type?: "UserData";
   /**
    * <p>The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you
    *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
@@ -45077,14 +42307,12 @@ export namespace UserData {
   export const filterSensitiveLog = (obj: UserData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserData => __isa(o, "UserData");
 }
 
 /**
  * <p>Describes a security group and AWS account ID pair.</p>
  */
 export interface UserIdGroupPair {
-  __type?: "UserIdGroupPair";
   /**
    * <p>The ID of the security group.</p>
    */
@@ -45137,14 +42365,12 @@ export namespace UserIdGroupPair {
   export const filterSensitiveLog = (obj: UserIdGroupPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserIdGroupPair => __isa(o, "UserIdGroupPair");
 }
 
 /**
  * <p>The error code and error message that is returned for a parameter or parameter combination that is not valid when a new launch template or new version of a launch template is created.</p>
  */
 export interface ValidationError {
-  __type?: "ValidationError";
   /**
    * <p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
    */
@@ -45161,14 +42387,12 @@ export namespace ValidationError {
   export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }
 
 /**
  * <p>The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.</p>
  */
 export interface ValidationWarning {
-  __type?: "ValidationWarning";
   /**
    * <p>The error codes and error messages.</p>
    */
@@ -45179,14 +42403,12 @@ export namespace ValidationWarning {
   export const filterSensitiveLog = (obj: ValidationWarning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationWarning => __isa(o, "ValidationWarning");
 }
 
 /**
  * <p>Describes the vCPU configurations for the instance type.</p>
  */
 export interface VCpuInfo {
-  __type?: "VCpuInfo";
   /**
    * <p>The default number of vCPUs for the instance type.</p>
    */
@@ -45217,14 +42439,12 @@ export namespace VCpuInfo {
   export const filterSensitiveLog = (obj: VCpuInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VCpuInfo => __isa(o, "VCpuInfo");
 }
 
 /**
  * <p>Describes telemetry for a VPN tunnel.</p>
  */
 export interface VgwTelemetry {
-  __type?: "VgwTelemetry";
   /**
    * <p>The number of accepted routes.</p>
    */
@@ -45260,7 +42480,6 @@ export namespace VgwTelemetry {
   export const filterSensitiveLog = (obj: VgwTelemetry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VgwTelemetry => __isa(o, "VgwTelemetry");
 }
 
 export type VirtualizationType = "hvm" | "paravirtual";
@@ -45269,7 +42488,6 @@ export type VirtualizationType = "hvm" | "paravirtual";
  * <p>Describes a volume.</p>
  */
 export interface Volume {
-  __type?: "Volume";
   /**
    * <p>Indicates whether the volume is encrypted.</p>
    */
@@ -45365,14 +42583,12 @@ export namespace Volume {
   export const filterSensitiveLog = (obj: Volume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Volume => __isa(o, "Volume");
 }
 
 /**
  * <p>Describes volume attachment details.</p>
  */
 export interface VolumeAttachment {
-  __type?: "VolumeAttachment";
   /**
    * <p>The ID of the volume.</p>
    */
@@ -45408,7 +42624,6 @@ export namespace VolumeAttachment {
   export const filterSensitiveLog = (obj: VolumeAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeAttachment => __isa(o, "VolumeAttachment");
 }
 
 export type VolumeAttachmentState = "attached" | "attaching" | "busy" | "detached" | "detaching";
@@ -45419,7 +42634,6 @@ export type VolumeAttributeName = "autoEnableIO" | "productCodes";
  * <p>Describes an EBS volume.</p>
  */
 export interface VolumeDetail {
-  __type?: "VolumeDetail";
   /**
    * <p>The size of the volume, in GiB.</p>
    */
@@ -45430,7 +42644,6 @@ export namespace VolumeDetail {
   export const filterSensitiveLog = (obj: VolumeDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeDetail => __isa(o, "VolumeDetail");
 }
 
 /**
@@ -45438,7 +42651,6 @@ export namespace VolumeDetail {
  *          <p>If the volume has never been modified, some element values will be null.</p>
  */
 export interface VolumeModification {
-  __type?: "VolumeModification";
   /**
    * <p>The original IOPS rate of the volume.</p>
    */
@@ -45505,7 +42717,6 @@ export namespace VolumeModification {
   export const filterSensitiveLog = (obj: VolumeModification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeModification => __isa(o, "VolumeModification");
 }
 
 export type VolumeModificationState = "completed" | "failed" | "modifying" | "optimizing";
@@ -45516,7 +42727,6 @@ export type VolumeState = "available" | "creating" | "deleted" | "deleting" | "e
  * <p>Describes a volume status operation code.</p>
  */
 export interface VolumeStatusAction {
-  __type?: "VolumeStatusAction";
   /**
    * <p>The event type associated with this operation.</p>
    */
@@ -45542,14 +42752,12 @@ export namespace VolumeStatusAction {
   export const filterSensitiveLog = (obj: VolumeStatusAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusAction => __isa(o, "VolumeStatusAction");
 }
 
 /**
  * <p>Information about the instances to which the volume is attached.</p>
  */
 export interface VolumeStatusAttachmentStatus {
-  __type?: "VolumeStatusAttachmentStatus";
   /**
    * <p>The ID of the attached instance.</p>
    */
@@ -45565,14 +42773,12 @@ export namespace VolumeStatusAttachmentStatus {
   export const filterSensitiveLog = (obj: VolumeStatusAttachmentStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusAttachmentStatus => __isa(o, "VolumeStatusAttachmentStatus");
 }
 
 /**
  * <p>Describes a volume status.</p>
  */
 export interface VolumeStatusDetails {
-  __type?: "VolumeStatusDetails";
   /**
    * <p>The intended status of the volume status.</p>
    */
@@ -45588,14 +42794,12 @@ export namespace VolumeStatusDetails {
   export const filterSensitiveLog = (obj: VolumeStatusDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusDetails => __isa(o, "VolumeStatusDetails");
 }
 
 /**
  * <p>Describes a volume status event.</p>
  */
 export interface VolumeStatusEvent {
-  __type?: "VolumeStatusEvent";
   /**
    * <p>The ID of this event.</p>
    */
@@ -45631,14 +42835,12 @@ export namespace VolumeStatusEvent {
   export const filterSensitiveLog = (obj: VolumeStatusEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusEvent => __isa(o, "VolumeStatusEvent");
 }
 
 /**
  * <p>Describes the status of a volume.</p>
  */
 export interface VolumeStatusInfo {
-  __type?: "VolumeStatusInfo";
   /**
    * <p>The details of the volume status.</p>
    */
@@ -45654,7 +42856,6 @@ export namespace VolumeStatusInfo {
   export const filterSensitiveLog = (obj: VolumeStatusInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusInfo => __isa(o, "VolumeStatusInfo");
 }
 
 export type VolumeStatusInfoStatus = "impaired" | "insufficient-data" | "ok";
@@ -45663,7 +42864,6 @@ export type VolumeStatusInfoStatus = "impaired" | "insufficient-data" | "ok";
  * <p>Describes the volume status.</p>
  */
 export interface VolumeStatusItem {
-  __type?: "VolumeStatusItem";
   /**
    * <p>The Availability Zone of the volume.</p>
    */
@@ -45704,7 +42904,6 @@ export namespace VolumeStatusItem {
   export const filterSensitiveLog = (obj: VolumeStatusItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatusItem => __isa(o, "VolumeStatusItem");
 }
 
 export type VolumeStatusName = "io-enabled" | "io-performance";
@@ -45715,7 +42914,6 @@ export type VolumeType = "gp2" | "io1" | "sc1" | "st1" | "standard";
  * <p>Describes a VPC.</p>
  */
 export interface Vpc {
-  __type?: "Vpc";
   /**
    * <p>The ID of the AWS account that owns the VPC.</p>
    */
@@ -45772,14 +42970,12 @@ export namespace Vpc {
   export const filterSensitiveLog = (obj: Vpc): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Vpc => __isa(o, "Vpc");
 }
 
 /**
  * <p>Describes an attachment between a virtual private gateway and a VPC.</p>
  */
 export interface VpcAttachment {
-  __type?: "VpcAttachment";
   /**
    * <p>The current state of the attachment.</p>
    */
@@ -45795,7 +42991,6 @@ export namespace VpcAttachment {
   export const filterSensitiveLog = (obj: VpcAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcAttachment => __isa(o, "VpcAttachment");
 }
 
 export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
@@ -45804,7 +42999,6 @@ export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
  * <p>Describes an IPv4 CIDR block associated with a VPC.</p>
  */
 export interface VpcCidrBlockAssociation {
-  __type?: "VpcCidrBlockAssociation";
   /**
    * <p>Information about the state of the CIDR block.</p>
    */
@@ -45825,14 +43019,12 @@ export namespace VpcCidrBlockAssociation {
   export const filterSensitiveLog = (obj: VpcCidrBlockAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcCidrBlockAssociation => __isa(o, "VpcCidrBlockAssociation");
 }
 
 /**
  * <p>Describes the state of a CIDR block.</p>
  */
 export interface VpcCidrBlockState {
-  __type?: "VpcCidrBlockState";
   /**
    * <p>A message about the status of the CIDR block, if applicable.</p>
    */
@@ -45848,7 +43040,6 @@ export namespace VpcCidrBlockState {
   export const filterSensitiveLog = (obj: VpcCidrBlockState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcCidrBlockState => __isa(o, "VpcCidrBlockState");
 }
 
 export type VpcCidrBlockStateCode =
@@ -45863,7 +43054,6 @@ export type VpcCidrBlockStateCode =
  * <p>Describes whether a VPC is enabled for ClassicLink.</p>
  */
 export interface VpcClassicLink {
-  __type?: "VpcClassicLink";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -45884,14 +43074,12 @@ export namespace VpcClassicLink {
   export const filterSensitiveLog = (obj: VpcClassicLink): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcClassicLink => __isa(o, "VpcClassicLink");
 }
 
 /**
  * <p>Describes a VPC endpoint.</p>
  */
 export interface VpcEndpoint {
-  __type?: "VpcEndpoint";
   /**
    * <p>The last error that occurred for VPC endpoint.</p>
    */
@@ -45983,14 +43171,12 @@ export namespace VpcEndpoint {
   export const filterSensitiveLog = (obj: VpcEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcEndpoint => __isa(o, "VpcEndpoint");
 }
 
 /**
  * <p>Describes a VPC endpoint connection to a service.</p>
  */
 export interface VpcEndpointConnection {
-  __type?: "VpcEndpointConnection";
   /**
    * <p>The ID of the VPC endpoint.</p>
    */
@@ -46031,7 +43217,6 @@ export namespace VpcEndpointConnection {
   export const filterSensitiveLog = (obj: VpcEndpointConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcEndpointConnection => __isa(o, "VpcEndpointConnection");
 }
 
 export enum VpcEndpointType {
@@ -46043,7 +43228,6 @@ export enum VpcEndpointType {
  * <p>Describes an IPv6 CIDR block associated with a VPC.</p>
  */
 export interface VpcIpv6CidrBlockAssociation {
-  __type?: "VpcIpv6CidrBlockAssociation";
   /**
    * <p>The name of the location from which we advertise the IPV6 CIDR block.</p>
    */
@@ -46074,14 +43258,12 @@ export namespace VpcIpv6CidrBlockAssociation {
   export const filterSensitiveLog = (obj: VpcIpv6CidrBlockAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcIpv6CidrBlockAssociation => __isa(o, "VpcIpv6CidrBlockAssociation");
 }
 
 /**
  * <p>Describes a VPC peering connection.</p>
  */
 export interface VpcPeeringConnection {
-  __type?: "VpcPeeringConnection";
   /**
    * <p>Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.</p>
    */
@@ -46117,14 +43299,12 @@ export namespace VpcPeeringConnection {
   export const filterSensitiveLog = (obj: VpcPeeringConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnection => __isa(o, "VpcPeeringConnection");
 }
 
 /**
  * <p>Describes the VPC peering connection options.</p>
  */
 export interface VpcPeeringConnectionOptionsDescription {
-  __type?: "VpcPeeringConnectionOptionsDescription";
   /**
    * <p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.</p>
    */
@@ -46145,15 +43325,12 @@ export namespace VpcPeeringConnectionOptionsDescription {
   export const filterSensitiveLog = (obj: VpcPeeringConnectionOptionsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnectionOptionsDescription =>
-    __isa(o, "VpcPeeringConnectionOptionsDescription");
 }
 
 /**
  * <p>Describes the status of a VPC peering connection.</p>
  */
 export interface VpcPeeringConnectionStateReason {
-  __type?: "VpcPeeringConnectionStateReason";
   /**
    * <p>A message that provides more information about the status, if applicable.</p>
    */
@@ -46169,7 +43346,6 @@ export namespace VpcPeeringConnectionStateReason {
   export const filterSensitiveLog = (obj: VpcPeeringConnectionStateReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnectionStateReason => __isa(o, "VpcPeeringConnectionStateReason");
 }
 
 export type VpcPeeringConnectionStateReasonCode =
@@ -46187,7 +43363,6 @@ export type VpcPeeringConnectionStateReasonCode =
  * <p>Describes a VPC in a VPC peering connection.</p>
  */
 export interface VpcPeeringConnectionVpcInfo {
-  __type?: "VpcPeeringConnectionVpcInfo";
   /**
    * <p>The Region in which the VPC is located.</p>
    */
@@ -46228,7 +43403,6 @@ export namespace VpcPeeringConnectionVpcInfo {
   export const filterSensitiveLog = (obj: VpcPeeringConnectionVpcInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnectionVpcInfo => __isa(o, "VpcPeeringConnectionVpcInfo");
 }
 
 export type VpcState = "available" | "pending";
@@ -46239,7 +43413,6 @@ export type VpcTenancy = "default";
  * <p>Describes a VPN connection.</p>
  */
 export interface VpnConnection {
-  __type?: "VpnConnection";
   /**
    * <p>The type of VPN connection.</p>
    */
@@ -46309,14 +43482,12 @@ export namespace VpnConnection {
   export const filterSensitiveLog = (obj: VpnConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpnConnection => __isa(o, "VpnConnection");
 }
 
 /**
  * <p>Describes VPN connection options.</p>
  */
 export interface VpnConnectionOptions {
-  __type?: "VpnConnectionOptions";
   /**
    * <p>Indicates whether acceleration is enabled for the VPN connection.</p>
    */
@@ -46337,14 +43508,12 @@ export namespace VpnConnectionOptions {
   export const filterSensitiveLog = (obj: VpnConnectionOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpnConnectionOptions => __isa(o, "VpnConnectionOptions");
 }
 
 /**
  * <p>Describes VPN connection options.</p>
  */
 export interface VpnConnectionOptionsSpecification {
-  __type?: "VpnConnectionOptionsSpecification";
   /**
    * <p>The tunnel options for the VPN connection.</p>
    */
@@ -46371,7 +43540,6 @@ export namespace VpnConnectionOptionsSpecification {
   export const filterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpnConnectionOptionsSpecification => __isa(o, "VpnConnectionOptionsSpecification");
 }
 
 export type VpnEcmpSupportValue = "disable" | "enable";
@@ -46380,7 +43548,6 @@ export type VpnEcmpSupportValue = "disable" | "enable";
  * <p>Describes a virtual private gateway.</p>
  */
 export interface VpnGateway {
-  __type?: "VpnGateway";
   /**
    * <p>The ID of the virtual private gateway.</p>
    */
@@ -46421,7 +43588,6 @@ export namespace VpnGateway {
   export const filterSensitiveLog = (obj: VpnGateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpnGateway => __isa(o, "VpnGateway");
 }
 
 export type VpnProtocol = "openvpn";
@@ -46432,7 +43598,6 @@ export type VpnState = "available" | "deleted" | "deleting" | "pending";
  * <p>Describes a static route for a VPN connection.</p>
  */
 export interface VpnStaticRoute {
-  __type?: "VpnStaticRoute";
   /**
    * <p>Indicates how the routes were provided.</p>
    */
@@ -46453,7 +43618,6 @@ export namespace VpnStaticRoute {
   export const filterSensitiveLog = (obj: VpnStaticRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpnStaticRoute => __isa(o, "VpnStaticRoute");
 }
 
 export type VpnStaticRouteSource = "Static";
@@ -46462,7 +43626,6 @@ export type VpnStaticRouteSource = "Static";
  * <p>The tunnel options for a single VPN tunnel.</p>
  */
 export interface VpnTunnelOptionsSpecification {
-  __type?: "VpnTunnelOptionsSpecification";
   /**
    * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</p>
    *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
@@ -46619,11 +43782,9 @@ export namespace VpnTunnelOptionsSpecification {
   export const filterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpnTunnelOptionsSpecification => __isa(o, "VpnTunnelOptionsSpecification");
 }
 
 export interface WithdrawByoipCidrRequest {
-  __type?: "WithdrawByoipCidrRequest";
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -46641,11 +43802,9 @@ export namespace WithdrawByoipCidrRequest {
   export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WithdrawByoipCidrRequest => __isa(o, "WithdrawByoipCidrRequest");
 }
 
 export interface WithdrawByoipCidrResult {
-  __type?: "WithdrawByoipCidrResult";
   /**
    * <p>Information about the address pool.</p>
    */
@@ -46656,5 +43815,4 @@ export namespace WithdrawByoipCidrResult {
   export const filterSensitiveLog = (obj: WithdrawByoipCidrResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WithdrawByoipCidrResult => __isa(o, "WithdrawByoipCidrResult");
 }

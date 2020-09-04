@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The data type for <code>AccountRecoverySetting</code>.</p>
  */
 export interface AccountRecoverySettingType {
-  __type?: "AccountRecoverySettingType";
   /**
    * <p>The list of <code>RecoveryOptionTypes</code>.</p>
    */
@@ -16,14 +15,12 @@ export namespace AccountRecoverySettingType {
   export const filterSensitiveLog = (obj: AccountRecoverySettingType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountRecoverySettingType => __isa(o, "AccountRecoverySettingType");
 }
 
 /**
  * <p>Account takeover actions type.</p>
  */
 export interface AccountTakeoverActionsType {
-  __type?: "AccountTakeoverActionsType";
   /**
    * <p>Action to take for a high risk.</p>
    */
@@ -44,14 +41,12 @@ export namespace AccountTakeoverActionsType {
   export const filterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountTakeoverActionsType => __isa(o, "AccountTakeoverActionsType");
 }
 
 /**
  * <p>Account takeover action type.</p>
  */
 export interface AccountTakeoverActionType {
-  __type?: "AccountTakeoverActionType";
   /**
    * <p>Flag specifying whether to send a notification.</p>
    */
@@ -87,7 +82,6 @@ export namespace AccountTakeoverActionType {
   export const filterSensitiveLog = (obj: AccountTakeoverActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountTakeoverActionType => __isa(o, "AccountTakeoverActionType");
 }
 
 export enum AccountTakeoverEventActionType {
@@ -102,7 +96,6 @@ export enum AccountTakeoverEventActionType {
  *             detected for a potential account takeover.</p>
  */
 export interface AccountTakeoverRiskConfigurationType {
-  __type?: "AccountTakeoverRiskConfigurationType";
   /**
    * <p>The notify configuration used to construct email notifications.</p>
    */
@@ -118,15 +111,12 @@ export namespace AccountTakeoverRiskConfigurationType {
   export const filterSensitiveLog = (obj: AccountTakeoverRiskConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountTakeoverRiskConfigurationType =>
-    __isa(o, "AccountTakeoverRiskConfigurationType");
 }
 
 /**
  * <p>Represents the request to add custom attributes.</p>
  */
 export interface AddCustomAttributesRequest {
-  __type?: "AddCustomAttributesRequest";
   /**
    * <p>The user pool ID for the user pool where you want to add custom attributes.</p>
    */
@@ -142,26 +132,21 @@ export namespace AddCustomAttributesRequest {
   export const filterSensitiveLog = (obj: AddCustomAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddCustomAttributesRequest => __isa(o, "AddCustomAttributesRequest");
 }
 
 /**
  * <p>Represents the response from the server for the request to add custom
  *             attributes.</p>
  */
-export interface AddCustomAttributesResponse {
-  __type?: "AddCustomAttributesResponse";
-}
+export interface AddCustomAttributesResponse {}
 
 export namespace AddCustomAttributesResponse {
   export const filterSensitiveLog = (obj: AddCustomAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddCustomAttributesResponse => __isa(o, "AddCustomAttributesResponse");
 }
 
 export interface AdminAddUserToGroupRequest {
-  __type?: "AdminAddUserToGroupRequest";
   /**
    * <p>The user pool ID for the user pool.</p>
    */
@@ -183,14 +168,12 @@ export namespace AdminAddUserToGroupRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminAddUserToGroupRequest => __isa(o, "AdminAddUserToGroupRequest");
 }
 
 /**
  * <p>Represents the request to confirm user registration.</p>
  */
 export interface AdminConfirmSignUpRequest {
-  __type?: "AdminConfirmSignUpRequest";
   /**
    * <p>The user name for which you want to confirm user registration.</p>
    */
@@ -242,29 +225,24 @@ export namespace AdminConfirmSignUpRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminConfirmSignUpRequest => __isa(o, "AdminConfirmSignUpRequest");
 }
 
 /**
  * <p>Represents the response from the server for the request to confirm
  *             registration.</p>
  */
-export interface AdminConfirmSignUpResponse {
-  __type?: "AdminConfirmSignUpResponse";
-}
+export interface AdminConfirmSignUpResponse {}
 
 export namespace AdminConfirmSignUpResponse {
   export const filterSensitiveLog = (obj: AdminConfirmSignUpResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminConfirmSignUpResponse => __isa(o, "AdminConfirmSignUpResponse");
 }
 
 /**
  * <p>The configuration for creating a new user profile.</p>
  */
 export interface AdminCreateUserConfigType {
-  __type?: "AdminCreateUserConfigType";
   /**
    * <p>Set to <code>True</code> if only the administrator is allowed to create user profiles.
    *             Set to <code>False</code> if users can sign themselves up via an app.</p>
@@ -296,14 +274,12 @@ export namespace AdminCreateUserConfigType {
   export const filterSensitiveLog = (obj: AdminCreateUserConfigType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminCreateUserConfigType => __isa(o, "AdminCreateUserConfigType");
 }
 
 /**
  * <p>Represents the request to create a user in the specified user pool.</p>
  */
 export interface AdminCreateUserRequest {
-  __type?: "AdminCreateUserRequest";
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers. </p>
@@ -458,14 +434,12 @@ export namespace AdminCreateUserRequest {
     }),
     ...(obj.TemporaryPassword && { TemporaryPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminCreateUserRequest => __isa(o, "AdminCreateUserRequest");
 }
 
 /**
  * <p>Represents the response from the server to the request to create the user.</p>
  */
 export interface AdminCreateUserResponse {
-  __type?: "AdminCreateUserResponse";
   /**
    * <p>The newly created user.</p>
    */
@@ -477,14 +451,12 @@ export namespace AdminCreateUserResponse {
     ...obj,
     ...(obj.User && { User: UserType.filterSensitiveLog(obj.User) }),
   });
-  export const isa = (o: any): o is AdminCreateUserResponse => __isa(o, "AdminCreateUserResponse");
 }
 
 /**
  * <p>Represents the request to delete user attributes as an administrator.</p>
  */
 export interface AdminDeleteUserAttributesRequest {
-  __type?: "AdminDeleteUserAttributesRequest";
   /**
    * <p>An array of strings representing the user attribute names you wish to delete.</p>
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
@@ -508,29 +480,24 @@ export namespace AdminDeleteUserAttributesRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminDeleteUserAttributesRequest => __isa(o, "AdminDeleteUserAttributesRequest");
 }
 
 /**
  * <p>Represents the response received from the server for a request to delete user
  *             attributes.</p>
  */
-export interface AdminDeleteUserAttributesResponse {
-  __type?: "AdminDeleteUserAttributesResponse";
-}
+export interface AdminDeleteUserAttributesResponse {}
 
 export namespace AdminDeleteUserAttributesResponse {
   export const filterSensitiveLog = (obj: AdminDeleteUserAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminDeleteUserAttributesResponse => __isa(o, "AdminDeleteUserAttributesResponse");
 }
 
 /**
  * <p>Represents the request to delete a user as an administrator.</p>
  */
 export interface AdminDeleteUserRequest {
-  __type?: "AdminDeleteUserRequest";
   /**
    * <p>The user pool ID for the user pool where you want to delete the user.</p>
    */
@@ -547,11 +514,9 @@ export namespace AdminDeleteUserRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminDeleteUserRequest => __isa(o, "AdminDeleteUserRequest");
 }
 
 export interface AdminDisableProviderForUserRequest {
-  __type?: "AdminDisableProviderForUserRequest";
   /**
    * <p>The user to be disabled.</p>
    */
@@ -567,27 +532,20 @@ export namespace AdminDisableProviderForUserRequest {
   export const filterSensitiveLog = (obj: AdminDisableProviderForUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminDisableProviderForUserRequest =>
-    __isa(o, "AdminDisableProviderForUserRequest");
 }
 
-export interface AdminDisableProviderForUserResponse {
-  __type?: "AdminDisableProviderForUserResponse";
-}
+export interface AdminDisableProviderForUserResponse {}
 
 export namespace AdminDisableProviderForUserResponse {
   export const filterSensitiveLog = (obj: AdminDisableProviderForUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminDisableProviderForUserResponse =>
-    __isa(o, "AdminDisableProviderForUserResponse");
 }
 
 /**
  * <p>Represents the request to disable any user as an administrator.</p>
  */
 export interface AdminDisableUserRequest {
-  __type?: "AdminDisableUserRequest";
   /**
    * <p>The user pool ID for the user pool where you want to disable the user.</p>
    */
@@ -604,29 +562,24 @@ export namespace AdminDisableUserRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminDisableUserRequest => __isa(o, "AdminDisableUserRequest");
 }
 
 /**
  * <p>Represents the response received from the server to disable the user as an
  *             administrator.</p>
  */
-export interface AdminDisableUserResponse {
-  __type?: "AdminDisableUserResponse";
-}
+export interface AdminDisableUserResponse {}
 
 export namespace AdminDisableUserResponse {
   export const filterSensitiveLog = (obj: AdminDisableUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminDisableUserResponse => __isa(o, "AdminDisableUserResponse");
 }
 
 /**
  * <p>Represents the request that enables the user as an administrator.</p>
  */
 export interface AdminEnableUserRequest {
-  __type?: "AdminEnableUserRequest";
   /**
    * <p>The user name of the user you wish to enable.</p>
    */
@@ -643,29 +596,24 @@ export namespace AdminEnableUserRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminEnableUserRequest => __isa(o, "AdminEnableUserRequest");
 }
 
 /**
  * <p>Represents the response from the server for the request to enable a user as an
  *             administrator.</p>
  */
-export interface AdminEnableUserResponse {
-  __type?: "AdminEnableUserResponse";
-}
+export interface AdminEnableUserResponse {}
 
 export namespace AdminEnableUserResponse {
   export const filterSensitiveLog = (obj: AdminEnableUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminEnableUserResponse => __isa(o, "AdminEnableUserResponse");
 }
 
 /**
  * <p>Sends the forgot device request, as an administrator.</p>
  */
 export interface AdminForgetDeviceRequest {
-  __type?: "AdminForgetDeviceRequest";
   /**
    * <p>The device key.</p>
    */
@@ -687,14 +635,12 @@ export namespace AdminForgetDeviceRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminForgetDeviceRequest => __isa(o, "AdminForgetDeviceRequest");
 }
 
 /**
  * <p>Represents the request to get the device, as an administrator.</p>
  */
 export interface AdminGetDeviceRequest {
-  __type?: "AdminGetDeviceRequest";
   /**
    * <p>The user name.</p>
    */
@@ -716,14 +662,12 @@ export namespace AdminGetDeviceRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminGetDeviceRequest => __isa(o, "AdminGetDeviceRequest");
 }
 
 /**
  * <p>Gets the device response, as an administrator.</p>
  */
 export interface AdminGetDeviceResponse {
-  __type?: "AdminGetDeviceResponse";
   /**
    * <p>The device.</p>
    */
@@ -735,14 +679,12 @@ export namespace AdminGetDeviceResponse {
     ...obj,
     ...(obj.Device && { Device: DeviceType.filterSensitiveLog(obj.Device) }),
   });
-  export const isa = (o: any): o is AdminGetDeviceResponse => __isa(o, "AdminGetDeviceResponse");
 }
 
 /**
  * <p>Represents the request to get the specified user as an administrator.</p>
  */
 export interface AdminGetUserRequest {
-  __type?: "AdminGetUserRequest";
   /**
    * <p>The user pool ID for the user pool where you want to get information about the
    *             user.</p>
@@ -760,7 +702,6 @@ export namespace AdminGetUserRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminGetUserRequest => __isa(o, "AdminGetUserRequest");
 }
 
 /**
@@ -768,7 +709,6 @@ export namespace AdminGetUserRequest {
  *             an administrator.</p>
  */
 export interface AdminGetUserResponse {
-  __type?: "AdminGetUserResponse";
   /**
    * <p>The user's preferred MFA setting.</p>
    */
@@ -855,14 +795,12 @@ export namespace AdminGetUserResponse {
       UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is AdminGetUserResponse => __isa(o, "AdminGetUserResponse");
 }
 
 /**
  * <p>Initiates the authorization request, as an administrator.</p>
  */
 export interface AdminInitiateAuthRequest {
-  __type?: "AdminInitiateAuthRequest";
   /**
    * <p>The authentication flow for this call to execute. The API action will depend on this
    *             value. For example:</p>
@@ -1062,14 +1000,12 @@ export namespace AdminInitiateAuthRequest {
     ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminInitiateAuthRequest => __isa(o, "AdminInitiateAuthRequest");
 }
 
 /**
  * <p>Initiates the authentication response, as an administrator.</p>
  */
 export interface AdminInitiateAuthResponse {
-  __type?: "AdminInitiateAuthResponse";
   /**
    * <p>The result of the authentication response. This is only returned if the caller does
    *             not need to pass another challenge. If the caller does need to pass another challenge
@@ -1173,11 +1109,9 @@ export namespace AdminInitiateAuthResponse {
       AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
     }),
   });
-  export const isa = (o: any): o is AdminInitiateAuthResponse => __isa(o, "AdminInitiateAuthResponse");
 }
 
 export interface AdminLinkProviderForUserRequest {
-  __type?: "AdminLinkProviderForUserRequest";
   /**
    * <p>The existing user in the user pool to be linked to the external identity provider user
    *             account. Can be a native (Username + Password) Cognito User Pools user or a federated
@@ -1228,25 +1162,20 @@ export namespace AdminLinkProviderForUserRequest {
   export const filterSensitiveLog = (obj: AdminLinkProviderForUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminLinkProviderForUserRequest => __isa(o, "AdminLinkProviderForUserRequest");
 }
 
-export interface AdminLinkProviderForUserResponse {
-  __type?: "AdminLinkProviderForUserResponse";
-}
+export interface AdminLinkProviderForUserResponse {}
 
 export namespace AdminLinkProviderForUserResponse {
   export const filterSensitiveLog = (obj: AdminLinkProviderForUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminLinkProviderForUserResponse => __isa(o, "AdminLinkProviderForUserResponse");
 }
 
 /**
  * <p>Represents the request to list devices, as an administrator.</p>
  */
 export interface AdminListDevicesRequest {
-  __type?: "AdminListDevicesRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -1273,14 +1202,12 @@ export namespace AdminListDevicesRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminListDevicesRequest => __isa(o, "AdminListDevicesRequest");
 }
 
 /**
  * <p>Lists the device's response, as an administrator.</p>
  */
 export interface AdminListDevicesResponse {
-  __type?: "AdminListDevicesResponse";
   /**
    * <p>The pagination token.</p>
    */
@@ -1296,11 +1223,9 @@ export namespace AdminListDevicesResponse {
   export const filterSensitiveLog = (obj: AdminListDevicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminListDevicesResponse => __isa(o, "AdminListDevicesResponse");
 }
 
 export interface AdminListGroupsForUserRequest {
-  __type?: "AdminListGroupsForUserRequest";
   /**
    * <p>The user pool ID for the user pool.</p>
    */
@@ -1328,11 +1253,9 @@ export namespace AdminListGroupsForUserRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminListGroupsForUserRequest => __isa(o, "AdminListGroupsForUserRequest");
 }
 
 export interface AdminListGroupsForUserResponse {
-  __type?: "AdminListGroupsForUserResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -1349,11 +1272,9 @@ export namespace AdminListGroupsForUserResponse {
   export const filterSensitiveLog = (obj: AdminListGroupsForUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminListGroupsForUserResponse => __isa(o, "AdminListGroupsForUserResponse");
 }
 
 export interface AdminListUserAuthEventsRequest {
-  __type?: "AdminListUserAuthEventsRequest";
   /**
    * <p>The maximum number of authentication events to return.</p>
    */
@@ -1380,11 +1301,9 @@ export namespace AdminListUserAuthEventsRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminListUserAuthEventsRequest => __isa(o, "AdminListUserAuthEventsRequest");
 }
 
 export interface AdminListUserAuthEventsResponse {
-  __type?: "AdminListUserAuthEventsResponse";
   /**
    * <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>,
    *                 <code>CreationDate</code>, <code>EventRisk</code>, and
@@ -1402,11 +1321,9 @@ export namespace AdminListUserAuthEventsResponse {
   export const filterSensitiveLog = (obj: AdminListUserAuthEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminListUserAuthEventsResponse => __isa(o, "AdminListUserAuthEventsResponse");
 }
 
 export interface AdminRemoveUserFromGroupRequest {
-  __type?: "AdminRemoveUserFromGroupRequest";
   /**
    * <p>The username for the user.</p>
    */
@@ -1428,14 +1345,12 @@ export namespace AdminRemoveUserFromGroupRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminRemoveUserFromGroupRequest => __isa(o, "AdminRemoveUserFromGroupRequest");
 }
 
 /**
  * <p>Represents the request to reset a user's password as an administrator.</p>
  */
 export interface AdminResetUserPasswordRequest {
-  __type?: "AdminResetUserPasswordRequest";
   /**
    * <p>The user pool ID for the user pool where you want to reset the user's password.</p>
    */
@@ -1488,29 +1403,24 @@ export namespace AdminResetUserPasswordRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminResetUserPasswordRequest => __isa(o, "AdminResetUserPasswordRequest");
 }
 
 /**
  * <p>Represents the response from the server to reset a user password as an
  *             administrator.</p>
  */
-export interface AdminResetUserPasswordResponse {
-  __type?: "AdminResetUserPasswordResponse";
-}
+export interface AdminResetUserPasswordResponse {}
 
 export namespace AdminResetUserPasswordResponse {
   export const filterSensitiveLog = (obj: AdminResetUserPasswordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminResetUserPasswordResponse => __isa(o, "AdminResetUserPasswordResponse");
 }
 
 /**
  * <p>The request to respond to the authentication challenge, as an administrator.</p>
  */
 export interface AdminRespondToAuthChallengeRequest {
-  __type?: "AdminRespondToAuthChallengeRequest";
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers. </p>
@@ -1632,15 +1542,12 @@ export namespace AdminRespondToAuthChallengeRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminRespondToAuthChallengeRequest =>
-    __isa(o, "AdminRespondToAuthChallengeRequest");
 }
 
 /**
  * <p>Responds to the authentication challenge, as an administrator.</p>
  */
 export interface AdminRespondToAuthChallengeResponse {
-  __type?: "AdminRespondToAuthChallengeResponse";
   /**
    * <p>The challenge parameters. For more information, see .</p>
    */
@@ -1673,12 +1580,9 @@ export namespace AdminRespondToAuthChallengeResponse {
       AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
     }),
   });
-  export const isa = (o: any): o is AdminRespondToAuthChallengeResponse =>
-    __isa(o, "AdminRespondToAuthChallengeResponse");
 }
 
 export interface AdminSetUserMFAPreferenceRequest {
-  __type?: "AdminSetUserMFAPreferenceRequest";
   /**
    * <p>The SMS text message MFA settings.</p>
    */
@@ -1705,22 +1609,17 @@ export namespace AdminSetUserMFAPreferenceRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminSetUserMFAPreferenceRequest => __isa(o, "AdminSetUserMFAPreferenceRequest");
 }
 
-export interface AdminSetUserMFAPreferenceResponse {
-  __type?: "AdminSetUserMFAPreferenceResponse";
-}
+export interface AdminSetUserMFAPreferenceResponse {}
 
 export namespace AdminSetUserMFAPreferenceResponse {
   export const filterSensitiveLog = (obj: AdminSetUserMFAPreferenceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminSetUserMFAPreferenceResponse => __isa(o, "AdminSetUserMFAPreferenceResponse");
 }
 
 export interface AdminSetUserPasswordRequest {
-  __type?: "AdminSetUserPasswordRequest";
   /**
    * <p>The user pool ID for the user pool where you want to set the user's password.</p>
    */
@@ -1750,18 +1649,14 @@ export namespace AdminSetUserPasswordRequest {
     ...(obj.Password && { Password: SENSITIVE_STRING }),
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminSetUserPasswordRequest => __isa(o, "AdminSetUserPasswordRequest");
 }
 
-export interface AdminSetUserPasswordResponse {
-  __type?: "AdminSetUserPasswordResponse";
-}
+export interface AdminSetUserPasswordResponse {}
 
 export namespace AdminSetUserPasswordResponse {
   export const filterSensitiveLog = (obj: AdminSetUserPasswordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminSetUserPasswordResponse => __isa(o, "AdminSetUserPasswordResponse");
 }
 
 /**
@@ -1769,7 +1664,6 @@ export namespace AdminSetUserPasswordResponse {
  *             medium.</p>
  */
 export interface AdminSetUserSettingsRequest {
-  __type?: "AdminSetUserSettingsRequest";
   /**
    * <p>The user name of the user that you are setting options for.</p>
    */
@@ -1793,26 +1687,21 @@ export namespace AdminSetUserSettingsRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminSetUserSettingsRequest => __isa(o, "AdminSetUserSettingsRequest");
 }
 
 /**
  * <p>Represents the response from the server to set user settings as an
  *             administrator.</p>
  */
-export interface AdminSetUserSettingsResponse {
-  __type?: "AdminSetUserSettingsResponse";
-}
+export interface AdminSetUserSettingsResponse {}
 
 export namespace AdminSetUserSettingsResponse {
   export const filterSensitiveLog = (obj: AdminSetUserSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminSetUserSettingsResponse => __isa(o, "AdminSetUserSettingsResponse");
 }
 
 export interface AdminUpdateAuthEventFeedbackRequest {
-  __type?: "AdminUpdateAuthEventFeedbackRequest";
   /**
    * <p>The user pool username.</p>
    */
@@ -1839,27 +1728,20 @@ export namespace AdminUpdateAuthEventFeedbackRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminUpdateAuthEventFeedbackRequest =>
-    __isa(o, "AdminUpdateAuthEventFeedbackRequest");
 }
 
-export interface AdminUpdateAuthEventFeedbackResponse {
-  __type?: "AdminUpdateAuthEventFeedbackResponse";
-}
+export interface AdminUpdateAuthEventFeedbackResponse {}
 
 export namespace AdminUpdateAuthEventFeedbackResponse {
   export const filterSensitiveLog = (obj: AdminUpdateAuthEventFeedbackResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminUpdateAuthEventFeedbackResponse =>
-    __isa(o, "AdminUpdateAuthEventFeedbackResponse");
 }
 
 /**
  * <p>The request to update the device status, as an administrator.</p>
  */
 export interface AdminUpdateDeviceStatusRequest {
-  __type?: "AdminUpdateDeviceStatusRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -1886,28 +1768,23 @@ export namespace AdminUpdateDeviceStatusRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminUpdateDeviceStatusRequest => __isa(o, "AdminUpdateDeviceStatusRequest");
 }
 
 /**
  * <p>The status response from the request to update the device, as an administrator.</p>
  */
-export interface AdminUpdateDeviceStatusResponse {
-  __type?: "AdminUpdateDeviceStatusResponse";
-}
+export interface AdminUpdateDeviceStatusResponse {}
 
 export namespace AdminUpdateDeviceStatusResponse {
   export const filterSensitiveLog = (obj: AdminUpdateDeviceStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminUpdateDeviceStatusResponse => __isa(o, "AdminUpdateDeviceStatusResponse");
 }
 
 /**
  * <p>Represents the request to update the user's attributes as an administrator.</p>
  */
 export interface AdminUpdateUserAttributesRequest {
-  __type?: "AdminUpdateUserAttributesRequest";
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers. </p>
@@ -1970,29 +1847,24 @@ export namespace AdminUpdateUserAttributesRequest {
     }),
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminUpdateUserAttributesRequest => __isa(o, "AdminUpdateUserAttributesRequest");
 }
 
 /**
  * <p>Represents the response from the server for the request to update user attributes as
  *             an administrator.</p>
  */
-export interface AdminUpdateUserAttributesResponse {
-  __type?: "AdminUpdateUserAttributesResponse";
-}
+export interface AdminUpdateUserAttributesResponse {}
 
 export namespace AdminUpdateUserAttributesResponse {
   export const filterSensitiveLog = (obj: AdminUpdateUserAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminUpdateUserAttributesResponse => __isa(o, "AdminUpdateUserAttributesResponse");
 }
 
 /**
  * <p>The request to sign out of all devices, as an administrator.</p>
  */
 export interface AdminUserGlobalSignOutRequest {
-  __type?: "AdminUserGlobalSignOutRequest";
   /**
    * <p>The user name.</p>
    */
@@ -2009,21 +1881,17 @@ export namespace AdminUserGlobalSignOutRequest {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AdminUserGlobalSignOutRequest => __isa(o, "AdminUserGlobalSignOutRequest");
 }
 
 /**
  * <p>The global sign-out response, as an administrator.</p>
  */
-export interface AdminUserGlobalSignOutResponse {
-  __type?: "AdminUserGlobalSignOutResponse";
-}
+export interface AdminUserGlobalSignOutResponse {}
 
 export namespace AdminUserGlobalSignOutResponse {
   export const filterSensitiveLog = (obj: AdminUserGlobalSignOutResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdminUserGlobalSignOutResponse => __isa(o, "AdminUserGlobalSignOutResponse");
 }
 
 export enum AdvancedSecurityModeType {
@@ -2056,7 +1924,6 @@ export namespace AliasExistsException {
   export const filterSensitiveLog = (obj: AliasExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AliasExistsException => __isa(o, "AliasExistsException");
 }
 
 /**
@@ -2067,7 +1934,6 @@ export namespace AliasExistsException {
  *         </note>
  */
 export interface AnalyticsConfigurationType {
-  __type?: "AnalyticsConfigurationType";
   /**
    * <p>If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito will include user
    *             data in the events it publishes to Amazon Pinpoint analytics.</p>
@@ -2095,7 +1961,6 @@ export namespace AnalyticsConfigurationType {
   export const filterSensitiveLog = (obj: AnalyticsConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsConfigurationType => __isa(o, "AnalyticsConfigurationType");
 }
 
 /**
@@ -2107,7 +1972,6 @@ export namespace AnalyticsConfigurationType {
  *         </note>
  */
 export interface AnalyticsMetadataType {
-  __type?: "AnalyticsMetadataType";
   /**
    * <p>The endpoint ID.</p>
    */
@@ -2118,11 +1982,9 @@ export namespace AnalyticsMetadataType {
   export const filterSensitiveLog = (obj: AnalyticsMetadataType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsMetadataType => __isa(o, "AnalyticsMetadataType");
 }
 
 export interface AssociateSoftwareTokenRequest {
-  __type?: "AssociateSoftwareTokenRequest";
   /**
    * <p>The session which should be passed both ways in challenge-response calls to the
    *             service. This allows authentication of the user as part of the MFA setup process.</p>
@@ -2140,11 +2002,9 @@ export namespace AssociateSoftwareTokenRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssociateSoftwareTokenRequest => __isa(o, "AssociateSoftwareTokenRequest");
 }
 
 export interface AssociateSoftwareTokenResponse {
-  __type?: "AssociateSoftwareTokenResponse";
   /**
    * <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a
    *             one time code.</p>
@@ -2163,7 +2023,6 @@ export namespace AssociateSoftwareTokenResponse {
     ...obj,
     ...(obj.SecretCode && { SecretCode: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssociateSoftwareTokenResponse => __isa(o, "AssociateSoftwareTokenResponse");
 }
 
 export enum AttributeDataType {
@@ -2177,7 +2036,6 @@ export enum AttributeDataType {
  * <p>Specifies whether the attribute is standard or custom.</p>
  */
 export interface AttributeType {
-  __type?: "AttributeType";
   /**
    * <p>The name of the attribute.</p>
    */
@@ -2194,14 +2052,12 @@ export namespace AttributeType {
     ...obj,
     ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AttributeType => __isa(o, "AttributeType");
 }
 
 /**
  * <p>The authentication result.</p>
  */
 export interface AuthenticationResultType {
-  __type?: "AuthenticationResultType";
   /**
    * <p>The token type.</p>
    */
@@ -2240,14 +2096,12 @@ export namespace AuthenticationResultType {
     ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
     ...(obj.IdToken && { IdToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AuthenticationResultType => __isa(o, "AuthenticationResultType");
 }
 
 /**
  * <p>The authentication event type.</p>
  */
 export interface AuthEventType {
-  __type?: "AuthEventType";
   /**
    * <p>The event type.</p>
    */
@@ -2295,7 +2149,6 @@ export namespace AuthEventType {
   export const filterSensitiveLog = (obj: AuthEventType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthEventType => __isa(o, "AuthEventType");
 }
 
 export enum AuthFlowType {
@@ -2335,7 +2188,6 @@ export enum ChallengeResponse {
  * <p>The challenge response type.</p>
  */
 export interface ChallengeResponseType {
-  __type?: "ChallengeResponseType";
   /**
    * <p>The challenge name</p>
    */
@@ -2351,14 +2203,12 @@ export namespace ChallengeResponseType {
   export const filterSensitiveLog = (obj: ChallengeResponseType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChallengeResponseType => __isa(o, "ChallengeResponseType");
 }
 
 /**
  * <p>Represents the request to change a user password.</p>
  */
 export interface ChangePasswordRequest {
-  __type?: "ChangePasswordRequest";
   /**
    * <p>The old password.</p>
    */
@@ -2382,28 +2232,23 @@ export namespace ChangePasswordRequest {
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
     ...(obj.ProposedPassword && { ProposedPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ChangePasswordRequest => __isa(o, "ChangePasswordRequest");
 }
 
 /**
  * <p>The response from the server to the change password request.</p>
  */
-export interface ChangePasswordResponse {
-  __type?: "ChangePasswordResponse";
-}
+export interface ChangePasswordResponse {}
 
 export namespace ChangePasswordResponse {
   export const filterSensitiveLog = (obj: ChangePasswordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangePasswordResponse => __isa(o, "ChangePasswordResponse");
 }
 
 /**
  * <p>The code delivery details being returned from the server.</p>
  */
 export interface CodeDeliveryDetailsType {
-  __type?: "CodeDeliveryDetailsType";
   /**
    * <p>The attribute name.</p>
    */
@@ -2424,7 +2269,6 @@ export namespace CodeDeliveryDetailsType {
   export const filterSensitiveLog = (obj: CodeDeliveryDetailsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeDeliveryDetailsType => __isa(o, "CodeDeliveryDetailsType");
 }
 
 /**
@@ -2444,7 +2288,6 @@ export namespace CodeDeliveryFailureException {
   export const filterSensitiveLog = (obj: CodeDeliveryFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeDeliveryFailureException => __isa(o, "CodeDeliveryFailureException");
 }
 
 /**
@@ -2464,14 +2307,12 @@ export namespace CodeMismatchException {
   export const filterSensitiveLog = (obj: CodeMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeMismatchException => __isa(o, "CodeMismatchException");
 }
 
 /**
  * <p>The compromised credentials actions type</p>
  */
 export interface CompromisedCredentialsActionsType {
-  __type?: "CompromisedCredentialsActionsType";
   /**
    * <p>The event action.</p>
    */
@@ -2482,7 +2323,6 @@ export namespace CompromisedCredentialsActionsType {
   export const filterSensitiveLog = (obj: CompromisedCredentialsActionsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompromisedCredentialsActionsType => __isa(o, "CompromisedCredentialsActionsType");
 }
 
 export enum CompromisedCredentialsEventActionType {
@@ -2494,7 +2334,6 @@ export enum CompromisedCredentialsEventActionType {
  * <p>The compromised credentials risk configuration type.</p>
  */
 export interface CompromisedCredentialsRiskConfigurationType {
-  __type?: "CompromisedCredentialsRiskConfigurationType";
   /**
    * <p>Perform the action for these events. The default is to perform all events if no event
    *             filter is specified.</p>
@@ -2511,8 +2350,6 @@ export namespace CompromisedCredentialsRiskConfigurationType {
   export const filterSensitiveLog = (obj: CompromisedCredentialsRiskConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompromisedCredentialsRiskConfigurationType =>
-    __isa(o, "CompromisedCredentialsRiskConfigurationType");
 }
 
 /**
@@ -2532,14 +2369,12 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>Confirms the device request.</p>
  */
 export interface ConfirmDeviceRequest {
-  __type?: "ConfirmDeviceRequest";
   /**
    * <p>The access token.</p>
    */
@@ -2566,14 +2401,12 @@ export namespace ConfirmDeviceRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ConfirmDeviceRequest => __isa(o, "ConfirmDeviceRequest");
 }
 
 /**
  * <p>Confirms the device response.</p>
  */
 export interface ConfirmDeviceResponse {
-  __type?: "ConfirmDeviceResponse";
   /**
    * <p>Indicates whether the user confirmation is necessary to confirm the device
    *             response.</p>
@@ -2585,14 +2418,12 @@ export namespace ConfirmDeviceResponse {
   export const filterSensitiveLog = (obj: ConfirmDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmDeviceResponse => __isa(o, "ConfirmDeviceResponse");
 }
 
 /**
  * <p>The request representing the confirmation for a password reset.</p>
  */
 export interface ConfirmForgotPasswordRequest {
-  __type?: "ConfirmForgotPasswordRequest";
   /**
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
    *             user pool client and username plus the client ID in the message.</p>
@@ -2679,29 +2510,24 @@ export namespace ConfirmForgotPasswordRequest {
     ...(obj.Username && { Username: SENSITIVE_STRING }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ConfirmForgotPasswordRequest => __isa(o, "ConfirmForgotPasswordRequest");
 }
 
 /**
  * <p>The response from the server that results from a user's request to retrieve a
  *             forgotten password.</p>
  */
-export interface ConfirmForgotPasswordResponse {
-  __type?: "ConfirmForgotPasswordResponse";
-}
+export interface ConfirmForgotPasswordResponse {}
 
 export namespace ConfirmForgotPasswordResponse {
   export const filterSensitiveLog = (obj: ConfirmForgotPasswordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmForgotPasswordResponse => __isa(o, "ConfirmForgotPasswordResponse");
 }
 
 /**
  * <p>Represents the request to confirm registration of a user.</p>
  */
 export interface ConfirmSignUpRequest {
-  __type?: "ConfirmSignUpRequest";
   /**
    * <p>Boolean to be specified to force user confirmation irrespective of existing alias. By
    *             default set to <code>False</code>. If this parameter is set to <code>True</code> and the
@@ -2789,21 +2615,17 @@ export namespace ConfirmSignUpRequest {
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ConfirmSignUpRequest => __isa(o, "ConfirmSignUpRequest");
 }
 
 /**
  * <p>Represents the response from the server for the registration confirmation.</p>
  */
-export interface ConfirmSignUpResponse {
-  __type?: "ConfirmSignUpResponse";
-}
+export interface ConfirmSignUpResponse {}
 
 export namespace ConfirmSignUpResponse {
   export const filterSensitiveLog = (obj: ConfirmSignUpResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfirmSignUpResponse => __isa(o, "ConfirmSignUpResponse");
 }
 
 /**
@@ -2811,7 +2633,6 @@ export namespace ConfirmSignUpResponse {
  *             Amazon Cognito advanced security.</p>
  */
 export interface ContextDataType {
-  __type?: "ContextDataType";
   /**
    * <p>HttpHeaders received on your server in same order.</p>
    */
@@ -2843,11 +2664,9 @@ export namespace ContextDataType {
   export const filterSensitiveLog = (obj: ContextDataType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContextDataType => __isa(o, "ContextDataType");
 }
 
 export interface CreateGroupRequest {
-  __type?: "CreateGroupRequest";
   /**
    * <p>A nonnegative integer value that specifies the precedence of this group relative to
    *             the other groups that a user can belong to in the user pool. Zero is the highest
@@ -2891,11 +2710,9 @@ export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 export interface CreateGroupResponse {
-  __type?: "CreateGroupResponse";
   /**
    * <p>The group object for the group.</p>
    */
@@ -2906,11 +2723,9 @@ export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResponse => __isa(o, "CreateGroupResponse");
 }
 
 export interface CreateIdentityProviderRequest {
-  __type?: "CreateIdentityProviderRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -3039,11 +2854,9 @@ export namespace CreateIdentityProviderRequest {
   export const filterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIdentityProviderRequest => __isa(o, "CreateIdentityProviderRequest");
 }
 
 export interface CreateIdentityProviderResponse {
-  __type?: "CreateIdentityProviderResponse";
   /**
    * <p>The newly created identity provider object.</p>
    */
@@ -3054,11 +2867,9 @@ export namespace CreateIdentityProviderResponse {
   export const filterSensitiveLog = (obj: CreateIdentityProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIdentityProviderResponse => __isa(o, "CreateIdentityProviderResponse");
 }
 
 export interface CreateResourceServerRequest {
-  __type?: "CreateResourceServerRequest";
   /**
    * <p>A unique resource server identifier for the resource server. This could be an HTTPS
    *             endpoint where the resource server is located. For example,
@@ -3087,11 +2898,9 @@ export namespace CreateResourceServerRequest {
   export const filterSensitiveLog = (obj: CreateResourceServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceServerRequest => __isa(o, "CreateResourceServerRequest");
 }
 
 export interface CreateResourceServerResponse {
-  __type?: "CreateResourceServerResponse";
   /**
    * <p>The newly created resource server.</p>
    */
@@ -3102,14 +2911,12 @@ export namespace CreateResourceServerResponse {
   export const filterSensitiveLog = (obj: CreateResourceServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceServerResponse => __isa(o, "CreateResourceServerResponse");
 }
 
 /**
  * <p>Represents the request to create the user import job.</p>
  */
 export interface CreateUserImportJobRequest {
-  __type?: "CreateUserImportJobRequest";
   /**
    * <p>The user pool ID for the user pool that the users are being imported into.</p>
    */
@@ -3130,7 +2937,6 @@ export namespace CreateUserImportJobRequest {
   export const filterSensitiveLog = (obj: CreateUserImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserImportJobRequest => __isa(o, "CreateUserImportJobRequest");
 }
 
 /**
@@ -3138,7 +2944,6 @@ export namespace CreateUserImportJobRequest {
  *             job.</p>
  */
 export interface CreateUserImportJobResponse {
-  __type?: "CreateUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
    */
@@ -3149,14 +2954,12 @@ export namespace CreateUserImportJobResponse {
   export const filterSensitiveLog = (obj: CreateUserImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserImportJobResponse => __isa(o, "CreateUserImportJobResponse");
 }
 
 /**
  * <p>Represents the request to create a user pool client.</p>
  */
 export interface CreateUserPoolClientRequest {
-  __type?: "CreateUserPoolClientRequest";
   /**
    * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
    *         <p>A redirect URI must:</p>
@@ -3404,14 +3207,12 @@ export namespace CreateUserPoolClientRequest {
   export const filterSensitiveLog = (obj: CreateUserPoolClientRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserPoolClientRequest => __isa(o, "CreateUserPoolClientRequest");
 }
 
 /**
  * <p>Represents the response from the server to create a user pool client.</p>
  */
 export interface CreateUserPoolClientResponse {
-  __type?: "CreateUserPoolClientResponse";
   /**
    * <p>The user pool client that was just created.</p>
    */
@@ -3423,11 +3224,9 @@ export namespace CreateUserPoolClientResponse {
     ...obj,
     ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
   });
-  export const isa = (o: any): o is CreateUserPoolClientResponse => __isa(o, "CreateUserPoolClientResponse");
 }
 
 export interface CreateUserPoolDomainRequest {
-  __type?: "CreateUserPoolDomainRequest";
   /**
    * <p>The domain string.</p>
    */
@@ -3453,11 +3252,9 @@ export namespace CreateUserPoolDomainRequest {
   export const filterSensitiveLog = (obj: CreateUserPoolDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserPoolDomainRequest => __isa(o, "CreateUserPoolDomainRequest");
 }
 
 export interface CreateUserPoolDomainResponse {
-  __type?: "CreateUserPoolDomainResponse";
   /**
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up
    *             with your Domain Name Service (DNS) provider.</p>
@@ -3469,14 +3266,12 @@ export namespace CreateUserPoolDomainResponse {
   export const filterSensitiveLog = (obj: CreateUserPoolDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserPoolDomainResponse => __isa(o, "CreateUserPoolDomainResponse");
 }
 
 /**
  * <p>Represents the request to create a user pool.</p>
  */
 export interface CreateUserPoolRequest {
-  __type?: "CreateUserPoolRequest";
   /**
    * <p>The email configuration.</p>
    */
@@ -3617,14 +3412,12 @@ export namespace CreateUserPoolRequest {
   export const filterSensitiveLog = (obj: CreateUserPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserPoolRequest => __isa(o, "CreateUserPoolRequest");
 }
 
 /**
  * <p>Represents the response from the server for the request to create a user pool.</p>
  */
 export interface CreateUserPoolResponse {
-  __type?: "CreateUserPoolResponse";
   /**
    * <p>A container for the user pool details.</p>
    */
@@ -3635,7 +3428,6 @@ export namespace CreateUserPoolResponse {
   export const filterSensitiveLog = (obj: CreateUserPoolResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserPoolResponse => __isa(o, "CreateUserPoolResponse");
 }
 
 /**
@@ -3643,7 +3435,6 @@ export namespace CreateUserPoolResponse {
  *             your application.</p>
  */
 export interface CustomDomainConfigType {
-  __type?: "CustomDomainConfigType";
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use
    *             this certificate for the subdomain of your custom domain.</p>
@@ -3655,7 +3446,6 @@ export namespace CustomDomainConfigType {
   export const filterSensitiveLog = (obj: CustomDomainConfigType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomDomainConfigType => __isa(o, "CustomDomainConfigType");
 }
 
 export enum DefaultEmailOptionType {
@@ -3664,7 +3454,6 @@ export enum DefaultEmailOptionType {
 }
 
 export interface DeleteGroupRequest {
-  __type?: "DeleteGroupRequest";
   /**
    * <p>The user pool ID for the user pool.</p>
    */
@@ -3680,11 +3469,9 @@ export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
 export interface DeleteIdentityProviderRequest {
-  __type?: "DeleteIdentityProviderRequest";
   /**
    * <p>The identity provider name.</p>
    */
@@ -3700,11 +3487,9 @@ export namespace DeleteIdentityProviderRequest {
   export const filterSensitiveLog = (obj: DeleteIdentityProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentityProviderRequest => __isa(o, "DeleteIdentityProviderRequest");
 }
 
 export interface DeleteResourceServerRequest {
-  __type?: "DeleteResourceServerRequest";
   /**
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
    */
@@ -3720,14 +3505,12 @@ export namespace DeleteResourceServerRequest {
   export const filterSensitiveLog = (obj: DeleteResourceServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceServerRequest => __isa(o, "DeleteResourceServerRequest");
 }
 
 /**
  * <p>Represents the request to delete user attributes.</p>
  */
 export interface DeleteUserAttributesRequest {
-  __type?: "DeleteUserAttributesRequest";
   /**
    * <p>The access token used in the request to delete user attributes.</p>
    */
@@ -3746,28 +3529,23 @@ export namespace DeleteUserAttributesRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteUserAttributesRequest => __isa(o, "DeleteUserAttributesRequest");
 }
 
 /**
  * <p>Represents the response from the server to delete user attributes.</p>
  */
-export interface DeleteUserAttributesResponse {
-  __type?: "DeleteUserAttributesResponse";
-}
+export interface DeleteUserAttributesResponse {}
 
 export namespace DeleteUserAttributesResponse {
   export const filterSensitiveLog = (obj: DeleteUserAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserAttributesResponse => __isa(o, "DeleteUserAttributesResponse");
 }
 
 /**
  * <p>Represents the request to delete a user pool client.</p>
  */
 export interface DeleteUserPoolClientRequest {
-  __type?: "DeleteUserPoolClientRequest";
   /**
    * <p>The app client ID of the app associated with the user pool.</p>
    */
@@ -3784,11 +3562,9 @@ export namespace DeleteUserPoolClientRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteUserPoolClientRequest => __isa(o, "DeleteUserPoolClientRequest");
 }
 
 export interface DeleteUserPoolDomainRequest {
-  __type?: "DeleteUserPoolDomainRequest";
   /**
    * <p>The domain string.</p>
    */
@@ -3804,25 +3580,20 @@ export namespace DeleteUserPoolDomainRequest {
   export const filterSensitiveLog = (obj: DeleteUserPoolDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserPoolDomainRequest => __isa(o, "DeleteUserPoolDomainRequest");
 }
 
-export interface DeleteUserPoolDomainResponse {
-  __type?: "DeleteUserPoolDomainResponse";
-}
+export interface DeleteUserPoolDomainResponse {}
 
 export namespace DeleteUserPoolDomainResponse {
   export const filterSensitiveLog = (obj: DeleteUserPoolDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserPoolDomainResponse => __isa(o, "DeleteUserPoolDomainResponse");
 }
 
 /**
  * <p>Represents the request to delete a user pool.</p>
  */
 export interface DeleteUserPoolRequest {
-  __type?: "DeleteUserPoolRequest";
   /**
    * <p>The user pool ID for the user pool you want to delete.</p>
    */
@@ -3833,14 +3604,12 @@ export namespace DeleteUserPoolRequest {
   export const filterSensitiveLog = (obj: DeleteUserPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserPoolRequest => __isa(o, "DeleteUserPoolRequest");
 }
 
 /**
  * <p>Represents the request to delete a user.</p>
  */
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The access token from a request to delete a user.</p>
    */
@@ -3852,7 +3621,6 @@ export namespace DeleteUserRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export enum DeliveryMediumType {
@@ -3861,7 +3629,6 @@ export enum DeliveryMediumType {
 }
 
 export interface DescribeIdentityProviderRequest {
-  __type?: "DescribeIdentityProviderRequest";
   /**
    * <p>The identity provider name.</p>
    */
@@ -3877,11 +3644,9 @@ export namespace DescribeIdentityProviderRequest {
   export const filterSensitiveLog = (obj: DescribeIdentityProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityProviderRequest => __isa(o, "DescribeIdentityProviderRequest");
 }
 
 export interface DescribeIdentityProviderResponse {
-  __type?: "DescribeIdentityProviderResponse";
   /**
    * <p>The identity provider that was deleted.</p>
    */
@@ -3892,11 +3657,9 @@ export namespace DescribeIdentityProviderResponse {
   export const filterSensitiveLog = (obj: DescribeIdentityProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityProviderResponse => __isa(o, "DescribeIdentityProviderResponse");
 }
 
 export interface DescribeResourceServerRequest {
-  __type?: "DescribeResourceServerRequest";
   /**
    * <p>The identifier for the resource server</p>
    */
@@ -3912,11 +3675,9 @@ export namespace DescribeResourceServerRequest {
   export const filterSensitiveLog = (obj: DescribeResourceServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceServerRequest => __isa(o, "DescribeResourceServerRequest");
 }
 
 export interface DescribeResourceServerResponse {
-  __type?: "DescribeResourceServerResponse";
   /**
    * <p>The resource server.</p>
    */
@@ -3927,11 +3688,9 @@ export namespace DescribeResourceServerResponse {
   export const filterSensitiveLog = (obj: DescribeResourceServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceServerResponse => __isa(o, "DescribeResourceServerResponse");
 }
 
 export interface DescribeRiskConfigurationRequest {
-  __type?: "DescribeRiskConfigurationRequest";
   /**
    * <p>The app client ID.</p>
    */
@@ -3948,11 +3707,9 @@ export namespace DescribeRiskConfigurationRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeRiskConfigurationRequest => __isa(o, "DescribeRiskConfigurationRequest");
 }
 
 export interface DescribeRiskConfigurationResponse {
-  __type?: "DescribeRiskConfigurationResponse";
   /**
    * <p>The risk configuration.</p>
    */
@@ -3966,14 +3723,12 @@ export namespace DescribeRiskConfigurationResponse {
       RiskConfiguration: RiskConfigurationType.filterSensitiveLog(obj.RiskConfiguration),
     }),
   });
-  export const isa = (o: any): o is DescribeRiskConfigurationResponse => __isa(o, "DescribeRiskConfigurationResponse");
 }
 
 /**
  * <p>Represents the request to describe the user import job.</p>
  */
 export interface DescribeUserImportJobRequest {
-  __type?: "DescribeUserImportJobRequest";
   /**
    * <p>The job ID for the user import job.</p>
    */
@@ -3989,7 +3744,6 @@ export namespace DescribeUserImportJobRequest {
   export const filterSensitiveLog = (obj: DescribeUserImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserImportJobRequest => __isa(o, "DescribeUserImportJobRequest");
 }
 
 /**
@@ -3997,7 +3751,6 @@ export namespace DescribeUserImportJobRequest {
  *             job.</p>
  */
 export interface DescribeUserImportJobResponse {
-  __type?: "DescribeUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
    */
@@ -4008,14 +3761,12 @@ export namespace DescribeUserImportJobResponse {
   export const filterSensitiveLog = (obj: DescribeUserImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserImportJobResponse => __isa(o, "DescribeUserImportJobResponse");
 }
 
 /**
  * <p>Represents the request to describe a user pool client.</p>
  */
 export interface DescribeUserPoolClientRequest {
-  __type?: "DescribeUserPoolClientRequest";
   /**
    * <p>The app client ID of the app associated with the user pool.</p>
    */
@@ -4032,7 +3783,6 @@ export namespace DescribeUserPoolClientRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeUserPoolClientRequest => __isa(o, "DescribeUserPoolClientRequest");
 }
 
 /**
@@ -4040,7 +3790,6 @@ export namespace DescribeUserPoolClientRequest {
  *             client.</p>
  */
 export interface DescribeUserPoolClientResponse {
-  __type?: "DescribeUserPoolClientResponse";
   /**
    * <p>The user pool client from a server response to describe the user pool client.</p>
    */
@@ -4052,11 +3801,9 @@ export namespace DescribeUserPoolClientResponse {
     ...obj,
     ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
   });
-  export const isa = (o: any): o is DescribeUserPoolClientResponse => __isa(o, "DescribeUserPoolClientResponse");
 }
 
 export interface DescribeUserPoolDomainRequest {
-  __type?: "DescribeUserPoolDomainRequest";
   /**
    * <p>The domain string.</p>
    */
@@ -4067,11 +3814,9 @@ export namespace DescribeUserPoolDomainRequest {
   export const filterSensitiveLog = (obj: DescribeUserPoolDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserPoolDomainRequest => __isa(o, "DescribeUserPoolDomainRequest");
 }
 
 export interface DescribeUserPoolDomainResponse {
-  __type?: "DescribeUserPoolDomainResponse";
   /**
    * <p>A domain description object containing information about the domain.</p>
    */
@@ -4082,14 +3827,12 @@ export namespace DescribeUserPoolDomainResponse {
   export const filterSensitiveLog = (obj: DescribeUserPoolDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserPoolDomainResponse => __isa(o, "DescribeUserPoolDomainResponse");
 }
 
 /**
  * <p>Represents the request to describe the user pool.</p>
  */
 export interface DescribeUserPoolRequest {
-  __type?: "DescribeUserPoolRequest";
   /**
    * <p>The user pool ID for the user pool you want to describe.</p>
    */
@@ -4100,14 +3843,12 @@ export namespace DescribeUserPoolRequest {
   export const filterSensitiveLog = (obj: DescribeUserPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserPoolRequest => __isa(o, "DescribeUserPoolRequest");
 }
 
 /**
  * <p>Represents the response to describe the user pool.</p>
  */
 export interface DescribeUserPoolResponse {
-  __type?: "DescribeUserPoolResponse";
   /**
    * <p>The container of metadata returned by the server to describe the pool.</p>
    */
@@ -4118,14 +3859,12 @@ export namespace DescribeUserPoolResponse {
   export const filterSensitiveLog = (obj: DescribeUserPoolResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserPoolResponse => __isa(o, "DescribeUserPoolResponse");
 }
 
 /**
  * <p>The configuration for the user pool's device tracking.</p>
  */
 export interface DeviceConfigurationType {
-  __type?: "DeviceConfigurationType";
   /**
    * <p>If true, a device is only remembered on user prompt.</p>
    */
@@ -4142,7 +3881,6 @@ export namespace DeviceConfigurationType {
   export const filterSensitiveLog = (obj: DeviceConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceConfigurationType => __isa(o, "DeviceConfigurationType");
 }
 
 export enum DeviceRememberedStatusType {
@@ -4154,7 +3892,6 @@ export enum DeviceRememberedStatusType {
  * <p>The device verifier against which it will be authenticated.</p>
  */
 export interface DeviceSecretVerifierConfigType {
-  __type?: "DeviceSecretVerifierConfigType";
   /**
    * <p>The password verifier.</p>
    */
@@ -4170,14 +3907,12 @@ export namespace DeviceSecretVerifierConfigType {
   export const filterSensitiveLog = (obj: DeviceSecretVerifierConfigType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceSecretVerifierConfigType => __isa(o, "DeviceSecretVerifierConfigType");
 }
 
 /**
  * <p>The device type.</p>
  */
 export interface DeviceType {
-  __type?: "DeviceType";
   /**
    * <p>The creation date of the device.</p>
    */
@@ -4211,14 +3946,12 @@ export namespace DeviceType {
       DeviceAttributes: obj.DeviceAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DeviceType => __isa(o, "DeviceType");
 }
 
 /**
  * <p>A container for information about a domain.</p>
  */
 export interface DomainDescriptionType {
-  __type?: "DomainDescriptionType";
   /**
    * <p>The S3 bucket where the static files for this domain are stored.</p>
    */
@@ -4265,7 +3998,6 @@ export namespace DomainDescriptionType {
   export const filterSensitiveLog = (obj: DomainDescriptionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDescriptionType => __isa(o, "DomainDescriptionType");
 }
 
 export enum DomainStatusType {
@@ -4290,14 +4022,12 @@ export namespace DuplicateProviderException {
   export const filterSensitiveLog = (obj: DuplicateProviderException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateProviderException => __isa(o, "DuplicateProviderException");
 }
 
 /**
  * <p>The email configuration type.</p>
  */
 export interface EmailConfigurationType {
-  __type?: "EmailConfigurationType";
   /**
    * <p>Identifies either the sender’s email address or the sender’s name with their email
    *             address. For example, <code>testuser@example.com</code> or <code>Test User
@@ -4398,7 +4128,6 @@ export namespace EmailConfigurationType {
   export const filterSensitiveLog = (obj: EmailConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailConfigurationType => __isa(o, "EmailConfigurationType");
 }
 
 export enum EmailSendingAccountType {
@@ -4420,14 +4149,12 @@ export namespace EnableSoftwareTokenMFAException {
   export const filterSensitiveLog = (obj: EnableSoftwareTokenMFAException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSoftwareTokenMFAException => __isa(o, "EnableSoftwareTokenMFAException");
 }
 
 /**
  * <p>Specifies the user context data captured at the time of an event request.</p>
  */
 export interface EventContextDataType {
-  __type?: "EventContextDataType";
   /**
    * <p>The user's country.</p>
    */
@@ -4458,14 +4185,12 @@ export namespace EventContextDataType {
   export const filterSensitiveLog = (obj: EventContextDataType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventContextDataType => __isa(o, "EventContextDataType");
 }
 
 /**
  * <p>Specifies the event feedback type.</p>
  */
 export interface EventFeedbackType {
-  __type?: "EventFeedbackType";
   /**
    * <p>The provider.</p>
    */
@@ -4486,7 +4211,6 @@ export namespace EventFeedbackType {
   export const filterSensitiveLog = (obj: EventFeedbackType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventFeedbackType => __isa(o, "EventFeedbackType");
 }
 
 export enum EventFilterType {
@@ -4504,7 +4228,6 @@ export enum EventResponseType {
  * <p>The event risk type.</p>
  */
 export interface EventRiskType {
-  __type?: "EventRiskType";
   /**
    * <p>The risk decision.</p>
    */
@@ -4526,7 +4249,6 @@ export namespace EventRiskType {
   export const filterSensitiveLog = (obj: EventRiskType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventRiskType => __isa(o, "EventRiskType");
 }
 
 export enum EventType {
@@ -4551,7 +4273,6 @@ export namespace ExpiredCodeException {
   export const filterSensitiveLog = (obj: ExpiredCodeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpiredCodeException => __isa(o, "ExpiredCodeException");
 }
 
 export enum ExplicitAuthFlowsType {
@@ -4574,7 +4295,6 @@ export enum FeedbackValueType {
  * <p>Represents the request to forget the device.</p>
  */
 export interface ForgetDeviceRequest {
-  __type?: "ForgetDeviceRequest";
   /**
    * <p>The device key.</p>
    */
@@ -4591,14 +4311,12 @@ export namespace ForgetDeviceRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ForgetDeviceRequest => __isa(o, "ForgetDeviceRequest");
 }
 
 /**
  * <p>Represents the request to reset a user's password.</p>
  */
 export interface ForgotPasswordRequest {
-  __type?: "ForgotPasswordRequest";
   /**
    * <p>The user name of the user for whom you want to enter a code to reset a forgotten
    *             password.</p>
@@ -4674,7 +4392,6 @@ export namespace ForgotPasswordRequest {
     ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ForgotPasswordRequest => __isa(o, "ForgotPasswordRequest");
 }
 
 /**
@@ -4682,7 +4399,6 @@ export namespace ForgotPasswordRequest {
  *             password.</p>
  */
 export interface ForgotPasswordResponse {
-  __type?: "ForgotPasswordResponse";
   /**
    * <p>The code delivery details returned by the server in response to the request to reset a
    *             password.</p>
@@ -4694,7 +4410,6 @@ export namespace ForgotPasswordResponse {
   export const filterSensitiveLog = (obj: ForgotPasswordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForgotPasswordResponse => __isa(o, "ForgotPasswordResponse");
 }
 
 /**
@@ -4702,7 +4417,6 @@ export namespace ForgotPasswordResponse {
  *             import job.</p>
  */
 export interface GetCSVHeaderRequest {
-  __type?: "GetCSVHeaderRequest";
   /**
    * <p>The user pool ID for the user pool that the users are to be imported into.</p>
    */
@@ -4713,7 +4427,6 @@ export namespace GetCSVHeaderRequest {
   export const filterSensitiveLog = (obj: GetCSVHeaderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCSVHeaderRequest => __isa(o, "GetCSVHeaderRequest");
 }
 
 /**
@@ -4721,7 +4434,6 @@ export namespace GetCSVHeaderRequest {
  *             for the .csv file for the user import job.</p>
  */
 export interface GetCSVHeaderResponse {
-  __type?: "GetCSVHeaderResponse";
   /**
    * <p>The header information for the .csv file for the user import job.</p>
    */
@@ -4737,14 +4449,12 @@ export namespace GetCSVHeaderResponse {
   export const filterSensitiveLog = (obj: GetCSVHeaderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCSVHeaderResponse => __isa(o, "GetCSVHeaderResponse");
 }
 
 /**
  * <p>Represents the request to get the device.</p>
  */
 export interface GetDeviceRequest {
-  __type?: "GetDeviceRequest";
   /**
    * <p>The access token.</p>
    */
@@ -4761,14 +4471,12 @@ export namespace GetDeviceRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetDeviceRequest => __isa(o, "GetDeviceRequest");
 }
 
 /**
  * <p>Gets the device response.</p>
  */
 export interface GetDeviceResponse {
-  __type?: "GetDeviceResponse";
   /**
    * <p>The device.</p>
    */
@@ -4780,11 +4488,9 @@ export namespace GetDeviceResponse {
     ...obj,
     ...(obj.Device && { Device: DeviceType.filterSensitiveLog(obj.Device) }),
   });
-  export const isa = (o: any): o is GetDeviceResponse => __isa(o, "GetDeviceResponse");
 }
 
 export interface GetGroupRequest {
-  __type?: "GetGroupRequest";
   /**
    * <p>The user pool ID for the user pool.</p>
    */
@@ -4800,11 +4506,9 @@ export namespace GetGroupRequest {
   export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupRequest => __isa(o, "GetGroupRequest");
 }
 
 export interface GetGroupResponse {
-  __type?: "GetGroupResponse";
   /**
    * <p>The group object for the group.</p>
    */
@@ -4815,11 +4519,9 @@ export namespace GetGroupResponse {
   export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupResponse => __isa(o, "GetGroupResponse");
 }
 
 export interface GetIdentityProviderByIdentifierRequest {
-  __type?: "GetIdentityProviderByIdentifierRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -4835,12 +4537,9 @@ export namespace GetIdentityProviderByIdentifierRequest {
   export const filterSensitiveLog = (obj: GetIdentityProviderByIdentifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityProviderByIdentifierRequest =>
-    __isa(o, "GetIdentityProviderByIdentifierRequest");
 }
 
 export interface GetIdentityProviderByIdentifierResponse {
-  __type?: "GetIdentityProviderByIdentifierResponse";
   /**
    * <p>The identity provider object.</p>
    */
@@ -4851,15 +4550,12 @@ export namespace GetIdentityProviderByIdentifierResponse {
   export const filterSensitiveLog = (obj: GetIdentityProviderByIdentifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityProviderByIdentifierResponse =>
-    __isa(o, "GetIdentityProviderByIdentifierResponse");
 }
 
 /**
  * <p>Request to get a signing certificate from Cognito.</p>
  */
 export interface GetSigningCertificateRequest {
-  __type?: "GetSigningCertificateRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -4870,14 +4566,12 @@ export namespace GetSigningCertificateRequest {
   export const filterSensitiveLog = (obj: GetSigningCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSigningCertificateRequest => __isa(o, "GetSigningCertificateRequest");
 }
 
 /**
  * <p>Response from Cognito for a signing certificate request.</p>
  */
 export interface GetSigningCertificateResponse {
-  __type?: "GetSigningCertificateResponse";
   /**
    * <p>The signing certificate.</p>
    */
@@ -4888,11 +4582,9 @@ export namespace GetSigningCertificateResponse {
   export const filterSensitiveLog = (obj: GetSigningCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSigningCertificateResponse => __isa(o, "GetSigningCertificateResponse");
 }
 
 export interface GetUICustomizationRequest {
-  __type?: "GetUICustomizationRequest";
   /**
    * <p>The client ID for the client app.</p>
    */
@@ -4909,11 +4601,9 @@ export namespace GetUICustomizationRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetUICustomizationRequest => __isa(o, "GetUICustomizationRequest");
 }
 
 export interface GetUICustomizationResponse {
-  __type?: "GetUICustomizationResponse";
   /**
    * <p>The UI customization information.</p>
    */
@@ -4925,14 +4615,12 @@ export namespace GetUICustomizationResponse {
     ...obj,
     ...(obj.UICustomization && { UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization) }),
   });
-  export const isa = (o: any): o is GetUICustomizationResponse => __isa(o, "GetUICustomizationResponse");
 }
 
 /**
  * <p>Represents the request to get user attribute verification.</p>
  */
 export interface GetUserAttributeVerificationCodeRequest {
-  __type?: "GetUserAttributeVerificationCodeRequest";
   /**
    * <p>The access token returned by the server response to get the user attribute
    *             verification code.</p>
@@ -4987,8 +4675,6 @@ export namespace GetUserAttributeVerificationCodeRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetUserAttributeVerificationCodeRequest =>
-    __isa(o, "GetUserAttributeVerificationCodeRequest");
 }
 
 /**
@@ -4996,7 +4682,6 @@ export namespace GetUserAttributeVerificationCodeRequest {
  *             attribute verification code.</p>
  */
 export interface GetUserAttributeVerificationCodeResponse {
-  __type?: "GetUserAttributeVerificationCodeResponse";
   /**
    * <p>The code delivery details returned by the server in response to the request to get the
    *             user attribute verification code.</p>
@@ -5008,12 +4693,9 @@ export namespace GetUserAttributeVerificationCodeResponse {
   export const filterSensitiveLog = (obj: GetUserAttributeVerificationCodeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserAttributeVerificationCodeResponse =>
-    __isa(o, "GetUserAttributeVerificationCodeResponse");
 }
 
 export interface GetUserPoolMfaConfigRequest {
-  __type?: "GetUserPoolMfaConfigRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -5024,11 +4706,9 @@ export namespace GetUserPoolMfaConfigRequest {
   export const filterSensitiveLog = (obj: GetUserPoolMfaConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserPoolMfaConfigRequest => __isa(o, "GetUserPoolMfaConfigRequest");
 }
 
 export interface GetUserPoolMfaConfigResponse {
-  __type?: "GetUserPoolMfaConfigResponse";
   /**
    * <p>The SMS text message multi-factor (MFA) configuration.</p>
    */
@@ -5064,14 +4744,12 @@ export namespace GetUserPoolMfaConfigResponse {
   export const filterSensitiveLog = (obj: GetUserPoolMfaConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserPoolMfaConfigResponse => __isa(o, "GetUserPoolMfaConfigResponse");
 }
 
 /**
  * <p>Represents the request to get information about the user.</p>
  */
 export interface GetUserRequest {
-  __type?: "GetUserRequest";
   /**
    * <p>The access token returned by the server response to get information about the
    *             user.</p>
@@ -5084,7 +4762,6 @@ export namespace GetUserRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetUserRequest => __isa(o, "GetUserRequest");
 }
 
 /**
@@ -5092,7 +4769,6 @@ export namespace GetUserRequest {
  *             user.</p>
  */
 export interface GetUserResponse {
-  __type?: "GetUserResponse";
   /**
    * <p>The user name of the user you wish to retrieve from the get user request.</p>
    */
@@ -5135,14 +4811,12 @@ export namespace GetUserResponse {
       UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is GetUserResponse => __isa(o, "GetUserResponse");
 }
 
 /**
  * <p>Represents the request to sign out all devices.</p>
  */
 export interface GlobalSignOutRequest {
-  __type?: "GlobalSignOutRequest";
   /**
    * <p>The access token.</p>
    */
@@ -5154,21 +4828,17 @@ export namespace GlobalSignOutRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GlobalSignOutRequest => __isa(o, "GlobalSignOutRequest");
 }
 
 /**
  * <p>The response to the request to sign out all devices.</p>
  */
-export interface GlobalSignOutResponse {
-  __type?: "GlobalSignOutResponse";
-}
+export interface GlobalSignOutResponse {}
 
 export namespace GlobalSignOutResponse {
   export const filterSensitiveLog = (obj: GlobalSignOutResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalSignOutResponse => __isa(o, "GlobalSignOutResponse");
 }
 
 /**
@@ -5185,14 +4855,12 @@ export namespace GroupExistsException {
   export const filterSensitiveLog = (obj: GroupExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupExistsException => __isa(o, "GroupExistsException");
 }
 
 /**
  * <p>The group type.</p>
  */
 export interface GroupType {
-  __type?: "GroupType";
   /**
    * <p>A nonnegative integer value that specifies the precedence of this group relative to
    *             the other groups that a user can belong to in the user pool. If a user belongs to two or
@@ -5246,14 +4914,12 @@ export namespace GroupType {
   export const filterSensitiveLog = (obj: GroupType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupType => __isa(o, "GroupType");
 }
 
 /**
  * <p>The HTTP header.</p>
  */
 export interface HttpHeader {
-  __type?: "HttpHeader";
   /**
    * <p>The header value.</p>
    */
@@ -5269,14 +4935,12 @@ export namespace HttpHeader {
   export const filterSensitiveLog = (obj: HttpHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpHeader => __isa(o, "HttpHeader");
 }
 
 /**
  * <p>A container for information about an identity provider.</p>
  */
 export interface IdentityProviderType {
-  __type?: "IdentityProviderType";
   /**
    * <p>The identity provider details. The following list describes the provider detail keys
    *             for each identity provider type.</p>
@@ -5415,7 +5079,6 @@ export namespace IdentityProviderType {
   export const filterSensitiveLog = (obj: IdentityProviderType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityProviderType => __isa(o, "IdentityProviderType");
 }
 
 export enum IdentityProviderTypeType {
@@ -5431,7 +5094,6 @@ export enum IdentityProviderTypeType {
  * <p>Initiates the authentication request.</p>
  */
 export interface InitiateAuthRequest {
-  __type?: "InitiateAuthRequest";
   /**
    * <p>The authentication parameters. These are inputs corresponding to the
    *                 <code>AuthFlow</code> that you are invoking. The required values depend on the value
@@ -5617,14 +5279,12 @@ export namespace InitiateAuthRequest {
     ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InitiateAuthRequest => __isa(o, "InitiateAuthRequest");
 }
 
 /**
  * <p>Initiates the authentication response.</p>
  */
 export interface InitiateAuthResponse {
-  __type?: "InitiateAuthResponse";
   /**
    * <p>The session which should be passed both ways in challenge-response calls to the
    *             service. If the  or  API call determines that the caller needs to
@@ -5706,7 +5366,6 @@ export namespace InitiateAuthResponse {
       AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
     }),
   });
-  export const isa = (o: any): o is InitiateAuthResponse => __isa(o, "InitiateAuthResponse");
 }
 
 /**
@@ -5725,7 +5384,6 @@ export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
@@ -5746,8 +5404,6 @@ export namespace InvalidEmailRoleAccessPolicyException {
   export const filterSensitiveLog = (obj: InvalidEmailRoleAccessPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEmailRoleAccessPolicyException =>
-    __isa(o, "InvalidEmailRoleAccessPolicyException");
 }
 
 /**
@@ -5768,7 +5424,6 @@ export namespace InvalidLambdaResponseException {
   export const filterSensitiveLog = (obj: InvalidLambdaResponseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLambdaResponseException => __isa(o, "InvalidLambdaResponseException");
 }
 
 /**
@@ -5784,7 +5439,6 @@ export namespace InvalidOAuthFlowException {
   export const filterSensitiveLog = (obj: InvalidOAuthFlowException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOAuthFlowException => __isa(o, "InvalidOAuthFlowException");
 }
 
 /**
@@ -5805,7 +5459,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -5826,7 +5479,6 @@ export namespace InvalidPasswordException {
   export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPasswordException => __isa(o, "InvalidPasswordException");
 }
 
 /**
@@ -5847,8 +5499,6 @@ export namespace InvalidSmsRoleAccessPolicyException {
   export const filterSensitiveLog = (obj: InvalidSmsRoleAccessPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSmsRoleAccessPolicyException =>
-    __isa(o, "InvalidSmsRoleAccessPolicyException");
 }
 
 /**
@@ -5870,8 +5520,6 @@ export namespace InvalidSmsRoleTrustRelationshipException {
   export const filterSensitiveLog = (obj: InvalidSmsRoleTrustRelationshipException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSmsRoleTrustRelationshipException =>
-    __isa(o, "InvalidSmsRoleTrustRelationshipException");
 }
 
 /**
@@ -5890,15 +5538,12 @@ export namespace InvalidUserPoolConfigurationException {
   export const filterSensitiveLog = (obj: InvalidUserPoolConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidUserPoolConfigurationException =>
-    __isa(o, "InvalidUserPoolConfigurationException");
 }
 
 /**
  * <p>Specifies the configuration for AWS Lambda triggers.</p>
  */
 export interface LambdaConfigType {
-  __type?: "LambdaConfigType";
   /**
    * <p>A pre-registration AWS Lambda trigger.</p>
    */
@@ -5954,7 +5599,6 @@ export namespace LambdaConfigType {
   export const filterSensitiveLog = (obj: LambdaConfigType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaConfigType => __isa(o, "LambdaConfigType");
 }
 
 /**
@@ -5974,14 +5618,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Represents the request to list the devices.</p>
  */
 export interface ListDevicesRequest {
-  __type?: "ListDevicesRequest";
   /**
    * <p>The pagination token for the list request.</p>
    */
@@ -6003,14 +5645,12 @@ export namespace ListDevicesRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListDevicesRequest => __isa(o, "ListDevicesRequest");
 }
 
 /**
  * <p>Represents the response to list devices.</p>
  */
 export interface ListDevicesResponse {
-  __type?: "ListDevicesResponse";
   /**
    * <p>The pagination token for the list device response.</p>
    */
@@ -6026,11 +5666,9 @@ export namespace ListDevicesResponse {
   export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevicesResponse => __isa(o, "ListDevicesResponse");
 }
 
 export interface ListGroupsRequest {
-  __type?: "ListGroupsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -6052,11 +5690,9 @@ export namespace ListGroupsRequest {
   export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsRequest => __isa(o, "ListGroupsRequest");
 }
 
 export interface ListGroupsResponse {
-  __type?: "ListGroupsResponse";
   /**
    * <p>The group objects for the groups.</p>
    */
@@ -6073,11 +5709,9 @@ export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsResponse => __isa(o, "ListGroupsResponse");
 }
 
 export interface ListIdentityProvidersRequest {
-  __type?: "ListIdentityProvidersRequest";
   /**
    * <p>A pagination token.</p>
    */
@@ -6098,11 +5732,9 @@ export namespace ListIdentityProvidersRequest {
   export const filterSensitiveLog = (obj: ListIdentityProvidersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityProvidersRequest => __isa(o, "ListIdentityProvidersRequest");
 }
 
 export interface ListIdentityProvidersResponse {
-  __type?: "ListIdentityProvidersResponse";
   /**
    * <p>A pagination token.</p>
    */
@@ -6118,11 +5750,9 @@ export namespace ListIdentityProvidersResponse {
   export const filterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityProvidersResponse => __isa(o, "ListIdentityProvidersResponse");
 }
 
 export interface ListResourceServersRequest {
-  __type?: "ListResourceServersRequest";
   /**
    * <p>A pagination token.</p>
    */
@@ -6143,11 +5773,9 @@ export namespace ListResourceServersRequest {
   export const filterSensitiveLog = (obj: ListResourceServersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceServersRequest => __isa(o, "ListResourceServersRequest");
 }
 
 export interface ListResourceServersResponse {
-  __type?: "ListResourceServersResponse";
   /**
    * <p>The resource servers.</p>
    */
@@ -6163,11 +5791,9 @@ export namespace ListResourceServersResponse {
   export const filterSensitiveLog = (obj: ListResourceServersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceServersResponse => __isa(o, "ListResourceServersResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
    */
@@ -6178,11 +5804,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are assigned to the user pool.</p>
    */
@@ -6193,14 +5817,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Represents the request to list the user import jobs.</p>
  */
 export interface ListUserImportJobsRequest {
-  __type?: "ListUserImportJobsRequest";
   /**
    * <p>The user pool ID for the user pool that the users are being imported into.</p>
    */
@@ -6223,7 +5845,6 @@ export namespace ListUserImportJobsRequest {
   export const filterSensitiveLog = (obj: ListUserImportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserImportJobsRequest => __isa(o, "ListUserImportJobsRequest");
 }
 
 /**
@@ -6231,7 +5852,6 @@ export namespace ListUserImportJobsRequest {
  *             jobs.</p>
  */
 export interface ListUserImportJobsResponse {
-  __type?: "ListUserImportJobsResponse";
   /**
    * <p>The user import jobs.</p>
    */
@@ -6248,14 +5868,12 @@ export namespace ListUserImportJobsResponse {
   export const filterSensitiveLog = (obj: ListUserImportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserImportJobsResponse => __isa(o, "ListUserImportJobsResponse");
 }
 
 /**
  * <p>Represents the request to list the user pool clients.</p>
  */
 export interface ListUserPoolClientsRequest {
-  __type?: "ListUserPoolClientsRequest";
   /**
    * <p>The user pool ID for the user pool where you want to list user pool clients.</p>
    */
@@ -6278,14 +5896,12 @@ export namespace ListUserPoolClientsRequest {
   export const filterSensitiveLog = (obj: ListUserPoolClientsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserPoolClientsRequest => __isa(o, "ListUserPoolClientsRequest");
 }
 
 /**
  * <p>Represents the response from the server that lists user pool clients.</p>
  */
 export interface ListUserPoolClientsResponse {
-  __type?: "ListUserPoolClientsResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -6305,14 +5921,12 @@ export namespace ListUserPoolClientsResponse {
       UserPoolClients: obj.UserPoolClients.map((item) => UserPoolClientDescription.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is ListUserPoolClientsResponse => __isa(o, "ListUserPoolClientsResponse");
 }
 
 /**
  * <p>Represents the request to list user pools.</p>
  */
 export interface ListUserPoolsRequest {
-  __type?: "ListUserPoolsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -6330,14 +5944,12 @@ export namespace ListUserPoolsRequest {
   export const filterSensitiveLog = (obj: ListUserPoolsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserPoolsRequest => __isa(o, "ListUserPoolsRequest");
 }
 
 /**
  * <p>Represents the response to list user pools.</p>
  */
 export interface ListUserPoolsResponse {
-  __type?: "ListUserPoolsResponse";
   /**
    * <p>The user pools from the response to list users.</p>
    */
@@ -6354,11 +5966,9 @@ export namespace ListUserPoolsResponse {
   export const filterSensitiveLog = (obj: ListUserPoolsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserPoolsResponse => __isa(o, "ListUserPoolsResponse");
 }
 
 export interface ListUsersInGroupRequest {
-  __type?: "ListUsersInGroupRequest";
   /**
    * <p>The name of the group.</p>
    */
@@ -6385,11 +5995,9 @@ export namespace ListUsersInGroupRequest {
   export const filterSensitiveLog = (obj: ListUsersInGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersInGroupRequest => __isa(o, "ListUsersInGroupRequest");
 }
 
 export interface ListUsersInGroupResponse {
-  __type?: "ListUsersInGroupResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -6407,14 +6015,12 @@ export namespace ListUsersInGroupResponse {
     ...obj,
     ...(obj.Users && { Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListUsersInGroupResponse => __isa(o, "ListUsersInGroupResponse");
 }
 
 /**
  * <p>Represents the request to list users.</p>
  */
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>An array of strings, where each string is the name of a user attribute to be returned
    *             for each user in the search results. If the array is null, all attributes are
@@ -6526,14 +6132,12 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 /**
  * <p>The response from the request to list users.</p>
  */
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p>The users returned in the request to list users.</p>
    */
@@ -6551,7 +6155,6 @@ export namespace ListUsersResponse {
     ...obj,
     ...(obj.Users && { Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 export enum MessageActionType {
@@ -6563,7 +6166,6 @@ export enum MessageActionType {
  * <p>The message template structure.</p>
  */
 export interface MessageTemplateType {
-  __type?: "MessageTemplateType";
   /**
    * <p>The message template for email messages.</p>
    */
@@ -6584,7 +6186,6 @@ export namespace MessageTemplateType {
   export const filterSensitiveLog = (obj: MessageTemplateType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageTemplateType => __isa(o, "MessageTemplateType");
 }
 
 /**
@@ -6605,7 +6206,6 @@ export namespace MFAMethodNotFoundException {
   export const filterSensitiveLog = (obj: MFAMethodNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MFAMethodNotFoundException => __isa(o, "MFAMethodNotFoundException");
 }
 
 /**
@@ -6618,7 +6218,6 @@ export namespace MFAMethodNotFoundException {
  *         <p>To look up information about either type of MFA configuration, use the <a>AdminGetUserResponse$UserMFASettingList</a> or <a>GetUserResponse$UserMFASettingList</a> responses.</p>
  */
 export interface MFAOptionType {
-  __type?: "MFAOptionType";
   /**
    * <p>The delivery medium to send the MFA code. You can use this parameter to set only the
    *                 <code>SMS</code> delivery medium value.</p>
@@ -6636,14 +6235,12 @@ export namespace MFAOptionType {
   export const filterSensitiveLog = (obj: MFAOptionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MFAOptionType => __isa(o, "MFAOptionType");
 }
 
 /**
  * <p>The new device metadata type.</p>
  */
 export interface NewDeviceMetadataType {
-  __type?: "NewDeviceMetadataType";
   /**
    * <p>The device group key.</p>
    */
@@ -6659,7 +6256,6 @@ export namespace NewDeviceMetadataType {
   export const filterSensitiveLog = (obj: NewDeviceMetadataType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NewDeviceMetadataType => __isa(o, "NewDeviceMetadataType");
 }
 
 /**
@@ -6679,14 +6275,12 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
  * <p>The notify configuration type.</p>
  */
 export interface NotifyConfigurationType {
-  __type?: "NotifyConfigurationType";
   /**
    * <p>The email address that is sending the email. It must be either individually verified
    *             with Amazon SES, or from a domain that has been verified with Amazon SES.</p>
@@ -6725,14 +6319,12 @@ export namespace NotifyConfigurationType {
   export const filterSensitiveLog = (obj: NotifyConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyConfigurationType => __isa(o, "NotifyConfigurationType");
 }
 
 /**
  * <p>The notify email type.</p>
  */
 export interface NotifyEmailType {
-  __type?: "NotifyEmailType";
   /**
    * <p>The subject.</p>
    */
@@ -6753,14 +6345,12 @@ export namespace NotifyEmailType {
   export const filterSensitiveLog = (obj: NotifyEmailType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyEmailType => __isa(o, "NotifyEmailType");
 }
 
 /**
  * <p>The minimum and maximum value of an attribute that is of the number data type.</p>
  */
 export interface NumberAttributeConstraintsType {
-  __type?: "NumberAttributeConstraintsType";
   /**
    * <p>The minimum value of an attribute that is of the number data type.</p>
    */
@@ -6776,7 +6366,6 @@ export namespace NumberAttributeConstraintsType {
   export const filterSensitiveLog = (obj: NumberAttributeConstraintsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberAttributeConstraintsType => __isa(o, "NumberAttributeConstraintsType");
 }
 
 export enum OAuthFlowType {
@@ -6789,7 +6378,6 @@ export enum OAuthFlowType {
  * <p>The password policy type.</p>
  */
 export interface PasswordPolicyType {
-  __type?: "PasswordPolicyType";
   /**
    * <p>In the password policy that you have set, refers to whether you have required users to
    *             use at least one symbol in their password.</p>
@@ -6837,7 +6425,6 @@ export namespace PasswordPolicyType {
   export const filterSensitiveLog = (obj: PasswordPolicyType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PasswordPolicyType => __isa(o, "PasswordPolicyType");
 }
 
 /**
@@ -6856,7 +6443,6 @@ export namespace PasswordResetRequiredException {
   export const filterSensitiveLog = (obj: PasswordResetRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PasswordResetRequiredException => __isa(o, "PasswordResetRequiredException");
 }
 
 /**
@@ -6875,7 +6461,6 @@ export namespace PreconditionNotMetException {
   export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreconditionNotMetException => __isa(o, "PreconditionNotMetException");
 }
 
 export enum PreventUserExistenceErrorTypes {
@@ -6887,7 +6472,6 @@ export enum PreventUserExistenceErrorTypes {
  * <p>A container for identity provider details.</p>
  */
 export interface ProviderDescription {
-  __type?: "ProviderDescription";
   /**
    * <p>The identity provider name.</p>
    */
@@ -6913,14 +6497,12 @@ export namespace ProviderDescription {
   export const filterSensitiveLog = (obj: ProviderDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProviderDescription => __isa(o, "ProviderDescription");
 }
 
 /**
  * <p>A container for information about an identity provider for a user pool.</p>
  */
 export interface ProviderUserIdentifierType {
-  __type?: "ProviderUserIdentifierType";
   /**
    * <p>The name of the provider, for example, Facebook, Google, or Login with Amazon.</p>
    */
@@ -6943,7 +6525,6 @@ export namespace ProviderUserIdentifierType {
   export const filterSensitiveLog = (obj: ProviderUserIdentifierType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProviderUserIdentifierType => __isa(o, "ProviderUserIdentifierType");
 }
 
 export enum RecoveryOptionNameType {
@@ -6956,7 +6537,6 @@ export enum RecoveryOptionNameType {
  * <p>A map containing a priority as a key, and recovery method name as a value.</p>
  */
 export interface RecoveryOptionType {
-  __type?: "RecoveryOptionType";
   /**
    * <p>Specifies the recovery method for a user.</p>
    */
@@ -6973,14 +6553,12 @@ export namespace RecoveryOptionType {
   export const filterSensitiveLog = (obj: RecoveryOptionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecoveryOptionType => __isa(o, "RecoveryOptionType");
 }
 
 /**
  * <p>Represents the request to resend the confirmation code.</p>
  */
 export interface ResendConfirmationCodeRequest {
-  __type?: "ResendConfirmationCodeRequest";
   /**
    * <p>Contextual data such as the user's device fingerprint, IP address, or location used
    *             for evaluating the risk of an unexpected event by Amazon Cognito advanced
@@ -7054,7 +6632,6 @@ export namespace ResendConfirmationCodeRequest {
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
     ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ResendConfirmationCodeRequest => __isa(o, "ResendConfirmationCodeRequest");
 }
 
 /**
@@ -7062,7 +6639,6 @@ export namespace ResendConfirmationCodeRequest {
  *             request to resend a confirmation code.</p>
  */
 export interface ResendConfirmationCodeResponse {
-  __type?: "ResendConfirmationCodeResponse";
   /**
    * <p>The code delivery details returned by the server in response to the request to resend
    *             the confirmation code.</p>
@@ -7074,7 +6650,6 @@ export namespace ResendConfirmationCodeResponse {
   export const filterSensitiveLog = (obj: ResendConfirmationCodeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResendConfirmationCodeResponse => __isa(o, "ResendConfirmationCodeResponse");
 }
 
 /**
@@ -7095,14 +6670,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A resource server scope.</p>
  */
 export interface ResourceServerScopeType {
-  __type?: "ResourceServerScopeType";
   /**
    * <p>The name of the scope.</p>
    */
@@ -7118,14 +6691,12 @@ export namespace ResourceServerScopeType {
   export const filterSensitiveLog = (obj: ResourceServerScopeType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceServerScopeType => __isa(o, "ResourceServerScopeType");
 }
 
 /**
  * <p>A container for information about a resource server for a user pool.</p>
  */
 export interface ResourceServerType {
-  __type?: "ResourceServerType";
   /**
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
    */
@@ -7151,14 +6722,12 @@ export namespace ResourceServerType {
   export const filterSensitiveLog = (obj: ResourceServerType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceServerType => __isa(o, "ResourceServerType");
 }
 
 /**
  * <p>The request to respond to an authentication challenge.</p>
  */
 export interface RespondToAuthChallengeRequest {
-  __type?: "RespondToAuthChallengeRequest";
   /**
    * <p>The challenge responses. These are inputs corresponding to the value of
    *                 <code>ChallengeName</code>, for example:</p>
@@ -7281,14 +6850,12 @@ export namespace RespondToAuthChallengeRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RespondToAuthChallengeRequest => __isa(o, "RespondToAuthChallengeRequest");
 }
 
 /**
  * <p>The response to respond to the authentication challenge.</p>
  */
 export interface RespondToAuthChallengeResponse {
-  __type?: "RespondToAuthChallengeResponse";
   /**
    * <p>The result returned by the server in response to the request to respond to the
    *             authentication challenge.</p>
@@ -7322,14 +6889,12 @@ export namespace RespondToAuthChallengeResponse {
       AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
     }),
   });
-  export const isa = (o: any): o is RespondToAuthChallengeResponse => __isa(o, "RespondToAuthChallengeResponse");
 }
 
 /**
  * <p>The risk configuration type.</p>
  */
 export interface RiskConfigurationType {
-  __type?: "RiskConfigurationType";
   /**
    * <p>The configuration to override the risk decision.</p>
    */
@@ -7370,7 +6935,6 @@ export namespace RiskConfigurationType {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RiskConfigurationType => __isa(o, "RiskConfigurationType");
 }
 
 export enum RiskDecisionType {
@@ -7383,7 +6947,6 @@ export enum RiskDecisionType {
  * <p>The type of the configuration to override the risk decision.</p>
  */
 export interface RiskExceptionConfigurationType {
-  __type?: "RiskExceptionConfigurationType";
   /**
    * <p>Overrides the risk decision to always block the pre-authentication requests. The IP
    *             range is in CIDR notation: a compact representation of an IP address and its associated
@@ -7402,7 +6965,6 @@ export namespace RiskExceptionConfigurationType {
   export const filterSensitiveLog = (obj: RiskExceptionConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RiskExceptionConfigurationType => __isa(o, "RiskExceptionConfigurationType");
 }
 
 export enum RiskLevelType {
@@ -7415,7 +6977,6 @@ export enum RiskLevelType {
  * <p>Contains information about the schema attribute.</p>
  */
 export interface SchemaAttributeType {
-  __type?: "SchemaAttributeType";
   /**
    * <p>Specifies whether a user pool attribute is required. If the attribute is required and
    *             the user does not provide a value, registration or sign-in will fail.</p>
@@ -7472,7 +7033,6 @@ export namespace SchemaAttributeType {
   export const filterSensitiveLog = (obj: SchemaAttributeType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchemaAttributeType => __isa(o, "SchemaAttributeType");
 }
 
 /**
@@ -7488,11 +7048,9 @@ export namespace ScopeDoesNotExistException {
   export const filterSensitiveLog = (obj: ScopeDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScopeDoesNotExistException => __isa(o, "ScopeDoesNotExistException");
 }
 
 export interface SetRiskConfigurationRequest {
-  __type?: "SetRiskConfigurationRequest";
   /**
    * <p>The configuration to override the risk decision.</p>
    */
@@ -7529,11 +7087,9 @@ export namespace SetRiskConfigurationRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SetRiskConfigurationRequest => __isa(o, "SetRiskConfigurationRequest");
 }
 
 export interface SetRiskConfigurationResponse {
-  __type?: "SetRiskConfigurationResponse";
   /**
    * <p>The risk configuration.</p>
    */
@@ -7547,11 +7103,9 @@ export namespace SetRiskConfigurationResponse {
       RiskConfiguration: RiskConfigurationType.filterSensitiveLog(obj.RiskConfiguration),
     }),
   });
-  export const isa = (o: any): o is SetRiskConfigurationResponse => __isa(o, "SetRiskConfigurationResponse");
 }
 
 export interface SetUICustomizationRequest {
-  __type?: "SetUICustomizationRequest";
   /**
    * <p>The client ID for the client app.</p>
    */
@@ -7578,11 +7132,9 @@ export namespace SetUICustomizationRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SetUICustomizationRequest => __isa(o, "SetUICustomizationRequest");
 }
 
 export interface SetUICustomizationResponse {
-  __type?: "SetUICustomizationResponse";
   /**
    * <p>The UI customization information.</p>
    */
@@ -7594,11 +7146,9 @@ export namespace SetUICustomizationResponse {
     ...obj,
     ...(obj.UICustomization && { UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization) }),
   });
-  export const isa = (o: any): o is SetUICustomizationResponse => __isa(o, "SetUICustomizationResponse");
 }
 
 export interface SetUserMFAPreferenceRequest {
-  __type?: "SetUserMFAPreferenceRequest";
   /**
    * <p>The access token for the user.</p>
    */
@@ -7620,22 +7170,17 @@ export namespace SetUserMFAPreferenceRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SetUserMFAPreferenceRequest => __isa(o, "SetUserMFAPreferenceRequest");
 }
 
-export interface SetUserMFAPreferenceResponse {
-  __type?: "SetUserMFAPreferenceResponse";
-}
+export interface SetUserMFAPreferenceResponse {}
 
 export namespace SetUserMFAPreferenceResponse {
   export const filterSensitiveLog = (obj: SetUserMFAPreferenceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetUserMFAPreferenceResponse => __isa(o, "SetUserMFAPreferenceResponse");
 }
 
 export interface SetUserPoolMfaConfigRequest {
-  __type?: "SetUserPoolMfaConfigRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -7676,11 +7221,9 @@ export namespace SetUserPoolMfaConfigRequest {
   export const filterSensitiveLog = (obj: SetUserPoolMfaConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetUserPoolMfaConfigRequest => __isa(o, "SetUserPoolMfaConfigRequest");
 }
 
 export interface SetUserPoolMfaConfigResponse {
-  __type?: "SetUserPoolMfaConfigResponse";
   /**
    * <p>The MFA configuration. Valid values include:</p>
    *         <ul>
@@ -7716,14 +7259,12 @@ export namespace SetUserPoolMfaConfigResponse {
   export const filterSensitiveLog = (obj: SetUserPoolMfaConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetUserPoolMfaConfigResponse => __isa(o, "SetUserPoolMfaConfigResponse");
 }
 
 /**
  * <p>Represents the request to set user settings.</p>
  */
 export interface SetUserSettingsRequest {
-  __type?: "SetUserSettingsRequest";
   /**
    * <p>The access token for the set user settings request.</p>
    */
@@ -7741,28 +7282,23 @@ export namespace SetUserSettingsRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SetUserSettingsRequest => __isa(o, "SetUserSettingsRequest");
 }
 
 /**
  * <p>The response from the server for a set user settings request.</p>
  */
-export interface SetUserSettingsResponse {
-  __type?: "SetUserSettingsResponse";
-}
+export interface SetUserSettingsResponse {}
 
 export namespace SetUserSettingsResponse {
   export const filterSensitiveLog = (obj: SetUserSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetUserSettingsResponse => __isa(o, "SetUserSettingsResponse");
 }
 
 /**
  * <p>Represents the request to register a user.</p>
  */
 export interface SignUpRequest {
-  __type?: "SignUpRequest";
   /**
    * <p>The user name of the user you wish to register.</p>
    */
@@ -7860,14 +7396,12 @@ export namespace SignUpRequest {
       ValidationData: obj.ValidationData.map((item) => AttributeType.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is SignUpRequest => __isa(o, "SignUpRequest");
 }
 
 /**
  * <p>The response from the server for a registration request.</p>
  */
 export interface SignUpResponse {
-  __type?: "SignUpResponse";
   /**
    * <p>A response from the server indicating that a user registration has been
    *             confirmed.</p>
@@ -7891,7 +7425,6 @@ export namespace SignUpResponse {
   export const filterSensitiveLog = (obj: SignUpResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignUpResponse => __isa(o, "SignUpResponse");
 }
 
 /**
@@ -7901,7 +7434,6 @@ export namespace SignUpResponse {
  *             that you provide for your AWS account.</p>
  */
 export interface SmsConfigurationType {
-  __type?: "SmsConfigurationType";
   /**
    * <p>The external ID is a value that we recommend you use to add security to your IAM role
    *             which is used to call Amazon SNS to send SMS messages for your user pool. If you provide
@@ -7925,14 +7457,12 @@ export namespace SmsConfigurationType {
   export const filterSensitiveLog = (obj: SmsConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SmsConfigurationType => __isa(o, "SmsConfigurationType");
 }
 
 /**
  * <p>The SMS text message multi-factor authentication (MFA) configuration type.</p>
  */
 export interface SmsMfaConfigType {
-  __type?: "SmsMfaConfigType";
   /**
    * <p>The SMS configuration.</p>
    */
@@ -7950,14 +7480,12 @@ export namespace SmsMfaConfigType {
   export const filterSensitiveLog = (obj: SmsMfaConfigType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SmsMfaConfigType => __isa(o, "SmsMfaConfigType");
 }
 
 /**
  * <p>The type used for enabling SMS MFA at the user level.</p>
  */
 export interface SMSMfaSettingsType {
-  __type?: "SMSMfaSettingsType";
   /**
    * <p>Specifies whether SMS text message MFA is enabled.</p>
    */
@@ -7973,14 +7501,12 @@ export namespace SMSMfaSettingsType {
   export const filterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSMfaSettingsType => __isa(o, "SMSMfaSettingsType");
 }
 
 /**
  * <p>The type used for enabling software token MFA at the user pool level.</p>
  */
 export interface SoftwareTokenMfaConfigType {
-  __type?: "SoftwareTokenMfaConfigType";
   /**
    * <p>Specifies whether software token MFA is enabled.</p>
    */
@@ -7991,7 +7517,6 @@ export namespace SoftwareTokenMfaConfigType {
   export const filterSensitiveLog = (obj: SoftwareTokenMfaConfigType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SoftwareTokenMfaConfigType => __isa(o, "SoftwareTokenMfaConfigType");
 }
 
 /**
@@ -8008,14 +7533,12 @@ export namespace SoftwareTokenMFANotFoundException {
   export const filterSensitiveLog = (obj: SoftwareTokenMFANotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SoftwareTokenMFANotFoundException => __isa(o, "SoftwareTokenMFANotFoundException");
 }
 
 /**
  * <p>The type used for enabling software token MFA at the user level.</p>
  */
 export interface SoftwareTokenMfaSettingsType {
-  __type?: "SoftwareTokenMfaSettingsType";
   /**
    * <p>Specifies whether software token MFA is the preferred MFA method.</p>
    */
@@ -8031,14 +7554,12 @@ export namespace SoftwareTokenMfaSettingsType {
   export const filterSensitiveLog = (obj: SoftwareTokenMfaSettingsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SoftwareTokenMfaSettingsType => __isa(o, "SoftwareTokenMfaSettingsType");
 }
 
 /**
  * <p>Represents the request to start the user import job.</p>
  */
 export interface StartUserImportJobRequest {
-  __type?: "StartUserImportJobRequest";
   /**
    * <p>The job ID for the user import job.</p>
    */
@@ -8054,7 +7575,6 @@ export namespace StartUserImportJobRequest {
   export const filterSensitiveLog = (obj: StartUserImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartUserImportJobRequest => __isa(o, "StartUserImportJobRequest");
 }
 
 /**
@@ -8062,7 +7582,6 @@ export namespace StartUserImportJobRequest {
  *             job.</p>
  */
 export interface StartUserImportJobResponse {
-  __type?: "StartUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
    */
@@ -8073,7 +7592,6 @@ export namespace StartUserImportJobResponse {
   export const filterSensitiveLog = (obj: StartUserImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartUserImportJobResponse => __isa(o, "StartUserImportJobResponse");
 }
 
 export enum StatusType {
@@ -8085,7 +7603,6 @@ export enum StatusType {
  * <p>Represents the request to stop the user import job.</p>
  */
 export interface StopUserImportJobRequest {
-  __type?: "StopUserImportJobRequest";
   /**
    * <p>The job ID for the user import job.</p>
    */
@@ -8101,7 +7618,6 @@ export namespace StopUserImportJobRequest {
   export const filterSensitiveLog = (obj: StopUserImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopUserImportJobRequest => __isa(o, "StopUserImportJobRequest");
 }
 
 /**
@@ -8109,7 +7625,6 @@ export namespace StopUserImportJobRequest {
  *             job.</p>
  */
 export interface StopUserImportJobResponse {
-  __type?: "StopUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
    */
@@ -8120,14 +7635,12 @@ export namespace StopUserImportJobResponse {
   export const filterSensitiveLog = (obj: StopUserImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopUserImportJobResponse => __isa(o, "StopUserImportJobResponse");
 }
 
 /**
  * <p>The constraints associated with a string attribute.</p>
  */
 export interface StringAttributeConstraintsType {
-  __type?: "StringAttributeConstraintsType";
   /**
    * <p>The minimum length.</p>
    */
@@ -8143,11 +7656,9 @@ export namespace StringAttributeConstraintsType {
   export const filterSensitiveLog = (obj: StringAttributeConstraintsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StringAttributeConstraintsType => __isa(o, "StringAttributeConstraintsType");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to assign to the user pool.</p>
    */
@@ -8163,18 +7674,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -8195,7 +7702,6 @@ export namespace TooManyFailedAttemptsException {
   export const filterSensitiveLog = (obj: TooManyFailedAttemptsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFailedAttemptsException => __isa(o, "TooManyFailedAttemptsException");
 }
 
 /**
@@ -8216,7 +7722,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -8224,7 +7729,6 @@ export namespace TooManyRequestsException {
  *             UI.</p>
  */
 export interface UICustomizationType {
-  __type?: "UICustomizationType";
   /**
    * <p>The client ID for the client app.</p>
    */
@@ -8266,7 +7770,6 @@ export namespace UICustomizationType {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UICustomizationType => __isa(o, "UICustomizationType");
 }
 
 /**
@@ -8287,7 +7790,6 @@ export namespace UnexpectedLambdaException {
   export const filterSensitiveLog = (obj: UnexpectedLambdaException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnexpectedLambdaException => __isa(o, "UnexpectedLambdaException");
 }
 
 /**
@@ -8303,8 +7805,6 @@ export namespace UnsupportedIdentityProviderException {
   export const filterSensitiveLog = (obj: UnsupportedIdentityProviderException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedIdentityProviderException =>
-    __isa(o, "UnsupportedIdentityProviderException");
 }
 
 /**
@@ -8323,11 +7823,9 @@ export namespace UnsupportedUserStateException {
   export const filterSensitiveLog = (obj: UnsupportedUserStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedUserStateException => __isa(o, "UnsupportedUserStateException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
    */
@@ -8343,22 +7841,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateAuthEventFeedbackRequest {
-  __type?: "UpdateAuthEventFeedbackRequest";
   /**
    * <p>The user pool ID.</p>
    */
@@ -8391,25 +7884,20 @@ export namespace UpdateAuthEventFeedbackRequest {
     ...(obj.FeedbackToken && { FeedbackToken: SENSITIVE_STRING }),
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateAuthEventFeedbackRequest => __isa(o, "UpdateAuthEventFeedbackRequest");
 }
 
-export interface UpdateAuthEventFeedbackResponse {
-  __type?: "UpdateAuthEventFeedbackResponse";
-}
+export interface UpdateAuthEventFeedbackResponse {}
 
 export namespace UpdateAuthEventFeedbackResponse {
   export const filterSensitiveLog = (obj: UpdateAuthEventFeedbackResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAuthEventFeedbackResponse => __isa(o, "UpdateAuthEventFeedbackResponse");
 }
 
 /**
  * <p>Represents the request to update the device status.</p>
  */
 export interface UpdateDeviceStatusRequest {
-  __type?: "UpdateDeviceStatusRequest";
   /**
    * <p>The access token.</p>
    */
@@ -8431,25 +7919,20 @@ export namespace UpdateDeviceStatusRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateDeviceStatusRequest => __isa(o, "UpdateDeviceStatusRequest");
 }
 
 /**
  * <p>The response to the request to update the device status.</p>
  */
-export interface UpdateDeviceStatusResponse {
-  __type?: "UpdateDeviceStatusResponse";
-}
+export interface UpdateDeviceStatusResponse {}
 
 export namespace UpdateDeviceStatusResponse {
   export const filterSensitiveLog = (obj: UpdateDeviceStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceStatusResponse => __isa(o, "UpdateDeviceStatusResponse");
 }
 
 export interface UpdateGroupRequest {
-  __type?: "UpdateGroupRequest";
   /**
    * <p>The name of the group.</p>
    */
@@ -8483,11 +7966,9 @@ export namespace UpdateGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
 export interface UpdateGroupResponse {
-  __type?: "UpdateGroupResponse";
   /**
    * <p>The group object for the group.</p>
    */
@@ -8498,11 +7979,9 @@ export namespace UpdateGroupResponse {
   export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupResponse => __isa(o, "UpdateGroupResponse");
 }
 
 export interface UpdateIdentityProviderRequest {
-  __type?: "UpdateIdentityProviderRequest";
   /**
    * <p>A list of identity provider identifiers.</p>
    */
@@ -8534,11 +8013,9 @@ export namespace UpdateIdentityProviderRequest {
   export const filterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIdentityProviderRequest => __isa(o, "UpdateIdentityProviderRequest");
 }
 
 export interface UpdateIdentityProviderResponse {
-  __type?: "UpdateIdentityProviderResponse";
   /**
    * <p>The identity provider object.</p>
    */
@@ -8549,11 +8026,9 @@ export namespace UpdateIdentityProviderResponse {
   export const filterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIdentityProviderResponse => __isa(o, "UpdateIdentityProviderResponse");
 }
 
 export interface UpdateResourceServerRequest {
-  __type?: "UpdateResourceServerRequest";
   /**
    * <p>The identifier for the resource server.</p>
    */
@@ -8579,11 +8054,9 @@ export namespace UpdateResourceServerRequest {
   export const filterSensitiveLog = (obj: UpdateResourceServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceServerRequest => __isa(o, "UpdateResourceServerRequest");
 }
 
 export interface UpdateResourceServerResponse {
-  __type?: "UpdateResourceServerResponse";
   /**
    * <p>The resource server.</p>
    */
@@ -8594,14 +8067,12 @@ export namespace UpdateResourceServerResponse {
   export const filterSensitiveLog = (obj: UpdateResourceServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceServerResponse => __isa(o, "UpdateResourceServerResponse");
 }
 
 /**
  * <p>Represents the request to update user attributes.</p>
  */
 export interface UpdateUserAttributesRequest {
-  __type?: "UpdateUserAttributesRequest";
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers. </p>
@@ -8658,7 +8129,6 @@ export namespace UpdateUserAttributesRequest {
     }),
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateUserAttributesRequest => __isa(o, "UpdateUserAttributesRequest");
 }
 
 /**
@@ -8666,7 +8136,6 @@ export namespace UpdateUserAttributesRequest {
  *             attributes.</p>
  */
 export interface UpdateUserAttributesResponse {
-  __type?: "UpdateUserAttributesResponse";
   /**
    * <p>The code delivery details list from the server for the request to update user
    *             attributes.</p>
@@ -8678,14 +8147,12 @@ export namespace UpdateUserAttributesResponse {
   export const filterSensitiveLog = (obj: UpdateUserAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserAttributesResponse => __isa(o, "UpdateUserAttributesResponse");
 }
 
 /**
  * <p>Represents the request to update the user pool client.</p>
  */
 export interface UpdateUserPoolClientRequest {
-  __type?: "UpdateUserPoolClientRequest";
   /**
    * <p>A list of provider names for the identity providers that are supported on this
    *             client.</p>
@@ -8926,7 +8393,6 @@ export namespace UpdateUserPoolClientRequest {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateUserPoolClientRequest => __isa(o, "UpdateUserPoolClientRequest");
 }
 
 /**
@@ -8934,7 +8400,6 @@ export namespace UpdateUserPoolClientRequest {
  *             client.</p>
  */
 export interface UpdateUserPoolClientResponse {
-  __type?: "UpdateUserPoolClientResponse";
   /**
    * <p>The user pool client value from the response from the server when an update user pool
    *             client request is made.</p>
@@ -8947,14 +8412,12 @@ export namespace UpdateUserPoolClientResponse {
     ...obj,
     ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
   });
-  export const isa = (o: any): o is UpdateUserPoolClientResponse => __isa(o, "UpdateUserPoolClientResponse");
 }
 
 /**
  * <p>The UpdateUserPoolDomain request input.</p>
  */
 export interface UpdateUserPoolDomainRequest {
-  __type?: "UpdateUserPoolDomainRequest";
   /**
    * <p>The domain name for the custom domain that hosts the sign-up and sign-in pages for
    *             your application. For example: <code>auth.example.com</code>. </p>
@@ -8981,14 +8444,12 @@ export namespace UpdateUserPoolDomainRequest {
   export const filterSensitiveLog = (obj: UpdateUserPoolDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserPoolDomainRequest => __isa(o, "UpdateUserPoolDomainRequest");
 }
 
 /**
  * <p>The UpdateUserPoolDomain response output.</p>
  */
 export interface UpdateUserPoolDomainResponse {
-  __type?: "UpdateUserPoolDomainResponse";
   /**
    * <p>The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom
    *             domain to your user pool.</p>
@@ -9000,14 +8461,12 @@ export namespace UpdateUserPoolDomainResponse {
   export const filterSensitiveLog = (obj: UpdateUserPoolDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserPoolDomainResponse => __isa(o, "UpdateUserPoolDomainResponse");
 }
 
 /**
  * <p>Represents the request to update the user pool.</p>
  */
 export interface UpdateUserPoolRequest {
-  __type?: "UpdateUserPoolRequest";
   /**
    * <p>Used to enable advanced security risk detection. Set the key
    *                 <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
@@ -9125,22 +8584,18 @@ export namespace UpdateUserPoolRequest {
   export const filterSensitiveLog = (obj: UpdateUserPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserPoolRequest => __isa(o, "UpdateUserPoolRequest");
 }
 
 /**
  * <p>Represents the response from the server when you make a request to update the user
  *             pool.</p>
  */
-export interface UpdateUserPoolResponse {
-  __type?: "UpdateUserPoolResponse";
-}
+export interface UpdateUserPoolResponse {}
 
 export namespace UpdateUserPoolResponse {
   export const filterSensitiveLog = (obj: UpdateUserPoolResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserPoolResponse => __isa(o, "UpdateUserPoolResponse");
 }
 
 /**
@@ -9149,7 +8604,6 @@ export namespace UpdateUserPoolResponse {
  *             security.</p>
  */
 export interface UserContextDataType {
-  __type?: "UserContextDataType";
   /**
    * <p>Contextual data such as the user's device fingerprint, IP address, or location used
    *             for evaluating the risk of an unexpected event by Amazon Cognito advanced
@@ -9162,7 +8616,6 @@ export namespace UserContextDataType {
   export const filterSensitiveLog = (obj: UserContextDataType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserContextDataType => __isa(o, "UserContextDataType");
 }
 
 /**
@@ -9182,7 +8635,6 @@ export namespace UserImportInProgressException {
   export const filterSensitiveLog = (obj: UserImportInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserImportInProgressException => __isa(o, "UserImportInProgressException");
 }
 
 export enum UserImportJobStatusType {
@@ -9200,7 +8652,6 @@ export enum UserImportJobStatusType {
  * <p>The user import job type.</p>
  */
 export interface UserImportJobType {
-  __type?: "UserImportJobType";
   /**
    * <p>The job ID for the user import job.</p>
    */
@@ -9313,7 +8764,6 @@ export namespace UserImportJobType {
   export const filterSensitiveLog = (obj: UserImportJobType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserImportJobType => __isa(o, "UserImportJobType");
 }
 
 /**
@@ -9334,7 +8784,6 @@ export namespace UserLambdaValidationException {
   export const filterSensitiveLog = (obj: UserLambdaValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserLambdaValidationException => __isa(o, "UserLambdaValidationException");
 }
 
 export enum UsernameAttributeType {
@@ -9346,7 +8795,6 @@ export enum UsernameAttributeType {
  * <p>The username configuration type. </p>
  */
 export interface UsernameConfigurationType {
-  __type?: "UsernameConfigurationType";
   /**
    * <p>Specifies whether username case sensitivity will be applied for all users in the user
    *             pool through Cognito APIs.</p>
@@ -9381,7 +8829,6 @@ export namespace UsernameConfigurationType {
   export const filterSensitiveLog = (obj: UsernameConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsernameConfigurationType => __isa(o, "UsernameConfigurationType");
 }
 
 /**
@@ -9401,7 +8848,6 @@ export namespace UsernameExistsException {
   export const filterSensitiveLog = (obj: UsernameExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsernameExistsException => __isa(o, "UsernameExistsException");
 }
 
 /**
@@ -9420,7 +8866,6 @@ export namespace UserNotConfirmedException {
   export const filterSensitiveLog = (obj: UserNotConfirmedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserNotConfirmedException => __isa(o, "UserNotConfirmedException");
 }
 
 /**
@@ -9439,7 +8884,6 @@ export namespace UserNotFoundException {
   export const filterSensitiveLog = (obj: UserNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserNotFoundException => __isa(o, "UserNotFoundException");
 }
 
 /**
@@ -9455,14 +8899,12 @@ export namespace UserPoolAddOnNotEnabledException {
   export const filterSensitiveLog = (obj: UserPoolAddOnNotEnabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolAddOnNotEnabledException => __isa(o, "UserPoolAddOnNotEnabledException");
 }
 
 /**
  * <p>The user pool add-ons type.</p>
  */
 export interface UserPoolAddOnsType {
-  __type?: "UserPoolAddOnsType";
   /**
    * <p>The advanced security mode.</p>
    */
@@ -9473,14 +8915,12 @@ export namespace UserPoolAddOnsType {
   export const filterSensitiveLog = (obj: UserPoolAddOnsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolAddOnsType => __isa(o, "UserPoolAddOnsType");
 }
 
 /**
  * <p>The description of the user pool client.</p>
  */
 export interface UserPoolClientDescription {
-  __type?: "UserPoolClientDescription";
   /**
    * <p>The ID of the client associated with the user pool.</p>
    */
@@ -9503,14 +8943,12 @@ export namespace UserPoolClientDescription {
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UserPoolClientDescription => __isa(o, "UserPoolClientDescription");
 }
 
 /**
  * <p>Contains information about a user pool client.</p>
  */
 export interface UserPoolClientType {
-  __type?: "UserPoolClientType";
   /**
    * <p>The authentication flows that are supported by the user pool clients. Flow names
    *             without the <code>ALLOW_</code> prefix are deprecated in favor of new names with the
@@ -9765,14 +9203,12 @@ export namespace UserPoolClientType {
     ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UserPoolClientType => __isa(o, "UserPoolClientType");
 }
 
 /**
  * <p>A user pool description.</p>
  */
 export interface UserPoolDescriptionType {
-  __type?: "UserPoolDescriptionType";
   /**
    * <p>The name in a user pool description.</p>
    */
@@ -9808,7 +9244,6 @@ export namespace UserPoolDescriptionType {
   export const filterSensitiveLog = (obj: UserPoolDescriptionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolDescriptionType => __isa(o, "UserPoolDescriptionType");
 }
 
 export enum UserPoolMfaType {
@@ -9821,7 +9256,6 @@ export enum UserPoolMfaType {
  * <p>The policy associated with a user pool.</p>
  */
 export interface UserPoolPolicyType {
-  __type?: "UserPoolPolicyType";
   /**
    * <p>The password policy.</p>
    */
@@ -9832,7 +9266,6 @@ export namespace UserPoolPolicyType {
   export const filterSensitiveLog = (obj: UserPoolPolicyType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolPolicyType => __isa(o, "UserPoolPolicyType");
 }
 
 /**
@@ -9848,14 +9281,12 @@ export namespace UserPoolTaggingException {
   export const filterSensitiveLog = (obj: UserPoolTaggingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolTaggingException => __isa(o, "UserPoolTaggingException");
 }
 
 /**
  * <p>A container for information about the user pool.</p>
  */
 export interface UserPoolType {
-  __type?: "UserPoolType";
   /**
    * <p>The contents of the SMS verification message.</p>
    */
@@ -10047,7 +9478,6 @@ export namespace UserPoolType {
   export const filterSensitiveLog = (obj: UserPoolType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolType => __isa(o, "UserPoolType");
 }
 
 export enum UserStatusType {
@@ -10064,7 +9494,6 @@ export enum UserStatusType {
  * <p>The user type.</p>
  */
 export interface UserType {
-  __type?: "UserType";
   /**
    * <p>The user status. Can be one of the following:</p>
    *         <ul>
@@ -10133,14 +9562,12 @@ export namespace UserType {
     ...(obj.Username && { Username: SENSITIVE_STRING }),
     ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeType.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is UserType => __isa(o, "UserType");
 }
 
 /**
  * <p>The template for verification messages.</p>
  */
 export interface VerificationMessageTemplateType {
-  __type?: "VerificationMessageTemplateType";
   /**
    * <p>The email message template.</p>
    */
@@ -10177,7 +9604,6 @@ export namespace VerificationMessageTemplateType {
   export const filterSensitiveLog = (obj: VerificationMessageTemplateType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerificationMessageTemplateType => __isa(o, "VerificationMessageTemplateType");
 }
 
 export enum VerifiedAttributeType {
@@ -10186,7 +9612,6 @@ export enum VerifiedAttributeType {
 }
 
 export interface VerifySoftwareTokenRequest {
-  __type?: "VerifySoftwareTokenRequest";
   /**
    * <p>The friendly device name.</p>
    */
@@ -10214,11 +9639,9 @@ export namespace VerifySoftwareTokenRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is VerifySoftwareTokenRequest => __isa(o, "VerifySoftwareTokenRequest");
 }
 
 export interface VerifySoftwareTokenResponse {
-  __type?: "VerifySoftwareTokenResponse";
   /**
    * <p>The status of the verify software token.</p>
    */
@@ -10235,7 +9658,6 @@ export namespace VerifySoftwareTokenResponse {
   export const filterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifySoftwareTokenResponse => __isa(o, "VerifySoftwareTokenResponse");
 }
 
 export enum VerifySoftwareTokenResponseType {
@@ -10247,7 +9669,6 @@ export enum VerifySoftwareTokenResponseType {
  * <p>Represents the request to verify user attributes.</p>
  */
 export interface VerifyUserAttributeRequest {
-  __type?: "VerifyUserAttributeRequest";
   /**
    * <p>Represents the access token of the request to verify user attributes.</p>
    */
@@ -10269,20 +9690,16 @@ export namespace VerifyUserAttributeRequest {
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is VerifyUserAttributeRequest => __isa(o, "VerifyUserAttributeRequest");
 }
 
 /**
  * <p>A container representing the response from the server from the request to verify user
  *             attributes.</p>
  */
-export interface VerifyUserAttributeResponse {
-  __type?: "VerifyUserAttributeResponse";
-}
+export interface VerifyUserAttributeResponse {}
 
 export namespace VerifyUserAttributeResponse {
   export const filterSensitiveLog = (obj: VerifyUserAttributeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyUserAttributeResponse => __isa(o, "VerifyUserAttributeResponse");
 }

@@ -276,7 +276,6 @@ export const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationComman
   contents = deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse(data, context);
   const response: DescribeAffectedAccountsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAffectedAccountsForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -332,7 +331,6 @@ export const deserializeAws_json1_1DescribeAffectedEntitiesCommand = async (
   contents = deserializeAws_json1_1DescribeAffectedEntitiesResponse(data, context);
   const response: DescribeAffectedEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAffectedEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -396,7 +394,6 @@ export const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationComman
   contents = deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse(data, context);
   const response: DescribeAffectedEntitiesForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAffectedEntitiesForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -460,7 +457,6 @@ export const deserializeAws_json1_1DescribeEntityAggregatesCommand = async (
   contents = deserializeAws_json1_1DescribeEntityAggregatesResponse(data, context);
   const response: DescribeEntityAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEntityAggregatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -508,7 +504,6 @@ export const deserializeAws_json1_1DescribeEventAggregatesCommand = async (
   contents = deserializeAws_json1_1DescribeEventAggregatesResponse(data, context);
   const response: DescribeEventAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventAggregatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -564,7 +559,6 @@ export const deserializeAws_json1_1DescribeEventDetailsCommand = async (
   contents = deserializeAws_json1_1DescribeEventDetailsResponse(data, context);
   const response: DescribeEventDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -620,7 +614,6 @@ export const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand = 
   contents = deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse(data, context);
   const response: DescribeEventDetailsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventDetailsForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -676,7 +669,6 @@ export const deserializeAws_json1_1DescribeEventsCommand = async (
   contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -740,7 +732,6 @@ export const deserializeAws_json1_1DescribeEventsForOrganizationCommand = async 
   contents = deserializeAws_json1_1DescribeEventsForOrganizationResponse(data, context);
   const response: DescribeEventsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventsForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -804,7 +795,6 @@ export const deserializeAws_json1_1DescribeEventTypesCommand = async (
   contents = deserializeAws_json1_1DescribeEventTypesResponse(data, context);
   const response: DescribeEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventTypesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -868,7 +858,6 @@ export const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCom
   contents = deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse(data, context);
   const response: DescribeHealthServiceStatusForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHealthServiceStatusForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1378,7 +1367,6 @@ const deserializeAws_json1_1affectedAccountsList = (output: any, context: __Serd
 
 const deserializeAws_json1_1AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity => {
   return {
-    __type: "AffectedEntity",
     awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
     entityArn: output.entityArn !== undefined && output.entityArn !== null ? output.entityArn : undefined,
     entityUrl: output.entityUrl !== undefined && output.entityUrl !== null ? output.entityUrl : undefined,
@@ -1401,7 +1389,6 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -1411,7 +1398,6 @@ const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
   context: __SerdeContext
 ): DescribeAffectedAccountsForOrganizationResponse => {
   return {
-    __type: "DescribeAffectedAccountsForOrganizationResponse",
     affectedAccounts:
       output.affectedAccounts !== undefined && output.affectedAccounts !== null
         ? deserializeAws_json1_1affectedAccountsList(output.affectedAccounts, context)
@@ -1436,7 +1422,6 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse = (
   context: __SerdeContext
 ): DescribeAffectedEntitiesForOrganizationResponse => {
   return {
-    __type: "DescribeAffectedEntitiesForOrganizationResponse",
     entities:
       output.entities !== undefined && output.entities !== null
         ? deserializeAws_json1_1EntityList(output.entities, context)
@@ -1454,7 +1439,6 @@ const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
   context: __SerdeContext
 ): DescribeAffectedEntitiesResponse => {
   return {
-    __type: "DescribeAffectedEntitiesResponse",
     entities:
       output.entities !== undefined && output.entities !== null
         ? deserializeAws_json1_1EntityList(output.entities, context)
@@ -1468,7 +1452,6 @@ const deserializeAws_json1_1DescribeEntityAggregatesResponse = (
   context: __SerdeContext
 ): DescribeEntityAggregatesResponse => {
   return {
-    __type: "DescribeEntityAggregatesResponse",
     entityAggregates:
       output.entityAggregates !== undefined && output.entityAggregates !== null
         ? deserializeAws_json1_1EntityAggregateList(output.entityAggregates, context)
@@ -1481,7 +1464,6 @@ const deserializeAws_json1_1DescribeEventAggregatesResponse = (
   context: __SerdeContext
 ): DescribeEventAggregatesResponse => {
   return {
-    __type: "DescribeEventAggregatesResponse",
     eventAggregates:
       output.eventAggregates !== undefined && output.eventAggregates !== null
         ? deserializeAws_json1_1EventAggregateList(output.eventAggregates, context)
@@ -1509,7 +1491,6 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse = (
   context: __SerdeContext
 ): DescribeEventDetailsForOrganizationResponse => {
   return {
-    __type: "DescribeEventDetailsForOrganizationResponse",
     failedSet:
       output.failedSet !== undefined && output.failedSet !== null
         ? deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet(output.failedSet, context)
@@ -1533,7 +1514,6 @@ const deserializeAws_json1_1DescribeEventDetailsResponse = (
   context: __SerdeContext
 ): DescribeEventDetailsResponse => {
   return {
-    __type: "DescribeEventDetailsResponse",
     failedSet:
       output.failedSet !== undefined && output.failedSet !== null
         ? deserializeAws_json1_1DescribeEventDetailsFailedSet(output.failedSet, context)
@@ -1557,7 +1537,6 @@ const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
   context: __SerdeContext
 ): DescribeEventsForOrganizationResponse => {
   return {
-    __type: "DescribeEventsForOrganizationResponse",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1OrganizationEventList(output.events, context)
@@ -1568,7 +1547,6 @@ const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
 
 const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
   return {
-    __type: "DescribeEventsResponse",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1EventList(output.events, context)
@@ -1582,7 +1560,6 @@ const deserializeAws_json1_1DescribeEventTypesResponse = (
   context: __SerdeContext
 ): DescribeEventTypesResponse => {
   return {
-    __type: "DescribeEventTypesResponse",
     eventTypes:
       output.eventTypes !== undefined && output.eventTypes !== null
         ? deserializeAws_json1_1EventTypeList(output.eventTypes, context)
@@ -1596,7 +1573,6 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
   context: __SerdeContext
 ): DescribeHealthServiceStatusForOrganizationResponse => {
   return {
-    __type: "DescribeHealthServiceStatusForOrganizationResponse",
     healthServiceAccessStatusForOrganization:
       output.healthServiceAccessStatusForOrganization !== undefined &&
       output.healthServiceAccessStatusForOrganization !== null
@@ -1607,7 +1583,6 @@ const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse =
 
 const deserializeAws_json1_1EntityAggregate = (output: any, context: __SerdeContext): EntityAggregate => {
   return {
-    __type: "EntityAggregate",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
   } as any;
@@ -1623,7 +1598,6 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    __type: "Event",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     availabilityZone:
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
@@ -1653,7 +1627,6 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
 
 const deserializeAws_json1_1EventAggregate = (output: any, context: __SerdeContext): EventAggregate => {
   return {
-    __type: "EventAggregate",
     aggregateValue:
       output.aggregateValue !== undefined && output.aggregateValue !== null ? output.aggregateValue : undefined,
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
@@ -1666,7 +1639,6 @@ const deserializeAws_json1_1EventAggregateList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EventDescription = (output: any, context: __SerdeContext): EventDescription => {
   return {
-    __type: "EventDescription",
     latestDescription:
       output.latestDescription !== undefined && output.latestDescription !== null
         ? output.latestDescription
@@ -1676,7 +1648,6 @@ const deserializeAws_json1_1EventDescription = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1EventDetails = (output: any, context: __SerdeContext): EventDetails => {
   return {
-    __type: "EventDetails",
     event:
       output.event !== undefined && output.event !== null
         ? deserializeAws_json1_1Event(output.event, context)
@@ -1694,7 +1665,6 @@ const deserializeAws_json1_1EventDetails = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1EventDetailsErrorItem = (output: any, context: __SerdeContext): EventDetailsErrorItem => {
   return {
-    __type: "EventDetailsErrorItem",
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     errorName: output.errorName !== undefined && output.errorName !== null ? output.errorName : undefined,
     eventArn: output.eventArn !== undefined && output.eventArn !== null ? output.eventArn : undefined,
@@ -1717,7 +1687,6 @@ const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
   return {
-    __type: "EventType",
     category: output.category !== undefined && output.category !== null ? output.category : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     service: output.service !== undefined && output.service !== null ? output.service : undefined,
@@ -1730,7 +1699,6 @@ const deserializeAws_json1_1EventTypeList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1InvalidPaginationToken = (output: any, context: __SerdeContext): InvalidPaginationToken => {
   return {
-    __type: "InvalidPaginationToken",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -1740,7 +1708,6 @@ const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
   context: __SerdeContext
 ): OrganizationAffectedEntitiesErrorItem => {
   return {
-    __type: "OrganizationAffectedEntitiesErrorItem",
     awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     errorName: output.errorName !== undefined && output.errorName !== null ? output.errorName : undefined,
@@ -1750,7 +1717,6 @@ const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
 
 const deserializeAws_json1_1OrganizationEvent = (output: any, context: __SerdeContext): OrganizationEvent => {
   return {
-    __type: "OrganizationEvent",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
@@ -1781,7 +1747,6 @@ const deserializeAws_json1_1OrganizationEventDetails = (
   context: __SerdeContext
 ): OrganizationEventDetails => {
   return {
-    __type: "OrganizationEventDetails",
     awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
     event:
       output.event !== undefined && output.event !== null
@@ -1803,7 +1768,6 @@ const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
   context: __SerdeContext
 ): OrganizationEventDetailsErrorItem => {
   return {
-    __type: "OrganizationEventDetailsErrorItem",
     awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     errorName: output.errorName !== undefined && output.errorName !== null ? output.errorName : undefined,
@@ -1827,7 +1791,6 @@ const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): { [
 
 const deserializeAws_json1_1UnsupportedLocale = (output: any, context: __SerdeContext): UnsupportedLocale => {
   return {
-    __type: "UnsupportedLocale",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

@@ -343,7 +343,6 @@ export const deserializeAws_json1_1CreateLicenseConfigurationCommand = async (
   contents = deserializeAws_json1_1CreateLicenseConfigurationResponse(data, context);
   const response: CreateLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLicenseConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -439,7 +438,6 @@ export const deserializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   contents = deserializeAws_json1_1DeleteLicenseConfigurationResponse(data, context);
   const response: DeleteLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLicenseConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -527,7 +525,6 @@ export const deserializeAws_json1_1GetLicenseConfigurationCommand = async (
   contents = deserializeAws_json1_1GetLicenseConfigurationResponse(data, context);
   const response: GetLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLicenseConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -615,7 +612,6 @@ export const deserializeAws_json1_1GetServiceSettingsCommand = async (
   contents = deserializeAws_json1_1GetServiceSettingsResponse(data, context);
   const response: GetServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -695,7 +691,6 @@ export const deserializeAws_json1_1ListAssociationsForLicenseConfigurationComman
   contents = deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse(data, context);
   const response: ListAssociationsForLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssociationsForLicenseConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -791,7 +786,6 @@ export const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperations
   contents = deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsResponse(data, context);
   const response: ListFailuresForLicenseConfigurationOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFailuresForLicenseConfigurationOperationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -879,7 +873,6 @@ export const deserializeAws_json1_1ListLicenseConfigurationsCommand = async (
   contents = deserializeAws_json1_1ListLicenseConfigurationsResponse(data, context);
   const response: ListLicenseConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLicenseConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -975,7 +968,6 @@ export const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand =
   contents = deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse(data, context);
   const response: ListLicenseSpecificationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLicenseSpecificationsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1063,7 +1055,6 @@ export const deserializeAws_json1_1ListResourceInventoryCommand = async (
   contents = deserializeAws_json1_1ListResourceInventoryResponse(data, context);
   const response: ListResourceInventoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceInventoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1167,7 +1158,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1255,7 +1245,6 @@ export const deserializeAws_json1_1ListUsageForLicenseConfigurationCommand = asy
   contents = deserializeAws_json1_1ListUsageForLicenseConfigurationResponse(data, context);
   const response: ListUsageForLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsageForLicenseConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1351,7 +1340,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1439,7 +1427,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1527,7 +1514,6 @@ export const deserializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   contents = deserializeAws_json1_1UpdateLicenseConfigurationResponse(data, context);
   const response: UpdateLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLicenseConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1615,7 +1601,6 @@ export const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand
   contents = deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse(data, context);
   const response: UpdateLicenseSpecificationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLicenseSpecificationsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1719,7 +1704,6 @@ export const deserializeAws_json1_1UpdateServiceSettingsCommand = async (
   contents = deserializeAws_json1_1UpdateServiceSettingsResponse(data, context);
   const response: UpdateServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServiceSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2249,14 +2233,12 @@ const serializeAws_json1_1UpdateServiceSettingsRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
   return {
-    __type: "AuthorizationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2266,7 +2248,6 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
   context: __SerdeContext
 ): AutomatedDiscoveryInformation => {
   return {
-    __type: "AutomatedDiscoveryInformation",
     LastRunTime:
       output.LastRunTime !== undefined && output.LastRunTime !== null
         ? new Date(Math.round(output.LastRunTime * 1000))
@@ -2276,7 +2257,6 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
 
 const deserializeAws_json1_1ConsumedLicenseSummary = (output: any, context: __SerdeContext): ConsumedLicenseSummary => {
   return {
-    __type: "ConsumedLicenseSummary",
     ConsumedLicenses:
       output.ConsumedLicenses !== undefined && output.ConsumedLicenses !== null ? output.ConsumedLicenses : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
@@ -2295,7 +2275,6 @@ const deserializeAws_json1_1CreateLicenseConfigurationResponse = (
   context: __SerdeContext
 ): CreateLicenseConfigurationResponse => {
   return {
-    __type: "CreateLicenseConfigurationResponse",
     LicenseConfigurationArn:
       output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
         ? output.LicenseConfigurationArn
@@ -2307,9 +2286,7 @@ const deserializeAws_json1_1DeleteLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLicenseConfigurationResponse => {
-  return {
-    __type: "DeleteLicenseConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1FailedDependencyException = (
@@ -2317,7 +2294,6 @@ const deserializeAws_json1_1FailedDependencyException = (
   context: __SerdeContext
 ): FailedDependencyException => {
   return {
-    __type: "FailedDependencyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2327,7 +2303,6 @@ const deserializeAws_json1_1FilterLimitExceededException = (
   context: __SerdeContext
 ): FilterLimitExceededException => {
   return {
-    __type: "FilterLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2337,7 +2312,6 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
   context: __SerdeContext
 ): GetLicenseConfigurationResponse => {
   return {
-    __type: "GetLicenseConfigurationResponse",
     AutomatedDiscoveryInformation:
       output.AutomatedDiscoveryInformation !== undefined && output.AutomatedDiscoveryInformation !== null
         ? deserializeAws_json1_1AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
@@ -2394,7 +2368,6 @@ const deserializeAws_json1_1GetServiceSettingsResponse = (
   context: __SerdeContext
 ): GetServiceSettingsResponse => {
   return {
-    __type: "GetServiceSettingsResponse",
     EnableCrossAccountsDiscovery:
       output.EnableCrossAccountsDiscovery !== undefined && output.EnableCrossAccountsDiscovery !== null
         ? output.EnableCrossAccountsDiscovery
@@ -2417,7 +2390,6 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    __type: "InvalidParameterValueException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2427,14 +2399,12 @@ const deserializeAws_json1_1InvalidResourceStateException = (
   context: __SerdeContext
 ): InvalidResourceStateException => {
   return {
-    __type: "InvalidResourceStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
   return {
-    __type: "LicenseConfiguration",
     AutomatedDiscoveryInformation:
       output.AutomatedDiscoveryInformation !== undefined && output.AutomatedDiscoveryInformation !== null
         ? deserializeAws_json1_1AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
@@ -2487,7 +2457,6 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
   context: __SerdeContext
 ): LicenseConfigurationAssociation => {
   return {
-    __type: "LicenseConfigurationAssociation",
     AssociationTime:
       output.AssociationTime !== undefined && output.AssociationTime !== null
         ? new Date(Math.round(output.AssociationTime * 1000))
@@ -2515,7 +2484,6 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
   context: __SerdeContext
 ): LicenseConfigurationUsage => {
   return {
-    __type: "LicenseConfigurationUsage",
     AssociationTime:
       output.AssociationTime !== undefined && output.AssociationTime !== null
         ? new Date(Math.round(output.AssociationTime * 1000))
@@ -2543,7 +2511,6 @@ const deserializeAws_json1_1LicenseOperationFailure = (
   context: __SerdeContext
 ): LicenseOperationFailure => {
   return {
-    __type: "LicenseOperationFailure",
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     FailureTime:
       output.FailureTime !== undefined && output.FailureTime !== null
@@ -2575,7 +2542,6 @@ const deserializeAws_json1_1LicenseOperationFailureList = (
 
 const deserializeAws_json1_1LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
   return {
-    __type: "LicenseSpecification",
     LicenseConfigurationArn:
       output.LicenseConfigurationArn !== undefined && output.LicenseConfigurationArn !== null
         ? output.LicenseConfigurationArn
@@ -2589,7 +2555,6 @@ const deserializeAws_json1_1LicenseSpecifications = (output: any, context: __Ser
 
 const deserializeAws_json1_1LicenseUsageException = (output: any, context: __SerdeContext): LicenseUsageException => {
   return {
-    __type: "LicenseUsageException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2599,7 +2564,6 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse = (
   context: __SerdeContext
 ): ListAssociationsForLicenseConfigurationResponse => {
   return {
-    __type: "ListAssociationsForLicenseConfigurationResponse",
     LicenseConfigurationAssociations:
       output.LicenseConfigurationAssociations !== undefined && output.LicenseConfigurationAssociations !== null
         ? deserializeAws_json1_1LicenseConfigurationAssociations(output.LicenseConfigurationAssociations, context)
@@ -2613,7 +2577,6 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRespons
   context: __SerdeContext
 ): ListFailuresForLicenseConfigurationOperationsResponse => {
   return {
-    __type: "ListFailuresForLicenseConfigurationOperationsResponse",
     LicenseOperationFailureList:
       output.LicenseOperationFailureList !== undefined && output.LicenseOperationFailureList !== null
         ? deserializeAws_json1_1LicenseOperationFailureList(output.LicenseOperationFailureList, context)
@@ -2627,7 +2590,6 @@ const deserializeAws_json1_1ListLicenseConfigurationsResponse = (
   context: __SerdeContext
 ): ListLicenseConfigurationsResponse => {
   return {
-    __type: "ListLicenseConfigurationsResponse",
     LicenseConfigurations:
       output.LicenseConfigurations !== undefined && output.LicenseConfigurations !== null
         ? deserializeAws_json1_1LicenseConfigurations(output.LicenseConfigurations, context)
@@ -2641,7 +2603,6 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
   context: __SerdeContext
 ): ListLicenseSpecificationsForResourceResponse => {
   return {
-    __type: "ListLicenseSpecificationsForResourceResponse",
     LicenseSpecifications:
       output.LicenseSpecifications !== undefined && output.LicenseSpecifications !== null
         ? deserializeAws_json1_1LicenseSpecifications(output.LicenseSpecifications, context)
@@ -2655,7 +2616,6 @@ const deserializeAws_json1_1ListResourceInventoryResponse = (
   context: __SerdeContext
 ): ListResourceInventoryResponse => {
   return {
-    __type: "ListResourceInventoryResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResourceInventoryList:
       output.ResourceInventoryList !== undefined && output.ResourceInventoryList !== null
@@ -2669,7 +2629,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -2682,7 +2641,6 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
   context: __SerdeContext
 ): ListUsageForLicenseConfigurationResponse => {
   return {
-    __type: "ListUsageForLicenseConfigurationResponse",
     LicenseConfigurationUsageList:
       output.LicenseConfigurationUsageList !== undefined && output.LicenseConfigurationUsageList !== null
         ? deserializeAws_json1_1LicenseConfigurationUsageList(output.LicenseConfigurationUsageList, context)
@@ -2693,7 +2651,6 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
 
 const deserializeAws_json1_1ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
   return {
-    __type: "ManagedResourceSummary",
     AssociationCount:
       output.AssociationCount !== undefined && output.AssociationCount !== null ? output.AssociationCount : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
@@ -2709,7 +2666,6 @@ const deserializeAws_json1_1ManagedResourceSummaryList = (
 
 const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): Metadata => {
   return {
-    __type: "Metadata",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2724,7 +2680,6 @@ const deserializeAws_json1_1OrganizationConfiguration = (
   context: __SerdeContext
 ): OrganizationConfiguration => {
   return {
-    __type: "OrganizationConfiguration",
     EnableIntegration:
       output.EnableIntegration !== undefined && output.EnableIntegration !== null
         ? output.EnableIntegration
@@ -2734,7 +2689,6 @@ const deserializeAws_json1_1OrganizationConfiguration = (
 
 const deserializeAws_json1_1ProductInformation = (output: any, context: __SerdeContext): ProductInformation => {
   return {
-    __type: "ProductInformation",
     ProductInformationFilterList:
       output.ProductInformationFilterList !== undefined && output.ProductInformationFilterList !== null
         ? deserializeAws_json1_1ProductInformationFilterList(output.ProductInformationFilterList, context)
@@ -2748,7 +2702,6 @@ const deserializeAws_json1_1ProductInformationFilter = (
   context: __SerdeContext
 ): ProductInformationFilter => {
   return {
-    __type: "ProductInformationFilter",
     ProductInformationFilterComparator:
       output.ProductInformationFilterComparator !== undefined && output.ProductInformationFilterComparator !== null
         ? output.ProductInformationFilterComparator
@@ -2780,14 +2733,12 @@ const deserializeAws_json1_1RateLimitExceededException = (
   context: __SerdeContext
 ): RateLimitExceededException => {
   return {
-    __type: "RateLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
   return {
-    __type: "ResourceInventory",
     Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
     PlatformVersion:
       output.PlatformVersion !== undefined && output.PlatformVersion !== null ? output.PlatformVersion : undefined,
@@ -2810,7 +2761,6 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
   context: __SerdeContext
 ): ResourceLimitExceededException => {
   return {
-    __type: "ResourceLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2820,7 +2770,6 @@ const deserializeAws_json1_1ServerInternalException = (
   context: __SerdeContext
 ): ServerInternalException => {
   return {
-    __type: "ServerInternalException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2831,7 +2780,6 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2842,42 +2790,32 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateLicenseConfigurationResponse => {
-  return {
-    __type: "UpdateLicenseConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateLicenseSpecificationsForResourceResponse => {
-  return {
-    __type: "UpdateLicenseSpecificationsForResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateServiceSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateServiceSettingsResponse => {
-  return {
-    __type: "UpdateServiceSettingsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

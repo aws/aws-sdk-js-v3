@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,11 +19,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateMemberAccountRequest {
-  __type?: "AssociateMemberAccountRequest";
   /**
    * <p>The ID of the AWS account that you want to associate with Amazon Macie Classic as a
    *       member account.</p>
@@ -35,11 +33,9 @@ export namespace AssociateMemberAccountRequest {
   export const filterSensitiveLog = (obj: AssociateMemberAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateMemberAccountRequest => __isa(o, "AssociateMemberAccountRequest");
 }
 
 export interface AssociateS3ResourcesRequest {
-  __type?: "AssociateS3ResourcesRequest";
   /**
    * <p>The S3 resources that you want to associate with Amazon Macie Classic for monitoring
    *       and data classification. </p>
@@ -57,11 +53,9 @@ export namespace AssociateS3ResourcesRequest {
   export const filterSensitiveLog = (obj: AssociateS3ResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateS3ResourcesRequest => __isa(o, "AssociateS3ResourcesRequest");
 }
 
 export interface AssociateS3ResourcesResult {
-  __type?: "AssociateS3ResourcesResult";
   /**
    * <p>S3 resources that couldn't be associated with Amazon Macie Classic. An error code and
    *       an error message are provided for each failed item. </p>
@@ -73,7 +67,6 @@ export namespace AssociateS3ResourcesResult {
   export const filterSensitiveLog = (obj: AssociateS3ResourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateS3ResourcesResult => __isa(o, "AssociateS3ResourcesResult");
 }
 
 /**
@@ -81,7 +74,6 @@ export namespace AssociateS3ResourcesResult {
  *       resources. </p>
  */
 export interface ClassificationType {
-  __type?: "ClassificationType";
   /**
    * <p>A one-time classification of all of the existing objects in a specified S3 bucket.
    *     </p>
@@ -100,7 +92,6 @@ export namespace ClassificationType {
   export const filterSensitiveLog = (obj: ClassificationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassificationType => __isa(o, "ClassificationType");
 }
 
 /**
@@ -109,7 +100,6 @@ export namespace ClassificationType {
  *     </p>
  */
 export interface ClassificationTypeUpdate {
-  __type?: "ClassificationTypeUpdate";
   /**
    * <p>A continuous classification of the objects that are added to a specified S3 bucket.
    *       Amazon Macie Classic begins performing continuous classification after a bucket is
@@ -128,11 +118,9 @@ export namespace ClassificationTypeUpdate {
   export const filterSensitiveLog = (obj: ClassificationTypeUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassificationTypeUpdate => __isa(o, "ClassificationTypeUpdate");
 }
 
 export interface DisassociateMemberAccountRequest {
-  __type?: "DisassociateMemberAccountRequest";
   /**
    * <p>The ID of the member account that you want to remove from Amazon Macie
    *       Classic.</p>
@@ -144,11 +132,9 @@ export namespace DisassociateMemberAccountRequest {
   export const filterSensitiveLog = (obj: DisassociateMemberAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateMemberAccountRequest => __isa(o, "DisassociateMemberAccountRequest");
 }
 
 export interface DisassociateS3ResourcesRequest {
-  __type?: "DisassociateS3ResourcesRequest";
   /**
    * <p>The ID of the Amazon Macie Classic member account whose resources you want to remove
    *       from being monitored by Amazon Macie Classic. </p>
@@ -166,11 +152,9 @@ export namespace DisassociateS3ResourcesRequest {
   export const filterSensitiveLog = (obj: DisassociateS3ResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateS3ResourcesRequest => __isa(o, "DisassociateS3ResourcesRequest");
 }
 
 export interface DisassociateS3ResourcesResult {
-  __type?: "DisassociateS3ResourcesResult";
   /**
    * <p>S3 resources that couldn't be removed from being monitored and classified by Amazon
    *       Macie Classic. An error code and an error message are provided for each failed item.
@@ -183,14 +167,12 @@ export namespace DisassociateS3ResourcesResult {
   export const filterSensitiveLog = (obj: DisassociateS3ResourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateS3ResourcesResult => __isa(o, "DisassociateS3ResourcesResult");
 }
 
 /**
  * <p>Includes details about the failed S3 resources.</p>
  */
 export interface FailedS3Resource {
-  __type?: "FailedS3Resource";
   /**
    * <p>The status code of a failed item.</p>
    */
@@ -211,7 +193,6 @@ export namespace FailedS3Resource {
   export const filterSensitiveLog = (obj: FailedS3Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedS3Resource => __isa(o, "FailedS3Resource");
 }
 
 /**
@@ -231,7 +212,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
@@ -257,7 +237,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -283,11 +262,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListMemberAccountsRequest {
-  __type?: "ListMemberAccountsRequest";
   /**
    * <p>Use this parameter to indicate the maximum number of items that you want in the
    *       response. The default value is 250. </p>
@@ -307,11 +284,9 @@ export namespace ListMemberAccountsRequest {
   export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsRequest => __isa(o, "ListMemberAccountsRequest");
 }
 
 export interface ListMemberAccountsResult {
-  __type?: "ListMemberAccountsResult";
   /**
    * <p>A list of the Amazon Macie Classic member accounts returned by the action. The current
    *       master account is also included in this list. </p>
@@ -331,11 +306,9 @@ export namespace ListMemberAccountsResult {
   export const filterSensitiveLog = (obj: ListMemberAccountsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsResult => __isa(o, "ListMemberAccountsResult");
 }
 
 export interface ListS3ResourcesRequest {
-  __type?: "ListS3ResourcesRequest";
   /**
    * <p>The Amazon Macie Classic member account ID whose associated S3 resources you want to
    *       list. </p>
@@ -360,11 +333,9 @@ export namespace ListS3ResourcesRequest {
   export const filterSensitiveLog = (obj: ListS3ResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListS3ResourcesRequest => __isa(o, "ListS3ResourcesRequest");
 }
 
 export interface ListS3ResourcesResult {
-  __type?: "ListS3ResourcesResult";
   /**
    * <p>When a response is generated, if there is more data to be listed, this parameter is
    *       present in the response and contains the value to use for the nextToken parameter in a
@@ -383,14 +354,12 @@ export namespace ListS3ResourcesResult {
   export const filterSensitiveLog = (obj: ListS3ResourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListS3ResourcesResult => __isa(o, "ListS3ResourcesResult");
 }
 
 /**
  * <p>Contains information about the Amazon Macie Classic member account.</p>
  */
 export interface MemberAccount {
-  __type?: "MemberAccount";
   /**
    * <p>The AWS account ID of the Amazon Macie Classic member account.</p>
    */
@@ -401,7 +370,6 @@ export namespace MemberAccount {
   export const filterSensitiveLog = (obj: MemberAccount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberAccount => __isa(o, "MemberAccount");
 }
 
 export enum S3ContinuousClassificationType {
@@ -419,7 +387,6 @@ export enum S3OneTimeClassificationType {
  *       AssociateS3Resources and UpdateS3Resources actions. </p>
  */
 export interface S3Resource {
-  __type?: "S3Resource";
   /**
    * <p>The prefix of the S3 bucket. </p>
    */
@@ -435,7 +402,6 @@ export namespace S3Resource {
   export const filterSensitiveLog = (obj: S3Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Resource => __isa(o, "S3Resource");
 }
 
 /**
@@ -444,7 +410,6 @@ export namespace S3Resource {
  *       AssociateS3Resources action and a response parameter in the ListS3Resources action. </p>
  */
 export interface S3ResourceClassification {
-  __type?: "S3ResourceClassification";
   /**
    * <p>The prefix of the S3 bucket that you want to associate with Amazon Macie
    *       Classic.</p>
@@ -468,7 +433,6 @@ export namespace S3ResourceClassification {
   export const filterSensitiveLog = (obj: S3ResourceClassification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ResourceClassification => __isa(o, "S3ResourceClassification");
 }
 
 /**
@@ -476,7 +440,6 @@ export namespace S3ResourceClassification {
  *       as a request parameter in the UpdateS3Resources action. </p>
  */
 export interface S3ResourceClassificationUpdate {
-  __type?: "S3ResourceClassificationUpdate";
   /**
    * <p>The classification type that you want to update for the resource associated with Amazon
    *       Macie Classic. </p>
@@ -498,11 +461,9 @@ export namespace S3ResourceClassificationUpdate {
   export const filterSensitiveLog = (obj: S3ResourceClassificationUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ResourceClassificationUpdate => __isa(o, "S3ResourceClassificationUpdate");
 }
 
 export interface UpdateS3ResourcesRequest {
-  __type?: "UpdateS3ResourcesRequest";
   /**
    * <p>The S3 resources whose classification types you want to update.</p>
    */
@@ -519,11 +480,9 @@ export namespace UpdateS3ResourcesRequest {
   export const filterSensitiveLog = (obj: UpdateS3ResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateS3ResourcesRequest => __isa(o, "UpdateS3ResourcesRequest");
 }
 
 export interface UpdateS3ResourcesResult {
-  __type?: "UpdateS3ResourcesResult";
   /**
    * <p>The S3 resources whose classification types can't be updated. An error code and an
    *       error message are provided for each failed item. </p>
@@ -535,5 +494,4 @@ export namespace UpdateS3ResourcesResult {
   export const filterSensitiveLog = (obj: UpdateS3ResourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateS3ResourcesResult => __isa(o, "UpdateS3ResourcesResult");
 }

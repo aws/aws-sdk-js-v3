@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CancelRotateSecretRequest {
-  __type?: "CancelRotateSecretRequest";
   /**
    * <p>Specifies the secret to cancel a rotation request. You can specify either the Amazon
    *       Resource Name (ARN) or the friendly name of the secret.</p>
@@ -28,11 +27,9 @@ export namespace CancelRotateSecretRequest {
   export const filterSensitiveLog = (obj: CancelRotateSecretRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelRotateSecretRequest => __isa(o, "CancelRotateSecretRequest");
 }
 
 export interface CancelRotateSecretResponse {
-  __type?: "CancelRotateSecretResponse";
   /**
    * <p>The unique identifier of the version of the secret created during the rotation. This
    *       version might not be complete, and should be evaluated for possible deletion. At the very
@@ -57,11 +54,9 @@ export namespace CancelRotateSecretResponse {
   export const filterSensitiveLog = (obj: CancelRotateSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelRotateSecretResponse => __isa(o, "CancelRotateSecretResponse");
 }
 
 export interface CreateSecretRequest {
-  __type?: "CreateSecretRequest";
   /**
    * <p>Specifies the friendly name of the new secret.</p>
    *          <p>The secret name must be ASCII letters, digits, or the following characters :
@@ -231,11 +226,9 @@ export namespace CreateSecretRequest {
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateSecretRequest => __isa(o, "CreateSecretRequest");
 }
 
 export interface CreateSecretResponse {
-  __type?: "CreateSecretResponse";
   /**
    * <p>The friendly name of the secret that you just created.</p>
    */
@@ -264,7 +257,6 @@ export namespace CreateSecretResponse {
   export const filterSensitiveLog = (obj: CreateSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecretResponse => __isa(o, "CreateSecretResponse");
 }
 
 /**
@@ -280,11 +272,9 @@ export namespace DecryptionFailure {
   export const filterSensitiveLog = (obj: DecryptionFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecryptionFailure => __isa(o, "DecryptionFailure");
 }
 
 export interface DeleteResourcePolicyRequest {
-  __type?: "DeleteResourcePolicyRequest";
   /**
    * <p>Specifies the secret that you want to delete the attached resource-based policy for. You
    *       can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -310,11 +300,9 @@ export namespace DeleteResourcePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyRequest => __isa(o, "DeleteResourcePolicyRequest");
 }
 
 export interface DeleteResourcePolicyResponse {
-  __type?: "DeleteResourcePolicyResponse";
   /**
    * <p>The friendly name of the secret that the resource-based policy was deleted for.</p>
    */
@@ -330,11 +318,9 @@ export namespace DeleteResourcePolicyResponse {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyResponse => __isa(o, "DeleteResourcePolicyResponse");
 }
 
 export interface DeleteSecretRequest {
-  __type?: "DeleteSecretRequest";
   /**
    * <p>(Optional) Specifies that the secret is to be deleted without any recovery window. You
    *       can't use both this parameter and the <code>RecoveryWindowInDays</code> parameter in the same
@@ -386,11 +372,9 @@ export namespace DeleteSecretRequest {
   export const filterSensitiveLog = (obj: DeleteSecretRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecretRequest => __isa(o, "DeleteSecretRequest");
 }
 
 export interface DeleteSecretResponse {
-  __type?: "DeleteSecretResponse";
   /**
    * <p>The ARN of the secret that is now scheduled for deletion.</p>
    */
@@ -413,11 +397,9 @@ export namespace DeleteSecretResponse {
   export const filterSensitiveLog = (obj: DeleteSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecretResponse => __isa(o, "DeleteSecretResponse");
 }
 
 export interface DescribeSecretRequest {
-  __type?: "DescribeSecretRequest";
   /**
    * <p>The identifier of the secret whose details you want to retrieve. You can specify either
    *       the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -443,11 +425,9 @@ export namespace DescribeSecretRequest {
   export const filterSensitiveLog = (obj: DescribeSecretRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecretRequest => __isa(o, "DescribeSecretRequest");
 }
 
 export interface DescribeSecretResponse {
-  __type?: "DescribeSecretResponse";
   /**
    * <p>The ARN of a Lambda function that's invoked by Secrets Manager to rotate the
    *       secret either automatically per the schedule or manually by a call to
@@ -548,7 +528,6 @@ export namespace DescribeSecretResponse {
   export const filterSensitiveLog = (obj: DescribeSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecretResponse => __isa(o, "DescribeSecretResponse");
 }
 
 /**
@@ -567,14 +546,12 @@ export namespace EncryptionFailure {
   export const filterSensitiveLog = (obj: EncryptionFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionFailure => __isa(o, "EncryptionFailure");
 }
 
 /**
  * <p>Allows you to filter your list of secrets.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>Filters your list of secrets by a specific key.</p>
    */
@@ -590,13 +567,11 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export type FilterNameStringType = "all" | "description" | "name" | "tag-key" | "tag-value";
 
 export interface GetRandomPasswordRequest {
-  __type?: "GetRandomPasswordRequest";
   /**
    * <p>A string that includes characters that should not be included in the generated password.
    *       The default is that all characters from the included sets can be used.</p>
@@ -659,11 +634,9 @@ export namespace GetRandomPasswordRequest {
   export const filterSensitiveLog = (obj: GetRandomPasswordRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRandomPasswordRequest => __isa(o, "GetRandomPasswordRequest");
 }
 
 export interface GetRandomPasswordResponse {
-  __type?: "GetRandomPasswordResponse";
   /**
    * <p>A string with the generated password.</p>
    */
@@ -675,11 +648,9 @@ export namespace GetRandomPasswordResponse {
     ...obj,
     ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRandomPasswordResponse => __isa(o, "GetRandomPasswordResponse");
 }
 
 export interface GetResourcePolicyRequest {
-  __type?: "GetResourcePolicyRequest";
   /**
    * <p>Specifies the secret that you want to retrieve the attached resource-based policy for. You
    *       can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -705,11 +676,9 @@ export namespace GetResourcePolicyRequest {
   export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyRequest => __isa(o, "GetResourcePolicyRequest");
 }
 
 export interface GetResourcePolicyResponse {
-  __type?: "GetResourcePolicyResponse";
   /**
    * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
    */
@@ -734,11 +703,9 @@ export namespace GetResourcePolicyResponse {
   export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyResponse => __isa(o, "GetResourcePolicyResponse");
 }
 
 export interface GetSecretValueRequest {
-  __type?: "GetSecretValueRequest";
   /**
    * <p>Specifies the secret containing the version that you want to retrieve. You can specify
    *       either the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -786,11 +753,9 @@ export namespace GetSecretValueRequest {
   export const filterSensitiveLog = (obj: GetSecretValueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSecretValueRequest => __isa(o, "GetSecretValueRequest");
 }
 
 export interface GetSecretValueResponse {
-  __type?: "GetSecretValueResponse";
   /**
    * <p>The friendly name of the secret.</p>
    */
@@ -850,7 +815,6 @@ export namespace GetSecretValueResponse {
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetSecretValueResponse => __isa(o, "GetSecretValueResponse");
 }
 
 /**
@@ -866,7 +830,6 @@ export namespace InternalServiceError {
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
@@ -882,7 +845,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -898,7 +860,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -925,7 +886,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -941,11 +901,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListSecretsRequest {
-  __type?: "ListSecretsRequest";
   /**
    * <p>Lists the secret request filters.</p>
    */
@@ -981,11 +939,9 @@ export namespace ListSecretsRequest {
   export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecretsRequest => __isa(o, "ListSecretsRequest");
 }
 
 export interface ListSecretsResponse {
-  __type?: "ListSecretsResponse";
   /**
    * <p>If present in the response, this value indicates that
    *     there's more output available than included in the current response. This can
@@ -1007,11 +963,9 @@ export namespace ListSecretsResponse {
   export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecretsResponse => __isa(o, "ListSecretsResponse");
 }
 
 export interface ListSecretVersionIdsRequest {
-  __type?: "ListSecretVersionIdsRequest";
   /**
    * <p>(Optional) Limits the number of results you want to include in
    *     the response. If you don't include this parameter, it defaults to a value that's
@@ -1064,11 +1018,9 @@ export namespace ListSecretVersionIdsRequest {
   export const filterSensitiveLog = (obj: ListSecretVersionIdsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecretVersionIdsRequest => __isa(o, "ListSecretVersionIdsRequest");
 }
 
 export interface ListSecretVersionIdsResponse {
-  __type?: "ListSecretVersionIdsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the secret.</p>
    *          <note>
@@ -1107,7 +1059,6 @@ export namespace ListSecretVersionIdsResponse {
   export const filterSensitiveLog = (obj: ListSecretVersionIdsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecretVersionIdsResponse => __isa(o, "ListSecretVersionIdsResponse");
 }
 
 /**
@@ -1123,7 +1074,6 @@ export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -1139,7 +1089,6 @@ export namespace PreconditionNotMetException {
   export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreconditionNotMetException => __isa(o, "PreconditionNotMetException");
 }
 
 /**
@@ -1155,11 +1104,9 @@ export namespace PublicPolicyException {
   export const filterSensitiveLog = (obj: PublicPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicPolicyException => __isa(o, "PublicPolicyException");
 }
 
 export interface PutResourcePolicyRequest {
-  __type?: "PutResourcePolicyRequest";
   /**
    * <p>Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.</p>
    */
@@ -1199,11 +1146,9 @@ export namespace PutResourcePolicyRequest {
   export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyRequest => __isa(o, "PutResourcePolicyRequest");
 }
 
 export interface PutResourcePolicyResponse {
-  __type?: "PutResourcePolicyResponse";
   /**
    * <p>The friendly name of the secret that the retrieved by the resource-based policy.</p>
    */
@@ -1219,11 +1164,9 @@ export namespace PutResourcePolicyResponse {
   export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyResponse => __isa(o, "PutResourcePolicyResponse");
 }
 
 export interface PutSecretValueRequest {
-  __type?: "PutSecretValueRequest";
   /**
    * <p>Specifies the secret to which you want to add a new version. You can specify either the
    *       Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already
@@ -1332,11 +1275,9 @@ export namespace PutSecretValueRequest {
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSecretValueRequest => __isa(o, "PutSecretValueRequest");
 }
 
 export interface PutSecretValueResponse {
-  __type?: "PutSecretValueResponse";
   /**
    * <p>The unique identifier of the version of the secret you just created or updated.</p>
    */
@@ -1364,7 +1305,6 @@ export namespace PutSecretValueResponse {
   export const filterSensitiveLog = (obj: PutSecretValueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSecretValueResponse => __isa(o, "PutSecretValueResponse");
 }
 
 /**
@@ -1380,7 +1320,6 @@ export namespace ResourceExistsException {
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
@@ -1396,11 +1335,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface RestoreSecretRequest {
-  __type?: "RestoreSecretRequest";
   /**
    * <p>Specifies the secret that you want to restore from a previously scheduled deletion. You
    *       can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -1426,11 +1363,9 @@ export namespace RestoreSecretRequest {
   export const filterSensitiveLog = (obj: RestoreSecretRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreSecretRequest => __isa(o, "RestoreSecretRequest");
 }
 
 export interface RestoreSecretResponse {
-  __type?: "RestoreSecretResponse";
   /**
    * <p>The ARN of the secret that was restored.</p>
    */
@@ -1446,11 +1381,9 @@ export namespace RestoreSecretResponse {
   export const filterSensitiveLog = (obj: RestoreSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreSecretResponse => __isa(o, "RestoreSecretResponse");
 }
 
 export interface RotateSecretRequest {
-  __type?: "RotateSecretRequest";
   /**
    * <p>(Optional) Specifies a unique identifier for the new version of the secret that helps
    *       ensure idempotency. </p>
@@ -1504,11 +1437,9 @@ export namespace RotateSecretRequest {
   export const filterSensitiveLog = (obj: RotateSecretRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateSecretRequest => __isa(o, "RotateSecretRequest");
 }
 
 export interface RotateSecretResponse {
-  __type?: "RotateSecretResponse";
   /**
    * <p>The ID of the new version of the secret created by the rotation started by this
    *       request.</p>
@@ -1530,14 +1461,12 @@ export namespace RotateSecretResponse {
   export const filterSensitiveLog = (obj: RotateSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateSecretResponse => __isa(o, "RotateSecretResponse");
 }
 
 /**
  * <p>A structure that defines the rotation configuration for the secret.</p>
  */
 export interface RotationRulesType {
-  __type?: "RotationRulesType";
   /**
    * <p>Specifies the number of days between automatic scheduled rotations of the secret.</p>
    *          <p>Secrets Manager schedules the next rotation when the previous
@@ -1553,7 +1482,6 @@ export namespace RotationRulesType {
   export const filterSensitiveLog = (obj: RotationRulesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotationRulesType => __isa(o, "RotationRulesType");
 }
 
 /**
@@ -1562,7 +1490,6 @@ export namespace RotationRulesType {
  *         <a>GetSecretValue</a> operation.</p>
  */
 export interface SecretListEntry {
-  __type?: "SecretListEntry";
   /**
    * <p>The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the
    *       secret either automatically per the schedule or manually by a call to <a>RotateSecret</a>.</p>
@@ -1662,14 +1589,12 @@ export namespace SecretListEntry {
   export const filterSensitiveLog = (obj: SecretListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecretListEntry => __isa(o, "SecretListEntry");
 }
 
 /**
  * <p>A structure that contains information about one version of a secret.</p>
  */
 export interface SecretVersionsListEntry {
-  __type?: "SecretVersionsListEntry";
   /**
    * <p>The unique version identifier of this version of the secret.</p>
    */
@@ -1697,7 +1622,6 @@ export namespace SecretVersionsListEntry {
   export const filterSensitiveLog = (obj: SecretVersionsListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecretVersionsListEntry => __isa(o, "SecretVersionsListEntry");
 }
 
 export enum SortOrderType {
@@ -1709,7 +1633,6 @@ export enum SortOrderType {
  * <p>A structure that contains information about a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The string value associated with the key of the tag.</p>
    */
@@ -1725,11 +1648,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The identifier for the secret that you want to attach tags to. You can specify either the
    *       Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -1766,11 +1687,9 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of tag key names to remove from the secret. You don't specify the value. Both the
    *       key and its associated value are removed.</p>
@@ -1804,11 +1723,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateSecretRequest {
-  __type?: "UpdateSecretRequest";
   /**
    * <p>(Optional) Specifies updated binary data that you want to encrypt and store in the new
    *       version of the secret. To use this parameter in the command-line tools, we recommend that you
@@ -1925,11 +1842,9 @@ export namespace UpdateSecretRequest {
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateSecretRequest => __isa(o, "UpdateSecretRequest");
 }
 
 export interface UpdateSecretResponse {
-  __type?: "UpdateSecretResponse";
   /**
    * <p>The ARN of the secret that was updated.</p>
    *          <note>
@@ -1958,11 +1873,9 @@ export namespace UpdateSecretResponse {
   export const filterSensitiveLog = (obj: UpdateSecretResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecretResponse => __isa(o, "UpdateSecretResponse");
 }
 
 export interface UpdateSecretVersionStageRequest {
-  __type?: "UpdateSecretVersionStageRequest";
   /**
    * <p>(Optional) The secret version ID that you want to add the staging label. If you want to
    *       remove a label from a version, then do not specify this parameter.</p>
@@ -2011,11 +1924,9 @@ export namespace UpdateSecretVersionStageRequest {
   export const filterSensitiveLog = (obj: UpdateSecretVersionStageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecretVersionStageRequest => __isa(o, "UpdateSecretVersionStageRequest");
 }
 
 export interface UpdateSecretVersionStageResponse {
-  __type?: "UpdateSecretVersionStageResponse";
   /**
    * <p>The ARN of the secret with the modified staging label.</p>
    */
@@ -2031,11 +1942,9 @@ export namespace UpdateSecretVersionStageResponse {
   export const filterSensitiveLog = (obj: UpdateSecretVersionStageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecretVersionStageResponse => __isa(o, "UpdateSecretVersionStageResponse");
 }
 
 export interface ValidateResourcePolicyRequest {
-  __type?: "ValidateResourcePolicyRequest";
   /**
    * <p> The identifier for the secret that you want to validate a resource policy. You can specify either
    *     the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
@@ -2066,11 +1975,9 @@ export namespace ValidateResourcePolicyRequest {
   export const filterSensitiveLog = (obj: ValidateResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateResourcePolicyRequest => __isa(o, "ValidateResourcePolicyRequest");
 }
 
 export interface ValidateResourcePolicyResponse {
-  __type?: "ValidateResourcePolicyResponse";
   /**
    * <p>Returns a message stating that your Reource Policy passed validation. </p>
    */
@@ -2086,14 +1993,12 @@ export namespace ValidateResourcePolicyResponse {
   export const filterSensitiveLog = (obj: ValidateResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateResourcePolicyResponse => __isa(o, "ValidateResourcePolicyResponse");
 }
 
 /**
  * <p>Displays errors that occurred during validation of the resource policy.</p>
  */
 export interface ValidationErrorsEntry {
-  __type?: "ValidationErrorsEntry";
   /**
    * <p>Checks the name of the policy.</p>
    */
@@ -2109,5 +2014,4 @@ export namespace ValidationErrorsEntry {
   export const filterSensitiveLog = (obj: ValidationErrorsEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationErrorsEntry => __isa(o, "ValidationErrorsEntry");
 }

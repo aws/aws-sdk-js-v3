@@ -492,7 +492,6 @@ export const deserializeAws_json1_1AssociateConfigurationItemsToApplicationComma
   contents = deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse(data, context);
   const response: AssociateConfigurationItemsToApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateConfigurationItemsToApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -580,7 +579,6 @@ export const deserializeAws_json1_1BatchDeleteImportDataCommand = async (
   contents = deserializeAws_json1_1BatchDeleteImportDataResponse(data, context);
   const response: BatchDeleteImportDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDeleteImportDataResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -668,7 +666,6 @@ export const deserializeAws_json1_1CreateApplicationCommand = async (
   contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -756,7 +753,6 @@ export const deserializeAws_json1_1CreateTagsCommand = async (
   contents = deserializeAws_json1_1CreateTagsResponse(data, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -852,7 +848,6 @@ export const deserializeAws_json1_1DeleteApplicationsCommand = async (
   contents = deserializeAws_json1_1DeleteApplicationsResponse(data, context);
   const response: DeleteApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApplicationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -940,7 +935,6 @@ export const deserializeAws_json1_1DeleteTagsCommand = async (
   contents = deserializeAws_json1_1DeleteTagsResponse(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1036,7 +1030,6 @@ export const deserializeAws_json1_1DescribeAgentsCommand = async (
   contents = deserializeAws_json1_1DescribeAgentsResponse(data, context);
   const response: DescribeAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAgentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1124,7 +1117,6 @@ export const deserializeAws_json1_1DescribeConfigurationsCommand = async (
   contents = deserializeAws_json1_1DescribeConfigurationsResponse(data, context);
   const response: DescribeConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1212,7 +1204,6 @@ export const deserializeAws_json1_1DescribeContinuousExportsCommand = async (
   contents = deserializeAws_json1_1DescribeContinuousExportsResponse(data, context);
   const response: DescribeContinuousExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeContinuousExportsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1316,7 +1307,6 @@ export const deserializeAws_json1_1DescribeExportConfigurationsCommand = async (
   contents = deserializeAws_json1_1DescribeExportConfigurationsResponse(data, context);
   const response: DescribeExportConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExportConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1412,7 +1402,6 @@ export const deserializeAws_json1_1DescribeExportTasksCommand = async (
   contents = deserializeAws_json1_1DescribeExportTasksResponse(data, context);
   const response: DescribeExportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExportTasksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1500,7 +1489,6 @@ export const deserializeAws_json1_1DescribeImportTasksCommand = async (
   contents = deserializeAws_json1_1DescribeImportTasksResponse(data, context);
   const response: DescribeImportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImportTasksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1588,7 +1576,6 @@ export const deserializeAws_json1_1DescribeTagsCommand = async (
   contents = deserializeAws_json1_1DescribeTagsResponse(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1684,7 +1671,6 @@ export const deserializeAws_json1_1DisassociateConfigurationItemsFromApplication
   contents = deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationResponse(data, context);
   const response: DisassociateConfigurationItemsFromApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateConfigurationItemsFromApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1772,7 +1758,6 @@ export const deserializeAws_json1_1ExportConfigurationsCommand = async (
   contents = deserializeAws_json1_1ExportConfigurationsResponse(data, context);
   const response: ExportConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1868,7 +1853,6 @@ export const deserializeAws_json1_1GetDiscoverySummaryCommand = async (
   contents = deserializeAws_json1_1GetDiscoverySummaryResponse(data, context);
   const response: GetDiscoverySummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDiscoverySummaryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1956,7 +1940,6 @@ export const deserializeAws_json1_1ListConfigurationsCommand = async (
   contents = deserializeAws_json1_1ListConfigurationsResponse(data, context);
   const response: ListConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2052,7 +2035,6 @@ export const deserializeAws_json1_1ListServerNeighborsCommand = async (
   contents = deserializeAws_json1_1ListServerNeighborsResponse(data, context);
   const response: ListServerNeighborsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServerNeighborsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2140,7 +2122,6 @@ export const deserializeAws_json1_1StartContinuousExportCommand = async (
   contents = deserializeAws_json1_1StartContinuousExportResponse(data, context);
   const response: StartContinuousExportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartContinuousExportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2252,7 +2233,6 @@ export const deserializeAws_json1_1StartDataCollectionByAgentIdsCommand = async 
   contents = deserializeAws_json1_1StartDataCollectionByAgentIdsResponse(data, context);
   const response: StartDataCollectionByAgentIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDataCollectionByAgentIdsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2340,7 +2320,6 @@ export const deserializeAws_json1_1StartExportTaskCommand = async (
   contents = deserializeAws_json1_1StartExportTaskResponse(data, context);
   const response: StartExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartExportTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2436,7 +2415,6 @@ export const deserializeAws_json1_1StartImportTaskCommand = async (
   contents = deserializeAws_json1_1StartImportTaskResponse(data, context);
   const response: StartImportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartImportTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2532,7 +2510,6 @@ export const deserializeAws_json1_1StopContinuousExportCommand = async (
   contents = deserializeAws_json1_1StopContinuousExportResponse(data, context);
   const response: StopContinuousExportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopContinuousExportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2644,7 +2621,6 @@ export const deserializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
   contents = deserializeAws_json1_1StopDataCollectionByAgentIdsResponse(data, context);
   const response: StopDataCollectionByAgentIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopDataCollectionByAgentIdsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2732,7 +2708,6 @@ export const deserializeAws_json1_1UpdateApplicationCommand = async (
   contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3306,7 +3281,6 @@ const deserializeAws_json1_1AgentConfigurationStatus = (
   context: __SerdeContext
 ): AgentConfigurationStatus => {
   return {
-    __type: "AgentConfigurationStatus",
     agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     operationSucceeded:
@@ -3325,7 +3299,6 @@ const deserializeAws_json1_1AgentConfigurationStatusList = (
 
 const deserializeAws_json1_1AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return {
-    __type: "AgentInfo",
     agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     agentNetworkInfoList:
       output.agentNetworkInfoList !== undefined && output.agentNetworkInfoList !== null
@@ -3349,7 +3322,6 @@ const deserializeAws_json1_1AgentInfo = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AgentNetworkInfo = (output: any, context: __SerdeContext): AgentNetworkInfo => {
   return {
-    __type: "AgentNetworkInfo",
     ipAddress: output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
     macAddress: output.macAddress !== undefined && output.macAddress !== null ? output.macAddress : undefined,
   } as any;
@@ -3367,9 +3339,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateConfigurationItemsToApplicationResponse => {
-  return {
-    __type: "AssociateConfigurationItemsToApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AuthorizationErrorException = (
@@ -3377,7 +3347,6 @@ const deserializeAws_json1_1AuthorizationErrorException = (
   context: __SerdeContext
 ): AuthorizationErrorException => {
   return {
-    __type: "AuthorizationErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3387,7 +3356,6 @@ const deserializeAws_json1_1BatchDeleteImportDataError = (
   context: __SerdeContext
 ): BatchDeleteImportDataError => {
   return {
-    __type: "BatchDeleteImportDataError",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorDescription:
       output.errorDescription !== undefined && output.errorDescription !== null ? output.errorDescription : undefined,
@@ -3407,7 +3375,6 @@ const deserializeAws_json1_1BatchDeleteImportDataResponse = (
   context: __SerdeContext
 ): BatchDeleteImportDataResponse => {
   return {
-    __type: "BatchDeleteImportDataResponse",
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_1BatchDeleteImportDataErrorList(output.errors, context)
@@ -3431,7 +3398,6 @@ const deserializeAws_json1_1Configurations = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ConfigurationTag = (output: any, context: __SerdeContext): ConfigurationTag => {
   return {
-    __type: "ConfigurationTag",
     configurationId:
       output.configurationId !== undefined && output.configurationId !== null ? output.configurationId : undefined,
     configurationType:
@@ -3453,7 +3419,6 @@ const deserializeAws_json1_1ConfigurationTagSet = (output: any, context: __Serde
 
 const deserializeAws_json1_1ConflictErrorException = (output: any, context: __SerdeContext): ConflictErrorException => {
   return {
-    __type: "ConflictErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3463,7 +3428,6 @@ const deserializeAws_json1_1ContinuousExportDescription = (
   context: __SerdeContext
 ): ContinuousExportDescription => {
   return {
-    __type: "ContinuousExportDescription",
     dataSource: output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,
     exportId: output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
     s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
@@ -3496,21 +3460,17 @@ const deserializeAws_json1_1CreateApplicationResponse = (
   context: __SerdeContext
 ): CreateApplicationResponse => {
   return {
-    __type: "CreateApplicationResponse",
     configurationId:
       output.configurationId !== undefined && output.configurationId !== null ? output.configurationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateTagsResponse = (output: any, context: __SerdeContext): CreateTagsResponse => {
-  return {
-    __type: "CreateTagsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CustomerAgentInfo = (output: any, context: __SerdeContext): CustomerAgentInfo => {
   return {
-    __type: "CustomerAgentInfo",
     activeAgents: output.activeAgents !== undefined && output.activeAgents !== null ? output.activeAgents : undefined,
     blackListedAgents:
       output.blackListedAgents !== undefined && output.blackListedAgents !== null
@@ -3530,7 +3490,6 @@ const deserializeAws_json1_1CustomerAgentInfo = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CustomerConnectorInfo = (output: any, context: __SerdeContext): CustomerConnectorInfo => {
   return {
-    __type: "CustomerConnectorInfo",
     activeConnectors:
       output.activeConnectors !== undefined && output.activeConnectors !== null ? output.activeConnectors : undefined,
     blackListedConnectors:
@@ -3562,20 +3521,15 @@ const deserializeAws_json1_1DeleteApplicationsResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteApplicationsResponse => {
-  return {
-    __type: "DeleteApplicationsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteTagsResponse = (output: any, context: __SerdeContext): DeleteTagsResponse => {
-  return {
-    __type: "DeleteTagsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeAgentsResponse = (output: any, context: __SerdeContext): DescribeAgentsResponse => {
   return {
-    __type: "DescribeAgentsResponse",
     agentsInfo:
       output.agentsInfo !== undefined && output.agentsInfo !== null
         ? deserializeAws_json1_1AgentsInfo(output.agentsInfo, context)
@@ -3609,7 +3563,6 @@ const deserializeAws_json1_1DescribeConfigurationsResponse = (
   context: __SerdeContext
 ): DescribeConfigurationsResponse => {
   return {
-    __type: "DescribeConfigurationsResponse",
     configurations:
       output.configurations !== undefined && output.configurations !== null
         ? deserializeAws_json1_1DescribeConfigurationsAttributes(output.configurations, context)
@@ -3622,7 +3575,6 @@ const deserializeAws_json1_1DescribeContinuousExportsResponse = (
   context: __SerdeContext
 ): DescribeContinuousExportsResponse => {
   return {
-    __type: "DescribeContinuousExportsResponse",
     descriptions:
       output.descriptions !== undefined && output.descriptions !== null
         ? deserializeAws_json1_1ContinuousExportDescriptions(output.descriptions, context)
@@ -3636,7 +3588,6 @@ const deserializeAws_json1_1DescribeExportConfigurationsResponse = (
   context: __SerdeContext
 ): DescribeExportConfigurationsResponse => {
   return {
-    __type: "DescribeExportConfigurationsResponse",
     exportsInfo:
       output.exportsInfo !== undefined && output.exportsInfo !== null
         ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context)
@@ -3650,7 +3601,6 @@ const deserializeAws_json1_1DescribeExportTasksResponse = (
   context: __SerdeContext
 ): DescribeExportTasksResponse => {
   return {
-    __type: "DescribeExportTasksResponse",
     exportsInfo:
       output.exportsInfo !== undefined && output.exportsInfo !== null
         ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context)
@@ -3664,7 +3614,6 @@ const deserializeAws_json1_1DescribeImportTasksResponse = (
   context: __SerdeContext
 ): DescribeImportTasksResponse => {
   return {
-    __type: "DescribeImportTasksResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tasks:
       output.tasks !== undefined && output.tasks !== null
@@ -3675,7 +3624,6 @@ const deserializeAws_json1_1DescribeImportTasksResponse = (
 
 const deserializeAws_json1_1DescribeTagsResponse = (output: any, context: __SerdeContext): DescribeTagsResponse => {
   return {
-    __type: "DescribeTagsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
@@ -3688,9 +3636,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationRespons
   output: any,
   context: __SerdeContext
 ): DisassociateConfigurationItemsFromApplicationResponse => {
-  return {
-    __type: "DisassociateConfigurationItemsFromApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ExportConfigurationsResponse = (
@@ -3698,14 +3644,12 @@ const deserializeAws_json1_1ExportConfigurationsResponse = (
   context: __SerdeContext
 ): ExportConfigurationsResponse => {
   return {
-    __type: "ExportConfigurationsResponse",
     exportId: output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ExportInfo = (output: any, context: __SerdeContext): ExportInfo => {
   return {
-    __type: "ExportInfo",
     configurationsDownloadUrl:
       output.configurationsDownloadUrl !== undefined && output.configurationsDownloadUrl !== null
         ? output.configurationsDownloadUrl
@@ -3739,7 +3683,6 @@ const deserializeAws_json1_1GetDiscoverySummaryResponse = (
   context: __SerdeContext
 ): GetDiscoverySummaryResponse => {
   return {
-    __type: "GetDiscoverySummaryResponse",
     agentSummary:
       output.agentSummary !== undefined && output.agentSummary !== null
         ? deserializeAws_json1_1CustomerAgentInfo(output.agentSummary, context)
@@ -3766,14 +3709,12 @@ const deserializeAws_json1_1HomeRegionNotSetException = (
   context: __SerdeContext
 ): HomeRegionNotSetException => {
   return {
-    __type: "HomeRegionNotSetException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ImportTask = (output: any, context: __SerdeContext): ImportTask => {
   return {
-    __type: "ImportTask",
     applicationImportFailure:
       output.applicationImportFailure !== undefined && output.applicationImportFailure !== null
         ? output.applicationImportFailure
@@ -3826,7 +3767,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3836,7 +3776,6 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    __type: "InvalidParameterValueException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3846,7 +3785,6 @@ const deserializeAws_json1_1ListConfigurationsResponse = (
   context: __SerdeContext
 ): ListConfigurationsResponse => {
   return {
-    __type: "ListConfigurationsResponse",
     configurations:
       output.configurations !== undefined && output.configurations !== null
         ? deserializeAws_json1_1Configurations(output.configurations, context)
@@ -3860,7 +3798,6 @@ const deserializeAws_json1_1ListServerNeighborsResponse = (
   context: __SerdeContext
 ): ListServerNeighborsResponse => {
   return {
-    __type: "ListServerNeighborsResponse",
     knownDependencyCount:
       output.knownDependencyCount !== undefined && output.knownDependencyCount !== null
         ? output.knownDependencyCount
@@ -3878,7 +3815,6 @@ const deserializeAws_json1_1NeighborConnectionDetail = (
   context: __SerdeContext
 ): NeighborConnectionDetail => {
   return {
-    __type: "NeighborConnectionDetail",
     connectionsCount:
       output.connectionsCount !== undefined && output.connectionsCount !== null ? output.connectionsCount : undefined,
     destinationPort:
@@ -3908,14 +3844,12 @@ const deserializeAws_json1_1OperationNotPermittedException = (
   context: __SerdeContext
 ): OperationNotPermittedException => {
   return {
-    __type: "OperationNotPermittedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3925,7 +3859,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3945,7 +3878,6 @@ const deserializeAws_json1_1ServerInternalErrorException = (
   context: __SerdeContext
 ): ServerInternalErrorException => {
   return {
-    __type: "ServerInternalErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3955,7 +3887,6 @@ const deserializeAws_json1_1StartContinuousExportResponse = (
   context: __SerdeContext
 ): StartContinuousExportResponse => {
   return {
-    __type: "StartContinuousExportResponse",
     dataSource: output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,
     exportId: output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
     s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
@@ -3975,7 +3906,6 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsResponse = (
   context: __SerdeContext
 ): StartDataCollectionByAgentIdsResponse => {
   return {
-    __type: "StartDataCollectionByAgentIdsResponse",
     agentsConfigurationStatus:
       output.agentsConfigurationStatus !== undefined && output.agentsConfigurationStatus !== null
         ? deserializeAws_json1_1AgentConfigurationStatusList(output.agentsConfigurationStatus, context)
@@ -3988,7 +3918,6 @@ const deserializeAws_json1_1StartExportTaskResponse = (
   context: __SerdeContext
 ): StartExportTaskResponse => {
   return {
-    __type: "StartExportTaskResponse",
     exportId: output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
   } as any;
 };
@@ -3998,7 +3927,6 @@ const deserializeAws_json1_1StartImportTaskResponse = (
   context: __SerdeContext
 ): StartImportTaskResponse => {
   return {
-    __type: "StartImportTaskResponse",
     task:
       output.task !== undefined && output.task !== null
         ? deserializeAws_json1_1ImportTask(output.task, context)
@@ -4011,7 +3939,6 @@ const deserializeAws_json1_1StopContinuousExportResponse = (
   context: __SerdeContext
 ): StopContinuousExportResponse => {
   return {
-    __type: "StopContinuousExportResponse",
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
@@ -4028,7 +3955,6 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsResponse = (
   context: __SerdeContext
 ): StopDataCollectionByAgentIdsResponse => {
   return {
-    __type: "StopDataCollectionByAgentIdsResponse",
     agentsConfigurationStatus:
       output.agentsConfigurationStatus !== undefined && output.agentsConfigurationStatus !== null
         ? deserializeAws_json1_1AgentConfigurationStatusList(output.agentsConfigurationStatus, context)
@@ -4040,9 +3966,7 @@ const deserializeAws_json1_1UpdateApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateApplicationResponse => {
-  return {
-    __type: "UpdateApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

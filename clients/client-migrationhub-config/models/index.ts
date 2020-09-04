@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,11 +14,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CreateHomeRegionControlRequest {
-  __type?: "CreateHomeRegionControlRequest";
   /**
    * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
    *       the caller has permission to make the call.</p>
@@ -41,11 +39,9 @@ export namespace CreateHomeRegionControlRequest {
   export const filterSensitiveLog = (obj: CreateHomeRegionControlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHomeRegionControlRequest => __isa(o, "CreateHomeRegionControlRequest");
 }
 
 export interface CreateHomeRegionControlResult {
-  __type?: "CreateHomeRegionControlResult";
   /**
    * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful
    *       call to <code>CreateHomeRegionControl</code>.</p>
@@ -57,11 +53,9 @@ export namespace CreateHomeRegionControlResult {
   export const filterSensitiveLog = (obj: CreateHomeRegionControlResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHomeRegionControlResult => __isa(o, "CreateHomeRegionControlResult");
 }
 
 export interface DescribeHomeRegionControlsRequest {
-  __type?: "DescribeHomeRegionControlsRequest";
   /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
    *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
@@ -97,11 +91,9 @@ export namespace DescribeHomeRegionControlsRequest {
   export const filterSensitiveLog = (obj: DescribeHomeRegionControlsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHomeRegionControlsRequest => __isa(o, "DescribeHomeRegionControlsRequest");
 }
 
 export interface DescribeHomeRegionControlsResult {
-  __type?: "DescribeHomeRegionControlsResult";
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
    *       To retrieve the next page of results, make the call again using the returned token in
@@ -119,7 +111,6 @@ export namespace DescribeHomeRegionControlsResult {
   export const filterSensitiveLog = (obj: DescribeHomeRegionControlsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHomeRegionControlsResult => __isa(o, "DescribeHomeRegionControlsResult");
 }
 
 /**
@@ -136,22 +127,17 @@ export namespace DryRunOperation {
   export const filterSensitiveLog = (obj: DryRunOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DryRunOperation => __isa(o, "DryRunOperation");
 }
 
-export interface GetHomeRegionRequest {
-  __type?: "GetHomeRegionRequest";
-}
+export interface GetHomeRegionRequest {}
 
 export namespace GetHomeRegionRequest {
   export const filterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHomeRegionRequest => __isa(o, "GetHomeRegionRequest");
 }
 
 export interface GetHomeRegionResult {
-  __type?: "GetHomeRegionResult";
   /**
    * <p>The name of the home region of the calling account.</p>
    */
@@ -162,7 +148,6 @@ export namespace GetHomeRegionResult {
   export const filterSensitiveLog = (obj: GetHomeRegionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHomeRegionResult => __isa(o, "GetHomeRegionResult");
 }
 
 /**
@@ -171,7 +156,6 @@ export namespace GetHomeRegionResult {
  *       ID, and a time at which the home region was set.</p>
  */
 export interface HomeRegionControl {
-  __type?: "HomeRegionControl";
   /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
    *       is always an <code>ACCOUNT</code>. It applies the home region to the current
@@ -202,7 +186,6 @@ export namespace HomeRegionControl {
   export const filterSensitiveLog = (obj: HomeRegionControl): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HomeRegionControl => __isa(o, "HomeRegionControl");
 }
 
 /**
@@ -219,7 +202,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -236,7 +218,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -253,7 +234,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -262,7 +242,6 @@ export namespace ServiceUnavailableException {
  *         <code>ACCOUNT</code>.</p>
  */
 export interface Target {
-  __type?: "Target";
   /**
    * <p>The target type is always an <code>ACCOUNT</code>.</p>
    */
@@ -279,7 +258,6 @@ export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Target => __isa(o, "Target");
 }
 
 export enum TargetType {
@@ -304,5 +282,4 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

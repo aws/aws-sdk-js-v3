@@ -598,7 +598,6 @@ export const deserializeAws_restJson1CreateSignalingChannelCommand = async (
   }
   const contents: CreateSignalingChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSignalingChannelOutput",
     ChannelARN: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -694,7 +693,6 @@ export const deserializeAws_restJson1CreateStreamCommand = async (
   }
   const contents: CreateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamOutput",
     StreamARN: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -798,7 +796,6 @@ export const deserializeAws_restJson1DeleteSignalingChannelCommand = async (
   }
   const contents: DeleteSignalingChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSignalingChannelOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -890,7 +887,6 @@ export const deserializeAws_restJson1DeleteStreamCommand = async (
   }
   const contents: DeleteStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteStreamOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -982,7 +978,6 @@ export const deserializeAws_restJson1DescribeSignalingChannelCommand = async (
   }
   const contents: DescribeSignalingChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSignalingChannelOutput",
     ChannelInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1062,7 +1057,6 @@ export const deserializeAws_restJson1DescribeStreamCommand = async (
   }
   const contents: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStreamOutput",
     StreamInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1142,7 +1136,6 @@ export const deserializeAws_restJson1GetDataEndpointCommand = async (
   }
   const contents: GetDataEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDataEndpointOutput",
     DataEndpoint: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1222,7 +1215,6 @@ export const deserializeAws_restJson1GetSignalingChannelEndpointCommand = async 
   }
   const contents: GetSignalingChannelEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSignalingChannelEndpointOutput",
     ResourceEndpointList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1310,7 +1302,6 @@ export const deserializeAws_restJson1ListSignalingChannelsCommand = async (
   }
   const contents: ListSignalingChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSignalingChannelsOutput",
     ChannelInfoList: undefined,
     NextToken: undefined,
   };
@@ -1386,7 +1377,6 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   }
   const contents: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamsOutput",
     NextToken: undefined,
     StreamInfoList: undefined,
   };
@@ -1454,7 +1444,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -1538,7 +1527,6 @@ export const deserializeAws_restJson1ListTagsForStreamCommand = async (
   }
   const contents: ListTagsForStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForStreamOutput",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -1630,7 +1618,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1714,7 +1701,6 @@ export const deserializeAws_restJson1TagStreamCommand = async (
   }
   const contents: TagStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagStreamOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1806,7 +1792,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1882,7 +1867,6 @@ export const deserializeAws_restJson1UntagStreamCommand = async (
   }
   const contents: UntagStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagStreamOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1966,7 +1950,6 @@ export const deserializeAws_restJson1UpdateDataRetentionCommand = async (
   }
   const contents: UpdateDataRetentionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDataRetentionOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2058,7 +2041,6 @@ export const deserializeAws_restJson1UpdateSignalingChannelCommand = async (
   }
   const contents: UpdateSignalingChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSignalingChannelOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2150,7 +2132,6 @@ export const deserializeAws_restJson1UpdateStreamCommand = async (
   }
   const contents: UpdateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStreamOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2524,7 +2505,6 @@ const serializeAws_restJson1TagOnCreateList = (input: Tag[], context: __SerdeCon
 
 const deserializeAws_restJson1ChannelInfo = (output: any, context: __SerdeContext): ChannelInfo => {
   return {
-    __type: "ChannelInfo",
     ChannelARN: output.ChannelARN !== undefined && output.ChannelARN !== null ? output.ChannelARN : undefined,
     ChannelName: output.ChannelName !== undefined && output.ChannelName !== null ? output.ChannelName : undefined,
     ChannelStatus:
@@ -2558,7 +2538,6 @@ const deserializeAws_restJson1ResourceEndpointListItem = (
   context: __SerdeContext
 ): ResourceEndpointListItem => {
   return {
-    __type: "ResourceEndpointListItem",
     Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
     ResourceEndpoint:
       output.ResourceEndpoint !== undefined && output.ResourceEndpoint !== null ? output.ResourceEndpoint : undefined,
@@ -2580,7 +2559,6 @@ const deserializeAws_restJson1SingleMasterConfiguration = (
   context: __SerdeContext
 ): SingleMasterConfiguration => {
   return {
-    __type: "SingleMasterConfiguration",
     MessageTtlSeconds:
       output.MessageTtlSeconds !== undefined && output.MessageTtlSeconds !== null
         ? output.MessageTtlSeconds
@@ -2590,7 +2568,6 @@ const deserializeAws_restJson1SingleMasterConfiguration = (
 
 const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
   return {
-    __type: "StreamInfo",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -9,7 +9,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       exception is thrown.</p>
  */
 export interface Address {
-  __type?: "Address";
   /**
    * <p>The second line in a street address that a Snowball is to be delivered
    *       to.</p>
@@ -90,11 +89,9 @@ export namespace Address {
   export const filterSensitiveLog = (obj: Address): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Address => __isa(o, "Address");
 }
 
 export interface CancelClusterRequest {
-  __type?: "CancelClusterRequest";
   /**
    * <p>The 39-character ID for the cluster that you want to cancel, for example
    *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -106,22 +103,17 @@ export namespace CancelClusterRequest {
   export const filterSensitiveLog = (obj: CancelClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelClusterRequest => __isa(o, "CancelClusterRequest");
 }
 
-export interface CancelClusterResult {
-  __type?: "CancelClusterResult";
-}
+export interface CancelClusterResult {}
 
 export namespace CancelClusterResult {
   export const filterSensitiveLog = (obj: CancelClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelClusterResult => __isa(o, "CancelClusterResult");
 }
 
 export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
   /**
    * <p>The 39-character job ID for the job that you want to cancel, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -133,18 +125,14 @@ export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
-export interface CancelJobResult {
-  __type?: "CancelJobResult";
-}
+export interface CancelJobResult {}
 
 export namespace CancelJobResult {
   export const filterSensitiveLog = (obj: CancelJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobResult => __isa(o, "CancelJobResult");
 }
 
 /**
@@ -162,14 +150,12 @@ export namespace ClusterLimitExceededException {
   export const filterSensitiveLog = (obj: ClusterLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterLimitExceededException => __isa(o, "ClusterLimitExceededException");
 }
 
 /**
  * <p>Contains a cluster's state, a cluster's ID, and other important information.</p>
  */
 export interface ClusterListEntry {
-  __type?: "ClusterListEntry";
   /**
    * <p>Defines an optional description of the cluster, for example <code>Environmental Data
    *         Cluster-01</code>.</p>
@@ -198,14 +184,12 @@ export namespace ClusterListEntry {
   export const filterSensitiveLog = (obj: ClusterListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterListEntry => __isa(o, "ClusterListEntry");
 }
 
 /**
  * <p>Contains metadata about a specific cluster.</p>
  */
 export interface ClusterMetadata {
-  __type?: "ClusterMetadata";
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
    *       cluster.</p>
@@ -312,7 +296,6 @@ export namespace ClusterMetadata {
   export const filterSensitiveLog = (obj: ClusterMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterMetadata => __isa(o, "ClusterMetadata");
 }
 
 export enum ClusterState {
@@ -330,7 +313,6 @@ export enum ClusterState {
  *       device.</p>
  */
 export interface CompatibleImage {
-  __type?: "CompatibleImage";
   /**
    * <p>The optional name of a compatible image.</p>
    */
@@ -346,11 +328,9 @@ export namespace CompatibleImage {
   export const filterSensitiveLog = (obj: CompatibleImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompatibleImage => __isa(o, "CompatibleImage");
 }
 
 export interface CreateAddressRequest {
-  __type?: "CreateAddressRequest";
   /**
    * <p>The address that you want the Snowball shipped to.</p>
    */
@@ -361,11 +341,9 @@ export namespace CreateAddressRequest {
   export const filterSensitiveLog = (obj: CreateAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAddressRequest => __isa(o, "CreateAddressRequest");
 }
 
 export interface CreateAddressResult {
-  __type?: "CreateAddressResult";
   /**
    * <p>The automatically generated ID for a specific address. You'll use this ID when you
    *       create a job to specify which address you want the Snowball for that job shipped to.</p>
@@ -377,11 +355,9 @@ export namespace CreateAddressResult {
   export const filterSensitiveLog = (obj: CreateAddressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAddressResult => __isa(o, "CreateAddressResult");
 }
 
 export interface CreateClusterRequest {
-  __type?: "CreateClusterRequest";
   /**
    * <p>The ID for the address that you want the cluster shipped to.</p>
    */
@@ -497,11 +473,9 @@ export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResult {
-  __type?: "CreateClusterResult";
   /**
    * <p>The automatically generated ID for a cluster.</p>
    */
@@ -512,11 +486,9 @@ export namespace CreateClusterResult {
   export const filterSensitiveLog = (obj: CreateClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResult => __isa(o, "CreateClusterResult");
 }
 
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * <p>The shipping speed for this job. This speed doesn't dictate how soon you'll get the
    *       Snowball, rather it represents how quickly the Snowball moves to its destination while in
@@ -642,11 +614,9 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResult {
-  __type?: "CreateJobResult";
   /**
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -658,7 +628,6 @@ export namespace CreateJobResult {
   export const filterSensitiveLog = (obj: CreateJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResult => __isa(o, "CreateJobResult");
 }
 
 /**
@@ -667,7 +636,6 @@ export namespace CreateJobResult {
  *         <code>InProgress</code>, for both import and export jobs.</p>
  */
 export interface DataTransfer {
-  __type?: "DataTransfer";
   /**
    * <p>The number of objects transferred between a Snowball and Amazon S3.</p>
    */
@@ -695,11 +663,9 @@ export namespace DataTransfer {
   export const filterSensitiveLog = (obj: DataTransfer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataTransfer => __isa(o, "DataTransfer");
 }
 
 export interface DescribeAddressesRequest {
-  __type?: "DescribeAddressesRequest";
   /**
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>ADDRESS</code> objects, you have the option of specifying a value for
@@ -717,11 +683,9 @@ export namespace DescribeAddressesRequest {
   export const filterSensitiveLog = (obj: DescribeAddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressesRequest => __isa(o, "DescribeAddressesRequest");
 }
 
 export interface DescribeAddressesResult {
-  __type?: "DescribeAddressesResult";
   /**
    * <p>The Snowball shipping addresses that were created for this account.</p>
    */
@@ -739,11 +703,9 @@ export namespace DescribeAddressesResult {
   export const filterSensitiveLog = (obj: DescribeAddressesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressesResult => __isa(o, "DescribeAddressesResult");
 }
 
 export interface DescribeAddressRequest {
-  __type?: "DescribeAddressRequest";
   /**
    * <p>The automatically generated ID for a specific address.</p>
    */
@@ -754,11 +716,9 @@ export namespace DescribeAddressRequest {
   export const filterSensitiveLog = (obj: DescribeAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressRequest => __isa(o, "DescribeAddressRequest");
 }
 
 export interface DescribeAddressResult {
-  __type?: "DescribeAddressResult";
   /**
    * <p>The address that you want the Snowball or Snowballs associated with a specific job to
    *       be shipped to.</p>
@@ -770,11 +730,9 @@ export namespace DescribeAddressResult {
   export const filterSensitiveLog = (obj: DescribeAddressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAddressResult => __isa(o, "DescribeAddressResult");
 }
 
 export interface DescribeClusterRequest {
-  __type?: "DescribeClusterRequest";
   /**
    * <p>The automatically generated ID for a cluster.</p>
    */
@@ -785,11 +743,9 @@ export namespace DescribeClusterRequest {
   export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterRequest => __isa(o, "DescribeClusterRequest");
 }
 
 export interface DescribeClusterResult {
-  __type?: "DescribeClusterResult";
   /**
    * <p>Information about a specific cluster, including shipping information, cluster status,
    *       and other important metadata.</p>
@@ -801,11 +757,9 @@ export namespace DescribeClusterResult {
   export const filterSensitiveLog = (obj: DescribeClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterResult => __isa(o, "DescribeClusterResult");
 }
 
 export interface DescribeJobRequest {
-  __type?: "DescribeJobRequest";
   /**
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -817,11 +771,9 @@ export namespace DescribeJobRequest {
   export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobRequest => __isa(o, "DescribeJobRequest");
 }
 
 export interface DescribeJobResult {
-  __type?: "DescribeJobResult";
   /**
    * <p>Information about a specific job, including shipping information, job status, and other
    *       important metadata.</p>
@@ -839,14 +791,12 @@ export namespace DescribeJobResult {
   export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobResult => __isa(o, "DescribeJobResult");
 }
 
 /**
  * <p>The container for <code>SnowconeDeviceConfiguration</code>. </p>
  */
 export interface DeviceConfiguration {
-  __type?: "DeviceConfiguration";
   /**
    * <p>Returns information about the device configuration for an AWS Snowcone job.</p>
    */
@@ -857,7 +807,6 @@ export namespace DeviceConfiguration {
   export const filterSensitiveLog = (obj: DeviceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceConfiguration => __isa(o, "DeviceConfiguration");
 }
 
 /**
@@ -866,7 +815,6 @@ export namespace DeviceConfiguration {
  *       simplify identifying the AMI in both the AWS Cloud and on the device.</p>
  */
 export interface Ec2AmiResource {
-  __type?: "Ec2AmiResource";
   /**
    * <p>The ID of the AMI in Amazon EC2.</p>
    */
@@ -882,7 +830,6 @@ export namespace Ec2AmiResource {
   export const filterSensitiveLog = (obj: Ec2AmiResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ec2AmiResource => __isa(o, "Ec2AmiResource");
 }
 
 /**
@@ -899,14 +846,12 @@ export namespace Ec2RequestFailedException {
   export const filterSensitiveLog = (obj: Ec2RequestFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ec2RequestFailedException => __isa(o, "Ec2RequestFailedException");
 }
 
 /**
  * <p>The container for the <a>EventTriggerDefinition$EventResourceARN</a>.</p>
  */
 export interface EventTriggerDefinition {
-  __type?: "EventTriggerDefinition";
   /**
    * <p>The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda
    *       function's event trigger associated with this job.</p>
@@ -918,11 +863,9 @@ export namespace EventTriggerDefinition {
   export const filterSensitiveLog = (obj: EventTriggerDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventTriggerDefinition => __isa(o, "EventTriggerDefinition");
 }
 
 export interface GetJobManifestRequest {
-  __type?: "GetJobManifestRequest";
   /**
    * <p>The ID for a job that you want to get the manifest file for, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -934,11 +877,9 @@ export namespace GetJobManifestRequest {
   export const filterSensitiveLog = (obj: GetJobManifestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobManifestRequest => __isa(o, "GetJobManifestRequest");
 }
 
 export interface GetJobManifestResult {
-  __type?: "GetJobManifestResult";
   /**
    * <p>The Amazon S3 presigned URL for the manifest file associated with the specified
    *         <code>JobId</code> value.</p>
@@ -950,11 +891,9 @@ export namespace GetJobManifestResult {
   export const filterSensitiveLog = (obj: GetJobManifestResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobManifestResult => __isa(o, "GetJobManifestResult");
 }
 
 export interface GetJobUnlockCodeRequest {
-  __type?: "GetJobUnlockCodeRequest";
   /**
    * <p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for
    *       example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -966,11 +905,9 @@ export namespace GetJobUnlockCodeRequest {
   export const filterSensitiveLog = (obj: GetJobUnlockCodeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobUnlockCodeRequest => __isa(o, "GetJobUnlockCodeRequest");
 }
 
 export interface GetJobUnlockCodeResult {
-  __type?: "GetJobUnlockCodeResult";
   /**
    * <p>The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code>
    *       value can be accessed for up to 90 days after the job has been created.</p>
@@ -982,22 +919,17 @@ export namespace GetJobUnlockCodeResult {
   export const filterSensitiveLog = (obj: GetJobUnlockCodeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobUnlockCodeResult => __isa(o, "GetJobUnlockCodeResult");
 }
 
-export interface GetSnowballUsageRequest {
-  __type?: "GetSnowballUsageRequest";
-}
+export interface GetSnowballUsageRequest {}
 
 export namespace GetSnowballUsageRequest {
   export const filterSensitiveLog = (obj: GetSnowballUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSnowballUsageRequest => __isa(o, "GetSnowballUsageRequest");
 }
 
 export interface GetSnowballUsageResult {
-  __type?: "GetSnowballUsageResult";
   /**
    * <p>The service limit for number of Snowballs this account can have at once. The default
    *       service limit is 1 (one).</p>
@@ -1014,11 +946,9 @@ export namespace GetSnowballUsageResult {
   export const filterSensitiveLog = (obj: GetSnowballUsageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSnowballUsageResult => __isa(o, "GetSnowballUsageResult");
 }
 
 export interface GetSoftwareUpdatesRequest {
-  __type?: "GetSoftwareUpdatesRequest";
   /**
    * <p>The ID for a job that you want to get the software update file for, for example
    *       <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
@@ -1030,11 +960,9 @@ export namespace GetSoftwareUpdatesRequest {
   export const filterSensitiveLog = (obj: GetSoftwareUpdatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSoftwareUpdatesRequest => __isa(o, "GetSoftwareUpdatesRequest");
 }
 
 export interface GetSoftwareUpdatesResult {
-  __type?: "GetSoftwareUpdatesResult";
   /**
    * <p>The Amazon S3 presigned URL for the update file associated with the specified
    *       <code>JobId</code> value. The software update will be available for 2 days after this request is made.
@@ -1047,14 +975,12 @@ export namespace GetSoftwareUpdatesResult {
   export const filterSensitiveLog = (obj: GetSoftwareUpdatesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSoftwareUpdatesResult => __isa(o, "GetSoftwareUpdatesResult");
 }
 
 /**
  * <p>The tax documents required in AWS Regions in India.</p>
  */
 export interface INDTaxDocuments {
-  __type?: "INDTaxDocuments";
   /**
    * <p>The Goods and Services Tax (GST) documents required in AWS Regions in India.</p>
    */
@@ -1065,7 +991,6 @@ export namespace INDTaxDocuments {
   export const filterSensitiveLog = (obj: INDTaxDocuments): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is INDTaxDocuments => __isa(o, "INDTaxDocuments");
 }
 
 /**
@@ -1082,7 +1007,6 @@ export namespace InvalidAddressException {
   export const filterSensitiveLog = (obj: InvalidAddressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAddressException => __isa(o, "InvalidAddressException");
 }
 
 /**
@@ -1099,7 +1023,6 @@ export namespace InvalidInputCombinationException {
   export const filterSensitiveLog = (obj: InvalidInputCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputCombinationException => __isa(o, "InvalidInputCombinationException");
 }
 
 /**
@@ -1116,7 +1039,6 @@ export namespace InvalidJobStateException {
   export const filterSensitiveLog = (obj: InvalidJobStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidJobStateException => __isa(o, "InvalidJobStateException");
 }
 
 /**
@@ -1134,7 +1056,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -1155,7 +1076,6 @@ export namespace InvalidResourceException {
   export const filterSensitiveLog = (obj: InvalidResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceException => __isa(o, "InvalidResourceException");
 }
 
 /**
@@ -1163,7 +1083,6 @@ export namespace InvalidResourceException {
  *       that indicates whether the job is a job part, in the case of an export job.</p>
  */
 export interface JobListEntry {
-  __type?: "JobListEntry";
   /**
    * <p>The current state of this job.</p>
    */
@@ -1210,7 +1129,6 @@ export namespace JobListEntry {
   export const filterSensitiveLog = (obj: JobListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobListEntry => __isa(o, "JobListEntry");
 }
 
 /**
@@ -1234,7 +1152,6 @@ export namespace JobListEntry {
  *       log describes.</p>
  */
 export interface JobLogs {
-  __type?: "JobLogs";
   /**
    * <p>A link to an Amazon S3 presigned URL where the job completion report is
    *       located.</p>
@@ -1256,7 +1173,6 @@ export namespace JobLogs {
   export const filterSensitiveLog = (obj: JobLogs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobLogs => __isa(o, "JobLogs");
 }
 
 /**
@@ -1265,7 +1181,6 @@ export namespace JobLogs {
  *       the <code>DescribeJob</code> action.</p>
  */
 export interface JobMetadata {
-  __type?: "JobMetadata";
   /**
    * <p>A value that defines the real-time status of a Snowball's data transfer while the
    *       device is at AWS. This data is only available while a job has a <code>JobState</code> value of
@@ -1385,7 +1300,6 @@ export namespace JobMetadata {
   export const filterSensitiveLog = (obj: JobMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobMetadata => __isa(o, "JobMetadata");
 }
 
 /**
@@ -1394,7 +1308,6 @@ export namespace JobMetadata {
  *       associated with a particular job.</p>
  */
 export interface JobResource {
-  __type?: "JobResource";
   /**
    * <p>The Python-language Lambda functions for this job.</p>
    */
@@ -1415,7 +1328,6 @@ export namespace JobResource {
   export const filterSensitiveLog = (obj: JobResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobResource => __isa(o, "JobResource");
 }
 
 export enum JobState {
@@ -1447,7 +1359,6 @@ export enum JobType {
  *       both. Ranges are UTF-8 binary sorted.</p>
  */
 export interface KeyRange {
-  __type?: "KeyRange";
   /**
    * <p>The key that ends an optional key range for an export job. Ranges are inclusive and
    *       UTF-8 binary sorted.</p>
@@ -1465,7 +1376,6 @@ export namespace KeyRange {
   export const filterSensitiveLog = (obj: KeyRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyRange => __isa(o, "KeyRange");
 }
 
 /**
@@ -1482,14 +1392,12 @@ export namespace KMSRequestFailedException {
   export const filterSensitiveLog = (obj: KMSRequestFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSRequestFailedException => __isa(o, "KMSRequestFailedException");
 }
 
 /**
  * <p>Identifies </p>
  */
 export interface LambdaResource {
-  __type?: "LambdaResource";
   /**
    * <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
    */
@@ -1506,11 +1414,9 @@ export namespace LambdaResource {
   export const filterSensitiveLog = (obj: LambdaResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaResource => __isa(o, "LambdaResource");
 }
 
 export interface ListClusterJobsRequest {
-  __type?: "ListClusterJobsRequest";
   /**
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code>
@@ -1534,11 +1440,9 @@ export namespace ListClusterJobsRequest {
   export const filterSensitiveLog = (obj: ListClusterJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClusterJobsRequest => __isa(o, "ListClusterJobsRequest");
 }
 
 export interface ListClusterJobsResult {
-  __type?: "ListClusterJobsResult";
   /**
    * <p>HTTP requests are stateless. If you use the automatically generated
    *         <code>NextToken</code> value in your next <code>ListClusterJobsResult</code> call, your list
@@ -1557,11 +1461,9 @@ export namespace ListClusterJobsResult {
   export const filterSensitiveLog = (obj: ListClusterJobsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClusterJobsResult => __isa(o, "ListClusterJobsResult");
 }
 
 export interface ListClustersRequest {
-  __type?: "ListClustersRequest";
   /**
    * <p>The number of <code>ClusterListEntry</code> objects to return.</p>
    */
@@ -1579,11 +1481,9 @@ export namespace ListClustersRequest {
   export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersRequest => __isa(o, "ListClustersRequest");
 }
 
 export interface ListClustersResult {
-  __type?: "ListClustersResult";
   /**
    * <p>HTTP requests are stateless. If you use the automatically generated
    *         <code>NextToken</code> value in your next <code>ClusterListEntry</code> call, your list of
@@ -1602,11 +1502,9 @@ export namespace ListClustersResult {
   export const filterSensitiveLog = (obj: ListClustersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersResult => __isa(o, "ListClustersResult");
 }
 
 export interface ListCompatibleImagesRequest {
-  __type?: "ListCompatibleImagesRequest";
   /**
    * <p>The maximum number of results for the list of compatible images. Currently, a Snowball
    *       Edge device can store 10 AMIs.</p>
@@ -1625,11 +1523,9 @@ export namespace ListCompatibleImagesRequest {
   export const filterSensitiveLog = (obj: ListCompatibleImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCompatibleImagesRequest => __isa(o, "ListCompatibleImagesRequest");
 }
 
 export interface ListCompatibleImagesResult {
-  __type?: "ListCompatibleImagesResult";
   /**
    * <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for
    *       a Snowball Edge AMI.</p>
@@ -1647,11 +1543,9 @@ export namespace ListCompatibleImagesResult {
   export const filterSensitiveLog = (obj: ListCompatibleImagesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCompatibleImagesResult => __isa(o, "ListCompatibleImagesResult");
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code>
@@ -1669,11 +1563,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResult {
-  __type?: "ListJobsResult";
   /**
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
    *       that indicates whether the job is a job part, in the case of export jobs. </p>
@@ -1692,7 +1584,6 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResult => __isa(o, "ListJobsResult");
 }
 
 /**
@@ -1707,7 +1598,6 @@ export namespace ListJobsResult {
  *       job states with <code>NotifyAll</code> set to true.</p>
  */
 export interface Notification {
-  __type?: "Notification";
   /**
    * <p>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
    *       create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a> Amazon SNS API
@@ -1733,7 +1623,6 @@ export namespace Notification {
   export const filterSensitiveLog = (obj: Notification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Notification => __isa(o, "Notification");
 }
 
 /**
@@ -1744,7 +1633,6 @@ export namespace Notification {
  *       both. Ranges are UTF-8 binary sorted.</p>
  */
 export interface S3Resource {
-  __type?: "S3Resource";
   /**
    * <p>For export jobs, you can provide an optional <code>KeyRange</code> within a specific
    *       Amazon S3 bucket. The length of the range is defined at job creation, and has either an
@@ -1763,7 +1651,6 @@ export namespace S3Resource {
   export const filterSensitiveLog = (obj: S3Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Resource => __isa(o, "S3Resource");
 }
 
 /**
@@ -1771,7 +1658,6 @@ export namespace S3Resource {
  *       outbound shipment.</p>
  */
 export interface Shipment {
-  __type?: "Shipment";
   /**
    * <p>The tracking number for this job. Using this tracking number with your region's
    *       carrier's website, you can track a Snowball as the carrier transports it.</p>
@@ -1790,7 +1676,6 @@ export namespace Shipment {
   export const filterSensitiveLog = (obj: Shipment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Shipment => __isa(o, "Shipment");
 }
 
 /**
@@ -1798,7 +1683,6 @@ export namespace Shipment {
  *       shipping speed options.</p>
  */
 export interface ShippingDetails {
-  __type?: "ShippingDetails";
   /**
    * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snowball being
    *       returned to AWS for a particular job.</p>
@@ -1843,7 +1727,6 @@ export namespace ShippingDetails {
   export const filterSensitiveLog = (obj: ShippingDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShippingDetails => __isa(o, "ShippingDetails");
 }
 
 export enum ShippingOption {
@@ -1876,7 +1759,6 @@ export enum SnowballType {
  * <p>Specifies the device configuration for an AWS Snowcone job. </p>
  */
 export interface SnowconeDeviceConfiguration {
-  __type?: "SnowconeDeviceConfiguration";
   /**
    * <p>Configures the wireless connection for the AWS Snowcone device.</p>
    */
@@ -1887,14 +1769,12 @@ export namespace SnowconeDeviceConfiguration {
   export const filterSensitiveLog = (obj: SnowconeDeviceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnowconeDeviceConfiguration => __isa(o, "SnowconeDeviceConfiguration");
 }
 
 /**
  * <p>The tax documents required in your AWS Region.</p>
  */
 export interface TaxDocuments {
-  __type?: "TaxDocuments";
   /**
    * <p>The tax documents required in AWS Regions in India.</p>
    */
@@ -1905,7 +1785,6 @@ export namespace TaxDocuments {
   export const filterSensitiveLog = (obj: TaxDocuments): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaxDocuments => __isa(o, "TaxDocuments");
 }
 
 /**
@@ -1923,11 +1802,9 @@ export namespace UnsupportedAddressException {
   export const filterSensitiveLog = (obj: UnsupportedAddressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedAddressException => __isa(o, "UnsupportedAddressException");
 }
 
 export interface UpdateClusterRequest {
-  __type?: "UpdateClusterRequest";
   /**
    * <p>The updated ID for the forwarding address for a cluster. This field is not
    *       supported in most regions.</p>
@@ -1979,22 +1856,17 @@ export namespace UpdateClusterRequest {
   export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterRequest => __isa(o, "UpdateClusterRequest");
 }
 
-export interface UpdateClusterResult {
-  __type?: "UpdateClusterResult";
-}
+export interface UpdateClusterResult {}
 
 export namespace UpdateClusterResult {
   export const filterSensitiveLog = (obj: UpdateClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterResult => __isa(o, "UpdateClusterResult");
 }
 
 export interface UpdateJobRequest {
-  __type?: "UpdateJobRequest";
   /**
    * <p>The updated shipping option value of this job's <a>ShippingDetails</a>
    *       object.</p>
@@ -2051,25 +1923,20 @@ export namespace UpdateJobRequest {
   export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobRequest => __isa(o, "UpdateJobRequest");
 }
 
-export interface UpdateJobResult {
-  __type?: "UpdateJobResult";
-}
+export interface UpdateJobResult {}
 
 export namespace UpdateJobResult {
   export const filterSensitiveLog = (obj: UpdateJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobResult => __isa(o, "UpdateJobResult");
 }
 
 /**
  * <p>Configures the wireless connection on an AWS Snowcone device.</p>
  */
 export interface WirelessConnection {
-  __type?: "WirelessConnection";
   /**
    * <p>Enables the Wi-Fi adapter on an AWS Snowcone device.</p>
    */
@@ -2080,5 +1947,4 @@ export namespace WirelessConnection {
   export const filterSensitiveLog = (obj: WirelessConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WirelessConnection => __isa(o, "WirelessConnection");
 }

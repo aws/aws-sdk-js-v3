@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,14 +14,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Describes an additional authentication provider.</p>
  */
 export interface AdditionalAuthenticationProvider {
-  __type?: "AdditionalAuthenticationProvider";
   /**
    * <p>The Amazon Cognito user pool configuration.</p>
    */
@@ -42,14 +40,12 @@ export namespace AdditionalAuthenticationProvider {
   export const filterSensitiveLog = (obj: AdditionalAuthenticationProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdditionalAuthenticationProvider => __isa(o, "AdditionalAuthenticationProvider");
 }
 
 /**
  * <p>The <code>ApiCache</code> object.</p>
  */
 export interface ApiCache {
-  __type?: "ApiCache";
   /**
    * <p>Caching behavior.</p>
    *          <ul>
@@ -161,7 +157,6 @@ export namespace ApiCache {
   export const filterSensitiveLog = (obj: ApiCache): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApiCache => __isa(o, "ApiCache");
 }
 
 export enum ApiCacheStatus {
@@ -258,7 +253,6 @@ export enum ApiCachingBehavior {
  *          </ul>
  */
 export interface ApiKey {
-  __type?: "ApiKey";
   /**
    * <p>The API key ID.</p>
    */
@@ -280,7 +274,6 @@ export namespace ApiKey {
   export const filterSensitiveLog = (obj: ApiKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApiKey => __isa(o, "ApiKey");
 }
 
 /**
@@ -296,7 +289,6 @@ export namespace ApiKeyLimitExceededException {
   export const filterSensitiveLog = (obj: ApiKeyLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApiKeyLimitExceededException => __isa(o, "ApiKeyLimitExceededException");
 }
 
 /**
@@ -313,8 +305,6 @@ export namespace ApiKeyValidityOutOfBoundsException {
   export const filterSensitiveLog = (obj: ApiKeyValidityOutOfBoundsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApiKeyValidityOutOfBoundsException =>
-    __isa(o, "ApiKeyValidityOutOfBoundsException");
 }
 
 /**
@@ -330,7 +320,6 @@ export namespace ApiLimitExceededException {
   export const filterSensitiveLog = (obj: ApiLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApiLimitExceededException => __isa(o, "ApiLimitExceededException");
 }
 
 export enum AuthenticationType {
@@ -344,7 +333,6 @@ export enum AuthenticationType {
  * <p>The authorization config in case the HTTP endpoint requires authorization.</p>
  */
 export interface AuthorizationConfig {
-  __type?: "AuthorizationConfig";
   /**
    * <p>The authorization type required by the HTTP endpoint.</p>
    *          <ul>
@@ -367,7 +355,6 @@ export namespace AuthorizationConfig {
   export const filterSensitiveLog = (obj: AuthorizationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationConfig => __isa(o, "AuthorizationConfig");
 }
 
 export enum AuthorizationType {
@@ -378,7 +365,6 @@ export enum AuthorizationType {
  * <p>The AWS IAM configuration.</p>
  */
 export interface AwsIamConfig {
-  __type?: "AwsIamConfig";
   /**
    * <p>The signing region for AWS IAM authorization.</p>
    */
@@ -394,7 +380,6 @@ export namespace AwsIamConfig {
   export const filterSensitiveLog = (obj: AwsIamConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsIamConfig => __isa(o, "AwsIamConfig");
 }
 
 /**
@@ -411,14 +396,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * <p>The caching configuration for a resolver that has caching enabled.</p>
  */
 export interface CachingConfig {
-  __type?: "CachingConfig";
   /**
    * <p>The TTL in seconds for a resolver that has caching enabled.</p>
    *          <p>Valid values are between 1 and 3600 seconds.</p>
@@ -437,14 +420,12 @@ export namespace CachingConfig {
   export const filterSensitiveLog = (obj: CachingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachingConfig => __isa(o, "CachingConfig");
 }
 
 /**
  * <p>Describes an Amazon Cognito user pool configuration.</p>
  */
 export interface CognitoUserPoolConfig {
-  __type?: "CognitoUserPoolConfig";
   /**
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
    *          ID.</p>
@@ -466,7 +447,6 @@ export namespace CognitoUserPoolConfig {
   export const filterSensitiveLog = (obj: CognitoUserPoolConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoUserPoolConfig => __isa(o, "CognitoUserPoolConfig");
 }
 
 /**
@@ -483,7 +463,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export enum ConflictDetectionType {
@@ -502,7 +481,6 @@ export enum ConflictHandlerType {
  * <p>Represents the input of a <code>CreateApiCache</code> operation.</p>
  */
 export interface CreateApiCacheRequest {
-  __type?: "CreateApiCacheRequest";
   /**
    * <p>Caching behavior.</p>
    *          <ul>
@@ -587,14 +565,12 @@ export namespace CreateApiCacheRequest {
   export const filterSensitiveLog = (obj: CreateApiCacheRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiCacheRequest => __isa(o, "CreateApiCacheRequest");
 }
 
 /**
  * <p>Represents the output of a <code>CreateApiCache</code> operation.</p>
  */
 export interface CreateApiCacheResponse {
-  __type?: "CreateApiCacheResponse";
   /**
    * <p>The <code>ApiCache</code> object.</p>
    */
@@ -605,11 +581,9 @@ export namespace CreateApiCacheResponse {
   export const filterSensitiveLog = (obj: CreateApiCacheResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiCacheResponse => __isa(o, "CreateApiCacheResponse");
 }
 
 export interface CreateApiKeyRequest {
-  __type?: "CreateApiKeyRequest";
   /**
    * <p>The time from creation time after which the API key expires. The date is represented as
    *          seconds since the epoch, rounded down to the nearest hour. The default value for this
@@ -632,11 +606,9 @@ export namespace CreateApiKeyRequest {
   export const filterSensitiveLog = (obj: CreateApiKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiKeyRequest => __isa(o, "CreateApiKeyRequest");
 }
 
 export interface CreateApiKeyResponse {
-  __type?: "CreateApiKeyResponse";
   /**
    * <p>The API key.</p>
    */
@@ -647,11 +619,9 @@ export namespace CreateApiKeyResponse {
   export const filterSensitiveLog = (obj: CreateApiKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiKeyResponse => __isa(o, "CreateApiKeyResponse");
 }
 
 export interface CreateDataSourceRequest {
-  __type?: "CreateDataSourceRequest";
   /**
    * <p>The type of the <code>DataSource</code>.</p>
    */
@@ -708,11 +678,9 @@ export namespace CreateDataSourceRequest {
   export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceRequest => __isa(o, "CreateDataSourceRequest");
 }
 
 export interface CreateDataSourceResponse {
-  __type?: "CreateDataSourceResponse";
   /**
    * <p>The <code>DataSource</code> object.</p>
    */
@@ -723,11 +691,9 @@ export namespace CreateDataSourceResponse {
   export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceResponse => __isa(o, "CreateDataSourceResponse");
 }
 
 export interface CreateFunctionRequest {
-  __type?: "CreateFunctionRequest";
   /**
    * <p>The <code>Function</code> response mapping template. </p>
    */
@@ -771,11 +737,9 @@ export namespace CreateFunctionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFunctionRequest => __isa(o, "CreateFunctionRequest");
 }
 
 export interface CreateFunctionResponse {
-  __type?: "CreateFunctionResponse";
   /**
    * <p>The <code>Function</code> object.</p>
    */
@@ -786,11 +750,9 @@ export namespace CreateFunctionResponse {
   export const filterSensitiveLog = (obj: CreateFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFunctionResponse => __isa(o, "CreateFunctionResponse");
 }
 
 export interface CreateGraphqlApiRequest {
-  __type?: "CreateGraphqlApiRequest";
   /**
    * <p>A <code>TagMap</code> object.</p>
    */
@@ -838,11 +800,9 @@ export namespace CreateGraphqlApiRequest {
   export const filterSensitiveLog = (obj: CreateGraphqlApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGraphqlApiRequest => __isa(o, "CreateGraphqlApiRequest");
 }
 
 export interface CreateGraphqlApiResponse {
-  __type?: "CreateGraphqlApiResponse";
   /**
    * <p>The <code>GraphqlApi</code>.</p>
    */
@@ -853,11 +813,9 @@ export namespace CreateGraphqlApiResponse {
   export const filterSensitiveLog = (obj: CreateGraphqlApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGraphqlApiResponse => __isa(o, "CreateGraphqlApiResponse");
 }
 
 export interface CreateResolverRequest {
-  __type?: "CreateResolverRequest";
   /**
    * <p>The ID for the GraphQL API for which the resolver is being created.</p>
    */
@@ -931,11 +889,9 @@ export namespace CreateResolverRequest {
   export const filterSensitiveLog = (obj: CreateResolverRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResolverRequest => __isa(o, "CreateResolverRequest");
 }
 
 export interface CreateResolverResponse {
-  __type?: "CreateResolverResponse";
   /**
    * <p>The <code>Resolver</code> object.</p>
    */
@@ -946,11 +902,9 @@ export namespace CreateResolverResponse {
   export const filterSensitiveLog = (obj: CreateResolverResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResolverResponse => __isa(o, "CreateResolverResponse");
 }
 
 export interface CreateTypeRequest {
-  __type?: "CreateTypeRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -973,11 +927,9 @@ export namespace CreateTypeRequest {
   export const filterSensitiveLog = (obj: CreateTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTypeRequest => __isa(o, "CreateTypeRequest");
 }
 
 export interface CreateTypeResponse {
-  __type?: "CreateTypeResponse";
   /**
    * <p>The <code>Type</code> object.</p>
    */
@@ -988,14 +940,12 @@ export namespace CreateTypeResponse {
   export const filterSensitiveLog = (obj: CreateTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTypeResponse => __isa(o, "CreateTypeResponse");
 }
 
 /**
  * <p>Describes a data source.</p>
  */
 export interface DataSource {
-  __type?: "DataSource";
   /**
    * <p>The type of the data source.</p>
    *          <ul>
@@ -1086,7 +1036,6 @@ export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 export enum DataSourceType {
@@ -1107,7 +1056,6 @@ export enum DefaultAction {
  * <p>Represents the input of a <code>DeleteApiCache</code> operation.</p>
  */
 export interface DeleteApiCacheRequest {
-  __type?: "DeleteApiCacheRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1118,25 +1066,20 @@ export namespace DeleteApiCacheRequest {
   export const filterSensitiveLog = (obj: DeleteApiCacheRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApiCacheRequest => __isa(o, "DeleteApiCacheRequest");
 }
 
 /**
  * <p>Represents the output of a <code>DeleteApiCache</code> operation.</p>
  */
-export interface DeleteApiCacheResponse {
-  __type?: "DeleteApiCacheResponse";
-}
+export interface DeleteApiCacheResponse {}
 
 export namespace DeleteApiCacheResponse {
   export const filterSensitiveLog = (obj: DeleteApiCacheResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApiCacheResponse => __isa(o, "DeleteApiCacheResponse");
 }
 
 export interface DeleteApiKeyRequest {
-  __type?: "DeleteApiKeyRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1152,22 +1095,17 @@ export namespace DeleteApiKeyRequest {
   export const filterSensitiveLog = (obj: DeleteApiKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApiKeyRequest => __isa(o, "DeleteApiKeyRequest");
 }
 
-export interface DeleteApiKeyResponse {
-  __type?: "DeleteApiKeyResponse";
-}
+export interface DeleteApiKeyResponse {}
 
 export namespace DeleteApiKeyResponse {
   export const filterSensitiveLog = (obj: DeleteApiKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApiKeyResponse => __isa(o, "DeleteApiKeyResponse");
 }
 
 export interface DeleteDataSourceRequest {
-  __type?: "DeleteDataSourceRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1183,22 +1121,17 @@ export namespace DeleteDataSourceRequest {
   export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceRequest => __isa(o, "DeleteDataSourceRequest");
 }
 
-export interface DeleteDataSourceResponse {
-  __type?: "DeleteDataSourceResponse";
-}
+export interface DeleteDataSourceResponse {}
 
 export namespace DeleteDataSourceResponse {
   export const filterSensitiveLog = (obj: DeleteDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceResponse => __isa(o, "DeleteDataSourceResponse");
 }
 
 export interface DeleteFunctionRequest {
-  __type?: "DeleteFunctionRequest";
   /**
    * <p>The GraphQL API ID.</p>
    */
@@ -1214,22 +1147,17 @@ export namespace DeleteFunctionRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionRequest => __isa(o, "DeleteFunctionRequest");
 }
 
-export interface DeleteFunctionResponse {
-  __type?: "DeleteFunctionResponse";
-}
+export interface DeleteFunctionResponse {}
 
 export namespace DeleteFunctionResponse {
   export const filterSensitiveLog = (obj: DeleteFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionResponse => __isa(o, "DeleteFunctionResponse");
 }
 
 export interface DeleteGraphqlApiRequest {
-  __type?: "DeleteGraphqlApiRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1240,22 +1168,17 @@ export namespace DeleteGraphqlApiRequest {
   export const filterSensitiveLog = (obj: DeleteGraphqlApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGraphqlApiRequest => __isa(o, "DeleteGraphqlApiRequest");
 }
 
-export interface DeleteGraphqlApiResponse {
-  __type?: "DeleteGraphqlApiResponse";
-}
+export interface DeleteGraphqlApiResponse {}
 
 export namespace DeleteGraphqlApiResponse {
   export const filterSensitiveLog = (obj: DeleteGraphqlApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGraphqlApiResponse => __isa(o, "DeleteGraphqlApiResponse");
 }
 
 export interface DeleteResolverRequest {
-  __type?: "DeleteResolverRequest";
   /**
    * <p>The resolver field name.</p>
    */
@@ -1276,22 +1199,17 @@ export namespace DeleteResolverRequest {
   export const filterSensitiveLog = (obj: DeleteResolverRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResolverRequest => __isa(o, "DeleteResolverRequest");
 }
 
-export interface DeleteResolverResponse {
-  __type?: "DeleteResolverResponse";
-}
+export interface DeleteResolverResponse {}
 
 export namespace DeleteResolverResponse {
   export const filterSensitiveLog = (obj: DeleteResolverResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResolverResponse => __isa(o, "DeleteResolverResponse");
 }
 
 export interface DeleteTypeRequest {
-  __type?: "DeleteTypeRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1307,25 +1225,20 @@ export namespace DeleteTypeRequest {
   export const filterSensitiveLog = (obj: DeleteTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTypeRequest => __isa(o, "DeleteTypeRequest");
 }
 
-export interface DeleteTypeResponse {
-  __type?: "DeleteTypeResponse";
-}
+export interface DeleteTypeResponse {}
 
 export namespace DeleteTypeResponse {
   export const filterSensitiveLog = (obj: DeleteTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTypeResponse => __isa(o, "DeleteTypeResponse");
 }
 
 /**
  * <p>Describes a Delta Sync configuration.</p>
  */
 export interface DeltaSyncConfig {
-  __type?: "DeltaSyncConfig";
   /**
    * <p>The Delta Sync table name.</p>
    */
@@ -1346,14 +1259,12 @@ export namespace DeltaSyncConfig {
   export const filterSensitiveLog = (obj: DeltaSyncConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeltaSyncConfig => __isa(o, "DeltaSyncConfig");
 }
 
 /**
  * <p>Describes an Amazon DynamoDB data source configuration.</p>
  */
 export interface DynamodbDataSourceConfig {
-  __type?: "DynamodbDataSourceConfig";
   /**
    * <p>The AWS Region.</p>
    */
@@ -1384,14 +1295,12 @@ export namespace DynamodbDataSourceConfig {
   export const filterSensitiveLog = (obj: DynamodbDataSourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamodbDataSourceConfig => __isa(o, "DynamodbDataSourceConfig");
 }
 
 /**
  * <p>Describes an Elasticsearch data source configuration.</p>
  */
 export interface ElasticsearchDataSourceConfig {
-  __type?: "ElasticsearchDataSourceConfig";
   /**
    * <p>The endpoint.</p>
    */
@@ -1407,7 +1316,6 @@ export namespace ElasticsearchDataSourceConfig {
   export const filterSensitiveLog = (obj: ElasticsearchDataSourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDataSourceConfig => __isa(o, "ElasticsearchDataSourceConfig");
 }
 
 export enum FieldLogLevel {
@@ -1420,7 +1328,6 @@ export enum FieldLogLevel {
  * <p>Represents the input of a <code>FlushApiCache</code> operation.</p>
  */
 export interface FlushApiCacheRequest {
-  __type?: "FlushApiCacheRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1431,21 +1338,17 @@ export namespace FlushApiCacheRequest {
   export const filterSensitiveLog = (obj: FlushApiCacheRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FlushApiCacheRequest => __isa(o, "FlushApiCacheRequest");
 }
 
 /**
  * <p>Represents the output of a <code>FlushApiCache</code> operation.</p>
  */
-export interface FlushApiCacheResponse {
-  __type?: "FlushApiCacheResponse";
-}
+export interface FlushApiCacheResponse {}
 
 export namespace FlushApiCacheResponse {
   export const filterSensitiveLog = (obj: FlushApiCacheResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FlushApiCacheResponse => __isa(o, "FlushApiCacheResponse");
 }
 
 /**
@@ -1453,7 +1356,6 @@ export namespace FlushApiCacheResponse {
  *          logic.</p>
  */
 export interface FunctionConfiguration {
-  __type?: "FunctionConfiguration";
   /**
    * <p>A unique ID representing the <code>Function</code> object.</p>
    */
@@ -1501,14 +1403,12 @@ export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
 
 /**
  * <p>Represents the input of a <code>GetApiCache</code> operation.</p>
  */
 export interface GetApiCacheRequest {
-  __type?: "GetApiCacheRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1519,14 +1419,12 @@ export namespace GetApiCacheRequest {
   export const filterSensitiveLog = (obj: GetApiCacheRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiCacheRequest => __isa(o, "GetApiCacheRequest");
 }
 
 /**
  * <p>Represents the output of a <code>GetApiCache</code> operation.</p>
  */
 export interface GetApiCacheResponse {
-  __type?: "GetApiCacheResponse";
   /**
    * <p>The <code>ApiCache</code> object.</p>
    */
@@ -1537,11 +1435,9 @@ export namespace GetApiCacheResponse {
   export const filterSensitiveLog = (obj: GetApiCacheResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiCacheResponse => __isa(o, "GetApiCacheResponse");
 }
 
 export interface GetDataSourceRequest {
-  __type?: "GetDataSourceRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1557,11 +1453,9 @@ export namespace GetDataSourceRequest {
   export const filterSensitiveLog = (obj: GetDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataSourceRequest => __isa(o, "GetDataSourceRequest");
 }
 
 export interface GetDataSourceResponse {
-  __type?: "GetDataSourceResponse";
   /**
    * <p>The <code>DataSource</code> object.</p>
    */
@@ -1572,11 +1466,9 @@ export namespace GetDataSourceResponse {
   export const filterSensitiveLog = (obj: GetDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataSourceResponse => __isa(o, "GetDataSourceResponse");
 }
 
 export interface GetFunctionRequest {
-  __type?: "GetFunctionRequest";
   /**
    * <p>The <code>Function</code> ID.</p>
    */
@@ -1592,11 +1484,9 @@ export namespace GetFunctionRequest {
   export const filterSensitiveLog = (obj: GetFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionRequest => __isa(o, "GetFunctionRequest");
 }
 
 export interface GetFunctionResponse {
-  __type?: "GetFunctionResponse";
   /**
    * <p>The <code>Function</code> object.</p>
    */
@@ -1607,11 +1497,9 @@ export namespace GetFunctionResponse {
   export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionResponse => __isa(o, "GetFunctionResponse");
 }
 
 export interface GetGraphqlApiRequest {
-  __type?: "GetGraphqlApiRequest";
   /**
    * <p>The API ID for the GraphQL API.</p>
    */
@@ -1622,11 +1510,9 @@ export namespace GetGraphqlApiRequest {
   export const filterSensitiveLog = (obj: GetGraphqlApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGraphqlApiRequest => __isa(o, "GetGraphqlApiRequest");
 }
 
 export interface GetGraphqlApiResponse {
-  __type?: "GetGraphqlApiResponse";
   /**
    * <p>The <code>GraphqlApi</code> object.</p>
    */
@@ -1637,11 +1523,9 @@ export namespace GetGraphqlApiResponse {
   export const filterSensitiveLog = (obj: GetGraphqlApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGraphqlApiResponse => __isa(o, "GetGraphqlApiResponse");
 }
 
 export interface GetIntrospectionSchemaRequest {
-  __type?: "GetIntrospectionSchemaRequest";
   /**
    * <p>A flag that specifies whether the schema introspection should contain directives.</p>
    */
@@ -1662,11 +1546,9 @@ export namespace GetIntrospectionSchemaRequest {
   export const filterSensitiveLog = (obj: GetIntrospectionSchemaRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntrospectionSchemaRequest => __isa(o, "GetIntrospectionSchemaRequest");
 }
 
 export interface GetIntrospectionSchemaResponse {
-  __type?: "GetIntrospectionSchemaResponse";
   /**
    * <p>The schema, in GraphQL Schema Definition Language (SDL) format.</p>
    *          <p>For more information, see the <a href="http://graphql.org/learn/schema/">GraphQL SDL
@@ -1679,11 +1561,9 @@ export namespace GetIntrospectionSchemaResponse {
   export const filterSensitiveLog = (obj: GetIntrospectionSchemaResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntrospectionSchemaResponse => __isa(o, "GetIntrospectionSchemaResponse");
 }
 
 export interface GetResolverRequest {
-  __type?: "GetResolverRequest";
   /**
    * <p>The resolver type name.</p>
    */
@@ -1704,11 +1584,9 @@ export namespace GetResolverRequest {
   export const filterSensitiveLog = (obj: GetResolverRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRequest => __isa(o, "GetResolverRequest");
 }
 
 export interface GetResolverResponse {
-  __type?: "GetResolverResponse";
   /**
    * <p>The <code>Resolver</code> object.</p>
    */
@@ -1719,11 +1597,9 @@ export namespace GetResolverResponse {
   export const filterSensitiveLog = (obj: GetResolverResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverResponse => __isa(o, "GetResolverResponse");
 }
 
 export interface GetSchemaCreationStatusRequest {
-  __type?: "GetSchemaCreationStatusRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -1734,11 +1610,9 @@ export namespace GetSchemaCreationStatusRequest {
   export const filterSensitiveLog = (obj: GetSchemaCreationStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSchemaCreationStatusRequest => __isa(o, "GetSchemaCreationStatusRequest");
 }
 
 export interface GetSchemaCreationStatusResponse {
-  __type?: "GetSchemaCreationStatusResponse";
   /**
    * <p>Detailed information about the status of the schema creation operation.</p>
    */
@@ -1755,11 +1629,9 @@ export namespace GetSchemaCreationStatusResponse {
   export const filterSensitiveLog = (obj: GetSchemaCreationStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSchemaCreationStatusResponse => __isa(o, "GetSchemaCreationStatusResponse");
 }
 
 export interface GetTypeRequest {
-  __type?: "GetTypeRequest";
   /**
    * <p>The type name.</p>
    */
@@ -1780,11 +1652,9 @@ export namespace GetTypeRequest {
   export const filterSensitiveLog = (obj: GetTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTypeRequest => __isa(o, "GetTypeRequest");
 }
 
 export interface GetTypeResponse {
-  __type?: "GetTypeResponse";
   /**
    * <p>The <code>Type</code> object.</p>
    */
@@ -1795,14 +1665,12 @@ export namespace GetTypeResponse {
   export const filterSensitiveLog = (obj: GetTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTypeResponse => __isa(o, "GetTypeResponse");
 }
 
 /**
  * <p>Describes a GraphQL API.</p>
  */
 export interface GraphqlApi {
-  __type?: "GraphqlApi";
   /**
    * <p>The tags.</p>
    */
@@ -1865,7 +1733,6 @@ export namespace GraphqlApi {
   export const filterSensitiveLog = (obj: GraphqlApi): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GraphqlApi => __isa(o, "GraphqlApi");
 }
 
 /**
@@ -1881,14 +1748,12 @@ export namespace GraphQLSchemaException {
   export const filterSensitiveLog = (obj: GraphQLSchemaException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GraphQLSchemaException => __isa(o, "GraphQLSchemaException");
 }
 
 /**
  * <p>Describes an HTTP data source configuration.</p>
  */
 export interface HttpDataSourceConfig {
-  __type?: "HttpDataSourceConfig";
   /**
    * <p>The HTTP URL endpoint. You can either specify the domain name or IP, and port
    *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS
@@ -1907,7 +1772,6 @@ export namespace HttpDataSourceConfig {
   export const filterSensitiveLog = (obj: HttpDataSourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpDataSourceConfig => __isa(o, "HttpDataSourceConfig");
 }
 
 /**
@@ -1923,7 +1787,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -1931,7 +1794,6 @@ export namespace InternalFailureException {
  *          Conflict Handler.</p>
  */
 export interface LambdaConflictHandlerConfig {
-  __type?: "LambdaConflictHandlerConfig";
   /**
    * <p>The Arn for the Lambda function to use as the Conflict Handler.</p>
    */
@@ -1942,14 +1804,12 @@ export namespace LambdaConflictHandlerConfig {
   export const filterSensitiveLog = (obj: LambdaConflictHandlerConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaConflictHandlerConfig => __isa(o, "LambdaConflictHandlerConfig");
 }
 
 /**
  * <p>Describes an AWS Lambda data source configuration.</p>
  */
 export interface LambdaDataSourceConfig {
-  __type?: "LambdaDataSourceConfig";
   /**
    * <p>The ARN for the Lambda function.</p>
    */
@@ -1960,7 +1820,6 @@ export namespace LambdaDataSourceConfig {
   export const filterSensitiveLog = (obj: LambdaDataSourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaDataSourceConfig => __isa(o, "LambdaDataSourceConfig");
 }
 
 /**
@@ -1976,11 +1835,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListApiKeysRequest {
-  __type?: "ListApiKeysRequest";
   /**
    * <p>The API ID.</p>
    */
@@ -2002,11 +1859,9 @@ export namespace ListApiKeysRequest {
   export const filterSensitiveLog = (obj: ListApiKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApiKeysRequest => __isa(o, "ListApiKeysRequest");
 }
 
 export interface ListApiKeysResponse {
-  __type?: "ListApiKeysResponse";
   /**
    * <p>The <code>ApiKey</code> objects.</p>
    */
@@ -2023,11 +1878,9 @@ export namespace ListApiKeysResponse {
   export const filterSensitiveLog = (obj: ListApiKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApiKeysResponse => __isa(o, "ListApiKeysResponse");
 }
 
 export interface ListDataSourcesRequest {
-  __type?: "ListDataSourcesRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list. </p>
@@ -2049,11 +1902,9 @@ export namespace ListDataSourcesRequest {
   export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourcesRequest => __isa(o, "ListDataSourcesRequest");
 }
 
 export interface ListDataSourcesResponse {
-  __type?: "ListDataSourcesResponse";
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
    *          of items in the list.</p>
@@ -2070,11 +1921,9 @@ export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourcesResponse => __isa(o, "ListDataSourcesResponse");
 }
 
 export interface ListFunctionsRequest {
-  __type?: "ListFunctionsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
@@ -2096,11 +1945,9 @@ export namespace ListFunctionsRequest {
   export const filterSensitiveLog = (obj: ListFunctionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionsRequest => __isa(o, "ListFunctionsRequest");
 }
 
 export interface ListFunctionsResponse {
-  __type?: "ListFunctionsResponse";
   /**
    * <p>A list of <code>Function</code> objects.</p>
    */
@@ -2117,11 +1964,9 @@ export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionsResponse => __isa(o, "ListFunctionsResponse");
 }
 
 export interface ListGraphqlApisRequest {
-  __type?: "ListGraphqlApisRequest";
   /**
    * <p>The maximum number of results you want the request to return.</p>
    */
@@ -2138,11 +1983,9 @@ export namespace ListGraphqlApisRequest {
   export const filterSensitiveLog = (obj: ListGraphqlApisRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGraphqlApisRequest => __isa(o, "ListGraphqlApisRequest");
 }
 
 export interface ListGraphqlApisResponse {
-  __type?: "ListGraphqlApisResponse";
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
    *          of items in the list.</p>
@@ -2159,11 +2002,9 @@ export namespace ListGraphqlApisResponse {
   export const filterSensitiveLog = (obj: ListGraphqlApisResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGraphqlApisResponse => __isa(o, "ListGraphqlApisResponse");
 }
 
 export interface ListResolversByFunctionRequest {
-  __type?: "ListResolversByFunctionRequest";
   /**
    * <p>The Function ID.</p>
    */
@@ -2190,11 +2031,9 @@ export namespace ListResolversByFunctionRequest {
   export const filterSensitiveLog = (obj: ListResolversByFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolversByFunctionRequest => __isa(o, "ListResolversByFunctionRequest");
 }
 
 export interface ListResolversByFunctionResponse {
-  __type?: "ListResolversByFunctionResponse";
   /**
    * <p>The list of resolvers.</p>
    */
@@ -2210,11 +2049,9 @@ export namespace ListResolversByFunctionResponse {
   export const filterSensitiveLog = (obj: ListResolversByFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolversByFunctionResponse => __isa(o, "ListResolversByFunctionResponse");
 }
 
 export interface ListResolversRequest {
-  __type?: "ListResolversRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list. </p>
@@ -2241,11 +2078,9 @@ export namespace ListResolversRequest {
   export const filterSensitiveLog = (obj: ListResolversRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolversRequest => __isa(o, "ListResolversRequest");
 }
 
 export interface ListResolversResponse {
-  __type?: "ListResolversResponse";
   /**
    * <p>The <code>Resolver</code> objects.</p>
    */
@@ -2262,11 +2097,9 @@ export namespace ListResolversResponse {
   export const filterSensitiveLog = (obj: ListResolversResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolversResponse => __isa(o, "ListResolversResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The <code>GraphqlApi</code> ARN.</p>
    */
@@ -2277,11 +2110,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A <code>TagMap</code> object.</p>
    */
@@ -2292,11 +2123,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTypesRequest {
-  __type?: "ListTypesRequest";
   /**
    * <p>The maximum number of results you want the request to return.</p>
    */
@@ -2323,11 +2152,9 @@ export namespace ListTypesRequest {
   export const filterSensitiveLog = (obj: ListTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypesRequest => __isa(o, "ListTypesRequest");
 }
 
 export interface ListTypesResponse {
-  __type?: "ListTypesResponse";
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
    *          of items in the list.</p>
@@ -2344,14 +2171,12 @@ export namespace ListTypesResponse {
   export const filterSensitiveLog = (obj: ListTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypesResponse => __isa(o, "ListTypesResponse");
 }
 
 /**
  * <p>The CloudWatch Logs configuration.</p>
  */
 export interface LogConfig {
-  __type?: "LogConfig";
   /**
    * <p>The field logging level. Values can be NONE, ERROR, or ALL. </p>
    *          <ul>
@@ -2412,7 +2237,6 @@ export namespace LogConfig {
   export const filterSensitiveLog = (obj: LogConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogConfig => __isa(o, "LogConfig");
 }
 
 /**
@@ -2429,14 +2253,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>Describes an OpenID Connect configuration.</p>
  */
 export interface OpenIDConnectConfig {
-  __type?: "OpenIDConnectConfig";
   /**
    * <p>The number of milliseconds a token is valid after being authenticated.</p>
    */
@@ -2466,7 +2288,6 @@ export namespace OpenIDConnectConfig {
   export const filterSensitiveLog = (obj: OpenIDConnectConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OpenIDConnectConfig => __isa(o, "OpenIDConnectConfig");
 }
 
 export enum OutputType {
@@ -2478,7 +2299,6 @@ export enum OutputType {
  * <p>The pipeline configuration for a resolver of kind <code>PIPELINE</code>.</p>
  */
 export interface PipelineConfig {
-  __type?: "PipelineConfig";
   /**
    * <p>A list of <code>Function</code> objects.</p>
    */
@@ -2489,14 +2309,12 @@ export namespace PipelineConfig {
   export const filterSensitiveLog = (obj: PipelineConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineConfig => __isa(o, "PipelineConfig");
 }
 
 /**
  * <p>The Amazon RDS HTTP endpoint configuration.</p>
  */
 export interface RdsHttpEndpointConfig {
-  __type?: "RdsHttpEndpointConfig";
   /**
    * <p>Logical database name.</p>
    */
@@ -2527,14 +2345,12 @@ export namespace RdsHttpEndpointConfig {
   export const filterSensitiveLog = (obj: RdsHttpEndpointConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RdsHttpEndpointConfig => __isa(o, "RdsHttpEndpointConfig");
 }
 
 /**
  * <p>Describes a relational database data source configuration.</p>
  */
 export interface RelationalDatabaseDataSourceConfig {
-  __type?: "RelationalDatabaseDataSourceConfig";
   /**
    * <p>Amazon RDS HTTP endpoint settings.</p>
    */
@@ -2557,8 +2373,6 @@ export namespace RelationalDatabaseDataSourceConfig {
   export const filterSensitiveLog = (obj: RelationalDatabaseDataSourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseDataSourceConfig =>
-    __isa(o, "RelationalDatabaseDataSourceConfig");
 }
 
 export enum RelationalDatabaseSourceType {
@@ -2569,7 +2383,6 @@ export enum RelationalDatabaseSourceType {
  * <p>Describes a resolver.</p>
  */
 export interface Resolver {
-  __type?: "Resolver";
   /**
    * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
    */
@@ -2640,7 +2453,6 @@ export namespace Resolver {
   export const filterSensitiveLog = (obj: Resolver): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resolver => __isa(o, "Resolver");
 }
 
 export enum ResolverKind {
@@ -2658,7 +2470,6 @@ export enum SchemaStatus {
 }
 
 export interface StartSchemaCreationRequest {
-  __type?: "StartSchemaCreationRequest";
   /**
    * <p>The schema definition, in GraphQL schema language format.</p>
    */
@@ -2674,11 +2485,9 @@ export namespace StartSchemaCreationRequest {
   export const filterSensitiveLog = (obj: StartSchemaCreationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSchemaCreationRequest => __isa(o, "StartSchemaCreationRequest");
 }
 
 export interface StartSchemaCreationResponse {
-  __type?: "StartSchemaCreationResponse";
   /**
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
    *          the schema is in the ACTIVE state, you can add data.</p>
@@ -2690,7 +2499,6 @@ export namespace StartSchemaCreationResponse {
   export const filterSensitiveLog = (obj: StartSchemaCreationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSchemaCreationResponse => __isa(o, "StartSchemaCreationResponse");
 }
 
 /**
@@ -2699,7 +2507,6 @@ export namespace StartSchemaCreationResponse {
  *          be performed when the resolver is invoked.</p>
  */
 export interface SyncConfig {
-  __type?: "SyncConfig";
   /**
    * <p>The Conflict Resolution strategy to perform in the event of a conflict.</p>
    *          <ul>
@@ -2751,11 +2558,9 @@ export namespace SyncConfig {
   export const filterSensitiveLog = (obj: SyncConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SyncConfig => __isa(o, "SyncConfig");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The <code>GraphqlApi</code> ARN.</p>
    */
@@ -2771,25 +2576,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Describes a type.</p>
  */
 export interface Type {
-  __type?: "Type";
   /**
    * <p>The type definition.</p>
    */
@@ -2820,7 +2620,6 @@ export namespace Type {
   export const filterSensitiveLog = (obj: Type): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Type => __isa(o, "Type");
 }
 
 export enum TypeDefinitionFormat {
@@ -2841,11 +2640,9 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of <code>TagKey</code> objects.</p>
    */
@@ -2861,25 +2658,20 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>Represents the input of a <code>UpdateApiCache</code> operation.</p>
  */
 export interface UpdateApiCacheRequest {
-  __type?: "UpdateApiCacheRequest";
   /**
    * <p>The GraphQL API Id.</p>
    */
@@ -2953,14 +2745,12 @@ export namespace UpdateApiCacheRequest {
   export const filterSensitiveLog = (obj: UpdateApiCacheRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiCacheRequest => __isa(o, "UpdateApiCacheRequest");
 }
 
 /**
  * <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>
  */
 export interface UpdateApiCacheResponse {
-  __type?: "UpdateApiCacheResponse";
   /**
    * <p>The <code>ApiCache</code> object.</p>
    */
@@ -2971,11 +2761,9 @@ export namespace UpdateApiCacheResponse {
   export const filterSensitiveLog = (obj: UpdateApiCacheResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiCacheResponse => __isa(o, "UpdateApiCacheResponse");
 }
 
 export interface UpdateApiKeyRequest {
-  __type?: "UpdateApiKeyRequest";
   /**
    * <p>The time from update time after which the API key expires. The date is represented as
    *          seconds since the epoch. For more information, see .</p>
@@ -3002,11 +2790,9 @@ export namespace UpdateApiKeyRequest {
   export const filterSensitiveLog = (obj: UpdateApiKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiKeyRequest => __isa(o, "UpdateApiKeyRequest");
 }
 
 export interface UpdateApiKeyResponse {
-  __type?: "UpdateApiKeyResponse";
   /**
    * <p>The API key.</p>
    */
@@ -3017,11 +2803,9 @@ export namespace UpdateApiKeyResponse {
   export const filterSensitiveLog = (obj: UpdateApiKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiKeyResponse => __isa(o, "UpdateApiKeyResponse");
 }
 
 export interface UpdateDataSourceRequest {
-  __type?: "UpdateDataSourceRequest";
   /**
    * <p>The new Amazon DynamoDB configuration.</p>
    */
@@ -3077,11 +2861,9 @@ export namespace UpdateDataSourceRequest {
   export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourceRequest => __isa(o, "UpdateDataSourceRequest");
 }
 
 export interface UpdateDataSourceResponse {
-  __type?: "UpdateDataSourceResponse";
   /**
    * <p>The updated <code>DataSource</code> object.</p>
    */
@@ -3092,11 +2874,9 @@ export namespace UpdateDataSourceResponse {
   export const filterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourceResponse => __isa(o, "UpdateDataSourceResponse");
 }
 
 export interface UpdateFunctionRequest {
-  __type?: "UpdateFunctionRequest";
   /**
    * <p>The GraphQL API ID.</p>
    */
@@ -3145,11 +2925,9 @@ export namespace UpdateFunctionRequest {
   export const filterSensitiveLog = (obj: UpdateFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFunctionRequest => __isa(o, "UpdateFunctionRequest");
 }
 
 export interface UpdateFunctionResponse {
-  __type?: "UpdateFunctionResponse";
   /**
    * <p>The <code>Function</code> object.</p>
    */
@@ -3160,11 +2938,9 @@ export namespace UpdateFunctionResponse {
   export const filterSensitiveLog = (obj: UpdateFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFunctionResponse => __isa(o, "UpdateFunctionResponse");
 }
 
 export interface UpdateGraphqlApiRequest {
-  __type?: "UpdateGraphqlApiRequest";
   /**
    * <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
    */
@@ -3213,11 +2989,9 @@ export namespace UpdateGraphqlApiRequest {
   export const filterSensitiveLog = (obj: UpdateGraphqlApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGraphqlApiRequest => __isa(o, "UpdateGraphqlApiRequest");
 }
 
 export interface UpdateGraphqlApiResponse {
-  __type?: "UpdateGraphqlApiResponse";
   /**
    * <p>The updated <code>GraphqlApi</code> object.</p>
    */
@@ -3228,11 +3002,9 @@ export namespace UpdateGraphqlApiResponse {
   export const filterSensitiveLog = (obj: UpdateGraphqlApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGraphqlApiResponse => __isa(o, "UpdateGraphqlApiResponse");
 }
 
 export interface UpdateResolverRequest {
-  __type?: "UpdateResolverRequest";
   /**
    * <p>The new request mapping template.</p>
    */
@@ -3303,11 +3075,9 @@ export namespace UpdateResolverRequest {
   export const filterSensitiveLog = (obj: UpdateResolverRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResolverRequest => __isa(o, "UpdateResolverRequest");
 }
 
 export interface UpdateResolverResponse {
-  __type?: "UpdateResolverResponse";
   /**
    * <p>The updated <code>Resolver</code> object.</p>
    */
@@ -3318,11 +3088,9 @@ export namespace UpdateResolverResponse {
   export const filterSensitiveLog = (obj: UpdateResolverResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResolverResponse => __isa(o, "UpdateResolverResponse");
 }
 
 export interface UpdateTypeRequest {
-  __type?: "UpdateTypeRequest";
   /**
    * <p>The new type format: SDL or JSON.</p>
    */
@@ -3348,11 +3116,9 @@ export namespace UpdateTypeRequest {
   export const filterSensitiveLog = (obj: UpdateTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTypeRequest => __isa(o, "UpdateTypeRequest");
 }
 
 export interface UpdateTypeResponse {
-  __type?: "UpdateTypeResponse";
   /**
    * <p>The updated <code>Type</code> object.</p>
    */
@@ -3363,14 +3129,12 @@ export namespace UpdateTypeResponse {
   export const filterSensitiveLog = (obj: UpdateTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTypeResponse => __isa(o, "UpdateTypeResponse");
 }
 
 /**
  * <p>Describes an Amazon Cognito user pool configuration.</p>
  */
 export interface UserPoolConfig {
-  __type?: "UserPoolConfig";
   /**
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
    *          ID.</p>
@@ -3399,5 +3163,4 @@ export namespace UserPoolConfig {
   export const filterSensitiveLog = (obj: UserPoolConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPoolConfig => __isa(o, "UserPoolConfig");
 }

@@ -513,7 +513,6 @@ export const deserializeAws_json1_1BatchGetNamedQueryCommand = async (
   contents = deserializeAws_json1_1BatchGetNamedQueryOutput(data, context);
   const response: BatchGetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetNamedQueryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -577,7 +576,6 @@ export const deserializeAws_json1_1BatchGetQueryExecutionCommand = async (
   contents = deserializeAws_json1_1BatchGetQueryExecutionOutput(data, context);
   const response: BatchGetQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetQueryExecutionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -641,7 +639,6 @@ export const deserializeAws_json1_1CreateDataCatalogCommand = async (
   contents = deserializeAws_json1_1CreateDataCatalogOutput(data, context);
   const response: CreateDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDataCatalogOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -705,7 +702,6 @@ export const deserializeAws_json1_1CreateNamedQueryCommand = async (
   contents = deserializeAws_json1_1CreateNamedQueryOutput(data, context);
   const response: CreateNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNamedQueryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -769,7 +765,6 @@ export const deserializeAws_json1_1CreateWorkGroupCommand = async (
   contents = deserializeAws_json1_1CreateWorkGroupOutput(data, context);
   const response: CreateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateWorkGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -833,7 +828,6 @@ export const deserializeAws_json1_1DeleteDataCatalogCommand = async (
   contents = deserializeAws_json1_1DeleteDataCatalogOutput(data, context);
   const response: DeleteDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDataCatalogOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -897,7 +891,6 @@ export const deserializeAws_json1_1DeleteNamedQueryCommand = async (
   contents = deserializeAws_json1_1DeleteNamedQueryOutput(data, context);
   const response: DeleteNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNamedQueryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -961,7 +954,6 @@ export const deserializeAws_json1_1DeleteWorkGroupCommand = async (
   contents = deserializeAws_json1_1DeleteWorkGroupOutput(data, context);
   const response: DeleteWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteWorkGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1025,7 +1017,6 @@ export const deserializeAws_json1_1GetDatabaseCommand = async (
   contents = deserializeAws_json1_1GetDatabaseOutput(data, context);
   const response: GetDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDatabaseOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1097,7 +1088,6 @@ export const deserializeAws_json1_1GetDataCatalogCommand = async (
   contents = deserializeAws_json1_1GetDataCatalogOutput(data, context);
   const response: GetDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDataCatalogOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1161,7 +1151,6 @@ export const deserializeAws_json1_1GetNamedQueryCommand = async (
   contents = deserializeAws_json1_1GetNamedQueryOutput(data, context);
   const response: GetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNamedQueryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1225,7 +1214,6 @@ export const deserializeAws_json1_1GetQueryExecutionCommand = async (
   contents = deserializeAws_json1_1GetQueryExecutionOutput(data, context);
   const response: GetQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQueryExecutionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1289,7 +1277,6 @@ export const deserializeAws_json1_1GetQueryResultsCommand = async (
   contents = deserializeAws_json1_1GetQueryResultsOutput(data, context);
   const response: GetQueryResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQueryResultsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1353,7 +1340,6 @@ export const deserializeAws_json1_1GetTableMetadataCommand = async (
   contents = deserializeAws_json1_1GetTableMetadataOutput(data, context);
   const response: GetTableMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTableMetadataOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1425,7 +1411,6 @@ export const deserializeAws_json1_1GetWorkGroupCommand = async (
   contents = deserializeAws_json1_1GetWorkGroupOutput(data, context);
   const response: GetWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetWorkGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1489,7 +1474,6 @@ export const deserializeAws_json1_1ListDatabasesCommand = async (
   contents = deserializeAws_json1_1ListDatabasesOutput(data, context);
   const response: ListDatabasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDatabasesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1561,7 +1545,6 @@ export const deserializeAws_json1_1ListDataCatalogsCommand = async (
   contents = deserializeAws_json1_1ListDataCatalogsOutput(data, context);
   const response: ListDataCatalogsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDataCatalogsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1625,7 +1608,6 @@ export const deserializeAws_json1_1ListNamedQueriesCommand = async (
   contents = deserializeAws_json1_1ListNamedQueriesOutput(data, context);
   const response: ListNamedQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNamedQueriesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1689,7 +1671,6 @@ export const deserializeAws_json1_1ListQueryExecutionsCommand = async (
   contents = deserializeAws_json1_1ListQueryExecutionsOutput(data, context);
   const response: ListQueryExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueryExecutionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1753,7 +1734,6 @@ export const deserializeAws_json1_1ListTableMetadataCommand = async (
   contents = deserializeAws_json1_1ListTableMetadataOutput(data, context);
   const response: ListTableMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTableMetadataOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1825,7 +1805,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1897,7 +1876,6 @@ export const deserializeAws_json1_1ListWorkGroupsCommand = async (
   contents = deserializeAws_json1_1ListWorkGroupsOutput(data, context);
   const response: ListWorkGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWorkGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1961,7 +1939,6 @@ export const deserializeAws_json1_1StartQueryExecutionCommand = async (
   contents = deserializeAws_json1_1StartQueryExecutionOutput(data, context);
   const response: StartQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartQueryExecutionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2033,7 +2010,6 @@ export const deserializeAws_json1_1StopQueryExecutionCommand = async (
   contents = deserializeAws_json1_1StopQueryExecutionOutput(data, context);
   const response: StopQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopQueryExecutionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2097,7 +2073,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2169,7 +2144,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2241,7 +2215,6 @@ export const deserializeAws_json1_1UpdateDataCatalogCommand = async (
   contents = deserializeAws_json1_1UpdateDataCatalogOutput(data, context);
   const response: UpdateDataCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDataCatalogOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2305,7 +2278,6 @@ export const deserializeAws_json1_1UpdateWorkGroupCommand = async (
   contents = deserializeAws_json1_1UpdateWorkGroupOutput(data, context);
   const response: UpdateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateWorkGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2790,7 +2762,6 @@ const deserializeAws_json1_1BatchGetNamedQueryOutput = (
   context: __SerdeContext
 ): BatchGetNamedQueryOutput => {
   return {
-    __type: "BatchGetNamedQueryOutput",
     NamedQueries:
       output.NamedQueries !== undefined && output.NamedQueries !== null
         ? deserializeAws_json1_1NamedQueryList(output.NamedQueries, context)
@@ -2807,7 +2778,6 @@ const deserializeAws_json1_1BatchGetQueryExecutionOutput = (
   context: __SerdeContext
 ): BatchGetQueryExecutionOutput => {
   return {
-    __type: "BatchGetQueryExecutionOutput",
     QueryExecutions:
       output.QueryExecutions !== undefined && output.QueryExecutions !== null
         ? deserializeAws_json1_1QueryExecutionList(output.QueryExecutions, context)
@@ -2821,7 +2791,6 @@ const deserializeAws_json1_1BatchGetQueryExecutionOutput = (
 
 const deserializeAws_json1_1Column = (output: any, context: __SerdeContext): Column => {
   return {
-    __type: "Column",
     Comment: output.Comment !== undefined && output.Comment !== null ? output.Comment : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
@@ -2830,7 +2799,6 @@ const deserializeAws_json1_1Column = (output: any, context: __SerdeContext): Col
 
 const deserializeAws_json1_1ColumnInfo = (output: any, context: __SerdeContext): ColumnInfo => {
   return {
-    __type: "ColumnInfo",
     CaseSensitive:
       output.CaseSensitive !== undefined && output.CaseSensitive !== null ? output.CaseSensitive : undefined,
     CatalogName: output.CatalogName !== undefined && output.CatalogName !== null ? output.CatalogName : undefined,
@@ -2857,27 +2825,21 @@ const deserializeAws_json1_1CreateDataCatalogOutput = (
   output: any,
   context: __SerdeContext
 ): CreateDataCatalogOutput => {
-  return {
-    __type: "CreateDataCatalogOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateNamedQueryOutput = (output: any, context: __SerdeContext): CreateNamedQueryOutput => {
   return {
-    __type: "CreateNamedQueryOutput",
     NamedQueryId: output.NamedQueryId !== undefined && output.NamedQueryId !== null ? output.NamedQueryId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateWorkGroupOutput = (output: any, context: __SerdeContext): CreateWorkGroupOutput => {
-  return {
-    __type: "CreateWorkGroupOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Database = (output: any, context: __SerdeContext): Database => {
   return {
-    __type: "Database",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Parameters:
@@ -2893,7 +2855,6 @@ const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DataCatalog = (output: any, context: __SerdeContext): DataCatalog => {
   return {
-    __type: "DataCatalog",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Parameters:
@@ -2906,7 +2867,6 @@ const deserializeAws_json1_1DataCatalog = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1DataCatalogSummary = (output: any, context: __SerdeContext): DataCatalogSummary => {
   return {
-    __type: "DataCatalogSummary",
     CatalogName: output.CatalogName !== undefined && output.CatalogName !== null ? output.CatalogName : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -2918,7 +2878,6 @@ const deserializeAws_json1_1DataCatalogSummaryList = (output: any, context: __Se
 
 const deserializeAws_json1_1Datum = (output: any, context: __SerdeContext): Datum => {
   return {
-    __type: "Datum",
     VarCharValue: output.VarCharValue !== undefined && output.VarCharValue !== null ? output.VarCharValue : undefined,
   } as any;
 };
@@ -2931,21 +2890,15 @@ const deserializeAws_json1_1DeleteDataCatalogOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteDataCatalogOutput => {
-  return {
-    __type: "DeleteDataCatalogOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteNamedQueryOutput = (output: any, context: __SerdeContext): DeleteNamedQueryOutput => {
-  return {
-    __type: "DeleteNamedQueryOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteWorkGroupOutput = (output: any, context: __SerdeContext): DeleteWorkGroupOutput => {
-  return {
-    __type: "DeleteWorkGroupOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EncryptionConfiguration = (
@@ -2953,7 +2906,6 @@ const deserializeAws_json1_1EncryptionConfiguration = (
   context: __SerdeContext
 ): EncryptionConfiguration => {
   return {
-    __type: "EncryptionConfiguration",
     EncryptionOption:
       output.EncryptionOption !== undefined && output.EncryptionOption !== null ? output.EncryptionOption : undefined,
     KmsKey: output.KmsKey !== undefined && output.KmsKey !== null ? output.KmsKey : undefined,
@@ -2962,7 +2914,6 @@ const deserializeAws_json1_1EncryptionConfiguration = (
 
 const deserializeAws_json1_1GetDatabaseOutput = (output: any, context: __SerdeContext): GetDatabaseOutput => {
   return {
-    __type: "GetDatabaseOutput",
     Database:
       output.Database !== undefined && output.Database !== null
         ? deserializeAws_json1_1Database(output.Database, context)
@@ -2972,7 +2923,6 @@ const deserializeAws_json1_1GetDatabaseOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GetDataCatalogOutput = (output: any, context: __SerdeContext): GetDataCatalogOutput => {
   return {
-    __type: "GetDataCatalogOutput",
     DataCatalog:
       output.DataCatalog !== undefined && output.DataCatalog !== null
         ? deserializeAws_json1_1DataCatalog(output.DataCatalog, context)
@@ -2982,7 +2932,6 @@ const deserializeAws_json1_1GetDataCatalogOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetNamedQueryOutput = (output: any, context: __SerdeContext): GetNamedQueryOutput => {
   return {
-    __type: "GetNamedQueryOutput",
     NamedQuery:
       output.NamedQuery !== undefined && output.NamedQuery !== null
         ? deserializeAws_json1_1NamedQuery(output.NamedQuery, context)
@@ -2995,7 +2944,6 @@ const deserializeAws_json1_1GetQueryExecutionOutput = (
   context: __SerdeContext
 ): GetQueryExecutionOutput => {
   return {
-    __type: "GetQueryExecutionOutput",
     QueryExecution:
       output.QueryExecution !== undefined && output.QueryExecution !== null
         ? deserializeAws_json1_1QueryExecution(output.QueryExecution, context)
@@ -3005,7 +2953,6 @@ const deserializeAws_json1_1GetQueryExecutionOutput = (
 
 const deserializeAws_json1_1GetQueryResultsOutput = (output: any, context: __SerdeContext): GetQueryResultsOutput => {
   return {
-    __type: "GetQueryResultsOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResultSet:
       output.ResultSet !== undefined && output.ResultSet !== null
@@ -3017,7 +2964,6 @@ const deserializeAws_json1_1GetQueryResultsOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1GetTableMetadataOutput = (output: any, context: __SerdeContext): GetTableMetadataOutput => {
   return {
-    __type: "GetTableMetadataOutput",
     TableMetadata:
       output.TableMetadata !== undefined && output.TableMetadata !== null
         ? deserializeAws_json1_1TableMetadata(output.TableMetadata, context)
@@ -3027,7 +2973,6 @@ const deserializeAws_json1_1GetTableMetadataOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1GetWorkGroupOutput = (output: any, context: __SerdeContext): GetWorkGroupOutput => {
   return {
-    __type: "GetWorkGroupOutput",
     WorkGroup:
       output.WorkGroup !== undefined && output.WorkGroup !== null
         ? deserializeAws_json1_1WorkGroup(output.WorkGroup, context)
@@ -3040,7 +2985,6 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3050,7 +2994,6 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     AthenaErrorCode:
       output.AthenaErrorCode !== undefined && output.AthenaErrorCode !== null ? output.AthenaErrorCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -3059,7 +3002,6 @@ const deserializeAws_json1_1InvalidRequestException = (
 
 const deserializeAws_json1_1ListDatabasesOutput = (output: any, context: __SerdeContext): ListDatabasesOutput => {
   return {
-    __type: "ListDatabasesOutput",
     DatabaseList:
       output.DatabaseList !== undefined && output.DatabaseList !== null
         ? deserializeAws_json1_1DatabaseList(output.DatabaseList, context)
@@ -3070,7 +3012,6 @@ const deserializeAws_json1_1ListDatabasesOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListDataCatalogsOutput = (output: any, context: __SerdeContext): ListDataCatalogsOutput => {
   return {
-    __type: "ListDataCatalogsOutput",
     DataCatalogsSummary:
       output.DataCatalogsSummary !== undefined && output.DataCatalogsSummary !== null
         ? deserializeAws_json1_1DataCatalogSummaryList(output.DataCatalogsSummary, context)
@@ -3081,7 +3022,6 @@ const deserializeAws_json1_1ListDataCatalogsOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1ListNamedQueriesOutput = (output: any, context: __SerdeContext): ListNamedQueriesOutput => {
   return {
-    __type: "ListNamedQueriesOutput",
     NamedQueryIds:
       output.NamedQueryIds !== undefined && output.NamedQueryIds !== null
         ? deserializeAws_json1_1NamedQueryIdList(output.NamedQueryIds, context)
@@ -3095,7 +3035,6 @@ const deserializeAws_json1_1ListQueryExecutionsOutput = (
   context: __SerdeContext
 ): ListQueryExecutionsOutput => {
   return {
-    __type: "ListQueryExecutionsOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     QueryExecutionIds:
       output.QueryExecutionIds !== undefined && output.QueryExecutionIds !== null
@@ -3109,7 +3048,6 @@ const deserializeAws_json1_1ListTableMetadataOutput = (
   context: __SerdeContext
 ): ListTableMetadataOutput => {
   return {
-    __type: "ListTableMetadataOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TableMetadataList:
       output.TableMetadataList !== undefined && output.TableMetadataList !== null
@@ -3123,7 +3061,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    __type: "ListTagsForResourceOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -3134,7 +3071,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1ListWorkGroupsOutput = (output: any, context: __SerdeContext): ListWorkGroupsOutput => {
   return {
-    __type: "ListWorkGroupsOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     WorkGroups:
       output.WorkGroups !== undefined && output.WorkGroups !== null
@@ -3145,14 +3081,12 @@ const deserializeAws_json1_1ListWorkGroupsOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1MetadataException = (output: any, context: __SerdeContext): MetadataException => {
   return {
-    __type: "MetadataException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NamedQuery = (output: any, context: __SerdeContext): NamedQuery => {
   return {
-    __type: "NamedQuery",
     Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -3182,7 +3116,6 @@ const deserializeAws_json1_1ParametersMap = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeContext): QueryExecution => {
   return {
-    __type: "QueryExecution",
     Query: output.Query !== undefined && output.Query !== null ? output.Query : undefined,
     QueryExecutionContext:
       output.QueryExecutionContext !== undefined && output.QueryExecutionContext !== null
@@ -3210,7 +3143,6 @@ const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1QueryExecutionContext = (output: any, context: __SerdeContext): QueryExecutionContext => {
   return {
-    __type: "QueryExecutionContext",
     Catalog: output.Catalog !== undefined && output.Catalog !== null ? output.Catalog : undefined,
     Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
   } as any;
@@ -3229,7 +3161,6 @@ const deserializeAws_json1_1QueryExecutionStatistics = (
   context: __SerdeContext
 ): QueryExecutionStatistics => {
   return {
-    __type: "QueryExecutionStatistics",
     DataManifestLocation:
       output.DataManifestLocation !== undefined && output.DataManifestLocation !== null
         ? output.DataManifestLocation
@@ -3263,7 +3194,6 @@ const deserializeAws_json1_1QueryExecutionStatistics = (
 
 const deserializeAws_json1_1QueryExecutionStatus = (output: any, context: __SerdeContext): QueryExecutionStatus => {
   return {
-    __type: "QueryExecutionStatus",
     CompletionDateTime:
       output.CompletionDateTime !== undefined && output.CompletionDateTime !== null
         ? new Date(Math.round(output.CompletionDateTime * 1000))
@@ -3285,7 +3215,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceName: output.ResourceName !== undefined && output.ResourceName !== null ? output.ResourceName : undefined,
   } as any;
@@ -3293,7 +3222,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 
 const deserializeAws_json1_1ResultConfiguration = (output: any, context: __SerdeContext): ResultConfiguration => {
   return {
-    __type: "ResultConfiguration",
     EncryptionConfiguration:
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
         ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
@@ -3305,7 +3233,6 @@ const deserializeAws_json1_1ResultConfiguration = (output: any, context: __Serde
 
 const deserializeAws_json1_1ResultSet = (output: any, context: __SerdeContext): ResultSet => {
   return {
-    __type: "ResultSet",
     ResultSetMetadata:
       output.ResultSetMetadata !== undefined && output.ResultSetMetadata !== null
         ? deserializeAws_json1_1ResultSetMetadata(output.ResultSetMetadata, context)
@@ -3319,7 +3246,6 @@ const deserializeAws_json1_1ResultSet = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
   return {
-    __type: "ResultSetMetadata",
     ColumnInfo:
       output.ColumnInfo !== undefined && output.ColumnInfo !== null
         ? deserializeAws_json1_1ColumnInfoList(output.ColumnInfo, context)
@@ -3329,7 +3255,6 @@ const deserializeAws_json1_1ResultSetMetadata = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Row = (output: any, context: __SerdeContext): Row => {
   return {
-    __type: "Row",
     Data:
       output.Data !== undefined && output.Data !== null
         ? deserializeAws_json1_1datumList(output.Data, context)
@@ -3346,7 +3271,6 @@ const deserializeAws_json1_1StartQueryExecutionOutput = (
   context: __SerdeContext
 ): StartQueryExecutionOutput => {
   return {
-    __type: "StartQueryExecutionOutput",
     QueryExecutionId:
       output.QueryExecutionId !== undefined && output.QueryExecutionId !== null ? output.QueryExecutionId : undefined,
   } as any;
@@ -3356,14 +3280,11 @@ const deserializeAws_json1_1StopQueryExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): StopQueryExecutionOutput => {
-  return {
-    __type: "StopQueryExecutionOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TableMetadata = (output: any, context: __SerdeContext): TableMetadata => {
   return {
-    __type: "TableMetadata",
     Columns:
       output.Columns !== undefined && output.Columns !== null
         ? deserializeAws_json1_1ColumnList(output.Columns, context)
@@ -3395,7 +3316,6 @@ const deserializeAws_json1_1TableMetadataList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3406,9 +3326,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {
-    __type: "TagResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TooManyRequestsException = (
@@ -3416,7 +3334,6 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;
@@ -3427,7 +3344,6 @@ const deserializeAws_json1_1UnprocessedNamedQueryId = (
   context: __SerdeContext
 ): UnprocessedNamedQueryId => {
   return {
-    __type: "UnprocessedNamedQueryId",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     NamedQueryId: output.NamedQueryId !== undefined && output.NamedQueryId !== null ? output.NamedQueryId : undefined,
@@ -3446,7 +3362,6 @@ const deserializeAws_json1_1UnprocessedQueryExecutionId = (
   context: __SerdeContext
 ): UnprocessedQueryExecutionId => {
   return {
-    __type: "UnprocessedQueryExecutionId",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     QueryExecutionId:
@@ -3462,29 +3377,22 @@ const deserializeAws_json1_1UnprocessedQueryExecutionIdList = (
 };
 
 const deserializeAws_json1_1UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {
-    __type: "UntagResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDataCatalogOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateDataCatalogOutput => {
-  return {
-    __type: "UpdateDataCatalogOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateWorkGroupOutput = (output: any, context: __SerdeContext): UpdateWorkGroupOutput => {
-  return {
-    __type: "UpdateWorkGroupOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1WorkGroup = (output: any, context: __SerdeContext): WorkGroup => {
   return {
-    __type: "WorkGroup",
     Configuration:
       output.Configuration !== undefined && output.Configuration !== null
         ? deserializeAws_json1_1WorkGroupConfiguration(output.Configuration, context)
@@ -3501,7 +3409,6 @@ const deserializeAws_json1_1WorkGroup = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1WorkGroupConfiguration = (output: any, context: __SerdeContext): WorkGroupConfiguration => {
   return {
-    __type: "WorkGroupConfiguration",
     BytesScannedCutoffPerQuery:
       output.BytesScannedCutoffPerQuery !== undefined && output.BytesScannedCutoffPerQuery !== null
         ? output.BytesScannedCutoffPerQuery
@@ -3531,7 +3438,6 @@ const deserializeAws_json1_1WorkGroupsList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1WorkGroupSummary = (output: any, context: __SerdeContext): WorkGroupSummary => {
   return {
-    __type: "WorkGroupSummary",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))

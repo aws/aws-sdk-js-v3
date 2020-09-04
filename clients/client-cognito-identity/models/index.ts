@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AmbiguousRoleResolutionType {
@@ -10,7 +10,6 @@ export enum AmbiguousRoleResolutionType {
  * <p>A provider representing an Amazon Cognito user pool and its client ID.</p>
  */
 export interface CognitoIdentityProvider {
-  __type?: "CognitoIdentityProvider";
   /**
    * <p>The client ID for the Amazon Cognito user pool.</p>
    */
@@ -39,7 +38,6 @@ export namespace CognitoIdentityProvider {
   export const filterSensitiveLog = (obj: CognitoIdentityProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoIdentityProvider => __isa(o, "CognitoIdentityProvider");
 }
 
 /**
@@ -58,14 +56,12 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>Input to the CreateIdentityPool action.</p>
  */
 export interface CreateIdentityPoolInput {
-  __type?: "CreateIdentityPoolInput";
   /**
    * <p>A string that you provide.</p>
    */
@@ -126,14 +122,12 @@ export namespace CreateIdentityPoolInput {
   export const filterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIdentityPoolInput => __isa(o, "CreateIdentityPoolInput");
 }
 
 /**
  * <p>Credentials for the provided identity ID.</p>
  */
 export interface Credentials {
-  __type?: "Credentials";
   /**
    * <p>The Secret Access Key portion of the credentials</p>
    */
@@ -159,14 +153,12 @@ export namespace Credentials {
   export const filterSensitiveLog = (obj: Credentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
 
 /**
  * <p>Input to the <code>DeleteIdentities</code> action.</p>
  */
 export interface DeleteIdentitiesInput {
-  __type?: "DeleteIdentitiesInput";
   /**
    * <p>A list of 1-60 identities that you want to delete.</p>
    */
@@ -177,7 +169,6 @@ export namespace DeleteIdentitiesInput {
   export const filterSensitiveLog = (obj: DeleteIdentitiesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentitiesInput => __isa(o, "DeleteIdentitiesInput");
 }
 
 /**
@@ -185,7 +176,6 @@ export namespace DeleteIdentitiesInput {
  *          operation.</p>
  */
 export interface DeleteIdentitiesResponse {
-  __type?: "DeleteIdentitiesResponse";
   /**
    * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and
    *          IdentityId.</p>
@@ -197,14 +187,12 @@ export namespace DeleteIdentitiesResponse {
   export const filterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentitiesResponse => __isa(o, "DeleteIdentitiesResponse");
 }
 
 /**
  * <p>Input to the DeleteIdentityPool action.</p>
  */
 export interface DeleteIdentityPoolInput {
-  __type?: "DeleteIdentityPoolInput";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
@@ -215,14 +203,12 @@ export namespace DeleteIdentityPoolInput {
   export const filterSensitiveLog = (obj: DeleteIdentityPoolInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentityPoolInput => __isa(o, "DeleteIdentityPoolInput");
 }
 
 /**
  * <p>Input to the <code>DescribeIdentity</code> action.</p>
  */
 export interface DescribeIdentityInput {
-  __type?: "DescribeIdentityInput";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -233,14 +219,12 @@ export namespace DescribeIdentityInput {
   export const filterSensitiveLog = (obj: DescribeIdentityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityInput => __isa(o, "DescribeIdentityInput");
 }
 
 /**
  * <p>Input to the DescribeIdentityPool action.</p>
  */
 export interface DescribeIdentityPoolInput {
-  __type?: "DescribeIdentityPoolInput";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
@@ -251,7 +235,6 @@ export namespace DescribeIdentityPoolInput {
   export const filterSensitiveLog = (obj: DescribeIdentityPoolInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityPoolInput => __isa(o, "DescribeIdentityPoolInput");
 }
 
 /**
@@ -271,8 +254,6 @@ export namespace DeveloperUserAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: DeveloperUserAlreadyRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeveloperUserAlreadyRegisteredException =>
-    __isa(o, "DeveloperUserAlreadyRegisteredException");
 }
 
 export enum ErrorCode {
@@ -297,14 +278,12 @@ export namespace ExternalServiceException {
   export const filterSensitiveLog = (obj: ExternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExternalServiceException => __isa(o, "ExternalServiceException");
 }
 
 /**
  * <p>Input to the <code>GetCredentialsForIdentity</code> action.</p>
  */
 export interface GetCredentialsForIdentityInput {
-  __type?: "GetCredentialsForIdentityInput";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -336,7 +315,6 @@ export namespace GetCredentialsForIdentityInput {
   export const filterSensitiveLog = (obj: GetCredentialsForIdentityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCredentialsForIdentityInput => __isa(o, "GetCredentialsForIdentityInput");
 }
 
 /**
@@ -344,7 +322,6 @@ export namespace GetCredentialsForIdentityInput {
  *          operation.</p>
  */
 export interface GetCredentialsForIdentityResponse {
-  __type?: "GetCredentialsForIdentityResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -360,14 +337,12 @@ export namespace GetCredentialsForIdentityResponse {
   export const filterSensitiveLog = (obj: GetCredentialsForIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCredentialsForIdentityResponse => __isa(o, "GetCredentialsForIdentityResponse");
 }
 
 /**
  * <p>Input to the <code>GetIdentityPoolRoles</code> action.</p>
  */
 export interface GetIdentityPoolRolesInput {
-  __type?: "GetIdentityPoolRolesInput";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
@@ -378,7 +353,6 @@ export namespace GetIdentityPoolRolesInput {
   export const filterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityPoolRolesInput => __isa(o, "GetIdentityPoolRolesInput");
 }
 
 /**
@@ -386,7 +360,6 @@ export namespace GetIdentityPoolRolesInput {
  *          operation.</p>
  */
 export interface GetIdentityPoolRolesResponse {
-  __type?: "GetIdentityPoolRolesResponse";
   /**
    * <p>How users for a specific identity provider are to mapped to roles. This is a
    *             String-to-<a>RoleMapping</a> object map. The string identifies the identity
@@ -411,14 +384,12 @@ export namespace GetIdentityPoolRolesResponse {
   export const filterSensitiveLog = (obj: GetIdentityPoolRolesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityPoolRolesResponse => __isa(o, "GetIdentityPoolRolesResponse");
 }
 
 /**
  * <p>Input to the GetId action.</p>
  */
 export interface GetIdInput {
-  __type?: "GetIdInput";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
@@ -468,14 +439,12 @@ export namespace GetIdInput {
   export const filterSensitiveLog = (obj: GetIdInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdInput => __isa(o, "GetIdInput");
 }
 
 /**
  * <p>Returned in response to a GetId request.</p>
  */
 export interface GetIdResponse {
-  __type?: "GetIdResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -486,14 +455,12 @@ export namespace GetIdResponse {
   export const filterSensitiveLog = (obj: GetIdResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdResponse => __isa(o, "GetIdResponse");
 }
 
 /**
  * <p>Input to the <code>GetOpenIdTokenForDeveloperIdentity</code> action.</p>
  */
 export interface GetOpenIdTokenForDeveloperIdentityInput {
-  __type?: "GetOpenIdTokenForDeveloperIdentityInput";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
@@ -535,8 +502,6 @@ export namespace GetOpenIdTokenForDeveloperIdentityInput {
   export const filterSensitiveLog = (obj: GetOpenIdTokenForDeveloperIdentityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOpenIdTokenForDeveloperIdentityInput =>
-    __isa(o, "GetOpenIdTokenForDeveloperIdentityInput");
 }
 
 /**
@@ -544,7 +509,6 @@ export namespace GetOpenIdTokenForDeveloperIdentityInput {
  *          request.</p>
  */
 export interface GetOpenIdTokenForDeveloperIdentityResponse {
-  __type?: "GetOpenIdTokenForDeveloperIdentityResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -560,15 +524,12 @@ export namespace GetOpenIdTokenForDeveloperIdentityResponse {
   export const filterSensitiveLog = (obj: GetOpenIdTokenForDeveloperIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOpenIdTokenForDeveloperIdentityResponse =>
-    __isa(o, "GetOpenIdTokenForDeveloperIdentityResponse");
 }
 
 /**
  * <p>Input to the GetOpenIdToken action.</p>
  */
 export interface GetOpenIdTokenInput {
-  __type?: "GetOpenIdTokenInput";
   /**
    * <p>A set of optional name-value pairs that map provider names to provider tokens. When
    *          using graph.facebook.com and www.amazon.com, supply the access_token returned from the
@@ -587,14 +548,12 @@ export namespace GetOpenIdTokenInput {
   export const filterSensitiveLog = (obj: GetOpenIdTokenInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOpenIdTokenInput => __isa(o, "GetOpenIdTokenInput");
 }
 
 /**
  * <p>Returned in response to a successful GetOpenIdToken request.</p>
  */
 export interface GetOpenIdTokenResponse {
-  __type?: "GetOpenIdTokenResponse";
   /**
    * <p>An OpenID token, valid for 10 minutes.</p>
    */
@@ -611,14 +570,12 @@ export namespace GetOpenIdTokenResponse {
   export const filterSensitiveLog = (obj: GetOpenIdTokenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOpenIdTokenResponse => __isa(o, "GetOpenIdTokenResponse");
 }
 
 /**
  * <p>A description of the identity.</p>
  */
 export interface IdentityDescription {
-  __type?: "IdentityDescription";
   /**
    * <p>Date on which the identity was last modified.</p>
    */
@@ -644,14 +601,12 @@ export namespace IdentityDescription {
   export const filterSensitiveLog = (obj: IdentityDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityDescription => __isa(o, "IdentityDescription");
 }
 
 /**
  * <p>An object representing an Amazon Cognito identity pool.</p>
  */
 export interface IdentityPool {
-  __type?: "IdentityPool";
   /**
    * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
    *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
@@ -711,14 +666,12 @@ export namespace IdentityPool {
   export const filterSensitiveLog = (obj: IdentityPool): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityPool => __isa(o, "IdentityPool");
 }
 
 /**
  * <p>A description of the identity pool.</p>
  */
 export interface IdentityPoolShortDescription {
-  __type?: "IdentityPoolShortDescription";
   /**
    * <p>A string that you provide.</p>
    */
@@ -734,7 +687,6 @@ export namespace IdentityPoolShortDescription {
   export const filterSensitiveLog = (obj: IdentityPoolShortDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityPoolShortDescription => __isa(o, "IdentityPoolShortDescription");
 }
 
 /**
@@ -753,7 +705,6 @@ export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
@@ -774,8 +725,6 @@ export namespace InvalidIdentityPoolConfigurationException {
   export const filterSensitiveLog = (obj: InvalidIdentityPoolConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIdentityPoolConfigurationException =>
-    __isa(o, "InvalidIdentityPoolConfigurationException");
 }
 
 /**
@@ -794,7 +743,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -813,14 +761,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Input to the ListIdentities action.</p>
  */
 export interface ListIdentitiesInput {
-  __type?: "ListIdentitiesInput";
   /**
    * <p>A pagination token.</p>
    */
@@ -847,14 +793,12 @@ export namespace ListIdentitiesInput {
   export const filterSensitiveLog = (obj: ListIdentitiesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentitiesInput => __isa(o, "ListIdentitiesInput");
 }
 
 /**
  * <p>The response to a ListIdentities request.</p>
  */
 export interface ListIdentitiesResponse {
-  __type?: "ListIdentitiesResponse";
   /**
    * <p>An object containing a set of identities and associated mappings.</p>
    */
@@ -875,14 +819,12 @@ export namespace ListIdentitiesResponse {
   export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentitiesResponse => __isa(o, "ListIdentitiesResponse");
 }
 
 /**
  * <p>Input to the ListIdentityPools action.</p>
  */
 export interface ListIdentityPoolsInput {
-  __type?: "ListIdentityPoolsInput";
   /**
    * <p>The maximum number of identities to return.</p>
    */
@@ -898,14 +840,12 @@ export namespace ListIdentityPoolsInput {
   export const filterSensitiveLog = (obj: ListIdentityPoolsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityPoolsInput => __isa(o, "ListIdentityPoolsInput");
 }
 
 /**
  * <p>The result of a successful ListIdentityPools action.</p>
  */
 export interface ListIdentityPoolsResponse {
-  __type?: "ListIdentityPoolsResponse";
   /**
    * <p>A pagination token.</p>
    */
@@ -921,11 +861,9 @@ export namespace ListIdentityPoolsResponse {
   export const filterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityPoolsResponse => __isa(o, "ListIdentityPoolsResponse");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned
    *          to.</p>
@@ -937,11 +875,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are assigned to the identity pool.</p>
    */
@@ -952,14 +888,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Input to the <code>LookupDeveloperIdentityInput</code> action.</p>
  */
 export interface LookupDeveloperIdentityInput {
-  __type?: "LookupDeveloperIdentityInput";
   /**
    * <p>A pagination token. The first call you make will have <code>NextToken</code> set to
    *          null. After that the service will return <code>NextToken</code> values as needed. For
@@ -997,7 +931,6 @@ export namespace LookupDeveloperIdentityInput {
   export const filterSensitiveLog = (obj: LookupDeveloperIdentityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LookupDeveloperIdentityInput => __isa(o, "LookupDeveloperIdentityInput");
 }
 
 /**
@@ -1005,7 +938,6 @@ export namespace LookupDeveloperIdentityInput {
  *          action.</p>
  */
 export interface LookupDeveloperIdentityResponse {
-  __type?: "LookupDeveloperIdentityResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -1033,7 +965,6 @@ export namespace LookupDeveloperIdentityResponse {
   export const filterSensitiveLog = (obj: LookupDeveloperIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LookupDeveloperIdentityResponse => __isa(o, "LookupDeveloperIdentityResponse");
 }
 
 /**
@@ -1041,7 +972,6 @@ export namespace LookupDeveloperIdentityResponse {
  *          ARN.</p>
  */
 export interface MappingRule {
-  __type?: "MappingRule";
   /**
    * <p>The claim name that must be present in the token, for example, "isAdmin" or
    *          "paid".</p>
@@ -1069,7 +999,6 @@ export namespace MappingRule {
   export const filterSensitiveLog = (obj: MappingRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MappingRule => __isa(o, "MappingRule");
 }
 
 export enum MappingRuleMatchType {
@@ -1083,7 +1012,6 @@ export enum MappingRuleMatchType {
  * <p>Input to the <code>MergeDeveloperIdentities</code> action.</p>
  */
 export interface MergeDeveloperIdentitiesInput {
-  __type?: "MergeDeveloperIdentitiesInput";
   /**
    * <p>User identifier for the destination user. The value should be a
    *             <code>DeveloperUserIdentifier</code>.</p>
@@ -1115,7 +1043,6 @@ export namespace MergeDeveloperIdentitiesInput {
   export const filterSensitiveLog = (obj: MergeDeveloperIdentitiesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeDeveloperIdentitiesInput => __isa(o, "MergeDeveloperIdentitiesInput");
 }
 
 /**
@@ -1123,7 +1050,6 @@ export namespace MergeDeveloperIdentitiesInput {
  *          action.</p>
  */
 export interface MergeDeveloperIdentitiesResponse {
-  __type?: "MergeDeveloperIdentitiesResponse";
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
@@ -1134,7 +1060,6 @@ export namespace MergeDeveloperIdentitiesResponse {
   export const filterSensitiveLog = (obj: MergeDeveloperIdentitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeDeveloperIdentitiesResponse => __isa(o, "MergeDeveloperIdentitiesResponse");
 }
 
 /**
@@ -1153,7 +1078,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -1173,7 +1097,6 @@ export namespace ResourceConflictException {
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
@@ -1193,14 +1116,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A role mapping.</p>
  */
 export interface RoleMapping {
-  __type?: "RoleMapping";
   /**
    * <p>The role mapping type. Token will use <code>cognito:roles</code> and
    *             <code>cognito:preferred_role</code> claims from the Cognito identity provider token to
@@ -1231,7 +1152,6 @@ export namespace RoleMapping {
   export const filterSensitiveLog = (obj: RoleMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleMapping => __isa(o, "RoleMapping");
 }
 
 export enum RoleMappingType {
@@ -1243,7 +1163,6 @@ export enum RoleMappingType {
  * <p>A container for rules.</p>
  */
 export interface RulesConfigurationType {
-  __type?: "RulesConfigurationType";
   /**
    * <p>An array of rules. You can specify up to 25 rules per identity provider.</p>
    *          <p>Rules are evaluated in order. The first one to match specifies the role.</p>
@@ -1255,14 +1174,12 @@ export namespace RulesConfigurationType {
   export const filterSensitiveLog = (obj: RulesConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RulesConfigurationType => __isa(o, "RulesConfigurationType");
 }
 
 /**
  * <p>Input to the <code>SetIdentityPoolRoles</code> action.</p>
  */
 export interface SetIdentityPoolRolesInput {
-  __type?: "SetIdentityPoolRolesInput";
   /**
    * <p>The map of roles associated with this pool. For a given role, the key will be either
    *          "authenticated" or "unauthenticated" and the value will be the Role ARN.</p>
@@ -1288,11 +1205,9 @@ export namespace SetIdentityPoolRolesInput {
   export const filterSensitiveLog = (obj: SetIdentityPoolRolesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityPoolRolesInput => __isa(o, "SetIdentityPoolRolesInput");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The tags to assign to the identity pool.</p>
    */
@@ -1308,18 +1223,14 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1338,14 +1249,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p>Input to the <code>UnlinkDeveloperIdentity</code> action.</p>
  */
 export interface UnlinkDeveloperIdentityInput {
-  __type?: "UnlinkDeveloperIdentityInput";
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
@@ -1371,14 +1280,12 @@ export namespace UnlinkDeveloperIdentityInput {
   export const filterSensitiveLog = (obj: UnlinkDeveloperIdentityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnlinkDeveloperIdentityInput => __isa(o, "UnlinkDeveloperIdentityInput");
 }
 
 /**
  * <p>Input to the UnlinkIdentity action.</p>
  */
 export interface UnlinkIdentityInput {
-  __type?: "UnlinkIdentityInput";
   /**
    * <p>A set of optional name-value pairs that map provider names to provider
    *          tokens.</p>
@@ -1400,7 +1307,6 @@ export namespace UnlinkIdentityInput {
   export const filterSensitiveLog = (obj: UnlinkIdentityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnlinkIdentityInput => __isa(o, "UnlinkIdentityInput");
 }
 
 /**
@@ -1408,7 +1314,6 @@ export namespace UnlinkIdentityInput {
  *          IdentityId.</p>
  */
 export interface UnprocessedIdentityId {
-  __type?: "UnprocessedIdentityId";
   /**
    * <p>The error code indicating the type of error that occurred.</p>
    */
@@ -1424,11 +1329,9 @@ export namespace UnprocessedIdentityId {
   export const filterSensitiveLog = (obj: UnprocessedIdentityId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnprocessedIdentityId => __isa(o, "UnprocessedIdentityId");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The keys of the tags to remove from the user pool.</p>
    */
@@ -1445,16 +1348,12 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

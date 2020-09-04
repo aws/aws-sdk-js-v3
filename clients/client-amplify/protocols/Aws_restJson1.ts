@@ -1587,7 +1587,6 @@ export const deserializeAws_restJson1CreateAppCommand = async (
   }
   const contents: CreateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAppResult",
     app: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1675,7 +1674,6 @@ export const deserializeAws_restJson1CreateBackendEnvironmentCommand = async (
   }
   const contents: CreateBackendEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackendEnvironmentResult",
     backendEnvironment: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1763,7 +1761,6 @@ export const deserializeAws_restJson1CreateBranchCommand = async (
   }
   const contents: CreateBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBranchResult",
     branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1859,7 +1856,6 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeploymentResult",
     fileUploadUrls: undefined,
     jobId: undefined,
     zipUploadUrl: undefined,
@@ -1947,7 +1943,6 @@ export const deserializeAws_restJson1CreateDomainAssociationCommand = async (
   }
   const contents: CreateDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainAssociationResult",
     domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2043,7 +2038,6 @@ export const deserializeAws_restJson1CreateWebhookCommand = async (
   }
   const contents: CreateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateWebhookResult",
     webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2139,7 +2133,6 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
   }
   const contents: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAppResult",
     app: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2227,7 +2220,6 @@ export const deserializeAws_restJson1DeleteBackendEnvironmentCommand = async (
   }
   const contents: DeleteBackendEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBackendEnvironmentResult",
     backendEnvironment: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2315,7 +2307,6 @@ export const deserializeAws_restJson1DeleteBranchCommand = async (
   }
   const contents: DeleteBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBranchResult",
     branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2403,7 +2394,6 @@ export const deserializeAws_restJson1DeleteDomainAssociationCommand = async (
   }
   const contents: DeleteDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainAssociationResult",
     domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2491,7 +2481,6 @@ export const deserializeAws_restJson1DeleteJobCommand = async (
   }
   const contents: DeleteJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteJobResult",
     jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2579,7 +2568,6 @@ export const deserializeAws_restJson1DeleteWebhookCommand = async (
   }
   const contents: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteWebhookResult",
     webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2667,7 +2655,6 @@ export const deserializeAws_restJson1GenerateAccessLogsCommand = async (
   }
   const contents: GenerateAccessLogsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateAccessLogsResult",
     logUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2747,7 +2734,6 @@ export const deserializeAws_restJson1GetAppCommand = async (
   }
   const contents: GetAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppResult",
     app: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2827,7 +2813,6 @@ export const deserializeAws_restJson1GetArtifactUrlCommand = async (
   }
   const contents: GetArtifactUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetArtifactUrlResult",
     artifactId: undefined,
     artifactUrl: undefined,
   };
@@ -2919,7 +2904,6 @@ export const deserializeAws_restJson1GetBackendEnvironmentCommand = async (
   }
   const contents: GetBackendEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackendEnvironmentResult",
     backendEnvironment: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2999,7 +2983,6 @@ export const deserializeAws_restJson1GetBranchCommand = async (
   }
   const contents: GetBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBranchResult",
     branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3079,7 +3062,6 @@ export const deserializeAws_restJson1GetDomainAssociationCommand = async (
   }
   const contents: GetDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainAssociationResult",
     domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3159,7 +3141,6 @@ export const deserializeAws_restJson1GetJobCommand = async (
   }
   const contents: GetJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobResult",
     job: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3247,7 +3228,6 @@ export const deserializeAws_restJson1GetWebhookCommand = async (
   }
   const contents: GetWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetWebhookResult",
     webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3335,7 +3315,6 @@ export const deserializeAws_restJson1ListAppsCommand = async (
   }
   const contents: ListAppsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAppsResult",
     apps: undefined,
     nextToken: undefined,
   };
@@ -3411,7 +3390,6 @@ export const deserializeAws_restJson1ListArtifactsCommand = async (
   }
   const contents: ListArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListArtifactsResult",
     artifacts: undefined,
     nextToken: undefined,
   };
@@ -3495,7 +3473,6 @@ export const deserializeAws_restJson1ListBackendEnvironmentsCommand = async (
   }
   const contents: ListBackendEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackendEnvironmentsResult",
     backendEnvironments: undefined,
     nextToken: undefined,
   };
@@ -3571,7 +3548,6 @@ export const deserializeAws_restJson1ListBranchesCommand = async (
   }
   const contents: ListBranchesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBranchesResult",
     branches: undefined,
     nextToken: undefined,
   };
@@ -3647,7 +3623,6 @@ export const deserializeAws_restJson1ListDomainAssociationsCommand = async (
   }
   const contents: ListDomainAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainAssociationsResult",
     domainAssociations: undefined,
     nextToken: undefined,
   };
@@ -3723,7 +3698,6 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   }
   const contents: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsResult",
     jobSummaries: undefined,
     nextToken: undefined,
   };
@@ -3807,7 +3781,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3879,7 +3852,6 @@ export const deserializeAws_restJson1ListWebhooksCommand = async (
   }
   const contents: ListWebhooksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWebhooksResult",
     nextToken: undefined,
     webhooks: undefined,
   };
@@ -3963,7 +3935,6 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   }
   const contents: StartDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDeploymentResult",
     jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4051,7 +4022,6 @@ export const deserializeAws_restJson1StartJobCommand = async (
   }
   const contents: StartJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartJobResult",
     jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4139,7 +4109,6 @@ export const deserializeAws_restJson1StopJobCommand = async (
   }
   const contents: StopJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopJobResult",
     jobSummary: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4227,7 +4196,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4295,7 +4263,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4363,7 +4330,6 @@ export const deserializeAws_restJson1UpdateAppCommand = async (
   }
   const contents: UpdateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAppResult",
     app: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4443,7 +4409,6 @@ export const deserializeAws_restJson1UpdateBranchCommand = async (
   }
   const contents: UpdateBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBranchResult",
     branch: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4531,7 +4496,6 @@ export const deserializeAws_restJson1UpdateDomainAssociationCommand = async (
   }
   const contents: UpdateDomainAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainAssociationResult",
     domainAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4619,7 +4583,6 @@ export const deserializeAws_restJson1UpdateWebhookCommand = async (
   }
   const contents: UpdateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateWebhookResult",
     webhook: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4906,7 +4869,6 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App => {
   return {
-    __type: "App",
     appArn: output.appArn !== undefined && output.appArn !== null ? output.appArn : undefined,
     appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
     autoBranchCreationConfig:
@@ -4979,7 +4941,6 @@ const deserializeAws_restJson1Apps = (output: any, context: __SerdeContext): App
 
 const deserializeAws_restJson1Artifact = (output: any, context: __SerdeContext): Artifact => {
   return {
-    __type: "Artifact",
     artifactFileName:
       output.artifactFileName !== undefined && output.artifactFileName !== null ? output.artifactFileName : undefined,
     artifactId: output.artifactId !== undefined && output.artifactId !== null ? output.artifactId : undefined,
@@ -4999,7 +4960,6 @@ const deserializeAws_restJson1AutoBranchCreationConfig = (
   context: __SerdeContext
 ): AutoBranchCreationConfig => {
   return {
-    __type: "AutoBranchCreationConfig",
     basicAuthCredentials:
       output.basicAuthCredentials !== undefined && output.basicAuthCredentials !== null
         ? output.basicAuthCredentials
@@ -5036,7 +4996,6 @@ const deserializeAws_restJson1AutoSubDomainCreationPatterns = (output: any, cont
 
 const deserializeAws_restJson1BackendEnvironment = (output: any, context: __SerdeContext): BackendEnvironment => {
   return {
-    __type: "BackendEnvironment",
     backendEnvironmentArn:
       output.backendEnvironmentArn !== undefined && output.backendEnvironmentArn !== null
         ? output.backendEnvironmentArn
@@ -5065,7 +5024,6 @@ const deserializeAws_restJson1BackendEnvironments = (output: any, context: __Ser
 
 const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): Branch => {
   return {
-    __type: "Branch",
     activeJobId: output.activeJobId !== undefined && output.activeJobId !== null ? output.activeJobId : undefined,
     associatedResources:
       output.associatedResources !== undefined && output.associatedResources !== null
@@ -5146,7 +5104,6 @@ const deserializeAws_restJson1CustomDomains = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CustomRule = (output: any, context: __SerdeContext): CustomRule => {
   return {
-    __type: "CustomRule",
     condition: output.condition !== undefined && output.condition !== null ? output.condition : undefined,
     source: output.source !== undefined && output.source !== null ? output.source : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
@@ -5160,7 +5117,6 @@ const deserializeAws_restJson1CustomRules = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DomainAssociation = (output: any, context: __SerdeContext): DomainAssociation => {
   return {
-    __type: "DomainAssociation",
     autoSubDomainCreationPatterns:
       output.autoSubDomainCreationPatterns !== undefined && output.autoSubDomainCreationPatterns !== null
         ? deserializeAws_restJson1AutoSubDomainCreationPatterns(output.autoSubDomainCreationPatterns, context)
@@ -5220,7 +5176,6 @@ const deserializeAws_restJson1FileUploadUrls = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
-    __type: "Job",
     steps:
       output.steps !== undefined && output.steps !== null
         ? deserializeAws_restJson1Steps(output.steps, context)
@@ -5238,7 +5193,6 @@ const deserializeAws_restJson1JobSummaries = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
-    __type: "JobSummary",
     commitId: output.commitId !== undefined && output.commitId !== null ? output.commitId : undefined,
     commitMessage:
       output.commitMessage !== undefined && output.commitMessage !== null ? output.commitMessage : undefined,
@@ -5261,7 +5215,6 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ProductionBranch = (output: any, context: __SerdeContext): ProductionBranch => {
   return {
-    __type: "ProductionBranch",
     branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
     lastDeployTime:
       output.lastDeployTime !== undefined && output.lastDeployTime !== null
@@ -5284,7 +5237,6 @@ const deserializeAws_restJson1Screenshots = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Step => {
   return {
-    __type: "Step",
     artifactsUrl: output.artifactsUrl !== undefined && output.artifactsUrl !== null ? output.artifactsUrl : undefined,
     context: output.context !== undefined && output.context !== null ? output.context : undefined,
     endTime:
@@ -5314,7 +5266,6 @@ const deserializeAws_restJson1Steps = (output: any, context: __SerdeContext): St
 
 const deserializeAws_restJson1SubDomain = (output: any, context: __SerdeContext): SubDomain => {
   return {
-    __type: "SubDomain",
     dnsRecord: output.dnsRecord !== undefined && output.dnsRecord !== null ? output.dnsRecord : undefined,
     subDomainSetting:
       output.subDomainSetting !== undefined && output.subDomainSetting !== null
@@ -5330,7 +5281,6 @@ const deserializeAws_restJson1SubDomains = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SubDomainSetting = (output: any, context: __SerdeContext): SubDomainSetting => {
   return {
-    __type: "SubDomainSetting",
     branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
     prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
   } as any;
@@ -5348,7 +5298,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1Webhook = (output: any, context: __SerdeContext): Webhook => {
   return {
-    __type: "Webhook",
     branchName: output.branchName !== undefined && output.branchName !== null ? output.branchName : undefined,
     createTime:
       output.createTime !== undefined && output.createTime !== null

@@ -824,7 +824,6 @@ export const deserializeAws_json1_1AssociateIpGroupsCommand = async (
   contents = deserializeAws_json1_1AssociateIpGroupsResult(data, context);
   const response: AssociateIpGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateIpGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -920,7 +919,6 @@ export const deserializeAws_json1_1AuthorizeIpRulesCommand = async (
   contents = deserializeAws_json1_1AuthorizeIpRulesResult(data, context);
   const response: AuthorizeIpRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AuthorizeIpRulesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1008,7 +1006,6 @@ export const deserializeAws_json1_1CopyWorkspaceImageCommand = async (
   contents = deserializeAws_json1_1CopyWorkspaceImageResult(data, context);
   const response: CopyWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyWorkspaceImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1112,7 +1109,6 @@ export const deserializeAws_json1_1CreateIpGroupCommand = async (
   contents = deserializeAws_json1_1CreateIpGroupResult(data, context);
   const response: CreateIpGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIpGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1200,7 +1196,6 @@ export const deserializeAws_json1_1CreateTagsCommand = async (
   contents = deserializeAws_json1_1CreateTagsResult(data, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTagsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1272,7 +1267,6 @@ export const deserializeAws_json1_1CreateWorkspacesCommand = async (
   contents = deserializeAws_json1_1CreateWorkspacesResult(data, context);
   const response: CreateWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1336,7 +1330,6 @@ export const deserializeAws_json1_1DeleteIpGroupCommand = async (
   contents = deserializeAws_json1_1DeleteIpGroupResult(data, context);
   const response: DeleteIpGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteIpGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1416,7 +1409,6 @@ export const deserializeAws_json1_1DeleteTagsCommand = async (
   contents = deserializeAws_json1_1DeleteTagsResult(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTagsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1480,7 +1472,6 @@ export const deserializeAws_json1_1DeleteWorkspaceImageCommand = async (
   contents = deserializeAws_json1_1DeleteWorkspaceImageResult(data, context);
   const response: DeleteWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteWorkspaceImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1552,7 +1543,6 @@ export const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   contents = deserializeAws_json1_1DeregisterWorkspaceDirectoryResult(data, context);
   const response: DeregisterWorkspaceDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterWorkspaceDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1640,7 +1630,6 @@ export const deserializeAws_json1_1DescribeAccountCommand = async (
   contents = deserializeAws_json1_1DescribeAccountResult(data, context);
   const response: DescribeAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1696,7 +1685,6 @@ export const deserializeAws_json1_1DescribeAccountModificationsCommand = async (
   contents = deserializeAws_json1_1DescribeAccountModificationsResult(data, context);
   const response: DescribeAccountModificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountModificationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1752,7 +1740,6 @@ export const deserializeAws_json1_1DescribeClientPropertiesCommand = async (
   contents = deserializeAws_json1_1DescribeClientPropertiesResult(data, context);
   const response: DescribeClientPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClientPropertiesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1824,7 +1811,6 @@ export const deserializeAws_json1_1DescribeIpGroupsCommand = async (
   contents = deserializeAws_json1_1DescribeIpGroupsResult(data, context);
   const response: DescribeIpGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIpGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1888,7 +1874,6 @@ export const deserializeAws_json1_1DescribeTagsCommand = async (
   contents = deserializeAws_json1_1DescribeTagsResult(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1944,7 +1929,6 @@ export const deserializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   contents = deserializeAws_json1_1DescribeWorkspaceBundlesResult(data, context);
   const response: DescribeWorkspaceBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspaceBundlesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2000,7 +1984,6 @@ export const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   contents = deserializeAws_json1_1DescribeWorkspaceDirectoriesResult(data, context);
   const response: DescribeWorkspaceDirectoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspaceDirectoriesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2056,7 +2039,6 @@ export const deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand = as
   contents = deserializeAws_json1_1DescribeWorkspaceImagePermissionsResult(data, context);
   const response: DescribeWorkspaceImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspaceImagePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2128,7 +2110,6 @@ export const deserializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   contents = deserializeAws_json1_1DescribeWorkspaceImagesResult(data, context);
   const response: DescribeWorkspaceImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspaceImagesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2184,7 +2165,6 @@ export const deserializeAws_json1_1DescribeWorkspacesCommand = async (
   contents = deserializeAws_json1_1DescribeWorkspacesResult(data, context);
   const response: DescribeWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2248,7 +2228,6 @@ export const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = a
   contents = deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult(data, context);
   const response: DescribeWorkspacesConnectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspacesConnectionStatusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2304,7 +2283,6 @@ export const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   contents = deserializeAws_json1_1DescribeWorkspaceSnapshotsResult(data, context);
   const response: DescribeWorkspaceSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWorkspaceSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2376,7 +2354,6 @@ export const deserializeAws_json1_1DisassociateIpGroupsCommand = async (
   contents = deserializeAws_json1_1DisassociateIpGroupsResult(data, context);
   const response: DisassociateIpGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateIpGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2456,7 +2433,6 @@ export const deserializeAws_json1_1ImportWorkspaceImageCommand = async (
   contents = deserializeAws_json1_1ImportWorkspaceImageResult(data, context);
   const response: ImportWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportWorkspaceImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2552,7 +2528,6 @@ export const deserializeAws_json1_1ListAvailableManagementCidrRangesCommand = as
   contents = deserializeAws_json1_1ListAvailableManagementCidrRangesResult(data, context);
   const response: ListAvailableManagementCidrRangesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAvailableManagementCidrRangesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2616,7 +2591,6 @@ export const deserializeAws_json1_1MigrateWorkspaceCommand = async (
   contents = deserializeAws_json1_1MigrateWorkspaceResult(data, context);
   const response: MigrateWorkspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MigrateWorkspaceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2712,7 +2686,6 @@ export const deserializeAws_json1_1ModifyAccountCommand = async (
   contents = deserializeAws_json1_1ModifyAccountResult(data, context);
   const response: ModifyAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyAccountResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2800,7 +2773,6 @@ export const deserializeAws_json1_1ModifyClientPropertiesCommand = async (
   contents = deserializeAws_json1_1ModifyClientPropertiesResult(data, context);
   const response: ModifyClientPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClientPropertiesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2872,7 +2844,6 @@ export const deserializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   contents = deserializeAws_json1_1ModifySelfservicePermissionsResult(data, context);
   const response: ModifySelfservicePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifySelfservicePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2944,7 +2915,6 @@ export const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = asyn
   contents = deserializeAws_json1_1ModifyWorkspaceAccessPropertiesResult(data, context);
   const response: ModifyWorkspaceAccessPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyWorkspaceAccessPropertiesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3008,7 +2978,6 @@ export const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = as
   contents = deserializeAws_json1_1ModifyWorkspaceCreationPropertiesResult(data, context);
   const response: ModifyWorkspaceCreationPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyWorkspaceCreationPropertiesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3080,7 +3049,6 @@ export const deserializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   contents = deserializeAws_json1_1ModifyWorkspacePropertiesResult(data, context);
   const response: ModifyWorkspacePropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyWorkspacePropertiesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3184,7 +3152,6 @@ export const deserializeAws_json1_1ModifyWorkspaceStateCommand = async (
   contents = deserializeAws_json1_1ModifyWorkspaceStateResult(data, context);
   const response: ModifyWorkspaceStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyWorkspaceStateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3256,7 +3223,6 @@ export const deserializeAws_json1_1RebootWorkspacesCommand = async (
   contents = deserializeAws_json1_1RebootWorkspacesResult(data, context);
   const response: RebootWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3304,7 +3270,6 @@ export const deserializeAws_json1_1RebuildWorkspacesCommand = async (
   contents = deserializeAws_json1_1RebuildWorkspacesResult(data, context);
   const response: RebuildWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebuildWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3352,7 +3317,6 @@ export const deserializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   contents = deserializeAws_json1_1RegisterWorkspaceDirectoryResult(data, context);
   const response: RegisterWorkspaceDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterWorkspaceDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3464,7 +3428,6 @@ export const deserializeAws_json1_1RestoreWorkspaceCommand = async (
   contents = deserializeAws_json1_1RestoreWorkspaceResult(data, context);
   const response: RestoreWorkspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreWorkspaceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3536,7 +3499,6 @@ export const deserializeAws_json1_1RevokeIpRulesCommand = async (
   contents = deserializeAws_json1_1RevokeIpRulesResult(data, context);
   const response: RevokeIpRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeIpRulesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3616,7 +3578,6 @@ export const deserializeAws_json1_1StartWorkspacesCommand = async (
   contents = deserializeAws_json1_1StartWorkspacesResult(data, context);
   const response: StartWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3664,7 +3625,6 @@ export const deserializeAws_json1_1StopWorkspacesCommand = async (
   contents = deserializeAws_json1_1StopWorkspacesResult(data, context);
   const response: StopWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3712,7 +3672,6 @@ export const deserializeAws_json1_1TerminateWorkspacesCommand = async (
   contents = deserializeAws_json1_1TerminateWorkspacesResult(data, context);
   const response: TerminateWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateWorkspacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3760,7 +3719,6 @@ export const deserializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   contents = deserializeAws_json1_1UpdateRulesOfIpGroupResult(data, context);
   const response: UpdateRulesOfIpGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRulesOfIpGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3848,7 +3806,6 @@ export const deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand = async
   contents = deserializeAws_json1_1UpdateWorkspaceImagePermissionResult(data, context);
   const response: UpdateWorkspaceImagePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateWorkspaceImagePermissionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4761,14 +4718,12 @@ const serializeAws_json1_1WorkspaceRequestList = (input: WorkspaceRequest[], con
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AccountModification = (output: any, context: __SerdeContext): AccountModification => {
   return {
-    __type: "AccountModification",
     DedicatedTenancyManagementCidrRange:
       output.DedicatedTenancyManagementCidrRange !== undefined && output.DedicatedTenancyManagementCidrRange !== null
         ? output.DedicatedTenancyManagementCidrRange
@@ -4798,15 +4753,11 @@ const deserializeAws_json1_1AssociateIpGroupsResult = (
   output: any,
   context: __SerdeContext
 ): AssociateIpGroupsResult => {
-  return {
-    __type: "AssociateIpGroupsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AuthorizeIpRulesResult = (output: any, context: __SerdeContext): AuthorizeIpRulesResult => {
-  return {
-    __type: "AuthorizeIpRulesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext): WorkspaceBundle[] => {
@@ -4815,7 +4766,6 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeContext): ClientProperties => {
   return {
-    __type: "ClientProperties",
     ReconnectEnabled:
       output.ReconnectEnabled !== undefined && output.ReconnectEnabled !== null ? output.ReconnectEnabled : undefined,
   } as any;
@@ -4827,7 +4777,6 @@ const deserializeAws_json1_1ClientPropertiesList = (output: any, context: __Serd
 
 const deserializeAws_json1_1ClientPropertiesResult = (output: any, context: __SerdeContext): ClientPropertiesResult => {
   return {
-    __type: "ClientPropertiesResult",
     ClientProperties:
       output.ClientProperties !== undefined && output.ClientProperties !== null
         ? deserializeAws_json1_1ClientProperties(output.ClientProperties, context)
@@ -4838,7 +4787,6 @@ const deserializeAws_json1_1ClientPropertiesResult = (output: any, context: __Se
 
 const deserializeAws_json1_1ComputeType = (output: any, context: __SerdeContext): ComputeType => {
   return {
-    __type: "ComputeType",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -4848,27 +4796,22 @@ const deserializeAws_json1_1CopyWorkspaceImageResult = (
   context: __SerdeContext
 ): CopyWorkspaceImageResult => {
   return {
-    __type: "CopyWorkspaceImageResult",
     ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateIpGroupResult = (output: any, context: __SerdeContext): CreateIpGroupResult => {
   return {
-    __type: "CreateIpGroupResult",
     GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateTagsResult = (output: any, context: __SerdeContext): CreateTagsResult => {
-  return {
-    __type: "CreateTagsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateWorkspacesResult = (output: any, context: __SerdeContext): CreateWorkspacesResult => {
   return {
-    __type: "CreateWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
         ? deserializeAws_json1_1FailedCreateWorkspaceRequests(output.FailedRequests, context)
@@ -4889,7 +4832,6 @@ const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
   context: __SerdeContext
 ): DefaultWorkspaceCreationProperties => {
   return {
-    __type: "DefaultWorkspaceCreationProperties",
     CustomSecurityGroupId:
       output.CustomSecurityGroupId !== undefined && output.CustomSecurityGroupId !== null
         ? output.CustomSecurityGroupId
@@ -4913,33 +4855,25 @@ const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
 };
 
 const deserializeAws_json1_1DeleteIpGroupResult = (output: any, context: __SerdeContext): DeleteIpGroupResult => {
-  return {
-    __type: "DeleteIpGroupResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteTagsResult = (output: any, context: __SerdeContext): DeleteTagsResult => {
-  return {
-    __type: "DeleteTagsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteWorkspaceImageResult = (
   output: any,
   context: __SerdeContext
 ): DeleteWorkspaceImageResult => {
-  return {
-    __type: "DeleteWorkspaceImageResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeregisterWorkspaceDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterWorkspaceDirectoryResult => {
-  return {
-    __type: "DeregisterWorkspaceDirectoryResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeAccountModificationsResult = (
@@ -4947,7 +4881,6 @@ const deserializeAws_json1_1DescribeAccountModificationsResult = (
   context: __SerdeContext
 ): DescribeAccountModificationsResult => {
   return {
-    __type: "DescribeAccountModificationsResult",
     AccountModifications:
       output.AccountModifications !== undefined && output.AccountModifications !== null
         ? deserializeAws_json1_1AccountModificationList(output.AccountModifications, context)
@@ -4958,7 +4891,6 @@ const deserializeAws_json1_1DescribeAccountModificationsResult = (
 
 const deserializeAws_json1_1DescribeAccountResult = (output: any, context: __SerdeContext): DescribeAccountResult => {
   return {
-    __type: "DescribeAccountResult",
     DedicatedTenancyManagementCidrRange:
       output.DedicatedTenancyManagementCidrRange !== undefined && output.DedicatedTenancyManagementCidrRange !== null
         ? output.DedicatedTenancyManagementCidrRange
@@ -4975,7 +4907,6 @@ const deserializeAws_json1_1DescribeClientPropertiesResult = (
   context: __SerdeContext
 ): DescribeClientPropertiesResult => {
   return {
-    __type: "DescribeClientPropertiesResult",
     ClientPropertiesList:
       output.ClientPropertiesList !== undefined && output.ClientPropertiesList !== null
         ? deserializeAws_json1_1ClientPropertiesList(output.ClientPropertiesList, context)
@@ -4985,7 +4916,6 @@ const deserializeAws_json1_1DescribeClientPropertiesResult = (
 
 const deserializeAws_json1_1DescribeIpGroupsResult = (output: any, context: __SerdeContext): DescribeIpGroupsResult => {
   return {
-    __type: "DescribeIpGroupsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Result:
       output.Result !== undefined && output.Result !== null
@@ -4996,7 +4926,6 @@ const deserializeAws_json1_1DescribeIpGroupsResult = (output: any, context: __Se
 
 const deserializeAws_json1_1DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTagsResult => {
   return {
-    __type: "DescribeTagsResult",
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -5009,7 +4938,6 @@ const deserializeAws_json1_1DescribeWorkspaceBundlesResult = (
   context: __SerdeContext
 ): DescribeWorkspaceBundlesResult => {
   return {
-    __type: "DescribeWorkspaceBundlesResult",
     Bundles:
       output.Bundles !== undefined && output.Bundles !== null
         ? deserializeAws_json1_1BundleList(output.Bundles, context)
@@ -5023,7 +4951,6 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesResult = (
   context: __SerdeContext
 ): DescribeWorkspaceDirectoriesResult => {
   return {
-    __type: "DescribeWorkspaceDirectoriesResult",
     Directories:
       output.Directories !== undefined && output.Directories !== null
         ? deserializeAws_json1_1DirectoryList(output.Directories, context)
@@ -5037,7 +4964,6 @@ const deserializeAws_json1_1DescribeWorkspaceImagePermissionsResult = (
   context: __SerdeContext
 ): DescribeWorkspaceImagePermissionsResult => {
   return {
-    __type: "DescribeWorkspaceImagePermissionsResult",
     ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
     ImagePermissions:
       output.ImagePermissions !== undefined && output.ImagePermissions !== null
@@ -5052,7 +4978,6 @@ const deserializeAws_json1_1DescribeWorkspaceImagesResult = (
   context: __SerdeContext
 ): DescribeWorkspaceImagesResult => {
   return {
-    __type: "DescribeWorkspaceImagesResult",
     Images:
       output.Images !== undefined && output.Images !== null
         ? deserializeAws_json1_1WorkspaceImageList(output.Images, context)
@@ -5066,7 +4991,6 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult = (
   context: __SerdeContext
 ): DescribeWorkspacesConnectionStatusResult => {
   return {
-    __type: "DescribeWorkspacesConnectionStatusResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     WorkspacesConnectionStatus:
       output.WorkspacesConnectionStatus !== undefined && output.WorkspacesConnectionStatus !== null
@@ -5080,7 +5004,6 @@ const deserializeAws_json1_1DescribeWorkspaceSnapshotsResult = (
   context: __SerdeContext
 ): DescribeWorkspaceSnapshotsResult => {
   return {
-    __type: "DescribeWorkspaceSnapshotsResult",
     RebuildSnapshots:
       output.RebuildSnapshots !== undefined && output.RebuildSnapshots !== null
         ? deserializeAws_json1_1SnapshotList(output.RebuildSnapshots, context)
@@ -5097,7 +5020,6 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
   context: __SerdeContext
 ): DescribeWorkspacesResult => {
   return {
-    __type: "DescribeWorkspacesResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Workspaces:
       output.Workspaces !== undefined && output.Workspaces !== null
@@ -5114,9 +5036,7 @@ const deserializeAws_json1_1DisassociateIpGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateIpGroupsResult => {
-  return {
-    __type: "DisassociateIpGroupsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DnsIpAddresses = (output: any, context: __SerdeContext): string[] => {
@@ -5128,7 +5048,6 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
   context: __SerdeContext
 ): FailedCreateWorkspaceRequest => {
   return {
-    __type: "FailedCreateWorkspaceRequest",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     WorkspaceRequest:
@@ -5185,7 +5104,6 @@ const deserializeAws_json1_1FailedWorkspaceChangeRequest = (
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest => {
   return {
-    __type: "FailedWorkspaceChangeRequest",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     WorkspaceId: output.WorkspaceId !== undefined && output.WorkspaceId !== null ? output.WorkspaceId : undefined,
@@ -5194,7 +5112,6 @@ const deserializeAws_json1_1FailedWorkspaceChangeRequest = (
 
 const deserializeAws_json1_1ImagePermission = (output: any, context: __SerdeContext): ImagePermission => {
   return {
-    __type: "ImagePermission",
     SharedAccountId:
       output.SharedAccountId !== undefined && output.SharedAccountId !== null ? output.SharedAccountId : undefined,
   } as any;
@@ -5209,7 +5126,6 @@ const deserializeAws_json1_1ImportWorkspaceImageResult = (
   context: __SerdeContext
 ): ImportWorkspaceImageResult => {
   return {
-    __type: "ImportWorkspaceImageResult",
     ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
   } as any;
 };
@@ -5219,7 +5135,6 @@ const deserializeAws_json1_1InvalidParameterValuesException = (
   context: __SerdeContext
 ): InvalidParameterValuesException => {
   return {
-    __type: "InvalidParameterValuesException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5229,7 +5144,6 @@ const deserializeAws_json1_1InvalidResourceStateException = (
   context: __SerdeContext
 ): InvalidResourceStateException => {
   return {
-    __type: "InvalidResourceStateException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5240,7 +5154,6 @@ const deserializeAws_json1_1IpGroupIdList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1IpRuleItem = (output: any, context: __SerdeContext): IpRuleItem => {
   return {
-    __type: "IpRuleItem",
     ipRule: output.ipRule !== undefined && output.ipRule !== null ? output.ipRule : undefined,
     ruleDesc: output.ruleDesc !== undefined && output.ruleDesc !== null ? output.ruleDesc : undefined,
   } as any;
@@ -5255,7 +5168,6 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
   context: __SerdeContext
 ): ListAvailableManagementCidrRangesResult => {
   return {
-    __type: "ListAvailableManagementCidrRangesResult",
     ManagementCidrRanges:
       output.ManagementCidrRanges !== undefined && output.ManagementCidrRanges !== null
         ? deserializeAws_json1_1DedicatedTenancyCidrRangeList(output.ManagementCidrRanges, context)
@@ -5266,7 +5178,6 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
 
 const deserializeAws_json1_1MigrateWorkspaceResult = (output: any, context: __SerdeContext): MigrateWorkspaceResult => {
   return {
-    __type: "MigrateWorkspaceResult",
     SourceWorkspaceId:
       output.SourceWorkspaceId !== undefined && output.SourceWorkspaceId !== null
         ? output.SourceWorkspaceId
@@ -5280,7 +5191,6 @@ const deserializeAws_json1_1MigrateWorkspaceResult = (output: any, context: __Se
 
 const deserializeAws_json1_1ModificationState = (output: any, context: __SerdeContext): ModificationState => {
   return {
-    __type: "ModificationState",
     Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
   } as any;
@@ -5291,68 +5201,53 @@ const deserializeAws_json1_1ModificationStateList = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ModifyAccountResult = (output: any, context: __SerdeContext): ModifyAccountResult => {
-  return {
-    __type: "ModifyAccountResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ModifyClientPropertiesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyClientPropertiesResult => {
-  return {
-    __type: "ModifyClientPropertiesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ModifySelfservicePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifySelfservicePermissionsResult => {
-  return {
-    __type: "ModifySelfservicePermissionsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyWorkspaceAccessPropertiesResult => {
-  return {
-    __type: "ModifyWorkspaceAccessPropertiesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyWorkspaceCreationPropertiesResult => {
-  return {
-    __type: "ModifyWorkspaceCreationPropertiesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ModifyWorkspacePropertiesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyWorkspacePropertiesResult => {
-  return {
-    __type: "ModifyWorkspacePropertiesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ModifyWorkspaceStateResult = (
   output: any,
   context: __SerdeContext
 ): ModifyWorkspaceStateResult => {
-  return {
-    __type: "ModifyWorkspaceStateResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1OperatingSystem = (output: any, context: __SerdeContext): OperatingSystem => {
   return {
-    __type: "OperatingSystem",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
@@ -5362,7 +5257,6 @@ const deserializeAws_json1_1OperationInProgressException = (
   context: __SerdeContext
 ): OperationInProgressException => {
   return {
-    __type: "OperationInProgressException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5372,14 +5266,12 @@ const deserializeAws_json1_1OperationNotSupportedException = (
   context: __SerdeContext
 ): OperationNotSupportedException => {
   return {
-    __type: "OperationNotSupportedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RebootWorkspacesResult = (output: any, context: __SerdeContext): RebootWorkspacesResult => {
   return {
-    __type: "RebootWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
         ? deserializeAws_json1_1FailedRebootWorkspaceRequests(output.FailedRequests, context)
@@ -5392,7 +5284,6 @@ const deserializeAws_json1_1RebuildWorkspacesResult = (
   context: __SerdeContext
 ): RebuildWorkspacesResult => {
   return {
-    __type: "RebuildWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
         ? deserializeAws_json1_1FailedRebuildWorkspaceRequests(output.FailedRequests, context)
@@ -5404,9 +5295,7 @@ const deserializeAws_json1_1RegisterWorkspaceDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): RegisterWorkspaceDirectoryResult => {
-  return {
-    __type: "RegisterWorkspaceDirectoryResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
@@ -5414,7 +5303,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5424,7 +5312,6 @@ const deserializeAws_json1_1ResourceAssociatedException = (
   context: __SerdeContext
 ): ResourceAssociatedException => {
   return {
-    __type: "ResourceAssociatedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5434,7 +5321,6 @@ const deserializeAws_json1_1ResourceCreationFailedException = (
   context: __SerdeContext
 ): ResourceCreationFailedException => {
   return {
-    __type: "ResourceCreationFailedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5444,7 +5330,6 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
   context: __SerdeContext
 ): ResourceLimitExceededException => {
   return {
-    __type: "ResourceLimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5454,7 +5339,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -5465,34 +5349,27 @@ const deserializeAws_json1_1ResourceUnavailableException = (
   context: __SerdeContext
 ): ResourceUnavailableException => {
   return {
-    __type: "ResourceUnavailableException",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RestoreWorkspaceResult = (output: any, context: __SerdeContext): RestoreWorkspaceResult => {
-  return {
-    __type: "RestoreWorkspaceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RevokeIpRulesResult = (output: any, context: __SerdeContext): RevokeIpRulesResult => {
-  return {
-    __type: "RevokeIpRulesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RootStorage = (output: any, context: __SerdeContext): RootStorage => {
   return {
-    __type: "RootStorage",
     Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SelfservicePermissions = (output: any, context: __SerdeContext): SelfservicePermissions => {
   return {
-    __type: "SelfservicePermissions",
     ChangeComputeType:
       output.ChangeComputeType !== undefined && output.ChangeComputeType !== null
         ? output.ChangeComputeType
@@ -5514,7 +5391,6 @@ const deserializeAws_json1_1SelfservicePermissions = (output: any, context: __Se
 
 const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   return {
-    __type: "Snapshot",
     SnapshotTime:
       output.SnapshotTime !== undefined && output.SnapshotTime !== null
         ? new Date(Math.round(output.SnapshotTime * 1000))
@@ -5528,7 +5404,6 @@ const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1StartWorkspacesResult = (output: any, context: __SerdeContext): StartWorkspacesResult => {
   return {
-    __type: "StartWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
         ? deserializeAws_json1_1FailedStartWorkspaceRequests(output.FailedRequests, context)
@@ -5538,7 +5413,6 @@ const deserializeAws_json1_1StartWorkspacesResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1StopWorkspacesResult = (output: any, context: __SerdeContext): StopWorkspacesResult => {
   return {
-    __type: "StopWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
         ? deserializeAws_json1_1FailedStopWorkspaceRequests(output.FailedRequests, context)
@@ -5552,7 +5426,6 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -5567,7 +5440,6 @@ const deserializeAws_json1_1TerminateWorkspacesResult = (
   context: __SerdeContext
 ): TerminateWorkspacesResult => {
   return {
-    __type: "TerminateWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
         ? deserializeAws_json1_1FailedTerminateWorkspaceRequests(output.FailedRequests, context)
@@ -5580,7 +5452,6 @@ const deserializeAws_json1_1UnsupportedNetworkConfigurationException = (
   context: __SerdeContext
 ): UnsupportedNetworkConfigurationException => {
   return {
-    __type: "UnsupportedNetworkConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5590,7 +5461,6 @@ const deserializeAws_json1_1UnsupportedWorkspaceConfigurationException = (
   context: __SerdeContext
 ): UnsupportedWorkspaceConfigurationException => {
   return {
-    __type: "UnsupportedWorkspaceConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5599,30 +5469,24 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupResult = (
   output: any,
   context: __SerdeContext
 ): UpdateRulesOfIpGroupResult => {
-  return {
-    __type: "UpdateRulesOfIpGroupResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateWorkspaceImagePermissionResult = (
   output: any,
   context: __SerdeContext
 ): UpdateWorkspaceImagePermissionResult => {
-  return {
-    __type: "UpdateWorkspaceImagePermissionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UserStorage = (output: any, context: __SerdeContext): UserStorage => {
   return {
-    __type: "UserStorage",
     Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Workspace = (output: any, context: __SerdeContext): Workspace => {
   return {
-    __type: "Workspace",
     BundleId: output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
     ComputerName: output.ComputerName !== undefined && output.ComputerName !== null ? output.ComputerName : undefined,
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
@@ -5661,7 +5525,6 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
   context: __SerdeContext
 ): WorkspaceAccessProperties => {
   return {
-    __type: "WorkspaceAccessProperties",
     DeviceTypeAndroid:
       output.DeviceTypeAndroid !== undefined && output.DeviceTypeAndroid !== null
         ? output.DeviceTypeAndroid
@@ -5689,7 +5552,6 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
 
 const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeContext): WorkspaceBundle => {
   return {
-    __type: "WorkspaceBundle",
     BundleId: output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
     ComputeType:
       output.ComputeType !== undefined && output.ComputeType !== null
@@ -5719,7 +5581,6 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
   context: __SerdeContext
 ): WorkspaceConnectionStatus => {
   return {
-    __type: "WorkspaceConnectionStatus",
     ConnectionState:
       output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
     ConnectionStateCheckTimestamp:
@@ -5743,7 +5604,6 @@ const deserializeAws_json1_1WorkspaceConnectionStatusList = (
 
 const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeContext): WorkspaceDirectory => {
   return {
-    __type: "WorkspaceDirectory",
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     CustomerUserName:
       output.CustomerUserName !== undefined && output.CustomerUserName !== null ? output.CustomerUserName : undefined,
@@ -5790,7 +5650,6 @@ const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeContext): WorkspaceImage => {
   return {
-    __type: "WorkspaceImage",
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -5820,7 +5679,6 @@ const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __SerdeContext): WorkspaceProperties => {
   return {
-    __type: "WorkspaceProperties",
     ComputeTypeName:
       output.ComputeTypeName !== undefined && output.ComputeTypeName !== null ? output.ComputeTypeName : undefined,
     RootVolumeSizeGib:
@@ -5841,7 +5699,6 @@ const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __Serde
 
 const deserializeAws_json1_1WorkspaceRequest = (output: any, context: __SerdeContext): WorkspaceRequest => {
   return {
-    __type: "WorkspaceRequest",
     BundleId: output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
     RootVolumeEncryptionEnabled:
@@ -5873,14 +5730,12 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundException = (
   context: __SerdeContext
 ): WorkspacesDefaultRoleNotFoundException => {
   return {
-    __type: "WorkspacesDefaultRoleNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1WorkspacesIpGroup = (output: any, context: __SerdeContext): WorkspacesIpGroup => {
   return {
-    __type: "WorkspacesIpGroup",
     groupDesc: output.groupDesc !== undefined && output.groupDesc !== null ? output.groupDesc : undefined,
     groupId: output.groupId !== undefined && output.groupId !== null ? output.groupId : undefined,
     groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,

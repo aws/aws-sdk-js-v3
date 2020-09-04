@@ -2244,7 +2244,6 @@ export const deserializeAws_restXmlCreateCachePolicyCommand = async (
   }
   const contents: CreateCachePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCachePolicyResult",
     CachePolicy: undefined,
     ETag: undefined,
     Location: undefined,
@@ -2362,7 +2361,6 @@ export const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand =
   }
   const contents: CreateCloudFrontOriginAccessIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCloudFrontOriginAccessIdentityResult",
     CloudFrontOriginAccessIdentity: undefined,
     ETag: undefined,
     Location: undefined,
@@ -2456,7 +2454,6 @@ export const deserializeAws_restXmlCreateDistributionCommand = async (
   }
   const contents: CreateDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDistributionResult",
     Distribution: undefined,
     ETag: undefined,
     Location: undefined,
@@ -2911,7 +2908,6 @@ export const deserializeAws_restXmlCreateDistributionWithTagsCommand = async (
   }
   const contents: CreateDistributionWithTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDistributionWithTagsResult",
     Distribution: undefined,
     ETag: undefined,
     Location: undefined,
@@ -3374,7 +3370,6 @@ export const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = asy
   }
   const contents: CreateFieldLevelEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFieldLevelEncryptionConfigResult",
     ETag: undefined,
     FieldLevelEncryption: undefined,
     Location: undefined,
@@ -3492,7 +3487,6 @@ export const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = as
   }
   const contents: CreateFieldLevelEncryptionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFieldLevelEncryptionProfileResult",
     ETag: undefined,
     FieldLevelEncryptionProfile: undefined,
     Location: undefined,
@@ -3610,7 +3604,6 @@ export const deserializeAws_restXmlCreateInvalidationCommand = async (
   }
   const contents: CreateInvalidationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInvalidationResult",
     Invalidation: undefined,
     Location: undefined,
   };
@@ -3716,7 +3709,6 @@ export const deserializeAws_restXmlCreateOriginRequestPolicyCommand = async (
   }
   const contents: CreateOriginRequestPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOriginRequestPolicyResult",
     ETag: undefined,
     Location: undefined,
     OriginRequestPolicy: undefined,
@@ -3834,7 +3826,6 @@ export const deserializeAws_restXmlCreatePublicKeyCommand = async (
   }
   const contents: CreatePublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePublicKeyResult",
     ETag: undefined,
     Location: undefined,
     PublicKey: undefined,
@@ -3912,7 +3903,6 @@ export const deserializeAws_restXmlCreateStreamingDistributionCommand = async (
   }
   const contents: CreateStreamingDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamingDistributionResult",
     ETag: undefined,
     Location: undefined,
     StreamingDistribution: undefined,
@@ -4062,7 +4052,6 @@ export const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand = 
   }
   const contents: CreateStreamingDistributionWithTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamingDistributionWithTagsResult",
     ETag: undefined,
     Location: undefined,
     StreamingDistribution: undefined,
@@ -4900,7 +4889,6 @@ export const deserializeAws_restXmlGetCachePolicyCommand = async (
   }
   const contents: GetCachePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCachePolicyResult",
     CachePolicy: undefined,
     ETag: undefined,
   };
@@ -4966,7 +4954,6 @@ export const deserializeAws_restXmlGetCachePolicyConfigCommand = async (
   }
   const contents: GetCachePolicyConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCachePolicyConfigResult",
     CachePolicyConfig: undefined,
     ETag: undefined,
   };
@@ -5032,7 +5019,6 @@ export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = as
   }
   const contents: GetCloudFrontOriginAccessIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCloudFrontOriginAccessIdentityResult",
     CloudFrontOriginAccessIdentity: undefined,
     ETag: undefined,
   };
@@ -5098,7 +5084,6 @@ export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComman
   }
   const contents: GetCloudFrontOriginAccessIdentityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCloudFrontOriginAccessIdentityConfigResult",
     CloudFrontOriginAccessIdentityConfig: undefined,
     ETag: undefined,
   };
@@ -5167,7 +5152,6 @@ export const deserializeAws_restXmlGetDistributionCommand = async (
   }
   const contents: GetDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionResult",
     Distribution: undefined,
     ETag: undefined,
   };
@@ -5233,7 +5217,6 @@ export const deserializeAws_restXmlGetDistributionConfigCommand = async (
   }
   const contents: GetDistributionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionConfigResult",
     DistributionConfig: undefined,
     ETag: undefined,
   };
@@ -5299,7 +5282,6 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   }
   const contents: GetFieldLevelEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFieldLevelEncryptionResult",
     ETag: undefined,
     FieldLevelEncryption: undefined,
   };
@@ -5365,7 +5347,6 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async 
   }
   const contents: GetFieldLevelEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFieldLevelEncryptionConfigResult",
     ETag: undefined,
     FieldLevelEncryptionConfig: undefined,
   };
@@ -5431,7 +5412,6 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async
   }
   const contents: GetFieldLevelEncryptionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFieldLevelEncryptionProfileResult",
     ETag: undefined,
     FieldLevelEncryptionProfile: undefined,
   };
@@ -5497,7 +5477,6 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand =
   }
   const contents: GetFieldLevelEncryptionProfileConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFieldLevelEncryptionProfileConfigResult",
     ETag: undefined,
     FieldLevelEncryptionProfileConfig: undefined,
   };
@@ -5563,7 +5542,6 @@ export const deserializeAws_restXmlGetInvalidationCommand = async (
   }
   const contents: GetInvalidationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInvalidationResult",
     Invalidation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5633,7 +5611,6 @@ export const deserializeAws_restXmlGetOriginRequestPolicyCommand = async (
   }
   const contents: GetOriginRequestPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOriginRequestPolicyResult",
     ETag: undefined,
     OriginRequestPolicy: undefined,
   };
@@ -5699,7 +5676,6 @@ export const deserializeAws_restXmlGetOriginRequestPolicyConfigCommand = async (
   }
   const contents: GetOriginRequestPolicyConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOriginRequestPolicyConfigResult",
     ETag: undefined,
     OriginRequestPolicyConfig: undefined,
   };
@@ -5765,7 +5741,6 @@ export const deserializeAws_restXmlGetPublicKeyCommand = async (
   }
   const contents: GetPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPublicKeyResult",
     ETag: undefined,
     PublicKey: undefined,
   };
@@ -5831,7 +5806,6 @@ export const deserializeAws_restXmlGetPublicKeyConfigCommand = async (
   }
   const contents: GetPublicKeyConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPublicKeyConfigResult",
     ETag: undefined,
     PublicKeyConfig: undefined,
   };
@@ -5897,7 +5871,6 @@ export const deserializeAws_restXmlGetStreamingDistributionCommand = async (
   }
   const contents: GetStreamingDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStreamingDistributionResult",
     ETag: undefined,
     StreamingDistribution: undefined,
   };
@@ -5963,7 +5936,6 @@ export const deserializeAws_restXmlGetStreamingDistributionConfigCommand = async
   }
   const contents: GetStreamingDistributionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStreamingDistributionConfigResult",
     ETag: undefined,
     StreamingDistributionConfig: undefined,
   };
@@ -6029,7 +6001,6 @@ export const deserializeAws_restXmlListCachePoliciesCommand = async (
   }
   const contents: ListCachePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCachePoliciesResult",
     CachePolicyList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6099,7 +6070,6 @@ export const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand =
   }
   const contents: ListCloudFrontOriginAccessIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCloudFrontOriginAccessIdentitiesResult",
     CloudFrontOriginAccessIdentityList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6153,7 +6123,6 @@ export const deserializeAws_restXmlListDistributionsCommand = async (
   }
   const contents: ListDistributionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDistributionsResult",
     DistributionList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6207,7 +6176,6 @@ export const deserializeAws_restXmlListDistributionsByCachePolicyIdCommand = asy
   }
   const contents: ListDistributionsByCachePolicyIdCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDistributionsByCachePolicyIdResult",
     DistributionIdList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6277,7 +6245,6 @@ export const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdComma
   }
   const contents: ListDistributionsByOriginRequestPolicyIdCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDistributionsByOriginRequestPolicyIdResult",
     DistributionIdList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6347,7 +6314,6 @@ export const deserializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   }
   const contents: ListDistributionsByWebACLIdCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDistributionsByWebACLIdResult",
     DistributionList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6409,7 +6375,6 @@ export const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand = asyn
   }
   const contents: ListFieldLevelEncryptionConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFieldLevelEncryptionConfigsResult",
     FieldLevelEncryptionList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6463,7 +6428,6 @@ export const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand = asy
   }
   const contents: ListFieldLevelEncryptionProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFieldLevelEncryptionProfilesResult",
     FieldLevelEncryptionProfileList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6517,7 +6481,6 @@ export const deserializeAws_restXmlListInvalidationsCommand = async (
   }
   const contents: ListInvalidationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInvalidationsResult",
     InvalidationList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6587,7 +6550,6 @@ export const deserializeAws_restXmlListOriginRequestPoliciesCommand = async (
   }
   const contents: ListOriginRequestPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOriginRequestPoliciesResult",
     OriginRequestPolicyList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6657,7 +6619,6 @@ export const deserializeAws_restXmlListPublicKeysCommand = async (
   }
   const contents: ListPublicKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPublicKeysResult",
     PublicKeyList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6711,7 +6672,6 @@ export const deserializeAws_restXmlListStreamingDistributionsCommand = async (
   }
   const contents: ListStreamingDistributionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamingDistributionsResult",
     StreamingDistributionList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6765,7 +6725,6 @@ export const deserializeAws_restXmlListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResult",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6993,7 +6952,6 @@ export const deserializeAws_restXmlUpdateCachePolicyCommand = async (
   }
   const contents: UpdateCachePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCachePolicyResult",
     CachePolicy: undefined,
     ETag: undefined,
   };
@@ -7131,7 +7089,6 @@ export const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand =
   }
   const contents: UpdateCloudFrontOriginAccessIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCloudFrontOriginAccessIdentityResult",
     CloudFrontOriginAccessIdentity: undefined,
     ETag: undefined,
   };
@@ -7245,7 +7202,6 @@ export const deserializeAws_restXmlUpdateDistributionCommand = async (
   }
   const contents: UpdateDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDistributionResult",
     Distribution: undefined,
     ETag: undefined,
   };
@@ -7696,7 +7652,6 @@ export const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = asy
   }
   const contents: UpdateFieldLevelEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFieldLevelEncryptionConfigResult",
     ETag: undefined,
     FieldLevelEncryption: undefined,
   };
@@ -7834,7 +7789,6 @@ export const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = as
   }
   const contents: UpdateFieldLevelEncryptionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFieldLevelEncryptionProfileResult",
     ETag: undefined,
     FieldLevelEncryptionProfile: undefined,
   };
@@ -7980,7 +7934,6 @@ export const deserializeAws_restXmlUpdateOriginRequestPolicyCommand = async (
   }
   const contents: UpdateOriginRequestPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateOriginRequestPolicyResult",
     ETag: undefined,
     OriginRequestPolicy: undefined,
   };
@@ -8118,7 +8071,6 @@ export const deserializeAws_restXmlUpdatePublicKeyCommand = async (
   }
   const contents: UpdatePublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePublicKeyResult",
     ETag: undefined,
     PublicKey: undefined,
   };
@@ -8224,7 +8176,6 @@ export const deserializeAws_restXmlUpdateStreamingDistributionCommand = async (
   }
   const contents: UpdateStreamingDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStreamingDistributionResult",
     ETag: undefined,
     StreamingDistribution: undefined,
   };
@@ -11703,7 +11654,6 @@ const serializeAws_restXmlViewerCertificate = (input: ViewerCertificate, context
 
 const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTrustedSigners => {
   let contents: any = {
-    __type: "ActiveTrustedSigners",
     Enabled: undefined,
     Items: undefined,
     Quantity: undefined,
@@ -11725,7 +11675,6 @@ const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __Serd
 
 const deserializeAws_restXmlAliases = (output: any, context: __SerdeContext): Aliases => {
   let contents: any = {
-    __type: "Aliases",
     Quantity: undefined,
     Items: undefined,
   };
@@ -11743,7 +11692,6 @@ const deserializeAws_restXmlAliases = (output: any, context: __SerdeContext): Al
 
 const deserializeAws_restXmlAliasICPRecordal = (output: any, context: __SerdeContext): AliasICPRecordal => {
   let contents: any = {
-    __type: "AliasICPRecordal",
     ICPRecordalStatus: undefined,
     CNAME: undefined,
   };
@@ -11766,7 +11714,6 @@ const deserializeAws_restXmlAliasList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeContext): AllowedMethods => {
   let contents: any = {
-    __type: "AllowedMethods",
     Quantity: undefined,
     CachedMethods: undefined,
     Items: undefined,
@@ -11792,7 +11739,6 @@ const deserializeAws_restXmlAwsAccountNumberList = (output: any, context: __Serd
 
 const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
   let contents: any = {
-    __type: "CacheBehavior",
     DefaultTTL: undefined,
     OriginRequestPolicyId: undefined,
     ForwardedValues: undefined,
@@ -11866,7 +11812,6 @@ const deserializeAws_restXmlCacheBehaviorList = (output: any, context: __SerdeCo
 
 const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors => {
   let contents: any = {
-    __type: "CacheBehaviors",
     Items: undefined,
     Quantity: undefined,
   };
@@ -11887,7 +11832,6 @@ const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlCachedMethods = (output: any, context: __SerdeContext): CachedMethods => {
   let contents: any = {
-    __type: "CachedMethods",
     Quantity: undefined,
     Items: undefined,
   };
@@ -11905,7 +11849,6 @@ const deserializeAws_restXmlCachedMethods = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlCachePolicy = (output: any, context: __SerdeContext): CachePolicy => {
   let contents: any = {
-    __type: "CachePolicy",
     LastModifiedTime: undefined,
     Id: undefined,
     CachePolicyConfig: undefined,
@@ -11924,7 +11867,6 @@ const deserializeAws_restXmlCachePolicy = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlCachePolicyConfig = (output: any, context: __SerdeContext): CachePolicyConfig => {
   let contents: any = {
-    __type: "CachePolicyConfig",
     MinTTL: undefined,
     MaxTTL: undefined,
     Comment: undefined,
@@ -11961,7 +11903,6 @@ const deserializeAws_restXmlCachePolicyCookiesConfig = (
   context: __SerdeContext
 ): CachePolicyCookiesConfig => {
   let contents: any = {
-    __type: "CachePolicyCookiesConfig",
     CookieBehavior: undefined,
     Cookies: undefined,
   };
@@ -11979,7 +11920,6 @@ const deserializeAws_restXmlCachePolicyHeadersConfig = (
   context: __SerdeContext
 ): CachePolicyHeadersConfig => {
   let contents: any = {
-    __type: "CachePolicyHeadersConfig",
     HeaderBehavior: undefined,
     Headers: undefined,
   };
@@ -11994,7 +11934,6 @@ const deserializeAws_restXmlCachePolicyHeadersConfig = (
 
 const deserializeAws_restXmlCachePolicyList = (output: any, context: __SerdeContext): CachePolicyList => {
   let contents: any = {
-    __type: "CachePolicyList",
     NextMarker: undefined,
     Quantity: undefined,
     MaxItems: undefined,
@@ -12026,7 +11965,6 @@ const deserializeAws_restXmlCachePolicyQueryStringsConfig = (
   context: __SerdeContext
 ): CachePolicyQueryStringsConfig => {
   let contents: any = {
-    __type: "CachePolicyQueryStringsConfig",
     QueryStrings: undefined,
     QueryStringBehavior: undefined,
   };
@@ -12041,7 +11979,6 @@ const deserializeAws_restXmlCachePolicyQueryStringsConfig = (
 
 const deserializeAws_restXmlCachePolicySummary = (output: any, context: __SerdeContext): CachePolicySummary => {
   let contents: any = {
-    __type: "CachePolicySummary",
     Type: undefined,
     CachePolicy: undefined,
   };
@@ -12063,7 +12000,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentity = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentity => {
   let contents: any = {
-    __type: "CloudFrontOriginAccessIdentity",
     Id: undefined,
     CloudFrontOriginAccessIdentityConfig: undefined,
     S3CanonicalUserId: undefined,
@@ -12088,7 +12024,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentityConfig => {
   let contents: any = {
-    __type: "CloudFrontOriginAccessIdentityConfig",
     Comment: undefined,
     CallerReference: undefined,
   };
@@ -12106,7 +12041,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentityList => {
   let contents: any = {
-    __type: "CloudFrontOriginAccessIdentityList",
     MaxItems: undefined,
     Items: undefined,
     IsTruncated: undefined,
@@ -12146,7 +12080,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentitySummary => {
   let contents: any = {
-    __type: "CloudFrontOriginAccessIdentitySummary",
     S3CanonicalUserId: undefined,
     Comment: undefined,
     Id: undefined,
@@ -12174,7 +12107,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList = (
 
 const deserializeAws_restXmlContentTypeProfile = (output: any, context: __SerdeContext): ContentTypeProfile => {
   let contents: any = {
-    __type: "ContentTypeProfile",
     ContentType: undefined,
     ProfileId: undefined,
     Format: undefined,
@@ -12196,7 +12128,6 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
   context: __SerdeContext
 ): ContentTypeProfileConfig => {
   let contents: any = {
-    __type: "ContentTypeProfileConfig",
     ForwardWhenContentTypeIsUnknown: undefined,
     ContentTypeProfiles: undefined,
   };
@@ -12215,7 +12146,6 @@ const deserializeAws_restXmlContentTypeProfileList = (output: any, context: __Se
 
 const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __SerdeContext): ContentTypeProfiles => {
   let contents: any = {
-    __type: "ContentTypeProfiles",
     Items: undefined,
     Quantity: undefined,
   };
@@ -12240,7 +12170,6 @@ const deserializeAws_restXmlCookieNameList = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext): CookieNames => {
   let contents: any = {
-    __type: "CookieNames",
     Quantity: undefined,
     Items: undefined,
   };
@@ -12258,7 +12187,6 @@ const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlCookiePreference = (output: any, context: __SerdeContext): CookiePreference => {
   let contents: any = {
-    __type: "CookiePreference",
     Forward: undefined,
     WhitelistedNames: undefined,
   };
@@ -12273,7 +12201,6 @@ const deserializeAws_restXmlCookiePreference = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlCustomErrorResponse = (output: any, context: __SerdeContext): CustomErrorResponse => {
   let contents: any = {
-    __type: "CustomErrorResponse",
     ErrorCode: undefined,
     ErrorCachingMinTTL: undefined,
     ResponseCode: undefined,
@@ -12300,7 +12227,6 @@ const deserializeAws_restXmlCustomErrorResponseList = (output: any, context: __S
 
 const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __SerdeContext): CustomErrorResponses => {
   let contents: any = {
-    __type: "CustomErrorResponses",
     Quantity: undefined,
     Items: undefined,
   };
@@ -12321,7 +12247,6 @@ const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __Serd
 
 const deserializeAws_restXmlCustomHeaders = (output: any, context: __SerdeContext): CustomHeaders => {
   let contents: any = {
-    __type: "CustomHeaders",
     Quantity: undefined,
     Items: undefined,
   };
@@ -12342,7 +12267,6 @@ const deserializeAws_restXmlCustomHeaders = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlCustomOriginConfig = (output: any, context: __SerdeContext): CustomOriginConfig => {
   let contents: any = {
-    __type: "CustomOriginConfig",
     OriginProtocolPolicy: undefined,
     HTTPPort: undefined,
     HTTPSPort: undefined,
@@ -12373,7 +12297,6 @@ const deserializeAws_restXmlCustomOriginConfig = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultCacheBehavior => {
   let contents: any = {
-    __type: "DefaultCacheBehavior",
     CachePolicyId: undefined,
     TrustedSigners: undefined,
     MinTTL: undefined,
@@ -12439,7 +12362,6 @@ const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __Serd
 
 const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext): Distribution => {
   let contents: any = {
-    __type: "Distribution",
     DomainName: undefined,
     LastModifiedTime: undefined,
     ActiveTrustedSigners: undefined,
@@ -12488,7 +12410,6 @@ const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlDistributionConfig = (output: any, context: __SerdeContext): DistributionConfig => {
   let contents: any = {
-    __type: "DistributionConfig",
     ViewerCertificate: undefined,
     Origins: undefined,
     Logging: undefined,
@@ -12563,7 +12484,6 @@ const deserializeAws_restXmlDistributionConfig = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlDistributionIdList = (output: any, context: __SerdeContext): DistributionIdList => {
   let contents: any = {
-    __type: "DistributionIdList",
     Quantity: undefined,
     NextMarker: undefined,
     Items: undefined,
@@ -12604,7 +12524,6 @@ const deserializeAws_restXmlDistributionIdListSummary = (output: any, context: _
 
 const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeContext): DistributionList => {
   let contents: any = {
-    __type: "DistributionList",
     MaxItems: undefined,
     IsTruncated: undefined,
     Items: undefined,
@@ -12641,7 +12560,6 @@ const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlDistributionSummary = (output: any, context: __SerdeContext): DistributionSummary => {
   let contents: any = {
-    __type: "DistributionSummary",
     ARN: undefined,
     Id: undefined,
     OriginGroups: undefined,
@@ -12738,7 +12656,6 @@ const deserializeAws_restXmlDistributionSummaryList = (output: any, context: __S
 
 const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeContext): EncryptionEntities => {
   let contents: any = {
-    __type: "EncryptionEntities",
     Quantity: undefined,
     Items: undefined,
   };
@@ -12759,7 +12676,6 @@ const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlEncryptionEntity = (output: any, context: __SerdeContext): EncryptionEntity => {
   let contents: any = {
-    __type: "EncryptionEntity",
     ProviderId: undefined,
     FieldPatterns: undefined,
     PublicKeyId: undefined,
@@ -12782,7 +12698,6 @@ const deserializeAws_restXmlEncryptionEntityList = (output: any, context: __Serd
 
 const deserializeAws_restXmlFieldLevelEncryption = (output: any, context: __SerdeContext): FieldLevelEncryption => {
   let contents: any = {
-    __type: "FieldLevelEncryption",
     LastModifiedTime: undefined,
     FieldLevelEncryptionConfig: undefined,
     Id: undefined,
@@ -12807,7 +12722,6 @@ const deserializeAws_restXmlFieldLevelEncryptionConfig = (
   context: __SerdeContext
 ): FieldLevelEncryptionConfig => {
   let contents: any = {
-    __type: "FieldLevelEncryptionConfig",
     CallerReference: undefined,
     Comment: undefined,
     QueryArgProfileConfig: undefined,
@@ -12839,7 +12753,6 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
   context: __SerdeContext
 ): FieldLevelEncryptionList => {
   let contents: any = {
-    __type: "FieldLevelEncryptionList",
     MaxItems: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -12871,7 +12784,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfile = (
   context: __SerdeContext
 ): FieldLevelEncryptionProfile => {
   let contents: any = {
-    __type: "FieldLevelEncryptionProfile",
     FieldLevelEncryptionProfileConfig: undefined,
     LastModifiedTime: undefined,
     Id: undefined,
@@ -12896,7 +12808,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileConfig = (
   context: __SerdeContext
 ): FieldLevelEncryptionProfileConfig => {
   let contents: any = {
-    __type: "FieldLevelEncryptionProfileConfig",
     EncryptionEntities: undefined,
     CallerReference: undefined,
     Name: undefined,
@@ -12922,7 +12833,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
   context: __SerdeContext
 ): FieldLevelEncryptionProfileList => {
   let contents: any = {
-    __type: "FieldLevelEncryptionProfileList",
     NextMarker: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -12954,7 +12864,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
   context: __SerdeContext
 ): FieldLevelEncryptionProfileSummary => {
   let contents: any = {
-    __type: "FieldLevelEncryptionProfileSummary",
     Id: undefined,
     EncryptionEntities: undefined,
     LastModifiedTime: undefined,
@@ -12991,7 +12900,6 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
   context: __SerdeContext
 ): FieldLevelEncryptionSummary => {
   let contents: any = {
-    __type: "FieldLevelEncryptionSummary",
     Comment: undefined,
     Id: undefined,
     ContentTypeProfileConfig: undefined,
@@ -13035,7 +12943,6 @@ const deserializeAws_restXmlFieldPatternList = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContext): FieldPatterns => {
   let contents: any = {
-    __type: "FieldPatterns",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13056,7 +12963,6 @@ const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlForwardedValues = (output: any, context: __SerdeContext): ForwardedValues => {
   let contents: any = {
-    __type: "ForwardedValues",
     Cookies: undefined,
     QueryStringCacheKeys: undefined,
     QueryString: undefined,
@@ -13079,7 +12985,6 @@ const deserializeAws_restXmlForwardedValues = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlGeoRestriction = (output: any, context: __SerdeContext): GeoRestriction => {
   let contents: any = {
-    __type: "GeoRestriction",
     Quantity: undefined,
     Items: undefined,
     RestrictionType: undefined,
@@ -13105,7 +13010,6 @@ const deserializeAws_restXmlHeaderList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): Headers => {
   let contents: any = {
-    __type: "Headers",
     Items: undefined,
     Quantity: undefined,
   };
@@ -13123,7 +13027,6 @@ const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): He
 
 const deserializeAws_restXmlInvalidation = (output: any, context: __SerdeContext): Invalidation => {
   let contents: any = {
-    __type: "Invalidation",
     Id: undefined,
     InvalidationBatch: undefined,
     CreateTime: undefined,
@@ -13146,7 +13049,6 @@ const deserializeAws_restXmlInvalidation = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlInvalidationBatch = (output: any, context: __SerdeContext): InvalidationBatch => {
   let contents: any = {
-    __type: "InvalidationBatch",
     Paths: undefined,
     CallerReference: undefined,
   };
@@ -13161,7 +13063,6 @@ const deserializeAws_restXmlInvalidationBatch = (output: any, context: __SerdeCo
 
 const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeContext): InvalidationList => {
   let contents: any = {
-    __type: "InvalidationList",
     IsTruncated: undefined,
     Marker: undefined,
     Items: undefined,
@@ -13198,7 +13099,6 @@ const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlInvalidationSummary = (output: any, context: __SerdeContext): InvalidationSummary => {
   let contents: any = {
-    __type: "InvalidationSummary",
     Status: undefined,
     Id: undefined,
     CreateTime: undefined,
@@ -13225,7 +13125,6 @@ const deserializeAws_restXmlKeyPairIdList = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlKeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
   let contents: any = {
-    __type: "KeyPairIds",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13246,7 +13145,6 @@ const deserializeAws_restXmlLambdaFunctionAssociation = (
   context: __SerdeContext
 ): LambdaFunctionAssociation => {
   let contents: any = {
-    __type: "LambdaFunctionAssociation",
     IncludeBody: undefined,
     EventType: undefined,
     LambdaFunctionARN: undefined,
@@ -13275,7 +13173,6 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
   context: __SerdeContext
 ): LambdaFunctionAssociations => {
   let contents: any = {
-    __type: "LambdaFunctionAssociations",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13300,7 +13197,6 @@ const deserializeAws_restXmlLocationList = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlLoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   let contents: any = {
-    __type: "LoggingConfig",
     IncludeCookies: undefined,
     Bucket: undefined,
     Enabled: undefined,
@@ -13327,7 +13223,6 @@ const deserializeAws_restXmlMethodsList = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlOrigin = (output: any, context: __SerdeContext): Origin => {
   let contents: any = {
-    __type: "Origin",
     DomainName: undefined,
     S3OriginConfig: undefined,
     CustomOriginConfig: undefined,
@@ -13366,7 +13261,6 @@ const deserializeAws_restXmlOrigin = (output: any, context: __SerdeContext): Ori
 
 const deserializeAws_restXmlOriginCustomHeader = (output: any, context: __SerdeContext): OriginCustomHeader => {
   let contents: any = {
-    __type: "OriginCustomHeader",
     HeaderValue: undefined,
     HeaderName: undefined,
   };
@@ -13385,7 +13279,6 @@ const deserializeAws_restXmlOriginCustomHeadersList = (output: any, context: __S
 
 const deserializeAws_restXmlOriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
   let contents: any = {
-    __type: "OriginGroup",
     Id: undefined,
     Members: undefined,
     FailoverCriteria: undefined,
@@ -13407,7 +13300,6 @@ const deserializeAws_restXmlOriginGroupFailoverCriteria = (
   context: __SerdeContext
 ): OriginGroupFailoverCriteria => {
   let contents: any = {
-    __type: "OriginGroupFailoverCriteria",
     StatusCodes: undefined,
   };
   if (output["StatusCodes"] !== undefined) {
@@ -13422,7 +13314,6 @@ const deserializeAws_restXmlOriginGroupList = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlOriginGroupMember = (output: any, context: __SerdeContext): OriginGroupMember => {
   let contents: any = {
-    __type: "OriginGroupMember",
     OriginId: undefined,
   };
   if (output["OriginId"] !== undefined) {
@@ -13437,7 +13328,6 @@ const deserializeAws_restXmlOriginGroupMemberList = (output: any, context: __Ser
 
 const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeContext): OriginGroupMembers => {
   let contents: any = {
-    __type: "OriginGroupMembers",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13458,7 +13348,6 @@ const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlOriginGroups = (output: any, context: __SerdeContext): OriginGroups => {
   let contents: any = {
-    __type: "OriginGroups",
     Items: undefined,
     Quantity: undefined,
   };
@@ -13483,7 +13372,6 @@ const deserializeAws_restXmlOriginList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restXmlOriginRequestPolicy = (output: any, context: __SerdeContext): OriginRequestPolicy => {
   let contents: any = {
-    __type: "OriginRequestPolicy",
     Id: undefined,
     OriginRequestPolicyConfig: undefined,
     LastModifiedTime: undefined,
@@ -13508,7 +13396,6 @@ const deserializeAws_restXmlOriginRequestPolicyConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyConfig => {
   let contents: any = {
-    __type: "OriginRequestPolicyConfig",
     CookiesConfig: undefined,
     HeadersConfig: undefined,
     Comment: undefined,
@@ -13541,7 +13428,6 @@ const deserializeAws_restXmlOriginRequestPolicyCookiesConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyCookiesConfig => {
   let contents: any = {
-    __type: "OriginRequestPolicyCookiesConfig",
     CookieBehavior: undefined,
     Cookies: undefined,
   };
@@ -13559,7 +13445,6 @@ const deserializeAws_restXmlOriginRequestPolicyHeadersConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyHeadersConfig => {
   let contents: any = {
-    __type: "OriginRequestPolicyHeadersConfig",
     HeaderBehavior: undefined,
     Headers: undefined,
   };
@@ -13577,7 +13462,6 @@ const deserializeAws_restXmlOriginRequestPolicyList = (
   context: __SerdeContext
 ): OriginRequestPolicyList => {
   let contents: any = {
-    __type: "OriginRequestPolicyList",
     Quantity: undefined,
     NextMarker: undefined,
     MaxItems: undefined,
@@ -13609,7 +13493,6 @@ const deserializeAws_restXmlOriginRequestPolicyQueryStringsConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyQueryStringsConfig => {
   let contents: any = {
-    __type: "OriginRequestPolicyQueryStringsConfig",
     QueryStrings: undefined,
     QueryStringBehavior: undefined,
   };
@@ -13627,7 +13510,6 @@ const deserializeAws_restXmlOriginRequestPolicySummary = (
   context: __SerdeContext
 ): OriginRequestPolicySummary => {
   let contents: any = {
-    __type: "OriginRequestPolicySummary",
     OriginRequestPolicy: undefined,
     Type: undefined,
   };
@@ -13649,7 +13531,6 @@ const deserializeAws_restXmlOriginRequestPolicySummaryList = (
 
 const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Origins => {
   let contents: any = {
-    __type: "Origins",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13667,7 +13548,6 @@ const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Or
 
 const deserializeAws_restXmlOriginSslProtocols = (output: any, context: __SerdeContext): OriginSslProtocols => {
   let contents: any = {
-    __type: "OriginSslProtocols",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13691,7 +13571,6 @@ const deserializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
   context: __SerdeContext
 ): ParametersInCacheKeyAndForwardedToOrigin => {
   let contents: any = {
-    __type: "ParametersInCacheKeyAndForwardedToOrigin",
     CookiesConfig: undefined,
     QueryStringsConfig: undefined,
     EnableAcceptEncodingGzip: undefined,
@@ -13721,7 +13600,6 @@ const deserializeAws_restXmlPathList = (output: any, context: __SerdeContext): s
 
 const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Paths => {
   let contents: any = {
-    __type: "Paths",
     Items: undefined,
     Quantity: undefined,
   };
@@ -13739,7 +13617,6 @@ const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Path
 
 const deserializeAws_restXmlPublicKey = (output: any, context: __SerdeContext): PublicKey => {
   let contents: any = {
-    __type: "PublicKey",
     PublicKeyConfig: undefined,
     CreatedTime: undefined,
     Id: undefined,
@@ -13758,7 +13635,6 @@ const deserializeAws_restXmlPublicKey = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restXmlPublicKeyConfig = (output: any, context: __SerdeContext): PublicKeyConfig => {
   let contents: any = {
-    __type: "PublicKeyConfig",
     Comment: undefined,
     EncodedKey: undefined,
     Name: undefined,
@@ -13781,7 +13657,6 @@ const deserializeAws_restXmlPublicKeyConfig = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContext): PublicKeyList => {
   let contents: any = {
-    __type: "PublicKeyList",
     NextMarker: undefined,
     MaxItems: undefined,
     Items: undefined,
@@ -13810,7 +13685,6 @@ const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlPublicKeySummary = (output: any, context: __SerdeContext): PublicKeySummary => {
   let contents: any = {
-    __type: "PublicKeySummary",
     Name: undefined,
     CreatedTime: undefined,
     EncodedKey: undefined,
@@ -13841,7 +13715,6 @@ const deserializeAws_restXmlPublicKeySummaryList = (output: any, context: __Serd
 
 const deserializeAws_restXmlQueryArgProfile = (output: any, context: __SerdeContext): QueryArgProfile => {
   let contents: any = {
-    __type: "QueryArgProfile",
     ProfileId: undefined,
     QueryArg: undefined,
   };
@@ -13856,7 +13729,6 @@ const deserializeAws_restXmlQueryArgProfile = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlQueryArgProfileConfig = (output: any, context: __SerdeContext): QueryArgProfileConfig => {
   let contents: any = {
-    __type: "QueryArgProfileConfig",
     ForwardWhenQueryArgProfileIsUnknown: undefined,
     QueryArgProfiles: undefined,
   };
@@ -13875,7 +13747,6 @@ const deserializeAws_restXmlQueryArgProfileList = (output: any, context: __Serde
 
 const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProfiles => {
   let contents: any = {
-    __type: "QueryArgProfiles",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13896,7 +13767,6 @@ const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlQueryStringCacheKeys = (output: any, context: __SerdeContext): QueryStringCacheKeys => {
   let contents: any = {
-    __type: "QueryStringCacheKeys",
     Quantity: undefined,
     Items: undefined,
   };
@@ -13921,7 +13791,6 @@ const deserializeAws_restXmlQueryStringCacheKeysList = (output: any, context: __
 
 const deserializeAws_restXmlQueryStringNames = (output: any, context: __SerdeContext): QueryStringNames => {
   let contents: any = {
-    __type: "QueryStringNames",
     Items: undefined,
     Quantity: undefined,
   };
@@ -13946,7 +13815,6 @@ const deserializeAws_restXmlQueryStringNamesList = (output: any, context: __Serd
 
 const deserializeAws_restXmlRestrictions = (output: any, context: __SerdeContext): Restrictions => {
   let contents: any = {
-    __type: "Restrictions",
     GeoRestriction: undefined,
   };
   if (output["GeoRestriction"] !== undefined) {
@@ -13957,7 +13825,6 @@ const deserializeAws_restXmlRestrictions = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlS3Origin = (output: any, context: __SerdeContext): S3Origin => {
   let contents: any = {
-    __type: "S3Origin",
     OriginAccessIdentity: undefined,
     DomainName: undefined,
   };
@@ -13972,7 +13839,6 @@ const deserializeAws_restXmlS3Origin = (output: any, context: __SerdeContext): S
 
 const deserializeAws_restXmlS3OriginConfig = (output: any, context: __SerdeContext): S3OriginConfig => {
   let contents: any = {
-    __type: "S3OriginConfig",
     OriginAccessIdentity: undefined,
   };
   if (output["OriginAccessIdentity"] !== undefined) {
@@ -13983,7 +13849,6 @@ const deserializeAws_restXmlS3OriginConfig = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlSigner = (output: any, context: __SerdeContext): Signer => {
   let contents: any = {
-    __type: "Signer",
     KeyPairIds: undefined,
     AwsAccountNumber: undefined,
   };
@@ -14010,7 +13875,6 @@ const deserializeAws_restXmlStatusCodeList = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
   let contents: any = {
-    __type: "StatusCodes",
     Items: undefined,
     Quantity: undefined,
   };
@@ -14031,7 +13895,6 @@ const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlStreamingDistribution = (output: any, context: __SerdeContext): StreamingDistribution => {
   let contents: any = {
-    __type: "StreamingDistribution",
     LastModifiedTime: undefined,
     StreamingDistributionConfig: undefined,
     DomainName: undefined,
@@ -14072,7 +13935,6 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
   context: __SerdeContext
 ): StreamingDistributionConfig => {
   let contents: any = {
-    __type: "StreamingDistributionConfig",
     Aliases: undefined,
     TrustedSigners: undefined,
     CallerReference: undefined,
@@ -14114,7 +13976,6 @@ const deserializeAws_restXmlStreamingDistributionList = (
   context: __SerdeContext
 ): StreamingDistributionList => {
   let contents: any = {
-    __type: "StreamingDistributionList",
     IsTruncated: undefined,
     Marker: undefined,
     MaxItems: undefined,
@@ -14154,7 +14015,6 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
   context: __SerdeContext
 ): StreamingDistributionSummary => {
   let contents: any = {
-    __type: "StreamingDistributionSummary",
     Id: undefined,
     ARN: undefined,
     Status: undefined,
@@ -14212,7 +14072,6 @@ const deserializeAws_restXmlStreamingDistributionSummaryList = (
 
 const deserializeAws_restXmlStreamingLoggingConfig = (output: any, context: __SerdeContext): StreamingLoggingConfig => {
   let contents: any = {
-    __type: "StreamingLoggingConfig",
     Prefix: undefined,
     Bucket: undefined,
     Enabled: undefined,
@@ -14231,7 +14090,6 @@ const deserializeAws_restXmlStreamingLoggingConfig = (output: any, context: __Se
 
 const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -14250,7 +14108,6 @@ const deserializeAws_restXmlTagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags => {
   let contents: any = {
-    __type: "Tags",
     Items: undefined,
   };
   if (output.Items === "") {
@@ -14264,7 +14121,6 @@ const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags 
 
 const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeContext): TrustedSigners => {
   let contents: any = {
-    __type: "TrustedSigners",
     Enabled: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -14289,7 +14145,6 @@ const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlViewerCertificate = (output: any, context: __SerdeContext): ViewerCertificate => {
   let contents: any = {
-    __type: "ViewerCertificate",
     Certificate: undefined,
     SSLSupportMethod: undefined,
     CertificateSource: undefined,

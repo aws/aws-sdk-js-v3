@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>A container for account-level settings in AWS Device Farm.</p>
  */
 export interface AccountSettings {
-  __type?: "AccountSettings";
   /**
    * <p>Information about an AWS account's usage of free trial device minutes.</p>
    */
@@ -60,7 +59,6 @@ export namespace AccountSettings {
   export const filterSensitiveLog = (obj: AccountSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountSettings => __isa(o, "AccountSettings");
 }
 
 /**
@@ -79,7 +77,6 @@ export namespace ArgumentException {
   export const filterSensitiveLog = (obj: ArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArgumentException => __isa(o, "ArgumentException");
 }
 
 /**
@@ -87,7 +84,6 @@ export namespace ArgumentException {
  *             screenshots.</p>
  */
 export interface Artifact {
-  __type?: "Artifact";
   /**
    * <p>The artifact's name.</p>
    */
@@ -206,7 +202,6 @@ export namespace Artifact {
   export const filterSensitiveLog = (obj: Artifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
 }
 
 export enum ArtifactCategory {
@@ -264,14 +259,12 @@ export namespace CannotDeleteException {
   export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CannotDeleteException => __isa(o, "CannotDeleteException");
 }
 
 /**
  * <p>Represents entity counters.</p>
  */
 export interface Counters {
-  __type?: "Counters";
   /**
    * <p>The number of failed entities.</p>
    */
@@ -312,7 +305,6 @@ export namespace Counters {
   export const filterSensitiveLog = (obj: Counters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Counters => __isa(o, "Counters");
 }
 
 /**
@@ -320,7 +312,6 @@ export namespace Counters {
  *             CPU usage.</p>
  */
 export interface CPU {
-  __type?: "CPU";
   /**
    * <p>The CPU's architecture (for example, x86 or ARM).</p>
    */
@@ -342,14 +333,12 @@ export namespace CPU {
   export const filterSensitiveLog = (obj: CPU): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CPU => __isa(o, "CPU");
 }
 
 /**
  * <p>Represents a request to the create device pool operation.</p>
  */
 export interface CreateDevicePoolRequest {
-  __type?: "CreateDevicePoolRequest";
   /**
    * <p>The device pool's name.</p>
    */
@@ -385,14 +374,12 @@ export namespace CreateDevicePoolRequest {
   export const filterSensitiveLog = (obj: CreateDevicePoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDevicePoolRequest => __isa(o, "CreateDevicePoolRequest");
 }
 
 /**
  * <p>Represents the result of a create device pool request.</p>
  */
 export interface CreateDevicePoolResult {
-  __type?: "CreateDevicePoolResult";
   /**
    * <p>The newly created device pool.</p>
    */
@@ -403,11 +390,9 @@ export namespace CreateDevicePoolResult {
   export const filterSensitiveLog = (obj: CreateDevicePoolResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDevicePoolResult => __isa(o, "CreateDevicePoolResult");
 }
 
 export interface CreateInstanceProfileRequest {
-  __type?: "CreateInstanceProfileRequest";
   /**
    * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
    *                 <code>true</code>.</p>
@@ -443,11 +428,9 @@ export namespace CreateInstanceProfileRequest {
   export const filterSensitiveLog = (obj: CreateInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileRequest => __isa(o, "CreateInstanceProfileRequest");
 }
 
 export interface CreateInstanceProfileResult {
-  __type?: "CreateInstanceProfileResult";
   /**
    * <p>An object that contains information about your instance profile.</p>
    */
@@ -458,11 +441,9 @@ export namespace CreateInstanceProfileResult {
   export const filterSensitiveLog = (obj: CreateInstanceProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileResult => __isa(o, "CreateInstanceProfileResult");
 }
 
 export interface CreateNetworkProfileRequest {
-  __type?: "CreateNetworkProfileRequest";
   /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    */
@@ -536,11 +517,9 @@ export namespace CreateNetworkProfileRequest {
   export const filterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkProfileRequest => __isa(o, "CreateNetworkProfileRequest");
 }
 
 export interface CreateNetworkProfileResult {
-  __type?: "CreateNetworkProfileResult";
   /**
    * <p>The network profile that is returned by the create network profile
    *             request.</p>
@@ -552,14 +531,12 @@ export namespace CreateNetworkProfileResult {
   export const filterSensitiveLog = (obj: CreateNetworkProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkProfileResult => __isa(o, "CreateNetworkProfileResult");
 }
 
 /**
  * <p>Represents a request to the create project operation.</p>
  */
 export interface CreateProjectRequest {
-  __type?: "CreateProjectRequest";
   /**
    * <p>Sets the execution timeout value (in minutes) for a project. All test runs in this project use the
    *             specified execution timeout value unless overridden when scheduling a run.</p>
@@ -576,14 +553,12 @@ export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 /**
  * <p>Represents the result of a create project request.</p>
  */
 export interface CreateProjectResult {
-  __type?: "CreateProjectResult";
   /**
    * <p>The newly created project.</p>
    */
@@ -594,7 +569,6 @@ export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResult => __isa(o, "CreateProjectResult");
 }
 
 /**
@@ -602,7 +576,6 @@ export namespace CreateProjectResult {
  *             method.</p>
  */
 export interface CreateRemoteAccessSessionConfiguration {
-  __type?: "CreateRemoteAccessSessionConfiguration";
   /**
    * <p>An array of ARNs included in the VPC endpoint configuration.</p>
    */
@@ -618,15 +591,12 @@ export namespace CreateRemoteAccessSessionConfiguration {
   export const filterSensitiveLog = (obj: CreateRemoteAccessSessionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRemoteAccessSessionConfiguration =>
-    __isa(o, "CreateRemoteAccessSessionConfiguration");
 }
 
 /**
  * <p>Creates and submits a request to start a remote access session.</p>
  */
 export interface CreateRemoteAccessSessionRequest {
-  __type?: "CreateRemoteAccessSessionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote
    *             access session.</p>
@@ -726,7 +696,6 @@ export namespace CreateRemoteAccessSessionRequest {
   export const filterSensitiveLog = (obj: CreateRemoteAccessSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRemoteAccessSessionRequest => __isa(o, "CreateRemoteAccessSessionRequest");
 }
 
 /**
@@ -734,7 +703,6 @@ export namespace CreateRemoteAccessSessionRequest {
  *             session.</p>
  */
 export interface CreateRemoteAccessSessionResult {
-  __type?: "CreateRemoteAccessSessionResult";
   /**
    * <p>A container that describes the remote access session when the request to create a
    *             remote access session is sent.</p>
@@ -746,11 +714,9 @@ export namespace CreateRemoteAccessSessionResult {
   export const filterSensitiveLog = (obj: CreateRemoteAccessSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRemoteAccessSessionResult => __isa(o, "CreateRemoteAccessSessionResult");
 }
 
 export interface CreateTestGridProjectRequest {
-  __type?: "CreateTestGridProjectRequest";
   /**
    * <p>Human-readable name of the Selenium testing project.</p>
    */
@@ -766,11 +732,9 @@ export namespace CreateTestGridProjectRequest {
   export const filterSensitiveLog = (obj: CreateTestGridProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridProjectRequest => __isa(o, "CreateTestGridProjectRequest");
 }
 
 export interface CreateTestGridProjectResult {
-  __type?: "CreateTestGridProjectResult";
   /**
    * <p>ARN of the Selenium testing project that was created.</p>
    */
@@ -781,11 +745,9 @@ export namespace CreateTestGridProjectResult {
   export const filterSensitiveLog = (obj: CreateTestGridProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridProjectResult => __isa(o, "CreateTestGridProjectResult");
 }
 
 export interface CreateTestGridUrlRequest {
-  __type?: "CreateTestGridUrlRequest";
   /**
    * <p>ARN (from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>) to associate
    *          with the short-term URL. </p>
@@ -802,11 +764,9 @@ export namespace CreateTestGridUrlRequest {
   export const filterSensitiveLog = (obj: CreateTestGridUrlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridUrlRequest => __isa(o, "CreateTestGridUrlRequest");
 }
 
 export interface CreateTestGridUrlResult {
-  __type?: "CreateTestGridUrlResult";
   /**
    * <p>The number of seconds the URL from <a>CreateTestGridUrlResult$url</a> stays active.</p>
    */
@@ -823,14 +783,12 @@ export namespace CreateTestGridUrlResult {
   export const filterSensitiveLog = (obj: CreateTestGridUrlResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridUrlResult => __isa(o, "CreateTestGridUrlResult");
 }
 
 /**
  * <p>Represents a request to the create upload operation.</p>
  */
 export interface CreateUploadRequest {
-  __type?: "CreateUploadRequest";
   /**
    * <p>The ARN of the project for the upload.</p>
    */
@@ -960,14 +918,12 @@ export namespace CreateUploadRequest {
   export const filterSensitiveLog = (obj: CreateUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUploadRequest => __isa(o, "CreateUploadRequest");
 }
 
 /**
  * <p>Represents the result of a create upload request.</p>
  */
 export interface CreateUploadResult {
-  __type?: "CreateUploadResult";
   /**
    * <p>The newly created upload.</p>
    */
@@ -978,11 +934,9 @@ export namespace CreateUploadResult {
   export const filterSensitiveLog = (obj: CreateUploadResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUploadResult => __isa(o, "CreateUploadResult");
 }
 
 export interface CreateVPCEConfigurationRequest {
-  __type?: "CreateVPCEConfigurationRequest";
   /**
    * <p>An optional description that provides details about your VPC endpoint configuration.</p>
    */
@@ -1010,11 +964,9 @@ export namespace CreateVPCEConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateVPCEConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVPCEConfigurationRequest => __isa(o, "CreateVPCEConfigurationRequest");
 }
 
 export interface CreateVPCEConfigurationResult {
-  __type?: "CreateVPCEConfigurationResult";
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
    */
@@ -1025,7 +977,6 @@ export namespace CreateVPCEConfigurationResult {
   export const filterSensitiveLog = (obj: CreateVPCEConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVPCEConfigurationResult => __isa(o, "CreateVPCEConfigurationResult");
 }
 
 export enum CurrencyCode {
@@ -1041,7 +992,6 @@ export enum CurrencyCode {
  *                 <code>androidPaths</code>.</p>
  */
 export interface CustomerArtifactPaths {
-  __type?: "CustomerArtifactPaths";
   /**
    * <p>Comma-separated list of paths on the Android device where the artifacts generated by the customer's
    *             tests are pulled from.</p>
@@ -1065,14 +1015,12 @@ export namespace CustomerArtifactPaths {
   export const filterSensitiveLog = (obj: CustomerArtifactPaths): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerArtifactPaths => __isa(o, "CustomerArtifactPaths");
 }
 
 /**
  * <p>Represents a request to the delete device pool operation.</p>
  */
 export interface DeleteDevicePoolRequest {
-  __type?: "DeleteDevicePoolRequest";
   /**
    * <p>Represents the Amazon Resource Name (ARN) of the Device Farm device pool to delete.</p>
    */
@@ -1083,25 +1031,20 @@ export namespace DeleteDevicePoolRequest {
   export const filterSensitiveLog = (obj: DeleteDevicePoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDevicePoolRequest => __isa(o, "DeleteDevicePoolRequest");
 }
 
 /**
  * <p>Represents the result of a delete device pool request.</p>
  */
-export interface DeleteDevicePoolResult {
-  __type?: "DeleteDevicePoolResult";
-}
+export interface DeleteDevicePoolResult {}
 
 export namespace DeleteDevicePoolResult {
   export const filterSensitiveLog = (obj: DeleteDevicePoolResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDevicePoolResult => __isa(o, "DeleteDevicePoolResult");
 }
 
 export interface DeleteInstanceProfileRequest {
-  __type?: "DeleteInstanceProfileRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the instance profile you are requesting to
    *             delete.</p>
@@ -1113,22 +1056,17 @@ export namespace DeleteInstanceProfileRequest {
   export const filterSensitiveLog = (obj: DeleteInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceProfileRequest => __isa(o, "DeleteInstanceProfileRequest");
 }
 
-export interface DeleteInstanceProfileResult {
-  __type?: "DeleteInstanceProfileResult";
-}
+export interface DeleteInstanceProfileResult {}
 
 export namespace DeleteInstanceProfileResult {
   export const filterSensitiveLog = (obj: DeleteInstanceProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceProfileResult => __isa(o, "DeleteInstanceProfileResult");
 }
 
 export interface DeleteNetworkProfileRequest {
-  __type?: "DeleteNetworkProfileRequest";
   /**
    * <p>The ARN of the network profile to delete.</p>
    */
@@ -1139,25 +1077,20 @@ export namespace DeleteNetworkProfileRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkProfileRequest => __isa(o, "DeleteNetworkProfileRequest");
 }
 
-export interface DeleteNetworkProfileResult {
-  __type?: "DeleteNetworkProfileResult";
-}
+export interface DeleteNetworkProfileResult {}
 
 export namespace DeleteNetworkProfileResult {
   export const filterSensitiveLog = (obj: DeleteNetworkProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkProfileResult => __isa(o, "DeleteNetworkProfileResult");
 }
 
 /**
  * <p>Represents a request to the delete project operation.</p>
  */
 export interface DeleteProjectRequest {
-  __type?: "DeleteProjectRequest";
   /**
    * <p>Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.</p>
    */
@@ -1168,28 +1101,23 @@ export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 /**
  * <p>Represents the result of a delete project request.</p>
  */
-export interface DeleteProjectResult {
-  __type?: "DeleteProjectResult";
-}
+export interface DeleteProjectResult {}
 
 export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResult => __isa(o, "DeleteProjectResult");
 }
 
 /**
  * <p>Represents the request to delete the specified remote access session.</p>
  */
 export interface DeleteRemoteAccessSessionRequest {
-  __type?: "DeleteRemoteAccessSessionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the session for which you want to delete remote
    *             access.</p>
@@ -1201,29 +1129,24 @@ export namespace DeleteRemoteAccessSessionRequest {
   export const filterSensitiveLog = (obj: DeleteRemoteAccessSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRemoteAccessSessionRequest => __isa(o, "DeleteRemoteAccessSessionRequest");
 }
 
 /**
  * <p>The response from the server when a request is made to delete the remote access
  *             session.</p>
  */
-export interface DeleteRemoteAccessSessionResult {
-  __type?: "DeleteRemoteAccessSessionResult";
-}
+export interface DeleteRemoteAccessSessionResult {}
 
 export namespace DeleteRemoteAccessSessionResult {
   export const filterSensitiveLog = (obj: DeleteRemoteAccessSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRemoteAccessSessionResult => __isa(o, "DeleteRemoteAccessSessionResult");
 }
 
 /**
  * <p>Represents a request to the delete run operation.</p>
  */
 export interface DeleteRunRequest {
-  __type?: "DeleteRunRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for the run to delete.</p>
    */
@@ -1234,25 +1157,20 @@ export namespace DeleteRunRequest {
   export const filterSensitiveLog = (obj: DeleteRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRunRequest => __isa(o, "DeleteRunRequest");
 }
 
 /**
  * <p>Represents the result of a delete run request.</p>
  */
-export interface DeleteRunResult {
-  __type?: "DeleteRunResult";
-}
+export interface DeleteRunResult {}
 
 export namespace DeleteRunResult {
   export const filterSensitiveLog = (obj: DeleteRunResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRunResult => __isa(o, "DeleteRunResult");
 }
 
 export interface DeleteTestGridProjectRequest {
-  __type?: "DeleteTestGridProjectRequest";
   /**
    * <p>The ARN of the project to delete, from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
    */
@@ -1263,25 +1181,20 @@ export namespace DeleteTestGridProjectRequest {
   export const filterSensitiveLog = (obj: DeleteTestGridProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTestGridProjectRequest => __isa(o, "DeleteTestGridProjectRequest");
 }
 
-export interface DeleteTestGridProjectResult {
-  __type?: "DeleteTestGridProjectResult";
-}
+export interface DeleteTestGridProjectResult {}
 
 export namespace DeleteTestGridProjectResult {
   export const filterSensitiveLog = (obj: DeleteTestGridProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTestGridProjectResult => __isa(o, "DeleteTestGridProjectResult");
 }
 
 /**
  * <p>Represents a request to the delete upload operation.</p>
  */
 export interface DeleteUploadRequest {
-  __type?: "DeleteUploadRequest";
   /**
    * <p>Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.</p>
    */
@@ -1292,25 +1205,20 @@ export namespace DeleteUploadRequest {
   export const filterSensitiveLog = (obj: DeleteUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUploadRequest => __isa(o, "DeleteUploadRequest");
 }
 
 /**
  * <p>Represents the result of a delete upload request.</p>
  */
-export interface DeleteUploadResult {
-  __type?: "DeleteUploadResult";
-}
+export interface DeleteUploadResult {}
 
 export namespace DeleteUploadResult {
   export const filterSensitiveLog = (obj: DeleteUploadResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUploadResult => __isa(o, "DeleteUploadResult");
 }
 
 export interface DeleteVPCEConfigurationRequest {
-  __type?: "DeleteVPCEConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
    *             delete.</p>
@@ -1322,25 +1230,20 @@ export namespace DeleteVPCEConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteVPCEConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVPCEConfigurationRequest => __isa(o, "DeleteVPCEConfigurationRequest");
 }
 
-export interface DeleteVPCEConfigurationResult {
-  __type?: "DeleteVPCEConfigurationResult";
-}
+export interface DeleteVPCEConfigurationResult {}
 
 export namespace DeleteVPCEConfigurationResult {
   export const filterSensitiveLog = (obj: DeleteVPCEConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVPCEConfigurationResult => __isa(o, "DeleteVPCEConfigurationResult");
 }
 
 /**
  * <p>Represents a device type that an app is tested against.</p>
  */
 export interface Device {
-  __type?: "Device";
   /**
    * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
    */
@@ -1473,7 +1376,6 @@ export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
 export enum DeviceAttribute {
@@ -1508,7 +1410,6 @@ export enum DeviceAvailability {
  *             <code>ListDevices</code>. For an example of the JSON request syntax, see <a>ListDevices</a>.</p>
  */
 export interface DeviceFilter {
-  __type?: "DeviceFilter";
   /**
    * <p>An array of one or more filter values used in a device filter.</p>
    *         <p class="title">
@@ -1647,7 +1548,6 @@ export namespace DeviceFilter {
   export const filterSensitiveLog = (obj: DeviceFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceFilter => __isa(o, "DeviceFilter");
 }
 
 export enum DeviceFilterAttribute {
@@ -1674,7 +1574,6 @@ export enum DeviceFormFactor {
  * <p>Represents the device instance.</p>
  */
 export interface DeviceInstance {
-  __type?: "DeviceInstance";
   /**
    * <p>An array of strings that describe the device instance.</p>
    */
@@ -1710,7 +1609,6 @@ export namespace DeviceInstance {
   export const filterSensitiveLog = (obj: DeviceInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceInstance => __isa(o, "DeviceInstance");
 }
 
 /**
@@ -1718,7 +1616,6 @@ export namespace DeviceInstance {
  *             tests. Contains the sum of minutes consumed by all children.</p>
  */
 export interface DeviceMinutes {
-  __type?: "DeviceMinutes";
   /**
    * <p>When specified, represents the total minutes used by the resource to run
    *             tests.</p>
@@ -1742,7 +1639,6 @@ export namespace DeviceMinutes {
   export const filterSensitiveLog = (obj: DeviceMinutes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceMinutes => __isa(o, "DeviceMinutes");
 }
 
 export enum DevicePlatform {
@@ -1754,7 +1650,6 @@ export enum DevicePlatform {
  * <p>Represents a collection of device types.</p>
  */
 export interface DevicePool {
-  __type?: "DevicePool";
   /**
    * <p>The device pool's description.</p>
    */
@@ -1806,14 +1701,12 @@ export namespace DevicePool {
   export const filterSensitiveLog = (obj: DevicePool): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DevicePool => __isa(o, "DevicePool");
 }
 
 /**
  * <p>Represents a device pool compatibility result.</p>
  */
 export interface DevicePoolCompatibilityResult {
-  __type?: "DevicePoolCompatibilityResult";
   /**
    * <p>The device (phone or tablet) to return information about.</p>
    */
@@ -1834,7 +1727,6 @@ export namespace DevicePoolCompatibilityResult {
   export const filterSensitiveLog = (obj: DevicePoolCompatibilityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DevicePoolCompatibilityResult => __isa(o, "DevicePoolCompatibilityResult");
 }
 
 export enum DevicePoolType {
@@ -1847,7 +1739,6 @@ export enum DevicePoolType {
  *             run. It is passed in as the <code>deviceSelectionConfiguration</code> request parameter in <a>ScheduleRun</a>.</p>
  */
 export interface DeviceSelectionConfiguration {
-  __type?: "DeviceSelectionConfiguration";
   /**
    * <p>The maximum number of devices to be included in a test run.</p>
    */
@@ -1984,7 +1875,6 @@ export namespace DeviceSelectionConfiguration {
   export const filterSensitiveLog = (obj: DeviceSelectionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceSelectionConfiguration => __isa(o, "DeviceSelectionConfiguration");
 }
 
 /**
@@ -1992,7 +1882,6 @@ export namespace DeviceSelectionConfiguration {
  *             returned. For an example of the JSON response syntax, see <a>ScheduleRun</a>.</p>
  */
 export interface DeviceSelectionResult {
-  __type?: "DeviceSelectionResult";
   /**
    * <p>The number of devices that matched the device filter selection criteria.</p>
    */
@@ -2014,7 +1903,6 @@ export namespace DeviceSelectionResult {
   export const filterSensitiveLog = (obj: DeviceSelectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceSelectionResult => __isa(o, "DeviceSelectionResult");
 }
 
 /**
@@ -2022,7 +1910,6 @@ export namespace DeviceSelectionResult {
  *             timeout (in minutes).</p>
  */
 export interface ExecutionConfiguration {
-  __type?: "ExecutionConfiguration";
   /**
    * <p>Set to true to enable video capture. Otherwise, set to false. The default is true.</p>
    */
@@ -2056,7 +1943,6 @@ export namespace ExecutionConfiguration {
   export const filterSensitiveLog = (obj: ExecutionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionConfiguration => __isa(o, "ExecutionConfiguration");
 }
 
 export enum ExecutionResult {
@@ -2089,15 +1975,12 @@ export enum ExecutionStatus {
 /**
  * <p>Represents the request sent to retrieve the account settings.</p>
  */
-export interface GetAccountSettingsRequest {
-  __type?: "GetAccountSettingsRequest";
-}
+export interface GetAccountSettingsRequest {}
 
 export namespace GetAccountSettingsRequest {
   export const filterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsRequest => __isa(o, "GetAccountSettingsRequest");
 }
 
 /**
@@ -2105,7 +1988,6 @@ export namespace GetAccountSettingsRequest {
  *                 <code>GetAccountSettings</code> request.</p>
  */
 export interface GetAccountSettingsResult {
-  __type?: "GetAccountSettingsResult";
   /**
    * <p>The account settings.</p>
    */
@@ -2116,11 +1998,9 @@ export namespace GetAccountSettingsResult {
   export const filterSensitiveLog = (obj: GetAccountSettingsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsResult => __isa(o, "GetAccountSettingsResult");
 }
 
 export interface GetDeviceInstanceRequest {
-  __type?: "GetDeviceInstanceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the instance you're requesting information
    *             about.</p>
@@ -2132,11 +2012,9 @@ export namespace GetDeviceInstanceRequest {
   export const filterSensitiveLog = (obj: GetDeviceInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceInstanceRequest => __isa(o, "GetDeviceInstanceRequest");
 }
 
 export interface GetDeviceInstanceResult {
-  __type?: "GetDeviceInstanceResult";
   /**
    * <p>An object that contains information about your device instance.</p>
    */
@@ -2147,14 +2025,12 @@ export namespace GetDeviceInstanceResult {
   export const filterSensitiveLog = (obj: GetDeviceInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceInstanceResult => __isa(o, "GetDeviceInstanceResult");
 }
 
 /**
  * <p>Represents a request to the get device pool compatibility operation.</p>
  */
 export interface GetDevicePoolCompatibilityRequest {
-  __type?: "GetDevicePoolCompatibilityRequest";
   /**
    * <p>Information about the uploaded test to be run against the device pool.</p>
    */
@@ -2243,14 +2119,12 @@ export namespace GetDevicePoolCompatibilityRequest {
   export const filterSensitiveLog = (obj: GetDevicePoolCompatibilityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolCompatibilityRequest => __isa(o, "GetDevicePoolCompatibilityRequest");
 }
 
 /**
  * <p>Represents the result of describe device pool compatibility request.</p>
  */
 export interface GetDevicePoolCompatibilityResult {
-  __type?: "GetDevicePoolCompatibilityResult";
   /**
    * <p>Information about incompatible devices.</p>
    */
@@ -2266,14 +2140,12 @@ export namespace GetDevicePoolCompatibilityResult {
   export const filterSensitiveLog = (obj: GetDevicePoolCompatibilityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolCompatibilityResult => __isa(o, "GetDevicePoolCompatibilityResult");
 }
 
 /**
  * <p>Represents a request to the get device pool operation.</p>
  */
 export interface GetDevicePoolRequest {
-  __type?: "GetDevicePoolRequest";
   /**
    * <p>The device pool's ARN.</p>
    */
@@ -2284,14 +2156,12 @@ export namespace GetDevicePoolRequest {
   export const filterSensitiveLog = (obj: GetDevicePoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolRequest => __isa(o, "GetDevicePoolRequest");
 }
 
 /**
  * <p>Represents the result of a get device pool request.</p>
  */
 export interface GetDevicePoolResult {
-  __type?: "GetDevicePoolResult";
   /**
    * <p>An object that contains information about the requested device pool.</p>
    */
@@ -2302,14 +2172,12 @@ export namespace GetDevicePoolResult {
   export const filterSensitiveLog = (obj: GetDevicePoolResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolResult => __isa(o, "GetDevicePoolResult");
 }
 
 /**
  * <p>Represents a request to the get device request.</p>
  */
 export interface GetDeviceRequest {
-  __type?: "GetDeviceRequest";
   /**
    * <p>The device type's ARN.</p>
    */
@@ -2320,14 +2188,12 @@ export namespace GetDeviceRequest {
   export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceRequest => __isa(o, "GetDeviceRequest");
 }
 
 /**
  * <p>Represents the result of a get device request.</p>
  */
 export interface GetDeviceResult {
-  __type?: "GetDeviceResult";
   /**
    * <p>An object that contains information about the requested device.</p>
    */
@@ -2338,11 +2204,9 @@ export namespace GetDeviceResult {
   export const filterSensitiveLog = (obj: GetDeviceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceResult => __isa(o, "GetDeviceResult");
 }
 
 export interface GetInstanceProfileRequest {
-  __type?: "GetInstanceProfileRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of an instance profile.</p>
    */
@@ -2353,11 +2217,9 @@ export namespace GetInstanceProfileRequest {
   export const filterSensitiveLog = (obj: GetInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileRequest => __isa(o, "GetInstanceProfileRequest");
 }
 
 export interface GetInstanceProfileResult {
-  __type?: "GetInstanceProfileResult";
   /**
    * <p>An object that contains information about an instance profile.</p>
    */
@@ -2368,14 +2230,12 @@ export namespace GetInstanceProfileResult {
   export const filterSensitiveLog = (obj: GetInstanceProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileResult => __isa(o, "GetInstanceProfileResult");
 }
 
 /**
  * <p>Represents a request to the get job operation.</p>
  */
 export interface GetJobRequest {
-  __type?: "GetJobRequest";
   /**
    * <p>The job's ARN.</p>
    */
@@ -2386,14 +2246,12 @@ export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 /**
  * <p>Represents the result of a get job request.</p>
  */
 export interface GetJobResult {
-  __type?: "GetJobResult";
   /**
    * <p>An object that contains information about the requested job.</p>
    */
@@ -2404,11 +2262,9 @@ export namespace GetJobResult {
   export const filterSensitiveLog = (obj: GetJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobResult => __isa(o, "GetJobResult");
 }
 
 export interface GetNetworkProfileRequest {
-  __type?: "GetNetworkProfileRequest";
   /**
    * <p>The ARN of the network profile to return information about.</p>
    */
@@ -2419,11 +2275,9 @@ export namespace GetNetworkProfileRequest {
   export const filterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNetworkProfileRequest => __isa(o, "GetNetworkProfileRequest");
 }
 
 export interface GetNetworkProfileResult {
-  __type?: "GetNetworkProfileResult";
   /**
    * <p>The network profile.</p>
    */
@@ -2434,7 +2288,6 @@ export namespace GetNetworkProfileResult {
   export const filterSensitiveLog = (obj: GetNetworkProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNetworkProfileResult => __isa(o, "GetNetworkProfileResult");
 }
 
 /**
@@ -2442,7 +2295,6 @@ export namespace GetNetworkProfileResult {
  *             or account.</p>
  */
 export interface GetOfferingStatusRequest {
-  __type?: "GetOfferingStatusRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -2454,14 +2306,12 @@ export namespace GetOfferingStatusRequest {
   export const filterSensitiveLog = (obj: GetOfferingStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOfferingStatusRequest => __isa(o, "GetOfferingStatusRequest");
 }
 
 /**
  * <p>Returns the status result for a device offering.</p>
  */
 export interface GetOfferingStatusResult {
-  __type?: "GetOfferingStatusResult";
   /**
    * <p>When specified, gets the offering status for the current period.</p>
    */
@@ -2483,14 +2333,12 @@ export namespace GetOfferingStatusResult {
   export const filterSensitiveLog = (obj: GetOfferingStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOfferingStatusResult => __isa(o, "GetOfferingStatusResult");
 }
 
 /**
  * <p>Represents a request to the get project operation.</p>
  */
 export interface GetProjectRequest {
-  __type?: "GetProjectRequest";
   /**
    * <p>The project's ARN.</p>
    */
@@ -2501,14 +2349,12 @@ export namespace GetProjectRequest {
   export const filterSensitiveLog = (obj: GetProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProjectRequest => __isa(o, "GetProjectRequest");
 }
 
 /**
  * <p>Represents the result of a get project request.</p>
  */
 export interface GetProjectResult {
-  __type?: "GetProjectResult";
   /**
    * <p>The project to get information about.</p>
    */
@@ -2519,7 +2365,6 @@ export namespace GetProjectResult {
   export const filterSensitiveLog = (obj: GetProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProjectResult => __isa(o, "GetProjectResult");
 }
 
 /**
@@ -2527,7 +2372,6 @@ export namespace GetProjectResult {
  *             session.</p>
  */
 export interface GetRemoteAccessSessionRequest {
-  __type?: "GetRemoteAccessSessionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the remote access session about which you want to
    *             get session information.</p>
@@ -2539,7 +2383,6 @@ export namespace GetRemoteAccessSessionRequest {
   export const filterSensitiveLog = (obj: GetRemoteAccessSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRemoteAccessSessionRequest => __isa(o, "GetRemoteAccessSessionRequest");
 }
 
 /**
@@ -2547,7 +2390,6 @@ export namespace GetRemoteAccessSessionRequest {
  *             remote access session.</p>
  */
 export interface GetRemoteAccessSessionResult {
-  __type?: "GetRemoteAccessSessionResult";
   /**
    * <p>A container that lists detailed information about the remote access
    *             session.</p>
@@ -2559,14 +2401,12 @@ export namespace GetRemoteAccessSessionResult {
   export const filterSensitiveLog = (obj: GetRemoteAccessSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRemoteAccessSessionResult => __isa(o, "GetRemoteAccessSessionResult");
 }
 
 /**
  * <p>Represents a request to the get run operation.</p>
  */
 export interface GetRunRequest {
-  __type?: "GetRunRequest";
   /**
    * <p>The run's ARN.</p>
    */
@@ -2577,14 +2417,12 @@ export namespace GetRunRequest {
   export const filterSensitiveLog = (obj: GetRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRunRequest => __isa(o, "GetRunRequest");
 }
 
 /**
  * <p>Represents the result of a get run request.</p>
  */
 export interface GetRunResult {
-  __type?: "GetRunResult";
   /**
    * <p>The run to get results from.</p>
    */
@@ -2595,14 +2433,12 @@ export namespace GetRunResult {
   export const filterSensitiveLog = (obj: GetRunResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRunResult => __isa(o, "GetRunResult");
 }
 
 /**
  * <p>Represents a request to the get suite operation.</p>
  */
 export interface GetSuiteRequest {
-  __type?: "GetSuiteRequest";
   /**
    * <p>The suite's ARN.</p>
    */
@@ -2613,14 +2449,12 @@ export namespace GetSuiteRequest {
   export const filterSensitiveLog = (obj: GetSuiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSuiteRequest => __isa(o, "GetSuiteRequest");
 }
 
 /**
  * <p>Represents the result of a get suite request.</p>
  */
 export interface GetSuiteResult {
-  __type?: "GetSuiteResult";
   /**
    * <p>A collection of one or more tests.</p>
    */
@@ -2631,11 +2465,9 @@ export namespace GetSuiteResult {
   export const filterSensitiveLog = (obj: GetSuiteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSuiteResult => __isa(o, "GetSuiteResult");
 }
 
 export interface GetTestGridProjectRequest {
-  __type?: "GetTestGridProjectRequest";
   /**
    * <p>The ARN of the Selenium testing project, from either <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
    */
@@ -2646,11 +2478,9 @@ export namespace GetTestGridProjectRequest {
   export const filterSensitiveLog = (obj: GetTestGridProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTestGridProjectRequest => __isa(o, "GetTestGridProjectRequest");
 }
 
 export interface GetTestGridProjectResult {
-  __type?: "GetTestGridProjectResult";
   /**
    * <p>A <a>TestGridProject</a>.</p>
    */
@@ -2661,11 +2491,9 @@ export namespace GetTestGridProjectResult {
   export const filterSensitiveLog = (obj: GetTestGridProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTestGridProjectResult => __isa(o, "GetTestGridProjectResult");
 }
 
 export interface GetTestGridSessionRequest {
-  __type?: "GetTestGridSessionRequest";
   /**
    * <p>An ARN that uniquely identifies a <a>TestGridSession</a>.</p>
    */
@@ -2686,11 +2514,9 @@ export namespace GetTestGridSessionRequest {
   export const filterSensitiveLog = (obj: GetTestGridSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTestGridSessionRequest => __isa(o, "GetTestGridSessionRequest");
 }
 
 export interface GetTestGridSessionResult {
-  __type?: "GetTestGridSessionResult";
   /**
    * <p>The <a>TestGridSession</a> that was requested.</p>
    */
@@ -2701,14 +2527,12 @@ export namespace GetTestGridSessionResult {
   export const filterSensitiveLog = (obj: GetTestGridSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTestGridSessionResult => __isa(o, "GetTestGridSessionResult");
 }
 
 /**
  * <p>Represents a request to the get test operation.</p>
  */
 export interface GetTestRequest {
-  __type?: "GetTestRequest";
   /**
    * <p>The test's ARN.</p>
    */
@@ -2719,14 +2543,12 @@ export namespace GetTestRequest {
   export const filterSensitiveLog = (obj: GetTestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTestRequest => __isa(o, "GetTestRequest");
 }
 
 /**
  * <p>Represents the result of a get test request.</p>
  */
 export interface GetTestResult {
-  __type?: "GetTestResult";
   /**
    * <p>A test condition that is evaluated.</p>
    */
@@ -2737,14 +2559,12 @@ export namespace GetTestResult {
   export const filterSensitiveLog = (obj: GetTestResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTestResult => __isa(o, "GetTestResult");
 }
 
 /**
  * <p>Represents a request to the get upload operation.</p>
  */
 export interface GetUploadRequest {
-  __type?: "GetUploadRequest";
   /**
    * <p>The upload's ARN.</p>
    */
@@ -2755,14 +2575,12 @@ export namespace GetUploadRequest {
   export const filterSensitiveLog = (obj: GetUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUploadRequest => __isa(o, "GetUploadRequest");
 }
 
 /**
  * <p>Represents the result of a get upload request.</p>
  */
 export interface GetUploadResult {
-  __type?: "GetUploadResult";
   /**
    * <p>An app or a set of one or more tests to upload or that have been
    *             uploaded.</p>
@@ -2774,11 +2592,9 @@ export namespace GetUploadResult {
   export const filterSensitiveLog = (obj: GetUploadResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUploadResult => __isa(o, "GetUploadResult");
 }
 
 export interface GetVPCEConfigurationRequest {
-  __type?: "GetVPCEConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
    *             describe.</p>
@@ -2790,11 +2606,9 @@ export namespace GetVPCEConfigurationRequest {
   export const filterSensitiveLog = (obj: GetVPCEConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVPCEConfigurationRequest => __isa(o, "GetVPCEConfigurationRequest");
 }
 
 export interface GetVPCEConfigurationResult {
-  __type?: "GetVPCEConfigurationResult";
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
    */
@@ -2805,7 +2619,6 @@ export namespace GetVPCEConfigurationResult {
   export const filterSensitiveLog = (obj: GetVPCEConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVPCEConfigurationResult => __isa(o, "GetVPCEConfigurationResult");
 }
 
 /**
@@ -2824,14 +2637,12 @@ export namespace IdempotencyException {
   export const filterSensitiveLog = (obj: IdempotencyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotencyException => __isa(o, "IdempotencyException");
 }
 
 /**
  * <p>Represents information about incompatibility.</p>
  */
 export interface IncompatibilityMessage {
-  __type?: "IncompatibilityMessage";
   /**
    * <p>A message about the incompatibility.</p>
    */
@@ -2868,7 +2679,6 @@ export namespace IncompatibilityMessage {
   export const filterSensitiveLog = (obj: IncompatibilityMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncompatibilityMessage => __isa(o, "IncompatibilityMessage");
 }
 
 /**
@@ -2876,7 +2686,6 @@ export namespace IncompatibilityMessage {
  *             application (in .ipa format) as part of a remote access session.</p>
  */
 export interface InstallToRemoteAccessSessionRequest {
-  __type?: "InstallToRemoteAccessSessionRequest";
   /**
    * <p>The ARN of the app about which you are requesting information.</p>
    */
@@ -2893,8 +2702,6 @@ export namespace InstallToRemoteAccessSessionRequest {
   export const filterSensitiveLog = (obj: InstallToRemoteAccessSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstallToRemoteAccessSessionRequest =>
-    __isa(o, "InstallToRemoteAccessSessionRequest");
 }
 
 /**
@@ -2902,7 +2709,6 @@ export namespace InstallToRemoteAccessSessionRequest {
  *             install to a remote access session.</p>
  */
 export interface InstallToRemoteAccessSessionResult {
-  __type?: "InstallToRemoteAccessSessionResult";
   /**
    * <p>An app to upload or that has been uploaded.</p>
    */
@@ -2913,15 +2719,12 @@ export namespace InstallToRemoteAccessSessionResult {
   export const filterSensitiveLog = (obj: InstallToRemoteAccessSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstallToRemoteAccessSessionResult =>
-    __isa(o, "InstallToRemoteAccessSessionResult");
 }
 
 /**
  * <p>Represents the instance profile.</p>
  */
 export interface InstanceProfile {
-  __type?: "InstanceProfile";
   /**
    * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
    *                 <code>true</code>.</p>
@@ -2962,7 +2765,6 @@ export namespace InstanceProfile {
   export const filterSensitiveLog = (obj: InstanceProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceProfile => __isa(o, "InstanceProfile");
 }
 
 export enum InstanceStatus {
@@ -2992,7 +2794,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -3009,14 +2810,12 @@ export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
  * <p>Represents a device.</p>
  */
 export interface Job {
-  __type?: "Job";
   /**
    * <p>The job's ARN.</p>
    */
@@ -3209,7 +3008,6 @@ export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
@@ -3228,14 +3026,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Represents a request to the list artifacts operation.</p>
  */
 export interface ListArtifactsRequest {
-  __type?: "ListArtifactsRequest";
   /**
    * <p>The run, job, suite, or test ARN.</p>
    */
@@ -3269,14 +3065,12 @@ export namespace ListArtifactsRequest {
   export const filterSensitiveLog = (obj: ListArtifactsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListArtifactsRequest => __isa(o, "ListArtifactsRequest");
 }
 
 /**
  * <p>Represents the result of a list artifacts operation.</p>
  */
 export interface ListArtifactsResult {
-  __type?: "ListArtifactsResult";
   /**
    * <p>Information about the artifacts.</p>
    */
@@ -3294,11 +3088,9 @@ export namespace ListArtifactsResult {
   export const filterSensitiveLog = (obj: ListArtifactsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListArtifactsResult => __isa(o, "ListArtifactsResult");
 }
 
 export interface ListDeviceInstancesRequest {
-  __type?: "ListDeviceInstancesRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -3315,11 +3107,9 @@ export namespace ListDeviceInstancesRequest {
   export const filterSensitiveLog = (obj: ListDeviceInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceInstancesRequest => __isa(o, "ListDeviceInstancesRequest");
 }
 
 export interface ListDeviceInstancesResult {
-  __type?: "ListDeviceInstancesResult";
   /**
    * <p>An object that contains information about your device instances.</p>
    */
@@ -3336,14 +3126,12 @@ export namespace ListDeviceInstancesResult {
   export const filterSensitiveLog = (obj: ListDeviceInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceInstancesResult => __isa(o, "ListDeviceInstancesResult");
 }
 
 /**
  * <p>Represents the result of a list device pools request.</p>
  */
 export interface ListDevicePoolsRequest {
-  __type?: "ListDevicePoolsRequest";
   /**
    * <p>The device pools' type.</p>
    *         <p>Allowed values include:</p>
@@ -3376,14 +3164,12 @@ export namespace ListDevicePoolsRequest {
   export const filterSensitiveLog = (obj: ListDevicePoolsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevicePoolsRequest => __isa(o, "ListDevicePoolsRequest");
 }
 
 /**
  * <p>Represents the result of a list device pools request.</p>
  */
 export interface ListDevicePoolsResult {
-  __type?: "ListDevicePoolsResult";
   /**
    * <p>Information about the device pools.</p>
    */
@@ -3401,14 +3187,12 @@ export namespace ListDevicePoolsResult {
   export const filterSensitiveLog = (obj: ListDevicePoolsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevicePoolsResult => __isa(o, "ListDevicePoolsResult");
 }
 
 /**
  * <p>Represents the result of a list devices request.</p>
  */
 export interface ListDevicesRequest {
-  __type?: "ListDevicesRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3520,14 +3304,12 @@ export namespace ListDevicesRequest {
   export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevicesRequest => __isa(o, "ListDevicesRequest");
 }
 
 /**
  * <p>Represents the result of a list devices operation.</p>
  */
 export interface ListDevicesResult {
-  __type?: "ListDevicesResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
@@ -3545,11 +3327,9 @@ export namespace ListDevicesResult {
   export const filterSensitiveLog = (obj: ListDevicesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevicesResult => __isa(o, "ListDevicesResult");
 }
 
 export interface ListInstanceProfilesRequest {
-  __type?: "ListInstanceProfilesRequest";
   /**
    * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
    */
@@ -3566,11 +3346,9 @@ export namespace ListInstanceProfilesRequest {
   export const filterSensitiveLog = (obj: ListInstanceProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesRequest => __isa(o, "ListInstanceProfilesRequest");
 }
 
 export interface ListInstanceProfilesResult {
-  __type?: "ListInstanceProfilesResult";
   /**
    * <p>An object that contains information about your instance profiles.</p>
    */
@@ -3587,14 +3365,12 @@ export namespace ListInstanceProfilesResult {
   export const filterSensitiveLog = (obj: ListInstanceProfilesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesResult => __isa(o, "ListInstanceProfilesResult");
 }
 
 /**
  * <p>Represents a request to the list jobs operation.</p>
  */
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3611,14 +3387,12 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 /**
  * <p>Represents the result of a list jobs request.</p>
  */
 export interface ListJobsResult {
-  __type?: "ListJobsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
@@ -3636,11 +3410,9 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResult => __isa(o, "ListJobsResult");
 }
 
 export interface ListNetworkProfilesRequest {
-  __type?: "ListNetworkProfilesRequest";
   /**
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    */
@@ -3663,11 +3435,9 @@ export namespace ListNetworkProfilesRequest {
   export const filterSensitiveLog = (obj: ListNetworkProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNetworkProfilesRequest => __isa(o, "ListNetworkProfilesRequest");
 }
 
 export interface ListNetworkProfilesResult {
-  __type?: "ListNetworkProfilesResult";
   /**
    * <p>A list of the available network profiles.</p>
    */
@@ -3684,11 +3454,9 @@ export namespace ListNetworkProfilesResult {
   export const filterSensitiveLog = (obj: ListNetworkProfilesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNetworkProfilesResult => __isa(o, "ListNetworkProfilesResult");
 }
 
 export interface ListOfferingPromotionsRequest {
-  __type?: "ListOfferingPromotionsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3700,11 +3468,9 @@ export namespace ListOfferingPromotionsRequest {
   export const filterSensitiveLog = (obj: ListOfferingPromotionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOfferingPromotionsRequest => __isa(o, "ListOfferingPromotionsRequest");
 }
 
 export interface ListOfferingPromotionsResult {
-  __type?: "ListOfferingPromotionsResult";
   /**
    * <p>Information about the offering promotions.</p>
    */
@@ -3721,14 +3487,12 @@ export namespace ListOfferingPromotionsResult {
   export const filterSensitiveLog = (obj: ListOfferingPromotionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOfferingPromotionsResult => __isa(o, "ListOfferingPromotionsResult");
 }
 
 /**
  * <p>Represents the request to list all offerings.</p>
  */
 export interface ListOfferingsRequest {
-  __type?: "ListOfferingsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3740,14 +3504,12 @@ export namespace ListOfferingsRequest {
   export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOfferingsRequest => __isa(o, "ListOfferingsRequest");
 }
 
 /**
  * <p>Represents the return values of the list of offerings.</p>
  */
 export interface ListOfferingsResult {
-  __type?: "ListOfferingsResult";
   /**
    * <p>A value that represents the list offering results.</p>
    */
@@ -3764,14 +3526,12 @@ export namespace ListOfferingsResult {
   export const filterSensitiveLog = (obj: ListOfferingsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOfferingsResult => __isa(o, "ListOfferingsResult");
 }
 
 /**
  * <p>Represents the request to list the offering transaction history.</p>
  */
 export interface ListOfferingTransactionsRequest {
-  __type?: "ListOfferingTransactionsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3783,14 +3543,12 @@ export namespace ListOfferingTransactionsRequest {
   export const filterSensitiveLog = (obj: ListOfferingTransactionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOfferingTransactionsRequest => __isa(o, "ListOfferingTransactionsRequest");
 }
 
 /**
  * <p>Returns the transaction log of the specified offerings.</p>
  */
 export interface ListOfferingTransactionsResult {
-  __type?: "ListOfferingTransactionsResult";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3808,14 +3566,12 @@ export namespace ListOfferingTransactionsResult {
   export const filterSensitiveLog = (obj: ListOfferingTransactionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOfferingTransactionsResult => __isa(o, "ListOfferingTransactionsResult");
 }
 
 /**
  * <p>Represents a request to the list projects operation.</p>
  */
 export interface ListProjectsRequest {
-  __type?: "ListProjectsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3834,14 +3590,12 @@ export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 /**
  * <p>Represents the result of a list projects request.</p>
  */
 export interface ListProjectsResult {
-  __type?: "ListProjectsResult";
   /**
    * <p>Information about the projects.</p>
    */
@@ -3859,7 +3613,6 @@ export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResult => __isa(o, "ListProjectsResult");
 }
 
 /**
@@ -3867,7 +3620,6 @@ export namespace ListProjectsResult {
  *             session.</p>
  */
 export interface ListRemoteAccessSessionsRequest {
-  __type?: "ListRemoteAccessSessionsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3885,7 +3637,6 @@ export namespace ListRemoteAccessSessionsRequest {
   export const filterSensitiveLog = (obj: ListRemoteAccessSessionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRemoteAccessSessionsRequest => __isa(o, "ListRemoteAccessSessionsRequest");
 }
 
 /**
@@ -3893,7 +3644,6 @@ export namespace ListRemoteAccessSessionsRequest {
  *             return information about the remote access session.</p>
  */
 export interface ListRemoteAccessSessionsResult {
-  __type?: "ListRemoteAccessSessionsResult";
   /**
    * <p>A container that represents the metadata from the service about each remote access session you are
    *             requesting.</p>
@@ -3911,14 +3661,12 @@ export namespace ListRemoteAccessSessionsResult {
   export const filterSensitiveLog = (obj: ListRemoteAccessSessionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRemoteAccessSessionsResult => __isa(o, "ListRemoteAccessSessionsResult");
 }
 
 /**
  * <p>Represents a request to the list runs operation.</p>
  */
 export interface ListRunsRequest {
-  __type?: "ListRunsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the project for which you want to list
    *             runs.</p>
@@ -3936,14 +3684,12 @@ export namespace ListRunsRequest {
   export const filterSensitiveLog = (obj: ListRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRunsRequest => __isa(o, "ListRunsRequest");
 }
 
 /**
  * <p>Represents the result of a list runs request.</p>
  */
 export interface ListRunsResult {
-  __type?: "ListRunsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
@@ -3961,14 +3707,12 @@ export namespace ListRunsResult {
   export const filterSensitiveLog = (obj: ListRunsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRunsResult => __isa(o, "ListRunsResult");
 }
 
 /**
  * <p>Represents a request to the list samples operation.</p>
  */
 export interface ListSamplesRequest {
-  __type?: "ListSamplesRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -3985,14 +3729,12 @@ export namespace ListSamplesRequest {
   export const filterSensitiveLog = (obj: ListSamplesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSamplesRequest => __isa(o, "ListSamplesRequest");
 }
 
 /**
  * <p>Represents the result of a list samples request.</p>
  */
 export interface ListSamplesResult {
-  __type?: "ListSamplesResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
@@ -4010,14 +3752,12 @@ export namespace ListSamplesResult {
   export const filterSensitiveLog = (obj: ListSamplesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSamplesResult => __isa(o, "ListSamplesResult");
 }
 
 /**
  * <p>Represents a request to the list suites operation.</p>
  */
 export interface ListSuitesRequest {
-  __type?: "ListSuitesRequest";
   /**
    * <p>The job's Amazon Resource Name (ARN).</p>
    */
@@ -4034,14 +3774,12 @@ export namespace ListSuitesRequest {
   export const filterSensitiveLog = (obj: ListSuitesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSuitesRequest => __isa(o, "ListSuitesRequest");
 }
 
 /**
  * <p>Represents the result of a list suites request.</p>
  */
 export interface ListSuitesResult {
-  __type?: "ListSuitesResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
@@ -4059,11 +3797,9 @@ export namespace ListSuitesResult {
   export const filterSensitiveLog = (obj: ListSuitesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSuitesResult => __isa(o, "ListSuitesResult");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources for which to list tags. You can associate tags
    *             with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
@@ -4078,11 +3814,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
    *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
@@ -4094,11 +3828,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTestGridProjectsRequest {
-  __type?: "ListTestGridProjectsRequest";
   /**
    * <p>From a response, used to continue a paginated listing. </p>
    */
@@ -4114,11 +3846,9 @@ export namespace ListTestGridProjectsRequest {
   export const filterSensitiveLog = (obj: ListTestGridProjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridProjectsRequest => __isa(o, "ListTestGridProjectsRequest");
 }
 
 export interface ListTestGridProjectsResult {
-  __type?: "ListTestGridProjectsResult";
   /**
    * <p>The list of TestGridProjects, based on a <a>ListTestGridProjectsRequest</a>.</p>
    */
@@ -4135,11 +3865,9 @@ export namespace ListTestGridProjectsResult {
   export const filterSensitiveLog = (obj: ListTestGridProjectsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridProjectsResult => __isa(o, "ListTestGridProjectsResult");
 }
 
 export interface ListTestGridSessionActionsRequest {
-  __type?: "ListTestGridSessionActionsRequest";
   /**
    * <p>The maximum number of sessions to return per response.</p>
    */
@@ -4160,11 +3888,9 @@ export namespace ListTestGridSessionActionsRequest {
   export const filterSensitiveLog = (obj: ListTestGridSessionActionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionActionsRequest => __isa(o, "ListTestGridSessionActionsRequest");
 }
 
 export interface ListTestGridSessionActionsResult {
-  __type?: "ListTestGridSessionActionsResult";
   /**
    * <p>The action taken by the session.</p>
    */
@@ -4180,11 +3906,9 @@ export namespace ListTestGridSessionActionsResult {
   export const filterSensitiveLog = (obj: ListTestGridSessionActionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionActionsResult => __isa(o, "ListTestGridSessionActionsResult");
 }
 
 export interface ListTestGridSessionArtifactsRequest {
-  __type?: "ListTestGridSessionArtifactsRequest";
   /**
    * <p>The ARN of a <a>TestGridSession</a>. </p>
    */
@@ -4210,12 +3934,9 @@ export namespace ListTestGridSessionArtifactsRequest {
   export const filterSensitiveLog = (obj: ListTestGridSessionArtifactsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionArtifactsRequest =>
-    __isa(o, "ListTestGridSessionArtifactsRequest");
 }
 
 export interface ListTestGridSessionArtifactsResult {
-  __type?: "ListTestGridSessionArtifactsResult";
   /**
    * <p>Pagination token.</p>
    */
@@ -4231,12 +3952,9 @@ export namespace ListTestGridSessionArtifactsResult {
   export const filterSensitiveLog = (obj: ListTestGridSessionArtifactsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionArtifactsResult =>
-    __isa(o, "ListTestGridSessionArtifactsResult");
 }
 
 export interface ListTestGridSessionsRequest {
-  __type?: "ListTestGridSessionsRequest";
   /**
    * <p>Return only  sessions created before this time.</p>
    */
@@ -4282,11 +4000,9 @@ export namespace ListTestGridSessionsRequest {
   export const filterSensitiveLog = (obj: ListTestGridSessionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionsRequest => __isa(o, "ListTestGridSessionsRequest");
 }
 
 export interface ListTestGridSessionsResult {
-  __type?: "ListTestGridSessionsResult";
   /**
    * <p>Pagination token.</p>
    */
@@ -4302,14 +4018,12 @@ export namespace ListTestGridSessionsResult {
   export const filterSensitiveLog = (obj: ListTestGridSessionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionsResult => __isa(o, "ListTestGridSessionsResult");
 }
 
 /**
  * <p>Represents a request to the list tests operation.</p>
  */
 export interface ListTestsRequest {
-  __type?: "ListTestsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -4326,14 +4040,12 @@ export namespace ListTestsRequest {
   export const filterSensitiveLog = (obj: ListTestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestsRequest => __isa(o, "ListTestsRequest");
 }
 
 /**
  * <p>Represents the result of a list tests request.</p>
  */
 export interface ListTestsResult {
-  __type?: "ListTestsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
@@ -4351,14 +4063,12 @@ export namespace ListTestsResult {
   export const filterSensitiveLog = (obj: ListTestsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTestsResult => __isa(o, "ListTestsResult");
 }
 
 /**
  * <p>Represents a request to the list unique problems operation.</p>
  */
 export interface ListUniqueProblemsRequest {
-  __type?: "ListUniqueProblemsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -4375,14 +4085,12 @@ export namespace ListUniqueProblemsRequest {
   export const filterSensitiveLog = (obj: ListUniqueProblemsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUniqueProblemsRequest => __isa(o, "ListUniqueProblemsRequest");
 }
 
 /**
  * <p>Represents the result of a list unique problems request.</p>
  */
 export interface ListUniqueProblemsResult {
-  __type?: "ListUniqueProblemsResult";
   /**
    * <p>Information about the unique problems.</p>
    *         <p>Allowed values include:</p>
@@ -4424,14 +4132,12 @@ export namespace ListUniqueProblemsResult {
   export const filterSensitiveLog = (obj: ListUniqueProblemsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUniqueProblemsResult => __isa(o, "ListUniqueProblemsResult");
 }
 
 /**
  * <p>Represents a request to the list uploads operation.</p>
  */
 export interface ListUploadsRequest {
-  __type?: "ListUploadsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -4553,14 +4259,12 @@ export namespace ListUploadsRequest {
   export const filterSensitiveLog = (obj: ListUploadsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUploadsRequest => __isa(o, "ListUploadsRequest");
 }
 
 /**
  * <p>Represents the result of a list uploads request.</p>
  */
 export interface ListUploadsResult {
-  __type?: "ListUploadsResult";
   /**
    * <p>Information about the uploads.</p>
    */
@@ -4578,11 +4282,9 @@ export namespace ListUploadsResult {
   export const filterSensitiveLog = (obj: ListUploadsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUploadsResult => __isa(o, "ListUploadsResult");
 }
 
 export interface ListVPCEConfigurationsRequest {
-  __type?: "ListVPCEConfigurationsRequest";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -4599,11 +4301,9 @@ export namespace ListVPCEConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListVPCEConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVPCEConfigurationsRequest => __isa(o, "ListVPCEConfigurationsRequest");
 }
 
 export interface ListVPCEConfigurationsResult {
-  __type?: "ListVPCEConfigurationsResult";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
@@ -4621,7 +4321,6 @@ export namespace ListVPCEConfigurationsResult {
   export const filterSensitiveLog = (obj: ListVPCEConfigurationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVPCEConfigurationsResult => __isa(o, "ListVPCEConfigurationsResult");
 }
 
 /**
@@ -4630,7 +4329,6 @@ export namespace ListVPCEConfigurationsResult {
  *         <p>Elevation is currently not supported.</p>
  */
 export interface Location {
-  __type?: "Location";
   /**
    * <p>The longitude.</p>
    */
@@ -4646,14 +4344,12 @@ export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Location => __isa(o, "Location");
 }
 
 /**
  * <p>A number that represents the monetary amount for an offering or transaction.</p>
  */
 export interface MonetaryAmount {
-  __type?: "MonetaryAmount";
   /**
    * <p>The currency code of a monetary amount. For example, <code>USD</code> means U.S. dollars.</p>
    */
@@ -4669,14 +4365,12 @@ export namespace MonetaryAmount {
   export const filterSensitiveLog = (obj: MonetaryAmount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonetaryAmount => __isa(o, "MonetaryAmount");
 }
 
 /**
  * <p>An array of settings that describes characteristics of a network profile.</p>
  */
 export interface NetworkProfile {
-  __type?: "NetworkProfile";
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
@@ -4749,7 +4443,6 @@ export namespace NetworkProfile {
   export const filterSensitiveLog = (obj: NetworkProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkProfile => __isa(o, "NetworkProfile");
 }
 
 export enum NetworkProfileType {
@@ -4774,7 +4467,6 @@ export namespace NotEligibleException {
   export const filterSensitiveLog = (obj: NotEligibleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotEligibleException => __isa(o, "NotEligibleException");
 }
 
 /**
@@ -4793,14 +4485,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>Represents the metadata of a device offering.</p>
  */
 export interface Offering {
-  __type?: "Offering";
   /**
    * <p>Specifies whether there are recurring charges for the offering.</p>
    */
@@ -4831,14 +4521,12 @@ export namespace Offering {
   export const filterSensitiveLog = (obj: Offering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Offering => __isa(o, "Offering");
 }
 
 /**
  * <p>Represents information about an offering promotion.</p>
  */
 export interface OfferingPromotion {
-  __type?: "OfferingPromotion";
   /**
    * <p>A string that describes the offering promotion.</p>
    */
@@ -4854,14 +4542,12 @@ export namespace OfferingPromotion {
   export const filterSensitiveLog = (obj: OfferingPromotion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OfferingPromotion => __isa(o, "OfferingPromotion");
 }
 
 /**
  * <p>The status of the offering.</p>
  */
 export interface OfferingStatus {
-  __type?: "OfferingStatus";
   /**
    * <p>The date on which the offering is effective.</p>
    */
@@ -4887,14 +4573,12 @@ export namespace OfferingStatus {
   export const filterSensitiveLog = (obj: OfferingStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OfferingStatus => __isa(o, "OfferingStatus");
 }
 
 /**
  * <p>Represents the metadata of an offering transaction.</p>
  */
 export interface OfferingTransaction {
-  __type?: "OfferingTransaction";
   /**
    * <p>The status of an offering transaction.</p>
    */
@@ -4925,7 +4609,6 @@ export namespace OfferingTransaction {
   export const filterSensitiveLog = (obj: OfferingTransaction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OfferingTransaction => __isa(o, "OfferingTransaction");
 }
 
 export enum OfferingTransactionType {
@@ -4942,7 +4625,6 @@ export enum OfferingType {
  * <p>Represents a specific warning or failure.</p>
  */
 export interface Problem {
-  __type?: "Problem";
   /**
    * <p>The problem's result.</p>
    *         <p>Allowed values include:</p>
@@ -5007,14 +4689,12 @@ export namespace Problem {
   export const filterSensitiveLog = (obj: Problem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Problem => __isa(o, "Problem");
 }
 
 /**
  * <p>Information about a problem detail.</p>
  */
 export interface ProblemDetail {
-  __type?: "ProblemDetail";
   /**
    * <p>The problem detail's name.</p>
    */
@@ -5030,7 +4710,6 @@ export namespace ProblemDetail {
   export const filterSensitiveLog = (obj: ProblemDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProblemDetail => __isa(o, "ProblemDetail");
 }
 
 /**
@@ -5038,7 +4717,6 @@ export namespace ProblemDetail {
  *             tests.</p>
  */
 export interface Project {
-  __type?: "Project";
   /**
    * <p>The project's name.</p>
    */
@@ -5065,14 +4743,12 @@ export namespace Project {
   export const filterSensitiveLog = (obj: Project): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Project => __isa(o, "Project");
 }
 
 /**
  * <p>Represents a request for a purchase offering.</p>
  */
 export interface PurchaseOfferingRequest {
-  __type?: "PurchaseOfferingRequest";
   /**
    * <p>The number of device slots to purchase in an offering request.</p>
    */
@@ -5093,14 +4769,12 @@ export namespace PurchaseOfferingRequest {
   export const filterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseOfferingRequest => __isa(o, "PurchaseOfferingRequest");
 }
 
 /**
  * <p>The result of the purchase offering (for example, success or failure).</p>
  */
 export interface PurchaseOfferingResult {
-  __type?: "PurchaseOfferingResult";
   /**
    * <p>Represents the offering transaction for the purchase result.</p>
    */
@@ -5111,7 +4785,6 @@ export namespace PurchaseOfferingResult {
   export const filterSensitiveLog = (obj: PurchaseOfferingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseOfferingResult => __isa(o, "PurchaseOfferingResult");
 }
 
 /**
@@ -5119,7 +4792,6 @@ export namespace PurchaseOfferingResult {
  *             include Wi-Fi, GPS, Bluetooth, and NFC.</p>
  */
 export interface Radios {
-  __type?: "Radios";
   /**
    * <p>True if GPS is enabled at the beginning of the test. Otherwise, false.</p>
    */
@@ -5145,14 +4817,12 @@ export namespace Radios {
   export const filterSensitiveLog = (obj: Radios): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Radios => __isa(o, "Radios");
 }
 
 /**
  * <p>Specifies whether charges for devices are recurring.</p>
  */
 export interface RecurringCharge {
-  __type?: "RecurringCharge";
   /**
    * <p>The cost of the recurring charge.</p>
    */
@@ -5168,7 +4838,6 @@ export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 export enum RecurringChargeFrequency {
@@ -5179,7 +4848,6 @@ export enum RecurringChargeFrequency {
  * <p>Represents information about the remote access session.</p>
  */
 export interface RemoteAccessSession {
-  __type?: "RemoteAccessSession";
   /**
    * <p>The ARN of the instance.</p>
    */
@@ -5377,14 +5045,12 @@ export namespace RemoteAccessSession {
   export const filterSensitiveLog = (obj: RemoteAccessSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoteAccessSession => __isa(o, "RemoteAccessSession");
 }
 
 /**
  * <p>A request that represents an offering renewal.</p>
  */
 export interface RenewOfferingRequest {
-  __type?: "RenewOfferingRequest";
   /**
    * <p>The ID of a request to renew an offering.</p>
    */
@@ -5400,14 +5066,12 @@ export namespace RenewOfferingRequest {
   export const filterSensitiveLog = (obj: RenewOfferingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewOfferingRequest => __isa(o, "RenewOfferingRequest");
 }
 
 /**
  * <p>The result of a renewal offering.</p>
  */
 export interface RenewOfferingResult {
-  __type?: "RenewOfferingResult";
   /**
    * <p>Represents the status of the offering transaction for the renewal.</p>
    */
@@ -5418,7 +5082,6 @@ export namespace RenewOfferingResult {
   export const filterSensitiveLog = (obj: RenewOfferingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewOfferingResult => __isa(o, "RenewOfferingResult");
 }
 
 /**
@@ -5426,7 +5089,6 @@ export namespace RenewOfferingResult {
  *             pixels.</p>
  */
 export interface Resolution {
-  __type?: "Resolution";
   /**
    * <p>The screen resolution's height, expressed in pixels.</p>
    */
@@ -5442,14 +5104,12 @@ export namespace Resolution {
   export const filterSensitiveLog = (obj: Resolution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resolution => __isa(o, "Resolution");
 }
 
 /**
  * <p>Represents a condition for a device pool.</p>
  */
 export interface Rule {
-  __type?: "Rule";
   /**
    * <p>The rule's value.</p>
    */
@@ -5570,7 +5230,6 @@ export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
 
 export enum RuleOperator {
@@ -5589,7 +5248,6 @@ export enum RuleOperator {
  *             on.</p>
  */
 export interface Run {
-  __type?: "Run";
   /**
    * <p>The run's platform.</p>
    *         <p>Allowed values include:</p>
@@ -5888,14 +5546,12 @@ export namespace Run {
   export const filterSensitiveLog = (obj: Run): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Run => __isa(o, "Run");
 }
 
 /**
  * <p>Represents a sample of performance data.</p>
  */
 export interface Sample {
-  __type?: "Sample";
   /**
    * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
    *             file.</p>
@@ -5976,7 +5632,6 @@ export namespace Sample {
   export const filterSensitiveLog = (obj: Sample): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Sample => __isa(o, "Sample");
 }
 
 export enum SampleType {
@@ -6004,7 +5659,6 @@ export enum SampleType {
  *             auxiliary apps, and network profiles.</p>
  */
 export interface ScheduleRunConfiguration {
-  __type?: "ScheduleRunConfiguration";
   /**
    * <p>Specifies the billing method for a test run: <code>metered</code> or
    *                 <code>unmetered</code>. If the parameter is not specified, the default value is
@@ -6063,14 +5717,12 @@ export namespace ScheduleRunConfiguration {
   export const filterSensitiveLog = (obj: ScheduleRunConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunConfiguration => __isa(o, "ScheduleRunConfiguration");
 }
 
 /**
  * <p>Represents a request to the schedule run operation.</p>
  */
 export interface ScheduleRunRequest {
-  __type?: "ScheduleRunRequest";
   /**
    * <p>The ARN of the project for the run to be scheduled.</p>
    */
@@ -6125,14 +5777,12 @@ export namespace ScheduleRunRequest {
   export const filterSensitiveLog = (obj: ScheduleRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunRequest => __isa(o, "ScheduleRunRequest");
 }
 
 /**
  * <p>Represents the result of a schedule run request.</p>
  */
 export interface ScheduleRunResult {
-  __type?: "ScheduleRunResult";
   /**
    * <p>Information about the scheduled run.</p>
    */
@@ -6143,7 +5793,6 @@ export namespace ScheduleRunResult {
   export const filterSensitiveLog = (obj: ScheduleRunResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunResult => __isa(o, "ScheduleRunResult");
 }
 
 /**
@@ -6151,7 +5800,6 @@ export namespace ScheduleRunResult {
  *             example of the JSON request syntax, see <a>ScheduleRun</a>.</p>
  */
 export interface ScheduleRunTest {
-  __type?: "ScheduleRunTest";
   /**
    * <p>The test's parameters, such as test framework parameters and fixture settings.
    *             Parameters are represented by name-value pairs of strings.</p>
@@ -6375,7 +6023,6 @@ export namespace ScheduleRunTest {
   export const filterSensitiveLog = (obj: ScheduleRunTest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunTest => __isa(o, "ScheduleRunTest");
 }
 
 /**
@@ -6394,11 +6041,9 @@ export namespace ServiceAccountException {
   export const filterSensitiveLog = (obj: ServiceAccountException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceAccountException => __isa(o, "ServiceAccountException");
 }
 
 export interface StopJobRequest {
-  __type?: "StopJobRequest";
   /**
    * <p>Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.</p>
    */
@@ -6409,11 +6054,9 @@ export namespace StopJobRequest {
   export const filterSensitiveLog = (obj: StopJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopJobRequest => __isa(o, "StopJobRequest");
 }
 
 export interface StopJobResult {
-  __type?: "StopJobResult";
   /**
    * <p>The job that was stopped.</p>
    */
@@ -6424,14 +6067,12 @@ export namespace StopJobResult {
   export const filterSensitiveLog = (obj: StopJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopJobResult => __isa(o, "StopJobResult");
 }
 
 /**
  * <p>Represents the request to stop the remote access session.</p>
  */
 export interface StopRemoteAccessSessionRequest {
-  __type?: "StopRemoteAccessSessionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the remote access session to stop.</p>
    */
@@ -6442,7 +6083,6 @@ export namespace StopRemoteAccessSessionRequest {
   export const filterSensitiveLog = (obj: StopRemoteAccessSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRemoteAccessSessionRequest => __isa(o, "StopRemoteAccessSessionRequest");
 }
 
 /**
@@ -6450,7 +6090,6 @@ export namespace StopRemoteAccessSessionRequest {
  *             when AWS Device Farm stops the session.</p>
  */
 export interface StopRemoteAccessSessionResult {
-  __type?: "StopRemoteAccessSessionResult";
   /**
    * <p>A container that represents the metadata from the service about the remote access session you are
    *             stopping.</p>
@@ -6462,14 +6101,12 @@ export namespace StopRemoteAccessSessionResult {
   export const filterSensitiveLog = (obj: StopRemoteAccessSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRemoteAccessSessionResult => __isa(o, "StopRemoteAccessSessionResult");
 }
 
 /**
  * <p>Represents the request to stop a specific run.</p>
  */
 export interface StopRunRequest {
-  __type?: "StopRunRequest";
   /**
    * <p>Represents the Amazon Resource Name (ARN) of the Device Farm run to stop.</p>
    */
@@ -6480,14 +6117,12 @@ export namespace StopRunRequest {
   export const filterSensitiveLog = (obj: StopRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRunRequest => __isa(o, "StopRunRequest");
 }
 
 /**
  * <p>Represents the results of your stop run attempt.</p>
  */
 export interface StopRunResult {
-  __type?: "StopRunResult";
   /**
    * <p>The run that was stopped.</p>
    */
@@ -6498,14 +6133,12 @@ export namespace StopRunResult {
   export const filterSensitiveLog = (obj: StopRunResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRunResult => __isa(o, "StopRunResult");
 }
 
 /**
  * <p>Represents a collection of one or more tests.</p>
  */
 export interface Suite {
-  __type?: "Suite";
   /**
    * <p>A message about the suite's result.</p>
    */
@@ -6682,7 +6315,6 @@ export namespace Suite {
   export const filterSensitiveLog = (obj: Suite): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Suite => __isa(o, "Suite");
 }
 
 /**
@@ -6691,7 +6323,6 @@ export namespace Suite {
  *             characters. Tag values can have a maximum length of 256 characters. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a
    *             category for more specific tag values.</p>
@@ -6709,7 +6340,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -6726,7 +6356,6 @@ export namespace TagOperationException {
   export const filterSensitiveLog = (obj: TagOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagOperationException => __isa(o, "TagOperationException");
 }
 
 /**
@@ -6744,11 +6373,9 @@ export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
    *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
@@ -6769,25 +6396,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Represents a condition that is evaluated.</p>
  */
 export interface Test {
-  __type?: "Test";
   /**
    * <p>The test's start time.</p>
    */
@@ -6963,14 +6585,12 @@ export namespace Test {
   export const filterSensitiveLog = (obj: Test): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Test => __isa(o, "Test");
 }
 
 /**
  * <p>A Selenium testing project. Projects are used to collect and collate sessions.</p>
  */
 export interface TestGridProject {
-  __type?: "TestGridProject";
   /**
    * <p>A human-readable description for the project.</p>
    */
@@ -6996,7 +6616,6 @@ export namespace TestGridProject {
   export const filterSensitiveLog = (obj: TestGridProject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestGridProject => __isa(o, "TestGridProject");
 }
 
 /**
@@ -7004,7 +6623,6 @@ export namespace TestGridProject {
  *          call to <a>CreateTestGridUrl</a>.</p>
  */
 export interface TestGridSession {
-  __type?: "TestGridSession";
   /**
    * <p>The time that the session was started.</p>
    */
@@ -7040,14 +6658,12 @@ export namespace TestGridSession {
   export const filterSensitiveLog = (obj: TestGridSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestGridSession => __isa(o, "TestGridSession");
 }
 
 /**
  * <p>An action taken by a <a>TestGridSession</a> browser instance.</p>
  */
 export interface TestGridSessionAction {
-  __type?: "TestGridSessionAction";
   /**
    * <p>HTTP status code returned to the browser when the action was taken.</p>
    */
@@ -7078,7 +6694,6 @@ export namespace TestGridSessionAction {
   export const filterSensitiveLog = (obj: TestGridSessionAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestGridSessionAction => __isa(o, "TestGridSessionAction");
 }
 
 /**
@@ -7089,7 +6704,6 @@ export namespace TestGridSessionAction {
  *          </note>
  */
 export interface TestGridSessionArtifact {
-  __type?: "TestGridSessionArtifact";
   /**
    * <p>The kind of artifact.</p>
    */
@@ -7110,7 +6724,6 @@ export namespace TestGridSessionArtifact {
   export const filterSensitiveLog = (obj: TestGridSessionArtifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestGridSessionArtifact => __isa(o, "TestGridSessionArtifact");
 }
 
 export enum TestGridSessionArtifactCategory {
@@ -7169,7 +6782,6 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -7177,7 +6789,6 @@ export namespace TooManyTagsException {
  *             account.</p>
  */
 export interface TrialMinutes {
-  __type?: "TrialMinutes";
   /**
    * <p>The total number of free trial minutes that the account started with.</p>
    */
@@ -7193,14 +6804,12 @@ export namespace TrialMinutes {
   export const filterSensitiveLog = (obj: TrialMinutes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialMinutes => __isa(o, "TrialMinutes");
 }
 
 /**
  * <p>A collection of one or more problems, grouped by their result.</p>
  */
 export interface UniqueProblem {
-  __type?: "UniqueProblem";
   /**
    * <p>A message about the unique problems' result.</p>
    */
@@ -7216,11 +6825,9 @@ export namespace UniqueProblem {
   export const filterSensitiveLog = (obj: UniqueProblem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UniqueProblem => __isa(o, "UniqueProblem");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate
    *             tags with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
@@ -7240,22 +6847,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDeviceInstanceRequest {
-  __type?: "UpdateDeviceInstanceRequest";
   /**
    * <p>The ARN of the profile that you want to associate with the device instance.</p>
    */
@@ -7276,11 +6878,9 @@ export namespace UpdateDeviceInstanceRequest {
   export const filterSensitiveLog = (obj: UpdateDeviceInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceInstanceRequest => __isa(o, "UpdateDeviceInstanceRequest");
 }
 
 export interface UpdateDeviceInstanceResult {
-  __type?: "UpdateDeviceInstanceResult";
   /**
    * <p>An object that contains information about your device instance.</p>
    */
@@ -7291,14 +6891,12 @@ export namespace UpdateDeviceInstanceResult {
   export const filterSensitiveLog = (obj: UpdateDeviceInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceInstanceResult => __isa(o, "UpdateDeviceInstanceResult");
 }
 
 /**
  * <p>Represents a request to the update device pool operation.</p>
  */
 export interface UpdateDevicePoolRequest {
-  __type?: "UpdateDevicePoolRequest";
   /**
    * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds
    *             devices that are available and that meet the criteria that you assign for the
@@ -7347,14 +6945,12 @@ export namespace UpdateDevicePoolRequest {
   export const filterSensitiveLog = (obj: UpdateDevicePoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDevicePoolRequest => __isa(o, "UpdateDevicePoolRequest");
 }
 
 /**
  * <p>Represents the result of an update device pool request.</p>
  */
 export interface UpdateDevicePoolResult {
-  __type?: "UpdateDevicePoolResult";
   /**
    * <p>The device pool you just updated.</p>
    */
@@ -7365,11 +6961,9 @@ export namespace UpdateDevicePoolResult {
   export const filterSensitiveLog = (obj: UpdateDevicePoolResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDevicePoolResult => __isa(o, "UpdateDevicePoolResult");
 }
 
 export interface UpdateInstanceProfileRequest {
-  __type?: "UpdateInstanceProfileRequest";
   /**
    * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
    *             after a test run is over.</p>
@@ -7410,11 +7004,9 @@ export namespace UpdateInstanceProfileRequest {
   export const filterSensitiveLog = (obj: UpdateInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInstanceProfileRequest => __isa(o, "UpdateInstanceProfileRequest");
 }
 
 export interface UpdateInstanceProfileResult {
-  __type?: "UpdateInstanceProfileResult";
   /**
    * <p>An object that contains information about your instance profile.</p>
    */
@@ -7425,11 +7017,9 @@ export namespace UpdateInstanceProfileResult {
   export const filterSensitiveLog = (obj: UpdateInstanceProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInstanceProfileResult => __isa(o, "UpdateInstanceProfileResult");
 }
 
 export interface UpdateNetworkProfileRequest {
-  __type?: "UpdateNetworkProfileRequest";
   /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    */
@@ -7505,11 +7095,9 @@ export namespace UpdateNetworkProfileRequest {
   export const filterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNetworkProfileRequest => __isa(o, "UpdateNetworkProfileRequest");
 }
 
 export interface UpdateNetworkProfileResult {
-  __type?: "UpdateNetworkProfileResult";
   /**
    * <p>A list of the available network profiles.</p>
    */
@@ -7520,14 +7108,12 @@ export namespace UpdateNetworkProfileResult {
   export const filterSensitiveLog = (obj: UpdateNetworkProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNetworkProfileResult => __isa(o, "UpdateNetworkProfileResult");
 }
 
 /**
  * <p>Represents a request to the update project operation.</p>
  */
 export interface UpdateProjectRequest {
-  __type?: "UpdateProjectRequest";
   /**
    * <p>The number of minutes a test run in the project executes before it times out.</p>
    */
@@ -7548,14 +7134,12 @@ export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
 /**
  * <p>Represents the result of an update project request.</p>
  */
 export interface UpdateProjectResult {
-  __type?: "UpdateProjectResult";
   /**
    * <p>The project to update.</p>
    */
@@ -7566,11 +7150,9 @@ export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResult => __isa(o, "UpdateProjectResult");
 }
 
 export interface UpdateTestGridProjectRequest {
-  __type?: "UpdateTestGridProjectRequest";
   /**
    * <p>ARN of the project to update.</p>
    */
@@ -7591,11 +7173,9 @@ export namespace UpdateTestGridProjectRequest {
   export const filterSensitiveLog = (obj: UpdateTestGridProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTestGridProjectRequest => __isa(o, "UpdateTestGridProjectRequest");
 }
 
 export interface UpdateTestGridProjectResult {
-  __type?: "UpdateTestGridProjectResult";
   /**
    * <p>The project, including updated information.</p>
    */
@@ -7606,11 +7186,9 @@ export namespace UpdateTestGridProjectResult {
   export const filterSensitiveLog = (obj: UpdateTestGridProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTestGridProjectResult => __isa(o, "UpdateTestGridProjectResult");
 }
 
 export interface UpdateUploadRequest {
-  __type?: "UpdateUploadRequest";
   /**
    * <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
    */
@@ -7637,11 +7215,9 @@ export namespace UpdateUploadRequest {
   export const filterSensitiveLog = (obj: UpdateUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUploadRequest => __isa(o, "UpdateUploadRequest");
 }
 
 export interface UpdateUploadResult {
-  __type?: "UpdateUploadResult";
   /**
    * <p>A test spec uploaded to Device Farm.</p>
    */
@@ -7652,11 +7228,9 @@ export namespace UpdateUploadResult {
   export const filterSensitiveLog = (obj: UpdateUploadResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUploadResult => __isa(o, "UpdateUploadResult");
 }
 
 export interface UpdateVPCEConfigurationRequest {
-  __type?: "UpdateVPCEConfigurationRequest";
   /**
    * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
    *             easily.</p>
@@ -7690,11 +7264,9 @@ export namespace UpdateVPCEConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateVPCEConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVPCEConfigurationRequest => __isa(o, "UpdateVPCEConfigurationRequest");
 }
 
 export interface UpdateVPCEConfigurationResult {
-  __type?: "UpdateVPCEConfigurationResult";
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
    */
@@ -7705,7 +7277,6 @@ export namespace UpdateVPCEConfigurationResult {
   export const filterSensitiveLog = (obj: UpdateVPCEConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVPCEConfigurationResult => __isa(o, "UpdateVPCEConfigurationResult");
 }
 
 /**
@@ -7713,7 +7284,6 @@ export namespace UpdateVPCEConfigurationResult {
  *             uploaded.</p>
  */
 export interface Upload {
-  __type?: "Upload";
   /**
    * <p>A message about the upload's result.</p>
    */
@@ -7893,7 +7463,6 @@ export namespace Upload {
   export const filterSensitiveLog = (obj: Upload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Upload => __isa(o, "Upload");
 }
 
 export enum UploadCategory {
@@ -7947,7 +7516,6 @@ export enum UploadType {
  * <p>Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
  */
 export interface VPCEConfiguration {
-  __type?: "VPCEConfiguration";
   /**
    * <p>The DNS name that maps to the private IP address of the service you want to
    *             access.</p>
@@ -7980,5 +7548,4 @@ export namespace VPCEConfiguration {
   export const filterSensitiveLog = (obj: VPCEConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPCEConfiguration => __isa(o, "VPCEConfiguration");
 }

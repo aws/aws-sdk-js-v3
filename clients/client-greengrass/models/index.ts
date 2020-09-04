@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateRoleToGroupRequest {
-  __type?: "AssociateRoleToGroupRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -18,11 +17,9 @@ export namespace AssociateRoleToGroupRequest {
   export const filterSensitiveLog = (obj: AssociateRoleToGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateRoleToGroupRequest => __isa(o, "AssociateRoleToGroupRequest");
 }
 
 export interface AssociateRoleToGroupResponse {
-  __type?: "AssociateRoleToGroupResponse";
   /**
    * The time, in milliseconds since the epoch, when the role ARN was associated with the group.
    */
@@ -33,11 +30,9 @@ export namespace AssociateRoleToGroupResponse {
   export const filterSensitiveLog = (obj: AssociateRoleToGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateRoleToGroupResponse => __isa(o, "AssociateRoleToGroupResponse");
 }
 
 export interface AssociateServiceRoleToAccountRequest {
-  __type?: "AssociateServiceRoleToAccountRequest";
   /**
    * The ARN of the service role you wish to associate with your account.
    */
@@ -48,12 +43,9 @@ export namespace AssociateServiceRoleToAccountRequest {
   export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateServiceRoleToAccountRequest =>
-    __isa(o, "AssociateServiceRoleToAccountRequest");
 }
 
 export interface AssociateServiceRoleToAccountResponse {
-  __type?: "AssociateServiceRoleToAccountResponse";
   /**
    * The time when the service role was associated with the account.
    */
@@ -64,8 +56,6 @@ export namespace AssociateServiceRoleToAccountResponse {
   export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateServiceRoleToAccountResponse =>
-    __isa(o, "AssociateServiceRoleToAccountResponse");
 }
 
 /**
@@ -89,14 +79,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * Information about a bulk deployment. You cannot start a new bulk deployment while another one is still running or in a non-terminal state.
  */
 export interface BulkDeployment {
-  __type?: "BulkDeployment";
   /**
    * The ARN of the bulk deployment.
    */
@@ -117,14 +105,12 @@ export namespace BulkDeployment {
   export const filterSensitiveLog = (obj: BulkDeployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkDeployment => __isa(o, "BulkDeployment");
 }
 
 /**
  * Relevant metrics on input records processed during bulk deployment.
  */
 export interface BulkDeploymentMetrics {
-  __type?: "BulkDeploymentMetrics";
   /**
    * The total number of group records from the input file that have been processed so far, or attempted.
    */
@@ -145,14 +131,12 @@ export namespace BulkDeploymentMetrics {
   export const filterSensitiveLog = (obj: BulkDeploymentMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkDeploymentMetrics => __isa(o, "BulkDeploymentMetrics");
 }
 
 /**
  * Information about an individual group deployment in a bulk deployment operation.
  */
 export interface BulkDeploymentResult {
-  __type?: "BulkDeploymentResult";
   /**
    * The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
    */
@@ -198,7 +182,6 @@ export namespace BulkDeploymentResult {
   export const filterSensitiveLog = (obj: BulkDeploymentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkDeploymentResult => __isa(o, "BulkDeploymentResult");
 }
 
 export enum BulkDeploymentStatus {
@@ -214,7 +197,6 @@ export enum BulkDeploymentStatus {
  * Information about a Greengrass core's connectivity.
  */
 export interface ConnectivityInfo {
-  __type?: "ConnectivityInfo";
   /**
    * The endpoint for the Greengrass core. Can be an IP address or DNS.
    */
@@ -240,14 +222,12 @@ export namespace ConnectivityInfo {
   export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectivityInfo => __isa(o, "ConnectivityInfo");
 }
 
 /**
  * Information about a connector. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
  */
 export interface Connector {
-  __type?: "Connector";
   /**
    * The parameters or configuration that the connector uses.
    */
@@ -268,14 +248,12 @@ export namespace Connector {
   export const filterSensitiveLog = (obj: Connector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Connector => __isa(o, "Connector");
 }
 
 /**
  * Information about the connector definition version, which is a container for connectors.
  */
 export interface ConnectorDefinitionVersion {
-  __type?: "ConnectorDefinitionVersion";
   /**
    * A list of references to connectors in this version, with their corresponding configuration settings.
    */
@@ -286,14 +264,12 @@ export namespace ConnectorDefinitionVersion {
   export const filterSensitiveLog = (obj: ConnectorDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectorDefinitionVersion => __isa(o, "ConnectorDefinitionVersion");
 }
 
 /**
  * Information about a core.
  */
 export interface Core {
-  __type?: "Core";
   /**
    * The ARN of the certificate associated with the core.
    */
@@ -319,14 +295,12 @@ export namespace Core {
   export const filterSensitiveLog = (obj: Core): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Core => __isa(o, "Core");
 }
 
 /**
  * Information about a core definition version.
  */
 export interface CoreDefinitionVersion {
-  __type?: "CoreDefinitionVersion";
   /**
    * A list of cores in the core definition version.
    */
@@ -337,11 +311,9 @@ export namespace CoreDefinitionVersion {
   export const filterSensitiveLog = (obj: CoreDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CoreDefinitionVersion => __isa(o, "CoreDefinitionVersion");
 }
 
 export interface CreateConnectorDefinitionRequest {
-  __type?: "CreateConnectorDefinitionRequest";
   /**
    * The name of the connector definition.
    */
@@ -367,11 +339,9 @@ export namespace CreateConnectorDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateConnectorDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectorDefinitionRequest => __isa(o, "CreateConnectorDefinitionRequest");
 }
 
 export interface CreateConnectorDefinitionResponse {
-  __type?: "CreateConnectorDefinitionResponse";
   /**
    * The ID of the definition.
    */
@@ -412,11 +382,9 @@ export namespace CreateConnectorDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateConnectorDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectorDefinitionResponse => __isa(o, "CreateConnectorDefinitionResponse");
 }
 
 export interface CreateConnectorDefinitionVersionRequest {
-  __type?: "CreateConnectorDefinitionVersionRequest";
   /**
    * A list of references to connectors in this version, with their corresponding configuration settings.
    */
@@ -437,12 +405,9 @@ export namespace CreateConnectorDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateConnectorDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectorDefinitionVersionRequest =>
-    __isa(o, "CreateConnectorDefinitionVersionRequest");
 }
 
 export interface CreateConnectorDefinitionVersionResponse {
-  __type?: "CreateConnectorDefinitionVersionResponse";
   /**
    * The time, in milliseconds since the epoch, when the version was created.
    */
@@ -468,15 +433,12 @@ export namespace CreateConnectorDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateConnectorDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectorDefinitionVersionResponse =>
-    __isa(o, "CreateConnectorDefinitionVersionResponse");
 }
 
 /**
  * Information needed to create a core definition.
  */
 export interface CreateCoreDefinitionRequest {
-  __type?: "CreateCoreDefinitionRequest";
   /**
    * Information about the initial version of the core definition.
    */
@@ -502,11 +464,9 @@ export namespace CreateCoreDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateCoreDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCoreDefinitionRequest => __isa(o, "CreateCoreDefinitionRequest");
 }
 
 export interface CreateCoreDefinitionResponse {
-  __type?: "CreateCoreDefinitionResponse";
   /**
    * The ARN of the latest version associated with the definition.
    */
@@ -547,11 +507,9 @@ export namespace CreateCoreDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateCoreDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCoreDefinitionResponse => __isa(o, "CreateCoreDefinitionResponse");
 }
 
 export interface CreateCoreDefinitionVersionRequest {
-  __type?: "CreateCoreDefinitionVersionRequest";
   /**
    * A client token used to correlate requests and responses.
    */
@@ -572,12 +530,9 @@ export namespace CreateCoreDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateCoreDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCoreDefinitionVersionRequest =>
-    __isa(o, "CreateCoreDefinitionVersionRequest");
 }
 
 export interface CreateCoreDefinitionVersionResponse {
-  __type?: "CreateCoreDefinitionVersionResponse";
   /**
    * The ID of the parent definition that the version is associated with.
    */
@@ -603,12 +558,9 @@ export namespace CreateCoreDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateCoreDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCoreDefinitionVersionResponse =>
-    __isa(o, "CreateCoreDefinitionVersionResponse");
 }
 
 export interface CreateDeploymentRequest {
-  __type?: "CreateDeploymentRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -639,11 +591,9 @@ export namespace CreateDeploymentRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentRequest => __isa(o, "CreateDeploymentRequest");
 }
 
 export interface CreateDeploymentResponse {
-  __type?: "CreateDeploymentResponse";
   /**
    * The ARN of the deployment.
    */
@@ -659,11 +609,9 @@ export namespace CreateDeploymentResponse {
   export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentResponse => __isa(o, "CreateDeploymentResponse");
 }
 
 export interface CreateDeviceDefinitionRequest {
-  __type?: "CreateDeviceDefinitionRequest";
   /**
    * The name of the device definition.
    */
@@ -689,11 +637,9 @@ export namespace CreateDeviceDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateDeviceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeviceDefinitionRequest => __isa(o, "CreateDeviceDefinitionRequest");
 }
 
 export interface CreateDeviceDefinitionResponse {
-  __type?: "CreateDeviceDefinitionResponse";
   /**
    * The ID of the latest version associated with the definition.
    */
@@ -734,11 +680,9 @@ export namespace CreateDeviceDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateDeviceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeviceDefinitionResponse => __isa(o, "CreateDeviceDefinitionResponse");
 }
 
 export interface CreateDeviceDefinitionVersionRequest {
-  __type?: "CreateDeviceDefinitionVersionRequest";
   /**
    * The ID of the device definition.
    */
@@ -759,12 +703,9 @@ export namespace CreateDeviceDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateDeviceDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeviceDefinitionVersionRequest =>
-    __isa(o, "CreateDeviceDefinitionVersionRequest");
 }
 
 export interface CreateDeviceDefinitionVersionResponse {
-  __type?: "CreateDeviceDefinitionVersionResponse";
   /**
    * The ID of the version.
    */
@@ -790,12 +731,9 @@ export namespace CreateDeviceDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateDeviceDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeviceDefinitionVersionResponse =>
-    __isa(o, "CreateDeviceDefinitionVersionResponse");
 }
 
 export interface CreateFunctionDefinitionRequest {
-  __type?: "CreateFunctionDefinitionRequest";
   /**
    * Information about the initial version of the function definition.
    */
@@ -821,11 +759,9 @@ export namespace CreateFunctionDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFunctionDefinitionRequest => __isa(o, "CreateFunctionDefinitionRequest");
 }
 
 export interface CreateFunctionDefinitionResponse {
-  __type?: "CreateFunctionDefinitionResponse";
   /**
    * The ARN of the latest version associated with the definition.
    */
@@ -866,14 +802,12 @@ export namespace CreateFunctionDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateFunctionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFunctionDefinitionResponse => __isa(o, "CreateFunctionDefinitionResponse");
 }
 
 /**
  * Information needed to create a function definition version.
  */
 export interface CreateFunctionDefinitionVersionRequest {
-  __type?: "CreateFunctionDefinitionVersionRequest";
   /**
    * The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
    */
@@ -899,12 +833,9 @@ export namespace CreateFunctionDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFunctionDefinitionVersionRequest =>
-    __isa(o, "CreateFunctionDefinitionVersionRequest");
 }
 
 export interface CreateFunctionDefinitionVersionResponse {
-  __type?: "CreateFunctionDefinitionVersionResponse";
   /**
    * The time, in milliseconds since the epoch, when the version was created.
    */
@@ -930,12 +861,9 @@ export namespace CreateFunctionDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateFunctionDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFunctionDefinitionVersionResponse =>
-    __isa(o, "CreateFunctionDefinitionVersionResponse");
 }
 
 export interface CreateGroupCertificateAuthorityRequest {
-  __type?: "CreateGroupCertificateAuthorityRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -951,12 +879,9 @@ export namespace CreateGroupCertificateAuthorityRequest {
   export const filterSensitiveLog = (obj: CreateGroupCertificateAuthorityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupCertificateAuthorityRequest =>
-    __isa(o, "CreateGroupCertificateAuthorityRequest");
 }
 
 export interface CreateGroupCertificateAuthorityResponse {
-  __type?: "CreateGroupCertificateAuthorityResponse";
   /**
    * The ARN of the group certificate authority.
    */
@@ -967,12 +892,9 @@ export namespace CreateGroupCertificateAuthorityResponse {
   export const filterSensitiveLog = (obj: CreateGroupCertificateAuthorityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupCertificateAuthorityResponse =>
-    __isa(o, "CreateGroupCertificateAuthorityResponse");
 }
 
 export interface CreateGroupRequest {
-  __type?: "CreateGroupRequest";
   /**
    * The name of the group.
    */
@@ -998,11 +920,9 @@ export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 export interface CreateGroupResponse {
-  __type?: "CreateGroupResponse";
   /**
    * The time, in milliseconds since the epoch, when the definition was last updated.
    */
@@ -1043,11 +963,9 @@ export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResponse => __isa(o, "CreateGroupResponse");
 }
 
 export interface CreateGroupVersionRequest {
-  __type?: "CreateGroupVersionRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -1098,11 +1016,9 @@ export namespace CreateGroupVersionRequest {
   export const filterSensitiveLog = (obj: CreateGroupVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupVersionRequest => __isa(o, "CreateGroupVersionRequest");
 }
 
 export interface CreateGroupVersionResponse {
-  __type?: "CreateGroupVersionResponse";
   /**
    * The ARN of the version.
    */
@@ -1128,11 +1044,9 @@ export namespace CreateGroupVersionResponse {
   export const filterSensitiveLog = (obj: CreateGroupVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupVersionResponse => __isa(o, "CreateGroupVersionResponse");
 }
 
 export interface CreateLoggerDefinitionRequest {
-  __type?: "CreateLoggerDefinitionRequest";
   /**
    * Information about the initial version of the logger definition.
    */
@@ -1158,11 +1072,9 @@ export namespace CreateLoggerDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateLoggerDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoggerDefinitionRequest => __isa(o, "CreateLoggerDefinitionRequest");
 }
 
 export interface CreateLoggerDefinitionResponse {
-  __type?: "CreateLoggerDefinitionResponse";
   /**
    * The name of the definition.
    */
@@ -1203,11 +1115,9 @@ export namespace CreateLoggerDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateLoggerDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoggerDefinitionResponse => __isa(o, "CreateLoggerDefinitionResponse");
 }
 
 export interface CreateLoggerDefinitionVersionRequest {
-  __type?: "CreateLoggerDefinitionVersionRequest";
   /**
    * The ID of the logger definition.
    */
@@ -1228,12 +1138,9 @@ export namespace CreateLoggerDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateLoggerDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoggerDefinitionVersionRequest =>
-    __isa(o, "CreateLoggerDefinitionVersionRequest");
 }
 
 export interface CreateLoggerDefinitionVersionResponse {
-  __type?: "CreateLoggerDefinitionVersionResponse";
   /**
    * The ARN of the version.
    */
@@ -1259,12 +1166,9 @@ export namespace CreateLoggerDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateLoggerDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoggerDefinitionVersionResponse =>
-    __isa(o, "CreateLoggerDefinitionVersionResponse");
 }
 
 export interface CreateResourceDefinitionRequest {
-  __type?: "CreateResourceDefinitionRequest";
   /**
    * The name of the resource definition.
    */
@@ -1290,11 +1194,9 @@ export namespace CreateResourceDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateResourceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceDefinitionRequest => __isa(o, "CreateResourceDefinitionRequest");
 }
 
 export interface CreateResourceDefinitionResponse {
-  __type?: "CreateResourceDefinitionResponse";
   /**
    * The time, in milliseconds since the epoch, when the definition was created.
    */
@@ -1335,11 +1237,9 @@ export namespace CreateResourceDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateResourceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceDefinitionResponse => __isa(o, "CreateResourceDefinitionResponse");
 }
 
 export interface CreateResourceDefinitionVersionRequest {
-  __type?: "CreateResourceDefinitionVersionRequest";
   /**
    * A client token used to correlate requests and responses.
    */
@@ -1360,12 +1260,9 @@ export namespace CreateResourceDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateResourceDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceDefinitionVersionRequest =>
-    __isa(o, "CreateResourceDefinitionVersionRequest");
 }
 
 export interface CreateResourceDefinitionVersionResponse {
-  __type?: "CreateResourceDefinitionVersionResponse";
   /**
    * The ARN of the version.
    */
@@ -1391,12 +1288,9 @@ export namespace CreateResourceDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateResourceDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceDefinitionVersionResponse =>
-    __isa(o, "CreateResourceDefinitionVersionResponse");
 }
 
 export interface CreateSoftwareUpdateJobRequest {
-  __type?: "CreateSoftwareUpdateJobRequest";
   /**
    * The operating system of the cores which are the targets of an update.
    */
@@ -1437,11 +1331,9 @@ export namespace CreateSoftwareUpdateJobRequest {
   export const filterSensitiveLog = (obj: CreateSoftwareUpdateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSoftwareUpdateJobRequest => __isa(o, "CreateSoftwareUpdateJobRequest");
 }
 
 export interface CreateSoftwareUpdateJobResponse {
-  __type?: "CreateSoftwareUpdateJobResponse";
   /**
    * The software version installed on the device or devices after the update.
    */
@@ -1462,11 +1354,9 @@ export namespace CreateSoftwareUpdateJobResponse {
   export const filterSensitiveLog = (obj: CreateSoftwareUpdateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSoftwareUpdateJobResponse => __isa(o, "CreateSoftwareUpdateJobResponse");
 }
 
 export interface CreateSubscriptionDefinitionRequest {
-  __type?: "CreateSubscriptionDefinitionRequest";
   /**
    * The name of the subscription definition.
    */
@@ -1492,12 +1382,9 @@ export namespace CreateSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriptionDefinitionRequest =>
-    __isa(o, "CreateSubscriptionDefinitionRequest");
 }
 
 export interface CreateSubscriptionDefinitionResponse {
-  __type?: "CreateSubscriptionDefinitionResponse";
   /**
    * The time, in milliseconds since the epoch, when the definition was created.
    */
@@ -1538,12 +1425,9 @@ export namespace CreateSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriptionDefinitionResponse =>
-    __isa(o, "CreateSubscriptionDefinitionResponse");
 }
 
 export interface CreateSubscriptionDefinitionVersionRequest {
-  __type?: "CreateSubscriptionDefinitionVersionRequest";
   /**
    * A list of subscriptions.
    */
@@ -1564,12 +1448,9 @@ export namespace CreateSubscriptionDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriptionDefinitionVersionRequest =>
-    __isa(o, "CreateSubscriptionDefinitionVersionRequest");
 }
 
 export interface CreateSubscriptionDefinitionVersionResponse {
-  __type?: "CreateSubscriptionDefinitionVersionResponse";
   /**
    * The ARN of the version.
    */
@@ -1595,15 +1476,12 @@ export namespace CreateSubscriptionDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriptionDefinitionVersionResponse =>
-    __isa(o, "CreateSubscriptionDefinitionVersionResponse");
 }
 
 /**
  * Information about a definition.
  */
 export interface DefinitionInformation {
-  __type?: "DefinitionInformation";
   /**
    * The name of the definition.
    */
@@ -1649,11 +1527,9 @@ export namespace DefinitionInformation {
   export const filterSensitiveLog = (obj: DefinitionInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefinitionInformation => __isa(o, "DefinitionInformation");
 }
 
 export interface DeleteConnectorDefinitionRequest {
-  __type?: "DeleteConnectorDefinitionRequest";
   /**
    * The ID of the connector definition.
    */
@@ -1664,22 +1540,17 @@ export namespace DeleteConnectorDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteConnectorDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectorDefinitionRequest => __isa(o, "DeleteConnectorDefinitionRequest");
 }
 
-export interface DeleteConnectorDefinitionResponse {
-  __type?: "DeleteConnectorDefinitionResponse";
-}
+export interface DeleteConnectorDefinitionResponse {}
 
 export namespace DeleteConnectorDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteConnectorDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectorDefinitionResponse => __isa(o, "DeleteConnectorDefinitionResponse");
 }
 
 export interface DeleteCoreDefinitionRequest {
-  __type?: "DeleteCoreDefinitionRequest";
   /**
    * The ID of the core definition.
    */
@@ -1690,22 +1561,17 @@ export namespace DeleteCoreDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteCoreDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCoreDefinitionRequest => __isa(o, "DeleteCoreDefinitionRequest");
 }
 
-export interface DeleteCoreDefinitionResponse {
-  __type?: "DeleteCoreDefinitionResponse";
-}
+export interface DeleteCoreDefinitionResponse {}
 
 export namespace DeleteCoreDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteCoreDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCoreDefinitionResponse => __isa(o, "DeleteCoreDefinitionResponse");
 }
 
 export interface DeleteDeviceDefinitionRequest {
-  __type?: "DeleteDeviceDefinitionRequest";
   /**
    * The ID of the device definition.
    */
@@ -1716,22 +1582,17 @@ export namespace DeleteDeviceDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteDeviceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceDefinitionRequest => __isa(o, "DeleteDeviceDefinitionRequest");
 }
 
-export interface DeleteDeviceDefinitionResponse {
-  __type?: "DeleteDeviceDefinitionResponse";
-}
+export interface DeleteDeviceDefinitionResponse {}
 
 export namespace DeleteDeviceDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteDeviceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceDefinitionResponse => __isa(o, "DeleteDeviceDefinitionResponse");
 }
 
 export interface DeleteFunctionDefinitionRequest {
-  __type?: "DeleteFunctionDefinitionRequest";
   /**
    * The ID of the Lambda function definition.
    */
@@ -1742,22 +1603,17 @@ export namespace DeleteFunctionDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionDefinitionRequest => __isa(o, "DeleteFunctionDefinitionRequest");
 }
 
-export interface DeleteFunctionDefinitionResponse {
-  __type?: "DeleteFunctionDefinitionResponse";
-}
+export interface DeleteFunctionDefinitionResponse {}
 
 export namespace DeleteFunctionDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteFunctionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionDefinitionResponse => __isa(o, "DeleteFunctionDefinitionResponse");
 }
 
 export interface DeleteGroupRequest {
-  __type?: "DeleteGroupRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -1768,22 +1624,17 @@ export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
-export interface DeleteGroupResponse {
-  __type?: "DeleteGroupResponse";
-}
+export interface DeleteGroupResponse {}
 
 export namespace DeleteGroupResponse {
   export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupResponse => __isa(o, "DeleteGroupResponse");
 }
 
 export interface DeleteLoggerDefinitionRequest {
-  __type?: "DeleteLoggerDefinitionRequest";
   /**
    * The ID of the logger definition.
    */
@@ -1794,22 +1645,17 @@ export namespace DeleteLoggerDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteLoggerDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggerDefinitionRequest => __isa(o, "DeleteLoggerDefinitionRequest");
 }
 
-export interface DeleteLoggerDefinitionResponse {
-  __type?: "DeleteLoggerDefinitionResponse";
-}
+export interface DeleteLoggerDefinitionResponse {}
 
 export namespace DeleteLoggerDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteLoggerDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggerDefinitionResponse => __isa(o, "DeleteLoggerDefinitionResponse");
 }
 
 export interface DeleteResourceDefinitionRequest {
-  __type?: "DeleteResourceDefinitionRequest";
   /**
    * The ID of the resource definition.
    */
@@ -1820,22 +1666,17 @@ export namespace DeleteResourceDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteResourceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceDefinitionRequest => __isa(o, "DeleteResourceDefinitionRequest");
 }
 
-export interface DeleteResourceDefinitionResponse {
-  __type?: "DeleteResourceDefinitionResponse";
-}
+export interface DeleteResourceDefinitionResponse {}
 
 export namespace DeleteResourceDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteResourceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceDefinitionResponse => __isa(o, "DeleteResourceDefinitionResponse");
 }
 
 export interface DeleteSubscriptionDefinitionRequest {
-  __type?: "DeleteSubscriptionDefinitionRequest";
   /**
    * The ID of the subscription definition.
    */
@@ -1846,27 +1687,20 @@ export namespace DeleteSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteSubscriptionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriptionDefinitionRequest =>
-    __isa(o, "DeleteSubscriptionDefinitionRequest");
 }
 
-export interface DeleteSubscriptionDefinitionResponse {
-  __type?: "DeleteSubscriptionDefinitionResponse";
-}
+export interface DeleteSubscriptionDefinitionResponse {}
 
 export namespace DeleteSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteSubscriptionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriptionDefinitionResponse =>
-    __isa(o, "DeleteSubscriptionDefinitionResponse");
 }
 
 /**
  * Information about a deployment.
  */
 export interface Deployment {
-  __type?: "Deployment";
   /**
    * The ARN of the group for this deployment.
    */
@@ -1897,7 +1731,6 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 export enum DeploymentType {
@@ -1911,7 +1744,6 @@ export enum DeploymentType {
  * Information about a device.
  */
 export interface Device {
-  __type?: "Device";
   /**
    * If true, the device's local shadow will be automatically synced with the cloud.
    */
@@ -1937,14 +1769,12 @@ export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
 /**
  * Information about a device definition version.
  */
 export interface DeviceDefinitionVersion {
-  __type?: "DeviceDefinitionVersion";
   /**
    * A list of devices in the definition version.
    */
@@ -1955,11 +1785,9 @@ export namespace DeviceDefinitionVersion {
   export const filterSensitiveLog = (obj: DeviceDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceDefinitionVersion => __isa(o, "DeviceDefinitionVersion");
 }
 
 export interface DisassociateRoleFromGroupRequest {
-  __type?: "DisassociateRoleFromGroupRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -1970,11 +1798,9 @@ export namespace DisassociateRoleFromGroupRequest {
   export const filterSensitiveLog = (obj: DisassociateRoleFromGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateRoleFromGroupRequest => __isa(o, "DisassociateRoleFromGroupRequest");
 }
 
 export interface DisassociateRoleFromGroupResponse {
-  __type?: "DisassociateRoleFromGroupResponse";
   /**
    * The time, in milliseconds since the epoch, when the role was disassociated from the group.
    */
@@ -1985,23 +1811,17 @@ export namespace DisassociateRoleFromGroupResponse {
   export const filterSensitiveLog = (obj: DisassociateRoleFromGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateRoleFromGroupResponse => __isa(o, "DisassociateRoleFromGroupResponse");
 }
 
-export interface DisassociateServiceRoleFromAccountRequest {
-  __type?: "DisassociateServiceRoleFromAccountRequest";
-}
+export interface DisassociateServiceRoleFromAccountRequest {}
 
 export namespace DisassociateServiceRoleFromAccountRequest {
   export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateServiceRoleFromAccountRequest =>
-    __isa(o, "DisassociateServiceRoleFromAccountRequest");
 }
 
 export interface DisassociateServiceRoleFromAccountResponse {
-  __type?: "DisassociateServiceRoleFromAccountResponse";
   /**
    * The time when the service role was disassociated from the account.
    */
@@ -2012,8 +1832,6 @@ export namespace DisassociateServiceRoleFromAccountResponse {
   export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateServiceRoleFromAccountResponse =>
-    __isa(o, "DisassociateServiceRoleFromAccountResponse");
 }
 
 export enum EncodingType {
@@ -2025,7 +1843,6 @@ export enum EncodingType {
  * Details about the error.
  */
 export interface ErrorDetail {
-  __type?: "ErrorDetail";
   /**
    * A detailed error code.
    */
@@ -2041,14 +1858,12 @@ export namespace ErrorDetail {
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
 /**
  * Information about a Lambda function.
  */
 export interface Function {
-  __type?: "Function";
   /**
    * The configuration of the Lambda function.
    */
@@ -2069,14 +1884,12 @@ export namespace Function {
   export const filterSensitiveLog = (obj: Function): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Function => __isa(o, "Function");
 }
 
 /**
  * The configuration of the Lambda function.
  */
 export interface FunctionConfiguration {
-  __type?: "FunctionConfiguration";
   /**
    * The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
    */
@@ -2117,14 +1930,12 @@ export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
 
 /**
  * The environment configuration of the function.
  */
 export interface FunctionConfigurationEnvironment {
-  __type?: "FunctionConfigurationEnvironment";
   /**
    * Environment variables for the Lambda function's configuration.
    */
@@ -2150,14 +1961,12 @@ export namespace FunctionConfigurationEnvironment {
   export const filterSensitiveLog = (obj: FunctionConfigurationEnvironment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionConfigurationEnvironment => __isa(o, "FunctionConfigurationEnvironment");
 }
 
 /**
  * The default configuration that applies to all Lambda functions in the group. Individual Lambda functions can override these settings.
  */
 export interface FunctionDefaultConfig {
-  __type?: "FunctionDefaultConfig";
   /**
    * Configuration information that specifies how a Lambda function runs.
    */
@@ -2168,14 +1977,12 @@ export namespace FunctionDefaultConfig {
   export const filterSensitiveLog = (obj: FunctionDefaultConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionDefaultConfig => __isa(o, "FunctionDefaultConfig");
 }
 
 /**
  * Configuration information that specifies how a Lambda function runs.
  */
 export interface FunctionDefaultExecutionConfig {
-  __type?: "FunctionDefaultExecutionConfig";
   /**
    * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
    */
@@ -2191,14 +1998,12 @@ export namespace FunctionDefaultExecutionConfig {
   export const filterSensitiveLog = (obj: FunctionDefaultExecutionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionDefaultExecutionConfig => __isa(o, "FunctionDefaultExecutionConfig");
 }
 
 /**
  * Information about a function definition version.
  */
 export interface FunctionDefinitionVersion {
-  __type?: "FunctionDefinitionVersion";
   /**
    * A list of Lambda functions in this function definition version.
    */
@@ -2214,14 +2019,12 @@ export namespace FunctionDefinitionVersion {
   export const filterSensitiveLog = (obj: FunctionDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionDefinitionVersion => __isa(o, "FunctionDefinitionVersion");
 }
 
 /**
  * Configuration information that specifies how a Lambda function runs.
  */
 export interface FunctionExecutionConfig {
-  __type?: "FunctionExecutionConfig";
   /**
    * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
    */
@@ -2237,7 +2040,6 @@ export namespace FunctionExecutionConfig {
   export const filterSensitiveLog = (obj: FunctionExecutionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionExecutionConfig => __isa(o, "FunctionExecutionConfig");
 }
 
 export enum FunctionIsolationMode {
@@ -2249,7 +2051,6 @@ export enum FunctionIsolationMode {
  * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
  */
 export interface FunctionRunAsConfig {
-  __type?: "FunctionRunAsConfig";
   /**
    * The group ID whose permissions are used to run a Lambda function.
    */
@@ -2265,11 +2066,9 @@ export namespace FunctionRunAsConfig {
   export const filterSensitiveLog = (obj: FunctionRunAsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionRunAsConfig => __isa(o, "FunctionRunAsConfig");
 }
 
 export interface GetAssociatedRoleRequest {
-  __type?: "GetAssociatedRoleRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -2280,11 +2079,9 @@ export namespace GetAssociatedRoleRequest {
   export const filterSensitiveLog = (obj: GetAssociatedRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssociatedRoleRequest => __isa(o, "GetAssociatedRoleRequest");
 }
 
 export interface GetAssociatedRoleResponse {
-  __type?: "GetAssociatedRoleResponse";
   /**
    * The ARN of the role that is associated with the group.
    */
@@ -2300,11 +2097,9 @@ export namespace GetAssociatedRoleResponse {
   export const filterSensitiveLog = (obj: GetAssociatedRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssociatedRoleResponse => __isa(o, "GetAssociatedRoleResponse");
 }
 
 export interface GetBulkDeploymentStatusRequest {
-  __type?: "GetBulkDeploymentStatusRequest";
   /**
    * The ID of the bulk deployment.
    */
@@ -2315,11 +2110,9 @@ export namespace GetBulkDeploymentStatusRequest {
   export const filterSensitiveLog = (obj: GetBulkDeploymentStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBulkDeploymentStatusRequest => __isa(o, "GetBulkDeploymentStatusRequest");
 }
 
 export interface GetBulkDeploymentStatusResponse {
-  __type?: "GetBulkDeploymentStatusResponse";
   /**
    * Tag(s) attached to the resource arn.
    */
@@ -2355,11 +2148,9 @@ export namespace GetBulkDeploymentStatusResponse {
   export const filterSensitiveLog = (obj: GetBulkDeploymentStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBulkDeploymentStatusResponse => __isa(o, "GetBulkDeploymentStatusResponse");
 }
 
 export interface GetConnectivityInfoRequest {
-  __type?: "GetConnectivityInfoRequest";
   /**
    * The thing name.
    */
@@ -2370,11 +2161,9 @@ export namespace GetConnectivityInfoRequest {
   export const filterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectivityInfoRequest => __isa(o, "GetConnectivityInfoRequest");
 }
 
 export interface GetConnectivityInfoResponse {
-  __type?: "GetConnectivityInfoResponse";
   /**
    * A message about the connectivity info request.
    */
@@ -2390,11 +2179,9 @@ export namespace GetConnectivityInfoResponse {
   export const filterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectivityInfoResponse => __isa(o, "GetConnectivityInfoResponse");
 }
 
 export interface GetConnectorDefinitionRequest {
-  __type?: "GetConnectorDefinitionRequest";
   /**
    * The ID of the connector definition.
    */
@@ -2405,11 +2192,9 @@ export namespace GetConnectorDefinitionRequest {
   export const filterSensitiveLog = (obj: GetConnectorDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectorDefinitionRequest => __isa(o, "GetConnectorDefinitionRequest");
 }
 
 export interface GetConnectorDefinitionResponse {
-  __type?: "GetConnectorDefinitionResponse";
   /**
    * Tag(s) attached to the resource arn.
    */
@@ -2455,11 +2240,9 @@ export namespace GetConnectorDefinitionResponse {
   export const filterSensitiveLog = (obj: GetConnectorDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectorDefinitionResponse => __isa(o, "GetConnectorDefinitionResponse");
 }
 
 export interface GetConnectorDefinitionVersionRequest {
-  __type?: "GetConnectorDefinitionVersionRequest";
   /**
    * The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
@@ -2480,12 +2263,9 @@ export namespace GetConnectorDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetConnectorDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectorDefinitionVersionRequest =>
-    __isa(o, "GetConnectorDefinitionVersionRequest");
 }
 
 export interface GetConnectorDefinitionVersionResponse {
-  __type?: "GetConnectorDefinitionVersionResponse";
   /**
    * The time, in milliseconds since the epoch, when the connector definition version was created.
    */
@@ -2521,12 +2301,9 @@ export namespace GetConnectorDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetConnectorDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectorDefinitionVersionResponse =>
-    __isa(o, "GetConnectorDefinitionVersionResponse");
 }
 
 export interface GetCoreDefinitionRequest {
-  __type?: "GetCoreDefinitionRequest";
   /**
    * The ID of the core definition.
    */
@@ -2537,11 +2314,9 @@ export namespace GetCoreDefinitionRequest {
   export const filterSensitiveLog = (obj: GetCoreDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCoreDefinitionRequest => __isa(o, "GetCoreDefinitionRequest");
 }
 
 export interface GetCoreDefinitionResponse {
-  __type?: "GetCoreDefinitionResponse";
   /**
    * The ARN of the definition.
    */
@@ -2587,11 +2362,9 @@ export namespace GetCoreDefinitionResponse {
   export const filterSensitiveLog = (obj: GetCoreDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCoreDefinitionResponse => __isa(o, "GetCoreDefinitionResponse");
 }
 
 export interface GetCoreDefinitionVersionRequest {
-  __type?: "GetCoreDefinitionVersionRequest";
   /**
    * The ID of the core definition.
    */
@@ -2607,11 +2380,9 @@ export namespace GetCoreDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetCoreDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCoreDefinitionVersionRequest => __isa(o, "GetCoreDefinitionVersionRequest");
 }
 
 export interface GetCoreDefinitionVersionResponse {
-  __type?: "GetCoreDefinitionVersionResponse";
   /**
    * The time, in milliseconds since the epoch, when the core definition version was created.
    */
@@ -2647,11 +2418,9 @@ export namespace GetCoreDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetCoreDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCoreDefinitionVersionResponse => __isa(o, "GetCoreDefinitionVersionResponse");
 }
 
 export interface GetDeploymentStatusRequest {
-  __type?: "GetDeploymentStatusRequest";
   /**
    * The ID of the deployment.
    */
@@ -2667,11 +2436,9 @@ export namespace GetDeploymentStatusRequest {
   export const filterSensitiveLog = (obj: GetDeploymentStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentStatusRequest => __isa(o, "GetDeploymentStatusRequest");
 }
 
 export interface GetDeploymentStatusResponse {
-  __type?: "GetDeploymentStatusResponse";
   /**
    * The type of the deployment.
    */
@@ -2702,11 +2469,9 @@ export namespace GetDeploymentStatusResponse {
   export const filterSensitiveLog = (obj: GetDeploymentStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentStatusResponse => __isa(o, "GetDeploymentStatusResponse");
 }
 
 export interface GetDeviceDefinitionRequest {
-  __type?: "GetDeviceDefinitionRequest";
   /**
    * The ID of the device definition.
    */
@@ -2717,11 +2482,9 @@ export namespace GetDeviceDefinitionRequest {
   export const filterSensitiveLog = (obj: GetDeviceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceDefinitionRequest => __isa(o, "GetDeviceDefinitionRequest");
 }
 
 export interface GetDeviceDefinitionResponse {
-  __type?: "GetDeviceDefinitionResponse";
   /**
    * The ID of the definition.
    */
@@ -2767,11 +2530,9 @@ export namespace GetDeviceDefinitionResponse {
   export const filterSensitiveLog = (obj: GetDeviceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceDefinitionResponse => __isa(o, "GetDeviceDefinitionResponse");
 }
 
 export interface GetDeviceDefinitionVersionRequest {
-  __type?: "GetDeviceDefinitionVersionRequest";
   /**
    * The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
@@ -2792,11 +2553,9 @@ export namespace GetDeviceDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetDeviceDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceDefinitionVersionRequest => __isa(o, "GetDeviceDefinitionVersionRequest");
 }
 
 export interface GetDeviceDefinitionVersionResponse {
-  __type?: "GetDeviceDefinitionVersionResponse";
   /**
    * The version of the device definition version.
    */
@@ -2832,12 +2591,9 @@ export namespace GetDeviceDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetDeviceDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceDefinitionVersionResponse =>
-    __isa(o, "GetDeviceDefinitionVersionResponse");
 }
 
 export interface GetFunctionDefinitionRequest {
-  __type?: "GetFunctionDefinitionRequest";
   /**
    * The ID of the Lambda function definition.
    */
@@ -2848,11 +2604,9 @@ export namespace GetFunctionDefinitionRequest {
   export const filterSensitiveLog = (obj: GetFunctionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionDefinitionRequest => __isa(o, "GetFunctionDefinitionRequest");
 }
 
 export interface GetFunctionDefinitionResponse {
-  __type?: "GetFunctionDefinitionResponse";
   /**
    * The ID of the definition.
    */
@@ -2898,11 +2652,9 @@ export namespace GetFunctionDefinitionResponse {
   export const filterSensitiveLog = (obj: GetFunctionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionDefinitionResponse => __isa(o, "GetFunctionDefinitionResponse");
 }
 
 export interface GetFunctionDefinitionVersionRequest {
-  __type?: "GetFunctionDefinitionVersionRequest";
   /**
    * The ID of the function definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListFunctionDefinitionVersions'' requests. If the version is the last one that was associated with a function definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
@@ -2923,12 +2675,9 @@ export namespace GetFunctionDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetFunctionDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionDefinitionVersionRequest =>
-    __isa(o, "GetFunctionDefinitionVersionRequest");
 }
 
 export interface GetFunctionDefinitionVersionResponse {
-  __type?: "GetFunctionDefinitionVersionResponse";
   /**
    * The ID of the function definition version.
    */
@@ -2964,12 +2713,9 @@ export namespace GetFunctionDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetFunctionDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionDefinitionVersionResponse =>
-    __isa(o, "GetFunctionDefinitionVersionResponse");
 }
 
 export interface GetGroupCertificateAuthorityRequest {
-  __type?: "GetGroupCertificateAuthorityRequest";
   /**
    * The ID of the certificate authority.
    */
@@ -2985,12 +2731,9 @@ export namespace GetGroupCertificateAuthorityRequest {
   export const filterSensitiveLog = (obj: GetGroupCertificateAuthorityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupCertificateAuthorityRequest =>
-    __isa(o, "GetGroupCertificateAuthorityRequest");
 }
 
 export interface GetGroupCertificateAuthorityResponse {
-  __type?: "GetGroupCertificateAuthorityResponse";
   /**
    * The ARN of the certificate authority for the group.
    */
@@ -3011,12 +2754,9 @@ export namespace GetGroupCertificateAuthorityResponse {
   export const filterSensitiveLog = (obj: GetGroupCertificateAuthorityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupCertificateAuthorityResponse =>
-    __isa(o, "GetGroupCertificateAuthorityResponse");
 }
 
 export interface GetGroupCertificateConfigurationRequest {
-  __type?: "GetGroupCertificateConfigurationRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -3027,12 +2767,9 @@ export namespace GetGroupCertificateConfigurationRequest {
   export const filterSensitiveLog = (obj: GetGroupCertificateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupCertificateConfigurationRequest =>
-    __isa(o, "GetGroupCertificateConfigurationRequest");
 }
 
 export interface GetGroupCertificateConfigurationResponse {
-  __type?: "GetGroupCertificateConfigurationResponse";
   /**
    * The amount of time remaining before the certificate expires, in milliseconds.
    */
@@ -3053,12 +2790,9 @@ export namespace GetGroupCertificateConfigurationResponse {
   export const filterSensitiveLog = (obj: GetGroupCertificateConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupCertificateConfigurationResponse =>
-    __isa(o, "GetGroupCertificateConfigurationResponse");
 }
 
 export interface GetGroupRequest {
-  __type?: "GetGroupRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -3069,11 +2803,9 @@ export namespace GetGroupRequest {
   export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupRequest => __isa(o, "GetGroupRequest");
 }
 
 export interface GetGroupResponse {
-  __type?: "GetGroupResponse";
   /**
    * The time, in milliseconds since the epoch, when the definition was last updated.
    */
@@ -3119,11 +2851,9 @@ export namespace GetGroupResponse {
   export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupResponse => __isa(o, "GetGroupResponse");
 }
 
 export interface GetGroupVersionRequest {
-  __type?: "GetGroupVersionRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -3139,11 +2869,9 @@ export namespace GetGroupVersionRequest {
   export const filterSensitiveLog = (obj: GetGroupVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupVersionRequest => __isa(o, "GetGroupVersionRequest");
 }
 
 export interface GetGroupVersionResponse {
-  __type?: "GetGroupVersionResponse";
   /**
    * The ID of the group version.
    */
@@ -3174,11 +2902,9 @@ export namespace GetGroupVersionResponse {
   export const filterSensitiveLog = (obj: GetGroupVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupVersionResponse => __isa(o, "GetGroupVersionResponse");
 }
 
 export interface GetLoggerDefinitionRequest {
-  __type?: "GetLoggerDefinitionRequest";
   /**
    * The ID of the logger definition.
    */
@@ -3189,11 +2915,9 @@ export namespace GetLoggerDefinitionRequest {
   export const filterSensitiveLog = (obj: GetLoggerDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggerDefinitionRequest => __isa(o, "GetLoggerDefinitionRequest");
 }
 
 export interface GetLoggerDefinitionResponse {
-  __type?: "GetLoggerDefinitionResponse";
   /**
    * The time, in milliseconds since the epoch, when the definition was created.
    */
@@ -3239,11 +2963,9 @@ export namespace GetLoggerDefinitionResponse {
   export const filterSensitiveLog = (obj: GetLoggerDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggerDefinitionResponse => __isa(o, "GetLoggerDefinitionResponse");
 }
 
 export interface GetLoggerDefinitionVersionRequest {
-  __type?: "GetLoggerDefinitionVersionRequest";
   /**
    * The ID of the logger definition.
    */
@@ -3264,11 +2986,9 @@ export namespace GetLoggerDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetLoggerDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggerDefinitionVersionRequest => __isa(o, "GetLoggerDefinitionVersionRequest");
 }
 
 export interface GetLoggerDefinitionVersionResponse {
-  __type?: "GetLoggerDefinitionVersionResponse";
   /**
    * The version of the logger definition version.
    */
@@ -3299,12 +3019,9 @@ export namespace GetLoggerDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetLoggerDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggerDefinitionVersionResponse =>
-    __isa(o, "GetLoggerDefinitionVersionResponse");
 }
 
 export interface GetResourceDefinitionRequest {
-  __type?: "GetResourceDefinitionRequest";
   /**
    * The ID of the resource definition.
    */
@@ -3315,11 +3032,9 @@ export namespace GetResourceDefinitionRequest {
   export const filterSensitiveLog = (obj: GetResourceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceDefinitionRequest => __isa(o, "GetResourceDefinitionRequest");
 }
 
 export interface GetResourceDefinitionResponse {
-  __type?: "GetResourceDefinitionResponse";
   /**
    * The ARN of the definition.
    */
@@ -3365,11 +3080,9 @@ export namespace GetResourceDefinitionResponse {
   export const filterSensitiveLog = (obj: GetResourceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceDefinitionResponse => __isa(o, "GetResourceDefinitionResponse");
 }
 
 export interface GetResourceDefinitionVersionRequest {
-  __type?: "GetResourceDefinitionVersionRequest";
   /**
    * The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
@@ -3385,12 +3098,9 @@ export namespace GetResourceDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetResourceDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceDefinitionVersionRequest =>
-    __isa(o, "GetResourceDefinitionVersionRequest");
 }
 
 export interface GetResourceDefinitionVersionResponse {
-  __type?: "GetResourceDefinitionVersionResponse";
   /**
    * The time, in milliseconds since the epoch, when the resource definition version was created.
    */
@@ -3421,23 +3131,17 @@ export namespace GetResourceDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetResourceDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceDefinitionVersionResponse =>
-    __isa(o, "GetResourceDefinitionVersionResponse");
 }
 
-export interface GetServiceRoleForAccountRequest {
-  __type?: "GetServiceRoleForAccountRequest";
-}
+export interface GetServiceRoleForAccountRequest {}
 
 export namespace GetServiceRoleForAccountRequest {
   export const filterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceRoleForAccountRequest => __isa(o, "GetServiceRoleForAccountRequest");
 }
 
 export interface GetServiceRoleForAccountResponse {
-  __type?: "GetServiceRoleForAccountResponse";
   /**
    * The ARN of the role which is associated with the account.
    */
@@ -3453,11 +3157,9 @@ export namespace GetServiceRoleForAccountResponse {
   export const filterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceRoleForAccountResponse => __isa(o, "GetServiceRoleForAccountResponse");
 }
 
 export interface GetSubscriptionDefinitionRequest {
-  __type?: "GetSubscriptionDefinitionRequest";
   /**
    * The ID of the subscription definition.
    */
@@ -3468,11 +3170,9 @@ export namespace GetSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (obj: GetSubscriptionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionDefinitionRequest => __isa(o, "GetSubscriptionDefinitionRequest");
 }
 
 export interface GetSubscriptionDefinitionResponse {
-  __type?: "GetSubscriptionDefinitionResponse";
   /**
    * The ID of the latest version associated with the definition.
    */
@@ -3518,11 +3218,9 @@ export namespace GetSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (obj: GetSubscriptionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionDefinitionResponse => __isa(o, "GetSubscriptionDefinitionResponse");
 }
 
 export interface GetSubscriptionDefinitionVersionRequest {
-  __type?: "GetSubscriptionDefinitionVersionRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3543,12 +3241,9 @@ export namespace GetSubscriptionDefinitionVersionRequest {
   export const filterSensitiveLog = (obj: GetSubscriptionDefinitionVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionDefinitionVersionRequest =>
-    __isa(o, "GetSubscriptionDefinitionVersionRequest");
 }
 
 export interface GetSubscriptionDefinitionVersionResponse {
-  __type?: "GetSubscriptionDefinitionVersionResponse";
   /**
    * The ID of the subscription definition version.
    */
@@ -3584,15 +3279,12 @@ export namespace GetSubscriptionDefinitionVersionResponse {
   export const filterSensitiveLog = (obj: GetSubscriptionDefinitionVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionDefinitionVersionResponse =>
-    __isa(o, "GetSubscriptionDefinitionVersionResponse");
 }
 
 /**
  * Information about a certificate authority for a group.
  */
 export interface GroupCertificateAuthorityProperties {
-  __type?: "GroupCertificateAuthorityProperties";
   /**
    * The ID of the certificate authority for the group.
    */
@@ -3608,15 +3300,12 @@ export namespace GroupCertificateAuthorityProperties {
   export const filterSensitiveLog = (obj: GroupCertificateAuthorityProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupCertificateAuthorityProperties =>
-    __isa(o, "GroupCertificateAuthorityProperties");
 }
 
 /**
  * Information about a group.
  */
 export interface GroupInformation {
-  __type?: "GroupInformation";
   /**
    * The time, in milliseconds since the epoch, when the group was created.
    */
@@ -3657,14 +3346,12 @@ export namespace GroupInformation {
   export const filterSensitiveLog = (obj: GroupInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupInformation => __isa(o, "GroupInformation");
 }
 
 /**
  * Group owner related settings for local resources.
  */
 export interface GroupOwnerSetting {
-  __type?: "GroupOwnerSetting";
   /**
    * If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group.
    */
@@ -3680,14 +3367,12 @@ export namespace GroupOwnerSetting {
   export const filterSensitiveLog = (obj: GroupOwnerSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupOwnerSetting => __isa(o, "GroupOwnerSetting");
 }
 
 /**
  * Information about a group version.
  */
 export interface GroupVersion {
-  __type?: "GroupVersion";
   /**
    * The ARN of the subscription definition version for this group.
    */
@@ -3728,7 +3413,6 @@ export namespace GroupVersion {
   export const filterSensitiveLog = (obj: GroupVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupVersion => __isa(o, "GroupVersion");
 }
 
 /**
@@ -3752,11 +3436,9 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListBulkDeploymentDetailedReportsRequest {
-  __type?: "ListBulkDeploymentDetailedReportsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3777,12 +3459,9 @@ export namespace ListBulkDeploymentDetailedReportsRequest {
   export const filterSensitiveLog = (obj: ListBulkDeploymentDetailedReportsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBulkDeploymentDetailedReportsRequest =>
-    __isa(o, "ListBulkDeploymentDetailedReportsRequest");
 }
 
 export interface ListBulkDeploymentDetailedReportsResponse {
-  __type?: "ListBulkDeploymentDetailedReportsResponse";
   /**
    * A list of the individual group deployments in the bulk deployment operation.
    */
@@ -3798,12 +3477,9 @@ export namespace ListBulkDeploymentDetailedReportsResponse {
   export const filterSensitiveLog = (obj: ListBulkDeploymentDetailedReportsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBulkDeploymentDetailedReportsResponse =>
-    __isa(o, "ListBulkDeploymentDetailedReportsResponse");
 }
 
 export interface ListBulkDeploymentsRequest {
-  __type?: "ListBulkDeploymentsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3819,11 +3495,9 @@ export namespace ListBulkDeploymentsRequest {
   export const filterSensitiveLog = (obj: ListBulkDeploymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBulkDeploymentsRequest => __isa(o, "ListBulkDeploymentsRequest");
 }
 
 export interface ListBulkDeploymentsResponse {
-  __type?: "ListBulkDeploymentsResponse";
   /**
    * A list of bulk deployments.
    */
@@ -3839,11 +3513,9 @@ export namespace ListBulkDeploymentsResponse {
   export const filterSensitiveLog = (obj: ListBulkDeploymentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBulkDeploymentsResponse => __isa(o, "ListBulkDeploymentsResponse");
 }
 
 export interface ListConnectorDefinitionsRequest {
-  __type?: "ListConnectorDefinitionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3859,11 +3531,9 @@ export namespace ListConnectorDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListConnectorDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConnectorDefinitionsRequest => __isa(o, "ListConnectorDefinitionsRequest");
 }
 
 export interface ListConnectorDefinitionsResponse {
-  __type?: "ListConnectorDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -3879,11 +3549,9 @@ export namespace ListConnectorDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListConnectorDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConnectorDefinitionsResponse => __isa(o, "ListConnectorDefinitionsResponse");
 }
 
 export interface ListConnectorDefinitionVersionsRequest {
-  __type?: "ListConnectorDefinitionVersionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3904,12 +3572,9 @@ export namespace ListConnectorDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListConnectorDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConnectorDefinitionVersionsRequest =>
-    __isa(o, "ListConnectorDefinitionVersionsRequest");
 }
 
 export interface ListConnectorDefinitionVersionsResponse {
-  __type?: "ListConnectorDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3925,12 +3590,9 @@ export namespace ListConnectorDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListConnectorDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConnectorDefinitionVersionsResponse =>
-    __isa(o, "ListConnectorDefinitionVersionsResponse");
 }
 
 export interface ListCoreDefinitionsRequest {
-  __type?: "ListCoreDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -3946,11 +3608,9 @@ export namespace ListCoreDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListCoreDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCoreDefinitionsRequest => __isa(o, "ListCoreDefinitionsRequest");
 }
 
 export interface ListCoreDefinitionsResponse {
-  __type?: "ListCoreDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -3966,11 +3626,9 @@ export namespace ListCoreDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListCoreDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCoreDefinitionsResponse => __isa(o, "ListCoreDefinitionsResponse");
 }
 
 export interface ListCoreDefinitionVersionsRequest {
-  __type?: "ListCoreDefinitionVersionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -3991,11 +3649,9 @@ export namespace ListCoreDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListCoreDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCoreDefinitionVersionsRequest => __isa(o, "ListCoreDefinitionVersionsRequest");
 }
 
 export interface ListCoreDefinitionVersionsResponse {
-  __type?: "ListCoreDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4011,12 +3667,9 @@ export namespace ListCoreDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListCoreDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCoreDefinitionVersionsResponse =>
-    __isa(o, "ListCoreDefinitionVersionsResponse");
 }
 
 export interface ListDeploymentsRequest {
-  __type?: "ListDeploymentsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4037,11 +3690,9 @@ export namespace ListDeploymentsRequest {
   export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentsRequest => __isa(o, "ListDeploymentsRequest");
 }
 
 export interface ListDeploymentsResponse {
-  __type?: "ListDeploymentsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4057,11 +3708,9 @@ export namespace ListDeploymentsResponse {
   export const filterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentsResponse => __isa(o, "ListDeploymentsResponse");
 }
 
 export interface ListDeviceDefinitionsRequest {
-  __type?: "ListDeviceDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4077,11 +3726,9 @@ export namespace ListDeviceDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListDeviceDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceDefinitionsRequest => __isa(o, "ListDeviceDefinitionsRequest");
 }
 
 export interface ListDeviceDefinitionsResponse {
-  __type?: "ListDeviceDefinitionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4097,11 +3744,9 @@ export namespace ListDeviceDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListDeviceDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceDefinitionsResponse => __isa(o, "ListDeviceDefinitionsResponse");
 }
 
 export interface ListDeviceDefinitionVersionsRequest {
-  __type?: "ListDeviceDefinitionVersionsRequest";
   /**
    * The ID of the device definition.
    */
@@ -4122,12 +3767,9 @@ export namespace ListDeviceDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListDeviceDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceDefinitionVersionsRequest =>
-    __isa(o, "ListDeviceDefinitionVersionsRequest");
 }
 
 export interface ListDeviceDefinitionVersionsResponse {
-  __type?: "ListDeviceDefinitionVersionsResponse";
   /**
    * Information about a version.
    */
@@ -4143,12 +3785,9 @@ export namespace ListDeviceDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListDeviceDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceDefinitionVersionsResponse =>
-    __isa(o, "ListDeviceDefinitionVersionsResponse");
 }
 
 export interface ListFunctionDefinitionsRequest {
-  __type?: "ListFunctionDefinitionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4164,11 +3803,9 @@ export namespace ListFunctionDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListFunctionDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionDefinitionsRequest => __isa(o, "ListFunctionDefinitionsRequest");
 }
 
 export interface ListFunctionDefinitionsResponse {
-  __type?: "ListFunctionDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -4184,11 +3821,9 @@ export namespace ListFunctionDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionDefinitionsResponse => __isa(o, "ListFunctionDefinitionsResponse");
 }
 
 export interface ListFunctionDefinitionVersionsRequest {
-  __type?: "ListFunctionDefinitionVersionsRequest";
   /**
    * The ID of the Lambda function definition.
    */
@@ -4209,12 +3844,9 @@ export namespace ListFunctionDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListFunctionDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionDefinitionVersionsRequest =>
-    __isa(o, "ListFunctionDefinitionVersionsRequest");
 }
 
 export interface ListFunctionDefinitionVersionsResponse {
-  __type?: "ListFunctionDefinitionVersionsResponse";
   /**
    * Information about a version.
    */
@@ -4230,12 +3862,9 @@ export namespace ListFunctionDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionDefinitionVersionsResponse =>
-    __isa(o, "ListFunctionDefinitionVersionsResponse");
 }
 
 export interface ListGroupCertificateAuthoritiesRequest {
-  __type?: "ListGroupCertificateAuthoritiesRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -4246,12 +3875,9 @@ export namespace ListGroupCertificateAuthoritiesRequest {
   export const filterSensitiveLog = (obj: ListGroupCertificateAuthoritiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupCertificateAuthoritiesRequest =>
-    __isa(o, "ListGroupCertificateAuthoritiesRequest");
 }
 
 export interface ListGroupCertificateAuthoritiesResponse {
-  __type?: "ListGroupCertificateAuthoritiesResponse";
   /**
    * A list of certificate authorities associated with the group.
    */
@@ -4262,12 +3888,9 @@ export namespace ListGroupCertificateAuthoritiesResponse {
   export const filterSensitiveLog = (obj: ListGroupCertificateAuthoritiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupCertificateAuthoritiesResponse =>
-    __isa(o, "ListGroupCertificateAuthoritiesResponse");
 }
 
 export interface ListGroupsRequest {
-  __type?: "ListGroupsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4283,11 +3906,9 @@ export namespace ListGroupsRequest {
   export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsRequest => __isa(o, "ListGroupsRequest");
 }
 
 export interface ListGroupsResponse {
-  __type?: "ListGroupsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4303,11 +3924,9 @@ export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsResponse => __isa(o, "ListGroupsResponse");
 }
 
 export interface ListGroupVersionsRequest {
-  __type?: "ListGroupVersionsRequest";
   /**
    * The ID of the Greengrass group.
    */
@@ -4328,11 +3947,9 @@ export namespace ListGroupVersionsRequest {
   export const filterSensitiveLog = (obj: ListGroupVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupVersionsRequest => __isa(o, "ListGroupVersionsRequest");
 }
 
 export interface ListGroupVersionsResponse {
-  __type?: "ListGroupVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4348,11 +3965,9 @@ export namespace ListGroupVersionsResponse {
   export const filterSensitiveLog = (obj: ListGroupVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupVersionsResponse => __isa(o, "ListGroupVersionsResponse");
 }
 
 export interface ListLoggerDefinitionsRequest {
-  __type?: "ListLoggerDefinitionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4368,11 +3983,9 @@ export namespace ListLoggerDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListLoggerDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggerDefinitionsRequest => __isa(o, "ListLoggerDefinitionsRequest");
 }
 
 export interface ListLoggerDefinitionsResponse {
-  __type?: "ListLoggerDefinitionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4388,11 +4001,9 @@ export namespace ListLoggerDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListLoggerDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggerDefinitionsResponse => __isa(o, "ListLoggerDefinitionsResponse");
 }
 
 export interface ListLoggerDefinitionVersionsRequest {
-  __type?: "ListLoggerDefinitionVersionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4413,12 +4024,9 @@ export namespace ListLoggerDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListLoggerDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggerDefinitionVersionsRequest =>
-    __isa(o, "ListLoggerDefinitionVersionsRequest");
 }
 
 export interface ListLoggerDefinitionVersionsResponse {
-  __type?: "ListLoggerDefinitionVersionsResponse";
   /**
    * Information about a version.
    */
@@ -4434,12 +4042,9 @@ export namespace ListLoggerDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListLoggerDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggerDefinitionVersionsResponse =>
-    __isa(o, "ListLoggerDefinitionVersionsResponse");
 }
 
 export interface ListResourceDefinitionsRequest {
-  __type?: "ListResourceDefinitionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4455,11 +4060,9 @@ export namespace ListResourceDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListResourceDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceDefinitionsRequest => __isa(o, "ListResourceDefinitionsRequest");
 }
 
 export interface ListResourceDefinitionsResponse {
-  __type?: "ListResourceDefinitionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4475,11 +4078,9 @@ export namespace ListResourceDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListResourceDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceDefinitionsResponse => __isa(o, "ListResourceDefinitionsResponse");
 }
 
 export interface ListResourceDefinitionVersionsRequest {
-  __type?: "ListResourceDefinitionVersionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4500,12 +4101,9 @@ export namespace ListResourceDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListResourceDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceDefinitionVersionsRequest =>
-    __isa(o, "ListResourceDefinitionVersionsRequest");
 }
 
 export interface ListResourceDefinitionVersionsResponse {
-  __type?: "ListResourceDefinitionVersionsResponse";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4521,12 +4119,9 @@ export namespace ListResourceDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListResourceDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceDefinitionVersionsResponse =>
-    __isa(o, "ListResourceDefinitionVersionsResponse");
 }
 
 export interface ListSubscriptionDefinitionsRequest {
-  __type?: "ListSubscriptionDefinitionsRequest";
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
@@ -4542,12 +4137,9 @@ export namespace ListSubscriptionDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListSubscriptionDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionDefinitionsRequest =>
-    __isa(o, "ListSubscriptionDefinitionsRequest");
 }
 
 export interface ListSubscriptionDefinitionsResponse {
-  __type?: "ListSubscriptionDefinitionsResponse";
   /**
    * Information about a definition.
    */
@@ -4563,12 +4155,9 @@ export namespace ListSubscriptionDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListSubscriptionDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionDefinitionsResponse =>
-    __isa(o, "ListSubscriptionDefinitionsResponse");
 }
 
 export interface ListSubscriptionDefinitionVersionsRequest {
-  __type?: "ListSubscriptionDefinitionVersionsRequest";
   /**
    * The maximum number of results to be returned per request.
    */
@@ -4589,12 +4178,9 @@ export namespace ListSubscriptionDefinitionVersionsRequest {
   export const filterSensitiveLog = (obj: ListSubscriptionDefinitionVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionDefinitionVersionsRequest =>
-    __isa(o, "ListSubscriptionDefinitionVersionsRequest");
 }
 
 export interface ListSubscriptionDefinitionVersionsResponse {
-  __type?: "ListSubscriptionDefinitionVersionsResponse";
   /**
    * Information about a version.
    */
@@ -4610,12 +4196,9 @@ export namespace ListSubscriptionDefinitionVersionsResponse {
   export const filterSensitiveLog = (obj: ListSubscriptionDefinitionVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionDefinitionVersionsResponse =>
-    __isa(o, "ListSubscriptionDefinitionVersionsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource.
    */
@@ -4626,11 +4209,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * The key-value pair for the resource tag.
    */
@@ -4641,14 +4222,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * Attributes that define a local device resource.
  */
 export interface LocalDeviceResourceData {
-  __type?: "LocalDeviceResourceData";
   /**
    * Group/owner related settings for local resources.
    */
@@ -4664,14 +4243,12 @@ export namespace LocalDeviceResourceData {
   export const filterSensitiveLog = (obj: LocalDeviceResourceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalDeviceResourceData => __isa(o, "LocalDeviceResourceData");
 }
 
 /**
  * Attributes that define a local volume resource.
  */
 export interface LocalVolumeResourceData {
-  __type?: "LocalVolumeResourceData";
   /**
    * The absolute local path of the resource inside the Lambda environment.
    */
@@ -4692,14 +4269,12 @@ export namespace LocalVolumeResourceData {
   export const filterSensitiveLog = (obj: LocalVolumeResourceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalVolumeResourceData => __isa(o, "LocalVolumeResourceData");
 }
 
 /**
  * Information about a logger
  */
 export interface Logger {
-  __type?: "Logger";
   /**
    * The amount of file space, in KB, to use if the local file system is used for logging purposes.
    */
@@ -4730,7 +4305,6 @@ export namespace Logger {
   export const filterSensitiveLog = (obj: Logger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Logger => __isa(o, "Logger");
 }
 
 export enum LoggerComponent {
@@ -4742,7 +4316,6 @@ export enum LoggerComponent {
  * Information about a logger definition version.
  */
 export interface LoggerDefinitionVersion {
-  __type?: "LoggerDefinitionVersion";
   /**
    * A list of loggers.
    */
@@ -4753,7 +4326,6 @@ export namespace LoggerDefinitionVersion {
   export const filterSensitiveLog = (obj: LoggerDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggerDefinitionVersion => __isa(o, "LoggerDefinitionVersion");
 }
 
 export enum LoggerLevel {
@@ -4778,7 +4350,6 @@ export enum Permission {
  * Information needed to reset deployments.
  */
 export interface ResetDeploymentsRequest {
-  __type?: "ResetDeploymentsRequest";
   /**
    * A client token used to correlate requests and responses.
    */
@@ -4799,11 +4370,9 @@ export namespace ResetDeploymentsRequest {
   export const filterSensitiveLog = (obj: ResetDeploymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetDeploymentsRequest => __isa(o, "ResetDeploymentsRequest");
 }
 
 export interface ResetDeploymentsResponse {
-  __type?: "ResetDeploymentsResponse";
   /**
    * The ID of the deployment.
    */
@@ -4819,14 +4388,12 @@ export namespace ResetDeploymentsResponse {
   export const filterSensitiveLog = (obj: ResetDeploymentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetDeploymentsResponse => __isa(o, "ResetDeploymentsResponse");
 }
 
 /**
  * Information about a resource.
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * A container of data for all resource types.
    */
@@ -4847,14 +4414,12 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
  * A policy used by the function to access a resource.
  */
 export interface ResourceAccessPolicy {
-  __type?: "ResourceAccessPolicy";
   /**
    * The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
    */
@@ -4870,14 +4435,12 @@ export namespace ResourceAccessPolicy {
   export const filterSensitiveLog = (obj: ResourceAccessPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAccessPolicy => __isa(o, "ResourceAccessPolicy");
 }
 
 /**
  * A container for resource data. The container takes only one of the following supported resource data types: ''LocalDeviceResourceData'', ''LocalVolumeResourceData'', ''SageMakerMachineLearningModelResourceData'', ''S3MachineLearningModelResourceData'', ''SecretsManagerSecretResourceData''.
  */
 export interface ResourceDataContainer {
-  __type?: "ResourceDataContainer";
   /**
    * Attributes that define an Amazon SageMaker machine learning resource.
    */
@@ -4908,14 +4471,12 @@ export namespace ResourceDataContainer {
   export const filterSensitiveLog = (obj: ResourceDataContainer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceDataContainer => __isa(o, "ResourceDataContainer");
 }
 
 /**
  * Information about a resource definition version.
  */
 export interface ResourceDefinitionVersion {
-  __type?: "ResourceDefinitionVersion";
   /**
    * A list of resources.
    */
@@ -4926,14 +4487,12 @@ export namespace ResourceDefinitionVersion {
   export const filterSensitiveLog = (obj: ResourceDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceDefinitionVersion => __isa(o, "ResourceDefinitionVersion");
 }
 
 /**
  * The owner setting for downloaded machine learning resources.
  */
 export interface ResourceDownloadOwnerSetting {
-  __type?: "ResourceDownloadOwnerSetting";
   /**
    * The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
    */
@@ -4949,14 +4508,12 @@ export namespace ResourceDownloadOwnerSetting {
   export const filterSensitiveLog = (obj: ResourceDownloadOwnerSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceDownloadOwnerSetting => __isa(o, "ResourceDownloadOwnerSetting");
 }
 
 /**
  * Attributes that define an Amazon S3 machine learning resource.
  */
 export interface S3MachineLearningModelResourceData {
-  __type?: "S3MachineLearningModelResourceData";
   /**
    * The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format.
    */
@@ -4977,15 +4534,12 @@ export namespace S3MachineLearningModelResourceData {
   export const filterSensitiveLog = (obj: S3MachineLearningModelResourceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3MachineLearningModelResourceData =>
-    __isa(o, "S3MachineLearningModelResourceData");
 }
 
 /**
  * Attributes that define an Amazon SageMaker machine learning resource.
  */
 export interface SageMakerMachineLearningModelResourceData {
-  __type?: "SageMakerMachineLearningModelResourceData";
   /**
    * The ARN of the Amazon SageMaker training job that represents the source model.
    */
@@ -5006,15 +4560,12 @@ export namespace SageMakerMachineLearningModelResourceData {
   export const filterSensitiveLog = (obj: SageMakerMachineLearningModelResourceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SageMakerMachineLearningModelResourceData =>
-    __isa(o, "SageMakerMachineLearningModelResourceData");
 }
 
 /**
  * Attributes that define a secret resource, which references a secret from AWS Secrets Manager. AWS IoT Greengrass stores a local, encrypted copy of the secret on the Greengrass core, where it can be securely accessed by connectors and Lambda functions.
  */
 export interface SecretsManagerSecretResourceData {
-  __type?: "SecretsManagerSecretResourceData";
   /**
    * The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
    */
@@ -5030,7 +4581,6 @@ export namespace SecretsManagerSecretResourceData {
   export const filterSensitiveLog = (obj: SecretsManagerSecretResourceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecretsManagerSecretResourceData => __isa(o, "SecretsManagerSecretResourceData");
 }
 
 export enum SoftwareToUpdate {
@@ -5039,7 +4589,6 @@ export enum SoftwareToUpdate {
 }
 
 export interface StartBulkDeploymentRequest {
-  __type?: "StartBulkDeploymentRequest";
   /**
    * The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
    */
@@ -5065,11 +4614,9 @@ export namespace StartBulkDeploymentRequest {
   export const filterSensitiveLog = (obj: StartBulkDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBulkDeploymentRequest => __isa(o, "StartBulkDeploymentRequest");
 }
 
 export interface StartBulkDeploymentResponse {
-  __type?: "StartBulkDeploymentResponse";
   /**
    * The ID of the bulk deployment.
    */
@@ -5085,11 +4632,9 @@ export namespace StartBulkDeploymentResponse {
   export const filterSensitiveLog = (obj: StartBulkDeploymentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBulkDeploymentResponse => __isa(o, "StartBulkDeploymentResponse");
 }
 
 export interface StopBulkDeploymentRequest {
-  __type?: "StopBulkDeploymentRequest";
   /**
    * The ID of the bulk deployment.
    */
@@ -5100,25 +4645,20 @@ export namespace StopBulkDeploymentRequest {
   export const filterSensitiveLog = (obj: StopBulkDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBulkDeploymentRequest => __isa(o, "StopBulkDeploymentRequest");
 }
 
-export interface StopBulkDeploymentResponse {
-  __type?: "StopBulkDeploymentResponse";
-}
+export interface StopBulkDeploymentResponse {}
 
 export namespace StopBulkDeploymentResponse {
   export const filterSensitiveLog = (obj: StopBulkDeploymentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBulkDeploymentResponse => __isa(o, "StopBulkDeploymentResponse");
 }
 
 /**
  * Information about a subscription.
  */
 export interface Subscription {
-  __type?: "Subscription";
   /**
    * The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
    */
@@ -5144,14 +4684,12 @@ export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
 }
 
 /**
  * Information about a subscription definition version.
  */
 export interface SubscriptionDefinitionVersion {
-  __type?: "SubscriptionDefinitionVersion";
   /**
    * A list of subscriptions.
    */
@@ -5162,14 +4700,12 @@ export namespace SubscriptionDefinitionVersion {
   export const filterSensitiveLog = (obj: SubscriptionDefinitionVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionDefinitionVersion => __isa(o, "SubscriptionDefinitionVersion");
 }
 
 /**
  * A map of the key-value pairs for the resource tag.
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource.
    */
@@ -5185,11 +4721,9 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource.
    */
@@ -5205,7 +4739,6 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export enum UpdateAgentLogLevel {
@@ -5223,7 +4756,6 @@ export enum UpdateAgentLogLevel {
  * Connectivity information.
  */
 export interface UpdateConnectivityInfoRequest {
-  __type?: "UpdateConnectivityInfoRequest";
   /**
    * A list of connectivity info.
    */
@@ -5239,11 +4771,9 @@ export namespace UpdateConnectivityInfoRequest {
   export const filterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConnectivityInfoRequest => __isa(o, "UpdateConnectivityInfoRequest");
 }
 
 export interface UpdateConnectivityInfoResponse {
-  __type?: "UpdateConnectivityInfoResponse";
   /**
    * The new version of the connectivity info.
    */
@@ -5259,11 +4789,9 @@ export namespace UpdateConnectivityInfoResponse {
   export const filterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConnectivityInfoResponse => __isa(o, "UpdateConnectivityInfoResponse");
 }
 
 export interface UpdateConnectorDefinitionRequest {
-  __type?: "UpdateConnectorDefinitionRequest";
   /**
    * The ID of the connector definition.
    */
@@ -5279,22 +4807,17 @@ export namespace UpdateConnectorDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateConnectorDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConnectorDefinitionRequest => __isa(o, "UpdateConnectorDefinitionRequest");
 }
 
-export interface UpdateConnectorDefinitionResponse {
-  __type?: "UpdateConnectorDefinitionResponse";
-}
+export interface UpdateConnectorDefinitionResponse {}
 
 export namespace UpdateConnectorDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateConnectorDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConnectorDefinitionResponse => __isa(o, "UpdateConnectorDefinitionResponse");
 }
 
 export interface UpdateCoreDefinitionRequest {
-  __type?: "UpdateCoreDefinitionRequest";
   /**
    * The ID of the core definition.
    */
@@ -5310,22 +4833,17 @@ export namespace UpdateCoreDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateCoreDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCoreDefinitionRequest => __isa(o, "UpdateCoreDefinitionRequest");
 }
 
-export interface UpdateCoreDefinitionResponse {
-  __type?: "UpdateCoreDefinitionResponse";
-}
+export interface UpdateCoreDefinitionResponse {}
 
 export namespace UpdateCoreDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateCoreDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCoreDefinitionResponse => __isa(o, "UpdateCoreDefinitionResponse");
 }
 
 export interface UpdateDeviceDefinitionRequest {
-  __type?: "UpdateDeviceDefinitionRequest";
   /**
    * The name of the definition.
    */
@@ -5341,22 +4859,17 @@ export namespace UpdateDeviceDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateDeviceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceDefinitionRequest => __isa(o, "UpdateDeviceDefinitionRequest");
 }
 
-export interface UpdateDeviceDefinitionResponse {
-  __type?: "UpdateDeviceDefinitionResponse";
-}
+export interface UpdateDeviceDefinitionResponse {}
 
 export namespace UpdateDeviceDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateDeviceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceDefinitionResponse => __isa(o, "UpdateDeviceDefinitionResponse");
 }
 
 export interface UpdateFunctionDefinitionRequest {
-  __type?: "UpdateFunctionDefinitionRequest";
   /**
    * The ID of the Lambda function definition.
    */
@@ -5372,22 +4885,17 @@ export namespace UpdateFunctionDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateFunctionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFunctionDefinitionRequest => __isa(o, "UpdateFunctionDefinitionRequest");
 }
 
-export interface UpdateFunctionDefinitionResponse {
-  __type?: "UpdateFunctionDefinitionResponse";
-}
+export interface UpdateFunctionDefinitionResponse {}
 
 export namespace UpdateFunctionDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateFunctionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFunctionDefinitionResponse => __isa(o, "UpdateFunctionDefinitionResponse");
 }
 
 export interface UpdateGroupCertificateConfigurationRequest {
-  __type?: "UpdateGroupCertificateConfigurationRequest";
   /**
    * The amount of time remaining before the certificate expires, in milliseconds.
    */
@@ -5403,12 +4911,9 @@ export namespace UpdateGroupCertificateConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateGroupCertificateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupCertificateConfigurationRequest =>
-    __isa(o, "UpdateGroupCertificateConfigurationRequest");
 }
 
 export interface UpdateGroupCertificateConfigurationResponse {
-  __type?: "UpdateGroupCertificateConfigurationResponse";
   /**
    * The ID of the group certificate configuration.
    */
@@ -5429,12 +4934,9 @@ export namespace UpdateGroupCertificateConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateGroupCertificateConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupCertificateConfigurationResponse =>
-    __isa(o, "UpdateGroupCertificateConfigurationResponse");
 }
 
 export interface UpdateGroupRequest {
-  __type?: "UpdateGroupRequest";
   /**
    * The name of the definition.
    */
@@ -5450,22 +4952,17 @@ export namespace UpdateGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
-export interface UpdateGroupResponse {
-  __type?: "UpdateGroupResponse";
-}
+export interface UpdateGroupResponse {}
 
 export namespace UpdateGroupResponse {
   export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupResponse => __isa(o, "UpdateGroupResponse");
 }
 
 export interface UpdateLoggerDefinitionRequest {
-  __type?: "UpdateLoggerDefinitionRequest";
   /**
    * The ID of the logger definition.
    */
@@ -5481,22 +4978,17 @@ export namespace UpdateLoggerDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateLoggerDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLoggerDefinitionRequest => __isa(o, "UpdateLoggerDefinitionRequest");
 }
 
-export interface UpdateLoggerDefinitionResponse {
-  __type?: "UpdateLoggerDefinitionResponse";
-}
+export interface UpdateLoggerDefinitionResponse {}
 
 export namespace UpdateLoggerDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateLoggerDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLoggerDefinitionResponse => __isa(o, "UpdateLoggerDefinitionResponse");
 }
 
 export interface UpdateResourceDefinitionRequest {
-  __type?: "UpdateResourceDefinitionRequest";
   /**
    * The ID of the resource definition.
    */
@@ -5512,22 +5004,17 @@ export namespace UpdateResourceDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateResourceDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceDefinitionRequest => __isa(o, "UpdateResourceDefinitionRequest");
 }
 
-export interface UpdateResourceDefinitionResponse {
-  __type?: "UpdateResourceDefinitionResponse";
-}
+export interface UpdateResourceDefinitionResponse {}
 
 export namespace UpdateResourceDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateResourceDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceDefinitionResponse => __isa(o, "UpdateResourceDefinitionResponse");
 }
 
 export interface UpdateSubscriptionDefinitionRequest {
-  __type?: "UpdateSubscriptionDefinitionRequest";
   /**
    * The ID of the subscription definition.
    */
@@ -5543,20 +5030,14 @@ export namespace UpdateSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (obj: UpdateSubscriptionDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSubscriptionDefinitionRequest =>
-    __isa(o, "UpdateSubscriptionDefinitionRequest");
 }
 
-export interface UpdateSubscriptionDefinitionResponse {
-  __type?: "UpdateSubscriptionDefinitionResponse";
-}
+export interface UpdateSubscriptionDefinitionResponse {}
 
 export namespace UpdateSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (obj: UpdateSubscriptionDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSubscriptionDefinitionResponse =>
-    __isa(o, "UpdateSubscriptionDefinitionResponse");
 }
 
 export enum UpdateTargetsArchitecture {
@@ -5577,7 +5058,6 @@ export enum UpdateTargetsOperatingSystem {
  * Information about a version.
  */
 export interface VersionInformation {
-  __type?: "VersionInformation";
   /**
    * The ID of the version.
    */
@@ -5603,5 +5083,4 @@ export namespace VersionInformation {
   export const filterSensitiveLog = (obj: VersionInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionInformation => __isa(o, "VersionInformation");
 }

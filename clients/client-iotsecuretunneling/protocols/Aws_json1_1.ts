@@ -145,7 +145,6 @@ export const deserializeAws_json1_1CloseTunnelCommand = async (
   contents = deserializeAws_json1_1CloseTunnelResponse(data, context);
   const response: CloseTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CloseTunnelResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -201,7 +200,6 @@ export const deserializeAws_json1_1DescribeTunnelCommand = async (
   contents = deserializeAws_json1_1DescribeTunnelResponse(data, context);
   const response: DescribeTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTunnelResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -257,7 +255,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -313,7 +310,6 @@ export const deserializeAws_json1_1ListTunnelsCommand = async (
   contents = deserializeAws_json1_1ListTunnelsResponse(data, context);
   const response: ListTunnelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTunnelsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -361,7 +357,6 @@ export const deserializeAws_json1_1OpenTunnelCommand = async (
   contents = deserializeAws_json1_1OpenTunnelResponse(data, context);
   const response: OpenTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "OpenTunnelResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -417,7 +412,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -473,7 +467,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -639,14 +632,11 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
 };
 
 const deserializeAws_json1_1CloseTunnelResponse = (output: any, context: __SerdeContext): CloseTunnelResponse => {
-  return {
-    __type: "CloseTunnelResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ConnectionState = (output: any, context: __SerdeContext): ConnectionState => {
   return {
-    __type: "ConnectionState",
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -657,7 +647,6 @@ const deserializeAws_json1_1ConnectionState = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1DescribeTunnelResponse = (output: any, context: __SerdeContext): DescribeTunnelResponse => {
   return {
-    __type: "DescribeTunnelResponse",
     tunnel:
       output.tunnel !== undefined && output.tunnel !== null
         ? deserializeAws_json1_1Tunnel(output.tunnel, context)
@@ -667,7 +656,6 @@ const deserializeAws_json1_1DescribeTunnelResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1DestinationConfig = (output: any, context: __SerdeContext): DestinationConfig => {
   return {
-    __type: "DestinationConfig",
     services:
       output.services !== undefined && output.services !== null
         ? deserializeAws_json1_1ServiceList(output.services, context)
@@ -678,7 +666,6 @@ const deserializeAws_json1_1DestinationConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -688,7 +675,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -698,7 +684,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ListTunnelsResponse = (output: any, context: __SerdeContext): ListTunnelsResponse => {
   return {
-    __type: "ListTunnelsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tunnelSummaries:
       output.tunnelSummaries !== undefined && output.tunnelSummaries !== null
@@ -709,7 +694,6 @@ const deserializeAws_json1_1ListTunnelsResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1OpenTunnelResponse = (output: any, context: __SerdeContext): OpenTunnelResponse => {
   return {
-    __type: "OpenTunnelResponse",
     destinationAccessToken:
       output.destinationAccessToken !== undefined && output.destinationAccessToken !== null
         ? output.destinationAccessToken
@@ -728,7 +712,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -739,7 +722,6 @@ const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -750,14 +732,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TimeoutConfig = (output: any, context: __SerdeContext): TimeoutConfig => {
   return {
-    __type: "TimeoutConfig",
     maxLifetimeTimeoutMinutes:
       output.maxLifetimeTimeoutMinutes !== undefined && output.maxLifetimeTimeoutMinutes !== null
         ? output.maxLifetimeTimeoutMinutes
@@ -767,7 +746,6 @@ const deserializeAws_json1_1TimeoutConfig = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tunnel => {
   return {
-    __type: "Tunnel",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -805,7 +783,6 @@ const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tun
 
 const deserializeAws_json1_1TunnelSummary = (output: any, context: __SerdeContext): TunnelSummary => {
   return {
-    __type: "TunnelSummary",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -826,9 +803,7 @@ const deserializeAws_json1_1TunnelSummaryList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

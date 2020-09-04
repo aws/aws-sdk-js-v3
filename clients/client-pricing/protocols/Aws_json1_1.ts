@@ -78,7 +78,6 @@ export const deserializeAws_json1_1DescribeServicesCommand = async (
   contents = deserializeAws_json1_1DescribeServicesResponse(data, context);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -166,7 +165,6 @@ export const deserializeAws_json1_1GetAttributeValuesCommand = async (
   contents = deserializeAws_json1_1GetAttributeValuesResponse(data, context);
   const response: GetAttributeValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAttributeValuesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -254,7 +252,6 @@ export const deserializeAws_json1_1GetProductsCommand = async (
   contents = deserializeAws_json1_1GetProductsResponse(data, context);
   const response: GetProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProductsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -454,7 +451,6 @@ const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    __type: "AttributeValue",
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
@@ -468,7 +464,6 @@ const deserializeAws_json1_1DescribeServicesResponse = (
   context: __SerdeContext
 ): DescribeServicesResponse => {
   return {
-    __type: "DescribeServicesResponse",
     FormatVersion:
       output.FormatVersion !== undefined && output.FormatVersion !== null ? output.FormatVersion : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -484,7 +479,6 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   context: __SerdeContext
 ): ExpiredNextTokenException => {
   return {
-    __type: "ExpiredNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -494,7 +488,6 @@ const deserializeAws_json1_1GetAttributeValuesResponse = (
   context: __SerdeContext
 ): GetAttributeValuesResponse => {
   return {
-    __type: "GetAttributeValuesResponse",
     AttributeValues:
       output.AttributeValues !== undefined && output.AttributeValues !== null
         ? deserializeAws_json1_1AttributeValueList(output.AttributeValues, context)
@@ -505,7 +498,6 @@ const deserializeAws_json1_1GetAttributeValuesResponse = (
 
 const deserializeAws_json1_1GetProductsResponse = (output: any, context: __SerdeContext): GetProductsResponse => {
   return {
-    __type: "GetProductsResponse",
     FormatVersion:
       output.FormatVersion !== undefined && output.FormatVersion !== null ? output.FormatVersion : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -518,7 +510,6 @@ const deserializeAws_json1_1GetProductsResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    __type: "InternalErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -528,7 +519,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -538,14 +528,12 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -556,7 +544,6 @@ const deserializeAws_json1_1PriceList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
   return {
-    __type: "Service",
     AttributeNames:
       output.AttributeNames !== undefined && output.AttributeNames !== null
         ? deserializeAws_json1_1AttributeNameList(output.AttributeNames, context)

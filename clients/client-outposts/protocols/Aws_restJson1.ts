@@ -244,7 +244,6 @@ export const deserializeAws_restJson1CreateOutpostCommand = async (
   }
   const contents: CreateOutpostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOutpostOutput",
     Outpost: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -332,7 +331,6 @@ export const deserializeAws_restJson1DeleteOutpostCommand = async (
   }
   const contents: DeleteOutpostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteOutpostOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -408,7 +406,6 @@ export const deserializeAws_restJson1DeleteSiteCommand = async (
   }
   const contents: DeleteSiteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSiteOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -484,7 +481,6 @@ export const deserializeAws_restJson1GetOutpostCommand = async (
   }
   const contents: GetOutpostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOutpostOutput",
     Outpost: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -564,7 +560,6 @@ export const deserializeAws_restJson1GetOutpostInstanceTypesCommand = async (
   }
   const contents: GetOutpostInstanceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOutpostInstanceTypesOutput",
     InstanceTypes: undefined,
     NextToken: undefined,
     OutpostArn: undefined,
@@ -656,7 +651,6 @@ export const deserializeAws_restJson1ListOutpostsCommand = async (
   }
   const contents: ListOutpostsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOutpostsOutput",
     NextToken: undefined,
     Outposts: undefined,
   };
@@ -732,7 +726,6 @@ export const deserializeAws_restJson1ListSitesCommand = async (
   }
   const contents: ListSitesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSitesOutput",
     NextToken: undefined,
     Sites: undefined,
   };
@@ -886,7 +879,6 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const deserializeAws_restJson1InstanceTypeItem = (output: any, context: __SerdeContext): InstanceTypeItem => {
   return {
-    __type: "InstanceTypeItem",
     InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
   } as any;
 };
@@ -900,7 +892,6 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
 
 const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): Outpost => {
   return {
-    __type: "Outpost",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     AvailabilityZoneId:
@@ -924,7 +915,6 @@ const deserializeAws_restJson1outpostListDefinition = (output: any, context: __S
 
 const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Site => {
   return {
-    __type: "Site",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,

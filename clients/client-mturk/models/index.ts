@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptQualificationRequestRequest {
-  __type?: "AcceptQualificationRequestRequest";
   /**
    * <p>
    *             The value of the Qualification. You can omit this value if you are using the
@@ -21,23 +20,17 @@ export namespace AcceptQualificationRequestRequest {
   export const filterSensitiveLog = (obj: AcceptQualificationRequestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptQualificationRequestRequest => __isa(o, "AcceptQualificationRequestRequest");
 }
 
-export interface AcceptQualificationRequestResponse {
-  __type?: "AcceptQualificationRequestResponse";
-}
+export interface AcceptQualificationRequestResponse {}
 
 export namespace AcceptQualificationRequestResponse {
   export const filterSensitiveLog = (obj: AcceptQualificationRequestResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptQualificationRequestResponse =>
-    __isa(o, "AcceptQualificationRequestResponse");
 }
 
 export interface ApproveAssignmentRequest {
-  __type?: "ApproveAssignmentRequest";
   /**
    * <p>
    *             A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>.
@@ -64,18 +57,14 @@ export namespace ApproveAssignmentRequest {
   export const filterSensitiveLog = (obj: ApproveAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApproveAssignmentRequest => __isa(o, "ApproveAssignmentRequest");
 }
 
-export interface ApproveAssignmentResponse {
-  __type?: "ApproveAssignmentResponse";
-}
+export interface ApproveAssignmentResponse {}
 
 export namespace ApproveAssignmentResponse {
   export const filterSensitiveLog = (obj: ApproveAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApproveAssignmentResponse => __isa(o, "ApproveAssignmentResponse");
 }
 
 /**
@@ -85,7 +74,6 @@ export namespace ApproveAssignmentResponse {
  *         </p>
  */
 export interface Assignment {
-  __type?: "Assignment";
   /**
    * <p> The date and time of the deadline for the assignment. This
    *             value is derived from the deadline specification for the HIT and the
@@ -171,7 +159,6 @@ export namespace Assignment {
   export const filterSensitiveLog = (obj: Assignment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Assignment => __isa(o, "Assignment");
 }
 
 export enum AssignmentStatus {
@@ -181,7 +168,6 @@ export enum AssignmentStatus {
 }
 
 export interface AssociateQualificationWithWorkerRequest {
-  __type?: "AssociateQualificationWithWorkerRequest";
   /**
    * <p>The value of the Qualification to assign.</p>
    */
@@ -214,27 +200,20 @@ export namespace AssociateQualificationWithWorkerRequest {
   export const filterSensitiveLog = (obj: AssociateQualificationWithWorkerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateQualificationWithWorkerRequest =>
-    __isa(o, "AssociateQualificationWithWorkerRequest");
 }
 
-export interface AssociateQualificationWithWorkerResponse {
-  __type?: "AssociateQualificationWithWorkerResponse";
-}
+export interface AssociateQualificationWithWorkerResponse {}
 
 export namespace AssociateQualificationWithWorkerResponse {
   export const filterSensitiveLog = (obj: AssociateQualificationWithWorkerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateQualificationWithWorkerResponse =>
-    __isa(o, "AssociateQualificationWithWorkerResponse");
 }
 
 /**
  * <p>An object representing a Bonus payment paid to a Worker.</p>
  */
 export interface BonusPayment {
-  __type?: "BonusPayment";
   /**
    * <p>The Reason text given when the bonus was granted, if any.</p>
    */
@@ -265,7 +244,6 @@ export namespace BonusPayment {
   export const filterSensitiveLog = (obj: BonusPayment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BonusPayment => __isa(o, "BonusPayment");
 }
 
 export enum Comparator {
@@ -282,7 +260,6 @@ export enum Comparator {
 }
 
 export interface CreateAdditionalAssignmentsForHITRequest {
-  __type?: "CreateAdditionalAssignmentsForHITRequest";
   /**
    * <p>The number of additional assignments to request for this HIT.</p>
    */
@@ -310,24 +287,17 @@ export namespace CreateAdditionalAssignmentsForHITRequest {
   export const filterSensitiveLog = (obj: CreateAdditionalAssignmentsForHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAdditionalAssignmentsForHITRequest =>
-    __isa(o, "CreateAdditionalAssignmentsForHITRequest");
 }
 
-export interface CreateAdditionalAssignmentsForHITResponse {
-  __type?: "CreateAdditionalAssignmentsForHITResponse";
-}
+export interface CreateAdditionalAssignmentsForHITResponse {}
 
 export namespace CreateAdditionalAssignmentsForHITResponse {
   export const filterSensitiveLog = (obj: CreateAdditionalAssignmentsForHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAdditionalAssignmentsForHITResponse =>
-    __isa(o, "CreateAdditionalAssignmentsForHITResponse");
 }
 
 export interface CreateHITRequest {
-  __type?: "CreateHITRequest";
   /**
    * <p>
    *             The HITLayoutId allows you to use a pre-existing HIT design with placeholder values
@@ -502,11 +472,9 @@ export namespace CreateHITRequest {
   export const filterSensitiveLog = (obj: CreateHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHITRequest => __isa(o, "CreateHITRequest");
 }
 
 export interface CreateHITResponse {
-  __type?: "CreateHITResponse";
   /**
    * <p> Contains the newly created HIT data. For a description of
    *             the HIT data structure as it appears in responses, see the HIT Data
@@ -520,11 +488,9 @@ export namespace CreateHITResponse {
   export const filterSensitiveLog = (obj: CreateHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHITResponse => __isa(o, "CreateHITResponse");
 }
 
 export interface CreateHITTypeRequest {
-  __type?: "CreateHITTypeRequest";
   /**
    * <p>
    *             A general description of the HIT. A description includes detailed information about the kind of task
@@ -596,11 +562,9 @@ export namespace CreateHITTypeRequest {
   export const filterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHITTypeRequest => __isa(o, "CreateHITTypeRequest");
 }
 
 export interface CreateHITTypeResponse {
-  __type?: "CreateHITTypeResponse";
   /**
    * <p> The ID of the newly registered HIT type.</p>
    */
@@ -611,11 +575,9 @@ export namespace CreateHITTypeResponse {
   export const filterSensitiveLog = (obj: CreateHITTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHITTypeResponse => __isa(o, "CreateHITTypeResponse");
 }
 
 export interface CreateHITWithHITTypeRequest {
-  __type?: "CreateHITWithHITTypeRequest";
   /**
    * <p>
    *             The Assignment-level Review Policy applies to the assignments under the HIT.
@@ -729,11 +691,9 @@ export namespace CreateHITWithHITTypeRequest {
   export const filterSensitiveLog = (obj: CreateHITWithHITTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHITWithHITTypeRequest => __isa(o, "CreateHITWithHITTypeRequest");
 }
 
 export interface CreateHITWithHITTypeResponse {
-  __type?: "CreateHITWithHITTypeResponse";
   /**
    * <p> Contains the newly created HIT data. For a description of
    *             the HIT data structure as it appears in responses, see the HIT Data
@@ -747,11 +707,9 @@ export namespace CreateHITWithHITTypeResponse {
   export const filterSensitiveLog = (obj: CreateHITWithHITTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHITWithHITTypeResponse => __isa(o, "CreateHITWithHITTypeResponse");
 }
 
 export interface CreateQualificationTypeRequest {
-  __type?: "CreateQualificationTypeRequest";
   /**
    * <p>A long description for the Qualification type. On the Amazon
    *             Mechanical Turk website, the long description is displayed when a
@@ -847,11 +805,9 @@ export namespace CreateQualificationTypeRequest {
   export const filterSensitiveLog = (obj: CreateQualificationTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQualificationTypeRequest => __isa(o, "CreateQualificationTypeRequest");
 }
 
 export interface CreateQualificationTypeResponse {
-  __type?: "CreateQualificationTypeResponse";
   /**
    * <p>The created Qualification type, returned as a
    *             QualificationType data structure.</p>
@@ -863,11 +819,9 @@ export namespace CreateQualificationTypeResponse {
   export const filterSensitiveLog = (obj: CreateQualificationTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQualificationTypeResponse => __isa(o, "CreateQualificationTypeResponse");
 }
 
 export interface CreateWorkerBlockRequest {
-  __type?: "CreateWorkerBlockRequest";
   /**
    * <p>A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.</p>
    */
@@ -883,22 +837,17 @@ export namespace CreateWorkerBlockRequest {
   export const filterSensitiveLog = (obj: CreateWorkerBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkerBlockRequest => __isa(o, "CreateWorkerBlockRequest");
 }
 
-export interface CreateWorkerBlockResponse {
-  __type?: "CreateWorkerBlockResponse";
-}
+export interface CreateWorkerBlockResponse {}
 
 export namespace CreateWorkerBlockResponse {
   export const filterSensitiveLog = (obj: CreateWorkerBlockResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkerBlockResponse => __isa(o, "CreateWorkerBlockResponse");
 }
 
 export interface DeleteHITRequest {
-  __type?: "DeleteHITRequest";
   /**
    * <p>The ID of the HIT to be deleted.</p>
    */
@@ -909,22 +858,17 @@ export namespace DeleteHITRequest {
   export const filterSensitiveLog = (obj: DeleteHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHITRequest => __isa(o, "DeleteHITRequest");
 }
 
-export interface DeleteHITResponse {
-  __type?: "DeleteHITResponse";
-}
+export interface DeleteHITResponse {}
 
 export namespace DeleteHITResponse {
   export const filterSensitiveLog = (obj: DeleteHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHITResponse => __isa(o, "DeleteHITResponse");
 }
 
 export interface DeleteQualificationTypeRequest {
-  __type?: "DeleteQualificationTypeRequest";
   /**
    * <p>The ID of the QualificationType to dispose.</p>
    */
@@ -935,22 +879,17 @@ export namespace DeleteQualificationTypeRequest {
   export const filterSensitiveLog = (obj: DeleteQualificationTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQualificationTypeRequest => __isa(o, "DeleteQualificationTypeRequest");
 }
 
-export interface DeleteQualificationTypeResponse {
-  __type?: "DeleteQualificationTypeResponse";
-}
+export interface DeleteQualificationTypeResponse {}
 
 export namespace DeleteQualificationTypeResponse {
   export const filterSensitiveLog = (obj: DeleteQualificationTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQualificationTypeResponse => __isa(o, "DeleteQualificationTypeResponse");
 }
 
 export interface DeleteWorkerBlockRequest {
-  __type?: "DeleteWorkerBlockRequest";
   /**
    * <p>A message that explains the reason for unblocking the Worker. The Worker does not see this message.</p>
    */
@@ -966,22 +905,17 @@ export namespace DeleteWorkerBlockRequest {
   export const filterSensitiveLog = (obj: DeleteWorkerBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkerBlockRequest => __isa(o, "DeleteWorkerBlockRequest");
 }
 
-export interface DeleteWorkerBlockResponse {
-  __type?: "DeleteWorkerBlockResponse";
-}
+export interface DeleteWorkerBlockResponse {}
 
 export namespace DeleteWorkerBlockResponse {
   export const filterSensitiveLog = (obj: DeleteWorkerBlockResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkerBlockResponse => __isa(o, "DeleteWorkerBlockResponse");
 }
 
 export interface DisassociateQualificationFromWorkerRequest {
-  __type?: "DisassociateQualificationFromWorkerRequest";
   /**
    * <p>The ID of the Qualification type of the Qualification to be revoked.</p>
    */
@@ -1002,20 +936,14 @@ export namespace DisassociateQualificationFromWorkerRequest {
   export const filterSensitiveLog = (obj: DisassociateQualificationFromWorkerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateQualificationFromWorkerRequest =>
-    __isa(o, "DisassociateQualificationFromWorkerRequest");
 }
 
-export interface DisassociateQualificationFromWorkerResponse {
-  __type?: "DisassociateQualificationFromWorkerResponse";
-}
+export interface DisassociateQualificationFromWorkerResponse {}
 
 export namespace DisassociateQualificationFromWorkerResponse {
   export const filterSensitiveLog = (obj: DisassociateQualificationFromWorkerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateQualificationFromWorkerResponse =>
-    __isa(o, "DisassociateQualificationFromWorkerResponse");
 }
 
 export enum EventType {
@@ -1033,19 +961,15 @@ export enum EventType {
   Ping = "Ping",
 }
 
-export interface GetAccountBalanceRequest {
-  __type?: "GetAccountBalanceRequest";
-}
+export interface GetAccountBalanceRequest {}
 
 export namespace GetAccountBalanceRequest {
   export const filterSensitiveLog = (obj: GetAccountBalanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountBalanceRequest => __isa(o, "GetAccountBalanceRequest");
 }
 
 export interface GetAccountBalanceResponse {
-  __type?: "GetAccountBalanceResponse";
   /**
    * <p>A string representing a currency amount.</p>
    */
@@ -1061,11 +985,9 @@ export namespace GetAccountBalanceResponse {
   export const filterSensitiveLog = (obj: GetAccountBalanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountBalanceResponse => __isa(o, "GetAccountBalanceResponse");
 }
 
 export interface GetAssignmentRequest {
-  __type?: "GetAssignmentRequest";
   /**
    * <p>The ID of the Assignment to be retrieved.</p>
    */
@@ -1076,11 +998,9 @@ export namespace GetAssignmentRequest {
   export const filterSensitiveLog = (obj: GetAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssignmentRequest => __isa(o, "GetAssignmentRequest");
 }
 
 export interface GetAssignmentResponse {
-  __type?: "GetAssignmentResponse";
   /**
    * <p> The HIT associated with this assignment. The response
    *             includes one HIT element.</p>
@@ -1099,11 +1019,9 @@ export namespace GetAssignmentResponse {
   export const filterSensitiveLog = (obj: GetAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssignmentResponse => __isa(o, "GetAssignmentResponse");
 }
 
 export interface GetFileUploadURLRequest {
-  __type?: "GetFileUploadURLRequest";
   /**
    * <p>The identifier of the question with a FileUploadAnswer, as
    *             specified in the QuestionForm of the HIT.</p>
@@ -1121,11 +1039,9 @@ export namespace GetFileUploadURLRequest {
   export const filterSensitiveLog = (obj: GetFileUploadURLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFileUploadURLRequest => __isa(o, "GetFileUploadURLRequest");
 }
 
 export interface GetFileUploadURLResponse {
-  __type?: "GetFileUploadURLResponse";
   /**
    * <p> A temporary URL for the file that the Worker uploaded for
    *             the answer.
@@ -1138,11 +1054,9 @@ export namespace GetFileUploadURLResponse {
   export const filterSensitiveLog = (obj: GetFileUploadURLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFileUploadURLResponse => __isa(o, "GetFileUploadURLResponse");
 }
 
 export interface GetHITRequest {
-  __type?: "GetHITRequest";
   /**
    * <p>The ID of the HIT to be retrieved.</p>
    */
@@ -1153,11 +1067,9 @@ export namespace GetHITRequest {
   export const filterSensitiveLog = (obj: GetHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHITRequest => __isa(o, "GetHITRequest");
 }
 
 export interface GetHITResponse {
-  __type?: "GetHITResponse";
   /**
    * <p> Contains the requested HIT data.</p>
    */
@@ -1168,11 +1080,9 @@ export namespace GetHITResponse {
   export const filterSensitiveLog = (obj: GetHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHITResponse => __isa(o, "GetHITResponse");
 }
 
 export interface GetQualificationScoreRequest {
-  __type?: "GetQualificationScoreRequest";
   /**
    * <p>The ID of the Worker whose Qualification is being updated.</p>
    */
@@ -1188,11 +1098,9 @@ export namespace GetQualificationScoreRequest {
   export const filterSensitiveLog = (obj: GetQualificationScoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQualificationScoreRequest => __isa(o, "GetQualificationScoreRequest");
 }
 
 export interface GetQualificationScoreResponse {
-  __type?: "GetQualificationScoreResponse";
   /**
    * <p> The Qualification data structure of the Qualification
    *             assigned to a user, including the Qualification type and the value
@@ -1206,11 +1114,9 @@ export namespace GetQualificationScoreResponse {
   export const filterSensitiveLog = (obj: GetQualificationScoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQualificationScoreResponse => __isa(o, "GetQualificationScoreResponse");
 }
 
 export interface GetQualificationTypeRequest {
-  __type?: "GetQualificationTypeRequest";
   /**
    * <p>The ID of the QualificationType.</p>
    */
@@ -1221,11 +1127,9 @@ export namespace GetQualificationTypeRequest {
   export const filterSensitiveLog = (obj: GetQualificationTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQualificationTypeRequest => __isa(o, "GetQualificationTypeRequest");
 }
 
 export interface GetQualificationTypeResponse {
-  __type?: "GetQualificationTypeResponse";
   /**
    * <p> The returned Qualification Type</p>
    */
@@ -1236,7 +1140,6 @@ export namespace GetQualificationTypeResponse {
   export const filterSensitiveLog = (obj: GetQualificationTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQualificationTypeResponse => __isa(o, "GetQualificationTypeResponse");
 }
 
 /**
@@ -1245,7 +1148,6 @@ export namespace GetQualificationTypeResponse {
  *             HIT.</p>
  */
 export interface HIT {
-  __type?: "HIT";
   /**
    * <p>The number of times the HIT can be accepted and completed
    *             before the HIT becomes unavailable.
@@ -1384,7 +1286,6 @@ export namespace HIT {
   export const filterSensitiveLog = (obj: HIT): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HIT => __isa(o, "HIT");
 }
 
 export enum HITAccessActions {
@@ -1401,7 +1302,6 @@ export enum HITAccessActions {
  *         </p>
  */
 export interface HITLayoutParameter {
-  __type?: "HITLayoutParameter";
   /**
    * <p> The name of the parameter in the HITLayout.
    *         </p>
@@ -1420,7 +1320,6 @@ export namespace HITLayoutParameter {
   export const filterSensitiveLog = (obj: HITLayoutParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HITLayoutParameter => __isa(o, "HITLayoutParameter");
 }
 
 export enum HITReviewStatus {
@@ -1439,7 +1338,6 @@ export enum HITStatus {
 }
 
 export interface ListAssignmentsForHITRequest {
-  __type?: "ListAssignmentsForHITRequest";
   MaxResults?: number;
   /**
    * <p>The status of the assignments to return: Submitted | Approved
@@ -1462,11 +1360,9 @@ export namespace ListAssignmentsForHITRequest {
   export const filterSensitiveLog = (obj: ListAssignmentsForHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssignmentsForHITRequest => __isa(o, "ListAssignmentsForHITRequest");
 }
 
 export interface ListAssignmentsForHITResponse {
-  __type?: "ListAssignmentsForHITResponse";
   /**
    * <p> The collection of Assignment data structures returned by
    *             this call.</p>
@@ -1493,11 +1389,9 @@ export namespace ListAssignmentsForHITResponse {
   export const filterSensitiveLog = (obj: ListAssignmentsForHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssignmentsForHITResponse => __isa(o, "ListAssignmentsForHITResponse");
 }
 
 export interface ListBonusPaymentsRequest {
-  __type?: "ListBonusPaymentsRequest";
   /**
    * <p>Pagination token</p>
    */
@@ -1525,11 +1419,9 @@ export namespace ListBonusPaymentsRequest {
   export const filterSensitiveLog = (obj: ListBonusPaymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBonusPaymentsRequest => __isa(o, "ListBonusPaymentsRequest");
 }
 
 export interface ListBonusPaymentsResponse {
-  __type?: "ListBonusPaymentsResponse";
   /**
    * <p>A successful request to the ListBonusPayments operation
    *             returns a list of BonusPayment objects.
@@ -1558,11 +1450,9 @@ export namespace ListBonusPaymentsResponse {
   export const filterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBonusPaymentsResponse => __isa(o, "ListBonusPaymentsResponse");
 }
 
 export interface ListHITsForQualificationTypeRequest {
-  __type?: "ListHITsForQualificationTypeRequest";
   /**
    * <p>
    *             The ID of the Qualification type to use when querying HITs.
@@ -1587,12 +1477,9 @@ export namespace ListHITsForQualificationTypeRequest {
   export const filterSensitiveLog = (obj: ListHITsForQualificationTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHITsForQualificationTypeRequest =>
-    __isa(o, "ListHITsForQualificationTypeRequest");
 }
 
 export interface ListHITsForQualificationTypeResponse {
-  __type?: "ListHITsForQualificationTypeResponse";
   /**
    * <p> The number of HITs on this page in the filtered results
    *             list, equivalent to the number of HITs being returned by this call.	</p>
@@ -1617,12 +1504,9 @@ export namespace ListHITsForQualificationTypeResponse {
   export const filterSensitiveLog = (obj: ListHITsForQualificationTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHITsForQualificationTypeResponse =>
-    __isa(o, "ListHITsForQualificationTypeResponse");
 }
 
 export interface ListHITsRequest {
-  __type?: "ListHITsRequest";
   MaxResults?: number;
   /**
    * <p>Pagination token</p>
@@ -1634,11 +1518,9 @@ export namespace ListHITsRequest {
   export const filterSensitiveLog = (obj: ListHITsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHITsRequest => __isa(o, "ListHITsRequest");
 }
 
 export interface ListHITsResponse {
-  __type?: "ListHITsResponse";
   /**
    * <p>The number of HITs on this page in the filtered results list,
    *             equivalent to the number of HITs being returned by this call.</p>
@@ -1663,11 +1545,9 @@ export namespace ListHITsResponse {
   export const filterSensitiveLog = (obj: ListHITsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHITsResponse => __isa(o, "ListHITsResponse");
 }
 
 export interface ListQualificationRequestsRequest {
-  __type?: "ListQualificationRequestsRequest";
   /**
    * <p>The ID of the QualificationType.</p>
    */
@@ -1692,11 +1572,9 @@ export namespace ListQualificationRequestsRequest {
   export const filterSensitiveLog = (obj: ListQualificationRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQualificationRequestsRequest => __isa(o, "ListQualificationRequestsRequest");
 }
 
 export interface ListQualificationRequestsResponse {
-  __type?: "ListQualificationRequestsResponse";
   /**
    * <p>The number of Qualification requests on this page in the filtered results list,
    *             equivalent to the number of Qualification requests being returned by this call.</p>
@@ -1724,11 +1602,9 @@ export namespace ListQualificationRequestsResponse {
   export const filterSensitiveLog = (obj: ListQualificationRequestsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQualificationRequestsResponse => __isa(o, "ListQualificationRequestsResponse");
 }
 
 export interface ListQualificationTypesRequest {
-  __type?: "ListQualificationTypesRequest";
   /**
    * <p>Specifies that only Qualification types that a user can
    *             request through the Amazon Mechanical Turk web site, such as by
@@ -1775,11 +1651,9 @@ export namespace ListQualificationTypesRequest {
   export const filterSensitiveLog = (obj: ListQualificationTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQualificationTypesRequest => __isa(o, "ListQualificationTypesRequest");
 }
 
 export interface ListQualificationTypesResponse {
-  __type?: "ListQualificationTypesResponse";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
@@ -1808,11 +1682,9 @@ export namespace ListQualificationTypesResponse {
   export const filterSensitiveLog = (obj: ListQualificationTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQualificationTypesResponse => __isa(o, "ListQualificationTypesResponse");
 }
 
 export interface ListReviewableHITsRequest {
-  __type?: "ListReviewableHITsRequest";
   /**
    * <p>
    *             Can be either <code>Reviewable</code> or <code>Reviewing</code>.
@@ -1846,11 +1718,9 @@ export namespace ListReviewableHITsRequest {
   export const filterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReviewableHITsRequest => __isa(o, "ListReviewableHITsRequest");
 }
 
 export interface ListReviewableHITsResponse {
-  __type?: "ListReviewableHITsResponse";
   /**
    * <p> The list of HIT elements returned by the query.</p>
    */
@@ -1876,11 +1746,9 @@ export namespace ListReviewableHITsResponse {
   export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReviewableHITsResponse => __isa(o, "ListReviewableHITsResponse");
 }
 
 export interface ListReviewPolicyResultsForHITRequest {
-  __type?: "ListReviewPolicyResultsForHITRequest";
   /**
    * <p>Limit the number of results returned.</p>
    */
@@ -1925,12 +1793,9 @@ export namespace ListReviewPolicyResultsForHITRequest {
   export const filterSensitiveLog = (obj: ListReviewPolicyResultsForHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReviewPolicyResultsForHITRequest =>
-    __isa(o, "ListReviewPolicyResultsForHITRequest");
 }
 
 export interface ListReviewPolicyResultsForHITResponse {
-  __type?: "ListReviewPolicyResultsForHITResponse";
   /**
    * <p>Contains both ReviewResult and ReviewAction elements for a particular HIT.
    *         </p>
@@ -1975,12 +1840,9 @@ export namespace ListReviewPolicyResultsForHITResponse {
   export const filterSensitiveLog = (obj: ListReviewPolicyResultsForHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReviewPolicyResultsForHITResponse =>
-    __isa(o, "ListReviewPolicyResultsForHITResponse");
 }
 
 export interface ListWorkerBlocksRequest {
-  __type?: "ListWorkerBlocksRequest";
   MaxResults?: number;
   /**
    * <p>Pagination token</p>
@@ -1992,11 +1854,9 @@ export namespace ListWorkerBlocksRequest {
   export const filterSensitiveLog = (obj: ListWorkerBlocksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkerBlocksRequest => __isa(o, "ListWorkerBlocksRequest");
 }
 
 export interface ListWorkerBlocksResponse {
-  __type?: "ListWorkerBlocksResponse";
   /**
    * <p> The list of WorkerBlocks, containing the collection of
    *             Worker IDs and reasons for blocking.</p>
@@ -2023,11 +1883,9 @@ export namespace ListWorkerBlocksResponse {
   export const filterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkerBlocksResponse => __isa(o, "ListWorkerBlocksResponse");
 }
 
 export interface ListWorkersWithQualificationTypeRequest {
-  __type?: "ListWorkersWithQualificationTypeRequest";
   /**
    * <p>The ID of the Qualification type of the Qualifications to
    *             return.</p>
@@ -2059,12 +1917,9 @@ export namespace ListWorkersWithQualificationTypeRequest {
   export const filterSensitiveLog = (obj: ListWorkersWithQualificationTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkersWithQualificationTypeRequest =>
-    __isa(o, "ListWorkersWithQualificationTypeRequest");
 }
 
 export interface ListWorkersWithQualificationTypeResponse {
-  __type?: "ListWorkersWithQualificationTypeResponse";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
@@ -2091,15 +1946,12 @@ export namespace ListWorkersWithQualificationTypeResponse {
   export const filterSensitiveLog = (obj: ListWorkersWithQualificationTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkersWithQualificationTypeResponse =>
-    __isa(o, "ListWorkersWithQualificationTypeResponse");
 }
 
 /**
  * <p>The Locale data structure represents a geographical region or location.</p>
  */
 export interface Locale {
-  __type?: "Locale";
   /**
    * <p> The country of the locale. Must be a valid ISO 3166 country
    *             code. For example, the code US refers to the United States of
@@ -2120,7 +1972,6 @@ export namespace Locale {
   export const filterSensitiveLog = (obj: Locale): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Locale => __isa(o, "Locale");
 }
 
 /**
@@ -2128,7 +1979,6 @@ export namespace Locale {
  *             event notification for a HIT type.</p>
  */
 export interface NotificationSpecification {
-  __type?: "NotificationSpecification";
   /**
    * <p> The list of events that should cause notifications to be
    *             sent. Valid Values: AssignmentAccepted | AssignmentAbandoned |
@@ -2176,7 +2026,6 @@ export namespace NotificationSpecification {
   export const filterSensitiveLog = (obj: NotificationSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationSpecification => __isa(o, "NotificationSpecification");
 }
 
 export enum NotificationTransport {
@@ -2196,7 +2045,6 @@ export enum NotifyWorkersFailureCode {
  *         </p>
  */
 export interface NotifyWorkersFailureStatus {
-  __type?: "NotifyWorkersFailureStatus";
   /**
    * <p> A message detailing the reason the Worker could not be
    *             notified.
@@ -2220,11 +2068,9 @@ export namespace NotifyWorkersFailureStatus {
   export const filterSensitiveLog = (obj: NotifyWorkersFailureStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyWorkersFailureStatus => __isa(o, "NotifyWorkersFailureStatus");
 }
 
 export interface NotifyWorkersRequest {
-  __type?: "NotifyWorkersRequest";
   /**
    * <p>A list of Worker IDs you wish to notify. You
    *             can notify upto
@@ -2249,11 +2095,9 @@ export namespace NotifyWorkersRequest {
   export const filterSensitiveLog = (obj: NotifyWorkersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyWorkersRequest => __isa(o, "NotifyWorkersRequest");
 }
 
 export interface NotifyWorkersResponse {
-  __type?: "NotifyWorkersResponse";
   /**
    * <p> When MTurk sends notifications to the list of Workers, it
    *             returns back any failures it encounters in this list of
@@ -2267,7 +2111,6 @@ export namespace NotifyWorkersResponse {
   export const filterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyWorkersResponse => __isa(o, "NotifyWorkersResponse");
 }
 
 /**
@@ -2276,7 +2119,6 @@ export namespace NotifyWorkersResponse {
  *         </p>
  */
 export interface ParameterMapEntry {
-  __type?: "ParameterMapEntry";
   /**
    * <p> The list of answers to the question specified in the
    *             MapEntry Key element. The Worker must match all values in order for
@@ -2298,7 +2140,6 @@ export namespace ParameterMapEntry {
   export const filterSensitiveLog = (obj: ParameterMapEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterMapEntry => __isa(o, "ParameterMapEntry");
 }
 
 /**
@@ -2306,7 +2147,6 @@ export namespace ParameterMapEntry {
  *         </p>
  */
 export interface PolicyParameter {
-  __type?: "PolicyParameter";
   /**
    * <p> Name of the parameter from the list of Review Polices.
    *         </p>
@@ -2329,7 +2169,6 @@ export namespace PolicyParameter {
   export const filterSensitiveLog = (obj: PolicyParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyParameter => __isa(o, "PolicyParameter");
 }
 
 /**
@@ -2338,7 +2177,6 @@ export namespace PolicyParameter {
  *             (score).</p>
  */
 export interface Qualification {
-  __type?: "Qualification";
   /**
    * <p> The value (score) of the Qualification, if the Qualification
    *             has an integer value.</p>
@@ -2381,7 +2219,6 @@ export namespace Qualification {
   export const filterSensitiveLog = (obj: Qualification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Qualification => __isa(o, "Qualification");
 }
 
 /**
@@ -2390,7 +2227,6 @@ export namespace Qualification {
  *         </p>
  */
 export interface QualificationRequest {
-  __type?: "QualificationRequest";
   /**
    * <p> The ID of the Qualification type the Worker is requesting,
    *             as returned by the CreateQualificationType operation.
@@ -2443,7 +2279,6 @@ export namespace QualificationRequest {
   export const filterSensitiveLog = (obj: QualificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QualificationRequest => __isa(o, "QualificationRequest");
 }
 
 /**
@@ -2455,7 +2290,6 @@ export namespace QualificationRequest {
  *         </p>
  */
 export interface QualificationRequirement {
-  __type?: "QualificationRequirement";
   /**
    * <p> Setting this attribute prevents Workers whose Qualifications do not meet
    *             this QualificationRequirement from taking the specified action. Valid arguments include
@@ -2542,7 +2376,6 @@ export namespace QualificationRequirement {
   export const filterSensitiveLog = (obj: QualificationRequirement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QualificationRequirement => __isa(o, "QualificationRequirement");
 }
 
 export enum QualificationStatus {
@@ -2559,7 +2392,6 @@ export enum QualificationStatus {
  *         </p>
  */
 export interface QualificationType {
-  __type?: "QualificationType";
   /**
    * <p> The questions for a Qualification test associated with this
    *             Qualification type that a user can take to obtain a Qualification of
@@ -2669,7 +2501,6 @@ export namespace QualificationType {
   export const filterSensitiveLog = (obj: QualificationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QualificationType => __isa(o, "QualificationType");
 }
 
 export enum QualificationTypeStatus {
@@ -2678,7 +2509,6 @@ export enum QualificationTypeStatus {
 }
 
 export interface RejectAssignmentRequest {
-  __type?: "RejectAssignmentRequest";
   /**
    * <p>
    *             The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
@@ -2698,22 +2528,17 @@ export namespace RejectAssignmentRequest {
   export const filterSensitiveLog = (obj: RejectAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectAssignmentRequest => __isa(o, "RejectAssignmentRequest");
 }
 
-export interface RejectAssignmentResponse {
-  __type?: "RejectAssignmentResponse";
-}
+export interface RejectAssignmentResponse {}
 
 export namespace RejectAssignmentResponse {
   export const filterSensitiveLog = (obj: RejectAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectAssignmentResponse => __isa(o, "RejectAssignmentResponse");
 }
 
 export interface RejectQualificationRequestRequest {
-  __type?: "RejectQualificationRequestRequest";
   /**
    * <p>
    *             The ID of the Qualification request, as returned by the
@@ -2734,19 +2559,14 @@ export namespace RejectQualificationRequestRequest {
   export const filterSensitiveLog = (obj: RejectQualificationRequestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectQualificationRequestRequest => __isa(o, "RejectQualificationRequestRequest");
 }
 
-export interface RejectQualificationRequestResponse {
-  __type?: "RejectQualificationRequestResponse";
-}
+export interface RejectQualificationRequestResponse {}
 
 export namespace RejectQualificationRequestResponse {
   export const filterSensitiveLog = (obj: RejectQualificationRequestResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectQualificationRequestResponse =>
-    __isa(o, "RejectQualificationRequestResponse");
 }
 
 /**
@@ -2763,7 +2583,6 @@ export namespace RequestError {
   export const filterSensitiveLog = (obj: RequestError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestError => __isa(o, "RequestError");
 }
 
 export enum ReviewableHITStatus {
@@ -2779,7 +2598,6 @@ export enum ReviewableHITStatus {
  *         </p>
  */
 export interface ReviewActionDetail {
-  __type?: "ReviewActionDetail";
   /**
    * <p>The unique identifier for the action.</p>
    */
@@ -2829,7 +2647,6 @@ export namespace ReviewActionDetail {
   export const filterSensitiveLog = (obj: ReviewActionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReviewActionDetail => __isa(o, "ReviewActionDetail");
 }
 
 export enum ReviewActionStatus {
@@ -2845,7 +2662,6 @@ export enum ReviewActionStatus {
  *         </p>
  */
 export interface ReviewPolicy {
-  __type?: "ReviewPolicy";
   /**
    * <p>Name of the parameter from the Review policy.</p>
    */
@@ -2863,7 +2679,6 @@ export namespace ReviewPolicy {
   export const filterSensitiveLog = (obj: ReviewPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReviewPolicy => __isa(o, "ReviewPolicy");
 }
 
 export enum ReviewPolicyLevel {
@@ -2877,7 +2692,6 @@ export enum ReviewPolicyLevel {
  *         </p>
  */
 export interface ReviewReport {
-  __type?: "ReviewReport";
   /**
    * <p> A list of ReviewAction objects for each action specified in
    *             the Review Policy.
@@ -2897,7 +2711,6 @@ export namespace ReviewReport {
   export const filterSensitiveLog = (obj: ReviewReport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReviewReport => __isa(o, "ReviewReport");
 }
 
 /**
@@ -2906,7 +2719,6 @@ export namespace ReviewReport {
  *         </p>
  */
 export interface ReviewResultDetail {
-  __type?: "ReviewResultDetail";
   /**
    * <p> Specifies the QuestionId the result is describing. Depending
    *             on whether the TargetType is a HIT or Assignment this results could
@@ -2958,11 +2770,9 @@ export namespace ReviewResultDetail {
   export const filterSensitiveLog = (obj: ReviewResultDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReviewResultDetail => __isa(o, "ReviewResultDetail");
 }
 
 export interface SendBonusRequest {
-  __type?: "SendBonusRequest";
   /**
    * <p>The ID of the assignment for which this bonus is paid.</p>
    */
@@ -3003,22 +2813,17 @@ export namespace SendBonusRequest {
   export const filterSensitiveLog = (obj: SendBonusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBonusRequest => __isa(o, "SendBonusRequest");
 }
 
-export interface SendBonusResponse {
-  __type?: "SendBonusResponse";
-}
+export interface SendBonusResponse {}
 
 export namespace SendBonusResponse {
   export const filterSensitiveLog = (obj: SendBonusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBonusResponse => __isa(o, "SendBonusResponse");
 }
 
 export interface SendTestEventNotificationRequest {
-  __type?: "SendTestEventNotificationRequest";
   /**
    * <p>
    *             The notification specification to test. This value is identical to the value
@@ -3043,18 +2848,14 @@ export namespace SendTestEventNotificationRequest {
   export const filterSensitiveLog = (obj: SendTestEventNotificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTestEventNotificationRequest => __isa(o, "SendTestEventNotificationRequest");
 }
 
-export interface SendTestEventNotificationResponse {
-  __type?: "SendTestEventNotificationResponse";
-}
+export interface SendTestEventNotificationResponse {}
 
 export namespace SendTestEventNotificationResponse {
   export const filterSensitiveLog = (obj: SendTestEventNotificationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTestEventNotificationResponse => __isa(o, "SendTestEventNotificationResponse");
 }
 
 /**
@@ -3071,11 +2872,9 @@ export namespace ServiceFault {
   export const filterSensitiveLog = (obj: ServiceFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceFault => __isa(o, "ServiceFault");
 }
 
 export interface UpdateExpirationForHITRequest {
-  __type?: "UpdateExpirationForHITRequest";
   /**
    * <p>
    *             The HIT to update.
@@ -3095,22 +2894,17 @@ export namespace UpdateExpirationForHITRequest {
   export const filterSensitiveLog = (obj: UpdateExpirationForHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateExpirationForHITRequest => __isa(o, "UpdateExpirationForHITRequest");
 }
 
-export interface UpdateExpirationForHITResponse {
-  __type?: "UpdateExpirationForHITResponse";
-}
+export interface UpdateExpirationForHITResponse {}
 
 export namespace UpdateExpirationForHITResponse {
   export const filterSensitiveLog = (obj: UpdateExpirationForHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateExpirationForHITResponse => __isa(o, "UpdateExpirationForHITResponse");
 }
 
 export interface UpdateHITReviewStatusRequest {
-  __type?: "UpdateHITReviewStatusRequest";
   /**
    * <p>
    *             Specifies how to update the HIT status. Default is <code>False</code>.
@@ -3142,22 +2936,17 @@ export namespace UpdateHITReviewStatusRequest {
   export const filterSensitiveLog = (obj: UpdateHITReviewStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHITReviewStatusRequest => __isa(o, "UpdateHITReviewStatusRequest");
 }
 
-export interface UpdateHITReviewStatusResponse {
-  __type?: "UpdateHITReviewStatusResponse";
-}
+export interface UpdateHITReviewStatusResponse {}
 
 export namespace UpdateHITReviewStatusResponse {
   export const filterSensitiveLog = (obj: UpdateHITReviewStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHITReviewStatusResponse => __isa(o, "UpdateHITReviewStatusResponse");
 }
 
 export interface UpdateHITTypeOfHITRequest {
-  __type?: "UpdateHITTypeOfHITRequest";
   /**
    * <p>The ID of the new HIT type.</p>
    */
@@ -3173,22 +2962,17 @@ export namespace UpdateHITTypeOfHITRequest {
   export const filterSensitiveLog = (obj: UpdateHITTypeOfHITRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHITTypeOfHITRequest => __isa(o, "UpdateHITTypeOfHITRequest");
 }
 
-export interface UpdateHITTypeOfHITResponse {
-  __type?: "UpdateHITTypeOfHITResponse";
-}
+export interface UpdateHITTypeOfHITResponse {}
 
 export namespace UpdateHITTypeOfHITResponse {
   export const filterSensitiveLog = (obj: UpdateHITTypeOfHITResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHITTypeOfHITResponse => __isa(o, "UpdateHITTypeOfHITResponse");
 }
 
 export interface UpdateNotificationSettingsRequest {
-  __type?: "UpdateNotificationSettingsRequest";
   /**
    * <p>
    *             Specifies whether notifications are sent for HITs of this HIT type,
@@ -3218,23 +3002,17 @@ export namespace UpdateNotificationSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateNotificationSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationSettingsRequest => __isa(o, "UpdateNotificationSettingsRequest");
 }
 
-export interface UpdateNotificationSettingsResponse {
-  __type?: "UpdateNotificationSettingsResponse";
-}
+export interface UpdateNotificationSettingsResponse {}
 
 export namespace UpdateNotificationSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateNotificationSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationSettingsResponse =>
-    __isa(o, "UpdateNotificationSettingsResponse");
 }
 
 export interface UpdateQualificationTypeRequest {
-  __type?: "UpdateQualificationTypeRequest";
   /**
    * <p>The ID of the Qualification type to update.</p>
    */
@@ -3295,11 +3073,9 @@ export namespace UpdateQualificationTypeRequest {
   export const filterSensitiveLog = (obj: UpdateQualificationTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateQualificationTypeRequest => __isa(o, "UpdateQualificationTypeRequest");
 }
 
 export interface UpdateQualificationTypeResponse {
-  __type?: "UpdateQualificationTypeResponse";
   /**
    * <p> Contains a QualificationType data structure.</p>
    */
@@ -3310,7 +3086,6 @@ export namespace UpdateQualificationTypeResponse {
   export const filterSensitiveLog = (obj: UpdateQualificationTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateQualificationTypeResponse => __isa(o, "UpdateQualificationTypeResponse");
 }
 
 /**
@@ -3320,7 +3095,6 @@ export namespace UpdateQualificationTypeResponse {
  *         </p>
  */
 export interface WorkerBlock {
-  __type?: "WorkerBlock";
   /**
    * <p> A message explaining the reason the Worker was blocked.
    *         </p>
@@ -3337,5 +3111,4 @@ export namespace WorkerBlock {
   export const filterSensitiveLog = (obj: WorkerBlock): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkerBlock => __isa(o, "WorkerBlock");
 }

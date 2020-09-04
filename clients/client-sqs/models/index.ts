@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p></p>
  */
 export interface AddPermissionRequest {
-  __type?: "AddPermissionRequest";
   /**
    * <p>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
    */
@@ -37,7 +36,6 @@ export namespace AddPermissionRequest {
   export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddPermissionRequest => __isa(o, "AddPermissionRequest");
 }
 
 /**
@@ -52,7 +50,6 @@ export namespace BatchEntryIdsNotDistinct {
   export const filterSensitiveLog = (obj: BatchEntryIdsNotDistinct): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchEntryIdsNotDistinct => __isa(o, "BatchEntryIdsNotDistinct");
 }
 
 /**
@@ -67,7 +64,6 @@ export namespace BatchRequestTooLong {
   export const filterSensitiveLog = (obj: BatchRequestTooLong): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchRequestTooLong => __isa(o, "BatchRequestTooLong");
 }
 
 /**
@@ -75,7 +71,6 @@ export namespace BatchRequestTooLong {
  *             request.</p>
  */
 export interface BatchResultErrorEntry {
-  __type?: "BatchResultErrorEntry";
   /**
    * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
    */
@@ -101,14 +96,12 @@ export namespace BatchResultErrorEntry {
   export const filterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchResultErrorEntry => __isa(o, "BatchResultErrorEntry");
 }
 
 /**
  * <p></p>
  */
 export interface ChangeMessageVisibilityBatchRequest {
-  __type?: "ChangeMessageVisibilityBatchRequest";
   /**
    * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
    */
@@ -125,8 +118,6 @@ export namespace ChangeMessageVisibilityBatchRequest {
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeMessageVisibilityBatchRequest =>
-    __isa(o, "ChangeMessageVisibilityBatchRequest");
 }
 
 /**
@@ -147,7 +138,6 @@ export namespace ChangeMessageVisibilityBatchRequest {
  *         </p>
  */
 export interface ChangeMessageVisibilityBatchRequestEntry {
-  __type?: "ChangeMessageVisibilityBatchRequestEntry";
   /**
    * <p>A receipt handle.</p>
    */
@@ -172,8 +162,6 @@ export namespace ChangeMessageVisibilityBatchRequestEntry {
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchRequestEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeMessageVisibilityBatchRequestEntry =>
-    __isa(o, "ChangeMessageVisibilityBatchRequestEntry");
 }
 
 /**
@@ -184,7 +172,6 @@ export namespace ChangeMessageVisibilityBatchRequestEntry {
  *             </code> tag if the message fails.</p>
  */
 export interface ChangeMessageVisibilityBatchResult {
-  __type?: "ChangeMessageVisibilityBatchResult";
   /**
    * <p>A list of <code>
    *                <a>ChangeMessageVisibilityBatchResultEntry</a>
@@ -204,8 +191,6 @@ export namespace ChangeMessageVisibilityBatchResult {
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeMessageVisibilityBatchResult =>
-    __isa(o, "ChangeMessageVisibilityBatchResult");
 }
 
 /**
@@ -214,7 +199,6 @@ export namespace ChangeMessageVisibilityBatchResult {
  *          </p>
  */
 export interface ChangeMessageVisibilityBatchResultEntry {
-  __type?: "ChangeMessageVisibilityBatchResultEntry";
   /**
    * <p>Represents a message whose visibility timeout has been changed successfully.</p>
    */
@@ -225,12 +209,9 @@ export namespace ChangeMessageVisibilityBatchResultEntry {
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeMessageVisibilityBatchResultEntry =>
-    __isa(o, "ChangeMessageVisibilityBatchResultEntry");
 }
 
 export interface ChangeMessageVisibilityRequest {
-  __type?: "ChangeMessageVisibilityRequest";
   /**
    * <p>The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the <code>
    *                <a>ReceiveMessage</a>
@@ -254,14 +235,12 @@ export namespace ChangeMessageVisibilityRequest {
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeMessageVisibilityRequest => __isa(o, "ChangeMessageVisibilityRequest");
 }
 
 /**
  * <p></p>
  */
 export interface CreateQueueRequest {
-  __type?: "CreateQueueRequest";
   /**
    * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *
@@ -442,14 +421,12 @@ export namespace CreateQueueRequest {
   export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQueueRequest => __isa(o, "CreateQueueRequest");
 }
 
 /**
  * <p>Returns the <code>QueueUrl</code> attribute of the created queue.</p>
  */
 export interface CreateQueueResult {
-  __type?: "CreateQueueResult";
   /**
    * <p>The URL of the created Amazon SQS queue.</p>
    */
@@ -460,14 +437,12 @@ export namespace CreateQueueResult {
   export const filterSensitiveLog = (obj: CreateQueueResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQueueResult => __isa(o, "CreateQueueResult");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteMessageBatchRequest {
-  __type?: "DeleteMessageBatchRequest";
   /**
    * <p>A list of receipt handles for the messages to be deleted.</p>
    */
@@ -484,14 +459,12 @@ export namespace DeleteMessageBatchRequest {
   export const filterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMessageBatchRequest => __isa(o, "DeleteMessageBatchRequest");
 }
 
 /**
  * <p>Encloses a receipt handle and an identifier for it.</p>
  */
 export interface DeleteMessageBatchRequestEntry {
-  __type?: "DeleteMessageBatchRequestEntry";
   /**
    * <p>An identifier for this particular receipt handle. This is used to communicate the result.</p>
    *          <note>
@@ -511,7 +484,6 @@ export namespace DeleteMessageBatchRequestEntry {
   export const filterSensitiveLog = (obj: DeleteMessageBatchRequestEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMessageBatchRequestEntry => __isa(o, "DeleteMessageBatchRequestEntry");
 }
 
 /**
@@ -522,7 +494,6 @@ export namespace DeleteMessageBatchRequestEntry {
  *             </code> tag if the message can't be deleted.</p>
  */
 export interface DeleteMessageBatchResult {
-  __type?: "DeleteMessageBatchResult";
   /**
    * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
@@ -542,7 +513,6 @@ export namespace DeleteMessageBatchResult {
   export const filterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMessageBatchResult => __isa(o, "DeleteMessageBatchResult");
 }
 
 /**
@@ -551,7 +521,6 @@ export namespace DeleteMessageBatchResult {
  *          </p>
  */
 export interface DeleteMessageBatchResultEntry {
-  __type?: "DeleteMessageBatchResultEntry";
   /**
    * <p>Represents a successfully deleted message.</p>
    */
@@ -562,14 +531,12 @@ export namespace DeleteMessageBatchResultEntry {
   export const filterSensitiveLog = (obj: DeleteMessageBatchResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMessageBatchResultEntry => __isa(o, "DeleteMessageBatchResultEntry");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteMessageRequest {
-  __type?: "DeleteMessageRequest";
   /**
    * <p>The receipt handle associated with the message to delete.</p>
    */
@@ -586,14 +553,12 @@ export namespace DeleteMessageRequest {
   export const filterSensitiveLog = (obj: DeleteMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMessageRequest => __isa(o, "DeleteMessageRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteQueueRequest {
-  __type?: "DeleteQueueRequest";
   /**
    * <p>The URL of the Amazon SQS queue to delete.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -605,7 +570,6 @@ export namespace DeleteQueueRequest {
   export const filterSensitiveLog = (obj: DeleteQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueueRequest => __isa(o, "DeleteQueueRequest");
 }
 
 /**
@@ -620,14 +584,12 @@ export namespace EmptyBatchRequest {
   export const filterSensitiveLog = (obj: EmptyBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmptyBatchRequest => __isa(o, "EmptyBatchRequest");
 }
 
 /**
  * <p></p>
  */
 export interface GetQueueAttributesRequest {
-  __type?: "GetQueueAttributesRequest";
   /**
    * <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -775,14 +737,12 @@ export namespace GetQueueAttributesRequest {
   export const filterSensitiveLog = (obj: GetQueueAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueueAttributesRequest => __isa(o, "GetQueueAttributesRequest");
 }
 
 /**
  * <p>A list of returned queue attributes.</p>
  */
 export interface GetQueueAttributesResult {
-  __type?: "GetQueueAttributesResult";
   /**
    * <p>A map of attributes to their respective values.</p>
    */
@@ -793,14 +753,12 @@ export namespace GetQueueAttributesResult {
   export const filterSensitiveLog = (obj: GetQueueAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueueAttributesResult => __isa(o, "GetQueueAttributesResult");
 }
 
 /**
  * <p></p>
  */
 export interface GetQueueUrlRequest {
-  __type?: "GetQueueUrlRequest";
   /**
    * <p>The AWS account ID of the account that created the queue.</p>
    */
@@ -817,14 +775,12 @@ export namespace GetQueueUrlRequest {
   export const filterSensitiveLog = (obj: GetQueueUrlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueueUrlRequest => __isa(o, "GetQueueUrlRequest");
 }
 
 /**
  * <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
 export interface GetQueueUrlResult {
-  __type?: "GetQueueUrlResult";
   /**
    * <p>The URL of the queue.</p>
    */
@@ -835,7 +791,6 @@ export namespace GetQueueUrlResult {
   export const filterSensitiveLog = (obj: GetQueueUrlResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueueUrlResult => __isa(o, "GetQueueUrlResult");
 }
 
 /**
@@ -850,7 +805,6 @@ export namespace InvalidAttributeName {
   export const filterSensitiveLog = (obj: InvalidAttributeName): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAttributeName => __isa(o, "InvalidAttributeName");
 }
 
 /**
@@ -865,7 +819,6 @@ export namespace InvalidBatchEntryId {
   export const filterSensitiveLog = (obj: InvalidBatchEntryId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidBatchEntryId => __isa(o, "InvalidBatchEntryId");
 }
 
 /**
@@ -880,7 +833,6 @@ export namespace InvalidIdFormat {
   export const filterSensitiveLog = (obj: InvalidIdFormat): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIdFormat => __isa(o, "InvalidIdFormat");
 }
 
 /**
@@ -895,14 +847,12 @@ export namespace InvalidMessageContents {
   export const filterSensitiveLog = (obj: InvalidMessageContents): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMessageContents => __isa(o, "InvalidMessageContents");
 }
 
 /**
  * <p></p>
  */
 export interface ListDeadLetterSourceQueuesRequest {
-  __type?: "ListDeadLetterSourceQueuesRequest";
   /**
    * <p>The URL of a dead-letter queue.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -924,14 +874,12 @@ export namespace ListDeadLetterSourceQueuesRequest {
   export const filterSensitiveLog = (obj: ListDeadLetterSourceQueuesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeadLetterSourceQueuesRequest => __isa(o, "ListDeadLetterSourceQueuesRequest");
 }
 
 /**
  * <p>A list of your dead letter source queues.</p>
  */
 export interface ListDeadLetterSourceQueuesResult {
-  __type?: "ListDeadLetterSourceQueuesResult";
   /**
    * <p>Pagination token to include in the next request.</p>
    */
@@ -947,14 +895,12 @@ export namespace ListDeadLetterSourceQueuesResult {
   export const filterSensitiveLog = (obj: ListDeadLetterSourceQueuesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeadLetterSourceQueuesResult => __isa(o, "ListDeadLetterSourceQueuesResult");
 }
 
 /**
  * <p></p>
  */
 export interface ListQueuesRequest {
-  __type?: "ListQueuesRequest";
   /**
    * <p>Pagination token to request the next set of results.</p>
    */
@@ -976,14 +922,12 @@ export namespace ListQueuesRequest {
   export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueuesRequest => __isa(o, "ListQueuesRequest");
 }
 
 /**
  * <p>A list of your queues.</p>
  */
 export interface ListQueuesResult {
-  __type?: "ListQueuesResult";
   /**
    * <p>Pagination token to include in the next request.</p>
    */
@@ -999,11 +943,9 @@ export namespace ListQueuesResult {
   export const filterSensitiveLog = (obj: ListQueuesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueuesResult => __isa(o, "ListQueuesResult");
 }
 
 export interface ListQueueTagsRequest {
-  __type?: "ListQueueTagsRequest";
   /**
    * <p>The URL of the queue.</p>
    */
@@ -1014,11 +956,9 @@ export namespace ListQueueTagsRequest {
   export const filterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueueTagsRequest => __isa(o, "ListQueueTagsRequest");
 }
 
 export interface ListQueueTagsResult {
-  __type?: "ListQueueTagsResult";
   /**
    * <p>The list of all tags added to the specified queue.</p>
    */
@@ -1029,14 +969,12 @@ export namespace ListQueueTagsResult {
   export const filterSensitiveLog = (obj: ListQueueTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueueTagsResult => __isa(o, "ListQueueTagsResult");
 }
 
 /**
  * <p>An Amazon SQS message.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
@@ -1120,7 +1058,6 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
@@ -1131,7 +1068,6 @@ export namespace Message {
  *             <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null. All parts of the message attribute, including <code>Name</code>, <code>Type</code>, and <code>Value</code>, are part of the message size restriction (256 KB or 262,144 bytes).</p>
  */
 export interface MessageAttributeValue {
-  __type?: "MessageAttributeValue";
   /**
    * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
    */
@@ -1163,7 +1099,6 @@ export namespace MessageAttributeValue {
   export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageAttributeValue => __isa(o, "MessageAttributeValue");
 }
 
 /**
@@ -1178,7 +1113,6 @@ export namespace MessageNotInflight {
   export const filterSensitiveLog = (obj: MessageNotInflight): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageNotInflight => __isa(o, "MessageNotInflight");
 }
 
 export type MessageSystemAttributeName =
@@ -1201,7 +1135,6 @@ export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
  *             <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null.</p>
  */
 export interface MessageSystemAttributeValue {
-  __type?: "MessageSystemAttributeValue";
   /**
    * <p>Not implemented. Reserved for future use.</p>
    */
@@ -1233,7 +1166,6 @@ export namespace MessageSystemAttributeValue {
   export const filterSensitiveLog = (obj: MessageSystemAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageSystemAttributeValue => __isa(o, "MessageSystemAttributeValue");
 }
 
 /**
@@ -1251,7 +1183,6 @@ export namespace OverLimit {
   export const filterSensitiveLog = (obj: OverLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OverLimit => __isa(o, "OverLimit");
 }
 
 /**
@@ -1266,14 +1197,12 @@ export namespace PurgeQueueInProgress {
   export const filterSensitiveLog = (obj: PurgeQueueInProgress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurgeQueueInProgress => __isa(o, "PurgeQueueInProgress");
 }
 
 /**
  * <p></p>
  */
 export interface PurgeQueueRequest {
-  __type?: "PurgeQueueRequest";
   /**
    * <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes messages.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -1285,7 +1214,6 @@ export namespace PurgeQueueRequest {
   export const filterSensitiveLog = (obj: PurgeQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurgeQueueRequest => __isa(o, "PurgeQueueRequest");
 }
 
 export type QueueAttributeName =
@@ -1321,7 +1249,6 @@ export namespace QueueDeletedRecently {
   export const filterSensitiveLog = (obj: QueueDeletedRecently): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueDeletedRecently => __isa(o, "QueueDeletedRecently");
 }
 
 /**
@@ -1336,7 +1263,6 @@ export namespace QueueDoesNotExist {
   export const filterSensitiveLog = (obj: QueueDoesNotExist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueDoesNotExist => __isa(o, "QueueDoesNotExist");
 }
 
 /**
@@ -1352,7 +1278,6 @@ export namespace QueueNameExists {
   export const filterSensitiveLog = (obj: QueueNameExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueNameExists => __isa(o, "QueueNameExists");
 }
 
 /**
@@ -1367,14 +1292,12 @@ export namespace ReceiptHandleIsInvalid {
   export const filterSensitiveLog = (obj: ReceiptHandleIsInvalid): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiptHandleIsInvalid => __isa(o, "ReceiptHandleIsInvalid");
 }
 
 /**
  * <p></p>
  */
 export interface ReceiveMessageRequest {
-  __type?: "ReceiveMessageRequest";
   /**
    * <p>The name of the message attribute, where <i>N</i> is the index.</p>
    *          <ul>
@@ -1543,14 +1466,12 @@ export namespace ReceiveMessageRequest {
   export const filterSensitiveLog = (obj: ReceiveMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiveMessageRequest => __isa(o, "ReceiveMessageRequest");
 }
 
 /**
  * <p>A list of received messages.</p>
  */
 export interface ReceiveMessageResult {
-  __type?: "ReceiveMessageResult";
   /**
    * <p>A list of messages.</p>
    */
@@ -1561,14 +1482,12 @@ export namespace ReceiveMessageResult {
   export const filterSensitiveLog = (obj: ReceiveMessageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiveMessageResult => __isa(o, "ReceiveMessageResult");
 }
 
 /**
  * <p></p>
  */
 export interface RemovePermissionRequest {
-  __type?: "RemovePermissionRequest";
   /**
    * <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -1587,14 +1506,12 @@ export namespace RemovePermissionRequest {
   export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 /**
  * <p></p>
  */
 export interface SendMessageBatchRequest {
-  __type?: "SendMessageBatchRequest";
   /**
    * <p>A list of <code>
    *                <a>SendMessageBatchRequestEntry</a>
@@ -1613,14 +1530,12 @@ export namespace SendMessageBatchRequest {
   export const filterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageBatchRequest => __isa(o, "SendMessageBatchRequest");
 }
 
 /**
  * <p>Contains the details of a single Amazon SQS message along with an <code>Id</code>.</p>
  */
 export interface SendMessageBatchRequestEntry {
-  __type?: "SendMessageBatchRequestEntry";
   /**
    * <p>The body of the message.</p>
    */
@@ -1754,7 +1669,6 @@ export namespace SendMessageBatchRequestEntry {
   export const filterSensitiveLog = (obj: SendMessageBatchRequestEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageBatchRequestEntry => __isa(o, "SendMessageBatchRequestEntry");
 }
 
 /**
@@ -1765,7 +1679,6 @@ export namespace SendMessageBatchRequestEntry {
  *             </code> tag if the message fails.</p>
  */
 export interface SendMessageBatchResult {
-  __type?: "SendMessageBatchResult";
   /**
    * <p>A list of <code>
    *                <a>SendMessageBatchResultEntry</a>
@@ -1785,7 +1698,6 @@ export namespace SendMessageBatchResult {
   export const filterSensitiveLog = (obj: SendMessageBatchResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageBatchResult => __isa(o, "SendMessageBatchResult");
 }
 
 /**
@@ -1794,7 +1706,6 @@ export namespace SendMessageBatchResult {
  *          </p>
  */
 export interface SendMessageBatchResultEntry {
-  __type?: "SendMessageBatchResultEntry";
   /**
    * <p>An identifier for the message in this batch.</p>
    */
@@ -1832,14 +1743,12 @@ export namespace SendMessageBatchResultEntry {
   export const filterSensitiveLog = (obj: SendMessageBatchResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageBatchResultEntry => __isa(o, "SendMessageBatchResultEntry");
 }
 
 /**
  * <p></p>
  */
 export interface SendMessageRequest {
-  __type?: "SendMessageRequest";
   /**
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
@@ -1977,14 +1886,12 @@ export namespace SendMessageRequest {
   export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageRequest => __isa(o, "SendMessageRequest");
 }
 
 /**
  * <p>The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.</p>
  */
 export interface SendMessageResult {
-  __type?: "SendMessageResult";
   /**
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
    */
@@ -2019,14 +1926,12 @@ export namespace SendMessageResult {
   export const filterSensitiveLog = (obj: SendMessageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessageResult => __isa(o, "SendMessageResult");
 }
 
 /**
  * <p></p>
  */
 export interface SetQueueAttributesRequest {
-  __type?: "SetQueueAttributesRequest";
   /**
    * <p>The URL of the Amazon SQS queue whose attributes are set.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -2161,11 +2066,9 @@ export namespace SetQueueAttributesRequest {
   export const filterSensitiveLog = (obj: SetQueueAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetQueueAttributesRequest => __isa(o, "SetQueueAttributesRequest");
 }
 
 export interface TagQueueRequest {
-  __type?: "TagQueueRequest";
   /**
    * <p>The list of tags to be added to the specified queue.</p>
    */
@@ -2181,7 +2084,6 @@ export namespace TagQueueRequest {
   export const filterSensitiveLog = (obj: TagQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagQueueRequest => __isa(o, "TagQueueRequest");
 }
 
 /**
@@ -2196,7 +2098,6 @@ export namespace TooManyEntriesInBatchRequest {
   export const filterSensitiveLog = (obj: TooManyEntriesInBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyEntriesInBatchRequest => __isa(o, "TooManyEntriesInBatchRequest");
 }
 
 /**
@@ -2211,11 +2112,9 @@ export namespace UnsupportedOperation {
   export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperation => __isa(o, "UnsupportedOperation");
 }
 
 export interface UntagQueueRequest {
-  __type?: "UntagQueueRequest";
   /**
    * <p>The URL of the queue.</p>
    */
@@ -2231,5 +2130,4 @@ export namespace UntagQueueRequest {
   export const filterSensitiveLog = (obj: UntagQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagQueueRequest => __isa(o, "UntagQueueRequest");
 }

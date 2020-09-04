@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -31,11 +30,9 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CancelSigningProfileRequest {
-  __type?: "CancelSigningProfileRequest";
   /**
    * <p>The name of the signing profile to be canceled.</p>
    */
@@ -46,13 +43,11 @@ export namespace CancelSigningProfileRequest {
   export const filterSensitiveLog = (obj: CancelSigningProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelSigningProfileRequest => __isa(o, "CancelSigningProfileRequest");
 }
 
 export type Category = "AWSIoT";
 
 export interface DescribeSigningJobRequest {
-  __type?: "DescribeSigningJobRequest";
   /**
    * <p>The ID of the signing job on input.</p>
    */
@@ -63,11 +58,9 @@ export namespace DescribeSigningJobRequest {
   export const filterSensitiveLog = (obj: DescribeSigningJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSigningJobRequest => __isa(o, "DescribeSigningJobRequest");
 }
 
 export interface DescribeSigningJobResponse {
-  __type?: "DescribeSigningJobResponse";
   /**
    * <p>The object that contains the name of your S3 bucket or your raw code.</p>
    */
@@ -140,7 +133,6 @@ export namespace DescribeSigningJobResponse {
   export const filterSensitiveLog = (obj: DescribeSigningJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSigningJobResponse => __isa(o, "DescribeSigningJobResponse");
 }
 
 /**
@@ -148,7 +140,6 @@ export namespace DescribeSigningJobResponse {
  * 			bucket.</p>
  */
 export interface Destination {
-  __type?: "Destination";
   /**
    * <p>The <code>S3Destination</code> object.</p>
    */
@@ -159,7 +150,6 @@ export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export type EncryptionAlgorithm = "ECDSA" | "RSA";
@@ -168,7 +158,6 @@ export type EncryptionAlgorithm = "ECDSA" | "RSA";
  * <p>The encryption algorithm options that are available to a code signing job.</p>
  */
 export interface EncryptionAlgorithmOptions {
-  __type?: "EncryptionAlgorithmOptions";
   /**
    * <p>The default encryption algorithm that is used by a code signing job.</p>
    */
@@ -184,11 +173,9 @@ export namespace EncryptionAlgorithmOptions {
   export const filterSensitiveLog = (obj: EncryptionAlgorithmOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionAlgorithmOptions => __isa(o, "EncryptionAlgorithmOptions");
 }
 
 export interface GetSigningPlatformRequest {
-  __type?: "GetSigningPlatformRequest";
   /**
    * <p>The ID of the target signing platform.</p>
    */
@@ -199,11 +186,9 @@ export namespace GetSigningPlatformRequest {
   export const filterSensitiveLog = (obj: GetSigningPlatformRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSigningPlatformRequest => __isa(o, "GetSigningPlatformRequest");
 }
 
 export interface GetSigningPlatformResponse {
-  __type?: "GetSigningPlatformResponse";
   /**
    * <p>A list of partner entities that use the target signing platform.</p>
    */
@@ -250,11 +235,9 @@ export namespace GetSigningPlatformResponse {
   export const filterSensitiveLog = (obj: GetSigningPlatformResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSigningPlatformResponse => __isa(o, "GetSigningPlatformResponse");
 }
 
 export interface GetSigningProfileRequest {
-  __type?: "GetSigningProfileRequest";
   /**
    * <p>The name of the target signing profile.</p>
    */
@@ -265,11 +248,9 @@ export namespace GetSigningProfileRequest {
   export const filterSensitiveLog = (obj: GetSigningProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSigningProfileRequest => __isa(o, "GetSigningProfileRequest");
 }
 
 export interface GetSigningProfileResponse {
-  __type?: "GetSigningProfileResponse";
   /**
    * <p>A list of overrides applied by the target signing profile for signing
    * 			operations.</p>
@@ -317,7 +298,6 @@ export namespace GetSigningProfileResponse {
   export const filterSensitiveLog = (obj: GetSigningProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSigningProfileResponse => __isa(o, "GetSigningProfileResponse");
 }
 
 export type HashAlgorithm = "SHA1" | "SHA256";
@@ -326,7 +306,6 @@ export type HashAlgorithm = "SHA1" | "SHA256";
  * <p>The hash algorithms that are available to a code signing job.</p>
  */
 export interface HashAlgorithmOptions {
-  __type?: "HashAlgorithmOptions";
   /**
    * <p>The set of accepted hash algorithms allowed in a code signing job.</p>
    */
@@ -342,7 +321,6 @@ export namespace HashAlgorithmOptions {
   export const filterSensitiveLog = (obj: HashAlgorithmOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HashAlgorithmOptions => __isa(o, "HashAlgorithmOptions");
 }
 
 export type ImageFormat = "JSON" | "JSONDetached" | "JSONEmbedded";
@@ -360,11 +338,9 @@ export namespace InternalServiceErrorException {
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 export interface ListSigningJobsRequest {
-  __type?: "ListSigningJobsRequest";
   /**
    * <p>The ID of microcontroller platform that you specified for the distribution of your
    * 			code image.</p>
@@ -402,11 +378,9 @@ export namespace ListSigningJobsRequest {
   export const filterSensitiveLog = (obj: ListSigningJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningJobsRequest => __isa(o, "ListSigningJobsRequest");
 }
 
 export interface ListSigningJobsResponse {
-  __type?: "ListSigningJobsResponse";
   /**
    * <p>String for specifying the next set of paginated results.</p>
    */
@@ -422,11 +396,9 @@ export namespace ListSigningJobsResponse {
   export const filterSensitiveLog = (obj: ListSigningJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningJobsResponse => __isa(o, "ListSigningJobsResponse");
 }
 
 export interface ListSigningPlatformsRequest {
-  __type?: "ListSigningPlatformsRequest";
   /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
    * 			response with truncated results, use this parameter in a subsequent request. Set it to
@@ -459,11 +431,9 @@ export namespace ListSigningPlatformsRequest {
   export const filterSensitiveLog = (obj: ListSigningPlatformsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningPlatformsRequest => __isa(o, "ListSigningPlatformsRequest");
 }
 
 export interface ListSigningPlatformsResponse {
-  __type?: "ListSigningPlatformsResponse";
   /**
    * <p>Value for specifying the next set of paginated results to return.</p>
    */
@@ -479,11 +449,9 @@ export namespace ListSigningPlatformsResponse {
   export const filterSensitiveLog = (obj: ListSigningPlatformsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningPlatformsResponse => __isa(o, "ListSigningPlatformsResponse");
 }
 
 export interface ListSigningProfilesRequest {
-  __type?: "ListSigningProfilesRequest";
   /**
    * <p>Designates whether to include profiles with the status of
    * 			<code>CANCELED</code>.</p>
@@ -507,11 +475,9 @@ export namespace ListSigningProfilesRequest {
   export const filterSensitiveLog = (obj: ListSigningProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningProfilesRequest => __isa(o, "ListSigningProfilesRequest");
 }
 
 export interface ListSigningProfilesResponse {
-  __type?: "ListSigningProfilesResponse";
   /**
    * <p>A list of profiles that are available in the AWS account. This includes profiles with
    * 			the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set
@@ -529,11 +495,9 @@ export namespace ListSigningProfilesResponse {
   export const filterSensitiveLog = (obj: ListSigningProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningProfilesResponse => __isa(o, "ListSigningProfilesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
@@ -544,11 +508,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A list of tags associated with the signing profile.</p>
    */
@@ -559,7 +521,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -575,11 +536,9 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export interface PutSigningProfileRequest {
-  __type?: "PutSigningProfileRequest";
   /**
    * <p>Tags to be associated with the signing profile that is being created.</p>
    */
@@ -619,11 +578,9 @@ export namespace PutSigningProfileRequest {
   export const filterSensitiveLog = (obj: PutSigningProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSigningProfileRequest => __isa(o, "PutSigningProfileRequest");
 }
 
 export interface PutSigningProfileResponse {
-  __type?: "PutSigningProfileResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the signing profile created.</p>
    */
@@ -634,7 +591,6 @@ export namespace PutSigningProfileResponse {
   export const filterSensitiveLog = (obj: PutSigningProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSigningProfileResponse => __isa(o, "PutSigningProfileResponse");
 }
 
 /**
@@ -650,14 +606,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The name and prefix of the S3 bucket where code signing saves your signed objects.</p>
  */
 export interface S3Destination {
-  __type?: "S3Destination";
   /**
    * <p>Name of the S3 bucket.</p>
    */
@@ -674,14 +628,12 @@ export namespace S3Destination {
   export const filterSensitiveLog = (obj: S3Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
 /**
  * <p>The S3 bucket name and key where code signing saved your signed code image.</p>
  */
 export interface S3SignedObject {
-  __type?: "S3SignedObject";
   /**
    * <p>Name of the S3 bucket.</p>
    */
@@ -697,14 +649,12 @@ export namespace S3SignedObject {
   export const filterSensitiveLog = (obj: S3SignedObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SignedObject => __isa(o, "S3SignedObject");
 }
 
 /**
  * <p>Information about the S3 bucket where you saved your unsigned code.</p>
  */
 export interface S3Source {
-  __type?: "S3Source";
   /**
    * <p>Name of the S3 bucket.</p>
    */
@@ -725,7 +675,6 @@ export namespace S3Source {
   export const filterSensitiveLog = (obj: S3Source): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Source => __isa(o, "S3Source");
 }
 
 /**
@@ -733,7 +682,6 @@ export namespace S3Source {
  * 			signed code image.</p>
  */
 export interface SignedObject {
-  __type?: "SignedObject";
   /**
    * <p>The <code>S3SignedObject</code>.</p>
    */
@@ -744,14 +692,12 @@ export namespace SignedObject {
   export const filterSensitiveLog = (obj: SignedObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignedObject => __isa(o, "SignedObject");
 }
 
 /**
  * <p>The configuration of a code signing operation.</p>
  */
 export interface SigningConfiguration {
-  __type?: "SigningConfiguration";
   /**
    * <p>The encryption algorithm options that are available for a code signing job.</p>
    */
@@ -767,7 +713,6 @@ export namespace SigningConfiguration {
   export const filterSensitiveLog = (obj: SigningConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningConfiguration => __isa(o, "SigningConfiguration");
 }
 
 /**
@@ -775,7 +720,6 @@ export namespace SigningConfiguration {
  * 			signing job.</p>
  */
 export interface SigningConfigurationOverrides {
-  __type?: "SigningConfigurationOverrides";
   /**
    * <p>A specified override of the default encryption algorithm that is used in a code signing
    * 			job.</p>
@@ -793,14 +737,12 @@ export namespace SigningConfigurationOverrides {
   export const filterSensitiveLog = (obj: SigningConfigurationOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningConfigurationOverrides => __isa(o, "SigningConfigurationOverrides");
 }
 
 /**
  * <p>The image format of a code signing platform or profile.</p>
  */
 export interface SigningImageFormat {
-  __type?: "SigningImageFormat";
   /**
    * <p>The default format of a code signing image.</p>
    */
@@ -816,14 +758,12 @@ export namespace SigningImageFormat {
   export const filterSensitiveLog = (obj: SigningImageFormat): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningImageFormat => __isa(o, "SigningImageFormat");
 }
 
 /**
  * <p>Contains information about a signing job.</p>
  */
 export interface SigningJob {
-  __type?: "SigningJob";
   /**
    * <p>The status of the signing job.</p>
    */
@@ -862,14 +802,12 @@ export namespace SigningJob {
   export const filterSensitiveLog = (obj: SigningJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningJob => __isa(o, "SigningJob");
 }
 
 /**
  * <p>The ACM certificate that is used to sign your code.</p>
  */
 export interface SigningMaterial {
-  __type?: "SigningMaterial";
   /**
    * <p>The Amazon Resource Name (ARN) of the certificates that is used to sign your
    * 			code.</p>
@@ -881,7 +819,6 @@ export namespace SigningMaterial {
   export const filterSensitiveLog = (obj: SigningMaterial): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningMaterial => __isa(o, "SigningMaterial");
 }
 
 /**
@@ -889,7 +826,6 @@ export namespace SigningMaterial {
  * 			perform a code signing job.</p>
  */
 export interface SigningPlatform {
-  __type?: "SigningPlatform";
   /**
    * <p>The types of targets that can be signed by a code signing platform.</p>
    */
@@ -936,7 +872,6 @@ export namespace SigningPlatform {
   export const filterSensitiveLog = (obj: SigningPlatform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningPlatform => __isa(o, "SigningPlatform");
 }
 
 /**
@@ -944,7 +879,6 @@ export namespace SigningPlatform {
  * 			platform.</p>
  */
 export interface SigningPlatformOverrides {
-  __type?: "SigningPlatformOverrides";
   /**
    * <p>A signing configuration that overrides the default encryption or hash algorithm of a
    * 			signing job.</p>
@@ -966,7 +900,6 @@ export namespace SigningPlatformOverrides {
   export const filterSensitiveLog = (obj: SigningPlatformOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningPlatformOverrides => __isa(o, "SigningPlatformOverrides");
 }
 
 /**
@@ -974,7 +907,6 @@ export namespace SigningPlatformOverrides {
  * 			can be used by a given code signing user.</p>
  */
 export interface SigningProfile {
-  __type?: "SigningProfile";
   /**
    * <p>The ACM certificate that is available for use by a signing profile.</p>
    */
@@ -1015,7 +947,6 @@ export namespace SigningProfile {
   export const filterSensitiveLog = (obj: SigningProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningProfile => __isa(o, "SigningProfile");
 }
 
 export type SigningProfileStatus = "Active" | "Canceled";
@@ -1027,7 +958,6 @@ export type SigningStatus = "Failed" | "InProgress" | "Succeeded";
  * 			you saved your unsigned code.</p>
  */
 export interface Source {
-  __type?: "Source";
   /**
    * <p>The <code>S3Source</code> object.</p>
    */
@@ -1038,11 +968,9 @@ export namespace Source {
   export const filterSensitiveLog = (obj: Source): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
 export interface StartSigningJobRequest {
-  __type?: "StartSigningJobRequest";
   /**
    * <p>The name of the signing profile.</p>
    */
@@ -1071,11 +999,9 @@ export namespace StartSigningJobRequest {
   export const filterSensitiveLog = (obj: StartSigningJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSigningJobRequest => __isa(o, "StartSigningJobRequest");
 }
 
 export interface StartSigningJobResponse {
-  __type?: "StartSigningJobResponse";
   /**
    * <p>The ID of your signing job.</p>
    */
@@ -1086,11 +1012,9 @@ export namespace StartSigningJobResponse {
   export const filterSensitiveLog = (obj: StartSigningJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSigningJobResponse => __isa(o, "StartSigningJobResponse");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>One or more tags to be associated with the signing profile.</p>
    */
@@ -1106,18 +1030,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1133,11 +1053,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
@@ -1153,18 +1071,14 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -1180,5 +1094,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AdjustmentType {
@@ -11,7 +11,6 @@ export enum AdjustmentType {
  * <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
  */
 export interface Alarm {
-  __type?: "Alarm";
   /**
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    */
@@ -27,7 +26,6 @@ export namespace Alarm {
   export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
 }
 
 /**
@@ -44,7 +42,6 @@ export namespace ConcurrentUpdateException {
   export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentUpdateException => __isa(o, "ConcurrentUpdateException");
 }
 
 /**
@@ -72,7 +69,6 @@ export namespace ConcurrentUpdateException {
  *             Concepts</a>. </p>
  */
 export interface CustomizedMetricSpecification {
-  __type?: "CustomizedMetricSpecification";
   /**
    * <p>The statistic of the metric.</p>
    */
@@ -105,11 +101,9 @@ export namespace CustomizedMetricSpecification {
   export const filterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomizedMetricSpecification => __isa(o, "CustomizedMetricSpecification");
 }
 
 export interface DeleteScalingPolicyRequest {
-  __type?: "DeleteScalingPolicyRequest";
   /**
    * <p>The identifier of the resource associated with the scalable target.
    *          This string consists of the resource type and unique identifier.</p>
@@ -249,22 +243,17 @@ export namespace DeleteScalingPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScalingPolicyRequest => __isa(o, "DeleteScalingPolicyRequest");
 }
 
-export interface DeleteScalingPolicyResponse {
-  __type?: "DeleteScalingPolicyResponse";
-}
+export interface DeleteScalingPolicyResponse {}
 
 export namespace DeleteScalingPolicyResponse {
   export const filterSensitiveLog = (obj: DeleteScalingPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScalingPolicyResponse => __isa(o, "DeleteScalingPolicyResponse");
 }
 
 export interface DeleteScheduledActionRequest {
-  __type?: "DeleteScheduledActionRequest";
   /**
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
@@ -404,22 +393,17 @@ export namespace DeleteScheduledActionRequest {
   export const filterSensitiveLog = (obj: DeleteScheduledActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledActionRequest => __isa(o, "DeleteScheduledActionRequest");
 }
 
-export interface DeleteScheduledActionResponse {
-  __type?: "DeleteScheduledActionResponse";
-}
+export interface DeleteScheduledActionResponse {}
 
 export namespace DeleteScheduledActionResponse {
   export const filterSensitiveLog = (obj: DeleteScheduledActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledActionResponse => __isa(o, "DeleteScheduledActionResponse");
 }
 
 export interface DeregisterScalableTargetRequest {
-  __type?: "DeregisterScalableTargetRequest";
   /**
    * <p>The namespace of the AWS service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -555,22 +539,17 @@ export namespace DeregisterScalableTargetRequest {
   export const filterSensitiveLog = (obj: DeregisterScalableTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterScalableTargetRequest => __isa(o, "DeregisterScalableTargetRequest");
 }
 
-export interface DeregisterScalableTargetResponse {
-  __type?: "DeregisterScalableTargetResponse";
-}
+export interface DeregisterScalableTargetResponse {}
 
 export namespace DeregisterScalableTargetResponse {
   export const filterSensitiveLog = (obj: DeregisterScalableTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterScalableTargetResponse => __isa(o, "DeregisterScalableTargetResponse");
 }
 
 export interface DescribeScalableTargetsRequest {
-  __type?: "DescribeScalableTargetsRequest";
   /**
    * <p>The namespace of the AWS service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
@@ -722,11 +701,9 @@ export namespace DescribeScalableTargetsRequest {
   export const filterSensitiveLog = (obj: DescribeScalableTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalableTargetsRequest => __isa(o, "DescribeScalableTargetsRequest");
 }
 
 export interface DescribeScalableTargetsResponse {
-  __type?: "DescribeScalableTargetsResponse";
   /**
    * <p>The scalable targets that match the request parameters.</p>
    */
@@ -743,11 +720,9 @@ export namespace DescribeScalableTargetsResponse {
   export const filterSensitiveLog = (obj: DescribeScalableTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalableTargetsResponse => __isa(o, "DescribeScalableTargetsResponse");
 }
 
 export interface DescribeScalingActivitiesRequest {
-  __type?: "DescribeScalingActivitiesRequest";
   /**
    * <p>The identifier of the resource associated with the scaling activity.
    *          This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
@@ -899,11 +874,9 @@ export namespace DescribeScalingActivitiesRequest {
   export const filterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingActivitiesRequest => __isa(o, "DescribeScalingActivitiesRequest");
 }
 
 export interface DescribeScalingActivitiesResponse {
-  __type?: "DescribeScalingActivitiesResponse";
   /**
    * <p>A list of scaling activity objects.</p>
    */
@@ -920,11 +893,9 @@ export namespace DescribeScalingActivitiesResponse {
   export const filterSensitiveLog = (obj: DescribeScalingActivitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingActivitiesResponse => __isa(o, "DescribeScalingActivitiesResponse");
 }
 
 export interface DescribeScalingPoliciesRequest {
-  __type?: "DescribeScalingPoliciesRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -1081,11 +1052,9 @@ export namespace DescribeScalingPoliciesRequest {
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPoliciesRequest => __isa(o, "DescribeScalingPoliciesRequest");
 }
 
 export interface DescribeScalingPoliciesResponse {
-  __type?: "DescribeScalingPoliciesResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
@@ -1102,11 +1071,9 @@ export namespace DescribeScalingPoliciesResponse {
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPoliciesResponse => __isa(o, "DescribeScalingPoliciesResponse");
 }
 
 export interface DescribeScheduledActionsRequest {
-  __type?: "DescribeScheduledActionsRequest";
   /**
    * <p>The names of the scheduled actions to describe.</p>
    */
@@ -1263,11 +1230,9 @@ export namespace DescribeScheduledActionsRequest {
   export const filterSensitiveLog = (obj: DescribeScheduledActionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledActionsRequest => __isa(o, "DescribeScheduledActionsRequest");
 }
 
 export interface DescribeScheduledActionsResponse {
-  __type?: "DescribeScheduledActionsResponse";
   /**
    * <p>Information about the scheduled actions.</p>
    */
@@ -1284,7 +1249,6 @@ export namespace DescribeScheduledActionsResponse {
   export const filterSensitiveLog = (obj: DescribeScheduledActionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledActionsResponse => __isa(o, "DescribeScheduledActionsResponse");
 }
 
 /**
@@ -1303,7 +1267,6 @@ export namespace FailedResourceAccessException {
   export const filterSensitiveLog = (obj: FailedResourceAccessException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedResourceAccessException => __isa(o, "FailedResourceAccessException");
 }
 
 /**
@@ -1319,7 +1282,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -1335,7 +1297,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -1351,7 +1312,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum MetricAggregationType {
@@ -1364,7 +1324,6 @@ export enum MetricAggregationType {
  * <p>Describes the dimension names and values associated with a metric.</p>
  */
 export interface MetricDimension {
-  __type?: "MetricDimension";
   /**
    * <p>The value of the dimension.</p>
    */
@@ -1380,7 +1339,6 @@ export namespace MetricDimension {
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 export enum MetricStatistic {
@@ -1427,7 +1385,6 @@ export namespace ObjectNotFoundException {
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export enum PolicyType {
@@ -1444,7 +1401,6 @@ export enum PolicyType {
  *             with CloudWatch</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  */
 export interface PredefinedMetricSpecification {
-  __type?: "PredefinedMetricSpecification";
   /**
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Spot Fleet requests and ECS services.</p>
@@ -1480,11 +1436,9 @@ export namespace PredefinedMetricSpecification {
   export const filterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredefinedMetricSpecification => __isa(o, "PredefinedMetricSpecification");
 }
 
 export interface PutScalingPolicyRequest {
-  __type?: "PutScalingPolicyRequest";
   /**
    * <p>The policy type. This parameter is required if you are creating a scaling policy.</p>
    *          <p>The following policy types are supported: </p>
@@ -1651,11 +1605,9 @@ export namespace PutScalingPolicyRequest {
   export const filterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScalingPolicyRequest => __isa(o, "PutScalingPolicyRequest");
 }
 
 export interface PutScalingPolicyResponse {
-  __type?: "PutScalingPolicyResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
    */
@@ -1671,11 +1623,9 @@ export namespace PutScalingPolicyResponse {
   export const filterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScalingPolicyResponse => __isa(o, "PutScalingPolicyResponse");
 }
 
 export interface PutScheduledActionRequest {
-  __type?: "PutScheduledActionRequest";
   /**
    * <p>The identifier of the resource associated with the scheduled action.
    *          This string consists of the resource type and unique identifier.</p>
@@ -1856,22 +1806,17 @@ export namespace PutScheduledActionRequest {
   export const filterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScheduledActionRequest => __isa(o, "PutScheduledActionRequest");
 }
 
-export interface PutScheduledActionResponse {
-  __type?: "PutScheduledActionResponse";
-}
+export interface PutScheduledActionResponse {}
 
 export namespace PutScheduledActionResponse {
   export const filterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScheduledActionResponse => __isa(o, "PutScheduledActionResponse");
 }
 
 export interface RegisterScalableTargetRequest {
-  __type?: "RegisterScalableTargetRequest";
   /**
    * <p>The minimum value that you plan to scale in to. When a scaling policy is in effect,
    *          Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to
@@ -2062,18 +2007,14 @@ export namespace RegisterScalableTargetRequest {
   export const filterSensitiveLog = (obj: RegisterScalableTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterScalableTargetRequest => __isa(o, "RegisterScalableTargetRequest");
 }
 
-export interface RegisterScalableTargetResponse {
-  __type?: "RegisterScalableTargetResponse";
-}
+export interface RegisterScalableTargetResponse {}
 
 export namespace RegisterScalableTargetResponse {
   export const filterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterScalableTargetResponse => __isa(o, "RegisterScalableTargetResponse");
 }
 
 export enum ScalableDimension {
@@ -2098,7 +2039,6 @@ export enum ScalableDimension {
  * <p>Represents a scalable target.</p>
  */
 export interface ScalableTarget {
-  __type?: "ScalableTarget";
   /**
    * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
    *       </p>
@@ -2261,14 +2201,12 @@ export namespace ScalableTarget {
   export const filterSensitiveLog = (obj: ScalableTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalableTarget => __isa(o, "ScalableTarget");
 }
 
 /**
  * <p>Represents the minimum and maximum capacity for a scheduled action.</p>
  */
 export interface ScalableTargetAction {
-  __type?: "ScalableTargetAction";
   /**
    * <p>The minimum capacity.</p>
    *          <p>For Lambda provisioned concurrency, the minimum value allowed is 0. For all other
@@ -2286,14 +2224,12 @@ export namespace ScalableTargetAction {
   export const filterSensitiveLog = (obj: ScalableTargetAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalableTargetAction => __isa(o, "ScalableTargetAction");
 }
 
 /**
  * <p>Represents a scaling activity.</p>
  */
 export interface ScalingActivity {
-  __type?: "ScalingActivity";
   /**
    * <p>Indicates the status of the scaling activity.</p>
    */
@@ -2468,7 +2404,6 @@ export namespace ScalingActivity {
   export const filterSensitiveLog = (obj: ScalingActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingActivity => __isa(o, "ScalingActivity");
 }
 
 export enum ScalingActivityStatusCode {
@@ -2484,7 +2419,6 @@ export enum ScalingActivityStatusCode {
  * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
  */
 export interface ScalingPolicy {
-  __type?: "ScalingPolicy";
   /**
    * <p>The identifier of the resource associated with the scaling policy.
    *          This string consists of the resource type and unique identifier.</p>
@@ -2654,14 +2588,12 @@ export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 /**
  * <p>Represents a scheduled action.</p>
  */
 export interface ScheduledAction {
-  __type?: "ScheduledAction";
   /**
    * <p>The Amazon Resource Name (ARN) of the scheduled action.</p>
    */
@@ -2851,7 +2783,6 @@ export namespace ScheduledAction {
   export const filterSensitiveLog = (obj: ScheduledAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledAction => __isa(o, "ScheduledAction");
 }
 
 export enum ServiceNamespace {
@@ -2905,7 +2836,6 @@ export enum ServiceNamespace {
  *          </ul>
  */
 export interface StepAdjustment {
-  __type?: "StepAdjustment";
   /**
    * <p>The amount by which to scale, based on the specified adjustment type. A positive value
    *          adds to the current capacity while a negative number removes from the current capacity.
@@ -2937,14 +2867,12 @@ export namespace StepAdjustment {
   export const filterSensitiveLog = (obj: StepAdjustment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepAdjustment => __isa(o, "StepAdjustment");
 }
 
 /**
  * <p>Represents a step scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface StepScalingPolicyConfiguration {
-  __type?: "StepScalingPolicyConfiguration";
   /**
    * <p>The amount of time, in seconds, to wait for a previous scaling activity to take
    *          effect.</p>
@@ -3046,7 +2974,6 @@ export namespace StepScalingPolicyConfiguration {
   export const filterSensitiveLog = (obj: StepScalingPolicyConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepScalingPolicyConfiguration => __isa(o, "StepScalingPolicyConfiguration");
 }
 
 /**
@@ -3054,7 +2981,6 @@ export namespace StepScalingPolicyConfiguration {
  *       </p>
  */
 export interface SuspendedState {
-  __type?: "SuspendedState";
   /**
    * <p>Whether scale in by a target tracking scaling policy or a step scaling policy is
    *          suspended. Set the value to <code>true</code> if you don't want Application Auto Scaling to remove capacity
@@ -3081,14 +3007,12 @@ export namespace SuspendedState {
   export const filterSensitiveLog = (obj: SuspendedState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuspendedState => __isa(o, "SuspendedState");
 }
 
 /**
  * <p>Represents a target tracking scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface TargetTrackingScalingPolicyConfiguration {
-  __type?: "TargetTrackingScalingPolicyConfiguration";
   /**
    * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take
    *          effect.</p>
@@ -3228,8 +3152,6 @@ export namespace TargetTrackingScalingPolicyConfiguration {
   export const filterSensitiveLog = (obj: TargetTrackingScalingPolicyConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetTrackingScalingPolicyConfiguration =>
-    __isa(o, "TargetTrackingScalingPolicyConfiguration");
 }
 
 /**
@@ -3246,5 +3168,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

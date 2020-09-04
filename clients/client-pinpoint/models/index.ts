@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum __EndpointTypesElement {
@@ -26,7 +26,6 @@ export enum Action {
  * <p>Provides information about the activities that were performed by a campaign.</p>
  */
 export interface ActivitiesResponse {
-  __type?: "ActivitiesResponse";
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
@@ -42,14 +41,12 @@ export namespace ActivitiesResponse {
   export const filterSensitiveLog = (obj: ActivitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivitiesResponse => __isa(o, "ActivitiesResponse");
 }
 
 /**
  * <p>Specifies the configuration and other settings for an activity in a journey.</p>
  */
 export interface Activity {
-  __type?: "Activity";
   /**
    * <p>The settings for an SMS activity. This type of activity sends a text message to participants.</p>
    */
@@ -105,14 +102,12 @@ export namespace Activity {
   export const filterSensitiveLog = (obj: Activity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Activity => __isa(o, "Activity");
 }
 
 /**
  * <p>Provides information about an activity that was performed by a campaign.</p>
  */
 export interface ActivityResponse {
-  __type?: "ActivityResponse";
   /**
    * <p>The total number of unique time zones that are in the segment for the campaign.</p>
    */
@@ -183,14 +178,12 @@ export namespace ActivityResponse {
   export const filterSensitiveLog = (obj: ActivityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityResponse => __isa(o, "ActivityResponse");
 }
 
 /**
  * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
  */
 export interface AddressConfiguration {
-  __type?: "AddressConfiguration";
   /**
    * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
    */
@@ -226,14 +219,12 @@ export namespace AddressConfiguration {
   export const filterSensitiveLog = (obj: AddressConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddressConfiguration => __isa(o, "AddressConfiguration");
 }
 
 /**
  * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface ADMChannelRequest {
-  __type?: "ADMChannelRequest";
   /**
    * <p>The Client ID that you received from Amazon to send messages by using ADM.</p>
    */
@@ -254,14 +245,12 @@ export namespace ADMChannelRequest {
   export const filterSensitiveLog = (obj: ADMChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ADMChannelRequest => __isa(o, "ADMChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface ADMChannelResponse {
-  __type?: "ADMChannelResponse";
   /**
    * <p>The user who last modified the ADM channel.</p>
    */
@@ -317,14 +306,12 @@ export namespace ADMChannelResponse {
   export const filterSensitiveLog = (obj: ADMChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ADMChannelResponse => __isa(o, "ADMChannelResponse");
 }
 
 /**
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the ADM (Amazon Device Messaging) channel.</p>
  */
 export interface ADMMessage {
-  __type?: "ADMMessage";
   /**
    * <p>The title to display above the notification message on the recipient's device.</p>
    */
@@ -410,14 +397,12 @@ export namespace ADMMessage {
   export const filterSensitiveLog = (obj: ADMMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ADMMessage => __isa(o, "ADMMessage");
 }
 
 /**
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
  */
 export interface AndroidPushNotificationTemplate {
-  __type?: "AndroidPushNotificationTemplate";
   /**
    * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
    */
@@ -468,14 +453,12 @@ export namespace AndroidPushNotificationTemplate {
   export const filterSensitiveLog = (obj: AndroidPushNotificationTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AndroidPushNotificationTemplate => __isa(o, "AndroidPushNotificationTemplate");
 }
 
 /**
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
  */
 export interface APNSChannelRequest {
-  __type?: "APNSChannelRequest";
   /**
    * <p>The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.</p>
    */
@@ -521,14 +504,12 @@ export namespace APNSChannelRequest {
   export const filterSensitiveLog = (obj: APNSChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSChannelRequest => __isa(o, "APNSChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
  */
 export interface APNSChannelResponse {
-  __type?: "APNSChannelResponse";
   /**
    * <p>The unique identifier for the application that the APNs channel applies to.</p>
    */
@@ -594,14 +575,12 @@ export namespace APNSChannelResponse {
   export const filterSensitiveLog = (obj: APNSChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSChannelResponse => __isa(o, "APNSChannelResponse");
 }
 
 /**
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the APNs (Apple Push Notification service) channel.</p>
  */
 export interface APNSMessage {
-  __type?: "APNSMessage";
   /**
    * <p>The JSON payload to use for a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
@@ -697,14 +676,12 @@ export namespace APNSMessage {
   export const filterSensitiveLog = (obj: APNSMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSMessage => __isa(o, "APNSMessage");
 }
 
 /**
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.</p>
  */
 export interface APNSPushNotificationTemplate {
-  __type?: "APNSPushNotificationTemplate";
   /**
    * <p>The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.</p>
    */
@@ -745,14 +722,12 @@ export namespace APNSPushNotificationTemplate {
   export const filterSensitiveLog = (obj: APNSPushNotificationTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSPushNotificationTemplate => __isa(o, "APNSPushNotificationTemplate");
 }
 
 /**
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
  */
 export interface APNSSandboxChannelRequest {
-  __type?: "APNSSandboxChannelRequest";
   /**
    * <p>The authentication key to use for APNs tokens.</p>
    */
@@ -798,14 +773,12 @@ export namespace APNSSandboxChannelRequest {
   export const filterSensitiveLog = (obj: APNSSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSSandboxChannelRequest => __isa(o, "APNSSandboxChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
  */
 export interface APNSSandboxChannelResponse {
-  __type?: "APNSSandboxChannelResponse";
   /**
    * <p>Specifies whether the APNs sandbox channel is enabled for the application.</p>
    */
@@ -871,14 +844,12 @@ export namespace APNSSandboxChannelResponse {
   export const filterSensitiveLog = (obj: APNSSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSSandboxChannelResponse => __isa(o, "APNSSandboxChannelResponse");
 }
 
 /**
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelRequest {
-  __type?: "APNSVoipChannelRequest";
   /**
    * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.</p>
    */
@@ -924,14 +895,12 @@ export namespace APNSVoipChannelRequest {
   export const filterSensitiveLog = (obj: APNSVoipChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSVoipChannelRequest => __isa(o, "APNSVoipChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelResponse {
-  __type?: "APNSVoipChannelResponse";
   /**
    * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
@@ -997,14 +966,12 @@ export namespace APNSVoipChannelResponse {
   export const filterSensitiveLog = (obj: APNSVoipChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSVoipChannelResponse => __isa(o, "APNSVoipChannelResponse");
 }
 
 /**
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
  */
 export interface APNSVoipSandboxChannelRequest {
-  __type?: "APNSVoipSandboxChannelRequest";
   /**
    * <p>Specifies whether the APNs VoIP sandbox channel is enabled for the application.</p>
    */
@@ -1050,14 +1017,12 @@ export namespace APNSVoipSandboxChannelRequest {
   export const filterSensitiveLog = (obj: APNSVoipSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSVoipSandboxChannelRequest => __isa(o, "APNSVoipSandboxChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
  */
 export interface APNSVoipSandboxChannelResponse {
-  __type?: "APNSVoipSandboxChannelResponse";
   /**
    * <p>Specifies whether the APNs VoIP sandbox channel is enabled for the application.</p>
    */
@@ -1123,14 +1088,12 @@ export namespace APNSVoipSandboxChannelResponse {
   export const filterSensitiveLog = (obj: APNSVoipSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APNSVoipSandboxChannelResponse => __isa(o, "APNSVoipSandboxChannelResponse");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
  */
 export interface ApplicationDateRangeKpiResponse {
-  __type?: "ApplicationDateRangeKpiResponse";
   /**
    * <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
    */
@@ -1166,14 +1129,12 @@ export namespace ApplicationDateRangeKpiResponse {
   export const filterSensitiveLog = (obj: ApplicationDateRangeKpiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationDateRangeKpiResponse => __isa(o, "ApplicationDateRangeKpiResponse");
 }
 
 /**
  * <p>Provides information about an application.</p>
  */
 export interface ApplicationResponse {
-  __type?: "ApplicationResponse";
   /**
    * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
    */
@@ -1199,14 +1160,12 @@ export namespace ApplicationResponse {
   export const filterSensitiveLog = (obj: ApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationResponse => __isa(o, "ApplicationResponse");
 }
 
 /**
  * <p>Provides information about an application, including the default settings for an application.</p>
  */
 export interface ApplicationSettingsResource {
-  __type?: "ApplicationSettingsResource";
   /**
    * <p>The default quiet time for campaigns and journeys in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
    */
@@ -1237,14 +1196,12 @@ export namespace ApplicationSettingsResource {
   export const filterSensitiveLog = (obj: ApplicationSettingsResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationSettingsResource => __isa(o, "ApplicationSettingsResource");
 }
 
 /**
  * <p>Provides information about all of your applications.</p>
  */
 export interface ApplicationsResponse {
-  __type?: "ApplicationsResponse";
   /**
    * <p>An array of responses, one for each application that was returned.</p>
    */
@@ -1260,14 +1217,12 @@ export namespace ApplicationsResponse {
   export const filterSensitiveLog = (obj: ApplicationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationsResponse => __isa(o, "ApplicationsResponse");
 }
 
 /**
  * <p>Specifies attribute-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface AttributeDimension {
-  __type?: "AttributeDimension";
   /**
    * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
    */
@@ -1283,14 +1238,12 @@ export namespace AttributeDimension {
   export const filterSensitiveLog = (obj: AttributeDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeDimension => __isa(o, "AttributeDimension");
 }
 
 /**
  * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
  */
 export interface AttributesResource {
-  __type?: "AttributesResource";
   /**
    * <p>The unique identifier for the application.</p>
    */
@@ -1311,7 +1264,6 @@ export namespace AttributesResource {
   export const filterSensitiveLog = (obj: AttributesResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributesResource => __isa(o, "AttributesResource");
 }
 
 export enum AttributeType {
@@ -1340,14 +1292,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * <p>Specifies the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
 export interface BaiduChannelRequest {
-  __type?: "BaiduChannelRequest";
   /**
    * <p>The secret key that you received from the Baidu Cloud Push service to communicate with the service.</p>
    */
@@ -1368,14 +1318,12 @@ export namespace BaiduChannelRequest {
   export const filterSensitiveLog = (obj: BaiduChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BaiduChannelRequest => __isa(o, "BaiduChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
 export interface BaiduChannelResponse {
-  __type?: "BaiduChannelResponse";
   /**
    * <p>Specifies whether the Baidu channel is enabled for the application.</p>
    */
@@ -1436,14 +1384,12 @@ export namespace BaiduChannelResponse {
   export const filterSensitiveLog = (obj: BaiduChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BaiduChannelResponse => __isa(o, "BaiduChannelResponse");
 }
 
 /**
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the Baidu (Baidu Cloud Push) channel.</p>
  */
 export interface BaiduMessage {
-  __type?: "BaiduMessage";
   /**
    * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
    */
@@ -1519,14 +1465,12 @@ export namespace BaiduMessage {
   export const filterSensitiveLog = (obj: BaiduMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BaiduMessage => __isa(o, "BaiduMessage");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface BaseKpiResult {
-  __type?: "BaseKpiResult";
   /**
    * <p>An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
    */
@@ -1537,14 +1481,12 @@ export namespace BaseKpiResult {
   export const filterSensitiveLog = (obj: BaseKpiResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BaseKpiResult => __isa(o, "BaseKpiResult");
 }
 
 /**
  * <p>Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.</p>
  */
 export interface CampaignCustomMessage {
-  __type?: "CampaignCustomMessage";
   /**
    * <p>The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.</p>
    */
@@ -1555,14 +1497,12 @@ export namespace CampaignCustomMessage {
   export const filterSensitiveLog = (obj: CampaignCustomMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignCustomMessage => __isa(o, "CampaignCustomMessage");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
  */
 export interface CampaignDateRangeKpiResponse {
-  __type?: "CampaignDateRangeKpiResponse";
   /**
    * <p>The unique identifier for the application that the metric applies to.</p>
    */
@@ -1603,14 +1543,12 @@ export namespace CampaignDateRangeKpiResponse {
   export const filterSensitiveLog = (obj: CampaignDateRangeKpiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignDateRangeKpiResponse => __isa(o, "CampaignDateRangeKpiResponse");
 }
 
 /**
  * <p>Specifies the content and "From" address for an email message that's sent to recipients of a campaign.</p>
  */
 export interface CampaignEmailMessage {
-  __type?: "CampaignEmailMessage";
   /**
    * <p>The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.</p>
    */
@@ -1636,14 +1574,12 @@ export namespace CampaignEmailMessage {
   export const filterSensitiveLog = (obj: CampaignEmailMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignEmailMessage => __isa(o, "CampaignEmailMessage");
 }
 
 /**
  * <p>Specifies the settings for events that cause a campaign to be sent.</p>
  */
 export interface CampaignEventFilter {
-  __type?: "CampaignEventFilter";
   /**
    * <p>The dimension settings of the event filter for the campaign.</p>
    */
@@ -1659,14 +1595,12 @@ export namespace CampaignEventFilter {
   export const filterSensitiveLog = (obj: CampaignEventFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignEventFilter => __isa(o, "CampaignEventFilter");
 }
 
 /**
  * <p>Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign.</p>
  */
 export interface CampaignHook {
-  __type?: "CampaignHook";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.</p>
    */
@@ -1687,14 +1621,12 @@ export namespace CampaignHook {
   export const filterSensitiveLog = (obj: CampaignHook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignHook => __isa(o, "CampaignHook");
 }
 
 /**
  * <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns and journeys in the application can send.</p>
  */
 export interface CampaignLimits {
-  __type?: "CampaignLimits";
   /**
    * <p>The maximum number of messages that a campaign can send to a single endpoint during a 24-hour period. For an application, this value specifies the default limit for the number of messages that campaigns and journeys can send to a single endpoint during a 24-hour period. The maximum value is 100.</p>
    */
@@ -1720,14 +1652,12 @@ export namespace CampaignLimits {
   export const filterSensitiveLog = (obj: CampaignLimits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignLimits => __isa(o, "CampaignLimits");
 }
 
 /**
  * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
  */
 export interface CampaignResponse {
-  __type?: "CampaignResponse";
   /**
    * <p>The current status of the campaign.</p>
    */
@@ -1853,14 +1783,12 @@ export namespace CampaignResponse {
   export const filterSensitiveLog = (obj: CampaignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignResponse => __isa(o, "CampaignResponse");
 }
 
 /**
  * <p>Specifies the content and settings for an SMS message that's sent to recipients of a campaign.</p>
  */
 export interface CampaignSmsMessage {
-  __type?: "CampaignSmsMessage";
   /**
    * <p>The sender ID to display on recipients' devices when they receive the SMS message.</p>
    */
@@ -1881,14 +1809,12 @@ export namespace CampaignSmsMessage {
   export const filterSensitiveLog = (obj: CampaignSmsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignSmsMessage => __isa(o, "CampaignSmsMessage");
 }
 
 /**
  * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
  */
 export interface CampaignsResponse {
-  __type?: "CampaignsResponse";
   /**
    * <p>An array of responses, one for each campaign that's associated with the application.</p>
    */
@@ -1904,14 +1830,12 @@ export namespace CampaignsResponse {
   export const filterSensitiveLog = (obj: CampaignsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignsResponse => __isa(o, "CampaignsResponse");
 }
 
 /**
  * <p>Provides information about the status of a campaign.</p>
  */
 export interface CampaignState {
-  __type?: "CampaignState";
   /**
    * <p>The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign.</p> <p>If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED. If you delete the segment that's associated with a campaign, the campaign fails and has a status of DELETED.</p>
    */
@@ -1922,7 +1846,6 @@ export namespace CampaignState {
   export const filterSensitiveLog = (obj: CampaignState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CampaignState => __isa(o, "CampaignState");
 }
 
 export enum CampaignStatus {
@@ -1938,7 +1861,6 @@ export enum CampaignStatus {
  * <p>Provides information about the general settings and status of a channel for an application.</p>
  */
 export interface ChannelResponse {
-  __type?: "ChannelResponse";
   /**
    * <p>Specifies whether the channel is enabled for the application.</p>
    */
@@ -1989,14 +1911,12 @@ export namespace ChannelResponse {
   export const filterSensitiveLog = (obj: ChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelResponse => __isa(o, "ChannelResponse");
 }
 
 /**
  * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
  */
 export interface ChannelsResponse {
-  __type?: "ChannelsResponse";
   /**
    * <p>A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.</p>
    */
@@ -2007,7 +1927,6 @@ export namespace ChannelsResponse {
   export const filterSensitiveLog = (obj: ChannelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelsResponse => __isa(o, "ChannelsResponse");
 }
 
 export enum ChannelType {
@@ -2029,7 +1948,6 @@ export enum ChannelType {
  * <p>Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.</p>
  */
 export interface Condition {
-  __type?: "Condition";
   /**
    * <p>Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.</p>
    */
@@ -2045,14 +1963,12 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 /**
  * <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
  */
 export interface ConditionalSplitActivity {
-  __type?: "ConditionalSplitActivity";
   /**
    * <p>The conditions that define the paths for the activity, and the relationship between the conditions.</p>
    */
@@ -2078,14 +1994,12 @@ export namespace ConditionalSplitActivity {
   export const filterSensitiveLog = (obj: ConditionalSplitActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConditionalSplitActivity => __isa(o, "ConditionalSplitActivity");
 }
 
 /**
  * <p>Specifies the display name of an application and the tags to associate with the application.</p>
  */
 export interface CreateApplicationRequest {
-  __type?: "CreateApplicationRequest";
   /**
    * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
    */
@@ -2101,11 +2015,9 @@ export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateAppRequest {
-  __type?: "CreateAppRequest";
   /**
    * <p>Specifies the display name of an application and the tags to associate with the application.</p>
    */
@@ -2116,11 +2028,9 @@ export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 export interface CreateAppResponse {
-  __type?: "CreateAppResponse";
   /**
    * <p>Provides information about an application.</p>
    */
@@ -2131,11 +2041,9 @@ export namespace CreateAppResponse {
   export const filterSensitiveLog = (obj: CreateAppResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppResponse => __isa(o, "CreateAppResponse");
 }
 
 export interface CreateCampaignRequest {
-  __type?: "CreateCampaignRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2151,11 +2059,9 @@ export namespace CreateCampaignRequest {
   export const filterSensitiveLog = (obj: CreateCampaignRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCampaignRequest => __isa(o, "CreateCampaignRequest");
 }
 
 export interface CreateCampaignResponse {
-  __type?: "CreateCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
@@ -2166,11 +2072,9 @@ export namespace CreateCampaignResponse {
   export const filterSensitiveLog = (obj: CreateCampaignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCampaignResponse => __isa(o, "CreateCampaignResponse");
 }
 
 export interface CreateEmailTemplateRequest {
-  __type?: "CreateEmailTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -2186,11 +2090,9 @@ export namespace CreateEmailTemplateRequest {
   export const filterSensitiveLog = (obj: CreateEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailTemplateRequest => __isa(o, "CreateEmailTemplateRequest");
 }
 
 export interface CreateEmailTemplateResponse {
-  __type?: "CreateEmailTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
    */
@@ -2201,11 +2103,9 @@ export namespace CreateEmailTemplateResponse {
   export const filterSensitiveLog = (obj: CreateEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailTemplateResponse => __isa(o, "CreateEmailTemplateResponse");
 }
 
 export interface CreateExportJobRequest {
-  __type?: "CreateExportJobRequest";
   /**
    * <p>Specifies the settings for a job that exports endpoint definitions to an Amazon Simple Storage Service (Amazon S3) bucket.</p>
    */
@@ -2221,11 +2121,9 @@ export namespace CreateExportJobRequest {
   export const filterSensitiveLog = (obj: CreateExportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExportJobRequest => __isa(o, "CreateExportJobRequest");
 }
 
 export interface CreateExportJobResponse {
-  __type?: "CreateExportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
    */
@@ -2236,11 +2134,9 @@ export namespace CreateExportJobResponse {
   export const filterSensitiveLog = (obj: CreateExportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExportJobResponse => __isa(o, "CreateExportJobResponse");
 }
 
 export interface CreateImportJobRequest {
-  __type?: "CreateImportJobRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2256,11 +2152,9 @@ export namespace CreateImportJobRequest {
   export const filterSensitiveLog = (obj: CreateImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImportJobRequest => __isa(o, "CreateImportJobRequest");
 }
 
 export interface CreateImportJobResponse {
-  __type?: "CreateImportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
    */
@@ -2271,11 +2165,9 @@ export namespace CreateImportJobResponse {
   export const filterSensitiveLog = (obj: CreateImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImportJobResponse => __isa(o, "CreateImportJobResponse");
 }
 
 export interface CreateJourneyRequest {
-  __type?: "CreateJourneyRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2291,11 +2183,9 @@ export namespace CreateJourneyRequest {
   export const filterSensitiveLog = (obj: CreateJourneyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJourneyRequest => __isa(o, "CreateJourneyRequest");
 }
 
 export interface CreateJourneyResponse {
-  __type?: "CreateJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
@@ -2306,11 +2196,9 @@ export namespace CreateJourneyResponse {
   export const filterSensitiveLog = (obj: CreateJourneyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJourneyResponse => __isa(o, "CreateJourneyResponse");
 }
 
 export interface CreatePushTemplateRequest {
-  __type?: "CreatePushTemplateRequest";
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
    */
@@ -2326,11 +2214,9 @@ export namespace CreatePushTemplateRequest {
   export const filterSensitiveLog = (obj: CreatePushTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePushTemplateRequest => __isa(o, "CreatePushTemplateRequest");
 }
 
 export interface CreatePushTemplateResponse {
-  __type?: "CreatePushTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
    */
@@ -2341,11 +2227,9 @@ export namespace CreatePushTemplateResponse {
   export const filterSensitiveLog = (obj: CreatePushTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePushTemplateResponse => __isa(o, "CreatePushTemplateResponse");
 }
 
 export interface CreateRecommenderConfigurationRequest {
-  __type?: "CreateRecommenderConfigurationRequest";
   /**
    * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
    */
@@ -2356,12 +2240,9 @@ export namespace CreateRecommenderConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateRecommenderConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRecommenderConfigurationRequest =>
-    __isa(o, "CreateRecommenderConfigurationRequest");
 }
 
 export interface CreateRecommenderConfigurationResponse {
-  __type?: "CreateRecommenderConfigurationResponse";
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
    */
@@ -2372,15 +2253,12 @@ export namespace CreateRecommenderConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateRecommenderConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRecommenderConfigurationResponse =>
-    __isa(o, "CreateRecommenderConfigurationResponse");
 }
 
 /**
  * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
  */
 export interface CreateRecommenderConfigurationShape {
-  __type?: "CreateRecommenderConfigurationShape";
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender model to retrieve recommendation data from. This value must match the ARN of an Amazon Personalize campaign.</p>
    */
@@ -2431,12 +2309,9 @@ export namespace CreateRecommenderConfigurationShape {
   export const filterSensitiveLog = (obj: CreateRecommenderConfigurationShape): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRecommenderConfigurationShape =>
-    __isa(o, "CreateRecommenderConfigurationShape");
 }
 
 export interface CreateSegmentRequest {
-  __type?: "CreateSegmentRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2452,11 +2327,9 @@ export namespace CreateSegmentRequest {
   export const filterSensitiveLog = (obj: CreateSegmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSegmentRequest => __isa(o, "CreateSegmentRequest");
 }
 
 export interface CreateSegmentResponse {
-  __type?: "CreateSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
@@ -2467,11 +2340,9 @@ export namespace CreateSegmentResponse {
   export const filterSensitiveLog = (obj: CreateSegmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSegmentResponse => __isa(o, "CreateSegmentResponse");
 }
 
 export interface CreateSmsTemplateRequest {
-  __type?: "CreateSmsTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -2487,11 +2358,9 @@ export namespace CreateSmsTemplateRequest {
   export const filterSensitiveLog = (obj: CreateSmsTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSmsTemplateRequest => __isa(o, "CreateSmsTemplateRequest");
 }
 
 export interface CreateSmsTemplateResponse {
-  __type?: "CreateSmsTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
    */
@@ -2502,14 +2371,12 @@ export namespace CreateSmsTemplateResponse {
   export const filterSensitiveLog = (obj: CreateSmsTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSmsTemplateResponse => __isa(o, "CreateSmsTemplateResponse");
 }
 
 /**
  * <p>Provides information about a request to create a message template.</p>
  */
 export interface CreateTemplateMessageBody {
-  __type?: "CreateTemplateMessageBody";
   /**
    * <p>The unique identifier for the request to create the message template.</p>
    */
@@ -2530,11 +2397,9 @@ export namespace CreateTemplateMessageBody {
   export const filterSensitiveLog = (obj: CreateTemplateMessageBody): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateMessageBody => __isa(o, "CreateTemplateMessageBody");
 }
 
 export interface CreateVoiceTemplateRequest {
-  __type?: "CreateVoiceTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -2550,11 +2415,9 @@ export namespace CreateVoiceTemplateRequest {
   export const filterSensitiveLog = (obj: CreateVoiceTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVoiceTemplateRequest => __isa(o, "CreateVoiceTemplateRequest");
 }
 
 export interface CreateVoiceTemplateResponse {
-  __type?: "CreateVoiceTemplateResponse";
   /**
    * <p>Provides information about a request to create a message template.</p>
    */
@@ -2565,14 +2428,12 @@ export namespace CreateVoiceTemplateResponse {
   export const filterSensitiveLog = (obj: CreateVoiceTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVoiceTemplateResponse => __isa(o, "CreateVoiceTemplateResponse");
 }
 
 /**
  * <p>Specifies the delivery configuration settings for sending a campaign or campaign treatment through a custom channel. This object is required if you use the CampaignCustomMessage object to define the message to send for the campaign or campaign treatment.</p>
  */
 export interface CustomDeliveryConfiguration {
-  __type?: "CustomDeliveryConfiguration";
   /**
    * <p>The destination to send the campaign or treatment to. This value can be one of the following:</p> <ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.</p></li> <li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
    */
@@ -2588,14 +2449,12 @@ export namespace CustomDeliveryConfiguration {
   export const filterSensitiveLog = (obj: CustomDeliveryConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomDeliveryConfiguration => __isa(o, "CustomDeliveryConfiguration");
 }
 
 /**
  * <p>The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.</p>
  */
 export interface CustomMessageActivity {
-  __type?: "CustomMessageActivity";
   /**
    * <p>The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.</p>
    */
@@ -2631,14 +2490,12 @@ export namespace CustomMessageActivity {
   export const filterSensitiveLog = (obj: CustomMessageActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomMessageActivity => __isa(o, "CustomMessageActivity");
 }
 
 /**
  * <p>Specifies the default message for all channels.</p>
  */
 export interface DefaultMessage {
-  __type?: "DefaultMessage";
   /**
    * <p>The default message variables to use in the message. You can override these default variables with individual address variables.</p>
    */
@@ -2654,14 +2511,12 @@ export namespace DefaultMessage {
   export const filterSensitiveLog = (obj: DefaultMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultMessage => __isa(o, "DefaultMessage");
 }
 
 /**
  * <p>Specifies the default settings and content for a push notification that's sent directly to an endpoint.</p>
  */
 export interface DefaultPushNotificationMessage {
-  __type?: "DefaultPushNotificationMessage";
   /**
    * <p>Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.</p>
    */
@@ -2702,14 +2557,12 @@ export namespace DefaultPushNotificationMessage {
   export const filterSensitiveLog = (obj: DefaultPushNotificationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultPushNotificationMessage => __isa(o, "DefaultPushNotificationMessage");
 }
 
 /**
  * <p>Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface DefaultPushNotificationTemplate {
-  __type?: "DefaultPushNotificationTemplate";
   /**
    * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.</p>
    */
@@ -2740,11 +2593,9 @@ export namespace DefaultPushNotificationTemplate {
   export const filterSensitiveLog = (obj: DefaultPushNotificationTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultPushNotificationTemplate => __isa(o, "DefaultPushNotificationTemplate");
 }
 
 export interface DeleteAdmChannelRequest {
-  __type?: "DeleteAdmChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2755,11 +2606,9 @@ export namespace DeleteAdmChannelRequest {
   export const filterSensitiveLog = (obj: DeleteAdmChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAdmChannelRequest => __isa(o, "DeleteAdmChannelRequest");
 }
 
 export interface DeleteAdmChannelResponse {
-  __type?: "DeleteAdmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
@@ -2770,11 +2619,9 @@ export namespace DeleteAdmChannelResponse {
   export const filterSensitiveLog = (obj: DeleteAdmChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAdmChannelResponse => __isa(o, "DeleteAdmChannelResponse");
 }
 
 export interface DeleteApnsChannelRequest {
-  __type?: "DeleteApnsChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2785,11 +2632,9 @@ export namespace DeleteApnsChannelRequest {
   export const filterSensitiveLog = (obj: DeleteApnsChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsChannelRequest => __isa(o, "DeleteApnsChannelRequest");
 }
 
 export interface DeleteApnsChannelResponse {
-  __type?: "DeleteApnsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
    */
@@ -2800,11 +2645,9 @@ export namespace DeleteApnsChannelResponse {
   export const filterSensitiveLog = (obj: DeleteApnsChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsChannelResponse => __isa(o, "DeleteApnsChannelResponse");
 }
 
 export interface DeleteApnsSandboxChannelRequest {
-  __type?: "DeleteApnsSandboxChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2815,11 +2658,9 @@ export namespace DeleteApnsSandboxChannelRequest {
   export const filterSensitiveLog = (obj: DeleteApnsSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsSandboxChannelRequest => __isa(o, "DeleteApnsSandboxChannelRequest");
 }
 
 export interface DeleteApnsSandboxChannelResponse {
-  __type?: "DeleteApnsSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
    */
@@ -2830,11 +2671,9 @@ export namespace DeleteApnsSandboxChannelResponse {
   export const filterSensitiveLog = (obj: DeleteApnsSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsSandboxChannelResponse => __isa(o, "DeleteApnsSandboxChannelResponse");
 }
 
 export interface DeleteApnsVoipChannelRequest {
-  __type?: "DeleteApnsVoipChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2845,11 +2684,9 @@ export namespace DeleteApnsVoipChannelRequest {
   export const filterSensitiveLog = (obj: DeleteApnsVoipChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsVoipChannelRequest => __isa(o, "DeleteApnsVoipChannelRequest");
 }
 
 export interface DeleteApnsVoipChannelResponse {
-  __type?: "DeleteApnsVoipChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
    */
@@ -2860,11 +2697,9 @@ export namespace DeleteApnsVoipChannelResponse {
   export const filterSensitiveLog = (obj: DeleteApnsVoipChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsVoipChannelResponse => __isa(o, "DeleteApnsVoipChannelResponse");
 }
 
 export interface DeleteApnsVoipSandboxChannelRequest {
-  __type?: "DeleteApnsVoipSandboxChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2875,12 +2710,9 @@ export namespace DeleteApnsVoipSandboxChannelRequest {
   export const filterSensitiveLog = (obj: DeleteApnsVoipSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsVoipSandboxChannelRequest =>
-    __isa(o, "DeleteApnsVoipSandboxChannelRequest");
 }
 
 export interface DeleteApnsVoipSandboxChannelResponse {
-  __type?: "DeleteApnsVoipSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
    */
@@ -2891,12 +2723,9 @@ export namespace DeleteApnsVoipSandboxChannelResponse {
   export const filterSensitiveLog = (obj: DeleteApnsVoipSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApnsVoipSandboxChannelResponse =>
-    __isa(o, "DeleteApnsVoipSandboxChannelResponse");
 }
 
 export interface DeleteAppRequest {
-  __type?: "DeleteAppRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2907,11 +2736,9 @@ export namespace DeleteAppRequest {
   export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 export interface DeleteAppResponse {
-  __type?: "DeleteAppResponse";
   /**
    * <p>Provides information about an application.</p>
    */
@@ -2922,11 +2749,9 @@ export namespace DeleteAppResponse {
   export const filterSensitiveLog = (obj: DeleteAppResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAppResponse => __isa(o, "DeleteAppResponse");
 }
 
 export interface DeleteBaiduChannelRequest {
-  __type?: "DeleteBaiduChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -2937,11 +2762,9 @@ export namespace DeleteBaiduChannelRequest {
   export const filterSensitiveLog = (obj: DeleteBaiduChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBaiduChannelRequest => __isa(o, "DeleteBaiduChannelRequest");
 }
 
 export interface DeleteBaiduChannelResponse {
-  __type?: "DeleteBaiduChannelResponse";
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
    */
@@ -2952,11 +2775,9 @@ export namespace DeleteBaiduChannelResponse {
   export const filterSensitiveLog = (obj: DeleteBaiduChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBaiduChannelResponse => __isa(o, "DeleteBaiduChannelResponse");
 }
 
 export interface DeleteCampaignRequest {
-  __type?: "DeleteCampaignRequest";
   /**
    * <p>The unique identifier for the campaign.</p>
    */
@@ -2972,11 +2793,9 @@ export namespace DeleteCampaignRequest {
   export const filterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCampaignRequest => __isa(o, "DeleteCampaignRequest");
 }
 
 export interface DeleteCampaignResponse {
-  __type?: "DeleteCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
@@ -2987,11 +2806,9 @@ export namespace DeleteCampaignResponse {
   export const filterSensitiveLog = (obj: DeleteCampaignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCampaignResponse => __isa(o, "DeleteCampaignResponse");
 }
 
 export interface DeleteEmailChannelRequest {
-  __type?: "DeleteEmailChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3002,11 +2819,9 @@ export namespace DeleteEmailChannelRequest {
   export const filterSensitiveLog = (obj: DeleteEmailChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailChannelRequest => __isa(o, "DeleteEmailChannelRequest");
 }
 
 export interface DeleteEmailChannelResponse {
-  __type?: "DeleteEmailChannelResponse";
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
    */
@@ -3017,11 +2832,9 @@ export namespace DeleteEmailChannelResponse {
   export const filterSensitiveLog = (obj: DeleteEmailChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailChannelResponse => __isa(o, "DeleteEmailChannelResponse");
 }
 
 export interface DeleteEmailTemplateRequest {
-  __type?: "DeleteEmailTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -3037,11 +2850,9 @@ export namespace DeleteEmailTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailTemplateRequest => __isa(o, "DeleteEmailTemplateRequest");
 }
 
 export interface DeleteEmailTemplateResponse {
-  __type?: "DeleteEmailTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -3052,11 +2863,9 @@ export namespace DeleteEmailTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailTemplateResponse => __isa(o, "DeleteEmailTemplateResponse");
 }
 
 export interface DeleteEndpointRequest {
-  __type?: "DeleteEndpointRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3072,11 +2881,9 @@ export namespace DeleteEndpointRequest {
   export const filterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointRequest => __isa(o, "DeleteEndpointRequest");
 }
 
 export interface DeleteEndpointResponse {
-  __type?: "DeleteEndpointResponse";
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
    */
@@ -3087,11 +2894,9 @@ export namespace DeleteEndpointResponse {
   export const filterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointResponse => __isa(o, "DeleteEndpointResponse");
 }
 
 export interface DeleteEventStreamRequest {
-  __type?: "DeleteEventStreamRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3102,11 +2907,9 @@ export namespace DeleteEventStreamRequest {
   export const filterSensitiveLog = (obj: DeleteEventStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventStreamRequest => __isa(o, "DeleteEventStreamRequest");
 }
 
 export interface DeleteEventStreamResponse {
-  __type?: "DeleteEventStreamResponse";
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
    */
@@ -3117,11 +2920,9 @@ export namespace DeleteEventStreamResponse {
   export const filterSensitiveLog = (obj: DeleteEventStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventStreamResponse => __isa(o, "DeleteEventStreamResponse");
 }
 
 export interface DeleteGcmChannelRequest {
-  __type?: "DeleteGcmChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3132,11 +2933,9 @@ export namespace DeleteGcmChannelRequest {
   export const filterSensitiveLog = (obj: DeleteGcmChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGcmChannelRequest => __isa(o, "DeleteGcmChannelRequest");
 }
 
 export interface DeleteGcmChannelResponse {
-  __type?: "DeleteGcmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
@@ -3147,11 +2946,9 @@ export namespace DeleteGcmChannelResponse {
   export const filterSensitiveLog = (obj: DeleteGcmChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGcmChannelResponse => __isa(o, "DeleteGcmChannelResponse");
 }
 
 export interface DeleteJourneyRequest {
-  __type?: "DeleteJourneyRequest";
   /**
    * <p>The unique identifier for the journey.</p>
    */
@@ -3167,11 +2964,9 @@ export namespace DeleteJourneyRequest {
   export const filterSensitiveLog = (obj: DeleteJourneyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJourneyRequest => __isa(o, "DeleteJourneyRequest");
 }
 
 export interface DeleteJourneyResponse {
-  __type?: "DeleteJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
@@ -3182,11 +2977,9 @@ export namespace DeleteJourneyResponse {
   export const filterSensitiveLog = (obj: DeleteJourneyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJourneyResponse => __isa(o, "DeleteJourneyResponse");
 }
 
 export interface DeletePushTemplateRequest {
-  __type?: "DeletePushTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -3202,11 +2995,9 @@ export namespace DeletePushTemplateRequest {
   export const filterSensitiveLog = (obj: DeletePushTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePushTemplateRequest => __isa(o, "DeletePushTemplateRequest");
 }
 
 export interface DeletePushTemplateResponse {
-  __type?: "DeletePushTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -3217,11 +3008,9 @@ export namespace DeletePushTemplateResponse {
   export const filterSensitiveLog = (obj: DeletePushTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePushTemplateResponse => __isa(o, "DeletePushTemplateResponse");
 }
 
 export interface DeleteRecommenderConfigurationRequest {
-  __type?: "DeleteRecommenderConfigurationRequest";
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3232,12 +3021,9 @@ export namespace DeleteRecommenderConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteRecommenderConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRecommenderConfigurationRequest =>
-    __isa(o, "DeleteRecommenderConfigurationRequest");
 }
 
 export interface DeleteRecommenderConfigurationResponse {
-  __type?: "DeleteRecommenderConfigurationResponse";
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
    */
@@ -3248,12 +3034,9 @@ export namespace DeleteRecommenderConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteRecommenderConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRecommenderConfigurationResponse =>
-    __isa(o, "DeleteRecommenderConfigurationResponse");
 }
 
 export interface DeleteSegmentRequest {
-  __type?: "DeleteSegmentRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3269,11 +3052,9 @@ export namespace DeleteSegmentRequest {
   export const filterSensitiveLog = (obj: DeleteSegmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSegmentRequest => __isa(o, "DeleteSegmentRequest");
 }
 
 export interface DeleteSegmentResponse {
-  __type?: "DeleteSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
@@ -3284,11 +3065,9 @@ export namespace DeleteSegmentResponse {
   export const filterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSegmentResponse => __isa(o, "DeleteSegmentResponse");
 }
 
 export interface DeleteSmsChannelRequest {
-  __type?: "DeleteSmsChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3299,11 +3078,9 @@ export namespace DeleteSmsChannelRequest {
   export const filterSensitiveLog = (obj: DeleteSmsChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSmsChannelRequest => __isa(o, "DeleteSmsChannelRequest");
 }
 
 export interface DeleteSmsChannelResponse {
-  __type?: "DeleteSmsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
    */
@@ -3314,11 +3091,9 @@ export namespace DeleteSmsChannelResponse {
   export const filterSensitiveLog = (obj: DeleteSmsChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSmsChannelResponse => __isa(o, "DeleteSmsChannelResponse");
 }
 
 export interface DeleteSmsTemplateRequest {
-  __type?: "DeleteSmsTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -3334,11 +3109,9 @@ export namespace DeleteSmsTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteSmsTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSmsTemplateRequest => __isa(o, "DeleteSmsTemplateRequest");
 }
 
 export interface DeleteSmsTemplateResponse {
-  __type?: "DeleteSmsTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -3349,11 +3122,9 @@ export namespace DeleteSmsTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteSmsTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSmsTemplateResponse => __isa(o, "DeleteSmsTemplateResponse");
 }
 
 export interface DeleteUserEndpointsRequest {
-  __type?: "DeleteUserEndpointsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3369,11 +3140,9 @@ export namespace DeleteUserEndpointsRequest {
   export const filterSensitiveLog = (obj: DeleteUserEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserEndpointsRequest => __isa(o, "DeleteUserEndpointsRequest");
 }
 
 export interface DeleteUserEndpointsResponse {
-  __type?: "DeleteUserEndpointsResponse";
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
    */
@@ -3384,11 +3153,9 @@ export namespace DeleteUserEndpointsResponse {
   export const filterSensitiveLog = (obj: DeleteUserEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserEndpointsResponse => __isa(o, "DeleteUserEndpointsResponse");
 }
 
 export interface DeleteVoiceChannelRequest {
-  __type?: "DeleteVoiceChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -3399,11 +3166,9 @@ export namespace DeleteVoiceChannelRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceChannelRequest => __isa(o, "DeleteVoiceChannelRequest");
 }
 
 export interface DeleteVoiceChannelResponse {
-  __type?: "DeleteVoiceChannelResponse";
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
    */
@@ -3414,11 +3179,9 @@ export namespace DeleteVoiceChannelResponse {
   export const filterSensitiveLog = (obj: DeleteVoiceChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceChannelResponse => __isa(o, "DeleteVoiceChannelResponse");
 }
 
 export interface DeleteVoiceTemplateRequest {
-  __type?: "DeleteVoiceTemplateRequest";
   /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
@@ -3434,11 +3197,9 @@ export namespace DeleteVoiceTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceTemplateRequest => __isa(o, "DeleteVoiceTemplateRequest");
 }
 
 export interface DeleteVoiceTemplateResponse {
-  __type?: "DeleteVoiceTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -3449,7 +3210,6 @@ export namespace DeleteVoiceTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteVoiceTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceTemplateResponse => __isa(o, "DeleteVoiceTemplateResponse");
 }
 
 export enum DeliveryStatus {
@@ -3471,7 +3231,6 @@ export enum DimensionType {
  * <p>Specifies the settings and content for the default message and any default messages that you tailored for specific channels.</p>
  */
 export interface DirectMessageConfiguration {
-  __type?: "DirectMessageConfiguration";
   /**
    * <p>The default message for the voice channel. This message overrides the default message (DefaultMessage).</p>
    */
@@ -3522,7 +3281,6 @@ export namespace DirectMessageConfiguration {
   export const filterSensitiveLog = (obj: DirectMessageConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DirectMessageConfiguration => __isa(o, "DirectMessageConfiguration");
 }
 
 export enum Duration {
@@ -3536,7 +3294,6 @@ export enum Duration {
  * <p>Specifies the status and settings of the email channel for an application.</p>
  */
 export interface EmailChannelRequest {
-  __type?: "EmailChannelRequest";
   /**
    * <p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>
    */
@@ -3567,14 +3324,12 @@ export namespace EmailChannelRequest {
   export const filterSensitiveLog = (obj: EmailChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailChannelRequest => __isa(o, "EmailChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the email channel for an application.</p>
  */
 export interface EmailChannelResponse {
-  __type?: "EmailChannelResponse";
   /**
    * <p>The user who last modified the email channel.</p>
    */
@@ -3655,14 +3410,12 @@ export namespace EmailChannelResponse {
   export const filterSensitiveLog = (obj: EmailChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailChannelResponse => __isa(o, "EmailChannelResponse");
 }
 
 /**
  * <p>Specifies the default settings and content for a one-time email message that's sent directly to an endpoint.</p>
  */
 export interface EmailMessage {
-  __type?: "EmailMessage";
   /**
    * <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
    */
@@ -3703,14 +3456,12 @@ export namespace EmailMessage {
   export const filterSensitiveLog = (obj: EmailMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailMessage => __isa(o, "EmailMessage");
 }
 
 /**
  * <p>Specifies the settings for an email activity in a journey. This type of activity sends an email message to participants.</p>
  */
 export interface EmailMessageActivity {
-  __type?: "EmailMessageActivity";
   /**
    * <p>The name of the email message template to use for the message. If specified, this value must match the name of an existing message template.</p>
    */
@@ -3736,14 +3487,12 @@ export namespace EmailMessageActivity {
   export const filterSensitiveLog = (obj: EmailMessageActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailMessageActivity => __isa(o, "EmailMessageActivity");
 }
 
 /**
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 export interface EmailTemplateRequest {
-  __type?: "EmailTemplateRequest";
   /**
    * <p>The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.</p>
    */
@@ -3784,14 +3533,12 @@ export namespace EmailTemplateRequest {
   export const filterSensitiveLog = (obj: EmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailTemplateRequest => __isa(o, "EmailTemplateRequest");
 }
 
 /**
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 export interface EmailTemplateResponse {
-  __type?: "EmailTemplateResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the message template.</p>
    */
@@ -3862,14 +3609,12 @@ export namespace EmailTemplateResponse {
   export const filterSensitiveLog = (obj: EmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailTemplateResponse => __isa(o, "EmailTemplateResponse");
 }
 
 /**
  * <p>Specifies an endpoint to create or update and the settings and attributes to set or change for the endpoint.</p>
  */
 export interface EndpointBatchItem {
-  __type?: "EndpointBatchItem";
   /**
    * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
    */
@@ -3935,14 +3680,12 @@ export namespace EndpointBatchItem {
   export const filterSensitiveLog = (obj: EndpointBatchItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointBatchItem => __isa(o, "EndpointBatchItem");
 }
 
 /**
  * <p>Specifies a batch of endpoints to create or update and the settings and attributes to set or change for each endpoint.</p>
  */
 export interface EndpointBatchRequest {
-  __type?: "EndpointBatchRequest";
   /**
    * <p>An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.</p>
    */
@@ -3953,14 +3696,12 @@ export namespace EndpointBatchRequest {
   export const filterSensitiveLog = (obj: EndpointBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointBatchRequest => __isa(o, "EndpointBatchRequest");
 }
 
 /**
  * <p>Specifies demographic information about an endpoint, such as the applicable time zone and platform.</p>
  */
 export interface EndpointDemographic {
-  __type?: "EndpointDemographic";
   /**
    * <p>The version of the app that's associated with the endpoint.</p>
    */
@@ -4006,14 +3747,12 @@ export namespace EndpointDemographic {
   export const filterSensitiveLog = (obj: EndpointDemographic): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointDemographic => __isa(o, "EndpointDemographic");
 }
 
 /**
  * <p>Provides the status code and message that result from processing data for an endpoint.</p>
  */
 export interface EndpointItemResponse {
-  __type?: "EndpointItemResponse";
   /**
    * <p>The custom message that's returned in the response as a result of processing the endpoint data.</p>
    */
@@ -4029,14 +3768,12 @@ export namespace EndpointItemResponse {
   export const filterSensitiveLog = (obj: EndpointItemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointItemResponse => __isa(o, "EndpointItemResponse");
 }
 
 /**
  * <p>Specifies geographic information about an endpoint.</p>
  */
 export interface EndpointLocation {
-  __type?: "EndpointLocation";
   /**
    * <p>The longitude coordinate of the endpoint location, rounded to one decimal place.</p>
    */
@@ -4072,14 +3809,12 @@ export namespace EndpointLocation {
   export const filterSensitiveLog = (obj: EndpointLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointLocation => __isa(o, "EndpointLocation");
 }
 
 /**
  * <p>Provides information about the delivery status and results of sending a message directly to an endpoint.</p>
  */
 export interface EndpointMessageResult {
-  __type?: "EndpointMessageResult";
   /**
    * <p>The downstream service status code for delivering the message.</p>
    */
@@ -4115,14 +3850,12 @@ export namespace EndpointMessageResult {
   export const filterSensitiveLog = (obj: EndpointMessageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointMessageResult => __isa(o, "EndpointMessageResult");
 }
 
 /**
  * <p>Specifies the channel type and other settings for an endpoint.</p>
  */
 export interface EndpointRequest {
-  __type?: "EndpointRequest";
   /**
    * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.</p>
    */
@@ -4183,14 +3916,12 @@ export namespace EndpointRequest {
   export const filterSensitiveLog = (obj: EndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointRequest => __isa(o, "EndpointRequest");
 }
 
 /**
  * <p>Provides information about the channel type and other settings for an endpoint.</p>
  */
 export interface EndpointResponse {
-  __type?: "EndpointResponse";
   /**
    * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
    */
@@ -4271,14 +4002,12 @@ export namespace EndpointResponse {
   export const filterSensitiveLog = (obj: EndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointResponse => __isa(o, "EndpointResponse");
 }
 
 /**
  * <p>Specifies the content, including message variables and attributes, to use in a message that's sent directly to an endpoint.</p>
  */
 export interface EndpointSendConfiguration {
-  __type?: "EndpointSendConfiguration";
   /**
    * <p>A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.</p>
    */
@@ -4309,14 +4038,12 @@ export namespace EndpointSendConfiguration {
   export const filterSensitiveLog = (obj: EndpointSendConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointSendConfiguration => __isa(o, "EndpointSendConfiguration");
 }
 
 /**
  * <p>Provides information about all the endpoints that are associated with a user ID.</p>
  */
 export interface EndpointsResponse {
-  __type?: "EndpointsResponse";
   /**
    * <p>An array of responses, one for each endpoint that's associated with the user ID.</p>
    */
@@ -4327,14 +4054,12 @@ export namespace EndpointsResponse {
   export const filterSensitiveLog = (obj: EndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointsResponse => __isa(o, "EndpointsResponse");
 }
 
 /**
  * <p>Specifies data for one or more attributes that describe the user who's associated with an endpoint.</p>
  */
 export interface EndpointUser {
-  __type?: "EndpointUser";
   /**
    * <p>One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
    */
@@ -4350,14 +4075,12 @@ export namespace EndpointUser {
   export const filterSensitiveLog = (obj: EndpointUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointUser => __isa(o, "EndpointUser");
 }
 
 /**
  * <p>Specifies information about an event that reports data to Amazon Pinpoint.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>Information about the session in which the event occurred.</p>
    */
@@ -4413,14 +4136,12 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
  * <p>Specifies the conditions to evaluate for an event that applies to an activity in a journey.</p>
  */
 export interface EventCondition {
-  __type?: "EventCondition";
   /**
    * <p>The dimensions for the event filter to use for the activity.</p>
    */
@@ -4436,14 +4157,12 @@ export namespace EventCondition {
   export const filterSensitiveLog = (obj: EventCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventCondition => __isa(o, "EventCondition");
 }
 
 /**
  * <p>Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.</p>
  */
 export interface EventDimensions {
-  __type?: "EventDimensions";
   /**
    * <p>The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html">Streaming Amazon Pinpoint Events</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
    */
@@ -4464,14 +4183,12 @@ export namespace EventDimensions {
   export const filterSensitiveLog = (obj: EventDimensions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDimensions => __isa(o, "EventDimensions");
 }
 
 /**
  * <p>Provides the status code and message that result from processing an event.</p>
  */
 export interface EventItemResponse {
-  __type?: "EventItemResponse";
   /**
    * <p>The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.</p>
    */
@@ -4487,14 +4204,12 @@ export namespace EventItemResponse {
   export const filterSensitiveLog = (obj: EventItemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventItemResponse => __isa(o, "EventItemResponse");
 }
 
 /**
  * <p>Specifies a batch of endpoints and events to process.</p>
  */
 export interface EventsBatch {
-  __type?: "EventsBatch";
   /**
    * <p>A set of properties that are associated with the event.</p>
    */
@@ -4510,14 +4225,12 @@ export namespace EventsBatch {
   export const filterSensitiveLog = (obj: EventsBatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventsBatch => __isa(o, "EventsBatch");
 }
 
 /**
  * <p>Specifies a batch of events to process.</p>
  */
 export interface EventsRequest {
-  __type?: "EventsRequest";
   /**
    * <p>The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.</p>
    */
@@ -4528,14 +4241,12 @@ export namespace EventsRequest {
   export const filterSensitiveLog = (obj: EventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventsRequest => __isa(o, "EventsRequest");
 }
 
 /**
  * <p>Provides information about endpoints and the events that they're associated with.</p>
  */
 export interface EventsResponse {
-  __type?: "EventsResponse";
   /**
    * <p>A map that contains a multipart response for each endpoint. For each item in this object, the endpoint ID is the key and the item response is the value. If no item response exists, the value can also be one of the following: 202, the request was processed successfully; or 400, the payload wasn't valid or required fields were missing.</p>
    */
@@ -4546,14 +4257,12 @@ export namespace EventsResponse {
   export const filterSensitiveLog = (obj: EventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventsResponse => __isa(o, "EventsResponse");
 }
 
 /**
  * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
  */
 export interface EventStream {
-  __type?: "EventStream";
   /**
    * <p>The date, in ISO 8601 format, when the event stream was last modified.</p>
    */
@@ -4591,14 +4300,12 @@ export namespace EventStream {
   export const filterSensitiveLog = (obj: EventStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventStream => __isa(o, "EventStream");
 }
 
 /**
  * <p>Specifies the settings for a job that exports endpoint definitions to an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface ExportJobRequest {
-  __type?: "ExportJobRequest";
   /**
    * <p>The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where you want to export endpoint definitions to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/.</p>
    */
@@ -4624,14 +4331,12 @@ export namespace ExportJobRequest {
   export const filterSensitiveLog = (obj: ExportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportJobRequest => __isa(o, "ExportJobRequest");
 }
 
 /**
  * <p>Provides information about the resource settings for a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ExportJobResource {
-  __type?: "ExportJobResource";
   /**
    * <p>The version of the segment that the endpoint definitions were exported from.</p>
    */
@@ -4657,14 +4362,12 @@ export namespace ExportJobResource {
   export const filterSensitiveLog = (obj: ExportJobResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportJobResource => __isa(o, "ExportJobResource");
 }
 
 /**
  * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ExportJobResponse {
-  __type?: "ExportJobResponse";
   /**
    * <p>The resource settings that apply to the export job.</p>
    */
@@ -4735,14 +4438,12 @@ export namespace ExportJobResponse {
   export const filterSensitiveLog = (obj: ExportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportJobResponse => __isa(o, "ExportJobResponse");
 }
 
 /**
  * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
  */
 export interface ExportJobsResponse {
-  __type?: "ExportJobsResponse";
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
@@ -4758,7 +4459,6 @@ export namespace ExportJobsResponse {
   export const filterSensitiveLog = (obj: ExportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportJobsResponse => __isa(o, "ExportJobsResponse");
 }
 
 export enum FilterType {
@@ -4787,7 +4487,6 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export enum Format {
@@ -4808,7 +4507,6 @@ export enum Frequency {
  * <p>Specifies the status and settings of the GCM channel for an application. This channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMChannelRequest {
-  __type?: "GCMChannelRequest";
   /**
    * <p>Specifies whether to enable the GCM channel for the application.</p>
    */
@@ -4824,14 +4522,12 @@ export namespace GCMChannelRequest {
   export const filterSensitiveLog = (obj: GCMChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GCMChannelRequest => __isa(o, "GCMChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMChannelResponse {
-  __type?: "GCMChannelResponse";
   /**
    * <p>(Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.</p>
    */
@@ -4892,14 +4588,12 @@ export namespace GCMChannelResponse {
   export const filterSensitiveLog = (obj: GCMChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GCMChannelResponse => __isa(o, "GCMChannelResponse");
 }
 
 /**
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the GCM channel. The GCM channel enables Amazon Pinpoint to send messages to the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMMessage {
-  __type?: "GCMMessage";
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
@@ -4990,11 +4684,9 @@ export namespace GCMMessage {
   export const filterSensitiveLog = (obj: GCMMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GCMMessage => __isa(o, "GCMMessage");
 }
 
 export interface GetAdmChannelRequest {
-  __type?: "GetAdmChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5005,11 +4697,9 @@ export namespace GetAdmChannelRequest {
   export const filterSensitiveLog = (obj: GetAdmChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAdmChannelRequest => __isa(o, "GetAdmChannelRequest");
 }
 
 export interface GetAdmChannelResponse {
-  __type?: "GetAdmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
@@ -5020,11 +4710,9 @@ export namespace GetAdmChannelResponse {
   export const filterSensitiveLog = (obj: GetAdmChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAdmChannelResponse => __isa(o, "GetAdmChannelResponse");
 }
 
 export interface GetApnsChannelRequest {
-  __type?: "GetApnsChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5035,11 +4723,9 @@ export namespace GetApnsChannelRequest {
   export const filterSensitiveLog = (obj: GetApnsChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsChannelRequest => __isa(o, "GetApnsChannelRequest");
 }
 
 export interface GetApnsChannelResponse {
-  __type?: "GetApnsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
    */
@@ -5050,11 +4736,9 @@ export namespace GetApnsChannelResponse {
   export const filterSensitiveLog = (obj: GetApnsChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsChannelResponse => __isa(o, "GetApnsChannelResponse");
 }
 
 export interface GetApnsSandboxChannelRequest {
-  __type?: "GetApnsSandboxChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5065,11 +4749,9 @@ export namespace GetApnsSandboxChannelRequest {
   export const filterSensitiveLog = (obj: GetApnsSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsSandboxChannelRequest => __isa(o, "GetApnsSandboxChannelRequest");
 }
 
 export interface GetApnsSandboxChannelResponse {
-  __type?: "GetApnsSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
    */
@@ -5080,11 +4762,9 @@ export namespace GetApnsSandboxChannelResponse {
   export const filterSensitiveLog = (obj: GetApnsSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsSandboxChannelResponse => __isa(o, "GetApnsSandboxChannelResponse");
 }
 
 export interface GetApnsVoipChannelRequest {
-  __type?: "GetApnsVoipChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5095,11 +4775,9 @@ export namespace GetApnsVoipChannelRequest {
   export const filterSensitiveLog = (obj: GetApnsVoipChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsVoipChannelRequest => __isa(o, "GetApnsVoipChannelRequest");
 }
 
 export interface GetApnsVoipChannelResponse {
-  __type?: "GetApnsVoipChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
    */
@@ -5110,11 +4788,9 @@ export namespace GetApnsVoipChannelResponse {
   export const filterSensitiveLog = (obj: GetApnsVoipChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsVoipChannelResponse => __isa(o, "GetApnsVoipChannelResponse");
 }
 
 export interface GetApnsVoipSandboxChannelRequest {
-  __type?: "GetApnsVoipSandboxChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5125,11 +4801,9 @@ export namespace GetApnsVoipSandboxChannelRequest {
   export const filterSensitiveLog = (obj: GetApnsVoipSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsVoipSandboxChannelRequest => __isa(o, "GetApnsVoipSandboxChannelRequest");
 }
 
 export interface GetApnsVoipSandboxChannelResponse {
-  __type?: "GetApnsVoipSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
    */
@@ -5140,11 +4814,9 @@ export namespace GetApnsVoipSandboxChannelResponse {
   export const filterSensitiveLog = (obj: GetApnsVoipSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApnsVoipSandboxChannelResponse => __isa(o, "GetApnsVoipSandboxChannelResponse");
 }
 
 export interface GetApplicationDateRangeKpiRequest {
-  __type?: "GetApplicationDateRangeKpiRequest";
   /**
    * <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
    */
@@ -5180,11 +4852,9 @@ export namespace GetApplicationDateRangeKpiRequest {
   export const filterSensitiveLog = (obj: GetApplicationDateRangeKpiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationDateRangeKpiRequest => __isa(o, "GetApplicationDateRangeKpiRequest");
 }
 
 export interface GetApplicationDateRangeKpiResponse {
-  __type?: "GetApplicationDateRangeKpiResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
    */
@@ -5195,12 +4865,9 @@ export namespace GetApplicationDateRangeKpiResponse {
   export const filterSensitiveLog = (obj: GetApplicationDateRangeKpiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationDateRangeKpiResponse =>
-    __isa(o, "GetApplicationDateRangeKpiResponse");
 }
 
 export interface GetApplicationSettingsRequest {
-  __type?: "GetApplicationSettingsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5211,11 +4878,9 @@ export namespace GetApplicationSettingsRequest {
   export const filterSensitiveLog = (obj: GetApplicationSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationSettingsRequest => __isa(o, "GetApplicationSettingsRequest");
 }
 
 export interface GetApplicationSettingsResponse {
-  __type?: "GetApplicationSettingsResponse";
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
    */
@@ -5226,11 +4891,9 @@ export namespace GetApplicationSettingsResponse {
   export const filterSensitiveLog = (obj: GetApplicationSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationSettingsResponse => __isa(o, "GetApplicationSettingsResponse");
 }
 
 export interface GetAppRequest {
-  __type?: "GetAppRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5241,11 +4904,9 @@ export namespace GetAppRequest {
   export const filterSensitiveLog = (obj: GetAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppRequest => __isa(o, "GetAppRequest");
 }
 
 export interface GetAppResponse {
-  __type?: "GetAppResponse";
   /**
    * <p>Provides information about an application.</p>
    */
@@ -5256,11 +4917,9 @@ export namespace GetAppResponse {
   export const filterSensitiveLog = (obj: GetAppResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppResponse => __isa(o, "GetAppResponse");
 }
 
 export interface GetAppsRequest {
-  __type?: "GetAppsRequest";
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    */
@@ -5276,11 +4935,9 @@ export namespace GetAppsRequest {
   export const filterSensitiveLog = (obj: GetAppsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppsRequest => __isa(o, "GetAppsRequest");
 }
 
 export interface GetAppsResponse {
-  __type?: "GetAppsResponse";
   /**
    * <p>Provides information about all of your applications.</p>
    */
@@ -5291,11 +4948,9 @@ export namespace GetAppsResponse {
   export const filterSensitiveLog = (obj: GetAppsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppsResponse => __isa(o, "GetAppsResponse");
 }
 
 export interface GetBaiduChannelRequest {
-  __type?: "GetBaiduChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5306,11 +4961,9 @@ export namespace GetBaiduChannelRequest {
   export const filterSensitiveLog = (obj: GetBaiduChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBaiduChannelRequest => __isa(o, "GetBaiduChannelRequest");
 }
 
 export interface GetBaiduChannelResponse {
-  __type?: "GetBaiduChannelResponse";
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
    */
@@ -5321,11 +4974,9 @@ export namespace GetBaiduChannelResponse {
   export const filterSensitiveLog = (obj: GetBaiduChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBaiduChannelResponse => __isa(o, "GetBaiduChannelResponse");
 }
 
 export interface GetCampaignActivitiesRequest {
-  __type?: "GetCampaignActivitiesRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5351,11 +5002,9 @@ export namespace GetCampaignActivitiesRequest {
   export const filterSensitiveLog = (obj: GetCampaignActivitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignActivitiesRequest => __isa(o, "GetCampaignActivitiesRequest");
 }
 
 export interface GetCampaignActivitiesResponse {
-  __type?: "GetCampaignActivitiesResponse";
   /**
    * <p>Provides information about the activities that were performed by a campaign.</p>
    */
@@ -5366,11 +5015,9 @@ export namespace GetCampaignActivitiesResponse {
   export const filterSensitiveLog = (obj: GetCampaignActivitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignActivitiesResponse => __isa(o, "GetCampaignActivitiesResponse");
 }
 
 export interface GetCampaignDateRangeKpiRequest {
-  __type?: "GetCampaignDateRangeKpiRequest";
   /**
    * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
    */
@@ -5411,11 +5058,9 @@ export namespace GetCampaignDateRangeKpiRequest {
   export const filterSensitiveLog = (obj: GetCampaignDateRangeKpiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignDateRangeKpiRequest => __isa(o, "GetCampaignDateRangeKpiRequest");
 }
 
 export interface GetCampaignDateRangeKpiResponse {
-  __type?: "GetCampaignDateRangeKpiResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
    */
@@ -5426,11 +5071,9 @@ export namespace GetCampaignDateRangeKpiResponse {
   export const filterSensitiveLog = (obj: GetCampaignDateRangeKpiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignDateRangeKpiResponse => __isa(o, "GetCampaignDateRangeKpiResponse");
 }
 
 export interface GetCampaignRequest {
-  __type?: "GetCampaignRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5446,11 +5089,9 @@ export namespace GetCampaignRequest {
   export const filterSensitiveLog = (obj: GetCampaignRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignRequest => __isa(o, "GetCampaignRequest");
 }
 
 export interface GetCampaignResponse {
-  __type?: "GetCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
@@ -5461,11 +5102,9 @@ export namespace GetCampaignResponse {
   export const filterSensitiveLog = (obj: GetCampaignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignResponse => __isa(o, "GetCampaignResponse");
 }
 
 export interface GetCampaignsRequest {
-  __type?: "GetCampaignsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5486,11 +5125,9 @@ export namespace GetCampaignsRequest {
   export const filterSensitiveLog = (obj: GetCampaignsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignsRequest => __isa(o, "GetCampaignsRequest");
 }
 
 export interface GetCampaignsResponse {
-  __type?: "GetCampaignsResponse";
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
    */
@@ -5501,11 +5138,9 @@ export namespace GetCampaignsResponse {
   export const filterSensitiveLog = (obj: GetCampaignsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignsResponse => __isa(o, "GetCampaignsResponse");
 }
 
 export interface GetCampaignVersionRequest {
-  __type?: "GetCampaignVersionRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5526,11 +5161,9 @@ export namespace GetCampaignVersionRequest {
   export const filterSensitiveLog = (obj: GetCampaignVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignVersionRequest => __isa(o, "GetCampaignVersionRequest");
 }
 
 export interface GetCampaignVersionResponse {
-  __type?: "GetCampaignVersionResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
@@ -5541,11 +5174,9 @@ export namespace GetCampaignVersionResponse {
   export const filterSensitiveLog = (obj: GetCampaignVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignVersionResponse => __isa(o, "GetCampaignVersionResponse");
 }
 
 export interface GetCampaignVersionsRequest {
-  __type?: "GetCampaignVersionsRequest";
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
@@ -5571,11 +5202,9 @@ export namespace GetCampaignVersionsRequest {
   export const filterSensitiveLog = (obj: GetCampaignVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignVersionsRequest => __isa(o, "GetCampaignVersionsRequest");
 }
 
 export interface GetCampaignVersionsResponse {
-  __type?: "GetCampaignVersionsResponse";
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
    */
@@ -5586,11 +5215,9 @@ export namespace GetCampaignVersionsResponse {
   export const filterSensitiveLog = (obj: GetCampaignVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCampaignVersionsResponse => __isa(o, "GetCampaignVersionsResponse");
 }
 
 export interface GetChannelsRequest {
-  __type?: "GetChannelsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5601,11 +5228,9 @@ export namespace GetChannelsRequest {
   export const filterSensitiveLog = (obj: GetChannelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChannelsRequest => __isa(o, "GetChannelsRequest");
 }
 
 export interface GetChannelsResponse {
-  __type?: "GetChannelsResponse";
   /**
    * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
    */
@@ -5616,11 +5241,9 @@ export namespace GetChannelsResponse {
   export const filterSensitiveLog = (obj: GetChannelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChannelsResponse => __isa(o, "GetChannelsResponse");
 }
 
 export interface GetEmailChannelRequest {
-  __type?: "GetEmailChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5631,11 +5254,9 @@ export namespace GetEmailChannelRequest {
   export const filterSensitiveLog = (obj: GetEmailChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailChannelRequest => __isa(o, "GetEmailChannelRequest");
 }
 
 export interface GetEmailChannelResponse {
-  __type?: "GetEmailChannelResponse";
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
    */
@@ -5646,11 +5267,9 @@ export namespace GetEmailChannelResponse {
   export const filterSensitiveLog = (obj: GetEmailChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailChannelResponse => __isa(o, "GetEmailChannelResponse");
 }
 
 export interface GetEmailTemplateRequest {
-  __type?: "GetEmailTemplateRequest";
   /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
@@ -5666,11 +5285,9 @@ export namespace GetEmailTemplateRequest {
   export const filterSensitiveLog = (obj: GetEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailTemplateRequest => __isa(o, "GetEmailTemplateRequest");
 }
 
 export interface GetEmailTemplateResponse {
-  __type?: "GetEmailTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
    */
@@ -5681,11 +5298,9 @@ export namespace GetEmailTemplateResponse {
   export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailTemplateResponse => __isa(o, "GetEmailTemplateResponse");
 }
 
 export interface GetEndpointRequest {
-  __type?: "GetEndpointRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5701,11 +5316,9 @@ export namespace GetEndpointRequest {
   export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEndpointRequest => __isa(o, "GetEndpointRequest");
 }
 
 export interface GetEndpointResponse {
-  __type?: "GetEndpointResponse";
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
    */
@@ -5716,11 +5329,9 @@ export namespace GetEndpointResponse {
   export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEndpointResponse => __isa(o, "GetEndpointResponse");
 }
 
 export interface GetEventStreamRequest {
-  __type?: "GetEventStreamRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5731,11 +5342,9 @@ export namespace GetEventStreamRequest {
   export const filterSensitiveLog = (obj: GetEventStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventStreamRequest => __isa(o, "GetEventStreamRequest");
 }
 
 export interface GetEventStreamResponse {
-  __type?: "GetEventStreamResponse";
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
    */
@@ -5746,11 +5355,9 @@ export namespace GetEventStreamResponse {
   export const filterSensitiveLog = (obj: GetEventStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventStreamResponse => __isa(o, "GetEventStreamResponse");
 }
 
 export interface GetExportJobRequest {
-  __type?: "GetExportJobRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5766,11 +5373,9 @@ export namespace GetExportJobRequest {
   export const filterSensitiveLog = (obj: GetExportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportJobRequest => __isa(o, "GetExportJobRequest");
 }
 
 export interface GetExportJobResponse {
-  __type?: "GetExportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
    */
@@ -5781,11 +5386,9 @@ export namespace GetExportJobResponse {
   export const filterSensitiveLog = (obj: GetExportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportJobResponse => __isa(o, "GetExportJobResponse");
 }
 
 export interface GetExportJobsRequest {
-  __type?: "GetExportJobsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5806,11 +5409,9 @@ export namespace GetExportJobsRequest {
   export const filterSensitiveLog = (obj: GetExportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportJobsRequest => __isa(o, "GetExportJobsRequest");
 }
 
 export interface GetExportJobsResponse {
-  __type?: "GetExportJobsResponse";
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
    */
@@ -5821,11 +5422,9 @@ export namespace GetExportJobsResponse {
   export const filterSensitiveLog = (obj: GetExportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportJobsResponse => __isa(o, "GetExportJobsResponse");
 }
 
 export interface GetGcmChannelRequest {
-  __type?: "GetGcmChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5836,11 +5435,9 @@ export namespace GetGcmChannelRequest {
   export const filterSensitiveLog = (obj: GetGcmChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGcmChannelRequest => __isa(o, "GetGcmChannelRequest");
 }
 
 export interface GetGcmChannelResponse {
-  __type?: "GetGcmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
@@ -5851,11 +5448,9 @@ export namespace GetGcmChannelResponse {
   export const filterSensitiveLog = (obj: GetGcmChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGcmChannelResponse => __isa(o, "GetGcmChannelResponse");
 }
 
 export interface GetImportJobRequest {
-  __type?: "GetImportJobRequest";
   /**
    * <p>The unique identifier for the job.</p>
    */
@@ -5871,11 +5466,9 @@ export namespace GetImportJobRequest {
   export const filterSensitiveLog = (obj: GetImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImportJobRequest => __isa(o, "GetImportJobRequest");
 }
 
 export interface GetImportJobResponse {
-  __type?: "GetImportJobResponse";
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
    */
@@ -5886,11 +5479,9 @@ export namespace GetImportJobResponse {
   export const filterSensitiveLog = (obj: GetImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImportJobResponse => __isa(o, "GetImportJobResponse");
 }
 
 export interface GetImportJobsRequest {
-  __type?: "GetImportJobsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -5911,11 +5502,9 @@ export namespace GetImportJobsRequest {
   export const filterSensitiveLog = (obj: GetImportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImportJobsRequest => __isa(o, "GetImportJobsRequest");
 }
 
 export interface GetImportJobsResponse {
-  __type?: "GetImportJobsResponse";
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
    */
@@ -5926,11 +5515,9 @@ export namespace GetImportJobsResponse {
   export const filterSensitiveLog = (obj: GetImportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImportJobsResponse => __isa(o, "GetImportJobsResponse");
 }
 
 export interface GetJourneyDateRangeKpiRequest {
-  __type?: "GetJourneyDateRangeKpiRequest";
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
@@ -5971,11 +5558,9 @@ export namespace GetJourneyDateRangeKpiRequest {
   export const filterSensitiveLog = (obj: GetJourneyDateRangeKpiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyDateRangeKpiRequest => __isa(o, "GetJourneyDateRangeKpiRequest");
 }
 
 export interface GetJourneyDateRangeKpiResponse {
-  __type?: "GetJourneyDateRangeKpiResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
    */
@@ -5986,11 +5571,9 @@ export namespace GetJourneyDateRangeKpiResponse {
   export const filterSensitiveLog = (obj: GetJourneyDateRangeKpiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyDateRangeKpiResponse => __isa(o, "GetJourneyDateRangeKpiResponse");
 }
 
 export interface GetJourneyExecutionActivityMetricsRequest {
-  __type?: "GetJourneyExecutionActivityMetricsRequest";
   /**
    * <p>The unique identifier for the journey.</p>
    */
@@ -6021,12 +5604,9 @@ export namespace GetJourneyExecutionActivityMetricsRequest {
   export const filterSensitiveLog = (obj: GetJourneyExecutionActivityMetricsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyExecutionActivityMetricsRequest =>
-    __isa(o, "GetJourneyExecutionActivityMetricsRequest");
 }
 
 export interface GetJourneyExecutionActivityMetricsResponse {
-  __type?: "GetJourneyExecutionActivityMetricsResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
    */
@@ -6037,12 +5617,9 @@ export namespace GetJourneyExecutionActivityMetricsResponse {
   export const filterSensitiveLog = (obj: GetJourneyExecutionActivityMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyExecutionActivityMetricsResponse =>
-    __isa(o, "GetJourneyExecutionActivityMetricsResponse");
 }
 
 export interface GetJourneyExecutionMetricsRequest {
-  __type?: "GetJourneyExecutionMetricsRequest";
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
@@ -6068,11 +5645,9 @@ export namespace GetJourneyExecutionMetricsRequest {
   export const filterSensitiveLog = (obj: GetJourneyExecutionMetricsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyExecutionMetricsRequest => __isa(o, "GetJourneyExecutionMetricsRequest");
 }
 
 export interface GetJourneyExecutionMetricsResponse {
-  __type?: "GetJourneyExecutionMetricsResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
    */
@@ -6083,12 +5658,9 @@ export namespace GetJourneyExecutionMetricsResponse {
   export const filterSensitiveLog = (obj: GetJourneyExecutionMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyExecutionMetricsResponse =>
-    __isa(o, "GetJourneyExecutionMetricsResponse");
 }
 
 export interface GetJourneyRequest {
-  __type?: "GetJourneyRequest";
   /**
    * <p>The unique identifier for the journey.</p>
    */
@@ -6104,11 +5676,9 @@ export namespace GetJourneyRequest {
   export const filterSensitiveLog = (obj: GetJourneyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyRequest => __isa(o, "GetJourneyRequest");
 }
 
 export interface GetJourneyResponse {
-  __type?: "GetJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
@@ -6119,11 +5689,9 @@ export namespace GetJourneyResponse {
   export const filterSensitiveLog = (obj: GetJourneyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJourneyResponse => __isa(o, "GetJourneyResponse");
 }
 
 export interface GetPushTemplateRequest {
-  __type?: "GetPushTemplateRequest";
   /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
@@ -6139,11 +5707,9 @@ export namespace GetPushTemplateRequest {
   export const filterSensitiveLog = (obj: GetPushTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPushTemplateRequest => __isa(o, "GetPushTemplateRequest");
 }
 
 export interface GetPushTemplateResponse {
-  __type?: "GetPushTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
    */
@@ -6154,11 +5720,9 @@ export namespace GetPushTemplateResponse {
   export const filterSensitiveLog = (obj: GetPushTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPushTemplateResponse => __isa(o, "GetPushTemplateResponse");
 }
 
 export interface GetRecommenderConfigurationRequest {
-  __type?: "GetRecommenderConfigurationRequest";
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6169,12 +5733,9 @@ export namespace GetRecommenderConfigurationRequest {
   export const filterSensitiveLog = (obj: GetRecommenderConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommenderConfigurationRequest =>
-    __isa(o, "GetRecommenderConfigurationRequest");
 }
 
 export interface GetRecommenderConfigurationResponse {
-  __type?: "GetRecommenderConfigurationResponse";
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
    */
@@ -6185,12 +5746,9 @@ export namespace GetRecommenderConfigurationResponse {
   export const filterSensitiveLog = (obj: GetRecommenderConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommenderConfigurationResponse =>
-    __isa(o, "GetRecommenderConfigurationResponse");
 }
 
 export interface GetRecommenderConfigurationsRequest {
-  __type?: "GetRecommenderConfigurationsRequest";
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
@@ -6206,12 +5764,9 @@ export namespace GetRecommenderConfigurationsRequest {
   export const filterSensitiveLog = (obj: GetRecommenderConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommenderConfigurationsRequest =>
-    __isa(o, "GetRecommenderConfigurationsRequest");
 }
 
 export interface GetRecommenderConfigurationsResponse {
-  __type?: "GetRecommenderConfigurationsResponse";
   /**
    * <p>Provides information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
    */
@@ -6222,12 +5777,9 @@ export namespace GetRecommenderConfigurationsResponse {
   export const filterSensitiveLog = (obj: GetRecommenderConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommenderConfigurationsResponse =>
-    __isa(o, "GetRecommenderConfigurationsResponse");
 }
 
 export interface GetSegmentExportJobsRequest {
-  __type?: "GetSegmentExportJobsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6253,11 +5805,9 @@ export namespace GetSegmentExportJobsRequest {
   export const filterSensitiveLog = (obj: GetSegmentExportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentExportJobsRequest => __isa(o, "GetSegmentExportJobsRequest");
 }
 
 export interface GetSegmentExportJobsResponse {
-  __type?: "GetSegmentExportJobsResponse";
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
    */
@@ -6268,11 +5818,9 @@ export namespace GetSegmentExportJobsResponse {
   export const filterSensitiveLog = (obj: GetSegmentExportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentExportJobsResponse => __isa(o, "GetSegmentExportJobsResponse");
 }
 
 export interface GetSegmentImportJobsRequest {
-  __type?: "GetSegmentImportJobsRequest";
   /**
    * <p>The unique identifier for the segment.</p>
    */
@@ -6298,11 +5846,9 @@ export namespace GetSegmentImportJobsRequest {
   export const filterSensitiveLog = (obj: GetSegmentImportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentImportJobsRequest => __isa(o, "GetSegmentImportJobsRequest");
 }
 
 export interface GetSegmentImportJobsResponse {
-  __type?: "GetSegmentImportJobsResponse";
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
    */
@@ -6313,11 +5859,9 @@ export namespace GetSegmentImportJobsResponse {
   export const filterSensitiveLog = (obj: GetSegmentImportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentImportJobsResponse => __isa(o, "GetSegmentImportJobsResponse");
 }
 
 export interface GetSegmentRequest {
-  __type?: "GetSegmentRequest";
   /**
    * <p>The unique identifier for the segment.</p>
    */
@@ -6333,11 +5877,9 @@ export namespace GetSegmentRequest {
   export const filterSensitiveLog = (obj: GetSegmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentRequest => __isa(o, "GetSegmentRequest");
 }
 
 export interface GetSegmentResponse {
-  __type?: "GetSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
@@ -6348,11 +5890,9 @@ export namespace GetSegmentResponse {
   export const filterSensitiveLog = (obj: GetSegmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentResponse => __isa(o, "GetSegmentResponse");
 }
 
 export interface GetSegmentsRequest {
-  __type?: "GetSegmentsRequest";
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
@@ -6373,11 +5913,9 @@ export namespace GetSegmentsRequest {
   export const filterSensitiveLog = (obj: GetSegmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentsRequest => __isa(o, "GetSegmentsRequest");
 }
 
 export interface GetSegmentsResponse {
-  __type?: "GetSegmentsResponse";
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
    */
@@ -6388,11 +5926,9 @@ export namespace GetSegmentsResponse {
   export const filterSensitiveLog = (obj: GetSegmentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentsResponse => __isa(o, "GetSegmentsResponse");
 }
 
 export interface GetSegmentVersionRequest {
-  __type?: "GetSegmentVersionRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6413,11 +5949,9 @@ export namespace GetSegmentVersionRequest {
   export const filterSensitiveLog = (obj: GetSegmentVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentVersionRequest => __isa(o, "GetSegmentVersionRequest");
 }
 
 export interface GetSegmentVersionResponse {
-  __type?: "GetSegmentVersionResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
@@ -6428,11 +5962,9 @@ export namespace GetSegmentVersionResponse {
   export const filterSensitiveLog = (obj: GetSegmentVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentVersionResponse => __isa(o, "GetSegmentVersionResponse");
 }
 
 export interface GetSegmentVersionsRequest {
-  __type?: "GetSegmentVersionsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6458,11 +5990,9 @@ export namespace GetSegmentVersionsRequest {
   export const filterSensitiveLog = (obj: GetSegmentVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentVersionsRequest => __isa(o, "GetSegmentVersionsRequest");
 }
 
 export interface GetSegmentVersionsResponse {
-  __type?: "GetSegmentVersionsResponse";
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
    */
@@ -6473,11 +6003,9 @@ export namespace GetSegmentVersionsResponse {
   export const filterSensitiveLog = (obj: GetSegmentVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentVersionsResponse => __isa(o, "GetSegmentVersionsResponse");
 }
 
 export interface GetSmsChannelRequest {
-  __type?: "GetSmsChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6488,11 +6016,9 @@ export namespace GetSmsChannelRequest {
   export const filterSensitiveLog = (obj: GetSmsChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSmsChannelRequest => __isa(o, "GetSmsChannelRequest");
 }
 
 export interface GetSmsChannelResponse {
-  __type?: "GetSmsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
    */
@@ -6503,11 +6029,9 @@ export namespace GetSmsChannelResponse {
   export const filterSensitiveLog = (obj: GetSmsChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSmsChannelResponse => __isa(o, "GetSmsChannelResponse");
 }
 
 export interface GetSmsTemplateRequest {
-  __type?: "GetSmsTemplateRequest";
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
@@ -6523,11 +6047,9 @@ export namespace GetSmsTemplateRequest {
   export const filterSensitiveLog = (obj: GetSmsTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSmsTemplateRequest => __isa(o, "GetSmsTemplateRequest");
 }
 
 export interface GetSmsTemplateResponse {
-  __type?: "GetSmsTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
    */
@@ -6538,11 +6060,9 @@ export namespace GetSmsTemplateResponse {
   export const filterSensitiveLog = (obj: GetSmsTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSmsTemplateResponse => __isa(o, "GetSmsTemplateResponse");
 }
 
 export interface GetUserEndpointsRequest {
-  __type?: "GetUserEndpointsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6558,11 +6078,9 @@ export namespace GetUserEndpointsRequest {
   export const filterSensitiveLog = (obj: GetUserEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserEndpointsRequest => __isa(o, "GetUserEndpointsRequest");
 }
 
 export interface GetUserEndpointsResponse {
-  __type?: "GetUserEndpointsResponse";
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
    */
@@ -6573,11 +6091,9 @@ export namespace GetUserEndpointsResponse {
   export const filterSensitiveLog = (obj: GetUserEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserEndpointsResponse => __isa(o, "GetUserEndpointsResponse");
 }
 
 export interface GetVoiceChannelRequest {
-  __type?: "GetVoiceChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -6588,11 +6104,9 @@ export namespace GetVoiceChannelRequest {
   export const filterSensitiveLog = (obj: GetVoiceChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceChannelRequest => __isa(o, "GetVoiceChannelRequest");
 }
 
 export interface GetVoiceChannelResponse {
-  __type?: "GetVoiceChannelResponse";
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
    */
@@ -6603,11 +6117,9 @@ export namespace GetVoiceChannelResponse {
   export const filterSensitiveLog = (obj: GetVoiceChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceChannelResponse => __isa(o, "GetVoiceChannelResponse");
 }
 
 export interface GetVoiceTemplateRequest {
-  __type?: "GetVoiceTemplateRequest";
   /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
@@ -6623,11 +6135,9 @@ export namespace GetVoiceTemplateRequest {
   export const filterSensitiveLog = (obj: GetVoiceTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceTemplateRequest => __isa(o, "GetVoiceTemplateRequest");
 }
 
 export interface GetVoiceTemplateResponse {
-  __type?: "GetVoiceTemplateResponse";
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
    */
@@ -6638,14 +6148,12 @@ export namespace GetVoiceTemplateResponse {
   export const filterSensitiveLog = (obj: GetVoiceTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceTemplateResponse => __isa(o, "GetVoiceTemplateResponse");
 }
 
 /**
  * <p>Specifies the GPS coordinates of a location.</p>
  */
 export interface GPSCoordinates {
-  __type?: "GPSCoordinates";
   /**
    * <p>The longitude coordinate of the location.</p>
    */
@@ -6661,14 +6169,12 @@ export namespace GPSCoordinates {
   export const filterSensitiveLog = (obj: GPSCoordinates): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GPSCoordinates => __isa(o, "GPSCoordinates");
 }
 
 /**
  * <p>Specifies GPS-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface GPSPointDimension {
-  __type?: "GPSPointDimension";
   /**
    * <p>The GPS coordinates to measure distance from.</p>
    */
@@ -6684,14 +6190,12 @@ export namespace GPSPointDimension {
   export const filterSensitiveLog = (obj: GPSPointDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GPSPointDimension => __isa(o, "GPSPointDimension");
 }
 
 /**
  * <p>Specifies the settings for a holdout activity in a journey. This type of activity stops a journey for a specified percentage of participants.</p>
  */
 export interface HoldoutActivity {
-  __type?: "HoldoutActivity";
   /**
    * <p>The unique identifier for the next activity to perform, after performing the holdout activity.</p>
    */
@@ -6707,14 +6211,12 @@ export namespace HoldoutActivity {
   export const filterSensitiveLog = (obj: HoldoutActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HoldoutActivity => __isa(o, "HoldoutActivity");
 }
 
 /**
  * <p>Specifies the settings for a job that imports endpoint definitions from an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface ImportJobRequest {
-  __type?: "ImportJobRequest";
   /**
    * <p>Specifies whether to create a segment that contains the endpoints, when the endpoint definitions are imported.</p>
    */
@@ -6760,14 +6262,12 @@ export namespace ImportJobRequest {
   export const filterSensitiveLog = (obj: ImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportJobRequest => __isa(o, "ImportJobRequest");
 }
 
 /**
  * <p>Provides information about the resource settings for a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ImportJobResource {
-  __type?: "ImportJobResource";
   /**
    * <p>Specifies whether the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.</p>
    */
@@ -6813,14 +6313,12 @@ export namespace ImportJobResource {
   export const filterSensitiveLog = (obj: ImportJobResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportJobResource => __isa(o, "ImportJobResource");
 }
 
 /**
  * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ImportJobResponse {
-  __type?: "ImportJobResponse";
   /**
    * <p>The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.</p>
    */
@@ -6891,14 +6389,12 @@ export namespace ImportJobResponse {
   export const filterSensitiveLog = (obj: ImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportJobResponse => __isa(o, "ImportJobResponse");
 }
 
 /**
  * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
  */
 export interface ImportJobsResponse {
-  __type?: "ImportJobsResponse";
   /**
    * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
    */
@@ -6914,7 +6410,6 @@ export namespace ImportJobsResponse {
   export const filterSensitiveLog = (obj: ImportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportJobsResponse => __isa(o, "ImportJobsResponse");
 }
 
 export enum Include {
@@ -6944,14 +6439,12 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
  * <p>Provides information about the results of a request to create or update an endpoint that's associated with an event.</p>
  */
 export interface ItemResponse {
-  __type?: "ItemResponse";
   /**
    * <p>A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.</p>
    */
@@ -6967,7 +6460,6 @@ export namespace ItemResponse {
   export const filterSensitiveLog = (obj: ItemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ItemResponse => __isa(o, "ItemResponse");
 }
 
 export enum JobStatus {
@@ -6986,7 +6478,6 @@ export enum JobStatus {
  * <p>Specifies the message content for a custom channel message that's sent to participants in a journey.</p>
  */
 export interface JourneyCustomMessage {
-  __type?: "JourneyCustomMessage";
   /**
    * <p>The message content that's passed to an AWS Lambda function or to a web hook.</p>
    */
@@ -6997,14 +6488,12 @@ export namespace JourneyCustomMessage {
   export const filterSensitiveLog = (obj: JourneyCustomMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyCustomMessage => __isa(o, "JourneyCustomMessage");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
  */
 export interface JourneyDateRangeKpiResponse {
-  __type?: "JourneyDateRangeKpiResponse";
   /**
    * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
    */
@@ -7045,14 +6534,12 @@ export namespace JourneyDateRangeKpiResponse {
   export const filterSensitiveLog = (obj: JourneyDateRangeKpiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyDateRangeKpiResponse => __isa(o, "JourneyDateRangeKpiResponse");
 }
 
 /**
  * <p>Specifies the "From" address for an email message that's sent to participants in a journey.</p>
  */
 export interface JourneyEmailMessage {
-  __type?: "JourneyEmailMessage";
   /**
    * <p>The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.</p>
    */
@@ -7063,14 +6550,12 @@ export namespace JourneyEmailMessage {
   export const filterSensitiveLog = (obj: JourneyEmailMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyEmailMessage => __isa(o, "JourneyEmailMessage");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
  */
 export interface JourneyExecutionActivityMetricsResponse {
-  __type?: "JourneyExecutionActivityMetricsResponse";
   /**
    * <p>The unique identifier for the journey that the metric applies to.</p>
    */
@@ -7106,15 +6591,12 @@ export namespace JourneyExecutionActivityMetricsResponse {
   export const filterSensitiveLog = (obj: JourneyExecutionActivityMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyExecutionActivityMetricsResponse =>
-    __isa(o, "JourneyExecutionActivityMetricsResponse");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
  */
 export interface JourneyExecutionMetricsResponse {
-  __type?: "JourneyExecutionMetricsResponse";
   /**
    * <p>The unique identifier for the application that the metric applies to.</p>
    */
@@ -7140,14 +6622,12 @@ export namespace JourneyExecutionMetricsResponse {
   export const filterSensitiveLog = (obj: JourneyExecutionMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyExecutionMetricsResponse => __isa(o, "JourneyExecutionMetricsResponse");
 }
 
 /**
  * <p>Specifies limits on the messages that a journey can send and the number of times participants can enter a journey.</p>
  */
 export interface JourneyLimits {
-  __type?: "JourneyLimits";
   /**
    * <p>The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.</p>
    */
@@ -7168,14 +6648,12 @@ export namespace JourneyLimits {
   export const filterSensitiveLog = (obj: JourneyLimits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyLimits => __isa(o, "JourneyLimits");
 }
 
 /**
  * <p>Specifies the message configuration for a push notification that's sent to participants in a journey.</p>
  */
 export interface JourneyPushMessage {
-  __type?: "JourneyPushMessage";
   /**
    * <p>The number of seconds that the push notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.</p> <p>This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.</p>
    */
@@ -7186,14 +6664,12 @@ export namespace JourneyPushMessage {
   export const filterSensitiveLog = (obj: JourneyPushMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyPushMessage => __isa(o, "JourneyPushMessage");
 }
 
 /**
  * <p>Provides information about the status, configuration, and other settings for a journey.</p>
  */
 export interface JourneyResponse {
-  __type?: "JourneyResponse";
   /**
    * <p>The current status of the journey. Possible values are:</p> <ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li> <li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li> <li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li> <li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li> <li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>
    */
@@ -7274,14 +6750,12 @@ export namespace JourneyResponse {
   export const filterSensitiveLog = (obj: JourneyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyResponse => __isa(o, "JourneyResponse");
 }
 
 /**
  * <p>Specifies the schedule settings for a journey.</p>
  */
 export interface JourneySchedule {
-  __type?: "JourneySchedule";
   /**
    * <p>The scheduled time, in ISO 8601 format, when the journey ended or will end.</p>
    */
@@ -7307,14 +6781,12 @@ export namespace JourneySchedule {
   export const filterSensitiveLog = (obj: JourneySchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneySchedule => __isa(o, "JourneySchedule");
 }
 
 /**
  * <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
  */
 export interface JourneySMSMessage {
-  __type?: "JourneySMSMessage";
   /**
    * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
    */
@@ -7330,14 +6802,12 @@ export namespace JourneySMSMessage {
   export const filterSensitiveLog = (obj: JourneySMSMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneySMSMessage => __isa(o, "JourneySMSMessage");
 }
 
 /**
  * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
  */
 export interface JourneysResponse {
-  __type?: "JourneysResponse";
   /**
    * <p>An array of responses, one for each journey that's associated with the application.</p>
    */
@@ -7353,14 +6823,12 @@ export namespace JourneysResponse {
   export const filterSensitiveLog = (obj: JourneysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneysResponse => __isa(o, "JourneysResponse");
 }
 
 /**
  * <p>Changes the status of a journey.</p>
  */
 export interface JourneyStateRequest {
-  __type?: "JourneyStateRequest";
   /**
    * <p>The status of the journey. Currently, the only supported value is CANCELLED.</p> <p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p> <p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p>
    */
@@ -7371,11 +6839,9 @@ export namespace JourneyStateRequest {
   export const filterSensitiveLog = (obj: JourneyStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JourneyStateRequest => __isa(o, "JourneyStateRequest");
 }
 
 export interface ListJourneysRequest {
-  __type?: "ListJourneysRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -7396,11 +6862,9 @@ export namespace ListJourneysRequest {
   export const filterSensitiveLog = (obj: ListJourneysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJourneysRequest => __isa(o, "ListJourneysRequest");
 }
 
 export interface ListJourneysResponse {
-  __type?: "ListJourneysResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
    */
@@ -7411,14 +6875,12 @@ export namespace ListJourneysResponse {
   export const filterSensitiveLog = (obj: ListJourneysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJourneysResponse => __isa(o, "ListJourneysResponse");
 }
 
 /**
  * <p>Provides information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
  */
 export interface ListRecommenderConfigurationsResponse {
-  __type?: "ListRecommenderConfigurationsResponse";
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
@@ -7434,12 +6896,9 @@ export namespace ListRecommenderConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListRecommenderConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecommenderConfigurationsResponse =>
-    __isa(o, "ListRecommenderConfigurationsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -7450,11 +6909,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
    */
@@ -7465,11 +6922,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTemplatesRequest {
-  __type?: "ListTemplatesRequest";
   /**
    * <p>The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.</p>
    */
@@ -7495,11 +6950,9 @@ export namespace ListTemplatesRequest {
   export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplatesRequest => __isa(o, "ListTemplatesRequest");
 }
 
 export interface ListTemplatesResponse {
-  __type?: "ListTemplatesResponse";
   /**
    * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
    */
@@ -7510,11 +6963,9 @@ export namespace ListTemplatesResponse {
   export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplatesResponse => __isa(o, "ListTemplatesResponse");
 }
 
 export interface ListTemplateVersionsRequest {
-  __type?: "ListTemplateVersionsRequest";
   /**
    * <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
    */
@@ -7540,11 +6991,9 @@ export namespace ListTemplateVersionsRequest {
   export const filterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplateVersionsRequest => __isa(o, "ListTemplateVersionsRequest");
 }
 
 export interface ListTemplateVersionsResponse {
-  __type?: "ListTemplateVersionsResponse";
   /**
    * <p>Provides information about all the versions of a specific message template.</p>
    */
@@ -7555,14 +7004,12 @@ export namespace ListTemplateVersionsResponse {
   export const filterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplateVersionsResponse => __isa(o, "ListTemplateVersionsResponse");
 }
 
 /**
  * <p>Specifies the content and settings for a push notification that's sent to recipients of a campaign.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>The body of the notification message. The maximum number of characters is 200.</p>
    */
@@ -7628,14 +7075,12 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
 export interface MessageBody {
-  __type?: "MessageBody";
   /**
    * <p>The unique identifier for the request or response.</p>
    */
@@ -7651,14 +7096,12 @@ export namespace MessageBody {
   export const filterSensitiveLog = (obj: MessageBody): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageBody => __isa(o, "MessageBody");
 }
 
 /**
  * <p>Specifies the message configuration settings for a campaign.</p>
  */
 export interface MessageConfiguration {
-  __type?: "MessageConfiguration";
   /**
    * <p>The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.</p>
    */
@@ -7704,14 +7147,12 @@ export namespace MessageConfiguration {
   export const filterSensitiveLog = (obj: MessageConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageConfiguration => __isa(o, "MessageConfiguration");
 }
 
 /**
  * <p>Specifies the configuration and other settings for a message.</p>
  */
 export interface MessageRequest {
-  __type?: "MessageRequest";
   /**
    * <p>The unique identifier for tracing the message. This identifier is visible to message recipients.</p>
    */
@@ -7747,14 +7188,12 @@ export namespace MessageRequest {
   export const filterSensitiveLog = (obj: MessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageRequest => __isa(o, "MessageRequest");
 }
 
 /**
  * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
  */
 export interface MessageResponse {
-  __type?: "MessageResponse";
   /**
    * <p>The unique identifier for the application that was used to send the message.</p>
    */
@@ -7780,14 +7219,12 @@ export namespace MessageResponse {
   export const filterSensitiveLog = (obj: MessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageResponse => __isa(o, "MessageResponse");
 }
 
 /**
  * <p>Provides information about the results of sending a message directly to an endpoint address.</p>
  */
 export interface MessageResult {
-  __type?: "MessageResult";
   /**
    * <p>The status message for delivering the message.</p>
    */
@@ -7818,7 +7255,6 @@ export namespace MessageResult {
   export const filterSensitiveLog = (obj: MessageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageResult => __isa(o, "MessageResult");
 }
 
 export enum MessageType {
@@ -7847,14 +7283,12 @@ export namespace MethodNotAllowedException {
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MethodNotAllowedException => __isa(o, "MethodNotAllowedException");
 }
 
 /**
  * <p>Specifies metric-based criteria for including or excluding endpoints from a segment. These criteria derive from custom metrics that you define for endpoints.</p>
  */
 export interface MetricDimension {
-  __type?: "MetricDimension";
   /**
    * <p>The operator to use when comparing metric values. Valid values are: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and EQUAL.</p>
    */
@@ -7870,7 +7304,6 @@ export namespace MetricDimension {
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 export enum Mode {
@@ -7882,7 +7315,6 @@ export enum Mode {
  * <p>Specifies a condition to evaluate for an activity path in a journey.</p>
  */
 export interface MultiConditionalBranch {
-  __type?: "MultiConditionalBranch";
   /**
    * <p>The condition to evaluate for the activity path.</p>
    */
@@ -7898,14 +7330,12 @@ export namespace MultiConditionalBranch {
   export const filterSensitiveLog = (obj: MultiConditionalBranch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MultiConditionalBranch => __isa(o, "MultiConditionalBranch");
 }
 
 /**
  * <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
  */
 export interface MultiConditionalSplitActivity {
-  __type?: "MultiConditionalSplitActivity";
   /**
    * <p>The paths for the activity, including the conditions for entering each path and the activity to perform for each path.</p>
    */
@@ -7926,7 +7356,6 @@ export namespace MultiConditionalSplitActivity {
   export const filterSensitiveLog = (obj: MultiConditionalSplitActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MultiConditionalSplitActivity => __isa(o, "MultiConditionalSplitActivity");
 }
 
 /**
@@ -7950,14 +7379,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>Specifies a phone number to validate and retrieve information about.</p>
  */
 export interface NumberValidateRequest {
-  __type?: "NumberValidateRequest";
   /**
    * <p>The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.</p>
    */
@@ -7973,14 +7400,12 @@ export namespace NumberValidateRequest {
   export const filterSensitiveLog = (obj: NumberValidateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberValidateRequest => __isa(o, "NumberValidateRequest");
 }
 
 /**
  * <p>Provides information about a phone number.</p>
  */
 export interface NumberValidateResponse {
-  __type?: "NumberValidateResponse";
   /**
    * <p>The numeric code for the country or region where the phone number was originally registered.</p>
    */
@@ -8057,7 +7482,6 @@ export namespace NumberValidateResponse {
   export const filterSensitiveLog = (obj: NumberValidateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberValidateResponse => __isa(o, "NumberValidateResponse");
 }
 
 export enum Operator {
@@ -8086,11 +7510,9 @@ export namespace PayloadTooLargeException {
   export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PayloadTooLargeException => __isa(o, "PayloadTooLargeException");
 }
 
 export interface PhoneNumberValidateRequest {
-  __type?: "PhoneNumberValidateRequest";
   /**
    * <p>Specifies a phone number to validate and retrieve information about.</p>
    */
@@ -8101,11 +7523,9 @@ export namespace PhoneNumberValidateRequest {
   export const filterSensitiveLog = (obj: PhoneNumberValidateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhoneNumberValidateRequest => __isa(o, "PhoneNumberValidateRequest");
 }
 
 export interface PhoneNumberValidateResponse {
-  __type?: "PhoneNumberValidateResponse";
   /**
    * <p>Provides information about a phone number.</p>
    */
@@ -8116,14 +7536,12 @@ export namespace PhoneNumberValidateResponse {
   export const filterSensitiveLog = (obj: PhoneNumberValidateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhoneNumberValidateResponse => __isa(o, "PhoneNumberValidateResponse");
 }
 
 /**
  * <p>Specifies the properties and attributes of an endpoint that's associated with an event.</p>
  */
 export interface PublicEndpoint {
-  __type?: "PublicEndpoint";
   /**
    * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
    */
@@ -8184,14 +7602,12 @@ export namespace PublicEndpoint {
   export const filterSensitiveLog = (obj: PublicEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicEndpoint => __isa(o, "PublicEndpoint");
 }
 
 /**
  * <p>Specifies the settings for a push notification activity in a journey. This type of activity sends a push notification to participants.</p>
  */
 export interface PushMessageActivity {
-  __type?: "PushMessageActivity";
   /**
    * <p>Specifies the time to live (TTL) value for push notifications that are sent to participants in a journey.</p>
    */
@@ -8217,14 +7633,12 @@ export namespace PushMessageActivity {
   export const filterSensitiveLog = (obj: PushMessageActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PushMessageActivity => __isa(o, "PushMessageActivity");
 }
 
 /**
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface PushNotificationTemplateRequest {
-  __type?: "PushNotificationTemplateRequest";
   /**
    * <p>The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.</p>
    */
@@ -8275,14 +7689,12 @@ export namespace PushNotificationTemplateRequest {
   export const filterSensitiveLog = (obj: PushNotificationTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PushNotificationTemplateRequest => __isa(o, "PushNotificationTemplateRequest");
 }
 
 /**
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface PushNotificationTemplateResponse {
-  __type?: "PushNotificationTemplateResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the message template.</p>
    */
@@ -8363,11 +7775,9 @@ export namespace PushNotificationTemplateResponse {
   export const filterSensitiveLog = (obj: PushNotificationTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PushNotificationTemplateResponse => __isa(o, "PushNotificationTemplateResponse");
 }
 
 export interface PutEventsRequest {
-  __type?: "PutEventsRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -8383,11 +7793,9 @@ export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsRequest => __isa(o, "PutEventsRequest");
 }
 
 export interface PutEventsResponse {
-  __type?: "PutEventsResponse";
   /**
    * <p>Provides information about endpoints and the events that they're associated with.</p>
    */
@@ -8398,11 +7806,9 @@ export namespace PutEventsResponse {
   export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsResponse => __isa(o, "PutEventsResponse");
 }
 
 export interface PutEventStreamRequest {
-  __type?: "PutEventStreamRequest";
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.</p>
    */
@@ -8418,11 +7824,9 @@ export namespace PutEventStreamRequest {
   export const filterSensitiveLog = (obj: PutEventStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventStreamRequest => __isa(o, "PutEventStreamRequest");
 }
 
 export interface PutEventStreamResponse {
-  __type?: "PutEventStreamResponse";
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
    */
@@ -8433,14 +7837,12 @@ export namespace PutEventStreamResponse {
   export const filterSensitiveLog = (obj: PutEventStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventStreamResponse => __isa(o, "PutEventStreamResponse");
 }
 
 /**
  * <p>Specifies the start and end times that define a time range when messages aren't sent to endpoints.</p>
  */
 export interface QuietTime {
-  __type?: "QuietTime";
   /**
    * <p>The specific time when quiet time ends. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.</p>
    */
@@ -8456,14 +7858,12 @@ export namespace QuietTime {
   export const filterSensitiveLog = (obj: QuietTime): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QuietTime => __isa(o, "QuietTime");
 }
 
 /**
  * <p>Specifies the settings for a random split activity in a journey. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
  */
 export interface RandomSplitActivity {
-  __type?: "RandomSplitActivity";
   /**
    * <p>The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.</p>
    */
@@ -8474,14 +7874,12 @@ export namespace RandomSplitActivity {
   export const filterSensitiveLog = (obj: RandomSplitActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RandomSplitActivity => __isa(o, "RandomSplitActivity");
 }
 
 /**
  * <p>Specifies the settings for a path in a random split activity in a journey.</p>
  */
 export interface RandomSplitEntry {
-  __type?: "RandomSplitEntry";
   /**
    * <p>The unique identifier for the next activity to perform, after completing the activity for the path.</p>
    */
@@ -8497,14 +7895,12 @@ export namespace RandomSplitEntry {
   export const filterSensitiveLog = (obj: RandomSplitEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RandomSplitEntry => __isa(o, "RandomSplitEntry");
 }
 
 /**
  * <p>Specifies the contents of an email message, represented as a raw MIME message.</p>
  */
 export interface RawEmail {
-  __type?: "RawEmail";
   /**
    * <p>The email message, represented as a raw MIME message. The entire message must be base64 encoded.</p>
    */
@@ -8515,14 +7911,12 @@ export namespace RawEmail {
   export const filterSensitiveLog = (obj: RawEmail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RawEmail => __isa(o, "RawEmail");
 }
 
 /**
  * <p>Specifies criteria for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface RecencyDimension {
-  __type?: "RecencyDimension";
   /**
    * <p>The duration to use when determining whether an endpoint is active or inactive.</p>
    */
@@ -8538,7 +7932,6 @@ export namespace RecencyDimension {
   export const filterSensitiveLog = (obj: RecencyDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecencyDimension => __isa(o, "RecencyDimension");
 }
 
 export enum RecencyType {
@@ -8550,7 +7943,6 @@ export enum RecencyType {
  * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
  */
 export interface RecommenderConfigurationResponse {
-  __type?: "RecommenderConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the recommender model that Amazon Pinpoint retrieves the recommendation data from. This value is the ARN of an Amazon Personalize campaign.</p>
    */
@@ -8616,11 +8008,9 @@ export namespace RecommenderConfigurationResponse {
   export const filterSensitiveLog = (obj: RecommenderConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommenderConfigurationResponse => __isa(o, "RecommenderConfigurationResponse");
 }
 
 export interface RemoveAttributesRequest {
-  __type?: "RemoveAttributesRequest";
   /**
    * <p>The type of attribute or attributes to remove. Valid values are:</p> <ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li></ul>
    */
@@ -8641,11 +8031,9 @@ export namespace RemoveAttributesRequest {
   export const filterSensitiveLog = (obj: RemoveAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAttributesRequest => __isa(o, "RemoveAttributesRequest");
 }
 
 export interface RemoveAttributesResponse {
-  __type?: "RemoveAttributesResponse";
   /**
    * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
    */
@@ -8656,14 +8044,12 @@ export namespace RemoveAttributesResponse {
   export const filterSensitiveLog = (obj: RemoveAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAttributesResponse => __isa(o, "RemoveAttributesResponse");
 }
 
 /**
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface ResultRow {
-  __type?: "ResultRow";
   /**
    * <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.</p>
    */
@@ -8679,14 +8065,12 @@ export namespace ResultRow {
   export const filterSensitiveLog = (obj: ResultRow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResultRow => __isa(o, "ResultRow");
 }
 
 /**
  * <p>Provides a single value and metadata about that value as part of an array of query results for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface ResultRowValue {
-  __type?: "ResultRowValue";
   /**
    * <p>The friendly name of the metric whose value is specified by the Value property.</p>
    */
@@ -8707,14 +8091,12 @@ export namespace ResultRowValue {
   export const filterSensitiveLog = (obj: ResultRowValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResultRowValue => __isa(o, "ResultRowValue");
 }
 
 /**
  * <p>Specifies the schedule settings for a campaign.</p>
  */
 export interface Schedule {
-  __type?: "Schedule";
   /**
    * <p>Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.</p>
    */
@@ -8758,14 +8140,12 @@ export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
 
 /**
  * <p>Specifies dimension settings for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface SegmentBehaviors {
-  __type?: "SegmentBehaviors";
   /**
    * <p>The dimension settings that are based on how recently an endpoint was active.</p>
    */
@@ -8776,14 +8156,12 @@ export namespace SegmentBehaviors {
   export const filterSensitiveLog = (obj: SegmentBehaviors): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentBehaviors => __isa(o, "SegmentBehaviors");
 }
 
 /**
  * <p>Specifies a segment to associate with an activity in a journey.</p>
  */
 export interface SegmentCondition {
-  __type?: "SegmentCondition";
   /**
    * <p>The unique identifier for the segment to associate with the activity.</p>
    */
@@ -8794,14 +8172,12 @@ export namespace SegmentCondition {
   export const filterSensitiveLog = (obj: SegmentCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentCondition => __isa(o, "SegmentCondition");
 }
 
 /**
  * <p>Specifies demographic-based dimension settings for including or excluding endpoints from a segment. These settings derive from characteristics of endpoint devices, such as platform, make, and model.</p>
  */
 export interface SegmentDemographics {
-  __type?: "SegmentDemographics";
   /**
    * <p>The device type criteria for the segment.</p>
    */
@@ -8837,14 +8213,12 @@ export namespace SegmentDemographics {
   export const filterSensitiveLog = (obj: SegmentDemographics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentDemographics => __isa(o, "SegmentDemographics");
 }
 
 /**
  * <p>Specifies the dimension settings for a segment.</p>
  */
 export interface SegmentDimensions {
-  __type?: "SegmentDimensions";
   /**
    * <p>The behavior-based criteria, such as how recently users have used your app, for the segment.</p>
    */
@@ -8880,14 +8254,12 @@ export namespace SegmentDimensions {
   export const filterSensitiveLog = (obj: SegmentDimensions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentDimensions => __isa(o, "SegmentDimensions");
 }
 
 /**
  * <p>Specifies the base segments and dimensions for a segment, and the relationships between these base segments and dimensions.</p>
  */
 export interface SegmentGroup {
-  __type?: "SegmentGroup";
   /**
    * <p>The base segment to build the segment on. A base segment, also referred to as a <i>source segment</i>, defines the initial population of endpoints for a segment. When you add dimensions to a segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.</p> <p>You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the Amazon Pinpoint console displays a segment size estimate that indicates the size of the imported segment without any filters applied to it.</p>
    */
@@ -8913,14 +8285,12 @@ export namespace SegmentGroup {
   export const filterSensitiveLog = (obj: SegmentGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentGroup => __isa(o, "SegmentGroup");
 }
 
 /**
  * <p>Specifies the settings that define the relationships between segment groups for a segment.</p>
  */
 export interface SegmentGroupList {
-  __type?: "SegmentGroupList";
   /**
    * <p>Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.</p>
    */
@@ -8936,14 +8306,12 @@ export namespace SegmentGroupList {
   export const filterSensitiveLog = (obj: SegmentGroupList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentGroupList => __isa(o, "SegmentGroupList");
 }
 
 /**
  * <p>Provides information about the import job that created a segment. An import job is a job that creates a user segment by importing endpoint definitions.</p>
  */
 export interface SegmentImportResource {
-  __type?: "SegmentImportResource";
   /**
    * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
    */
@@ -8979,14 +8347,12 @@ export namespace SegmentImportResource {
   export const filterSensitiveLog = (obj: SegmentImportResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentImportResource => __isa(o, "SegmentImportResource");
 }
 
 /**
  * <p>Specifies geographical dimension settings for a segment.</p>
  */
 export interface SegmentLocation {
-  __type?: "SegmentLocation";
   /**
    * <p>The country or region code, in ISO 3166-1 alpha-2 format, for the segment.</p>
    */
@@ -9002,14 +8368,12 @@ export namespace SegmentLocation {
   export const filterSensitiveLog = (obj: SegmentLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentLocation => __isa(o, "SegmentLocation");
 }
 
 /**
  * <p>Specifies the segment identifier and version of a segment.</p>
  */
 export interface SegmentReference {
-  __type?: "SegmentReference";
   /**
    * <p>The unique identifier for the segment.</p>
    */
@@ -9025,14 +8389,12 @@ export namespace SegmentReference {
   export const filterSensitiveLog = (obj: SegmentReference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentReference => __isa(o, "SegmentReference");
 }
 
 /**
  * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
  */
 export interface SegmentResponse {
-  __type?: "SegmentResponse";
   /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the segment. Each tag consists of a required tag key and an associated tag value.</p>
    */
@@ -9098,14 +8460,12 @@ export namespace SegmentResponse {
   export const filterSensitiveLog = (obj: SegmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentResponse => __isa(o, "SegmentResponse");
 }
 
 /**
  * <p>Provides information about all the segments that are associated with an application.</p>
  */
 export interface SegmentsResponse {
-  __type?: "SegmentsResponse";
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
@@ -9121,7 +8481,6 @@ export namespace SegmentsResponse {
   export const filterSensitiveLog = (obj: SegmentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentsResponse => __isa(o, "SegmentsResponse");
 }
 
 export enum SegmentType {
@@ -9130,7 +8489,6 @@ export enum SegmentType {
 }
 
 export interface SendMessagesRequest {
-  __type?: "SendMessagesRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -9146,11 +8504,9 @@ export namespace SendMessagesRequest {
   export const filterSensitiveLog = (obj: SendMessagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessagesRequest => __isa(o, "SendMessagesRequest");
 }
 
 export interface SendMessagesResponse {
-  __type?: "SendMessagesResponse";
   /**
    * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
    */
@@ -9161,14 +8517,12 @@ export namespace SendMessagesResponse {
   export const filterSensitiveLog = (obj: SendMessagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendMessagesResponse => __isa(o, "SendMessagesResponse");
 }
 
 /**
  * <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
  */
 export interface SendUsersMessageRequest {
-  __type?: "SendUsersMessageRequest";
   /**
    * <p>The settings and content for the default message and any default messages that you defined for specific channels.</p>
    */
@@ -9199,14 +8553,12 @@ export namespace SendUsersMessageRequest {
   export const filterSensitiveLog = (obj: SendUsersMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendUsersMessageRequest => __isa(o, "SendUsersMessageRequest");
 }
 
 /**
  * <p>Provides information about which users and endpoints a message was sent to.</p>
  */
 export interface SendUsersMessageResponse {
-  __type?: "SendUsersMessageResponse";
   /**
    * <p>An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.</p>
    */
@@ -9227,11 +8579,9 @@ export namespace SendUsersMessageResponse {
   export const filterSensitiveLog = (obj: SendUsersMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendUsersMessageResponse => __isa(o, "SendUsersMessageResponse");
 }
 
 export interface SendUsersMessagesRequest {
-  __type?: "SendUsersMessagesRequest";
   /**
    * <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
    */
@@ -9247,11 +8597,9 @@ export namespace SendUsersMessagesRequest {
   export const filterSensitiveLog = (obj: SendUsersMessagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendUsersMessagesRequest => __isa(o, "SendUsersMessagesRequest");
 }
 
 export interface SendUsersMessagesResponse {
-  __type?: "SendUsersMessagesResponse";
   /**
    * <p>Provides information about which users and endpoints a message was sent to.</p>
    */
@@ -9262,14 +8610,12 @@ export namespace SendUsersMessagesResponse {
   export const filterSensitiveLog = (obj: SendUsersMessagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendUsersMessagesResponse => __isa(o, "SendUsersMessagesResponse");
 }
 
 /**
  * <p>Provides information about a session.</p>
  */
 export interface Session {
-  __type?: "Session";
   /**
    * <p>The duration of the session, in milliseconds.</p>
    */
@@ -9295,14 +8641,12 @@ export namespace Session {
   export const filterSensitiveLog = (obj: Session): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Session => __isa(o, "Session");
 }
 
 /**
  * <p>Specifies the dimension type and values for a segment dimension.</p>
  */
 export interface SetDimension {
-  __type?: "SetDimension";
   /**
    * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
    */
@@ -9318,14 +8662,12 @@ export namespace SetDimension {
   export const filterSensitiveLog = (obj: SetDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDimension => __isa(o, "SetDimension");
 }
 
 /**
  * <p>Specifies a condition to evaluate for an activity in a journey.</p>
  */
 export interface SimpleCondition {
-  __type?: "SimpleCondition";
   /**
    * <p>The dimension settings for the segment that's associated with the activity.</p>
    */
@@ -9346,14 +8688,12 @@ export namespace SimpleCondition {
   export const filterSensitiveLog = (obj: SimpleCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimpleCondition => __isa(o, "SimpleCondition");
 }
 
 /**
  * <p>Specifies the contents of an email message, composed of a subject, a text part, and an HTML part.</p>
  */
 export interface SimpleEmail {
-  __type?: "SimpleEmail";
   /**
    * <p>The subject line, or title, of the email.</p>
    */
@@ -9374,14 +8714,12 @@ export namespace SimpleEmail {
   export const filterSensitiveLog = (obj: SimpleEmail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimpleEmail => __isa(o, "SimpleEmail");
 }
 
 /**
  * <p>Specifies the subject or body of an email message, represented as textual email data and the applicable character set.</p>
  */
 export interface SimpleEmailPart {
-  __type?: "SimpleEmailPart";
   /**
    * <p>The textual data of the message content.</p>
    */
@@ -9397,14 +8735,12 @@ export namespace SimpleEmailPart {
   export const filterSensitiveLog = (obj: SimpleEmailPart): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimpleEmailPart => __isa(o, "SimpleEmailPart");
 }
 
 /**
  * <p>Specifies the status and settings of the SMS channel for an application.</p>
  */
 export interface SMSChannelRequest {
-  __type?: "SMSChannelRequest";
   /**
    * <p>Specifies whether to enable the SMS channel for the application.</p>
    */
@@ -9425,14 +8761,12 @@ export namespace SMSChannelRequest {
   export const filterSensitiveLog = (obj: SMSChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSChannelRequest => __isa(o, "SMSChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the SMS channel for an application.</p>
  */
 export interface SMSChannelResponse {
-  __type?: "SMSChannelResponse";
   /**
    * <p>The date and time, in ISO 8601 format, when the SMS channel was enabled.</p>
    */
@@ -9508,14 +8842,12 @@ export namespace SMSChannelResponse {
   export const filterSensitiveLog = (obj: SMSChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSChannelResponse => __isa(o, "SMSChannelResponse");
 }
 
 /**
  * <p>Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.</p>
  */
 export interface SMSMessage {
-  __type?: "SMSMessage";
   /**
    * <p>The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.</p>
    */
@@ -9556,14 +8888,12 @@ export namespace SMSMessage {
   export const filterSensitiveLog = (obj: SMSMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSMessage => __isa(o, "SMSMessage");
 }
 
 /**
  * <p>Specifies the settings for an SMS activity in a journey. This type of activity sends a text message to participants.</p>
  */
 export interface SMSMessageActivity {
-  __type?: "SMSMessageActivity";
   /**
    * <p>The unique identifier for the next activity to perform, after the message is sent.</p>
    */
@@ -9589,14 +8919,12 @@ export namespace SMSMessageActivity {
   export const filterSensitiveLog = (obj: SMSMessageActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSMessageActivity => __isa(o, "SMSMessageActivity");
 }
 
 /**
  * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 export interface SMSTemplateRequest {
-  __type?: "SMSTemplateRequest";
   /**
    * <p>The message body to use in text messages that are based on the message template.</p>
    */
@@ -9627,14 +8955,12 @@ export namespace SMSTemplateRequest {
   export const filterSensitiveLog = (obj: SMSTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSTemplateRequest => __isa(o, "SMSTemplateRequest");
 }
 
 /**
  * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 export interface SMSTemplateResponse {
-  __type?: "SMSTemplateResponse";
   /**
    * <p>The unique identifier for the recommender model that's used by the message template.</p>
    */
@@ -9695,7 +9021,6 @@ export namespace SMSTemplateResponse {
   export const filterSensitiveLog = (obj: SMSTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMSTemplateResponse => __isa(o, "SMSTemplateResponse");
 }
 
 export enum SourceType {
@@ -9708,7 +9033,6 @@ export enum SourceType {
  * <p>Specifies the conditions for the first activity in a journey. This activity and its conditions determine which users are participants in a journey.</p>
  */
 export interface StartCondition {
-  __type?: "StartCondition";
   /**
    * <p>The custom description of the condition.</p>
    */
@@ -9724,7 +9048,6 @@ export namespace StartCondition {
   export const filterSensitiveLog = (obj: StartCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCondition => __isa(o, "StartCondition");
 }
 
 export enum State {
@@ -9736,7 +9059,6 @@ export enum State {
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
    */
@@ -9752,14 +9074,12 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
  */
 export interface TagsModel {
-  __type?: "TagsModel";
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each of these resources can have a maximum of 50 tags.</p> <p>Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
@@ -9770,14 +9090,12 @@ export namespace TagsModel {
   export const filterSensitiveLog = (obj: TagsModel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagsModel => __isa(o, "TagsModel");
 }
 
 /**
  * <p>Specifies the name and version of the message template to use for the message.</p>
  */
 export interface Template {
-  __type?: "Template";
   /**
    * <p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
    */
@@ -9793,14 +9111,12 @@ export namespace Template {
   export const filterSensitiveLog = (obj: Template): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Template => __isa(o, "Template");
 }
 
 /**
  * <p>Specifies which version of a message template to use as the active version of the template.</p>
  */
 export interface TemplateActiveVersionRequest {
-  __type?: "TemplateActiveVersionRequest";
   /**
    * <p>The version of the message template to use as the active version of the template. Valid values are: latest, for the most recent version of the template; or, the unique identifier for any existing version of the template. If you specify an identifier, the value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p>
    */
@@ -9811,14 +9127,12 @@ export namespace TemplateActiveVersionRequest {
   export const filterSensitiveLog = (obj: TemplateActiveVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateActiveVersionRequest => __isa(o, "TemplateActiveVersionRequest");
 }
 
 /**
  * <p>Specifies the message template to use for the message, for each type of channel.</p>
  */
 export interface TemplateConfiguration {
-  __type?: "TemplateConfiguration";
   /**
    * <p>The SMS template to use for the message.</p>
    */
@@ -9844,14 +9158,12 @@ export namespace TemplateConfiguration {
   export const filterSensitiveLog = (obj: TemplateConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateConfiguration => __isa(o, "TemplateConfiguration");
 }
 
 /**
  * <p>Provides information about a message template that's associated with your Amazon Pinpoint account.</p>
  */
 export interface TemplateResponse {
-  __type?: "TemplateResponse";
   /**
    * <p>The name of the message template.</p>
    */
@@ -9902,14 +9214,12 @@ export namespace TemplateResponse {
   export const filterSensitiveLog = (obj: TemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateResponse => __isa(o, "TemplateResponse");
 }
 
 /**
  * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
  */
 export interface TemplatesResponse {
-  __type?: "TemplatesResponse";
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
@@ -9925,7 +9235,6 @@ export namespace TemplatesResponse {
   export const filterSensitiveLog = (obj: TemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplatesResponse => __isa(o, "TemplatesResponse");
 }
 
 export enum TemplateType {
@@ -9939,7 +9248,6 @@ export enum TemplateType {
  * <p>Provides information about a specific version of a message template.</p>
  */
 export interface TemplateVersionResponse {
-  __type?: "TemplateVersionResponse";
   /**
    * <p>The date, in ISO 8601 format, when the version of the message template was created.</p>
    */
@@ -9980,14 +9288,12 @@ export namespace TemplateVersionResponse {
   export const filterSensitiveLog = (obj: TemplateVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateVersionResponse => __isa(o, "TemplateVersionResponse");
 }
 
 /**
  * <p>Provides information about all the versions of a specific message template.</p>
  */
 export interface TemplateVersionsResponse {
-  __type?: "TemplateVersionsResponse";
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
@@ -10013,7 +9319,6 @@ export namespace TemplateVersionsResponse {
   export const filterSensitiveLog = (obj: TemplateVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateVersionsResponse => __isa(o, "TemplateVersionsResponse");
 }
 
 /**
@@ -10037,14 +9342,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p>Specifies the settings for a campaign treatment. A <i>treatment</i> is a variation of a campaign that's used for A/B testing of a campaign.</p>
  */
 export interface TreatmentResource {
-  __type?: "TreatmentResource";
   /**
    * <p>The message template to use for the treatment.</p>
    */
@@ -10095,7 +9398,6 @@ export namespace TreatmentResource {
   export const filterSensitiveLog = (obj: TreatmentResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TreatmentResource => __isa(o, "TreatmentResource");
 }
 
 export enum Type {
@@ -10105,7 +9407,6 @@ export enum Type {
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -10121,11 +9422,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAdmChannelRequest {
-  __type?: "UpdateAdmChannelRequest";
   /**
    * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
@@ -10141,11 +9440,9 @@ export namespace UpdateAdmChannelRequest {
   export const filterSensitiveLog = (obj: UpdateAdmChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAdmChannelRequest => __isa(o, "UpdateAdmChannelRequest");
 }
 
 export interface UpdateAdmChannelResponse {
-  __type?: "UpdateAdmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
@@ -10156,11 +9453,9 @@ export namespace UpdateAdmChannelResponse {
   export const filterSensitiveLog = (obj: UpdateAdmChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAdmChannelResponse => __isa(o, "UpdateAdmChannelResponse");
 }
 
 export interface UpdateApnsChannelRequest {
-  __type?: "UpdateApnsChannelRequest";
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
    */
@@ -10176,11 +9471,9 @@ export namespace UpdateApnsChannelRequest {
   export const filterSensitiveLog = (obj: UpdateApnsChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsChannelRequest => __isa(o, "UpdateApnsChannelRequest");
 }
 
 export interface UpdateApnsChannelResponse {
-  __type?: "UpdateApnsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
    */
@@ -10191,11 +9484,9 @@ export namespace UpdateApnsChannelResponse {
   export const filterSensitiveLog = (obj: UpdateApnsChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsChannelResponse => __isa(o, "UpdateApnsChannelResponse");
 }
 
 export interface UpdateApnsSandboxChannelRequest {
-  __type?: "UpdateApnsSandboxChannelRequest";
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
    */
@@ -10211,11 +9502,9 @@ export namespace UpdateApnsSandboxChannelRequest {
   export const filterSensitiveLog = (obj: UpdateApnsSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsSandboxChannelRequest => __isa(o, "UpdateApnsSandboxChannelRequest");
 }
 
 export interface UpdateApnsSandboxChannelResponse {
-  __type?: "UpdateApnsSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
    */
@@ -10226,11 +9515,9 @@ export namespace UpdateApnsSandboxChannelResponse {
   export const filterSensitiveLog = (obj: UpdateApnsSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsSandboxChannelResponse => __isa(o, "UpdateApnsSandboxChannelResponse");
 }
 
 export interface UpdateApnsVoipChannelRequest {
-  __type?: "UpdateApnsVoipChannelRequest";
   /**
    * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
    */
@@ -10246,11 +9533,9 @@ export namespace UpdateApnsVoipChannelRequest {
   export const filterSensitiveLog = (obj: UpdateApnsVoipChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsVoipChannelRequest => __isa(o, "UpdateApnsVoipChannelRequest");
 }
 
 export interface UpdateApnsVoipChannelResponse {
-  __type?: "UpdateApnsVoipChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
    */
@@ -10261,11 +9546,9 @@ export namespace UpdateApnsVoipChannelResponse {
   export const filterSensitiveLog = (obj: UpdateApnsVoipChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsVoipChannelResponse => __isa(o, "UpdateApnsVoipChannelResponse");
 }
 
 export interface UpdateApnsVoipSandboxChannelRequest {
-  __type?: "UpdateApnsVoipSandboxChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -10281,12 +9564,9 @@ export namespace UpdateApnsVoipSandboxChannelRequest {
   export const filterSensitiveLog = (obj: UpdateApnsVoipSandboxChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsVoipSandboxChannelRequest =>
-    __isa(o, "UpdateApnsVoipSandboxChannelRequest");
 }
 
 export interface UpdateApnsVoipSandboxChannelResponse {
-  __type?: "UpdateApnsVoipSandboxChannelResponse";
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
    */
@@ -10297,12 +9577,9 @@ export namespace UpdateApnsVoipSandboxChannelResponse {
   export const filterSensitiveLog = (obj: UpdateApnsVoipSandboxChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApnsVoipSandboxChannelResponse =>
-    __isa(o, "UpdateApnsVoipSandboxChannelResponse");
 }
 
 export interface UpdateApplicationSettingsRequest {
-  __type?: "UpdateApplicationSettingsRequest";
   /**
    * <p>Specifies the default settings for an application.</p>
    */
@@ -10318,11 +9595,9 @@ export namespace UpdateApplicationSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationSettingsRequest => __isa(o, "UpdateApplicationSettingsRequest");
 }
 
 export interface UpdateApplicationSettingsResponse {
-  __type?: "UpdateApplicationSettingsResponse";
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
    */
@@ -10333,14 +9608,12 @@ export namespace UpdateApplicationSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationSettingsResponse => __isa(o, "UpdateApplicationSettingsResponse");
 }
 
 /**
  * <p>Specifies one or more attributes to remove from all the endpoints that are associated with an application.</p>
  */
 export interface UpdateAttributesRequest {
-  __type?: "UpdateAttributesRequest";
   /**
    * <p>An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.</p>
    */
@@ -10351,11 +9624,9 @@ export namespace UpdateAttributesRequest {
   export const filterSensitiveLog = (obj: UpdateAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAttributesRequest => __isa(o, "UpdateAttributesRequest");
 }
 
 export interface UpdateBaiduChannelRequest {
-  __type?: "UpdateBaiduChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -10371,11 +9642,9 @@ export namespace UpdateBaiduChannelRequest {
   export const filterSensitiveLog = (obj: UpdateBaiduChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBaiduChannelRequest => __isa(o, "UpdateBaiduChannelRequest");
 }
 
 export interface UpdateBaiduChannelResponse {
-  __type?: "UpdateBaiduChannelResponse";
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
    */
@@ -10386,11 +9655,9 @@ export namespace UpdateBaiduChannelResponse {
   export const filterSensitiveLog = (obj: UpdateBaiduChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBaiduChannelResponse => __isa(o, "UpdateBaiduChannelResponse");
 }
 
 export interface UpdateCampaignRequest {
-  __type?: "UpdateCampaignRequest";
   /**
    * <p>The unique identifier for the campaign.</p>
    */
@@ -10411,11 +9678,9 @@ export namespace UpdateCampaignRequest {
   export const filterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCampaignRequest => __isa(o, "UpdateCampaignRequest");
 }
 
 export interface UpdateCampaignResponse {
-  __type?: "UpdateCampaignResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
@@ -10426,11 +9691,9 @@ export namespace UpdateCampaignResponse {
   export const filterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCampaignResponse => __isa(o, "UpdateCampaignResponse");
 }
 
 export interface UpdateEmailChannelRequest {
-  __type?: "UpdateEmailChannelRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -10446,11 +9709,9 @@ export namespace UpdateEmailChannelRequest {
   export const filterSensitiveLog = (obj: UpdateEmailChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailChannelRequest => __isa(o, "UpdateEmailChannelRequest");
 }
 
 export interface UpdateEmailChannelResponse {
-  __type?: "UpdateEmailChannelResponse";
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
    */
@@ -10461,11 +9722,9 @@ export namespace UpdateEmailChannelResponse {
   export const filterSensitiveLog = (obj: UpdateEmailChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailChannelResponse => __isa(o, "UpdateEmailChannelResponse");
 }
 
 export interface UpdateEmailTemplateRequest {
-  __type?: "UpdateEmailTemplateRequest";
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
    */
@@ -10491,11 +9750,9 @@ export namespace UpdateEmailTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailTemplateRequest => __isa(o, "UpdateEmailTemplateRequest");
 }
 
 export interface UpdateEmailTemplateResponse {
-  __type?: "UpdateEmailTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -10506,11 +9763,9 @@ export namespace UpdateEmailTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailTemplateResponse => __isa(o, "UpdateEmailTemplateResponse");
 }
 
 export interface UpdateEndpointRequest {
-  __type?: "UpdateEndpointRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -10531,11 +9786,9 @@ export namespace UpdateEndpointRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointRequest => __isa(o, "UpdateEndpointRequest");
 }
 
 export interface UpdateEndpointResponse {
-  __type?: "UpdateEndpointResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -10546,11 +9799,9 @@ export namespace UpdateEndpointResponse {
   export const filterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointResponse => __isa(o, "UpdateEndpointResponse");
 }
 
 export interface UpdateEndpointsBatchRequest {
-  __type?: "UpdateEndpointsBatchRequest";
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
@@ -10566,11 +9817,9 @@ export namespace UpdateEndpointsBatchRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointsBatchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointsBatchRequest => __isa(o, "UpdateEndpointsBatchRequest");
 }
 
 export interface UpdateEndpointsBatchResponse {
-  __type?: "UpdateEndpointsBatchResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -10581,11 +9830,9 @@ export namespace UpdateEndpointsBatchResponse {
   export const filterSensitiveLog = (obj: UpdateEndpointsBatchResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointsBatchResponse => __isa(o, "UpdateEndpointsBatchResponse");
 }
 
 export interface UpdateGcmChannelRequest {
-  __type?: "UpdateGcmChannelRequest";
   /**
    * <p>Specifies the status and settings of the GCM channel for an application. This channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
@@ -10601,11 +9848,9 @@ export namespace UpdateGcmChannelRequest {
   export const filterSensitiveLog = (obj: UpdateGcmChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGcmChannelRequest => __isa(o, "UpdateGcmChannelRequest");
 }
 
 export interface UpdateGcmChannelResponse {
-  __type?: "UpdateGcmChannelResponse";
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
@@ -10616,11 +9861,9 @@ export namespace UpdateGcmChannelResponse {
   export const filterSensitiveLog = (obj: UpdateGcmChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGcmChannelResponse => __isa(o, "UpdateGcmChannelResponse");
 }
 
 export interface UpdateJourneyRequest {
-  __type?: "UpdateJourneyRequest";
   /**
    * <p>Specifies the configuration and other settings for a journey.</p>
    */
@@ -10641,11 +9884,9 @@ export namespace UpdateJourneyRequest {
   export const filterSensitiveLog = (obj: UpdateJourneyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJourneyRequest => __isa(o, "UpdateJourneyRequest");
 }
 
 export interface UpdateJourneyResponse {
-  __type?: "UpdateJourneyResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
@@ -10656,11 +9897,9 @@ export namespace UpdateJourneyResponse {
   export const filterSensitiveLog = (obj: UpdateJourneyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJourneyResponse => __isa(o, "UpdateJourneyResponse");
 }
 
 export interface UpdateJourneyStateRequest {
-  __type?: "UpdateJourneyStateRequest";
   /**
    * <p>The unique identifier for the journey.</p>
    */
@@ -10681,11 +9920,9 @@ export namespace UpdateJourneyStateRequest {
   export const filterSensitiveLog = (obj: UpdateJourneyStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJourneyStateRequest => __isa(o, "UpdateJourneyStateRequest");
 }
 
 export interface UpdateJourneyStateResponse {
-  __type?: "UpdateJourneyStateResponse";
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
@@ -10696,11 +9933,9 @@ export namespace UpdateJourneyStateResponse {
   export const filterSensitiveLog = (obj: UpdateJourneyStateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJourneyStateResponse => __isa(o, "UpdateJourneyStateResponse");
 }
 
 export interface UpdatePushTemplateRequest {
-  __type?: "UpdatePushTemplateRequest";
   /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
@@ -10726,11 +9961,9 @@ export namespace UpdatePushTemplateRequest {
   export const filterSensitiveLog = (obj: UpdatePushTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePushTemplateRequest => __isa(o, "UpdatePushTemplateRequest");
 }
 
 export interface UpdatePushTemplateResponse {
-  __type?: "UpdatePushTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -10741,11 +9974,9 @@ export namespace UpdatePushTemplateResponse {
   export const filterSensitiveLog = (obj: UpdatePushTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePushTemplateResponse => __isa(o, "UpdatePushTemplateResponse");
 }
 
 export interface UpdateRecommenderConfigurationRequest {
-  __type?: "UpdateRecommenderConfigurationRequest";
   /**
    * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
    */
@@ -10761,12 +9992,9 @@ export namespace UpdateRecommenderConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateRecommenderConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecommenderConfigurationRequest =>
-    __isa(o, "UpdateRecommenderConfigurationRequest");
 }
 
 export interface UpdateRecommenderConfigurationResponse {
-  __type?: "UpdateRecommenderConfigurationResponse";
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
    */
@@ -10777,15 +10005,12 @@ export namespace UpdateRecommenderConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateRecommenderConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecommenderConfigurationResponse =>
-    __isa(o, "UpdateRecommenderConfigurationResponse");
 }
 
 /**
  * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
  */
 export interface UpdateRecommenderConfigurationShape {
-  __type?: "UpdateRecommenderConfigurationShape";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function to invoke for additional processing of recommendation data that's retrieved from the recommender model.</p>
    */
@@ -10836,12 +10061,9 @@ export namespace UpdateRecommenderConfigurationShape {
   export const filterSensitiveLog = (obj: UpdateRecommenderConfigurationShape): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecommenderConfigurationShape =>
-    __isa(o, "UpdateRecommenderConfigurationShape");
 }
 
 export interface UpdateSegmentRequest {
-  __type?: "UpdateSegmentRequest";
   /**
    * <p>The unique identifier for the segment.</p>
    */
@@ -10862,11 +10084,9 @@ export namespace UpdateSegmentRequest {
   export const filterSensitiveLog = (obj: UpdateSegmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSegmentRequest => __isa(o, "UpdateSegmentRequest");
 }
 
 export interface UpdateSegmentResponse {
-  __type?: "UpdateSegmentResponse";
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
@@ -10877,11 +10097,9 @@ export namespace UpdateSegmentResponse {
   export const filterSensitiveLog = (obj: UpdateSegmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSegmentResponse => __isa(o, "UpdateSegmentResponse");
 }
 
 export interface UpdateSmsChannelRequest {
-  __type?: "UpdateSmsChannelRequest";
   /**
    * <p>Specifies the status and settings of the SMS channel for an application.</p>
    */
@@ -10897,11 +10115,9 @@ export namespace UpdateSmsChannelRequest {
   export const filterSensitiveLog = (obj: UpdateSmsChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSmsChannelRequest => __isa(o, "UpdateSmsChannelRequest");
 }
 
 export interface UpdateSmsChannelResponse {
-  __type?: "UpdateSmsChannelResponse";
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
    */
@@ -10912,11 +10128,9 @@ export namespace UpdateSmsChannelResponse {
   export const filterSensitiveLog = (obj: UpdateSmsChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSmsChannelResponse => __isa(o, "UpdateSmsChannelResponse");
 }
 
 export interface UpdateSmsTemplateRequest {
-  __type?: "UpdateSmsTemplateRequest";
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    */
@@ -10942,11 +10156,9 @@ export namespace UpdateSmsTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateSmsTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSmsTemplateRequest => __isa(o, "UpdateSmsTemplateRequest");
 }
 
 export interface UpdateSmsTemplateResponse {
-  __type?: "UpdateSmsTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -10957,11 +10169,9 @@ export namespace UpdateSmsTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateSmsTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSmsTemplateResponse => __isa(o, "UpdateSmsTemplateResponse");
 }
 
 export interface UpdateTemplateActiveVersionRequest {
-  __type?: "UpdateTemplateActiveVersionRequest";
   /**
    * <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
    */
@@ -10982,12 +10192,9 @@ export namespace UpdateTemplateActiveVersionRequest {
   export const filterSensitiveLog = (obj: UpdateTemplateActiveVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateActiveVersionRequest =>
-    __isa(o, "UpdateTemplateActiveVersionRequest");
 }
 
 export interface UpdateTemplateActiveVersionResponse {
-  __type?: "UpdateTemplateActiveVersionResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -10998,12 +10205,9 @@ export namespace UpdateTemplateActiveVersionResponse {
   export const filterSensitiveLog = (obj: UpdateTemplateActiveVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateActiveVersionResponse =>
-    __isa(o, "UpdateTemplateActiveVersionResponse");
 }
 
 export interface UpdateVoiceChannelRequest {
-  __type?: "UpdateVoiceChannelRequest";
   /**
    * <p>Specifies the status and settings of the voice channel for an application.</p>
    */
@@ -11019,11 +10223,9 @@ export namespace UpdateVoiceChannelRequest {
   export const filterSensitiveLog = (obj: UpdateVoiceChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceChannelRequest => __isa(o, "UpdateVoiceChannelRequest");
 }
 
 export interface UpdateVoiceChannelResponse {
-  __type?: "UpdateVoiceChannelResponse";
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
    */
@@ -11034,11 +10236,9 @@ export namespace UpdateVoiceChannelResponse {
   export const filterSensitiveLog = (obj: UpdateVoiceChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceChannelResponse => __isa(o, "UpdateVoiceChannelResponse");
 }
 
 export interface UpdateVoiceTemplateRequest {
-  __type?: "UpdateVoiceTemplateRequest";
   /**
    * <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
    */
@@ -11064,11 +10264,9 @@ export namespace UpdateVoiceTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateVoiceTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceTemplateRequest => __isa(o, "UpdateVoiceTemplateRequest");
 }
 
 export interface UpdateVoiceTemplateResponse {
-  __type?: "UpdateVoiceTemplateResponse";
   /**
    * <p>Provides information about an API request or response.</p>
    */
@@ -11079,14 +10277,12 @@ export namespace UpdateVoiceTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateVoiceTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceTemplateResponse => __isa(o, "UpdateVoiceTemplateResponse");
 }
 
 /**
  * <p>Specifies the status and settings of the voice channel for an application.</p>
  */
 export interface VoiceChannelRequest {
-  __type?: "VoiceChannelRequest";
   /**
    * <p>Specifies whether to enable the voice channel for the application.</p>
    */
@@ -11097,14 +10293,12 @@ export namespace VoiceChannelRequest {
   export const filterSensitiveLog = (obj: VoiceChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceChannelRequest => __isa(o, "VoiceChannelRequest");
 }
 
 /**
  * <p>Provides information about the status and settings of the voice channel for an application.</p>
  */
 export interface VoiceChannelResponse {
-  __type?: "VoiceChannelResponse";
   /**
    * <p>The unique identifier for the application that the voice channel applies to.</p>
    */
@@ -11160,14 +10354,12 @@ export namespace VoiceChannelResponse {
   export const filterSensitiveLog = (obj: VoiceChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceChannelResponse => __isa(o, "VoiceChannelResponse");
 }
 
 /**
  * <p>Specifies the settings for a one-time voice message that's sent directly to an endpoint through the voice channel.</p>
  */
 export interface VoiceMessage {
-  __type?: "VoiceMessage";
   /**
    * <p>The long code to send the voice message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code in E.164 format, for example +12065550100, to ensure prompt and accurate delivery of the message.</p>
    */
@@ -11198,14 +10390,12 @@ export namespace VoiceMessage {
   export const filterSensitiveLog = (obj: VoiceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceMessage => __isa(o, "VoiceMessage");
 }
 
 /**
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
  */
 export interface VoiceTemplateRequest {
-  __type?: "VoiceTemplateRequest";
   /**
    * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
    */
@@ -11241,14 +10431,12 @@ export namespace VoiceTemplateRequest {
   export const filterSensitiveLog = (obj: VoiceTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceTemplateRequest => __isa(o, "VoiceTemplateRequest");
 }
 
 /**
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
  */
 export interface VoiceTemplateResponse {
-  __type?: "VoiceTemplateResponse";
   /**
    * <p>The date, in ISO 8601 format, when the message template was last modified.</p>
    */
@@ -11314,14 +10502,12 @@ export namespace VoiceTemplateResponse {
   export const filterSensitiveLog = (obj: VoiceTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceTemplateResponse => __isa(o, "VoiceTemplateResponse");
 }
 
 /**
  * <p>Specifies the settings for a wait activity in a journey. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
  */
 export interface WaitActivity {
-  __type?: "WaitActivity";
   /**
    * <p>The unique identifier for the next activity to perform, after performing the wait activity.</p>
    */
@@ -11337,14 +10523,12 @@ export namespace WaitActivity {
   export const filterSensitiveLog = (obj: WaitActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WaitActivity => __isa(o, "WaitActivity");
 }
 
 /**
  * <p>Specifies a duration or a date and time that indicates when Amazon Pinpoint determines whether an activity's conditions have been met or an activity moves participants to the next activity in a journey.</p>
  */
 export interface WaitTime {
-  __type?: "WaitTime";
   /**
    * <p>The amount of time to wait, as a duration in ISO 8601 format, before determining whether the activity's conditions have been met or moving participants to the next activity in the journey.</p>
    */
@@ -11360,14 +10544,12 @@ export namespace WaitTime {
   export const filterSensitiveLog = (obj: WaitTime): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WaitTime => __isa(o, "WaitTime");
 }
 
 /**
  * <p>Specifies the default settings for an application.</p>
  */
 export interface WriteApplicationSettingsRequest {
-  __type?: "WriteApplicationSettingsRequest";
   /**
    * <p>The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.</p> <p>To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link  linkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource.</p>
    */
@@ -11393,14 +10575,12 @@ export namespace WriteApplicationSettingsRequest {
   export const filterSensitiveLog = (obj: WriteApplicationSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteApplicationSettingsRequest => __isa(o, "WriteApplicationSettingsRequest");
 }
 
 /**
  * <p>Specifies the configuration and other settings for a campaign.</p>
  */
 export interface WriteCampaignRequest {
-  __type?: "WriteCampaignRequest";
   /**
    * <p>The messaging limits for the campaign.</p>
    */
@@ -11486,14 +10666,12 @@ export namespace WriteCampaignRequest {
   export const filterSensitiveLog = (obj: WriteCampaignRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteCampaignRequest => __isa(o, "WriteCampaignRequest");
 }
 
 /**
  * <p>Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.</p>
  */
 export interface WriteEventStream {
-  __type?: "WriteEventStream";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.</p> <p>For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:stream/<replaceable>stream_name</replaceable>
    *                </p> <p>For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:deliverystream/<replaceable>stream_name</replaceable>
@@ -11511,14 +10689,12 @@ export namespace WriteEventStream {
   export const filterSensitiveLog = (obj: WriteEventStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteEventStream => __isa(o, "WriteEventStream");
 }
 
 /**
  * <p>Specifies the configuration and other settings for a journey.</p>
  */
 export interface WriteJourneyRequest {
-  __type?: "WriteJourneyRequest";
   /**
    * <p>The segment that defines which users are participants in the journey.</p>
    */
@@ -11584,14 +10760,12 @@ export namespace WriteJourneyRequest {
   export const filterSensitiveLog = (obj: WriteJourneyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteJourneyRequest => __isa(o, "WriteJourneyRequest");
 }
 
 /**
  * <p>Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.</p>
  */
 export interface WriteSegmentRequest {
-  __type?: "WriteSegmentRequest";
   /**
    * <p>The criteria that define the dimensions for the segment.</p>
    */
@@ -11617,14 +10791,12 @@ export namespace WriteSegmentRequest {
   export const filterSensitiveLog = (obj: WriteSegmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteSegmentRequest => __isa(o, "WriteSegmentRequest");
 }
 
 /**
  * <p>Specifies the settings for a campaign treatment. A <i>treatment</i> is a variation of a campaign that's used for A/B testing of a campaign.</p>
  */
 export interface WriteTreatmentResource {
-  __type?: "WriteTreatmentResource";
   /**
    * <p>The allocated percentage of users (segment members) to send the treatment to.</p>
    */
@@ -11665,5 +10837,4 @@ export namespace WriteTreatmentResource {
   export const filterSensitiveLog = (obj: WriteTreatmentResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteTreatmentResource => __isa(o, "WriteTreatmentResource");
 }

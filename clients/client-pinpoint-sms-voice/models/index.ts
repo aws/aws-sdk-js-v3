@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
@@ -30,14 +29,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.
  */
 export interface CallInstructionsMessageType {
-  __type?: "CallInstructionsMessageType";
   /**
    * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
    */
@@ -48,14 +45,12 @@ export namespace CallInstructionsMessageType {
   export const filterSensitiveLog = (obj: CallInstructionsMessageType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CallInstructionsMessageType => __isa(o, "CallInstructionsMessageType");
 }
 
 /**
  * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
  */
 export interface CloudWatchLogsDestination {
-  __type?: "CloudWatchLogsDestination";
   /**
    * The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.
    */
@@ -71,14 +66,12 @@ export namespace CloudWatchLogsDestination {
   export const filterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsDestination => __isa(o, "CloudWatchLogsDestination");
 }
 
 /**
  * Create a new event destination in a configuration set.
  */
 export interface CreateConfigurationSetEventDestinationRequest {
-  __type?: "CreateConfigurationSetEventDestinationRequest";
   /**
    * ConfigurationSetName
    */
@@ -99,30 +92,23 @@ export namespace CreateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
-    __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
 /**
  * An empty object that indicates that the event destination was created successfully.
  */
-export interface CreateConfigurationSetEventDestinationResponse {
-  __type?: "CreateConfigurationSetEventDestinationResponse";
-}
+export interface CreateConfigurationSetEventDestinationResponse {}
 
 export namespace CreateConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
-    __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
 /**
  * A request to create a new configuration set.
  */
 export interface CreateConfigurationSetRequest {
-  __type?: "CreateConfigurationSetRequest";
   /**
    * The name that you want to give the configuration set.
    */
@@ -133,25 +119,20 @@ export namespace CreateConfigurationSetRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetRequest => __isa(o, "CreateConfigurationSetRequest");
 }
 
 /**
  * An empty object that indicates that the configuration set was successfully created.
  */
-export interface CreateConfigurationSetResponse {
-  __type?: "CreateConfigurationSetResponse";
-}
+export interface CreateConfigurationSetResponse {}
 
 export namespace CreateConfigurationSetResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetResponse => __isa(o, "CreateConfigurationSetResponse");
 }
 
 export interface DeleteConfigurationSetEventDestinationRequest {
-  __type?: "DeleteConfigurationSetEventDestinationRequest";
   /**
    * ConfigurationSetName
    */
@@ -167,27 +148,20 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
-    __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
 /**
  * An empty object that indicates that the event destination was deleted successfully.
  */
-export interface DeleteConfigurationSetEventDestinationResponse {
-  __type?: "DeleteConfigurationSetEventDestinationResponse";
-}
+export interface DeleteConfigurationSetEventDestinationResponse {}
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
-    __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
 export interface DeleteConfigurationSetRequest {
-  __type?: "DeleteConfigurationSetRequest";
   /**
    * ConfigurationSetName
    */
@@ -198,28 +172,23 @@ export namespace DeleteConfigurationSetRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetRequest => __isa(o, "DeleteConfigurationSetRequest");
 }
 
 /**
  * An empty object that indicates that the configuration set was deleted successfully.
  */
-export interface DeleteConfigurationSetResponse {
-  __type?: "DeleteConfigurationSetResponse";
-}
+export interface DeleteConfigurationSetResponse {}
 
 export namespace DeleteConfigurationSetResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetResponse => __isa(o, "DeleteConfigurationSetResponse");
 }
 
 /**
  * An object that defines an event destination.
  */
 export interface EventDestination {
-  __type?: "EventDestination";
   /**
    * A name that identifies the event destination configuration.
    */
@@ -255,14 +224,12 @@ export namespace EventDestination {
   export const filterSensitiveLog = (obj: EventDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
  * An object that defines a single event destination.
  */
 export interface EventDestinationDefinition {
-  __type?: "EventDestinationDefinition";
   /**
    * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
    */
@@ -293,7 +260,6 @@ export namespace EventDestinationDefinition {
   export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestinationDefinition => __isa(o, "EventDestinationDefinition");
 }
 
 export enum EventType {
@@ -307,7 +273,6 @@ export enum EventType {
 }
 
 export interface GetConfigurationSetEventDestinationsRequest {
-  __type?: "GetConfigurationSetEventDestinationsRequest";
   /**
    * ConfigurationSetName
    */
@@ -318,15 +283,12 @@ export namespace GetConfigurationSetEventDestinationsRequest {
   export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetEventDestinationsRequest =>
-    __isa(o, "GetConfigurationSetEventDestinationsRequest");
 }
 
 /**
  * An object that contains information about an event destination.
  */
 export interface GetConfigurationSetEventDestinationsResponse {
-  __type?: "GetConfigurationSetEventDestinationsResponse";
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
@@ -337,8 +299,6 @@ export namespace GetConfigurationSetEventDestinationsResponse {
   export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetEventDestinationsResponse =>
-    __isa(o, "GetConfigurationSetEventDestinationsResponse");
 }
 
 /**
@@ -354,14 +314,12 @@ export namespace InternalServiceErrorException {
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
  */
 export interface KinesisFirehoseDestination {
-  __type?: "KinesisFirehoseDestination";
   /**
    * The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.
    */
@@ -377,7 +335,6 @@ export namespace KinesisFirehoseDestination {
   export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseDestination => __isa(o, "KinesisFirehoseDestination");
 }
 
 /**
@@ -393,11 +350,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListConfigurationSetsRequest {
-  __type?: "ListConfigurationSetsRequest";
   /**
    * Used to specify the number of items that should be returned in the response.
    */
@@ -413,14 +368,12 @@ export namespace ListConfigurationSetsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsRequest => __isa(o, "ListConfigurationSetsRequest");
 }
 
 /**
  * An object that contains information about the configuration sets for your account in the current region.
  */
 export interface ListConfigurationSetsResponse {
-  __type?: "ListConfigurationSetsResponse";
   /**
    * An object that contains a list of configuration sets for your account in the current region.
    */
@@ -436,7 +389,6 @@ export namespace ListConfigurationSetsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsResponse => __isa(o, "ListConfigurationSetsResponse");
 }
 
 /**
@@ -452,14 +404,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * An object that defines a message that contains unformatted text.
  */
 export interface PlainTextMessageType {
-  __type?: "PlainTextMessageType";
   /**
    * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
    */
@@ -480,14 +430,12 @@ export namespace PlainTextMessageType {
   export const filterSensitiveLog = (obj: PlainTextMessageType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlainTextMessageType => __isa(o, "PlainTextMessageType");
 }
 
 /**
  * SendVoiceMessageRequest
  */
 export interface SendVoiceMessageRequest {
-  __type?: "SendVoiceMessageRequest";
   /**
    * The phone number that appears on recipients' devices when they receive the message.
    */
@@ -518,14 +466,12 @@ export namespace SendVoiceMessageRequest {
   export const filterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendVoiceMessageRequest => __isa(o, "SendVoiceMessageRequest");
 }
 
 /**
  * An object that that contains the Message ID of a Voice message that was sent successfully.
  */
 export interface SendVoiceMessageResponse {
-  __type?: "SendVoiceMessageResponse";
   /**
    * A unique identifier for the voice message.
    */
@@ -536,14 +482,12 @@ export namespace SendVoiceMessageResponse {
   export const filterSensitiveLog = (obj: SendVoiceMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendVoiceMessageResponse => __isa(o, "SendVoiceMessageResponse");
 }
 
 /**
  * An object that contains information about an event destination that sends data to Amazon SNS.
  */
 export interface SnsDestination {
-  __type?: "SnsDestination";
   /**
    * The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.
    */
@@ -554,14 +498,12 @@ export namespace SnsDestination {
   export const filterSensitiveLog = (obj: SnsDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnsDestination => __isa(o, "SnsDestination");
 }
 
 /**
  * An object that defines a message that contains SSML-formatted text.
  */
 export interface SSMLMessageType {
-  __type?: "SSMLMessageType";
   /**
    * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
    */
@@ -582,7 +524,6 @@ export namespace SSMLMessageType {
   export const filterSensitiveLog = (obj: SSMLMessageType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SSMLMessageType => __isa(o, "SSMLMessageType");
 }
 
 /**
@@ -598,14 +539,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * UpdateConfigurationSetEventDestinationRequest
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
-  __type?: "UpdateConfigurationSetEventDestinationRequest";
   /**
    * An object that defines a single event destination.
    */
@@ -626,30 +565,23 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
-    __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
 /**
  * An empty object that indicates that the event destination was updated successfully.
  */
-export interface UpdateConfigurationSetEventDestinationResponse {
-  __type?: "UpdateConfigurationSetEventDestinationResponse";
-}
+export interface UpdateConfigurationSetEventDestinationResponse {}
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
-    __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
 /**
  * An object that contains a voice message and information about the recipient that you want to send it to.
  */
 export interface VoiceMessageContent {
-  __type?: "VoiceMessageContent";
   /**
    * An object that defines a message that contains unformatted text.
    */
@@ -670,5 +602,4 @@ export namespace VoiceMessageContent {
   export const filterSensitiveLog = (obj: VoiceMessageContent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceMessageContent => __isa(o, "VoiceMessageContent");
 }

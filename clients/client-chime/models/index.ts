@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,14 +15,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.</p>
  */
 export interface Account {
-  __type?: "Account";
   /**
    * <p>The default license for the Amazon Chime account.</p>
    */
@@ -71,7 +69,6 @@ export namespace Account {
   export const filterSensitiveLog = (obj: Account): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Account => __isa(o, "Account");
 }
 
 /**
@@ -81,7 +78,6 @@ export namespace Account {
  *       the <i>Amazon Chime Administration Guide</i>.</p>
  */
 export interface AccountSettings {
-  __type?: "AccountSettings";
   /**
    * <p>Setting that stops or starts remote control of shared screens during meetings.</p>
    */
@@ -98,7 +94,6 @@ export namespace AccountSettings {
   export const filterSensitiveLog = (obj: AccountSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountSettings => __isa(o, "AccountSettings");
 }
 
 export enum AccountType {
@@ -112,7 +107,6 @@ export enum AccountType {
  * <p>The Alexa for Business metadata associated with an Amazon Chime user, used to integrate Alexa for Business with a device.</p>
  */
 export interface AlexaForBusinessMetadata {
-  __type?: "AlexaForBusinessMetadata";
   /**
    * <p>Starts or stops Alexa for Business.</p>
    */
@@ -129,11 +123,9 @@ export namespace AlexaForBusinessMetadata {
     ...obj,
     ...(obj.AlexaForBusinessRoomArn && { AlexaForBusinessRoomArn: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AlexaForBusinessMetadata => __isa(o, "AlexaForBusinessMetadata");
 }
 
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
-  __type?: "AssociatePhoneNumbersWithVoiceConnectorGroupRequest";
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
@@ -155,12 +147,9 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
     ...obj,
     ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssociatePhoneNumbersWithVoiceConnectorGroupRequest =>
-    __isa(o, "AssociatePhoneNumbersWithVoiceConnectorGroupRequest");
 }
 
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
-  __type?: "AssociatePhoneNumbersWithVoiceConnectorGroupResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -171,12 +160,9 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (obj: AssociatePhoneNumbersWithVoiceConnectorGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatePhoneNumbersWithVoiceConnectorGroupResponse =>
-    __isa(o, "AssociatePhoneNumbersWithVoiceConnectorGroupResponse");
 }
 
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
-  __type?: "AssociatePhoneNumbersWithVoiceConnectorRequest";
   /**
    * <p>If true, associates the provided phone numbers with the provided Amazon Chime Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
    */
@@ -198,12 +184,9 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorRequest {
     ...obj,
     ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssociatePhoneNumbersWithVoiceConnectorRequest =>
-    __isa(o, "AssociatePhoneNumbersWithVoiceConnectorRequest");
 }
 
 export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
-  __type?: "AssociatePhoneNumbersWithVoiceConnectorResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -214,12 +197,9 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorResponse {
   export const filterSensitiveLog = (obj: AssociatePhoneNumbersWithVoiceConnectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatePhoneNumbersWithVoiceConnectorResponse =>
-    __isa(o, "AssociatePhoneNumbersWithVoiceConnectorResponse");
 }
 
 export interface AssociatePhoneNumberWithUserRequest {
-  __type?: "AssociatePhoneNumberWithUserRequest";
   /**
    * <p>The phone number, in E.164 format.</p>
    */
@@ -241,24 +221,17 @@ export namespace AssociatePhoneNumberWithUserRequest {
     ...obj,
     ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssociatePhoneNumberWithUserRequest =>
-    __isa(o, "AssociatePhoneNumberWithUserRequest");
 }
 
-export interface AssociatePhoneNumberWithUserResponse {
-  __type?: "AssociatePhoneNumberWithUserResponse";
-}
+export interface AssociatePhoneNumberWithUserResponse {}
 
 export namespace AssociatePhoneNumberWithUserResponse {
   export const filterSensitiveLog = (obj: AssociatePhoneNumberWithUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatePhoneNumberWithUserResponse =>
-    __isa(o, "AssociatePhoneNumberWithUserResponse");
 }
 
 export interface AssociateSigninDelegateGroupsWithAccountRequest {
-  __type?: "AssociateSigninDelegateGroupsWithAccountRequest";
   /**
    * <p>The sign-in delegate groups.</p>
    */
@@ -274,20 +247,14 @@ export namespace AssociateSigninDelegateGroupsWithAccountRequest {
   export const filterSensitiveLog = (obj: AssociateSigninDelegateGroupsWithAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSigninDelegateGroupsWithAccountRequest =>
-    __isa(o, "AssociateSigninDelegateGroupsWithAccountRequest");
 }
 
-export interface AssociateSigninDelegateGroupsWithAccountResponse {
-  __type?: "AssociateSigninDelegateGroupsWithAccountResponse";
-}
+export interface AssociateSigninDelegateGroupsWithAccountResponse {}
 
 export namespace AssociateSigninDelegateGroupsWithAccountResponse {
   export const filterSensitiveLog = (obj: AssociateSigninDelegateGroupsWithAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSigninDelegateGroupsWithAccountResponse =>
-    __isa(o, "AssociateSigninDelegateGroupsWithAccountResponse");
 }
 
 /**
@@ -297,7 +264,6 @@ export namespace AssociateSigninDelegateGroupsWithAccountResponse {
  *       application to the client so that no other client has access to the token except for the one authorized to represent the attendee.</p>
  */
 export interface Attendee {
-  __type?: "Attendee";
   /**
    * <p>The Amazon Chime SDK attendee ID.</p>
    */
@@ -320,7 +286,6 @@ export namespace Attendee {
     ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Attendee => __isa(o, "Attendee");
 }
 
 /**
@@ -337,11 +302,9 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface BatchCreateAttendeeRequest {
-  __type?: "BatchCreateAttendeeRequest";
   /**
    * <p>The request containing the attendees to create.</p>
    */
@@ -360,11 +323,9 @@ export namespace BatchCreateAttendeeRequest {
       Attendees: obj.Attendees.map((item) => CreateAttendeeRequestItem.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is BatchCreateAttendeeRequest => __isa(o, "BatchCreateAttendeeRequest");
 }
 
 export interface BatchCreateAttendeeResponse {
-  __type?: "BatchCreateAttendeeResponse";
   /**
    * <p>The attendee information, including attendees IDs and join tokens.</p>
    */
@@ -382,11 +343,9 @@ export namespace BatchCreateAttendeeResponse {
     ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
     ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeError.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BatchCreateAttendeeResponse => __isa(o, "BatchCreateAttendeeResponse");
 }
 
 export interface BatchCreateRoomMembershipRequest {
-  __type?: "BatchCreateRoomMembershipRequest";
   /**
    * <p>The list of membership items.</p>
    */
@@ -407,11 +366,9 @@ export namespace BatchCreateRoomMembershipRequest {
   export const filterSensitiveLog = (obj: BatchCreateRoomMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreateRoomMembershipRequest => __isa(o, "BatchCreateRoomMembershipRequest");
 }
 
 export interface BatchCreateRoomMembershipResponse {
-  __type?: "BatchCreateRoomMembershipResponse";
   /**
    * <p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>
    */
@@ -422,11 +379,9 @@ export namespace BatchCreateRoomMembershipResponse {
   export const filterSensitiveLog = (obj: BatchCreateRoomMembershipResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreateRoomMembershipResponse => __isa(o, "BatchCreateRoomMembershipResponse");
 }
 
 export interface BatchDeletePhoneNumberRequest {
-  __type?: "BatchDeletePhoneNumberRequest";
   /**
    * <p>List of phone number IDs.</p>
    */
@@ -437,11 +392,9 @@ export namespace BatchDeletePhoneNumberRequest {
   export const filterSensitiveLog = (obj: BatchDeletePhoneNumberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeletePhoneNumberRequest => __isa(o, "BatchDeletePhoneNumberRequest");
 }
 
 export interface BatchDeletePhoneNumberResponse {
-  __type?: "BatchDeletePhoneNumberResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -452,11 +405,9 @@ export namespace BatchDeletePhoneNumberResponse {
   export const filterSensitiveLog = (obj: BatchDeletePhoneNumberResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeletePhoneNumberResponse => __isa(o, "BatchDeletePhoneNumberResponse");
 }
 
 export interface BatchSuspendUserRequest {
-  __type?: "BatchSuspendUserRequest";
   /**
    * <p>The request containing the user IDs to suspend.</p>
    */
@@ -472,11 +423,9 @@ export namespace BatchSuspendUserRequest {
   export const filterSensitiveLog = (obj: BatchSuspendUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchSuspendUserRequest => __isa(o, "BatchSuspendUserRequest");
 }
 
 export interface BatchSuspendUserResponse {
-  __type?: "BatchSuspendUserResponse";
   /**
    * <p>If the <a>BatchSuspendUser</a> action fails for one
    *       or more of the user IDs in the request, a list of the user IDs is returned, along with error
@@ -489,11 +438,9 @@ export namespace BatchSuspendUserResponse {
   export const filterSensitiveLog = (obj: BatchSuspendUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchSuspendUserResponse => __isa(o, "BatchSuspendUserResponse");
 }
 
 export interface BatchUnsuspendUserRequest {
-  __type?: "BatchUnsuspendUserRequest";
   /**
    * <p>The request containing the user IDs to unsuspend.</p>
    */
@@ -509,11 +456,9 @@ export namespace BatchUnsuspendUserRequest {
   export const filterSensitiveLog = (obj: BatchUnsuspendUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUnsuspendUserRequest => __isa(o, "BatchUnsuspendUserRequest");
 }
 
 export interface BatchUnsuspendUserResponse {
-  __type?: "BatchUnsuspendUserResponse";
   /**
    * <p>If the <a>BatchUnsuspendUser</a> action fails for one
    *       or more of the user IDs in the request, a list of the user IDs is returned, along with error
@@ -526,11 +471,9 @@ export namespace BatchUnsuspendUserResponse {
   export const filterSensitiveLog = (obj: BatchUnsuspendUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUnsuspendUserResponse => __isa(o, "BatchUnsuspendUserResponse");
 }
 
 export interface BatchUpdatePhoneNumberRequest {
-  __type?: "BatchUpdatePhoneNumberRequest";
   /**
    * <p>The request containing the phone number IDs and product types or calling names to update.</p>
    */
@@ -546,11 +489,9 @@ export namespace BatchUpdatePhoneNumberRequest {
       ),
     }),
   });
-  export const isa = (o: any): o is BatchUpdatePhoneNumberRequest => __isa(o, "BatchUpdatePhoneNumberRequest");
 }
 
 export interface BatchUpdatePhoneNumberResponse {
-  __type?: "BatchUpdatePhoneNumberResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -561,11 +502,9 @@ export namespace BatchUpdatePhoneNumberResponse {
   export const filterSensitiveLog = (obj: BatchUpdatePhoneNumberResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdatePhoneNumberResponse => __isa(o, "BatchUpdatePhoneNumberResponse");
 }
 
 export interface BatchUpdateUserRequest {
-  __type?: "BatchUpdateUserRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -584,11 +523,9 @@ export namespace BatchUpdateUserRequest {
       UpdateUserRequestItems: obj.UpdateUserRequestItems.map((item) => UpdateUserRequestItem.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is BatchUpdateUserRequest => __isa(o, "BatchUpdateUserRequest");
 }
 
 export interface BatchUpdateUserResponse {
-  __type?: "BatchUpdateUserResponse";
   /**
    * <p>If the <a>BatchUpdateUser</a> action fails for one
    *       or more of the user IDs in the request, a list of the user IDs is returned, along with error
@@ -601,14 +538,12 @@ export namespace BatchUpdateUserResponse {
   export const filterSensitiveLog = (obj: BatchUpdateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateUserResponse => __isa(o, "BatchUpdateUserResponse");
 }
 
 /**
  * <p>A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.</p>
  */
 export interface Bot {
-  __type?: "Bot";
   /**
    * <p>When true, the bot is stopped from running in your account.</p>
    */
@@ -662,7 +597,6 @@ export namespace Bot {
     ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
     ...(obj.BotEmail && { BotEmail: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Bot => __isa(o, "Bot");
 }
 
 export enum BotType {
@@ -674,7 +608,6 @@ export enum BotType {
  *       Includes any Amazon S3 buckets designated for storing call detail records.</p>
  */
 export interface BusinessCallingSettings {
-  __type?: "BusinessCallingSettings";
   /**
    * <p>The Amazon S3 bucket designated for call detail record storage.</p>
    */
@@ -685,7 +618,6 @@ export namespace BusinessCallingSettings {
   export const filterSensitiveLog = (obj: BusinessCallingSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BusinessCallingSettings => __isa(o, "BusinessCallingSettings");
 }
 
 export enum CallingNameStatus {
@@ -715,14 +647,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>The retention settings that determine how long to retain chat conversation messages for an Amazon Chime Enterprise account.</p>
  */
 export interface ConversationRetentionSettings {
-  __type?: "ConversationRetentionSettings";
   /**
    * <p>The number of days for which to retain chat conversation messages.</p>
    */
@@ -733,11 +663,9 @@ export namespace ConversationRetentionSettings {
   export const filterSensitiveLog = (obj: ConversationRetentionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConversationRetentionSettings => __isa(o, "ConversationRetentionSettings");
 }
 
 export interface CreateAccountRequest {
-  __type?: "CreateAccountRequest";
   /**
    * <p>The name of the Amazon Chime account.</p>
    */
@@ -748,11 +676,9 @@ export namespace CreateAccountRequest {
   export const filterSensitiveLog = (obj: CreateAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccountRequest => __isa(o, "CreateAccountRequest");
 }
 
 export interface CreateAccountResponse {
-  __type?: "CreateAccountResponse";
   /**
    * <p>The Amazon Chime account details.</p>
    */
@@ -763,14 +689,12 @@ export namespace CreateAccountResponse {
   export const filterSensitiveLog = (obj: CreateAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccountResponse => __isa(o, "CreateAccountResponse");
 }
 
 /**
  * <p>The list of errors returned when errors are encountered during the BatchCreateAttendee and CreateAttendee actions. This includes external user IDs, error codes, and error messages.</p>
  */
 export interface CreateAttendeeError {
-  __type?: "CreateAttendeeError";
   /**
    * <p>The error code.</p>
    */
@@ -792,11 +716,9 @@ export namespace CreateAttendeeError {
     ...obj,
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateAttendeeError => __isa(o, "CreateAttendeeError");
 }
 
 export interface CreateAttendeeRequest {
-  __type?: "CreateAttendeeRequest";
   /**
    * <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>
    */
@@ -819,14 +741,12 @@ export namespace CreateAttendeeRequest {
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateAttendeeRequest => __isa(o, "CreateAttendeeRequest");
 }
 
 /**
  * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
  */
 export interface CreateAttendeeRequestItem {
-  __type?: "CreateAttendeeRequestItem";
   /**
    * <p>The Amazon Chime SDK external user ID. Links the attendee to an identity managed by a builder application.</p>
    */
@@ -844,11 +764,9 @@ export namespace CreateAttendeeRequestItem {
     ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateAttendeeRequestItem => __isa(o, "CreateAttendeeRequestItem");
 }
 
 export interface CreateAttendeeResponse {
-  __type?: "CreateAttendeeResponse";
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
    */
@@ -860,11 +778,9 @@ export namespace CreateAttendeeResponse {
     ...obj,
     ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
   });
-  export const isa = (o: any): o is CreateAttendeeResponse => __isa(o, "CreateAttendeeResponse");
 }
 
 export interface CreateBotRequest {
-  __type?: "CreateBotRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -886,11 +802,9 @@ export namespace CreateBotRequest {
     ...obj,
     ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateBotRequest => __isa(o, "CreateBotRequest");
 }
 
 export interface CreateBotResponse {
-  __type?: "CreateBotResponse";
   /**
    * <p>The bot details.</p>
    */
@@ -902,11 +816,9 @@ export namespace CreateBotResponse {
     ...obj,
     ...(obj.Bot && { Bot: Bot.filterSensitiveLog(obj.Bot) }),
   });
-  export const isa = (o: any): o is CreateBotResponse => __isa(o, "CreateBotResponse");
 }
 
 export interface CreateMeetingRequest {
-  __type?: "CreateMeetingRequest";
   /**
    * <p>The tag key-value pairs.</p>
    */
@@ -950,11 +862,9 @@ export namespace CreateMeetingRequest {
     }),
     ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateMeetingRequest => __isa(o, "CreateMeetingRequest");
 }
 
 export interface CreateMeetingResponse {
-  __type?: "CreateMeetingResponse";
   /**
    * <p>The meeting information, including the meeting ID and <code>MediaPlacement</code>.</p>
    */
@@ -966,11 +876,9 @@ export namespace CreateMeetingResponse {
     ...obj,
     ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
   });
-  export const isa = (o: any): o is CreateMeetingResponse => __isa(o, "CreateMeetingResponse");
 }
 
 export interface CreateMeetingWithAttendeesRequest {
-  __type?: "CreateMeetingWithAttendeesRequest";
   /**
    * <p>The configuration for resource targets to receive notifications when Amazon Chime SDK meeting and attendee events occur. The Amazon Chime SDK supports resource targets located in the US East (N. Virginia) AWS Region (<code>us-east-1</code>).</p>
    */
@@ -1022,11 +930,9 @@ export namespace CreateMeetingWithAttendeesRequest {
     ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateMeetingWithAttendeesRequest => __isa(o, "CreateMeetingWithAttendeesRequest");
 }
 
 export interface CreateMeetingWithAttendeesResponse {
-  __type?: "CreateMeetingWithAttendeesResponse";
   /**
    * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
    */
@@ -1050,12 +956,9 @@ export namespace CreateMeetingWithAttendeesResponse {
     ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
     ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
   });
-  export const isa = (o: any): o is CreateMeetingWithAttendeesResponse =>
-    __isa(o, "CreateMeetingWithAttendeesResponse");
 }
 
 export interface CreatePhoneNumberOrderRequest {
-  __type?: "CreatePhoneNumberOrderRequest";
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
@@ -1072,11 +975,9 @@ export namespace CreatePhoneNumberOrderRequest {
     ...obj,
     ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreatePhoneNumberOrderRequest => __isa(o, "CreatePhoneNumberOrderRequest");
 }
 
 export interface CreatePhoneNumberOrderResponse {
-  __type?: "CreatePhoneNumberOrderResponse";
   /**
    * <p>The phone number order details.</p>
    */
@@ -1088,11 +989,9 @@ export namespace CreatePhoneNumberOrderResponse {
     ...obj,
     ...(obj.PhoneNumberOrder && { PhoneNumberOrder: PhoneNumberOrder.filterSensitiveLog(obj.PhoneNumberOrder) }),
   });
-  export const isa = (o: any): o is CreatePhoneNumberOrderResponse => __isa(o, "CreatePhoneNumberOrderResponse");
 }
 
 export interface CreateProxySessionRequest {
-  __type?: "CreateProxySessionRequest";
   /**
    * <p>The proxy session capabilities.</p>
    */
@@ -1140,11 +1039,9 @@ export namespace CreateProxySessionRequest {
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.ParticipantPhoneNumbers && { ParticipantPhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateProxySessionRequest => __isa(o, "CreateProxySessionRequest");
 }
 
 export interface CreateProxySessionResponse {
-  __type?: "CreateProxySessionResponse";
   /**
    * <p>The proxy session details.</p>
    */
@@ -1156,11 +1053,9 @@ export namespace CreateProxySessionResponse {
     ...obj,
     ...(obj.ProxySession && { ProxySession: ProxySession.filterSensitiveLog(obj.ProxySession) }),
   });
-  export const isa = (o: any): o is CreateProxySessionResponse => __isa(o, "CreateProxySessionResponse");
 }
 
 export interface CreateRoomMembershipRequest {
-  __type?: "CreateRoomMembershipRequest";
   /**
    * <p>The role of the member.</p>
    */
@@ -1186,11 +1081,9 @@ export namespace CreateRoomMembershipRequest {
   export const filterSensitiveLog = (obj: CreateRoomMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoomMembershipRequest => __isa(o, "CreateRoomMembershipRequest");
 }
 
 export interface CreateRoomMembershipResponse {
-  __type?: "CreateRoomMembershipResponse";
   /**
    * <p>The room membership details.</p>
    */
@@ -1202,11 +1095,9 @@ export namespace CreateRoomMembershipResponse {
     ...obj,
     ...(obj.RoomMembership && { RoomMembership: RoomMembership.filterSensitiveLog(obj.RoomMembership) }),
   });
-  export const isa = (o: any): o is CreateRoomMembershipResponse => __isa(o, "CreateRoomMembershipResponse");
 }
 
 export interface CreateRoomRequest {
-  __type?: "CreateRoomRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1229,11 +1120,9 @@ export namespace CreateRoomRequest {
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateRoomRequest => __isa(o, "CreateRoomRequest");
 }
 
 export interface CreateRoomResponse {
-  __type?: "CreateRoomResponse";
   /**
    * <p>The room details.</p>
    */
@@ -1245,11 +1134,9 @@ export namespace CreateRoomResponse {
     ...obj,
     ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
   });
-  export const isa = (o: any): o is CreateRoomResponse => __isa(o, "CreateRoomResponse");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1276,11 +1163,9 @@ export namespace CreateUserRequest {
     ...obj,
     ...(obj.Email && { Email: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
   /**
    * <p>The user on the Amazon Chime account.</p>
    */
@@ -1292,11 +1177,9 @@ export namespace CreateUserResponse {
     ...obj,
     ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export interface CreateVoiceConnectorGroupRequest {
-  __type?: "CreateVoiceConnectorGroupRequest";
   /**
    * <p>The Amazon Chime Voice Connectors to route inbound calls to.</p>
    */
@@ -1312,11 +1195,9 @@ export namespace CreateVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (obj: CreateVoiceConnectorGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVoiceConnectorGroupRequest => __isa(o, "CreateVoiceConnectorGroupRequest");
 }
 
 export interface CreateVoiceConnectorGroupResponse {
-  __type?: "CreateVoiceConnectorGroupResponse";
   /**
    * <p>The Amazon Chime Voice Connector group details.</p>
    */
@@ -1327,11 +1208,9 @@ export namespace CreateVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (obj: CreateVoiceConnectorGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVoiceConnectorGroupResponse => __isa(o, "CreateVoiceConnectorGroupResponse");
 }
 
 export interface CreateVoiceConnectorRequest {
-  __type?: "CreateVoiceConnectorRequest";
   /**
    * <p>The AWS Region in which the Amazon Chime Voice Connector is created. Default value: <code>us-east-1</code>.</p>
    */
@@ -1352,11 +1231,9 @@ export namespace CreateVoiceConnectorRequest {
   export const filterSensitiveLog = (obj: CreateVoiceConnectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVoiceConnectorRequest => __isa(o, "CreateVoiceConnectorRequest");
 }
 
 export interface CreateVoiceConnectorResponse {
-  __type?: "CreateVoiceConnectorResponse";
   /**
    * <p>The Amazon Chime Voice Connector details.</p>
    */
@@ -1367,14 +1244,12 @@ export namespace CreateVoiceConnectorResponse {
   export const filterSensitiveLog = (obj: CreateVoiceConnectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVoiceConnectorResponse => __isa(o, "CreateVoiceConnectorResponse");
 }
 
 /**
  * <p>The SIP credentials used to authenticate requests to your Amazon Chime Voice Connector.</p>
  */
 export interface Credential {
-  __type?: "Credential";
   /**
    * <p>The RFC2617 compliant password associated with the SIP credentials, in US-ASCII format.</p>
    */
@@ -1393,11 +1268,9 @@ export namespace Credential {
     ...(obj.Password && { Password: SENSITIVE_STRING }),
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Credential => __isa(o, "Credential");
 }
 
 export interface DeleteAccountRequest {
-  __type?: "DeleteAccountRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1408,22 +1281,17 @@ export namespace DeleteAccountRequest {
   export const filterSensitiveLog = (obj: DeleteAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountRequest => __isa(o, "DeleteAccountRequest");
 }
 
-export interface DeleteAccountResponse {
-  __type?: "DeleteAccountResponse";
-}
+export interface DeleteAccountResponse {}
 
 export namespace DeleteAccountResponse {
   export const filterSensitiveLog = (obj: DeleteAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountResponse => __isa(o, "DeleteAccountResponse");
 }
 
 export interface DeleteAttendeeRequest {
-  __type?: "DeleteAttendeeRequest";
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
@@ -1439,11 +1307,9 @@ export namespace DeleteAttendeeRequest {
   export const filterSensitiveLog = (obj: DeleteAttendeeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAttendeeRequest => __isa(o, "DeleteAttendeeRequest");
 }
 
 export interface DeleteEventsConfigurationRequest {
-  __type?: "DeleteEventsConfigurationRequest";
   /**
    * <p>The bot ID.</p>
    */
@@ -1459,11 +1325,9 @@ export namespace DeleteEventsConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteEventsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventsConfigurationRequest => __isa(o, "DeleteEventsConfigurationRequest");
 }
 
 export interface DeleteMeetingRequest {
-  __type?: "DeleteMeetingRequest";
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
@@ -1474,11 +1338,9 @@ export namespace DeleteMeetingRequest {
   export const filterSensitiveLog = (obj: DeleteMeetingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMeetingRequest => __isa(o, "DeleteMeetingRequest");
 }
 
 export interface DeletePhoneNumberRequest {
-  __type?: "DeletePhoneNumberRequest";
   /**
    * <p>The phone number ID.</p>
    */
@@ -1489,11 +1351,9 @@ export namespace DeletePhoneNumberRequest {
   export const filterSensitiveLog = (obj: DeletePhoneNumberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePhoneNumberRequest => __isa(o, "DeletePhoneNumberRequest");
 }
 
 export interface DeleteProxySessionRequest {
-  __type?: "DeleteProxySessionRequest";
   /**
    * <p>The Amazon Chime voice connector ID.</p>
    */
@@ -1509,11 +1369,9 @@ export namespace DeleteProxySessionRequest {
   export const filterSensitiveLog = (obj: DeleteProxySessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProxySessionRequest => __isa(o, "DeleteProxySessionRequest");
 }
 
 export interface DeleteRoomMembershipRequest {
-  __type?: "DeleteRoomMembershipRequest";
   /**
    * <p>The member ID (user ID or bot ID).</p>
    */
@@ -1534,11 +1392,9 @@ export namespace DeleteRoomMembershipRequest {
   export const filterSensitiveLog = (obj: DeleteRoomMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoomMembershipRequest => __isa(o, "DeleteRoomMembershipRequest");
 }
 
 export interface DeleteRoomRequest {
-  __type?: "DeleteRoomRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1554,11 +1410,9 @@ export namespace DeleteRoomRequest {
   export const filterSensitiveLog = (obj: DeleteRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoomRequest => __isa(o, "DeleteRoomRequest");
 }
 
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
-  __type?: "DeleteVoiceConnectorEmergencyCallingConfigurationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -1569,12 +1423,9 @@ export namespace DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorEmergencyCallingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorEmergencyCallingConfigurationRequest =>
-    __isa(o, "DeleteVoiceConnectorEmergencyCallingConfigurationRequest");
 }
 
 export interface DeleteVoiceConnectorGroupRequest {
-  __type?: "DeleteVoiceConnectorGroupRequest";
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
@@ -1585,11 +1436,9 @@ export namespace DeleteVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorGroupRequest => __isa(o, "DeleteVoiceConnectorGroupRequest");
 }
 
 export interface DeleteVoiceConnectorOriginationRequest {
-  __type?: "DeleteVoiceConnectorOriginationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -1600,12 +1449,9 @@ export namespace DeleteVoiceConnectorOriginationRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorOriginationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorOriginationRequest =>
-    __isa(o, "DeleteVoiceConnectorOriginationRequest");
 }
 
 export interface DeleteVoiceConnectorProxyRequest {
-  __type?: "DeleteVoiceConnectorProxyRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -1616,11 +1462,9 @@ export namespace DeleteVoiceConnectorProxyRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorProxyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorProxyRequest => __isa(o, "DeleteVoiceConnectorProxyRequest");
 }
 
 export interface DeleteVoiceConnectorRequest {
-  __type?: "DeleteVoiceConnectorRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -1631,11 +1475,9 @@ export namespace DeleteVoiceConnectorRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorRequest => __isa(o, "DeleteVoiceConnectorRequest");
 }
 
 export interface DeleteVoiceConnectorStreamingConfigurationRequest {
-  __type?: "DeleteVoiceConnectorStreamingConfigurationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -1646,12 +1488,9 @@ export namespace DeleteVoiceConnectorStreamingConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorStreamingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorStreamingConfigurationRequest =>
-    __isa(o, "DeleteVoiceConnectorStreamingConfigurationRequest");
 }
 
 export interface DeleteVoiceConnectorTerminationCredentialsRequest {
-  __type?: "DeleteVoiceConnectorTerminationCredentialsRequest";
   /**
    * <p>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</p>
    */
@@ -1668,12 +1507,9 @@ export namespace DeleteVoiceConnectorTerminationCredentialsRequest {
     ...obj,
     ...(obj.Usernames && { Usernames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorTerminationCredentialsRequest =>
-    __isa(o, "DeleteVoiceConnectorTerminationCredentialsRequest");
 }
 
 export interface DeleteVoiceConnectorTerminationRequest {
-  __type?: "DeleteVoiceConnectorTerminationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -1684,12 +1520,9 @@ export namespace DeleteVoiceConnectorTerminationRequest {
   export const filterSensitiveLog = (obj: DeleteVoiceConnectorTerminationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVoiceConnectorTerminationRequest =>
-    __isa(o, "DeleteVoiceConnectorTerminationRequest");
 }
 
 export interface DisassociatePhoneNumberFromUserRequest {
-  __type?: "DisassociatePhoneNumberFromUserRequest";
   /**
    * <p>The user ID.</p>
    */
@@ -1705,24 +1538,17 @@ export namespace DisassociatePhoneNumberFromUserRequest {
   export const filterSensitiveLog = (obj: DisassociatePhoneNumberFromUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociatePhoneNumberFromUserRequest =>
-    __isa(o, "DisassociatePhoneNumberFromUserRequest");
 }
 
-export interface DisassociatePhoneNumberFromUserResponse {
-  __type?: "DisassociatePhoneNumberFromUserResponse";
-}
+export interface DisassociatePhoneNumberFromUserResponse {}
 
 export namespace DisassociatePhoneNumberFromUserResponse {
   export const filterSensitiveLog = (obj: DisassociatePhoneNumberFromUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociatePhoneNumberFromUserResponse =>
-    __isa(o, "DisassociatePhoneNumberFromUserResponse");
 }
 
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
-  __type?: "DisassociatePhoneNumbersFromVoiceConnectorGroupRequest";
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
@@ -1739,12 +1565,9 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
     ...obj,
     ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DisassociatePhoneNumbersFromVoiceConnectorGroupRequest =>
-    __isa(o, "DisassociatePhoneNumbersFromVoiceConnectorGroupRequest");
 }
 
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
-  __type?: "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -1755,12 +1578,9 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (obj: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociatePhoneNumbersFromVoiceConnectorGroupResponse =>
-    __isa(o, "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse");
 }
 
 export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
-  __type?: "DisassociatePhoneNumbersFromVoiceConnectorRequest";
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
@@ -1777,12 +1597,9 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorRequest {
     ...obj,
     ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DisassociatePhoneNumbersFromVoiceConnectorRequest =>
-    __isa(o, "DisassociatePhoneNumbersFromVoiceConnectorRequest");
 }
 
 export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
-  __type?: "DisassociatePhoneNumbersFromVoiceConnectorResponse";
   /**
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -1793,12 +1610,9 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
   export const filterSensitiveLog = (obj: DisassociatePhoneNumbersFromVoiceConnectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociatePhoneNumbersFromVoiceConnectorResponse =>
-    __isa(o, "DisassociatePhoneNumbersFromVoiceConnectorResponse");
 }
 
 export interface DisassociateSigninDelegateGroupsFromAccountRequest {
-  __type?: "DisassociateSigninDelegateGroupsFromAccountRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1814,27 +1628,20 @@ export namespace DisassociateSigninDelegateGroupsFromAccountRequest {
   export const filterSensitiveLog = (obj: DisassociateSigninDelegateGroupsFromAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSigninDelegateGroupsFromAccountRequest =>
-    __isa(o, "DisassociateSigninDelegateGroupsFromAccountRequest");
 }
 
-export interface DisassociateSigninDelegateGroupsFromAccountResponse {
-  __type?: "DisassociateSigninDelegateGroupsFromAccountResponse";
-}
+export interface DisassociateSigninDelegateGroupsFromAccountResponse {}
 
 export namespace DisassociateSigninDelegateGroupsFromAccountResponse {
   export const filterSensitiveLog = (obj: DisassociateSigninDelegateGroupsFromAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSigninDelegateGroupsFromAccountResponse =>
-    __isa(o, "DisassociateSigninDelegateGroupsFromAccountResponse");
 }
 
 /**
  * <p>The Dialed Number Identification Service (DNIS) emergency calling configuration details associated with an Amazon Chime Voice Connector's emergency calling configuration.</p>
  */
 export interface DNISEmergencyCallingConfiguration {
-  __type?: "DNISEmergencyCallingConfiguration";
   /**
    * <p>The country from which emergency calls are allowed, in ISO 3166-1 alpha-2 format.</p>
    */
@@ -1857,7 +1664,6 @@ export namespace DNISEmergencyCallingConfiguration {
     ...(obj.TestPhoneNumber && { TestPhoneNumber: SENSITIVE_STRING }),
     ...(obj.EmergencyPhoneNumber && { EmergencyPhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DNISEmergencyCallingConfiguration => __isa(o, "DNISEmergencyCallingConfiguration");
 }
 
 export enum EmailStatus {
@@ -1870,7 +1676,6 @@ export enum EmailStatus {
  * <p>The emergency calling configuration details associated with an Amazon Chime Voice Connector.</p>
  */
 export interface EmergencyCallingConfiguration {
-  __type?: "EmergencyCallingConfiguration";
   /**
    * <p>The Dialed Number Identification Service (DNIS) emergency calling configuration details.</p>
    */
@@ -1882,7 +1687,6 @@ export namespace EmergencyCallingConfiguration {
     ...obj,
     ...(obj.DNIS && { DNIS: obj.DNIS.map((item) => DNISEmergencyCallingConfiguration.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is EmergencyCallingConfiguration => __isa(o, "EmergencyCallingConfiguration");
 }
 
 export enum ErrorCode {
@@ -1906,7 +1710,6 @@ export enum ErrorCode {
  * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
  */
 export interface EventsConfiguration {
-  __type?: "EventsConfiguration";
   /**
    * <p>Lambda function ARN that allows a bot to receive outgoing events.</p>
    */
@@ -1929,7 +1732,6 @@ export namespace EventsConfiguration {
     ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
     ...(obj.OutboundEventsHTTPSEndpoint && { OutboundEventsHTTPSEndpoint: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EventsConfiguration => __isa(o, "EventsConfiguration");
 }
 
 /**
@@ -1947,7 +1749,6 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export enum GeoMatchLevel {
@@ -1959,7 +1760,6 @@ export enum GeoMatchLevel {
  * <p>The country and area code for a proxy phone number in a proxy phone session.</p>
  */
 export interface GeoMatchParams {
-  __type?: "GeoMatchParams";
   /**
    * <p>The area code.</p>
    */
@@ -1975,11 +1775,9 @@ export namespace GeoMatchParams {
   export const filterSensitiveLog = (obj: GeoMatchParams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoMatchParams => __isa(o, "GeoMatchParams");
 }
 
 export interface GetAccountRequest {
-  __type?: "GetAccountRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -1990,11 +1788,9 @@ export namespace GetAccountRequest {
   export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountRequest => __isa(o, "GetAccountRequest");
 }
 
 export interface GetAccountResponse {
-  __type?: "GetAccountResponse";
   /**
    * <p>The Amazon Chime account details.</p>
    */
@@ -2005,11 +1801,9 @@ export namespace GetAccountResponse {
   export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountResponse => __isa(o, "GetAccountResponse");
 }
 
 export interface GetAccountSettingsRequest {
-  __type?: "GetAccountSettingsRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -2020,11 +1814,9 @@ export namespace GetAccountSettingsRequest {
   export const filterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsRequest => __isa(o, "GetAccountSettingsRequest");
 }
 
 export interface GetAccountSettingsResponse {
-  __type?: "GetAccountSettingsResponse";
   /**
    * <p>The Amazon Chime account settings.</p>
    */
@@ -2035,11 +1827,9 @@ export namespace GetAccountSettingsResponse {
   export const filterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsResponse => __isa(o, "GetAccountSettingsResponse");
 }
 
 export interface GetAttendeeRequest {
-  __type?: "GetAttendeeRequest";
   /**
    * <p>The Amazon Chime SDK attendee ID.</p>
    */
@@ -2055,11 +1845,9 @@ export namespace GetAttendeeRequest {
   export const filterSensitiveLog = (obj: GetAttendeeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAttendeeRequest => __isa(o, "GetAttendeeRequest");
 }
 
 export interface GetAttendeeResponse {
-  __type?: "GetAttendeeResponse";
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
    */
@@ -2071,11 +1859,9 @@ export namespace GetAttendeeResponse {
     ...obj,
     ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
   });
-  export const isa = (o: any): o is GetAttendeeResponse => __isa(o, "GetAttendeeResponse");
 }
 
 export interface GetBotRequest {
-  __type?: "GetBotRequest";
   /**
    * <p>The bot ID.</p>
    */
@@ -2091,11 +1877,9 @@ export namespace GetBotRequest {
   export const filterSensitiveLog = (obj: GetBotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBotRequest => __isa(o, "GetBotRequest");
 }
 
 export interface GetBotResponse {
-  __type?: "GetBotResponse";
   /**
    * <p>The chat bot details.</p>
    */
@@ -2107,11 +1891,9 @@ export namespace GetBotResponse {
     ...obj,
     ...(obj.Bot && { Bot: Bot.filterSensitiveLog(obj.Bot) }),
   });
-  export const isa = (o: any): o is GetBotResponse => __isa(o, "GetBotResponse");
 }
 
 export interface GetEventsConfigurationRequest {
-  __type?: "GetEventsConfigurationRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -2127,11 +1909,9 @@ export namespace GetEventsConfigurationRequest {
   export const filterSensitiveLog = (obj: GetEventsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventsConfigurationRequest => __isa(o, "GetEventsConfigurationRequest");
 }
 
 export interface GetEventsConfigurationResponse {
-  __type?: "GetEventsConfigurationResponse";
   /**
    * <p>The events configuration details.</p>
    */
@@ -2145,11 +1925,9 @@ export namespace GetEventsConfigurationResponse {
       EventsConfiguration: EventsConfiguration.filterSensitiveLog(obj.EventsConfiguration),
     }),
   });
-  export const isa = (o: any): o is GetEventsConfigurationResponse => __isa(o, "GetEventsConfigurationResponse");
 }
 
 export interface GetGlobalSettingsResponse {
-  __type?: "GetGlobalSettingsResponse";
   /**
    * <p>The Amazon Chime Business Calling settings.</p>
    */
@@ -2165,11 +1943,9 @@ export namespace GetGlobalSettingsResponse {
   export const filterSensitiveLog = (obj: GetGlobalSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGlobalSettingsResponse => __isa(o, "GetGlobalSettingsResponse");
 }
 
 export interface GetMeetingRequest {
-  __type?: "GetMeetingRequest";
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
@@ -2180,11 +1956,9 @@ export namespace GetMeetingRequest {
   export const filterSensitiveLog = (obj: GetMeetingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMeetingRequest => __isa(o, "GetMeetingRequest");
 }
 
 export interface GetMeetingResponse {
-  __type?: "GetMeetingResponse";
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
    */
@@ -2196,11 +1970,9 @@ export namespace GetMeetingResponse {
     ...obj,
     ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
   });
-  export const isa = (o: any): o is GetMeetingResponse => __isa(o, "GetMeetingResponse");
 }
 
 export interface GetPhoneNumberOrderRequest {
-  __type?: "GetPhoneNumberOrderRequest";
   /**
    * <p>The ID for the phone number order.</p>
    */
@@ -2211,11 +1983,9 @@ export namespace GetPhoneNumberOrderRequest {
   export const filterSensitiveLog = (obj: GetPhoneNumberOrderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPhoneNumberOrderRequest => __isa(o, "GetPhoneNumberOrderRequest");
 }
 
 export interface GetPhoneNumberOrderResponse {
-  __type?: "GetPhoneNumberOrderResponse";
   /**
    * <p>The phone number order details.</p>
    */
@@ -2227,11 +1997,9 @@ export namespace GetPhoneNumberOrderResponse {
     ...obj,
     ...(obj.PhoneNumberOrder && { PhoneNumberOrder: PhoneNumberOrder.filterSensitiveLog(obj.PhoneNumberOrder) }),
   });
-  export const isa = (o: any): o is GetPhoneNumberOrderResponse => __isa(o, "GetPhoneNumberOrderResponse");
 }
 
 export interface GetPhoneNumberRequest {
-  __type?: "GetPhoneNumberRequest";
   /**
    * <p>The phone number ID.</p>
    */
@@ -2242,11 +2010,9 @@ export namespace GetPhoneNumberRequest {
   export const filterSensitiveLog = (obj: GetPhoneNumberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPhoneNumberRequest => __isa(o, "GetPhoneNumberRequest");
 }
 
 export interface GetPhoneNumberResponse {
-  __type?: "GetPhoneNumberResponse";
   /**
    * <p>The phone number details.</p>
    */
@@ -2258,11 +2024,9 @@ export namespace GetPhoneNumberResponse {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: PhoneNumber.filterSensitiveLog(obj.PhoneNumber) }),
   });
-  export const isa = (o: any): o is GetPhoneNumberResponse => __isa(o, "GetPhoneNumberResponse");
 }
 
 export interface GetPhoneNumberSettingsResponse {
-  __type?: "GetPhoneNumberSettingsResponse";
   /**
    * <p>The updated outbound calling name timestamp, in ISO 8601 format.</p>
    */
@@ -2279,11 +2043,9 @@ export namespace GetPhoneNumberSettingsResponse {
     ...obj,
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetPhoneNumberSettingsResponse => __isa(o, "GetPhoneNumberSettingsResponse");
 }
 
 export interface GetProxySessionRequest {
-  __type?: "GetProxySessionRequest";
   /**
    * <p>The proxy session ID.</p>
    */
@@ -2299,11 +2061,9 @@ export namespace GetProxySessionRequest {
   export const filterSensitiveLog = (obj: GetProxySessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProxySessionRequest => __isa(o, "GetProxySessionRequest");
 }
 
 export interface GetProxySessionResponse {
-  __type?: "GetProxySessionResponse";
   /**
    * <p>The proxy session details.</p>
    */
@@ -2315,11 +2075,9 @@ export namespace GetProxySessionResponse {
     ...obj,
     ...(obj.ProxySession && { ProxySession: ProxySession.filterSensitiveLog(obj.ProxySession) }),
   });
-  export const isa = (o: any): o is GetProxySessionResponse => __isa(o, "GetProxySessionResponse");
 }
 
 export interface GetRetentionSettingsRequest {
-  __type?: "GetRetentionSettingsRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -2330,11 +2088,9 @@ export namespace GetRetentionSettingsRequest {
   export const filterSensitiveLog = (obj: GetRetentionSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRetentionSettingsRequest => __isa(o, "GetRetentionSettingsRequest");
 }
 
 export interface GetRetentionSettingsResponse {
-  __type?: "GetRetentionSettingsResponse";
   /**
    * <p>The timestamp representing the time at which the specified items are permanently deleted, in ISO 8601 format.</p>
    */
@@ -2350,11 +2106,9 @@ export namespace GetRetentionSettingsResponse {
   export const filterSensitiveLog = (obj: GetRetentionSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRetentionSettingsResponse => __isa(o, "GetRetentionSettingsResponse");
 }
 
 export interface GetRoomRequest {
-  __type?: "GetRoomRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -2370,11 +2124,9 @@ export namespace GetRoomRequest {
   export const filterSensitiveLog = (obj: GetRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoomRequest => __isa(o, "GetRoomRequest");
 }
 
 export interface GetRoomResponse {
-  __type?: "GetRoomResponse";
   /**
    * <p>The room details.</p>
    */
@@ -2386,11 +2138,9 @@ export namespace GetRoomResponse {
     ...obj,
     ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
   });
-  export const isa = (o: any): o is GetRoomResponse => __isa(o, "GetRoomResponse");
 }
 
 export interface GetUserRequest {
-  __type?: "GetUserRequest";
   /**
    * <p>The user ID.</p>
    */
@@ -2406,11 +2156,9 @@ export namespace GetUserRequest {
   export const filterSensitiveLog = (obj: GetUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserRequest => __isa(o, "GetUserRequest");
 }
 
 export interface GetUserResponse {
-  __type?: "GetUserResponse";
   /**
    * <p>The user details.</p>
    */
@@ -2422,11 +2170,9 @@ export namespace GetUserResponse {
     ...obj,
     ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
   });
-  export const isa = (o: any): o is GetUserResponse => __isa(o, "GetUserResponse");
 }
 
 export interface GetUserSettingsRequest {
-  __type?: "GetUserSettingsRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -2442,11 +2188,9 @@ export namespace GetUserSettingsRequest {
   export const filterSensitiveLog = (obj: GetUserSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserSettingsRequest => __isa(o, "GetUserSettingsRequest");
 }
 
 export interface GetUserSettingsResponse {
-  __type?: "GetUserSettingsResponse";
   /**
    * <p>The user settings.</p>
    */
@@ -2457,11 +2201,9 @@ export namespace GetUserSettingsResponse {
   export const filterSensitiveLog = (obj: GetUserSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserSettingsResponse => __isa(o, "GetUserSettingsResponse");
 }
 
 export interface GetVoiceConnectorEmergencyCallingConfigurationRequest {
-  __type?: "GetVoiceConnectorEmergencyCallingConfigurationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2472,12 +2214,9 @@ export namespace GetVoiceConnectorEmergencyCallingConfigurationRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorEmergencyCallingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorEmergencyCallingConfigurationRequest =>
-    __isa(o, "GetVoiceConnectorEmergencyCallingConfigurationRequest");
 }
 
 export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
-  __type?: "GetVoiceConnectorEmergencyCallingConfigurationResponse";
   /**
    * <p>The emergency calling configuration details.</p>
    */
@@ -2493,12 +2232,9 @@ export namespace GetVoiceConnectorEmergencyCallingConfigurationResponse {
       ),
     }),
   });
-  export const isa = (o: any): o is GetVoiceConnectorEmergencyCallingConfigurationResponse =>
-    __isa(o, "GetVoiceConnectorEmergencyCallingConfigurationResponse");
 }
 
 export interface GetVoiceConnectorGroupRequest {
-  __type?: "GetVoiceConnectorGroupRequest";
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
@@ -2509,11 +2245,9 @@ export namespace GetVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorGroupRequest => __isa(o, "GetVoiceConnectorGroupRequest");
 }
 
 export interface GetVoiceConnectorGroupResponse {
-  __type?: "GetVoiceConnectorGroupResponse";
   /**
    * <p>The Amazon Chime Voice Connector group details.</p>
    */
@@ -2524,11 +2258,9 @@ export namespace GetVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorGroupResponse => __isa(o, "GetVoiceConnectorGroupResponse");
 }
 
 export interface GetVoiceConnectorLoggingConfigurationRequest {
-  __type?: "GetVoiceConnectorLoggingConfigurationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2539,12 +2271,9 @@ export namespace GetVoiceConnectorLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorLoggingConfigurationRequest =>
-    __isa(o, "GetVoiceConnectorLoggingConfigurationRequest");
 }
 
 export interface GetVoiceConnectorLoggingConfigurationResponse {
-  __type?: "GetVoiceConnectorLoggingConfigurationResponse";
   /**
    * <p>The logging configuration details.</p>
    */
@@ -2555,12 +2284,9 @@ export namespace GetVoiceConnectorLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorLoggingConfigurationResponse =>
-    __isa(o, "GetVoiceConnectorLoggingConfigurationResponse");
 }
 
 export interface GetVoiceConnectorOriginationRequest {
-  __type?: "GetVoiceConnectorOriginationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2571,12 +2297,9 @@ export namespace GetVoiceConnectorOriginationRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorOriginationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorOriginationRequest =>
-    __isa(o, "GetVoiceConnectorOriginationRequest");
 }
 
 export interface GetVoiceConnectorOriginationResponse {
-  __type?: "GetVoiceConnectorOriginationResponse";
   /**
    * <p>The origination setting details.</p>
    */
@@ -2587,12 +2310,9 @@ export namespace GetVoiceConnectorOriginationResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorOriginationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorOriginationResponse =>
-    __isa(o, "GetVoiceConnectorOriginationResponse");
 }
 
 export interface GetVoiceConnectorProxyRequest {
-  __type?: "GetVoiceConnectorProxyRequest";
   /**
    * <p>The Amazon Chime voice connector ID.</p>
    */
@@ -2603,11 +2323,9 @@ export namespace GetVoiceConnectorProxyRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorProxyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorProxyRequest => __isa(o, "GetVoiceConnectorProxyRequest");
 }
 
 export interface GetVoiceConnectorProxyResponse {
-  __type?: "GetVoiceConnectorProxyResponse";
   /**
    * <p>The proxy configuration details.</p>
    */
@@ -2619,11 +2337,9 @@ export namespace GetVoiceConnectorProxyResponse {
     ...obj,
     ...(obj.Proxy && { Proxy: Proxy.filterSensitiveLog(obj.Proxy) }),
   });
-  export const isa = (o: any): o is GetVoiceConnectorProxyResponse => __isa(o, "GetVoiceConnectorProxyResponse");
 }
 
 export interface GetVoiceConnectorRequest {
-  __type?: "GetVoiceConnectorRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2634,11 +2350,9 @@ export namespace GetVoiceConnectorRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorRequest => __isa(o, "GetVoiceConnectorRequest");
 }
 
 export interface GetVoiceConnectorResponse {
-  __type?: "GetVoiceConnectorResponse";
   /**
    * <p>The Amazon Chime Voice Connector details.</p>
    */
@@ -2649,11 +2363,9 @@ export namespace GetVoiceConnectorResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorResponse => __isa(o, "GetVoiceConnectorResponse");
 }
 
 export interface GetVoiceConnectorStreamingConfigurationRequest {
-  __type?: "GetVoiceConnectorStreamingConfigurationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2664,12 +2376,9 @@ export namespace GetVoiceConnectorStreamingConfigurationRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorStreamingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorStreamingConfigurationRequest =>
-    __isa(o, "GetVoiceConnectorStreamingConfigurationRequest");
 }
 
 export interface GetVoiceConnectorStreamingConfigurationResponse {
-  __type?: "GetVoiceConnectorStreamingConfigurationResponse";
   /**
    * <p>The streaming configuration details.</p>
    */
@@ -2680,12 +2389,9 @@ export namespace GetVoiceConnectorStreamingConfigurationResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorStreamingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorStreamingConfigurationResponse =>
-    __isa(o, "GetVoiceConnectorStreamingConfigurationResponse");
 }
 
 export interface GetVoiceConnectorTerminationHealthRequest {
-  __type?: "GetVoiceConnectorTerminationHealthRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2696,12 +2402,9 @@ export namespace GetVoiceConnectorTerminationHealthRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorTerminationHealthRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorTerminationHealthRequest =>
-    __isa(o, "GetVoiceConnectorTerminationHealthRequest");
 }
 
 export interface GetVoiceConnectorTerminationHealthResponse {
-  __type?: "GetVoiceConnectorTerminationHealthResponse";
   /**
    * <p>The termination health details.</p>
    */
@@ -2712,12 +2415,9 @@ export namespace GetVoiceConnectorTerminationHealthResponse {
   export const filterSensitiveLog = (obj: GetVoiceConnectorTerminationHealthResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorTerminationHealthResponse =>
-    __isa(o, "GetVoiceConnectorTerminationHealthResponse");
 }
 
 export interface GetVoiceConnectorTerminationRequest {
-  __type?: "GetVoiceConnectorTerminationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -2728,12 +2428,9 @@ export namespace GetVoiceConnectorTerminationRequest {
   export const filterSensitiveLog = (obj: GetVoiceConnectorTerminationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVoiceConnectorTerminationRequest =>
-    __isa(o, "GetVoiceConnectorTerminationRequest");
 }
 
 export interface GetVoiceConnectorTerminationResponse {
-  __type?: "GetVoiceConnectorTerminationResponse";
   /**
    * <p>The termination setting details.</p>
    */
@@ -2745,8 +2442,6 @@ export namespace GetVoiceConnectorTerminationResponse {
     ...obj,
     ...(obj.Termination && { Termination: Termination.filterSensitiveLog(obj.Termination) }),
   });
-  export const isa = (o: any): o is GetVoiceConnectorTerminationResponse =>
-    __isa(o, "GetVoiceConnectorTerminationResponse");
 }
 
 /**
@@ -2754,7 +2449,6 @@ export namespace GetVoiceConnectorTerminationResponse {
  *         Amazon Chime <code>Team</code> account.</p>
  */
 export interface Invite {
-  __type?: "Invite";
   /**
    * <p>The status of the invite email.</p>
    */
@@ -2781,7 +2475,6 @@ export namespace Invite {
     ...obj,
     ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Invite => __isa(o, "Invite");
 }
 
 export enum InviteStatus {
@@ -2791,7 +2484,6 @@ export enum InviteStatus {
 }
 
 export interface InviteUsersRequest {
-  __type?: "InviteUsersRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -2813,11 +2505,9 @@ export namespace InviteUsersRequest {
     ...obj,
     ...(obj.UserEmailList && { UserEmailList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InviteUsersRequest => __isa(o, "InviteUsersRequest");
 }
 
 export interface InviteUsersResponse {
-  __type?: "InviteUsersResponse";
   /**
    * <p>The email invitation details.</p>
    */
@@ -2829,7 +2519,6 @@ export namespace InviteUsersResponse {
     ...obj,
     ...(obj.Invites && { Invites: obj.Invites.map((item) => Invite.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is InviteUsersResponse => __isa(o, "InviteUsersResponse");
 }
 
 export enum License {
@@ -2840,7 +2529,6 @@ export enum License {
 }
 
 export interface ListAccountsRequest {
-  __type?: "ListAccountsRequest";
   /**
    * <p>User email address with which to filter results.</p>
    */
@@ -2867,11 +2555,9 @@ export namespace ListAccountsRequest {
     ...obj,
     ...(obj.UserEmail && { UserEmail: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListAccountsRequest => __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
-  __type?: "ListAccountsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -2887,11 +2573,9 @@ export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }
 
 export interface ListAttendeesRequest {
-  __type?: "ListAttendeesRequest";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -2912,11 +2596,9 @@ export namespace ListAttendeesRequest {
   export const filterSensitiveLog = (obj: ListAttendeesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttendeesRequest => __isa(o, "ListAttendeesRequest");
 }
 
 export interface ListAttendeesResponse {
-  __type?: "ListAttendeesResponse";
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
    */
@@ -2933,11 +2615,9 @@ export namespace ListAttendeesResponse {
     ...obj,
     ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListAttendeesResponse => __isa(o, "ListAttendeesResponse");
 }
 
 export interface ListAttendeeTagsRequest {
-  __type?: "ListAttendeeTagsRequest";
   /**
    * <p>The Amazon Chime SDK attendee ID.</p>
    */
@@ -2953,11 +2633,9 @@ export namespace ListAttendeeTagsRequest {
   export const filterSensitiveLog = (obj: ListAttendeeTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttendeeTagsRequest => __isa(o, "ListAttendeeTagsRequest");
 }
 
 export interface ListAttendeeTagsResponse {
-  __type?: "ListAttendeeTagsResponse";
   /**
    * <p>A list of tag key-value pairs.</p>
    */
@@ -2969,11 +2647,9 @@ export namespace ListAttendeeTagsResponse {
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListAttendeeTagsResponse => __isa(o, "ListAttendeeTagsResponse");
 }
 
 export interface ListBotsRequest {
-  __type?: "ListBotsRequest";
   /**
    * <p>The maximum number of results to return in a single call. The default is 10.</p>
    */
@@ -2994,11 +2670,9 @@ export namespace ListBotsRequest {
   export const filterSensitiveLog = (obj: ListBotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBotsRequest => __isa(o, "ListBotsRequest");
 }
 
 export interface ListBotsResponse {
-  __type?: "ListBotsResponse";
   /**
    * <p>List of bots and bot details.</p>
    */
@@ -3015,11 +2689,9 @@ export namespace ListBotsResponse {
     ...obj,
     ...(obj.Bots && { Bots: obj.Bots.map((item) => Bot.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListBotsResponse => __isa(o, "ListBotsResponse");
 }
 
 export interface ListMeetingsRequest {
-  __type?: "ListMeetingsRequest";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3035,11 +2707,9 @@ export namespace ListMeetingsRequest {
   export const filterSensitiveLog = (obj: ListMeetingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMeetingsRequest => __isa(o, "ListMeetingsRequest");
 }
 
 export interface ListMeetingsResponse {
-  __type?: "ListMeetingsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3056,11 +2726,9 @@ export namespace ListMeetingsResponse {
     ...obj,
     ...(obj.Meetings && { Meetings: obj.Meetings.map((item) => Meeting.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListMeetingsResponse => __isa(o, "ListMeetingsResponse");
 }
 
 export interface ListMeetingTagsRequest {
-  __type?: "ListMeetingTagsRequest";
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
@@ -3071,11 +2739,9 @@ export namespace ListMeetingTagsRequest {
   export const filterSensitiveLog = (obj: ListMeetingTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMeetingTagsRequest => __isa(o, "ListMeetingTagsRequest");
 }
 
 export interface ListMeetingTagsResponse {
-  __type?: "ListMeetingTagsResponse";
   /**
    * <p>A list of tag key-value pairs.</p>
    */
@@ -3087,11 +2753,9 @@ export namespace ListMeetingTagsResponse {
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListMeetingTagsResponse => __isa(o, "ListMeetingTagsResponse");
 }
 
 export interface ListPhoneNumberOrdersRequest {
-  __type?: "ListPhoneNumberOrdersRequest";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -3107,11 +2771,9 @@ export namespace ListPhoneNumberOrdersRequest {
   export const filterSensitiveLog = (obj: ListPhoneNumberOrdersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumberOrdersRequest => __isa(o, "ListPhoneNumberOrdersRequest");
 }
 
 export interface ListPhoneNumberOrdersResponse {
-  __type?: "ListPhoneNumberOrdersResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3127,11 +2789,9 @@ export namespace ListPhoneNumberOrdersResponse {
   export const filterSensitiveLog = (obj: ListPhoneNumberOrdersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumberOrdersResponse => __isa(o, "ListPhoneNumberOrdersResponse");
 }
 
 export interface ListPhoneNumbersRequest {
-  __type?: "ListPhoneNumbersRequest";
   /**
    * <p>The value to use for the filter.</p>
    */
@@ -3167,11 +2827,9 @@ export namespace ListPhoneNumbersRequest {
   export const filterSensitiveLog = (obj: ListPhoneNumbersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumbersRequest => __isa(o, "ListPhoneNumbersRequest");
 }
 
 export interface ListPhoneNumbersResponse {
-  __type?: "ListPhoneNumbersResponse";
   /**
    * <p>The phone number details.</p>
    */
@@ -3188,11 +2846,9 @@ export namespace ListPhoneNumbersResponse {
     ...obj,
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListPhoneNumbersResponse => __isa(o, "ListPhoneNumbersResponse");
 }
 
 export interface ListProxySessionsRequest {
-  __type?: "ListProxySessionsRequest";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -3218,11 +2874,9 @@ export namespace ListProxySessionsRequest {
   export const filterSensitiveLog = (obj: ListProxySessionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProxySessionsRequest => __isa(o, "ListProxySessionsRequest");
 }
 
 export interface ListProxySessionsResponse {
-  __type?: "ListProxySessionsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3238,11 +2892,9 @@ export namespace ListProxySessionsResponse {
   export const filterSensitiveLog = (obj: ListProxySessionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProxySessionsResponse => __isa(o, "ListProxySessionsResponse");
 }
 
 export interface ListRoomMembershipsRequest {
-  __type?: "ListRoomMembershipsRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -3268,11 +2920,9 @@ export namespace ListRoomMembershipsRequest {
   export const filterSensitiveLog = (obj: ListRoomMembershipsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoomMembershipsRequest => __isa(o, "ListRoomMembershipsRequest");
 }
 
 export interface ListRoomMembershipsResponse {
-  __type?: "ListRoomMembershipsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3291,11 +2941,9 @@ export namespace ListRoomMembershipsResponse {
       RoomMemberships: obj.RoomMemberships.map((item) => RoomMembership.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is ListRoomMembershipsResponse => __isa(o, "ListRoomMembershipsResponse");
 }
 
 export interface ListRoomsRequest {
-  __type?: "ListRoomsRequest";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -3321,11 +2969,9 @@ export namespace ListRoomsRequest {
   export const filterSensitiveLog = (obj: ListRoomsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoomsRequest => __isa(o, "ListRoomsRequest");
 }
 
 export interface ListRoomsResponse {
-  __type?: "ListRoomsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3342,11 +2988,9 @@ export namespace ListRoomsResponse {
     ...obj,
     ...(obj.Rooms && { Rooms: obj.Rooms.map((item) => Room.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListRoomsResponse => __isa(o, "ListRoomsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The resource ARN.</p>
    */
@@ -3358,11 +3002,9 @@ export namespace ListTagsForResourceRequest {
     ...obj,
     ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A list of tag-key value pairs.</p>
    */
@@ -3374,11 +3016,9 @@ export namespace ListTagsForResourceResponse {
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3410,11 +3050,9 @@ export namespace ListUsersRequest {
     ...obj,
     ...(obj.UserEmail && { UserEmail: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3431,11 +3069,9 @@ export namespace ListUsersResponse {
     ...obj,
     ...(obj.Users && { Users: obj.Users.map((item) => User.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 export interface ListVoiceConnectorGroupsRequest {
-  __type?: "ListVoiceConnectorGroupsRequest";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3451,11 +3087,9 @@ export namespace ListVoiceConnectorGroupsRequest {
   export const filterSensitiveLog = (obj: ListVoiceConnectorGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVoiceConnectorGroupsRequest => __isa(o, "ListVoiceConnectorGroupsRequest");
 }
 
 export interface ListVoiceConnectorGroupsResponse {
-  __type?: "ListVoiceConnectorGroupsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3471,11 +3105,9 @@ export namespace ListVoiceConnectorGroupsResponse {
   export const filterSensitiveLog = (obj: ListVoiceConnectorGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVoiceConnectorGroupsResponse => __isa(o, "ListVoiceConnectorGroupsResponse");
 }
 
 export interface ListVoiceConnectorsRequest {
-  __type?: "ListVoiceConnectorsRequest";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3491,11 +3123,9 @@ export namespace ListVoiceConnectorsRequest {
   export const filterSensitiveLog = (obj: ListVoiceConnectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVoiceConnectorsRequest => __isa(o, "ListVoiceConnectorsRequest");
 }
 
 export interface ListVoiceConnectorsResponse {
-  __type?: "ListVoiceConnectorsResponse";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -3511,11 +3141,9 @@ export namespace ListVoiceConnectorsResponse {
   export const filterSensitiveLog = (obj: ListVoiceConnectorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVoiceConnectorsResponse => __isa(o, "ListVoiceConnectorsResponse");
 }
 
 export interface ListVoiceConnectorTerminationCredentialsRequest {
-  __type?: "ListVoiceConnectorTerminationCredentialsRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -3526,12 +3154,9 @@ export namespace ListVoiceConnectorTerminationCredentialsRequest {
   export const filterSensitiveLog = (obj: ListVoiceConnectorTerminationCredentialsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVoiceConnectorTerminationCredentialsRequest =>
-    __isa(o, "ListVoiceConnectorTerminationCredentialsRequest");
 }
 
 export interface ListVoiceConnectorTerminationCredentialsResponse {
-  __type?: "ListVoiceConnectorTerminationCredentialsResponse";
   /**
    * <p>A list of user names.</p>
    */
@@ -3543,15 +3168,12 @@ export namespace ListVoiceConnectorTerminationCredentialsResponse {
     ...obj,
     ...(obj.Usernames && { Usernames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListVoiceConnectorTerminationCredentialsResponse =>
-    __isa(o, "ListVoiceConnectorTerminationCredentialsResponse");
 }
 
 /**
  * <p>The logging configuration associated with an Amazon Chime Voice Connector. Specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
  */
 export interface LoggingConfiguration {
-  __type?: "LoggingConfiguration";
   /**
    * <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
    */
@@ -3562,11 +3184,9 @@ export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 export interface LogoutUserRequest {
-  __type?: "LogoutUserRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -3582,25 +3202,20 @@ export namespace LogoutUserRequest {
   export const filterSensitiveLog = (obj: LogoutUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogoutUserRequest => __isa(o, "LogoutUserRequest");
 }
 
-export interface LogoutUserResponse {
-  __type?: "LogoutUserResponse";
-}
+export interface LogoutUserResponse {}
 
 export namespace LogoutUserResponse {
   export const filterSensitiveLog = (obj: LogoutUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogoutUserResponse => __isa(o, "LogoutUserResponse");
 }
 
 /**
  * <p>A set of endpoints used by clients to connect to the media service group for a Amazon Chime SDK meeting.</p>
  */
 export interface MediaPlacement {
-  __type?: "MediaPlacement";
   /**
    * <p>The screen viewing URL.</p>
    */
@@ -3641,14 +3256,12 @@ export namespace MediaPlacement {
   export const filterSensitiveLog = (obj: MediaPlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MediaPlacement => __isa(o, "MediaPlacement");
 }
 
 /**
  * <p>A meeting created using the Amazon Chime SDK.</p>
  */
 export interface Meeting {
-  __type?: "Meeting";
   /**
    * <p>The external meeting ID.</p>
    */
@@ -3675,14 +3288,12 @@ export namespace Meeting {
     ...obj,
     ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Meeting => __isa(o, "Meeting");
 }
 
 /**
  * <p>The configuration for resource targets to receive notifications when Amazon Chime SDK meeting and attendee events occur. The Amazon Chime SDK supports resource targets located in the US East (N. Virginia) AWS Region (<code>us-east-1</code>).</p>
  */
 export interface MeetingNotificationConfiguration {
-  __type?: "MeetingNotificationConfiguration";
   /**
    * <p>The SQS queue ARN.</p>
    */
@@ -3700,14 +3311,12 @@ export namespace MeetingNotificationConfiguration {
     ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
     ...(obj.SnsTopicArn && { SnsTopicArn: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is MeetingNotificationConfiguration => __isa(o, "MeetingNotificationConfiguration");
 }
 
 /**
  * <p>The member details, such as email address, name, member ID, and member type.</p>
  */
 export interface Member {
-  __type?: "Member";
   /**
    * <p>The member email address.</p>
    */
@@ -3740,14 +3349,12 @@ export namespace Member {
     ...(obj.Email && { Email: SENSITIVE_STRING }),
     ...(obj.FullName && { FullName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Member => __isa(o, "Member");
 }
 
 /**
  * <p>The list of errors returned when a member action results in an error.</p>
  */
 export interface MemberError {
-  __type?: "MemberError";
   /**
    * <p>The error code.</p>
    */
@@ -3768,14 +3375,12 @@ export namespace MemberError {
   export const filterSensitiveLog = (obj: MemberError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberError => __isa(o, "MemberError");
 }
 
 /**
  * <p>Membership details, such as member ID and member role.</p>
  */
 export interface MembershipItem {
-  __type?: "MembershipItem";
   /**
    * <p>The member ID.</p>
    */
@@ -3791,7 +3396,6 @@ export namespace MembershipItem {
   export const filterSensitiveLog = (obj: MembershipItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MembershipItem => __isa(o, "MembershipItem");
 }
 
 export enum MemberType {
@@ -3814,7 +3418,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum NotificationTarget {
@@ -3832,7 +3435,6 @@ export enum NumberSelectionBehavior {
  * <p>A phone number for which an order has been placed.</p>
  */
 export interface OrderedPhoneNumber {
-  __type?: "OrderedPhoneNumber";
   /**
    * <p>The phone number status.</p>
    */
@@ -3849,7 +3451,6 @@ export namespace OrderedPhoneNumber {
     ...obj,
     ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is OrderedPhoneNumber => __isa(o, "OrderedPhoneNumber");
 }
 
 export enum OrderedPhoneNumberStatus {
@@ -3863,7 +3464,6 @@ export enum OrderedPhoneNumberStatus {
  *       Chime Voice Connector.</p>
  */
 export interface Origination {
-  __type?: "Origination";
   /**
    * <p>The call distribution properties defined for your SIP hosts. Valid range: Minimum value
    *     of 1. Maximum value of 20.</p>
@@ -3881,7 +3481,6 @@ export namespace Origination {
   export const filterSensitiveLog = (obj: Origination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Origination => __isa(o, "Origination");
 }
 
 /**
@@ -3890,7 +3489,6 @@ export namespace Origination {
  *       Amazon Chime Voice Connector.</p>
  */
 export interface OriginationRoute {
-  __type?: "OriginationRoute";
   /**
    * <p>The weight associated with the host. If hosts are equal in priority, calls are
    *       distributed among them based on their relative weight.</p>
@@ -3923,7 +3521,6 @@ export namespace OriginationRoute {
   export const filterSensitiveLog = (obj: OriginationRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginationRoute => __isa(o, "OriginationRoute");
 }
 
 export enum OriginationRouteProtocol {
@@ -3935,7 +3532,6 @@ export enum OriginationRouteProtocol {
  * <p>The phone number and proxy phone number for a participant in an Amazon Chime Voice Connector proxy session.</p>
  */
 export interface Participant {
-  __type?: "Participant";
   /**
    * <p>The participant's proxy phone number.</p>
    */
@@ -3953,7 +3549,6 @@ export namespace Participant {
     ...(obj.ProxyPhoneNumber && { ProxyPhoneNumber: SENSITIVE_STRING }),
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Participant => __isa(o, "Participant");
 }
 
 /**
@@ -3961,7 +3556,6 @@ export namespace Participant {
  *       Connector.</p>
  */
 export interface PhoneNumber {
-  __type?: "PhoneNumber";
   /**
    * <p>The phone number creation timestamp, in ISO 8601 format.</p>
    */
@@ -4029,7 +3623,6 @@ export namespace PhoneNumber {
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
     ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PhoneNumber => __isa(o, "PhoneNumber");
 }
 
 /**
@@ -4037,7 +3630,6 @@ export namespace PhoneNumber {
  *       Connector ID, or Amazon Chime Voice Connector group ID.</p>
  */
 export interface PhoneNumberAssociation {
-  __type?: "PhoneNumberAssociation";
   /**
    * <p>The timestamp of the phone number association, in ISO 8601 format.</p>
    */
@@ -4059,7 +3651,6 @@ export namespace PhoneNumberAssociation {
   export const filterSensitiveLog = (obj: PhoneNumberAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhoneNumberAssociation => __isa(o, "PhoneNumberAssociation");
 }
 
 export enum PhoneNumberAssociationName {
@@ -4074,7 +3665,6 @@ export enum PhoneNumberAssociationName {
  *       messaging.</p>
  */
 export interface PhoneNumberCapabilities {
-  __type?: "PhoneNumberCapabilities";
   /**
    * <p>Allows or denies outbound calling for the specified phone number.</p>
    */
@@ -4110,7 +3700,6 @@ export namespace PhoneNumberCapabilities {
   export const filterSensitiveLog = (obj: PhoneNumberCapabilities): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhoneNumberCapabilities => __isa(o, "PhoneNumberCapabilities");
 }
 
 /**
@@ -4118,7 +3707,6 @@ export namespace PhoneNumberCapabilities {
  *     list of the phone numbers is returned, along with error codes and error messages.</p>
  */
 export interface PhoneNumberError {
-  __type?: "PhoneNumberError";
   /**
    * <p>The phone number ID for which the action failed.</p>
    */
@@ -4139,14 +3727,12 @@ export namespace PhoneNumberError {
   export const filterSensitiveLog = (obj: PhoneNumberError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhoneNumberError => __isa(o, "PhoneNumberError");
 }
 
 /**
  * <p>The details of a phone number order created for Amazon Chime.</p>
  */
 export interface PhoneNumberOrder {
-  __type?: "PhoneNumberOrder";
   /**
    * <p>The ordered phone number details, such as the phone number in E.164 format and the
    *      phone number status.</p>
@@ -4186,7 +3772,6 @@ export namespace PhoneNumberOrder {
       OrderedPhoneNumbers: obj.OrderedPhoneNumbers.map((item) => OrderedPhoneNumber.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is PhoneNumberOrder => __isa(o, "PhoneNumberOrder");
 }
 
 export enum PhoneNumberOrderStatus {
@@ -4221,7 +3806,6 @@ export enum PhoneNumberType {
  * <p>The proxy configuration for an Amazon Chime Voice Connector.</p>
  */
 export interface Proxy {
-  __type?: "Proxy";
   /**
    * <p>The phone number to route calls to after a proxy session expires.</p>
    */
@@ -4248,14 +3832,12 @@ export namespace Proxy {
     ...obj,
     ...(obj.FallBackPhoneNumber && { FallBackPhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Proxy => __isa(o, "Proxy");
 }
 
 /**
  * <p>The proxy session for an Amazon Chime Voice Connector.</p>
  */
 export interface ProxySession {
-  __type?: "ProxySession";
   /**
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
@@ -4327,7 +3909,6 @@ export namespace ProxySession {
     ...obj,
     ...(obj.Participants && { Participants: obj.Participants.map((item) => Participant.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ProxySession => __isa(o, "ProxySession");
 }
 
 export enum ProxySessionStatus {
@@ -4337,7 +3918,6 @@ export enum ProxySessionStatus {
 }
 
 export interface PutEventsConfigurationRequest {
-  __type?: "PutEventsConfigurationRequest";
   /**
    * <p>Lambda function ARN that allows the bot to receive outgoing events.</p>
    */
@@ -4365,11 +3945,9 @@ export namespace PutEventsConfigurationRequest {
     ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
     ...(obj.OutboundEventsHTTPSEndpoint && { OutboundEventsHTTPSEndpoint: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutEventsConfigurationRequest => __isa(o, "PutEventsConfigurationRequest");
 }
 
 export interface PutEventsConfigurationResponse {
-  __type?: "PutEventsConfigurationResponse";
   /**
    * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
    */
@@ -4383,11 +3961,9 @@ export namespace PutEventsConfigurationResponse {
       EventsConfiguration: EventsConfiguration.filterSensitiveLog(obj.EventsConfiguration),
     }),
   });
-  export const isa = (o: any): o is PutEventsConfigurationResponse => __isa(o, "PutEventsConfigurationResponse");
 }
 
 export interface PutRetentionSettingsRequest {
-  __type?: "PutRetentionSettingsRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -4403,11 +3979,9 @@ export namespace PutRetentionSettingsRequest {
   export const filterSensitiveLog = (obj: PutRetentionSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRetentionSettingsRequest => __isa(o, "PutRetentionSettingsRequest");
 }
 
 export interface PutRetentionSettingsResponse {
-  __type?: "PutRetentionSettingsResponse";
   /**
    * <p>The retention settings.</p>
    */
@@ -4423,11 +3997,9 @@ export namespace PutRetentionSettingsResponse {
   export const filterSensitiveLog = (obj: PutRetentionSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRetentionSettingsResponse => __isa(o, "PutRetentionSettingsResponse");
 }
 
 export interface PutVoiceConnectorEmergencyCallingConfigurationRequest {
-  __type?: "PutVoiceConnectorEmergencyCallingConfigurationRequest";
   /**
    * <p>The emergency calling configuration details.</p>
    */
@@ -4448,12 +4020,9 @@ export namespace PutVoiceConnectorEmergencyCallingConfigurationRequest {
       ),
     }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorEmergencyCallingConfigurationRequest =>
-    __isa(o, "PutVoiceConnectorEmergencyCallingConfigurationRequest");
 }
 
 export interface PutVoiceConnectorEmergencyCallingConfigurationResponse {
-  __type?: "PutVoiceConnectorEmergencyCallingConfigurationResponse";
   /**
    * <p>The emergency calling configuration details.</p>
    */
@@ -4469,12 +4038,9 @@ export namespace PutVoiceConnectorEmergencyCallingConfigurationResponse {
       ),
     }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorEmergencyCallingConfigurationResponse =>
-    __isa(o, "PutVoiceConnectorEmergencyCallingConfigurationResponse");
 }
 
 export interface PutVoiceConnectorLoggingConfigurationRequest {
-  __type?: "PutVoiceConnectorLoggingConfigurationRequest";
   /**
    * <p>The logging configuration details to add.</p>
    */
@@ -4490,12 +4056,9 @@ export namespace PutVoiceConnectorLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: PutVoiceConnectorLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutVoiceConnectorLoggingConfigurationRequest =>
-    __isa(o, "PutVoiceConnectorLoggingConfigurationRequest");
 }
 
 export interface PutVoiceConnectorLoggingConfigurationResponse {
-  __type?: "PutVoiceConnectorLoggingConfigurationResponse";
   /**
    * <p>The updated logging configuration details.</p>
    */
@@ -4506,12 +4069,9 @@ export namespace PutVoiceConnectorLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: PutVoiceConnectorLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutVoiceConnectorLoggingConfigurationResponse =>
-    __isa(o, "PutVoiceConnectorLoggingConfigurationResponse");
 }
 
 export interface PutVoiceConnectorOriginationRequest {
-  __type?: "PutVoiceConnectorOriginationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -4527,12 +4087,9 @@ export namespace PutVoiceConnectorOriginationRequest {
   export const filterSensitiveLog = (obj: PutVoiceConnectorOriginationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutVoiceConnectorOriginationRequest =>
-    __isa(o, "PutVoiceConnectorOriginationRequest");
 }
 
 export interface PutVoiceConnectorOriginationResponse {
-  __type?: "PutVoiceConnectorOriginationResponse";
   /**
    * <p>The updated origination setting details.</p>
    */
@@ -4543,12 +4100,9 @@ export namespace PutVoiceConnectorOriginationResponse {
   export const filterSensitiveLog = (obj: PutVoiceConnectorOriginationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutVoiceConnectorOriginationResponse =>
-    __isa(o, "PutVoiceConnectorOriginationResponse");
 }
 
 export interface PutVoiceConnectorProxyRequest {
-  __type?: "PutVoiceConnectorProxyRequest";
   /**
    * <p>When true, stops proxy sessions from being created on the specified Amazon Chime Voice Connector.</p>
    */
@@ -4580,11 +4134,9 @@ export namespace PutVoiceConnectorProxyRequest {
     ...obj,
     ...(obj.FallBackPhoneNumber && { FallBackPhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorProxyRequest => __isa(o, "PutVoiceConnectorProxyRequest");
 }
 
 export interface PutVoiceConnectorProxyResponse {
-  __type?: "PutVoiceConnectorProxyResponse";
   /**
    * <p>The proxy configuration details.</p>
    */
@@ -4596,11 +4148,9 @@ export namespace PutVoiceConnectorProxyResponse {
     ...obj,
     ...(obj.Proxy && { Proxy: Proxy.filterSensitiveLog(obj.Proxy) }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorProxyResponse => __isa(o, "PutVoiceConnectorProxyResponse");
 }
 
 export interface PutVoiceConnectorStreamingConfigurationRequest {
-  __type?: "PutVoiceConnectorStreamingConfigurationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -4616,12 +4166,9 @@ export namespace PutVoiceConnectorStreamingConfigurationRequest {
   export const filterSensitiveLog = (obj: PutVoiceConnectorStreamingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutVoiceConnectorStreamingConfigurationRequest =>
-    __isa(o, "PutVoiceConnectorStreamingConfigurationRequest");
 }
 
 export interface PutVoiceConnectorStreamingConfigurationResponse {
-  __type?: "PutVoiceConnectorStreamingConfigurationResponse";
   /**
    * <p>The updated streaming configuration details.</p>
    */
@@ -4632,12 +4179,9 @@ export namespace PutVoiceConnectorStreamingConfigurationResponse {
   export const filterSensitiveLog = (obj: PutVoiceConnectorStreamingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutVoiceConnectorStreamingConfigurationResponse =>
-    __isa(o, "PutVoiceConnectorStreamingConfigurationResponse");
 }
 
 export interface PutVoiceConnectorTerminationCredentialsRequest {
-  __type?: "PutVoiceConnectorTerminationCredentialsRequest";
   /**
    * <p>The termination SIP credentials.</p>
    */
@@ -4654,12 +4198,9 @@ export namespace PutVoiceConnectorTerminationCredentialsRequest {
     ...obj,
     ...(obj.Credentials && { Credentials: obj.Credentials.map((item) => Credential.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorTerminationCredentialsRequest =>
-    __isa(o, "PutVoiceConnectorTerminationCredentialsRequest");
 }
 
 export interface PutVoiceConnectorTerminationRequest {
-  __type?: "PutVoiceConnectorTerminationRequest";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -4676,12 +4217,9 @@ export namespace PutVoiceConnectorTerminationRequest {
     ...obj,
     ...(obj.Termination && { Termination: Termination.filterSensitiveLog(obj.Termination) }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorTerminationRequest =>
-    __isa(o, "PutVoiceConnectorTerminationRequest");
 }
 
 export interface PutVoiceConnectorTerminationResponse {
-  __type?: "PutVoiceConnectorTerminationResponse";
   /**
    * <p>The updated termination setting details.</p>
    */
@@ -4693,12 +4231,9 @@ export namespace PutVoiceConnectorTerminationResponse {
     ...obj,
     ...(obj.Termination && { Termination: Termination.filterSensitiveLog(obj.Termination) }),
   });
-  export const isa = (o: any): o is PutVoiceConnectorTerminationResponse =>
-    __isa(o, "PutVoiceConnectorTerminationResponse");
 }
 
 export interface RedactConversationMessageRequest {
-  __type?: "RedactConversationMessageRequest";
   /**
    * <p>The conversation ID.</p>
    */
@@ -4719,22 +4254,17 @@ export namespace RedactConversationMessageRequest {
   export const filterSensitiveLog = (obj: RedactConversationMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedactConversationMessageRequest => __isa(o, "RedactConversationMessageRequest");
 }
 
-export interface RedactConversationMessageResponse {
-  __type?: "RedactConversationMessageResponse";
-}
+export interface RedactConversationMessageResponse {}
 
 export namespace RedactConversationMessageResponse {
   export const filterSensitiveLog = (obj: RedactConversationMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedactConversationMessageResponse => __isa(o, "RedactConversationMessageResponse");
 }
 
 export interface RedactRoomMessageRequest {
-  __type?: "RedactRoomMessageRequest";
   /**
    * <p>The message ID.</p>
    */
@@ -4755,22 +4285,17 @@ export namespace RedactRoomMessageRequest {
   export const filterSensitiveLog = (obj: RedactRoomMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedactRoomMessageRequest => __isa(o, "RedactRoomMessageRequest");
 }
 
-export interface RedactRoomMessageResponse {
-  __type?: "RedactRoomMessageResponse";
-}
+export interface RedactRoomMessageResponse {}
 
 export namespace RedactRoomMessageResponse {
   export const filterSensitiveLog = (obj: RedactRoomMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedactRoomMessageResponse => __isa(o, "RedactRoomMessageResponse");
 }
 
 export interface RegenerateSecurityTokenRequest {
-  __type?: "RegenerateSecurityTokenRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -4786,11 +4311,9 @@ export namespace RegenerateSecurityTokenRequest {
   export const filterSensitiveLog = (obj: RegenerateSecurityTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegenerateSecurityTokenRequest => __isa(o, "RegenerateSecurityTokenRequest");
 }
 
 export interface RegenerateSecurityTokenResponse {
-  __type?: "RegenerateSecurityTokenResponse";
   /**
    * <p>A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.</p>
    */
@@ -4802,7 +4325,6 @@ export namespace RegenerateSecurityTokenResponse {
     ...obj,
     ...(obj.Bot && { Bot: Bot.filterSensitiveLog(obj.Bot) }),
   });
-  export const isa = (o: any): o is RegenerateSecurityTokenResponse => __isa(o, "RegenerateSecurityTokenResponse");
 }
 
 export enum RegistrationStatus {
@@ -4812,7 +4334,6 @@ export enum RegistrationStatus {
 }
 
 export interface ResetPersonalPINRequest {
-  __type?: "ResetPersonalPINRequest";
   /**
    * <p>The user ID.</p>
    */
@@ -4828,11 +4349,9 @@ export namespace ResetPersonalPINRequest {
   export const filterSensitiveLog = (obj: ResetPersonalPINRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetPersonalPINRequest => __isa(o, "ResetPersonalPINRequest");
 }
 
 export interface ResetPersonalPINResponse {
-  __type?: "ResetPersonalPINResponse";
   /**
    * <p>The user details and new personal meeting PIN.</p>
    */
@@ -4844,7 +4363,6 @@ export namespace ResetPersonalPINResponse {
     ...obj,
     ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
   });
-  export const isa = (o: any): o is ResetPersonalPINResponse => __isa(o, "ResetPersonalPINResponse");
 }
 
 /**
@@ -4861,11 +4379,9 @@ export namespace ResourceLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 export interface RestorePhoneNumberRequest {
-  __type?: "RestorePhoneNumberRequest";
   /**
    * <p>The phone number.</p>
    */
@@ -4876,11 +4392,9 @@ export namespace RestorePhoneNumberRequest {
   export const filterSensitiveLog = (obj: RestorePhoneNumberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestorePhoneNumberRequest => __isa(o, "RestorePhoneNumberRequest");
 }
 
 export interface RestorePhoneNumberResponse {
-  __type?: "RestorePhoneNumberResponse";
   /**
    * <p>The phone number details.</p>
    */
@@ -4892,14 +4406,12 @@ export namespace RestorePhoneNumberResponse {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: PhoneNumber.filterSensitiveLog(obj.PhoneNumber) }),
   });
-  export const isa = (o: any): o is RestorePhoneNumberResponse => __isa(o, "RestorePhoneNumberResponse");
 }
 
 /**
  * <p>The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat room messages and chat conversation messages.</p>
  */
 export interface RetentionSettings {
-  __type?: "RetentionSettings";
   /**
    * <p>The chat room retention settings.</p>
    */
@@ -4915,14 +4427,12 @@ export namespace RetentionSettings {
   export const filterSensitiveLog = (obj: RetentionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetentionSettings => __isa(o, "RetentionSettings");
 }
 
 /**
  * <p>The Amazon Chime chat room details.</p>
  */
 export interface Room {
-  __type?: "Room";
   /**
    * <p>The room creation timestamp, in ISO 8601 format.</p>
    */
@@ -4959,14 +4469,12 @@ export namespace Room {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Room => __isa(o, "Room");
 }
 
 /**
  * <p>The room membership details.</p>
  */
 export interface RoomMembership {
-  __type?: "RoomMembership";
   /**
    * <p>The membership role.</p>
    */
@@ -4998,7 +4506,6 @@ export namespace RoomMembership {
     ...obj,
     ...(obj.Member && { Member: Member.filterSensitiveLog(obj.Member) }),
   });
-  export const isa = (o: any): o is RoomMembership => __isa(o, "RoomMembership");
 }
 
 export enum RoomMembershipRole {
@@ -5010,7 +4517,6 @@ export enum RoomMembershipRole {
  * <p>The retention settings that determine how long to retain chat room messages for an Amazon Chime Enterprise account.</p>
  */
 export interface RoomRetentionSettings {
-  __type?: "RoomRetentionSettings";
   /**
    * <p>The number of days for which to retain chat room messages.</p>
    */
@@ -5021,11 +4527,9 @@ export namespace RoomRetentionSettings {
   export const filterSensitiveLog = (obj: RoomRetentionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoomRetentionSettings => __isa(o, "RoomRetentionSettings");
 }
 
 export interface SearchAvailablePhoneNumbersRequest {
-  __type?: "SearchAvailablePhoneNumbersRequest";
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    */
@@ -5066,12 +4570,9 @@ export namespace SearchAvailablePhoneNumbersRequest {
   export const filterSensitiveLog = (obj: SearchAvailablePhoneNumbersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchAvailablePhoneNumbersRequest =>
-    __isa(o, "SearchAvailablePhoneNumbersRequest");
 }
 
 export interface SearchAvailablePhoneNumbersResponse {
-  __type?: "SearchAvailablePhoneNumbersResponse";
   /**
    * <p>List of phone numbers, in E.164 format.</p>
    */
@@ -5083,8 +4584,6 @@ export namespace SearchAvailablePhoneNumbersResponse {
     ...obj,
     ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SearchAvailablePhoneNumbersResponse =>
-    __isa(o, "SearchAvailablePhoneNumbersResponse");
 }
 
 /**
@@ -5101,7 +4600,6 @@ export namespace ServiceFailureException {
   export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceFailureException => __isa(o, "ServiceFailureException");
 }
 
 /**
@@ -5118,14 +4616,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * <p>An Active Directory (AD) group whose members are granted permission to act as delegates.</p>
  */
 export interface SigninDelegateGroup {
-  __type?: "SigninDelegateGroup";
   /**
    * <p>The group name.</p>
    */
@@ -5136,14 +4632,12 @@ export namespace SigninDelegateGroup {
   export const filterSensitiveLog = (obj: SigninDelegateGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigninDelegateGroup => __isa(o, "SigninDelegateGroup");
 }
 
 /**
  * <p>The streaming configuration associated with an Amazon Chime Voice Connector. Specifies whether media streaming is enabled for sending to Amazon Kinesis, and shows the retention period for the Amazon Kinesis data, in hours.</p>
  */
 export interface StreamingConfiguration {
-  __type?: "StreamingConfiguration";
   /**
    * <p>The retention period, in hours, for the Amazon Kinesis data.</p>
    */
@@ -5164,14 +4658,12 @@ export namespace StreamingConfiguration {
   export const filterSensitiveLog = (obj: StreamingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingConfiguration => __isa(o, "StreamingConfiguration");
 }
 
 /**
  * <p>The targeted recipient for a streaming configuration notification.</p>
  */
 export interface StreamingNotificationTarget {
-  __type?: "StreamingNotificationTarget";
   /**
    * <p>The streaming notification target.</p>
    */
@@ -5182,14 +4674,12 @@ export namespace StreamingNotificationTarget {
   export const filterSensitiveLog = (obj: StreamingNotificationTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingNotificationTarget => __isa(o, "StreamingNotificationTarget");
 }
 
 /**
  * <p>Describes a tag applied to a resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    */
@@ -5207,11 +4697,9 @@ export namespace Tag {
     ...(obj.Value && { Value: SENSITIVE_STRING }),
     ...(obj.Key && { Key: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagAttendeeRequest {
-  __type?: "TagAttendeeRequest";
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
@@ -5233,11 +4721,9 @@ export namespace TagAttendeeRequest {
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is TagAttendeeRequest => __isa(o, "TagAttendeeRequest");
 }
 
 export interface TagMeetingRequest {
-  __type?: "TagMeetingRequest";
   /**
    * <p>The tag key-value pairs.</p>
    */
@@ -5254,11 +4740,9 @@ export namespace TagMeetingRequest {
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is TagMeetingRequest => __isa(o, "TagMeetingRequest");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tag key-value pairs.</p>
    */
@@ -5276,7 +4760,6 @@ export namespace TagResourceRequest {
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
     ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -5284,7 +4767,6 @@ export namespace TagResourceRequest {
  *       as inbound and outbound calling and text messaging.</p>
  */
 export interface TelephonySettings {
-  __type?: "TelephonySettings";
   /**
    * <p>Allows or denies SMS messaging.</p>
    */
@@ -5305,7 +4787,6 @@ export namespace TelephonySettings {
   export const filterSensitiveLog = (obj: TelephonySettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TelephonySettings => __isa(o, "TelephonySettings");
 }
 
 /**
@@ -5313,7 +4794,6 @@ export namespace TelephonySettings {
  *       Chime Voice Connector.</p>
  */
 export interface Termination {
-  __type?: "Termination";
   /**
    * <p>The countries to which calls are allowed, in ISO 3166-1 alpha-2 format. Required.</p>
    */
@@ -5346,7 +4826,6 @@ export namespace Termination {
     ...obj,
     ...(obj.DefaultPhoneNumber && { DefaultPhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Termination => __isa(o, "Termination");
 }
 
 /**
@@ -5354,7 +4833,6 @@ export namespace Termination {
  *       last successful SIP <code>OPTIONS</code> message from your SIP infrastructure.</p>
  */
 export interface TerminationHealth {
-  __type?: "TerminationHealth";
   /**
    * <p>The source IP address.</p>
    */
@@ -5370,7 +4848,6 @@ export namespace TerminationHealth {
   export const filterSensitiveLog = (obj: TerminationHealth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminationHealth => __isa(o, "TerminationHealth");
 }
 
 /**
@@ -5387,7 +4864,6 @@ export namespace ThrottledClientException {
   export const filterSensitiveLog = (obj: ThrottledClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottledClientException => __isa(o, "ThrottledClientException");
 }
 
 /**
@@ -5404,7 +4880,6 @@ export namespace UnauthorizedClientException {
   export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedClientException => __isa(o, "UnauthorizedClientException");
 }
 
 /**
@@ -5421,11 +4896,9 @@ export namespace UnprocessableEntityException {
   export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnprocessableEntityException => __isa(o, "UnprocessableEntityException");
 }
 
 export interface UntagAttendeeRequest {
-  __type?: "UntagAttendeeRequest";
   /**
    * <p>The tag keys.</p>
    */
@@ -5447,11 +4920,9 @@ export namespace UntagAttendeeRequest {
     ...obj,
     ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UntagAttendeeRequest => __isa(o, "UntagAttendeeRequest");
 }
 
 export interface UntagMeetingRequest {
-  __type?: "UntagMeetingRequest";
   /**
    * <p>The tag keys.</p>
    */
@@ -5468,11 +4939,9 @@ export namespace UntagMeetingRequest {
     ...obj,
     ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UntagMeetingRequest => __isa(o, "UntagMeetingRequest");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The resource ARN.</p>
    */
@@ -5490,11 +4959,9 @@ export namespace UntagResourceRequest {
     ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
     ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAccountRequest {
-  __type?: "UpdateAccountRequest";
   /**
    * <p>The new name for the specified Amazon Chime account.</p>
    */
@@ -5510,11 +4977,9 @@ export namespace UpdateAccountRequest {
   export const filterSensitiveLog = (obj: UpdateAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountRequest => __isa(o, "UpdateAccountRequest");
 }
 
 export interface UpdateAccountResponse {
-  __type?: "UpdateAccountResponse";
   /**
    * <p>The updated Amazon Chime account details.</p>
    */
@@ -5525,11 +4990,9 @@ export namespace UpdateAccountResponse {
   export const filterSensitiveLog = (obj: UpdateAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountResponse => __isa(o, "UpdateAccountResponse");
 }
 
 export interface UpdateAccountSettingsRequest {
-  __type?: "UpdateAccountSettingsRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -5545,22 +5008,17 @@ export namespace UpdateAccountSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountSettingsRequest => __isa(o, "UpdateAccountSettingsRequest");
 }
 
-export interface UpdateAccountSettingsResponse {
-  __type?: "UpdateAccountSettingsResponse";
-}
+export interface UpdateAccountSettingsResponse {}
 
 export namespace UpdateAccountSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountSettingsResponse => __isa(o, "UpdateAccountSettingsResponse");
 }
 
 export interface UpdateBotRequest {
-  __type?: "UpdateBotRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -5581,11 +5039,9 @@ export namespace UpdateBotRequest {
   export const filterSensitiveLog = (obj: UpdateBotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBotRequest => __isa(o, "UpdateBotRequest");
 }
 
 export interface UpdateBotResponse {
-  __type?: "UpdateBotResponse";
   /**
    * <p>The updated bot details.</p>
    */
@@ -5597,11 +5053,9 @@ export namespace UpdateBotResponse {
     ...obj,
     ...(obj.Bot && { Bot: Bot.filterSensitiveLog(obj.Bot) }),
   });
-  export const isa = (o: any): o is UpdateBotResponse => __isa(o, "UpdateBotResponse");
 }
 
 export interface UpdateGlobalSettingsRequest {
-  __type?: "UpdateGlobalSettingsRequest";
   /**
    * <p>The Amazon Chime Business Calling settings.</p>
    */
@@ -5617,11 +5071,9 @@ export namespace UpdateGlobalSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateGlobalSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalSettingsRequest => __isa(o, "UpdateGlobalSettingsRequest");
 }
 
 export interface UpdatePhoneNumberRequest {
-  __type?: "UpdatePhoneNumberRequest";
   /**
    * <p>The product type.</p>
    */
@@ -5643,14 +5095,12 @@ export namespace UpdatePhoneNumberRequest {
     ...obj,
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdatePhoneNumberRequest => __isa(o, "UpdatePhoneNumberRequest");
 }
 
 /**
  * <p>The phone number ID, product type, or calling name fields to update, used with the <a>BatchUpdatePhoneNumber</a> and <a>UpdatePhoneNumber</a> actions.</p>
  */
 export interface UpdatePhoneNumberRequestItem {
-  __type?: "UpdatePhoneNumberRequestItem";
   /**
    * <p>The product type to update.</p>
    */
@@ -5672,11 +5122,9 @@ export namespace UpdatePhoneNumberRequestItem {
     ...obj,
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdatePhoneNumberRequestItem => __isa(o, "UpdatePhoneNumberRequestItem");
 }
 
 export interface UpdatePhoneNumberResponse {
-  __type?: "UpdatePhoneNumberResponse";
   /**
    * <p>The updated phone number details.</p>
    */
@@ -5688,11 +5136,9 @@ export namespace UpdatePhoneNumberResponse {
     ...obj,
     ...(obj.PhoneNumber && { PhoneNumber: PhoneNumber.filterSensitiveLog(obj.PhoneNumber) }),
   });
-  export const isa = (o: any): o is UpdatePhoneNumberResponse => __isa(o, "UpdatePhoneNumberResponse");
 }
 
 export interface UpdatePhoneNumberSettingsRequest {
-  __type?: "UpdatePhoneNumberSettingsRequest";
   /**
    * <p>The default outbound calling name for the account.</p>
    */
@@ -5704,11 +5150,9 @@ export namespace UpdatePhoneNumberSettingsRequest {
     ...obj,
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdatePhoneNumberSettingsRequest => __isa(o, "UpdatePhoneNumberSettingsRequest");
 }
 
 export interface UpdateProxySessionRequest {
-  __type?: "UpdateProxySessionRequest";
   /**
    * <p>The proxy session ID.</p>
    */
@@ -5734,11 +5178,9 @@ export namespace UpdateProxySessionRequest {
   export const filterSensitiveLog = (obj: UpdateProxySessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProxySessionRequest => __isa(o, "UpdateProxySessionRequest");
 }
 
 export interface UpdateProxySessionResponse {
-  __type?: "UpdateProxySessionResponse";
   /**
    * <p>The proxy session details.</p>
    */
@@ -5750,11 +5192,9 @@ export namespace UpdateProxySessionResponse {
     ...obj,
     ...(obj.ProxySession && { ProxySession: ProxySession.filterSensitiveLog(obj.ProxySession) }),
   });
-  export const isa = (o: any): o is UpdateProxySessionResponse => __isa(o, "UpdateProxySessionResponse");
 }
 
 export interface UpdateRoomMembershipRequest {
-  __type?: "UpdateRoomMembershipRequest";
   /**
    * <p>The member ID.</p>
    */
@@ -5780,11 +5220,9 @@ export namespace UpdateRoomMembershipRequest {
   export const filterSensitiveLog = (obj: UpdateRoomMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoomMembershipRequest => __isa(o, "UpdateRoomMembershipRequest");
 }
 
 export interface UpdateRoomMembershipResponse {
-  __type?: "UpdateRoomMembershipResponse";
   /**
    * <p>The room membership details.</p>
    */
@@ -5796,11 +5234,9 @@ export namespace UpdateRoomMembershipResponse {
     ...obj,
     ...(obj.RoomMembership && { RoomMembership: RoomMembership.filterSensitiveLog(obj.RoomMembership) }),
   });
-  export const isa = (o: any): o is UpdateRoomMembershipResponse => __isa(o, "UpdateRoomMembershipResponse");
 }
 
 export interface UpdateRoomRequest {
-  __type?: "UpdateRoomRequest";
   /**
    * <p>The Amazon Chime account ID.</p>
    */
@@ -5822,11 +5258,9 @@ export namespace UpdateRoomRequest {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateRoomRequest => __isa(o, "UpdateRoomRequest");
 }
 
 export interface UpdateRoomResponse {
-  __type?: "UpdateRoomResponse";
   /**
    * <p>The room details.</p>
    */
@@ -5838,11 +5272,9 @@ export namespace UpdateRoomResponse {
     ...obj,
     ...(obj.Room && { Room: Room.filterSensitiveLog(obj.Room) }),
   });
-  export const isa = (o: any): o is UpdateRoomResponse => __isa(o, "UpdateRoomResponse");
 }
 
 export interface UpdateUserRequest {
-  __type?: "UpdateUserRequest";
   /**
    * <p>The user ID.</p>
    */
@@ -5877,14 +5309,12 @@ export namespace UpdateUserRequest {
       AlexaForBusinessMetadata: AlexaForBusinessMetadata.filterSensitiveLog(obj.AlexaForBusinessMetadata),
     }),
   });
-  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 /**
  * <p>The user ID and user fields to update, used with the <a>BatchUpdateUser</a> action.</p>
  */
 export interface UpdateUserRequestItem {
-  __type?: "UpdateUserRequestItem";
   /**
    * <p>The user license type.</p>
    */
@@ -5913,11 +5343,9 @@ export namespace UpdateUserRequestItem {
       AlexaForBusinessMetadata: AlexaForBusinessMetadata.filterSensitiveLog(obj.AlexaForBusinessMetadata),
     }),
   });
-  export const isa = (o: any): o is UpdateUserRequestItem => __isa(o, "UpdateUserRequestItem");
 }
 
 export interface UpdateUserResponse {
-  __type?: "UpdateUserResponse";
   /**
    * <p>The updated user details.</p>
    */
@@ -5929,11 +5357,9 @@ export namespace UpdateUserResponse {
     ...obj,
     ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
   });
-  export const isa = (o: any): o is UpdateUserResponse => __isa(o, "UpdateUserResponse");
 }
 
 export interface UpdateUserSettingsRequest {
-  __type?: "UpdateUserSettingsRequest";
   /**
    * <p>The user ID.</p>
    */
@@ -5954,11 +5380,9 @@ export namespace UpdateUserSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateUserSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserSettingsRequest => __isa(o, "UpdateUserSettingsRequest");
 }
 
 export interface UpdateVoiceConnectorGroupRequest {
-  __type?: "UpdateVoiceConnectorGroupRequest";
   /**
    * <p>The <code>VoiceConnectorItems</code> to associate with the group.</p>
    */
@@ -5979,11 +5403,9 @@ export namespace UpdateVoiceConnectorGroupRequest {
   export const filterSensitiveLog = (obj: UpdateVoiceConnectorGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceConnectorGroupRequest => __isa(o, "UpdateVoiceConnectorGroupRequest");
 }
 
 export interface UpdateVoiceConnectorGroupResponse {
-  __type?: "UpdateVoiceConnectorGroupResponse";
   /**
    * <p>The updated Amazon Chime Voice Connector group details.</p>
    */
@@ -5994,11 +5416,9 @@ export namespace UpdateVoiceConnectorGroupResponse {
   export const filterSensitiveLog = (obj: UpdateVoiceConnectorGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceConnectorGroupResponse => __isa(o, "UpdateVoiceConnectorGroupResponse");
 }
 
 export interface UpdateVoiceConnectorRequest {
-  __type?: "UpdateVoiceConnectorRequest";
   /**
    * <p>The name of the Amazon Chime Voice Connector.</p>
    */
@@ -6019,11 +5439,9 @@ export namespace UpdateVoiceConnectorRequest {
   export const filterSensitiveLog = (obj: UpdateVoiceConnectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceConnectorRequest => __isa(o, "UpdateVoiceConnectorRequest");
 }
 
 export interface UpdateVoiceConnectorResponse {
-  __type?: "UpdateVoiceConnectorResponse";
   /**
    * <p>The updated Amazon Chime Voice Connector details.</p>
    */
@@ -6034,14 +5452,12 @@ export namespace UpdateVoiceConnectorResponse {
   export const filterSensitiveLog = (obj: UpdateVoiceConnectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVoiceConnectorResponse => __isa(o, "UpdateVoiceConnectorResponse");
 }
 
 /**
  * <p>The user on the Amazon Chime account.</p>
  */
 export interface User {
-  __type?: "User";
   /**
    * <p>Date and time when the user is invited to the Amazon Chime account, in ISO 8601
    *       format.</p>
@@ -6119,7 +5535,6 @@ export namespace User {
       AlexaForBusinessMetadata: AlexaForBusinessMetadata.filterSensitiveLog(obj.AlexaForBusinessMetadata),
     }),
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 /**
@@ -6127,7 +5542,6 @@ export namespace User {
  *       messages.</p>
  */
 export interface UserError {
-  __type?: "UserError";
   /**
    * <p>The error message.</p>
    */
@@ -6148,7 +5562,6 @@ export namespace UserError {
   export const filterSensitiveLog = (obj: UserError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserError => __isa(o, "UserError");
 }
 
 /**
@@ -6156,7 +5569,6 @@ export namespace UserError {
  *       text messaging.</p>
  */
 export interface UserSettings {
-  __type?: "UserSettings";
   /**
    * <p>The telephony settings associated with the user.</p>
    */
@@ -6167,7 +5579,6 @@ export namespace UserSettings {
   export const filterSensitiveLog = (obj: UserSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserSettings => __isa(o, "UserSettings");
 }
 
 export enum UserType {
@@ -6180,7 +5591,6 @@ export enum UserType {
  *       encryption settings.</p>
  */
 export interface VoiceConnector {
-  __type?: "VoiceConnector";
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
    */
@@ -6221,7 +5631,6 @@ export namespace VoiceConnector {
   export const filterSensitiveLog = (obj: VoiceConnector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceConnector => __isa(o, "VoiceConnector");
 }
 
 export enum VoiceConnectorAwsRegion {
@@ -6236,7 +5645,6 @@ export enum VoiceConnectorAwsRegion {
  *       events.</p>
  */
 export interface VoiceConnectorGroup {
-  __type?: "VoiceConnectorGroup";
   /**
    * <p>The Amazon Chime Voice Connector group ID.</p>
    */
@@ -6267,14 +5675,12 @@ export namespace VoiceConnectorGroup {
   export const filterSensitiveLog = (obj: VoiceConnectorGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceConnectorGroup => __isa(o, "VoiceConnectorGroup");
 }
 
 /**
  * <p>For Amazon Chime Voice Connector groups, the Amazon Chime Voice Connectors to which to route inbound calls. Includes priority configuration settings. Limit: 3 <code>VoiceConnectorItems</code> per Amazon Chime Voice Connector group.</p>
  */
 export interface VoiceConnectorItem {
-  __type?: "VoiceConnectorItem";
   /**
    * <p>The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first. </p>
    */
@@ -6290,7 +5696,6 @@ export namespace VoiceConnectorItem {
   export const filterSensitiveLog = (obj: VoiceConnectorItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceConnectorItem => __isa(o, "VoiceConnectorItem");
 }
 
 /**
@@ -6298,7 +5703,6 @@ export namespace VoiceConnectorItem {
  *       Includes any Amazon S3 buckets designated for storing call detail records.</p>
  */
 export interface VoiceConnectorSettings {
-  __type?: "VoiceConnectorSettings";
   /**
    * <p>The Amazon S3 bucket designated for call detail record storage.</p>
    */
@@ -6309,5 +5713,4 @@ export namespace VoiceConnectorSettings {
   export const filterSensitiveLog = (obj: VoiceConnectorSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceConnectorSettings => __isa(o, "VoiceConnectorSettings");
 }

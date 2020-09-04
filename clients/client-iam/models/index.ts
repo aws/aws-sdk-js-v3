@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccessAdvisorUsageGranularityType {
@@ -13,7 +13,6 @@ export enum AccessAdvisorUsageGranularityType {
  *          <p>This data type is a response element in the <a>GetOrganizationsAccessReport</a> operation.</p>
  */
 export interface AccessDetail {
-  __type?: "AccessDetail";
   /**
    * <p>The name of the service in which access was attempted.</p>
    */
@@ -67,7 +66,6 @@ export namespace AccessDetail {
   export const filterSensitiveLog = (obj: AccessDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDetail => __isa(o, "AccessDetail");
 }
 
 /**
@@ -81,7 +79,6 @@ export namespace AccessDetail {
  *          </note>
  */
 export interface AccessKey {
-  __type?: "AccessKey";
   /**
    * <p>The ID for this access key.</p>
    */
@@ -114,7 +111,6 @@ export namespace AccessKey {
     ...obj,
     ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AccessKey => __isa(o, "AccessKey");
 }
 
 /**
@@ -123,7 +119,6 @@ export namespace AccessKey {
  *          <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
  */
 export interface AccessKeyLastUsed {
-  __type?: "AccessKeyLastUsed";
   /**
    * <p>The name of the AWS service with which this access key was most recently used. The value
    *          of this field is "N/A" in the following situations:</p>
@@ -186,7 +181,6 @@ export namespace AccessKeyLastUsed {
   export const filterSensitiveLog = (obj: AccessKeyLastUsed): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessKeyLastUsed => __isa(o, "AccessKeyLastUsed");
 }
 
 /**
@@ -195,7 +189,6 @@ export namespace AccessKeyLastUsed {
  *          operation.</p>
  */
 export interface AccessKeyMetadata {
-  __type?: "AccessKeyMetadata";
   /**
    * <p>The ID for this access key.</p>
    */
@@ -222,11 +215,9 @@ export namespace AccessKeyMetadata {
   export const filterSensitiveLog = (obj: AccessKeyMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessKeyMetadata => __isa(o, "AccessKeyMetadata");
 }
 
 export interface AddClientIDToOpenIDConnectProviderRequest {
-  __type?: "AddClientIDToOpenIDConnectProviderRequest";
   /**
    * <p>The client ID (also known as audience) to add to the IAM OpenID Connect provider
    *          resource.</p>
@@ -244,12 +235,9 @@ export namespace AddClientIDToOpenIDConnectProviderRequest {
   export const filterSensitiveLog = (obj: AddClientIDToOpenIDConnectProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddClientIDToOpenIDConnectProviderRequest =>
-    __isa(o, "AddClientIDToOpenIDConnectProviderRequest");
 }
 
 export interface AddRoleToInstanceProfileRequest {
-  __type?: "AddRoleToInstanceProfileRequest";
   /**
    * <p>The name of the role to add.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -269,11 +257,9 @@ export namespace AddRoleToInstanceProfileRequest {
   export const filterSensitiveLog = (obj: AddRoleToInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddRoleToInstanceProfileRequest => __isa(o, "AddRoleToInstanceProfileRequest");
 }
 
 export interface AddUserToGroupRequest {
-  __type?: "AddUserToGroupRequest";
   /**
    * <p>The name of the user to add.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -293,7 +279,6 @@ export namespace AddUserToGroupRequest {
   export const filterSensitiveLog = (obj: AddUserToGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddUserToGroupRequest => __isa(o, "AddUserToGroupRequest");
 }
 
 export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
@@ -306,7 +291,6 @@ export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
  *             Identities </a> in the <i>IAM User Guide</i>.</p>
  */
 export interface AttachedPermissionsBoundary {
-  __type?: "AttachedPermissionsBoundary";
   /**
    * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
    */
@@ -324,7 +308,6 @@ export namespace AttachedPermissionsBoundary {
   export const filterSensitiveLog = (obj: AttachedPermissionsBoundary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachedPermissionsBoundary => __isa(o, "AttachedPermissionsBoundary");
 }
 
 /**
@@ -335,7 +318,6 @@ export namespace AttachedPermissionsBoundary {
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface AttachedPolicy {
-  __type?: "AttachedPolicy";
   /**
    * <p>The friendly name of the attached policy.</p>
    */
@@ -353,11 +335,9 @@ export namespace AttachedPolicy {
   export const filterSensitiveLog = (obj: AttachedPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachedPolicy => __isa(o, "AttachedPolicy");
 }
 
 export interface AttachGroupPolicyRequest {
-  __type?: "AttachGroupPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
@@ -377,11 +357,9 @@ export namespace AttachGroupPolicyRequest {
   export const filterSensitiveLog = (obj: AttachGroupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachGroupPolicyRequest => __isa(o, "AttachGroupPolicyRequest");
 }
 
 export interface AttachRolePolicyRequest {
-  __type?: "AttachRolePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
@@ -401,11 +379,9 @@ export namespace AttachRolePolicyRequest {
   export const filterSensitiveLog = (obj: AttachRolePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachRolePolicyRequest => __isa(o, "AttachRolePolicyRequest");
 }
 
 export interface AttachUserPolicyRequest {
-  __type?: "AttachUserPolicyRequest";
   /**
    * <p>The name (friendly name, not ARN) of the IAM user to attach the policy to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -425,11 +401,9 @@ export namespace AttachUserPolicyRequest {
   export const filterSensitiveLog = (obj: AttachUserPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachUserPolicyRequest => __isa(o, "AttachUserPolicyRequest");
 }
 
 export interface ChangePasswordRequest {
-  __type?: "ChangePasswordRequest";
   /**
    * <p>The IAM user's current password.</p>
    */
@@ -455,7 +429,6 @@ export namespace ChangePasswordRequest {
     ...(obj.OldPassword && { OldPassword: SENSITIVE_STRING }),
     ...(obj.NewPassword && { NewPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ChangePasswordRequest => __isa(o, "ChangePasswordRequest");
 }
 
 /**
@@ -471,7 +444,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -482,7 +454,6 @@ export namespace ConcurrentModificationException {
  *          <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a> and <a>SimulatePrincipalPolicy</a>.</p>
  */
 export interface ContextEntry {
-  __type?: "ContextEntry";
   /**
    * <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code>
    *          parameter.</p>
@@ -507,7 +478,6 @@ export namespace ContextEntry {
   export const filterSensitiveLog = (obj: ContextEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContextEntry => __isa(o, "ContextEntry");
 }
 
 export enum ContextKeyTypeEnum {
@@ -526,7 +496,6 @@ export enum ContextKeyTypeEnum {
 }
 
 export interface CreateAccessKeyRequest {
-  __type?: "CreateAccessKeyRequest";
   /**
    * <p>The name of the IAM user that the new key will belong to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -539,7 +508,6 @@ export namespace CreateAccessKeyRequest {
   export const filterSensitiveLog = (obj: CreateAccessKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessKeyRequest => __isa(o, "CreateAccessKeyRequest");
 }
 
 /**
@@ -547,7 +515,6 @@ export namespace CreateAccessKeyRequest {
  *     </p>
  */
 export interface CreateAccessKeyResponse {
-  __type?: "CreateAccessKeyResponse";
   /**
    * <p>A structure with details about the access key.</p>
    */
@@ -559,11 +526,9 @@ export namespace CreateAccessKeyResponse {
     ...obj,
     ...(obj.AccessKey && { AccessKey: AccessKey.filterSensitiveLog(obj.AccessKey) }),
   });
-  export const isa = (o: any): o is CreateAccessKeyResponse => __isa(o, "CreateAccessKeyResponse");
 }
 
 export interface CreateAccountAliasRequest {
-  __type?: "CreateAccountAliasRequest";
   /**
    * <p>The account alias to create.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of
@@ -577,11 +542,9 @@ export namespace CreateAccountAliasRequest {
   export const filterSensitiveLog = (obj: CreateAccountAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccountAliasRequest => __isa(o, "CreateAccountAliasRequest");
 }
 
 export interface CreateGroupRequest {
-  __type?: "CreateGroupRequest";
   /**
    * <p>The name of the group to create. Do not include the path in this value.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
@@ -606,14 +569,12 @@ export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>CreateGroup</a> request. </p>
  */
 export interface CreateGroupResponse {
-  __type?: "CreateGroupResponse";
   /**
    * <p>A structure containing details about the new group.</p>
    */
@@ -624,11 +585,9 @@ export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResponse => __isa(o, "CreateGroupResponse");
 }
 
 export interface CreateInstanceProfileRequest {
-  __type?: "CreateInstanceProfileRequest";
   /**
    * <p>The name of the instance profile to create.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -652,7 +611,6 @@ export namespace CreateInstanceProfileRequest {
   export const filterSensitiveLog = (obj: CreateInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileRequest => __isa(o, "CreateInstanceProfileRequest");
 }
 
 /**
@@ -660,7 +618,6 @@ export namespace CreateInstanceProfileRequest {
  *     </p>
  */
 export interface CreateInstanceProfileResponse {
-  __type?: "CreateInstanceProfileResponse";
   /**
    * <p>A structure containing details about the new instance profile.</p>
    */
@@ -671,11 +628,9 @@ export namespace CreateInstanceProfileResponse {
   export const filterSensitiveLog = (obj: CreateInstanceProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileResponse => __isa(o, "CreateInstanceProfileResponse");
 }
 
 export interface CreateLoginProfileRequest {
-  __type?: "CreateLoginProfileRequest";
   /**
    * <p>The name of the IAM user to create a password for. The user must already exist.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -706,7 +661,6 @@ export namespace CreateLoginProfileRequest {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateLoginProfileRequest => __isa(o, "CreateLoginProfileRequest");
 }
 
 /**
@@ -714,7 +668,6 @@ export namespace CreateLoginProfileRequest {
  *     </p>
  */
 export interface CreateLoginProfileResponse {
-  __type?: "CreateLoginProfileResponse";
   /**
    * <p>A structure containing the user name and password create date.</p>
    */
@@ -725,11 +678,9 @@ export namespace CreateLoginProfileResponse {
   export const filterSensitiveLog = (obj: CreateLoginProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoginProfileResponse => __isa(o, "CreateLoginProfileResponse");
 }
 
 export interface CreateOpenIDConnectProviderRequest {
-  __type?: "CreateOpenIDConnectProviderRequest";
   /**
    * <p>The URL of the identity provider. The URL must begin with <code>https://</code> and
    *          should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens.
@@ -778,8 +729,6 @@ export namespace CreateOpenIDConnectProviderRequest {
   export const filterSensitiveLog = (obj: CreateOpenIDConnectProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOpenIDConnectProviderRequest =>
-    __isa(o, "CreateOpenIDConnectProviderRequest");
 }
 
 /**
@@ -787,7 +736,6 @@ export namespace CreateOpenIDConnectProviderRequest {
  *       request. </p>
  */
 export interface CreateOpenIDConnectProviderResponse {
-  __type?: "CreateOpenIDConnectProviderResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created.
    *          For more information, see <a>OpenIDConnectProviderListEntry</a>. </p>
@@ -799,12 +747,9 @@ export namespace CreateOpenIDConnectProviderResponse {
   export const filterSensitiveLog = (obj: CreateOpenIDConnectProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOpenIDConnectProviderResponse =>
-    __isa(o, "CreateOpenIDConnectProviderResponse");
 }
 
 export interface CreatePolicyRequest {
-  __type?: "CreatePolicyRequest";
   /**
    * <p>The friendly name of the policy.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
@@ -864,7 +809,6 @@ export namespace CreatePolicyRequest {
   export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyRequest => __isa(o, "CreatePolicyRequest");
 }
 
 /**
@@ -872,7 +816,6 @@ export namespace CreatePolicyRequest {
  *     </p>
  */
 export interface CreatePolicyResponse {
-  __type?: "CreatePolicyResponse";
   /**
    * <p>A structure containing details about the new policy.</p>
    */
@@ -883,11 +826,9 @@ export namespace CreatePolicyResponse {
   export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyResponse => __isa(o, "CreatePolicyResponse");
 }
 
 export interface CreatePolicyVersionRequest {
-  __type?: "CreatePolicyVersionRequest";
   /**
    * <p>The JSON policy document that you want to use as the content for this new version of the
    *          policy.</p>
@@ -937,7 +878,6 @@ export namespace CreatePolicyVersionRequest {
   export const filterSensitiveLog = (obj: CreatePolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyVersionRequest => __isa(o, "CreatePolicyVersionRequest");
 }
 
 /**
@@ -945,7 +885,6 @@ export namespace CreatePolicyVersionRequest {
  *     </p>
  */
 export interface CreatePolicyVersionResponse {
-  __type?: "CreatePolicyVersionResponse";
   /**
    * <p>A structure containing details about the new policy version.</p>
    */
@@ -956,11 +895,9 @@ export namespace CreatePolicyVersionResponse {
   export const filterSensitiveLog = (obj: CreatePolicyVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyVersionResponse => __isa(o, "CreatePolicyVersionResponse");
 }
 
 export interface CreateRoleRequest {
-  __type?: "CreateRoleRequest";
   /**
    * <p>A list of tags that you want to attach to the newly created role. Each tag consists of
    *       a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
@@ -1052,14 +989,12 @@ export namespace CreateRoleRequest {
   export const filterSensitiveLog = (obj: CreateRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoleRequest => __isa(o, "CreateRoleRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>CreateRole</a> request. </p>
  */
 export interface CreateRoleResponse {
-  __type?: "CreateRoleResponse";
   /**
    * <p>A structure containing details about the new role.</p>
    */
@@ -1070,11 +1005,9 @@ export namespace CreateRoleResponse {
   export const filterSensitiveLog = (obj: CreateRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoleResponse => __isa(o, "CreateRoleResponse");
 }
 
 export interface CreateSAMLProviderRequest {
-  __type?: "CreateSAMLProviderRequest";
   /**
    * <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The
    *          document includes the issuer's name, expiration information, and keys that can be used to
@@ -1099,7 +1032,6 @@ export namespace CreateSAMLProviderRequest {
   export const filterSensitiveLog = (obj: CreateSAMLProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSAMLProviderRequest => __isa(o, "CreateSAMLProviderRequest");
 }
 
 /**
@@ -1107,7 +1039,6 @@ export namespace CreateSAMLProviderRequest {
  *     </p>
  */
 export interface CreateSAMLProviderResponse {
-  __type?: "CreateSAMLProviderResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.</p>
    */
@@ -1118,11 +1049,9 @@ export namespace CreateSAMLProviderResponse {
   export const filterSensitiveLog = (obj: CreateSAMLProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSAMLProviderResponse => __isa(o, "CreateSAMLProviderResponse");
 }
 
 export interface CreateServiceLinkedRoleRequest {
-  __type?: "CreateServiceLinkedRoleRequest";
   /**
    * <p>The service principal for the AWS service to which this role is attached. You use a
    *          string similar to a URL but without the http:// in front. For example:
@@ -1157,11 +1086,9 @@ export namespace CreateServiceLinkedRoleRequest {
   export const filterSensitiveLog = (obj: CreateServiceLinkedRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceLinkedRoleRequest => __isa(o, "CreateServiceLinkedRoleRequest");
 }
 
 export interface CreateServiceLinkedRoleResponse {
-  __type?: "CreateServiceLinkedRoleResponse";
   /**
    * <p>A <a>Role</a> object that contains details about the newly created
    *          role.</p>
@@ -1173,11 +1100,9 @@ export namespace CreateServiceLinkedRoleResponse {
   export const filterSensitiveLog = (obj: CreateServiceLinkedRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceLinkedRoleResponse => __isa(o, "CreateServiceLinkedRoleResponse");
 }
 
 export interface CreateServiceSpecificCredentialRequest {
-  __type?: "CreateServiceSpecificCredentialRequest";
   /**
    * <p>The name of the AWS service that is to be associated with the credentials. The service
    *          you specify here is the only service that can be accessed using these credentials.</p>
@@ -1198,12 +1123,9 @@ export namespace CreateServiceSpecificCredentialRequest {
   export const filterSensitiveLog = (obj: CreateServiceSpecificCredentialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceSpecificCredentialRequest =>
-    __isa(o, "CreateServiceSpecificCredentialRequest");
 }
 
 export interface CreateServiceSpecificCredentialResponse {
-  __type?: "CreateServiceSpecificCredentialResponse";
   /**
    * <p>A structure that contains information about the newly created service-specific
    *          credential.</p>
@@ -1222,12 +1144,9 @@ export namespace CreateServiceSpecificCredentialResponse {
       ServiceSpecificCredential: ServiceSpecificCredential.filterSensitiveLog(obj.ServiceSpecificCredential),
     }),
   });
-  export const isa = (o: any): o is CreateServiceSpecificCredentialResponse =>
-    __isa(o, "CreateServiceSpecificCredentialResponse");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p> The path for the user name. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -1268,14 +1187,12 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>CreateUser</a> request. </p>
  */
 export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
   /**
    * <p>A structure with details about the new IAM user.</p>
    */
@@ -1286,11 +1203,9 @@ export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export interface CreateVirtualMFADeviceRequest {
-  __type?: "CreateVirtualMFADeviceRequest";
   /**
    * <p>The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA
    *          device.</p>
@@ -1315,7 +1230,6 @@ export namespace CreateVirtualMFADeviceRequest {
   export const filterSensitiveLog = (obj: CreateVirtualMFADeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVirtualMFADeviceRequest => __isa(o, "CreateVirtualMFADeviceRequest");
 }
 
 /**
@@ -1323,7 +1237,6 @@ export namespace CreateVirtualMFADeviceRequest {
  *     </p>
  */
 export interface CreateVirtualMFADeviceResponse {
-  __type?: "CreateVirtualMFADeviceResponse";
   /**
    * <p>A structure containing details about the new virtual MFA device.</p>
    */
@@ -1335,7 +1248,6 @@ export namespace CreateVirtualMFADeviceResponse {
     ...obj,
     ...(obj.VirtualMFADevice && { VirtualMFADevice: VirtualMFADevice.filterSensitiveLog(obj.VirtualMFADevice) }),
   });
-  export const isa = (o: any): o is CreateVirtualMFADeviceResponse => __isa(o, "CreateVirtualMFADeviceResponse");
 }
 
 /**
@@ -1354,7 +1266,6 @@ export namespace CredentialReportExpiredException {
   export const filterSensitiveLog = (obj: CredentialReportExpiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CredentialReportExpiredException => __isa(o, "CredentialReportExpiredException");
 }
 
 /**
@@ -1371,8 +1282,6 @@ export namespace CredentialReportNotPresentException {
   export const filterSensitiveLog = (obj: CredentialReportNotPresentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CredentialReportNotPresentException =>
-    __isa(o, "CredentialReportNotPresentException");
 }
 
 /**
@@ -1389,11 +1298,9 @@ export namespace CredentialReportNotReadyException {
   export const filterSensitiveLog = (obj: CredentialReportNotReadyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CredentialReportNotReadyException => __isa(o, "CredentialReportNotReadyException");
 }
 
 export interface DeactivateMFADeviceRequest {
-  __type?: "DeactivateMFADeviceRequest";
   /**
    * <p>The name of the user whose MFA device you want to deactivate.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1415,11 +1322,9 @@ export namespace DeactivateMFADeviceRequest {
   export const filterSensitiveLog = (obj: DeactivateMFADeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeactivateMFADeviceRequest => __isa(o, "DeactivateMFADeviceRequest");
 }
 
 export interface DeleteAccessKeyRequest {
-  __type?: "DeleteAccessKeyRequest";
   /**
    * <p>The name of the user whose access key pair you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1439,11 +1344,9 @@ export namespace DeleteAccessKeyRequest {
   export const filterSensitiveLog = (obj: DeleteAccessKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessKeyRequest => __isa(o, "DeleteAccessKeyRequest");
 }
 
 export interface DeleteAccountAliasRequest {
-  __type?: "DeleteAccountAliasRequest";
   /**
    * <p>The name of the account alias to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of
@@ -1457,7 +1360,6 @@ export namespace DeleteAccountAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAccountAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountAliasRequest => __isa(o, "DeleteAccountAliasRequest");
 }
 
 /**
@@ -1474,11 +1376,9 @@ export namespace DeleteConflictException {
   export const filterSensitiveLog = (obj: DeleteConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConflictException => __isa(o, "DeleteConflictException");
 }
 
 export interface DeleteGroupPolicyRequest {
-  __type?: "DeleteGroupPolicyRequest";
   /**
    * <p>The name identifying the policy document to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1499,11 +1399,9 @@ export namespace DeleteGroupPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteGroupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupPolicyRequest => __isa(o, "DeleteGroupPolicyRequest");
 }
 
 export interface DeleteGroupRequest {
-  __type?: "DeleteGroupRequest";
   /**
    * <p>The name of the IAM group to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1516,11 +1414,9 @@ export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
 export interface DeleteInstanceProfileRequest {
-  __type?: "DeleteInstanceProfileRequest";
   /**
    * <p>The name of the instance profile to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1533,11 +1429,9 @@ export namespace DeleteInstanceProfileRequest {
   export const filterSensitiveLog = (obj: DeleteInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceProfileRequest => __isa(o, "DeleteInstanceProfileRequest");
 }
 
 export interface DeleteLoginProfileRequest {
-  __type?: "DeleteLoginProfileRequest";
   /**
    * <p>The name of the user whose password you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1550,11 +1444,9 @@ export namespace DeleteLoginProfileRequest {
   export const filterSensitiveLog = (obj: DeleteLoginProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoginProfileRequest => __isa(o, "DeleteLoginProfileRequest");
 }
 
 export interface DeleteOpenIDConnectProviderRequest {
-  __type?: "DeleteOpenIDConnectProviderRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to
    *          delete. You can get a list of OpenID Connect provider resource ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
@@ -1566,12 +1458,9 @@ export namespace DeleteOpenIDConnectProviderRequest {
   export const filterSensitiveLog = (obj: DeleteOpenIDConnectProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOpenIDConnectProviderRequest =>
-    __isa(o, "DeleteOpenIDConnectProviderRequest");
 }
 
 export interface DeletePolicyRequest {
-  __type?: "DeletePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
@@ -1584,11 +1473,9 @@ export namespace DeletePolicyRequest {
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export interface DeletePolicyVersionRequest {
-  __type?: "DeletePolicyVersionRequest";
   /**
    * <p>The policy version to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that
@@ -1612,11 +1499,9 @@ export namespace DeletePolicyVersionRequest {
   export const filterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyVersionRequest => __isa(o, "DeletePolicyVersionRequest");
 }
 
 export interface DeleteRolePermissionsBoundaryRequest {
-  __type?: "DeleteRolePermissionsBoundaryRequest";
   /**
    * <p>The name (friendly name, not ARN) of the IAM role from which you want to remove the
    *          permissions boundary.</p>
@@ -1628,12 +1513,9 @@ export namespace DeleteRolePermissionsBoundaryRequest {
   export const filterSensitiveLog = (obj: DeleteRolePermissionsBoundaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRolePermissionsBoundaryRequest =>
-    __isa(o, "DeleteRolePermissionsBoundaryRequest");
 }
 
 export interface DeleteRolePolicyRequest {
-  __type?: "DeleteRolePolicyRequest";
   /**
    * <p>The name of the inline policy to delete from the specified IAM role.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1654,11 +1536,9 @@ export namespace DeleteRolePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteRolePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRolePolicyRequest => __isa(o, "DeleteRolePolicyRequest");
 }
 
 export interface DeleteRoleRequest {
-  __type?: "DeleteRoleRequest";
   /**
    * <p>The name of the role to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1671,11 +1551,9 @@ export namespace DeleteRoleRequest {
   export const filterSensitiveLog = (obj: DeleteRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoleRequest => __isa(o, "DeleteRoleRequest");
 }
 
 export interface DeleteSAMLProviderRequest {
-  __type?: "DeleteSAMLProviderRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider to delete.</p>
    */
@@ -1686,11 +1564,9 @@ export namespace DeleteSAMLProviderRequest {
   export const filterSensitiveLog = (obj: DeleteSAMLProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSAMLProviderRequest => __isa(o, "DeleteSAMLProviderRequest");
 }
 
 export interface DeleteServerCertificateRequest {
-  __type?: "DeleteServerCertificateRequest";
   /**
    * <p>The name of the server certificate you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1703,11 +1579,9 @@ export namespace DeleteServerCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteServerCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServerCertificateRequest => __isa(o, "DeleteServerCertificateRequest");
 }
 
 export interface DeleteServiceLinkedRoleRequest {
-  __type?: "DeleteServiceLinkedRoleRequest";
   /**
    * <p>The name of the service-linked role to be deleted.</p>
    */
@@ -1718,11 +1592,9 @@ export namespace DeleteServiceLinkedRoleRequest {
   export const filterSensitiveLog = (obj: DeleteServiceLinkedRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceLinkedRoleRequest => __isa(o, "DeleteServiceLinkedRoleRequest");
 }
 
 export interface DeleteServiceLinkedRoleResponse {
-  __type?: "DeleteServiceLinkedRoleResponse";
   /**
    * <p>The deletion task identifier that you can use to check the status of the deletion. This
    *          identifier is returned in the format
@@ -1735,11 +1607,9 @@ export namespace DeleteServiceLinkedRoleResponse {
   export const filterSensitiveLog = (obj: DeleteServiceLinkedRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceLinkedRoleResponse => __isa(o, "DeleteServiceLinkedRoleResponse");
 }
 
 export interface DeleteServiceSpecificCredentialRequest {
-  __type?: "DeleteServiceSpecificCredentialRequest";
   /**
    * <p>The name of the IAM user associated with the service-specific credential. If this
    *          value is not specified, then the operation assumes the user whose credentials are used to
@@ -1762,12 +1632,9 @@ export namespace DeleteServiceSpecificCredentialRequest {
   export const filterSensitiveLog = (obj: DeleteServiceSpecificCredentialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceSpecificCredentialRequest =>
-    __isa(o, "DeleteServiceSpecificCredentialRequest");
 }
 
 export interface DeleteSigningCertificateRequest {
-  __type?: "DeleteSigningCertificateRequest";
   /**
    * <p>The name of the user the signing certificate belongs to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1787,11 +1654,9 @@ export namespace DeleteSigningCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteSigningCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSigningCertificateRequest => __isa(o, "DeleteSigningCertificateRequest");
 }
 
 export interface DeleteSSHPublicKeyRequest {
-  __type?: "DeleteSSHPublicKeyRequest";
   /**
    * <p>The unique identifier for the SSH public key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
@@ -1811,11 +1676,9 @@ export namespace DeleteSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: DeleteSSHPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSSHPublicKeyRequest => __isa(o, "DeleteSSHPublicKeyRequest");
 }
 
 export interface DeleteUserPermissionsBoundaryRequest {
-  __type?: "DeleteUserPermissionsBoundaryRequest";
   /**
    * <p>The name (friendly name, not ARN) of the IAM user from which you want to remove the
    *          permissions boundary.</p>
@@ -1827,12 +1690,9 @@ export namespace DeleteUserPermissionsBoundaryRequest {
   export const filterSensitiveLog = (obj: DeleteUserPermissionsBoundaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserPermissionsBoundaryRequest =>
-    __isa(o, "DeleteUserPermissionsBoundaryRequest");
 }
 
 export interface DeleteUserPolicyRequest {
-  __type?: "DeleteUserPolicyRequest";
   /**
    * <p>The name (friendly name, not ARN) identifying the user that the policy is embedded
    *          in.</p>
@@ -1853,11 +1713,9 @@ export namespace DeleteUserPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteUserPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserPolicyRequest => __isa(o, "DeleteUserPolicyRequest");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The name of the user to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1870,11 +1728,9 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DeleteVirtualMFADeviceRequest {
-  __type?: "DeleteVirtualMFADeviceRequest";
   /**
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
    *          serial number is the same as the ARN.</p>
@@ -1889,7 +1745,6 @@ export namespace DeleteVirtualMFADeviceRequest {
   export const filterSensitiveLog = (obj: DeleteVirtualMFADeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualMFADeviceRequest => __isa(o, "DeleteVirtualMFADeviceRequest");
 }
 
 /**
@@ -1897,7 +1752,6 @@ export namespace DeleteVirtualMFADeviceRequest {
  *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
  */
 export interface DeletionTaskFailureReasonType {
-  __type?: "DeletionTaskFailureReasonType";
   /**
    * <p>A short description of the reason that the service-linked role deletion failed.</p>
    */
@@ -1918,7 +1772,6 @@ export namespace DeletionTaskFailureReasonType {
   export const filterSensitiveLog = (obj: DeletionTaskFailureReasonType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletionTaskFailureReasonType => __isa(o, "DeletionTaskFailureReasonType");
 }
 
 export enum DeletionTaskStatusType {
@@ -1929,7 +1782,6 @@ export enum DeletionTaskStatusType {
 }
 
 export interface DetachGroupPolicyRequest {
-  __type?: "DetachGroupPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
@@ -1949,11 +1801,9 @@ export namespace DetachGroupPolicyRequest {
   export const filterSensitiveLog = (obj: DetachGroupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachGroupPolicyRequest => __isa(o, "DetachGroupPolicyRequest");
 }
 
 export interface DetachRolePolicyRequest {
-  __type?: "DetachRolePolicyRequest";
   /**
    * <p>The name (friendly name, not ARN) of the IAM role to detach the policy from.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -1973,11 +1823,9 @@ export namespace DetachRolePolicyRequest {
   export const filterSensitiveLog = (obj: DetachRolePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachRolePolicyRequest => __isa(o, "DetachRolePolicyRequest");
 }
 
 export interface DetachUserPolicyRequest {
-  __type?: "DetachUserPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
@@ -1997,7 +1845,6 @@ export namespace DetachUserPolicyRequest {
   export const filterSensitiveLog = (obj: DetachUserPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachUserPolicyRequest => __isa(o, "DetachUserPolicyRequest");
 }
 
 /**
@@ -2014,7 +1861,6 @@ export namespace DuplicateCertificateException {
   export const filterSensitiveLog = (obj: DuplicateCertificateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateCertificateException => __isa(o, "DuplicateCertificateException");
 }
 
 /**
@@ -2031,11 +1877,9 @@ export namespace DuplicateSSHPublicKeyException {
   export const filterSensitiveLog = (obj: DuplicateSSHPublicKeyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateSSHPublicKeyException => __isa(o, "DuplicateSSHPublicKeyException");
 }
 
 export interface EnableMFADeviceRequest {
-  __type?: "EnableMFADeviceRequest";
   /**
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
    *          serial number is the device ARN.</p>
@@ -2083,7 +1927,6 @@ export namespace EnableMFADeviceRequest {
   export const filterSensitiveLog = (obj: EnableMFADeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableMFADeviceRequest => __isa(o, "EnableMFADeviceRequest");
 }
 
 export type EncodingType = "PEM" | "SSH";
@@ -2102,7 +1945,6 @@ export namespace EntityAlreadyExistsException {
   export const filterSensitiveLog = (obj: EntityAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityAlreadyExistsException => __isa(o, "EntityAlreadyExistsException");
 }
 
 /**
@@ -2111,7 +1953,6 @@ export namespace EntityAlreadyExistsException {
  *          <p>This data type is a response element in the <a>GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
  */
 export interface EntityDetails {
-  __type?: "EntityDetails";
   /**
    * <p>The <code>EntityInfo</code> object that contains details about the entity (user or
    *          role).</p>
@@ -2132,7 +1973,6 @@ export namespace EntityDetails {
   export const filterSensitiveLog = (obj: EntityDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityDetails => __isa(o, "EntityDetails");
 }
 
 /**
@@ -2140,7 +1980,6 @@ export namespace EntityDetails {
  *          <p>This data type is an element of the <a>EntityDetails</a> object.</p>
  */
 export interface EntityInfo {
-  __type?: "EntityInfo";
   /**
    * <p>The name of the entity (user or role).</p>
    */
@@ -2174,7 +2013,6 @@ export namespace EntityInfo {
   export const filterSensitiveLog = (obj: EntityInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityInfo => __isa(o, "EntityInfo");
 }
 
 /**
@@ -2193,8 +2031,6 @@ export namespace EntityTemporarilyUnmodifiableException {
   export const filterSensitiveLog = (obj: EntityTemporarilyUnmodifiableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityTemporarilyUnmodifiableException =>
-    __isa(o, "EntityTemporarilyUnmodifiableException");
 }
 
 export enum EntityType {
@@ -2210,7 +2046,6 @@ export enum EntityType {
  *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
  */
 export interface ErrorDetails {
-  __type?: "ErrorDetails";
   /**
    * <p>The error code associated with the operation failure.</p>
    */
@@ -2226,7 +2061,6 @@ export namespace ErrorDetails {
   export const filterSensitiveLog = (obj: ErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetails => __isa(o, "ErrorDetails");
 }
 
 /**
@@ -2238,7 +2072,6 @@ export namespace ErrorDetails {
  *             </code>.</p>
  */
 export interface EvaluationResult {
-  __type?: "EvaluationResult";
   /**
    * <p>The result of the simulation.</p>
    */
@@ -2313,7 +2146,6 @@ export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 /**
@@ -2321,7 +2153,6 @@ export namespace EvaluationResult {
  *       request. </p>
  */
 export interface GenerateCredentialReportResponse {
-  __type?: "GenerateCredentialReportResponse";
   /**
    * <p>Information about the state of the credential report.</p>
    */
@@ -2337,11 +2168,9 @@ export namespace GenerateCredentialReportResponse {
   export const filterSensitiveLog = (obj: GenerateCredentialReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateCredentialReportResponse => __isa(o, "GenerateCredentialReportResponse");
 }
 
 export interface GenerateOrganizationsAccessReportRequest {
-  __type?: "GenerateOrganizationsAccessReportRequest";
   /**
    * <p>The identifier of the AWS Organizations service control policy (SCP). This parameter is
    *          optional.</p>
@@ -2365,12 +2194,9 @@ export namespace GenerateOrganizationsAccessReportRequest {
   export const filterSensitiveLog = (obj: GenerateOrganizationsAccessReportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateOrganizationsAccessReportRequest =>
-    __isa(o, "GenerateOrganizationsAccessReportRequest");
 }
 
 export interface GenerateOrganizationsAccessReportResponse {
-  __type?: "GenerateOrganizationsAccessReportResponse";
   /**
    * <p>The job identifier that you can use in the <a>GetOrganizationsAccessReport</a> operation.</p>
    */
@@ -2381,12 +2207,9 @@ export namespace GenerateOrganizationsAccessReportResponse {
   export const filterSensitiveLog = (obj: GenerateOrganizationsAccessReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateOrganizationsAccessReportResponse =>
-    __isa(o, "GenerateOrganizationsAccessReportResponse");
 }
 
 export interface GenerateServiceLastAccessedDetailsRequest {
-  __type?: "GenerateServiceLastAccessedDetailsRequest";
   /**
    * <p>The ARN of the IAM resource (user, group, role, or managed policy) used to generate
    *          information about when the resource was last used in an attempt to access an AWS
@@ -2408,12 +2231,9 @@ export namespace GenerateServiceLastAccessedDetailsRequest {
   export const filterSensitiveLog = (obj: GenerateServiceLastAccessedDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateServiceLastAccessedDetailsRequest =>
-    __isa(o, "GenerateServiceLastAccessedDetailsRequest");
 }
 
 export interface GenerateServiceLastAccessedDetailsResponse {
-  __type?: "GenerateServiceLastAccessedDetailsResponse";
   /**
    * <p>The <code>JobId</code> that you can use in the <a>GetServiceLastAccessedDetails</a> or <a>GetServiceLastAccessedDetailsWithEntities</a> operations. The <code>JobId</code>
    *          returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
@@ -2427,12 +2247,9 @@ export namespace GenerateServiceLastAccessedDetailsResponse {
   export const filterSensitiveLog = (obj: GenerateServiceLastAccessedDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateServiceLastAccessedDetailsResponse =>
-    __isa(o, "GenerateServiceLastAccessedDetailsResponse");
 }
 
 export interface GetAccessKeyLastUsedRequest {
-  __type?: "GetAccessKeyLastUsedRequest";
   /**
    * <p>The identifier of an access key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
@@ -2445,7 +2262,6 @@ export namespace GetAccessKeyLastUsedRequest {
   export const filterSensitiveLog = (obj: GetAccessKeyLastUsedRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyLastUsedRequest => __isa(o, "GetAccessKeyLastUsedRequest");
 }
 
 /**
@@ -2454,7 +2270,6 @@ export namespace GetAccessKeyLastUsedRequest {
  *       by the <a>ListAccessKeys</a> action.</p>
  */
 export interface GetAccessKeyLastUsedResponse {
-  __type?: "GetAccessKeyLastUsedResponse";
   /**
    * <p>Contains information about the last time the access key was used.</p>
    */
@@ -2471,11 +2286,9 @@ export namespace GetAccessKeyLastUsedResponse {
   export const filterSensitiveLog = (obj: GetAccessKeyLastUsedResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyLastUsedResponse => __isa(o, "GetAccessKeyLastUsedResponse");
 }
 
 export interface GetAccountAuthorizationDetailsRequest {
-  __type?: "GetAccountAuthorizationDetailsRequest";
   /**
    * <p>A list of entity types used to filter the results. Only the entities that match the
    *          types you specify are included in the output. Use the value <code>LocalManagedPolicy</code>
@@ -2510,8 +2323,6 @@ export namespace GetAccountAuthorizationDetailsRequest {
   export const filterSensitiveLog = (obj: GetAccountAuthorizationDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountAuthorizationDetailsRequest =>
-    __isa(o, "GetAccountAuthorizationDetailsRequest");
 }
 
 /**
@@ -2519,7 +2330,6 @@ export namespace GetAccountAuthorizationDetailsRequest {
  *       request. </p>
  */
 export interface GetAccountAuthorizationDetailsResponse {
-  __type?: "GetAccountAuthorizationDetailsResponse";
   /**
    * <p>A list containing information about IAM roles.</p>
    */
@@ -2562,8 +2372,6 @@ export namespace GetAccountAuthorizationDetailsResponse {
   export const filterSensitiveLog = (obj: GetAccountAuthorizationDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountAuthorizationDetailsResponse =>
-    __isa(o, "GetAccountAuthorizationDetailsResponse");
 }
 
 /**
@@ -2571,7 +2379,6 @@ export namespace GetAccountAuthorizationDetailsResponse {
  *       request. </p>
  */
 export interface GetAccountPasswordPolicyResponse {
-  __type?: "GetAccountPasswordPolicyResponse";
   /**
    * <p>A structure that contains details about the account's password policy.</p>
    */
@@ -2582,7 +2389,6 @@ export namespace GetAccountPasswordPolicyResponse {
   export const filterSensitiveLog = (obj: GetAccountPasswordPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountPasswordPolicyResponse => __isa(o, "GetAccountPasswordPolicyResponse");
 }
 
 /**
@@ -2590,7 +2396,6 @@ export namespace GetAccountPasswordPolicyResponse {
  *     </p>
  */
 export interface GetAccountSummaryResponse {
-  __type?: "GetAccountSummaryResponse";
   /**
    * <p>A set of key–value pairs containing information about IAM entity usage and
    *          IAM quotas.</p>
@@ -2602,11 +2407,9 @@ export namespace GetAccountSummaryResponse {
   export const filterSensitiveLog = (obj: GetAccountSummaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSummaryResponse => __isa(o, "GetAccountSummaryResponse");
 }
 
 export interface GetContextKeysForCustomPolicyRequest {
-  __type?: "GetContextKeysForCustomPolicyRequest";
   /**
    * <p>A list of policies for which you want the list of context keys referenced in those
    *          policies. Each document is specified as a string containing the complete, valid JSON text
@@ -2635,15 +2438,12 @@ export namespace GetContextKeysForCustomPolicyRequest {
   export const filterSensitiveLog = (obj: GetContextKeysForCustomPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContextKeysForCustomPolicyRequest =>
-    __isa(o, "GetContextKeysForCustomPolicyRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. </p>
  */
 export interface GetContextKeysForPolicyResponse {
-  __type?: "GetContextKeysForPolicyResponse";
   /**
    * <p>The list of context keys that are referenced in the input policies.</p>
    */
@@ -2654,11 +2454,9 @@ export namespace GetContextKeysForPolicyResponse {
   export const filterSensitiveLog = (obj: GetContextKeysForPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContextKeysForPolicyResponse => __isa(o, "GetContextKeysForPolicyResponse");
 }
 
 export interface GetContextKeysForPrincipalPolicyRequest {
-  __type?: "GetContextKeysForPrincipalPolicyRequest";
   /**
    * <p>The ARN of a user, group, or role whose policies contain the context keys that you want
    *          listed. If you specify a user, the list includes context keys that are found in all
@@ -2699,8 +2497,6 @@ export namespace GetContextKeysForPrincipalPolicyRequest {
   export const filterSensitiveLog = (obj: GetContextKeysForPrincipalPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContextKeysForPrincipalPolicyRequest =>
-    __isa(o, "GetContextKeysForPrincipalPolicyRequest");
 }
 
 /**
@@ -2708,7 +2504,6 @@ export namespace GetContextKeysForPrincipalPolicyRequest {
  *     </p>
  */
 export interface GetCredentialReportResponse {
-  __type?: "GetCredentialReportResponse";
   /**
    * <p>Contains the credential report. The report is Base64-encoded.</p>
    */
@@ -2729,11 +2524,9 @@ export namespace GetCredentialReportResponse {
   export const filterSensitiveLog = (obj: GetCredentialReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCredentialReportResponse => __isa(o, "GetCredentialReportResponse");
 }
 
 export interface GetGroupPolicyRequest {
-  __type?: "GetGroupPolicyRequest";
   /**
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -2753,7 +2546,6 @@ export namespace GetGroupPolicyRequest {
   export const filterSensitiveLog = (obj: GetGroupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupPolicyRequest => __isa(o, "GetGroupPolicyRequest");
 }
 
 /**
@@ -2761,7 +2553,6 @@ export namespace GetGroupPolicyRequest {
  *     </p>
  */
 export interface GetGroupPolicyResponse {
-  __type?: "GetGroupPolicyResponse";
   /**
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using AWS
@@ -2785,11 +2576,9 @@ export namespace GetGroupPolicyResponse {
   export const filterSensitiveLog = (obj: GetGroupPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupPolicyResponse => __isa(o, "GetGroupPolicyResponse");
 }
 
 export interface GetGroupRequest {
-  __type?: "GetGroupRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -2822,14 +2611,12 @@ export namespace GetGroupRequest {
   export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupRequest => __isa(o, "GetGroupRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>GetGroup</a> request. </p>
  */
 export interface GetGroupResponse {
-  __type?: "GetGroupResponse";
   /**
    * <p>A structure that contains details about the group.</p>
    */
@@ -2862,11 +2649,9 @@ export namespace GetGroupResponse {
   export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupResponse => __isa(o, "GetGroupResponse");
 }
 
 export interface GetInstanceProfileRequest {
-  __type?: "GetInstanceProfileRequest";
   /**
    * <p>The name of the instance profile to get information about.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -2879,7 +2664,6 @@ export namespace GetInstanceProfileRequest {
   export const filterSensitiveLog = (obj: GetInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileRequest => __isa(o, "GetInstanceProfileRequest");
 }
 
 /**
@@ -2887,7 +2671,6 @@ export namespace GetInstanceProfileRequest {
  *     </p>
  */
 export interface GetInstanceProfileResponse {
-  __type?: "GetInstanceProfileResponse";
   /**
    * <p>A structure containing details about the instance profile.</p>
    */
@@ -2898,11 +2681,9 @@ export namespace GetInstanceProfileResponse {
   export const filterSensitiveLog = (obj: GetInstanceProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileResponse => __isa(o, "GetInstanceProfileResponse");
 }
 
 export interface GetLoginProfileRequest {
-  __type?: "GetLoginProfileRequest";
   /**
    * <p>The name of the user whose login profile you want to retrieve.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -2915,7 +2696,6 @@ export namespace GetLoginProfileRequest {
   export const filterSensitiveLog = (obj: GetLoginProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoginProfileRequest => __isa(o, "GetLoginProfileRequest");
 }
 
 /**
@@ -2923,7 +2703,6 @@ export namespace GetLoginProfileRequest {
  *     </p>
  */
 export interface GetLoginProfileResponse {
-  __type?: "GetLoginProfileResponse";
   /**
    * <p>A structure containing the user name and password create date for the user.</p>
    */
@@ -2934,11 +2713,9 @@ export namespace GetLoginProfileResponse {
   export const filterSensitiveLog = (obj: GetLoginProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoginProfileResponse => __isa(o, "GetLoginProfileResponse");
 }
 
 export interface GetOpenIDConnectProviderRequest {
-  __type?: "GetOpenIDConnectProviderRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get
    *          information for. You can get a list of OIDC provider resource ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
@@ -2952,7 +2729,6 @@ export namespace GetOpenIDConnectProviderRequest {
   export const filterSensitiveLog = (obj: GetOpenIDConnectProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOpenIDConnectProviderRequest => __isa(o, "GetOpenIDConnectProviderRequest");
 }
 
 /**
@@ -2960,7 +2736,6 @@ export namespace GetOpenIDConnectProviderRequest {
  *       request. </p>
  */
 export interface GetOpenIDConnectProviderResponse {
-  __type?: "GetOpenIDConnectProviderResponse";
   /**
    * <p>A list of certificate thumbprints that are associated with the specified IAM OIDC
    *          provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
@@ -2990,11 +2765,9 @@ export namespace GetOpenIDConnectProviderResponse {
   export const filterSensitiveLog = (obj: GetOpenIDConnectProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOpenIDConnectProviderResponse => __isa(o, "GetOpenIDConnectProviderResponse");
 }
 
 export interface GetOrganizationsAccessReportRequest {
-  __type?: "GetOrganizationsAccessReportRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -3032,12 +2805,9 @@ export namespace GetOrganizationsAccessReportRequest {
   export const filterSensitiveLog = (obj: GetOrganizationsAccessReportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOrganizationsAccessReportRequest =>
-    __isa(o, "GetOrganizationsAccessReportRequest");
 }
 
 export interface GetOrganizationsAccessReportResponse {
-  __type?: "GetOrganizationsAccessReportResponse";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the report job was created.</p>
@@ -3103,12 +2873,9 @@ export namespace GetOrganizationsAccessReportResponse {
   export const filterSensitiveLog = (obj: GetOrganizationsAccessReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOrganizationsAccessReportResponse =>
-    __isa(o, "GetOrganizationsAccessReportResponse");
 }
 
 export interface GetPolicyRequest {
-  __type?: "GetPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
    *          about.</p>
@@ -3122,14 +2889,12 @@ export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>GetPolicy</a> request. </p>
  */
 export interface GetPolicyResponse {
-  __type?: "GetPolicyResponse";
   /**
    * <p>A structure containing details about the policy.</p>
    */
@@ -3140,11 +2905,9 @@ export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetPolicyVersionRequest {
-  __type?: "GetPolicyVersionRequest";
   /**
    * <p>Identifies the policy version to retrieve.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that
@@ -3166,7 +2929,6 @@ export namespace GetPolicyVersionRequest {
   export const filterSensitiveLog = (obj: GetPolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyVersionRequest => __isa(o, "GetPolicyVersionRequest");
 }
 
 /**
@@ -3174,7 +2936,6 @@ export namespace GetPolicyVersionRequest {
  *     </p>
  */
 export interface GetPolicyVersionResponse {
-  __type?: "GetPolicyVersionResponse";
   /**
    * <p>A structure containing details about the policy version.</p>
    */
@@ -3185,11 +2946,9 @@ export namespace GetPolicyVersionResponse {
   export const filterSensitiveLog = (obj: GetPolicyVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyVersionResponse => __isa(o, "GetPolicyVersionResponse");
 }
 
 export interface GetRolePolicyRequest {
-  __type?: "GetRolePolicyRequest";
   /**
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -3209,7 +2968,6 @@ export namespace GetRolePolicyRequest {
   export const filterSensitiveLog = (obj: GetRolePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRolePolicyRequest => __isa(o, "GetRolePolicyRequest");
 }
 
 /**
@@ -3217,7 +2975,6 @@ export namespace GetRolePolicyRequest {
  *     </p>
  */
 export interface GetRolePolicyResponse {
-  __type?: "GetRolePolicyResponse";
   /**
    * <p>The name of the policy.</p>
    */
@@ -3241,11 +2998,9 @@ export namespace GetRolePolicyResponse {
   export const filterSensitiveLog = (obj: GetRolePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRolePolicyResponse => __isa(o, "GetRolePolicyResponse");
 }
 
 export interface GetRoleRequest {
-  __type?: "GetRoleRequest";
   /**
    * <p>The name of the IAM role to get information about.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -3258,14 +3013,12 @@ export namespace GetRoleRequest {
   export const filterSensitiveLog = (obj: GetRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoleRequest => __isa(o, "GetRoleRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>GetRole</a> request. </p>
  */
 export interface GetRoleResponse {
-  __type?: "GetRoleResponse";
   /**
    * <p>A structure containing details about the IAM role.</p>
    */
@@ -3276,11 +3029,9 @@ export namespace GetRoleResponse {
   export const filterSensitiveLog = (obj: GetRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoleResponse => __isa(o, "GetRoleResponse");
 }
 
 export interface GetSAMLProviderRequest {
-  __type?: "GetSAMLProviderRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get
    *          information about.</p>
@@ -3294,7 +3045,6 @@ export namespace GetSAMLProviderRequest {
   export const filterSensitiveLog = (obj: GetSAMLProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSAMLProviderRequest => __isa(o, "GetSAMLProviderRequest");
 }
 
 /**
@@ -3302,7 +3052,6 @@ export namespace GetSAMLProviderRequest {
  *     </p>
  */
 export interface GetSAMLProviderResponse {
-  __type?: "GetSAMLProviderResponse";
   /**
    * <p>The expiration date and time for the SAML provider.</p>
    */
@@ -3323,11 +3072,9 @@ export namespace GetSAMLProviderResponse {
   export const filterSensitiveLog = (obj: GetSAMLProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSAMLProviderResponse => __isa(o, "GetSAMLProviderResponse");
 }
 
 export interface GetServerCertificateRequest {
-  __type?: "GetServerCertificateRequest";
   /**
    * <p>The name of the server certificate you want to retrieve information about.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -3340,7 +3087,6 @@ export namespace GetServerCertificateRequest {
   export const filterSensitiveLog = (obj: GetServerCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServerCertificateRequest => __isa(o, "GetServerCertificateRequest");
 }
 
 /**
@@ -3348,7 +3094,6 @@ export namespace GetServerCertificateRequest {
  *     </p>
  */
 export interface GetServerCertificateResponse {
-  __type?: "GetServerCertificateResponse";
   /**
    * <p>A structure containing details about the server certificate.</p>
    */
@@ -3359,11 +3104,9 @@ export namespace GetServerCertificateResponse {
   export const filterSensitiveLog = (obj: GetServerCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServerCertificateResponse => __isa(o, "GetServerCertificateResponse");
 }
 
 export interface GetServiceLastAccessedDetailsRequest {
-  __type?: "GetServiceLastAccessedDetailsRequest";
   /**
    * <p>The ID of the request generated by the <a>GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code>
    *          returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
@@ -3397,12 +3140,9 @@ export namespace GetServiceLastAccessedDetailsRequest {
   export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceLastAccessedDetailsRequest =>
-    __isa(o, "GetServiceLastAccessedDetailsRequest");
 }
 
 export interface GetServiceLastAccessedDetailsResponse {
-  __type?: "GetServiceLastAccessedDetailsResponse";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the report job was created.</p>
@@ -3462,12 +3202,9 @@ export namespace GetServiceLastAccessedDetailsResponse {
   export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceLastAccessedDetailsResponse =>
-    __isa(o, "GetServiceLastAccessedDetailsResponse");
 }
 
 export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
-  __type?: "GetServiceLastAccessedDetailsWithEntitiesRequest";
   /**
    * <p>The ID of the request generated by the <code>GenerateServiceLastAccessedDetails</code>
    *          operation.</p>
@@ -3512,12 +3249,9 @@ export namespace GetServiceLastAccessedDetailsWithEntitiesRequest {
   export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsWithEntitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceLastAccessedDetailsWithEntitiesRequest =>
-    __isa(o, "GetServiceLastAccessedDetailsWithEntitiesRequest");
 }
 
 export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
-  __type?: "GetServiceLastAccessedDetailsWithEntitiesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -3571,12 +3305,9 @@ export namespace GetServiceLastAccessedDetailsWithEntitiesResponse {
   export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsWithEntitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceLastAccessedDetailsWithEntitiesResponse =>
-    __isa(o, "GetServiceLastAccessedDetailsWithEntitiesResponse");
 }
 
 export interface GetServiceLinkedRoleDeletionStatusRequest {
-  __type?: "GetServiceLinkedRoleDeletionStatusRequest";
   /**
    * <p>The deletion task identifier. This identifier is returned by the <a>DeleteServiceLinkedRole</a> operation in the format
    *             <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
@@ -3588,12 +3319,9 @@ export namespace GetServiceLinkedRoleDeletionStatusRequest {
   export const filterSensitiveLog = (obj: GetServiceLinkedRoleDeletionStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceLinkedRoleDeletionStatusRequest =>
-    __isa(o, "GetServiceLinkedRoleDeletionStatusRequest");
 }
 
 export interface GetServiceLinkedRoleDeletionStatusResponse {
-  __type?: "GetServiceLinkedRoleDeletionStatusResponse";
   /**
    * <p>An object that contains details about the reason the deletion failed.</p>
    */
@@ -3609,12 +3337,9 @@ export namespace GetServiceLinkedRoleDeletionStatusResponse {
   export const filterSensitiveLog = (obj: GetServiceLinkedRoleDeletionStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceLinkedRoleDeletionStatusResponse =>
-    __isa(o, "GetServiceLinkedRoleDeletionStatusResponse");
 }
 
 export interface GetSSHPublicKeyRequest {
-  __type?: "GetSSHPublicKeyRequest";
   /**
    * <p>The name of the IAM user associated with the SSH public key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -3641,7 +3366,6 @@ export namespace GetSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: GetSSHPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSSHPublicKeyRequest => __isa(o, "GetSSHPublicKeyRequest");
 }
 
 /**
@@ -3649,7 +3373,6 @@ export namespace GetSSHPublicKeyRequest {
  *       request.</p>
  */
 export interface GetSSHPublicKeyResponse {
-  __type?: "GetSSHPublicKeyResponse";
   /**
    * <p>A structure containing details about the SSH public key.</p>
    */
@@ -3660,11 +3383,9 @@ export namespace GetSSHPublicKeyResponse {
   export const filterSensitiveLog = (obj: GetSSHPublicKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSSHPublicKeyResponse => __isa(o, "GetSSHPublicKeyResponse");
 }
 
 export interface GetUserPolicyRequest {
-  __type?: "GetUserPolicyRequest";
   /**
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -3684,7 +3405,6 @@ export namespace GetUserPolicyRequest {
   export const filterSensitiveLog = (obj: GetUserPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserPolicyRequest => __isa(o, "GetUserPolicyRequest");
 }
 
 /**
@@ -3692,7 +3412,6 @@ export namespace GetUserPolicyRequest {
  *     </p>
  */
 export interface GetUserPolicyResponse {
-  __type?: "GetUserPolicyResponse";
   /**
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using AWS
@@ -3716,11 +3435,9 @@ export namespace GetUserPolicyResponse {
   export const filterSensitiveLog = (obj: GetUserPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserPolicyResponse => __isa(o, "GetUserPolicyResponse");
 }
 
 export interface GetUserRequest {
-  __type?: "GetUserRequest";
   /**
    * <p>The name of the user to get information about.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to the user making the
@@ -3734,14 +3451,12 @@ export namespace GetUserRequest {
   export const filterSensitiveLog = (obj: GetUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserRequest => __isa(o, "GetUserRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>GetUser</a> request. </p>
  */
 export interface GetUserResponse {
-  __type?: "GetUserResponse";
   /**
    * <p>A structure containing details about the IAM user.</p>
    *          <important>
@@ -3767,7 +3482,6 @@ export namespace GetUserResponse {
   export const filterSensitiveLog = (obj: GetUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserResponse => __isa(o, "GetUserResponse");
 }
 
 export enum GlobalEndpointTokenVersion {
@@ -3797,7 +3511,6 @@ export enum GlobalEndpointTokenVersion {
  *          </ul>
  */
 export interface Group {
-  __type?: "Group";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the group was created.</p>
@@ -3834,7 +3547,6 @@ export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
 /**
@@ -3842,7 +3554,6 @@ export namespace Group {
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
 export interface GroupDetail {
-  __type?: "GroupDetail";
   /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
@@ -3889,7 +3600,6 @@ export namespace GroupDetail {
   export const filterSensitiveLog = (obj: GroupDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupDetail => __isa(o, "GroupDetail");
 }
 
 /**
@@ -3919,7 +3629,6 @@ export namespace GroupDetail {
  *          </ul>
  */
 export interface InstanceProfile {
-  __type?: "InstanceProfile";
   /**
    * <p> The Amazon Resource Name (ARN) specifying the instance profile. For more information
    *          about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
@@ -3959,7 +3668,6 @@ export namespace InstanceProfile {
   export const filterSensitiveLog = (obj: InstanceProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceProfile => __isa(o, "InstanceProfile");
 }
 
 /**
@@ -3976,8 +3684,6 @@ export namespace InvalidAuthenticationCodeException {
   export const filterSensitiveLog = (obj: InvalidAuthenticationCodeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAuthenticationCodeException =>
-    __isa(o, "InvalidAuthenticationCodeException");
 }
 
 /**
@@ -3993,7 +3699,6 @@ export namespace InvalidCertificateException {
   export const filterSensitiveLog = (obj: InvalidCertificateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCertificateException => __isa(o, "InvalidCertificateException");
 }
 
 /**
@@ -4010,7 +3715,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -4027,7 +3731,6 @@ export namespace InvalidPublicKeyException {
   export const filterSensitiveLog = (obj: InvalidPublicKeyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPublicKeyException => __isa(o, "InvalidPublicKeyException");
 }
 
 /**
@@ -4044,7 +3747,6 @@ export namespace InvalidUserTypeException {
   export const filterSensitiveLog = (obj: InvalidUserTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidUserTypeException => __isa(o, "InvalidUserTypeException");
 }
 
 export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
@@ -4063,7 +3765,6 @@ export namespace KeyPairMismatchException {
   export const filterSensitiveLog = (obj: KeyPairMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPairMismatchException => __isa(o, "KeyPairMismatchException");
 }
 
 /**
@@ -4080,11 +3781,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAccessKeysRequest {
-  __type?: "ListAccessKeysRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4117,7 +3816,6 @@ export namespace ListAccessKeysRequest {
   export const filterSensitiveLog = (obj: ListAccessKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccessKeysRequest => __isa(o, "ListAccessKeysRequest");
 }
 
 /**
@@ -4125,7 +3823,6 @@ export namespace ListAccessKeysRequest {
  *     </p>
  */
 export interface ListAccessKeysResponse {
-  __type?: "ListAccessKeysResponse";
   /**
    * <p>A list of objects containing metadata about the access keys.</p>
    */
@@ -4153,11 +3850,9 @@ export namespace ListAccessKeysResponse {
   export const filterSensitiveLog = (obj: ListAccessKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccessKeysResponse => __isa(o, "ListAccessKeysResponse");
 }
 
 export interface ListAccountAliasesRequest {
-  __type?: "ListAccountAliasesRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4183,7 +3878,6 @@ export namespace ListAccountAliasesRequest {
   export const filterSensitiveLog = (obj: ListAccountAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountAliasesRequest => __isa(o, "ListAccountAliasesRequest");
 }
 
 /**
@@ -4191,7 +3885,6 @@ export namespace ListAccountAliasesRequest {
  *     </p>
  */
 export interface ListAccountAliasesResponse {
-  __type?: "ListAccountAliasesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -4220,11 +3913,9 @@ export namespace ListAccountAliasesResponse {
   export const filterSensitiveLog = (obj: ListAccountAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountAliasesResponse => __isa(o, "ListAccountAliasesResponse");
 }
 
 export interface ListAttachedGroupPoliciesRequest {
-  __type?: "ListAttachedGroupPoliciesRequest";
   /**
    * <p>The name (friendly name, not ARN) of the group to list attached policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -4267,7 +3958,6 @@ export namespace ListAttachedGroupPoliciesRequest {
   export const filterSensitiveLog = (obj: ListAttachedGroupPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedGroupPoliciesRequest => __isa(o, "ListAttachedGroupPoliciesRequest");
 }
 
 /**
@@ -4275,7 +3965,6 @@ export namespace ListAttachedGroupPoliciesRequest {
  *       request. </p>
  */
 export interface ListAttachedGroupPoliciesResponse {
-  __type?: "ListAttachedGroupPoliciesResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -4303,11 +3992,9 @@ export namespace ListAttachedGroupPoliciesResponse {
   export const filterSensitiveLog = (obj: ListAttachedGroupPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedGroupPoliciesResponse => __isa(o, "ListAttachedGroupPoliciesResponse");
 }
 
 export interface ListAttachedRolePoliciesRequest {
-  __type?: "ListAttachedRolePoliciesRequest";
   /**
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *          included, it defaults to a slash (/), listing all policies.</p>
@@ -4350,7 +4037,6 @@ export namespace ListAttachedRolePoliciesRequest {
   export const filterSensitiveLog = (obj: ListAttachedRolePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedRolePoliciesRequest => __isa(o, "ListAttachedRolePoliciesRequest");
 }
 
 /**
@@ -4358,7 +4044,6 @@ export namespace ListAttachedRolePoliciesRequest {
  *       request. </p>
  */
 export interface ListAttachedRolePoliciesResponse {
-  __type?: "ListAttachedRolePoliciesResponse";
   /**
    * <p>A list of the attached policies.</p>
    */
@@ -4386,11 +4071,9 @@ export namespace ListAttachedRolePoliciesResponse {
   export const filterSensitiveLog = (obj: ListAttachedRolePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedRolePoliciesResponse => __isa(o, "ListAttachedRolePoliciesResponse");
 }
 
 export interface ListAttachedUserPoliciesRequest {
-  __type?: "ListAttachedUserPoliciesRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -4433,7 +4116,6 @@ export namespace ListAttachedUserPoliciesRequest {
   export const filterSensitiveLog = (obj: ListAttachedUserPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedUserPoliciesRequest => __isa(o, "ListAttachedUserPoliciesRequest");
 }
 
 /**
@@ -4441,7 +4123,6 @@ export namespace ListAttachedUserPoliciesRequest {
  *       request. </p>
  */
 export interface ListAttachedUserPoliciesResponse {
-  __type?: "ListAttachedUserPoliciesResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -4469,11 +4150,9 @@ export namespace ListAttachedUserPoliciesResponse {
   export const filterSensitiveLog = (obj: ListAttachedUserPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttachedUserPoliciesResponse => __isa(o, "ListAttachedUserPoliciesResponse");
 }
 
 export interface ListEntitiesForPolicyRequest {
-  __type?: "ListEntitiesForPolicyRequest";
   /**
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *          included, it defaults to a slash (/), listing all entities.</p>
@@ -4536,7 +4215,6 @@ export namespace ListEntitiesForPolicyRequest {
   export const filterSensitiveLog = (obj: ListEntitiesForPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesForPolicyRequest => __isa(o, "ListEntitiesForPolicyRequest");
 }
 
 /**
@@ -4544,7 +4222,6 @@ export namespace ListEntitiesForPolicyRequest {
  *     </p>
  */
 export interface ListEntitiesForPolicyResponse {
-  __type?: "ListEntitiesForPolicyResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -4582,11 +4259,9 @@ export namespace ListEntitiesForPolicyResponse {
   export const filterSensitiveLog = (obj: ListEntitiesForPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesForPolicyResponse => __isa(o, "ListEntitiesForPolicyResponse");
 }
 
 export interface ListGroupPoliciesRequest {
-  __type?: "ListGroupPoliciesRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -4619,7 +4294,6 @@ export namespace ListGroupPoliciesRequest {
   export const filterSensitiveLog = (obj: ListGroupPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupPoliciesRequest => __isa(o, "ListGroupPoliciesRequest");
 }
 
 /**
@@ -4627,7 +4301,6 @@ export namespace ListGroupPoliciesRequest {
  *     </p>
  */
 export interface ListGroupPoliciesResponse {
-  __type?: "ListGroupPoliciesResponse";
   /**
    * <p>A list of policy names.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -4657,11 +4330,9 @@ export namespace ListGroupPoliciesResponse {
   export const filterSensitiveLog = (obj: ListGroupPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupPoliciesResponse => __isa(o, "ListGroupPoliciesResponse");
 }
 
 export interface ListGroupsForUserRequest {
-  __type?: "ListGroupsForUserRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4694,7 +4365,6 @@ export namespace ListGroupsForUserRequest {
   export const filterSensitiveLog = (obj: ListGroupsForUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsForUserRequest => __isa(o, "ListGroupsForUserRequest");
 }
 
 /**
@@ -4702,7 +4372,6 @@ export namespace ListGroupsForUserRequest {
  *     </p>
  */
 export interface ListGroupsForUserResponse {
-  __type?: "ListGroupsForUserResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -4730,11 +4399,9 @@ export namespace ListGroupsForUserResponse {
   export const filterSensitiveLog = (obj: ListGroupsForUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsForUserResponse => __isa(o, "ListGroupsForUserResponse");
 }
 
 export interface ListGroupsRequest {
-  __type?: "ListGroupsRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4772,14 +4439,12 @@ export namespace ListGroupsRequest {
   export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsRequest => __isa(o, "ListGroupsRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>ListGroups</a> request. </p>
  */
 export interface ListGroupsResponse {
-  __type?: "ListGroupsResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -4807,11 +4472,9 @@ export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsResponse => __isa(o, "ListGroupsResponse");
 }
 
 export interface ListInstanceProfilesForRoleRequest {
-  __type?: "ListInstanceProfilesForRoleRequest";
   /**
    * <p>The name of the role to list instance profiles for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -4844,8 +4507,6 @@ export namespace ListInstanceProfilesForRoleRequest {
   export const filterSensitiveLog = (obj: ListInstanceProfilesForRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesForRoleRequest =>
-    __isa(o, "ListInstanceProfilesForRoleRequest");
 }
 
 /**
@@ -4853,7 +4514,6 @@ export namespace ListInstanceProfilesForRoleRequest {
  *       request. </p>
  */
 export interface ListInstanceProfilesForRoleResponse {
-  __type?: "ListInstanceProfilesForRoleResponse";
   /**
    * <p>A list of instance profiles.</p>
    */
@@ -4881,12 +4541,9 @@ export namespace ListInstanceProfilesForRoleResponse {
   export const filterSensitiveLog = (obj: ListInstanceProfilesForRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesForRoleResponse =>
-    __isa(o, "ListInstanceProfilesForRoleResponse");
 }
 
 export interface ListInstanceProfilesRequest {
-  __type?: "ListInstanceProfilesRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -4924,7 +4581,6 @@ export namespace ListInstanceProfilesRequest {
   export const filterSensitiveLog = (obj: ListInstanceProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesRequest => __isa(o, "ListInstanceProfilesRequest");
 }
 
 /**
@@ -4932,7 +4588,6 @@ export namespace ListInstanceProfilesRequest {
  *     </p>
  */
 export interface ListInstanceProfilesResponse {
-  __type?: "ListInstanceProfilesResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -4960,11 +4615,9 @@ export namespace ListInstanceProfilesResponse {
   export const filterSensitiveLog = (obj: ListInstanceProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesResponse => __isa(o, "ListInstanceProfilesResponse");
 }
 
 export interface ListMFADevicesRequest {
-  __type?: "ListMFADevicesRequest";
   /**
    * <p>The name of the user whose MFA devices you want to list.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -4997,7 +4650,6 @@ export namespace ListMFADevicesRequest {
   export const filterSensitiveLog = (obj: ListMFADevicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMFADevicesRequest => __isa(o, "ListMFADevicesRequest");
 }
 
 /**
@@ -5005,7 +4657,6 @@ export namespace ListMFADevicesRequest {
  *     </p>
  */
 export interface ListMFADevicesResponse {
-  __type?: "ListMFADevicesResponse";
   /**
    * <p>A list of MFA devices.</p>
    */
@@ -5033,18 +4684,14 @@ export namespace ListMFADevicesResponse {
   export const filterSensitiveLog = (obj: ListMFADevicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMFADevicesResponse => __isa(o, "ListMFADevicesResponse");
 }
 
-export interface ListOpenIDConnectProvidersRequest {
-  __type?: "ListOpenIDConnectProvidersRequest";
-}
+export interface ListOpenIDConnectProvidersRequest {}
 
 export namespace ListOpenIDConnectProvidersRequest {
   export const filterSensitiveLog = (obj: ListOpenIDConnectProvidersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOpenIDConnectProvidersRequest => __isa(o, "ListOpenIDConnectProvidersRequest");
 }
 
 /**
@@ -5052,7 +4699,6 @@ export namespace ListOpenIDConnectProvidersRequest {
  *       request. </p>
  */
 export interface ListOpenIDConnectProvidersResponse {
-  __type?: "ListOpenIDConnectProvidersResponse";
   /**
    * <p>The list of IAM OIDC provider resource objects defined in the AWS account.</p>
    */
@@ -5063,8 +4709,6 @@ export namespace ListOpenIDConnectProvidersResponse {
   export const filterSensitiveLog = (obj: ListOpenIDConnectProvidersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOpenIDConnectProvidersResponse =>
-    __isa(o, "ListOpenIDConnectProvidersResponse");
 }
 
 /**
@@ -5073,7 +4717,6 @@ export namespace ListOpenIDConnectProvidersResponse {
  *          <p>This data type is used as a response element in the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
  */
 export interface ListPoliciesGrantingServiceAccessEntry {
-  __type?: "ListPoliciesGrantingServiceAccessEntry";
   /**
    * <p>The namespace of the service that was accessed.</p>
    *          <p>To learn the service namespace of a service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html">Actions,
@@ -5097,12 +4740,9 @@ export namespace ListPoliciesGrantingServiceAccessEntry {
   export const filterSensitiveLog = (obj: ListPoliciesGrantingServiceAccessEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesGrantingServiceAccessEntry =>
-    __isa(o, "ListPoliciesGrantingServiceAccessEntry");
 }
 
 export interface ListPoliciesGrantingServiceAccessRequest {
-  __type?: "ListPoliciesGrantingServiceAccessRequest";
   /**
    * <p>The ARN of the IAM identity (user, group, or role) whose policies you want to
    *          list.</p>
@@ -5134,12 +4774,9 @@ export namespace ListPoliciesGrantingServiceAccessRequest {
   export const filterSensitiveLog = (obj: ListPoliciesGrantingServiceAccessRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesGrantingServiceAccessRequest =>
-    __isa(o, "ListPoliciesGrantingServiceAccessRequest");
 }
 
 export interface ListPoliciesGrantingServiceAccessResponse {
-  __type?: "ListPoliciesGrantingServiceAccessResponse";
   /**
    * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the
    *          permissions policies attached to the specified identity (user, group, or role).</p>
@@ -5167,12 +4804,9 @@ export namespace ListPoliciesGrantingServiceAccessResponse {
   export const filterSensitiveLog = (obj: ListPoliciesGrantingServiceAccessResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesGrantingServiceAccessResponse =>
-    __isa(o, "ListPoliciesGrantingServiceAccessResponse");
 }
 
 export interface ListPoliciesRequest {
-  __type?: "ListPoliciesRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5236,7 +4870,6 @@ export namespace ListPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 /**
@@ -5244,7 +4877,6 @@ export namespace ListPoliciesRequest {
  *     </p>
  */
 export interface ListPoliciesResponse {
-  __type?: "ListPoliciesResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -5272,11 +4904,9 @@ export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListPolicyVersionsRequest {
-  __type?: "ListPolicyVersionsRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -5310,7 +4940,6 @@ export namespace ListPolicyVersionsRequest {
   export const filterSensitiveLog = (obj: ListPolicyVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPolicyVersionsRequest => __isa(o, "ListPolicyVersionsRequest");
 }
 
 /**
@@ -5318,7 +4947,6 @@ export namespace ListPolicyVersionsRequest {
  *     </p>
  */
 export interface ListPolicyVersionsResponse {
-  __type?: "ListPolicyVersionsResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5348,11 +4976,9 @@ export namespace ListPolicyVersionsResponse {
   export const filterSensitiveLog = (obj: ListPolicyVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPolicyVersionsResponse => __isa(o, "ListPolicyVersionsResponse");
 }
 
 export interface ListRolePoliciesRequest {
-  __type?: "ListRolePoliciesRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -5385,7 +5011,6 @@ export namespace ListRolePoliciesRequest {
   export const filterSensitiveLog = (obj: ListRolePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRolePoliciesRequest => __isa(o, "ListRolePoliciesRequest");
 }
 
 /**
@@ -5393,7 +5018,6 @@ export namespace ListRolePoliciesRequest {
  *     </p>
  */
 export interface ListRolePoliciesResponse {
-  __type?: "ListRolePoliciesResponse";
   /**
    * <p>A list of policy names.</p>
    */
@@ -5421,11 +5045,9 @@ export namespace ListRolePoliciesResponse {
   export const filterSensitiveLog = (obj: ListRolePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRolePoliciesResponse => __isa(o, "ListRolePoliciesResponse");
 }
 
 export interface ListRolesRequest {
-  __type?: "ListRolesRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5463,14 +5085,12 @@ export namespace ListRolesRequest {
   export const filterSensitiveLog = (obj: ListRolesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRolesRequest => __isa(o, "ListRolesRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>ListRoles</a> request. </p>
  */
 export interface ListRolesResponse {
-  __type?: "ListRolesResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -5498,11 +5118,9 @@ export namespace ListRolesResponse {
   export const filterSensitiveLog = (obj: ListRolesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRolesResponse => __isa(o, "ListRolesResponse");
 }
 
 export interface ListRoleTagsRequest {
-  __type?: "ListRoleTagsRequest";
   /**
    * <p>The name of the IAM role for which you want to see the list of tags.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
@@ -5534,11 +5152,9 @@ export namespace ListRoleTagsRequest {
   export const filterSensitiveLog = (obj: ListRoleTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoleTagsRequest => __isa(o, "ListRoleTagsRequest");
 }
 
 export interface ListRoleTagsResponse {
-  __type?: "ListRoleTagsResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can use the <code>Marker</code> request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the
@@ -5566,18 +5182,14 @@ export namespace ListRoleTagsResponse {
   export const filterSensitiveLog = (obj: ListRoleTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoleTagsResponse => __isa(o, "ListRoleTagsResponse");
 }
 
-export interface ListSAMLProvidersRequest {
-  __type?: "ListSAMLProvidersRequest";
-}
+export interface ListSAMLProvidersRequest {}
 
 export namespace ListSAMLProvidersRequest {
   export const filterSensitiveLog = (obj: ListSAMLProvidersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSAMLProvidersRequest => __isa(o, "ListSAMLProvidersRequest");
 }
 
 /**
@@ -5585,7 +5197,6 @@ export namespace ListSAMLProvidersRequest {
  *     </p>
  */
 export interface ListSAMLProvidersResponse {
-  __type?: "ListSAMLProvidersResponse";
   /**
    * <p>The list of SAML provider resource objects defined in IAM for this AWS
    *          account.</p>
@@ -5597,11 +5208,9 @@ export namespace ListSAMLProvidersResponse {
   export const filterSensitiveLog = (obj: ListSAMLProvidersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSAMLProvidersResponse => __isa(o, "ListSAMLProvidersResponse");
 }
 
 export interface ListServerCertificatesRequest {
-  __type?: "ListServerCertificatesRequest";
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -5639,7 +5248,6 @@ export namespace ListServerCertificatesRequest {
   export const filterSensitiveLog = (obj: ListServerCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServerCertificatesRequest => __isa(o, "ListServerCertificatesRequest");
 }
 
 /**
@@ -5647,7 +5255,6 @@ export namespace ListServerCertificatesRequest {
  *     </p>
  */
 export interface ListServerCertificatesResponse {
-  __type?: "ListServerCertificatesResponse";
   /**
    * <p>A list of server certificates.</p>
    */
@@ -5675,11 +5282,9 @@ export namespace ListServerCertificatesResponse {
   export const filterSensitiveLog = (obj: ListServerCertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServerCertificatesResponse => __isa(o, "ListServerCertificatesResponse");
 }
 
 export interface ListServiceSpecificCredentialsRequest {
-  __type?: "ListServiceSpecificCredentialsRequest";
   /**
    * <p>The name of the user whose service-specific credentials you want information about. If
    *          this value is not specified, then the operation assumes the user whose credentials are used
@@ -5700,12 +5305,9 @@ export namespace ListServiceSpecificCredentialsRequest {
   export const filterSensitiveLog = (obj: ListServiceSpecificCredentialsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServiceSpecificCredentialsRequest =>
-    __isa(o, "ListServiceSpecificCredentialsRequest");
 }
 
 export interface ListServiceSpecificCredentialsResponse {
-  __type?: "ListServiceSpecificCredentialsResponse";
   /**
    * <p>A list of structures that each contain details about a service-specific
    *          credential.</p>
@@ -5717,12 +5319,9 @@ export namespace ListServiceSpecificCredentialsResponse {
   export const filterSensitiveLog = (obj: ListServiceSpecificCredentialsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServiceSpecificCredentialsResponse =>
-    __isa(o, "ListServiceSpecificCredentialsResponse");
 }
 
 export interface ListSigningCertificatesRequest {
-  __type?: "ListSigningCertificatesRequest";
   /**
    * <p>The name of the IAM user whose signing certificates you want to examine.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -5755,7 +5354,6 @@ export namespace ListSigningCertificatesRequest {
   export const filterSensitiveLog = (obj: ListSigningCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningCertificatesRequest => __isa(o, "ListSigningCertificatesRequest");
 }
 
 /**
@@ -5763,7 +5361,6 @@ export namespace ListSigningCertificatesRequest {
  *       request. </p>
  */
 export interface ListSigningCertificatesResponse {
-  __type?: "ListSigningCertificatesResponse";
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
@@ -5791,11 +5388,9 @@ export namespace ListSigningCertificatesResponse {
   export const filterSensitiveLog = (obj: ListSigningCertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSigningCertificatesResponse => __isa(o, "ListSigningCertificatesResponse");
 }
 
 export interface ListSSHPublicKeysRequest {
-  __type?: "ListSSHPublicKeysRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5830,7 +5425,6 @@ export namespace ListSSHPublicKeysRequest {
   export const filterSensitiveLog = (obj: ListSSHPublicKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSSHPublicKeysRequest => __isa(o, "ListSSHPublicKeysRequest");
 }
 
 /**
@@ -5838,7 +5432,6 @@ export namespace ListSSHPublicKeysRequest {
  *       request.</p>
  */
 export interface ListSSHPublicKeysResponse {
-  __type?: "ListSSHPublicKeysResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5866,11 +5459,9 @@ export namespace ListSSHPublicKeysResponse {
   export const filterSensitiveLog = (obj: ListSSHPublicKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSSHPublicKeysResponse => __isa(o, "ListSSHPublicKeysResponse");
 }
 
 export interface ListUserPoliciesRequest {
-  __type?: "ListUserPoliciesRequest";
   /**
    * <p>The name of the user to list policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -5903,7 +5494,6 @@ export namespace ListUserPoliciesRequest {
   export const filterSensitiveLog = (obj: ListUserPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserPoliciesRequest => __isa(o, "ListUserPoliciesRequest");
 }
 
 /**
@@ -5911,7 +5501,6 @@ export namespace ListUserPoliciesRequest {
  *     </p>
  */
 export interface ListUserPoliciesResponse {
-  __type?: "ListUserPoliciesResponse";
   /**
    * <p>A list of policy names.</p>
    */
@@ -5939,11 +5528,9 @@ export namespace ListUserPoliciesResponse {
   export const filterSensitiveLog = (obj: ListUserPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserPoliciesResponse => __isa(o, "ListUserPoliciesResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5981,14 +5568,12 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 /**
  * <p>Contains the response to a successful <a>ListUsers</a> request. </p>
  */
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p>A list of users.</p>
    */
@@ -6016,11 +5601,9 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 export interface ListUserTagsRequest {
-  __type?: "ListUserTagsRequest";
   /**
    * <p>(Optional) Use this only when paginating results to indicate the
    *     maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6052,11 +5635,9 @@ export namespace ListUserTagsRequest {
   export const filterSensitiveLog = (obj: ListUserTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserTagsRequest => __isa(o, "ListUserTagsRequest");
 }
 
 export interface ListUserTagsResponse {
-  __type?: "ListUserTagsResponse";
   /**
    * <p>The list of tags that are currently attached to the user. Each tag consists of a key
    *       name and an associated value. If no tags are attached to the specified user, the response
@@ -6084,11 +5665,9 @@ export namespace ListUserTagsResponse {
   export const filterSensitiveLog = (obj: ListUserTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserTagsResponse => __isa(o, "ListUserTagsResponse");
 }
 
 export interface ListVirtualMFADevicesRequest {
-  __type?: "ListVirtualMFADevicesRequest";
   /**
    * <p> The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list.
    *          If you do not specify an <code>AssignmentStatus</code>, the operation defaults to
@@ -6121,7 +5700,6 @@ export namespace ListVirtualMFADevicesRequest {
   export const filterSensitiveLog = (obj: ListVirtualMFADevicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualMFADevicesRequest => __isa(o, "ListVirtualMFADevicesRequest");
 }
 
 /**
@@ -6129,7 +5707,6 @@ export namespace ListVirtualMFADevicesRequest {
  *     </p>
  */
 export interface ListVirtualMFADevicesResponse {
-  __type?: "ListVirtualMFADevicesResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -6161,7 +5738,6 @@ export namespace ListVirtualMFADevicesResponse {
       VirtualMFADevices: obj.VirtualMFADevices.map((item) => VirtualMFADevice.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is ListVirtualMFADevicesResponse => __isa(o, "ListVirtualMFADevicesResponse");
 }
 
 /**
@@ -6169,7 +5745,6 @@ export namespace ListVirtualMFADevicesResponse {
  *          <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> operations. </p>
  */
 export interface LoginProfile {
-  __type?: "LoginProfile";
   /**
    * <p>The date when the password for the user was created.</p>
    */
@@ -6191,7 +5766,6 @@ export namespace LoginProfile {
   export const filterSensitiveLog = (obj: LoginProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoginProfile => __isa(o, "LoginProfile");
 }
 
 /**
@@ -6208,7 +5782,6 @@ export namespace MalformedCertificateException {
   export const filterSensitiveLog = (obj: MalformedCertificateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedCertificateException => __isa(o, "MalformedCertificateException");
 }
 
 /**
@@ -6225,7 +5798,6 @@ export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -6237,7 +5809,6 @@ export namespace MalformedPolicyDocumentException {
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface ManagedPolicyDetail {
-  __type?: "ManagedPolicyDetail";
   /**
    * <p>The friendly name (not ARN) identifying the policy.</p>
    */
@@ -6321,7 +5892,6 @@ export namespace ManagedPolicyDetail {
   export const filterSensitiveLog = (obj: ManagedPolicyDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedPolicyDetail => __isa(o, "ManagedPolicyDetail");
 }
 
 /**
@@ -6330,7 +5900,6 @@ export namespace ManagedPolicyDetail {
  *          operation.</p>
  */
 export interface MFADevice {
-  __type?: "MFADevice";
   /**
    * <p>The user with whom the MFA device is associated.</p>
    */
@@ -6352,7 +5921,6 @@ export namespace MFADevice {
   export const filterSensitiveLog = (obj: MFADevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MFADevice => __isa(o, "MFADevice");
 }
 
 /**
@@ -6369,14 +5937,12 @@ export namespace NoSuchEntityException {
   export const filterSensitiveLog = (obj: NoSuchEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchEntityException => __isa(o, "NoSuchEntityException");
 }
 
 /**
  * <p>Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.</p>
  */
 export interface OpenIDConnectProviderListEntry {
-  __type?: "OpenIDConnectProviderListEntry";
   /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
@@ -6389,14 +5955,12 @@ export namespace OpenIDConnectProviderListEntry {
   export const filterSensitiveLog = (obj: OpenIDConnectProviderListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OpenIDConnectProviderListEntry => __isa(o, "OpenIDConnectProviderListEntry");
 }
 
 /**
  * <p>Contains information about the effect that Organizations has on a policy simulation.</p>
  */
 export interface OrganizationsDecisionDetail {
-  __type?: "OrganizationsDecisionDetail";
   /**
    * <p>Specifies whether the simulated operation is allowed by the Organizations service control
    *          policies that impact the simulated user's account.</p>
@@ -6408,7 +5972,6 @@ export namespace OrganizationsDecisionDetail {
   export const filterSensitiveLog = (obj: OrganizationsDecisionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationsDecisionDetail => __isa(o, "OrganizationsDecisionDetail");
 }
 
 /**
@@ -6416,7 +5979,6 @@ export namespace OrganizationsDecisionDetail {
  *          <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> operation. </p>
  */
 export interface PasswordPolicy {
-  __type?: "PasswordPolicy";
   /**
    * <p>Specifies whether to require lowercase characters for IAM user passwords.</p>
    */
@@ -6476,7 +6038,6 @@ export namespace PasswordPolicy {
   export const filterSensitiveLog = (obj: PasswordPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PasswordPolicy => __isa(o, "PasswordPolicy");
 }
 
 /**
@@ -6493,7 +6054,6 @@ export namespace PasswordPolicyViolationException {
   export const filterSensitiveLog = (obj: PasswordPolicyViolationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PasswordPolicyViolationException => __isa(o, "PasswordPolicyViolationException");
 }
 
 export enum PermissionsBoundaryAttachmentType {
@@ -6505,7 +6065,6 @@ export enum PermissionsBoundaryAttachmentType {
  *          simulation when the boundary is applied to an IAM entity.</p>
  */
 export interface PermissionsBoundaryDecisionDetail {
-  __type?: "PermissionsBoundaryDecisionDetail";
   /**
    * <p>Specifies whether an action is allowed by a permissions boundary that is applied to an
    *          IAM entity (user or role). A value of <code>true</code> means that the permissions
@@ -6523,7 +6082,6 @@ export namespace PermissionsBoundaryDecisionDetail {
   export const filterSensitiveLog = (obj: PermissionsBoundaryDecisionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PermissionsBoundaryDecisionDetail => __isa(o, "PermissionsBoundaryDecisionDetail");
 }
 
 /**
@@ -6534,7 +6092,6 @@ export namespace PermissionsBoundaryDecisionDetail {
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface Policy {
-  __type?: "Policy";
   /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
@@ -6611,7 +6168,6 @@ export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Policy => __isa(o, "Policy");
 }
 
 /**
@@ -6619,7 +6175,6 @@ export namespace Policy {
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
 export interface PolicyDetail {
-  __type?: "PolicyDetail";
   /**
    * <p>The policy document.</p>
    */
@@ -6635,7 +6190,6 @@ export namespace PolicyDetail {
   export const filterSensitiveLog = (obj: PolicyDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyDetail => __isa(o, "PolicyDetail");
 }
 
 export enum PolicyEvaluationDecisionType {
@@ -6658,7 +6212,6 @@ export namespace PolicyEvaluationException {
   export const filterSensitiveLog = (obj: PolicyEvaluationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyEvaluationException => __isa(o, "PolicyEvaluationException");
 }
 
 /**
@@ -6667,7 +6220,6 @@ export namespace PolicyEvaluationException {
  *          <p>This data type is an element of the <a>ListPoliciesGrantingServiceAccessEntry</a> object.</p>
  */
 export interface PolicyGrantingServiceAccess {
-  __type?: "PolicyGrantingServiceAccess";
   /**
    * <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
@@ -6709,7 +6261,6 @@ export namespace PolicyGrantingServiceAccess {
   export const filterSensitiveLog = (obj: PolicyGrantingServiceAccess): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyGrantingServiceAccess => __isa(o, "PolicyGrantingServiceAccess");
 }
 
 /**
@@ -6719,7 +6270,6 @@ export namespace PolicyGrantingServiceAccess {
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface PolicyGroup {
-  __type?: "PolicyGroup";
   /**
    * <p>The stable and unique string identifying the group. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
@@ -6737,7 +6287,6 @@ export namespace PolicyGroup {
   export const filterSensitiveLog = (obj: PolicyGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyGroup => __isa(o, "PolicyGroup");
 }
 
 /**
@@ -6754,7 +6303,6 @@ export namespace PolicyNotAttachableException {
   export const filterSensitiveLog = (obj: PolicyNotAttachableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyNotAttachableException => __isa(o, "PolicyNotAttachableException");
 }
 
 export enum PolicyOwnerEntityType {
@@ -6770,7 +6318,6 @@ export enum PolicyOwnerEntityType {
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface PolicyRole {
-  __type?: "PolicyRole";
   /**
    * <p>The name (friendly name, not ARN) identifying the role.</p>
    */
@@ -6788,7 +6335,6 @@ export namespace PolicyRole {
   export const filterSensitiveLog = (obj: PolicyRole): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyRole => __isa(o, "PolicyRole");
 }
 
 export enum PolicyScopeType {
@@ -6821,7 +6367,6 @@ export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface PolicyUser {
-  __type?: "PolicyUser";
   /**
    * <p>The name (friendly name, not ARN) identifying the user.</p>
    */
@@ -6839,7 +6384,6 @@ export namespace PolicyUser {
   export const filterSensitiveLog = (obj: PolicyUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyUser => __isa(o, "PolicyUser");
 }
 
 /**
@@ -6849,7 +6393,6 @@ export namespace PolicyUser {
  *             Policies</a> in the <i>IAM User Guide</i>. </p>
  */
 export interface PolicyVersion {
-  __type?: "PolicyVersion";
   /**
    * <p>Specifies whether the policy version is set as the policy's default version.</p>
    */
@@ -6884,7 +6427,6 @@ export namespace PolicyVersion {
   export const filterSensitiveLog = (obj: PolicyVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyVersion => __isa(o, "PolicyVersion");
 }
 
 /**
@@ -6895,7 +6437,6 @@ export namespace PolicyVersion {
  *             </code> type.</p>
  */
 export interface Position {
-  __type?: "Position";
   /**
    * <p>The column in the line containing the specified position in the document.</p>
    */
@@ -6911,11 +6452,9 @@ export namespace Position {
   export const filterSensitiveLog = (obj: Position): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Position => __isa(o, "Position");
 }
 
 export interface PutGroupPolicyRequest {
-  __type?: "PutGroupPolicyRequest";
   /**
    * <p>The name of the policy document.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -6960,11 +6499,9 @@ export namespace PutGroupPolicyRequest {
   export const filterSensitiveLog = (obj: PutGroupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutGroupPolicyRequest => __isa(o, "PutGroupPolicyRequest");
 }
 
 export interface PutRolePermissionsBoundaryRequest {
-  __type?: "PutRolePermissionsBoundaryRequest";
   /**
    * <p>The ARN of the policy that is used to set the permissions boundary for the role.</p>
    */
@@ -6981,11 +6518,9 @@ export namespace PutRolePermissionsBoundaryRequest {
   export const filterSensitiveLog = (obj: PutRolePermissionsBoundaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRolePermissionsBoundaryRequest => __isa(o, "PutRolePermissionsBoundaryRequest");
 }
 
 export interface PutRolePolicyRequest {
-  __type?: "PutRolePolicyRequest";
   /**
    * <p>The name of the policy document.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7030,11 +6565,9 @@ export namespace PutRolePolicyRequest {
   export const filterSensitiveLog = (obj: PutRolePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRolePolicyRequest => __isa(o, "PutRolePolicyRequest");
 }
 
 export interface PutUserPermissionsBoundaryRequest {
-  __type?: "PutUserPermissionsBoundaryRequest";
   /**
    * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
    *          permissions boundary.</p>
@@ -7051,11 +6584,9 @@ export namespace PutUserPermissionsBoundaryRequest {
   export const filterSensitiveLog = (obj: PutUserPermissionsBoundaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutUserPermissionsBoundaryRequest => __isa(o, "PutUserPermissionsBoundaryRequest");
 }
 
 export interface PutUserPolicyRequest {
-  __type?: "PutUserPolicyRequest";
   /**
    * <p>The name of the user to associate the policy with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7100,11 +6631,9 @@ export namespace PutUserPolicyRequest {
   export const filterSensitiveLog = (obj: PutUserPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutUserPolicyRequest => __isa(o, "PutUserPolicyRequest");
 }
 
 export interface RemoveClientIDFromOpenIDConnectProviderRequest {
-  __type?: "RemoveClientIDFromOpenIDConnectProviderRequest";
   /**
    * <p>The client ID (also known as audience) to remove from the IAM OIDC provider resource.
    *          For more information about client IDs, see <a>CreateOpenIDConnectProvider</a>.</p>
@@ -7124,12 +6653,9 @@ export namespace RemoveClientIDFromOpenIDConnectProviderRequest {
   export const filterSensitiveLog = (obj: RemoveClientIDFromOpenIDConnectProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveClientIDFromOpenIDConnectProviderRequest =>
-    __isa(o, "RemoveClientIDFromOpenIDConnectProviderRequest");
 }
 
 export interface RemoveRoleFromInstanceProfileRequest {
-  __type?: "RemoveRoleFromInstanceProfileRequest";
   /**
    * <p>The name of the instance profile to update.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7149,12 +6675,9 @@ export namespace RemoveRoleFromInstanceProfileRequest {
   export const filterSensitiveLog = (obj: RemoveRoleFromInstanceProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveRoleFromInstanceProfileRequest =>
-    __isa(o, "RemoveRoleFromInstanceProfileRequest");
 }
 
 export interface RemoveUserFromGroupRequest {
-  __type?: "RemoveUserFromGroupRequest";
   /**
    * <p>The name of the user to remove.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7174,7 +6697,6 @@ export namespace RemoveUserFromGroupRequest {
   export const filterSensitiveLog = (obj: RemoveUserFromGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveUserFromGroupRequest => __isa(o, "RemoveUserFromGroupRequest");
 }
 
 export type ReportFormatType = "text/csv";
@@ -7193,8 +6715,6 @@ export namespace ReportGenerationLimitExceededException {
   export const filterSensitiveLog = (obj: ReportGenerationLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportGenerationLimitExceededException =>
-    __isa(o, "ReportGenerationLimitExceededException");
 }
 
 export enum ReportStateType {
@@ -7204,7 +6724,6 @@ export enum ReportStateType {
 }
 
 export interface ResetServiceSpecificCredentialRequest {
-  __type?: "ResetServiceSpecificCredentialRequest";
   /**
    * <p>The unique identifier of the service-specific credential.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
@@ -7226,12 +6745,9 @@ export namespace ResetServiceSpecificCredentialRequest {
   export const filterSensitiveLog = (obj: ResetServiceSpecificCredentialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetServiceSpecificCredentialRequest =>
-    __isa(o, "ResetServiceSpecificCredentialRequest");
 }
 
 export interface ResetServiceSpecificCredentialResponse {
-  __type?: "ResetServiceSpecificCredentialResponse";
   /**
    * <p>A structure with details about the updated service-specific credential, including the
    *          new password.</p>
@@ -7250,8 +6766,6 @@ export namespace ResetServiceSpecificCredentialResponse {
       ServiceSpecificCredential: ServiceSpecificCredential.filterSensitiveLog(obj.ServiceSpecificCredential),
     }),
   });
-  export const isa = (o: any): o is ResetServiceSpecificCredentialResponse =>
-    __isa(o, "ResetServiceSpecificCredentialResponse");
 }
 
 /**
@@ -7261,7 +6775,6 @@ export namespace ResetServiceSpecificCredentialResponse {
  *          type.</p>
  */
 export interface ResourceSpecificResult {
-  __type?: "ResourceSpecificResult";
   /**
    * <p>Contains information about the effect that a permissions boundary has on a policy
    *          simulation when that boundary is applied to an IAM entity.</p>
@@ -7312,11 +6825,9 @@ export namespace ResourceSpecificResult {
   export const filterSensitiveLog = (obj: ResourceSpecificResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceSpecificResult => __isa(o, "ResourceSpecificResult");
 }
 
 export interface ResyncMFADeviceRequest {
-  __type?: "ResyncMFADeviceRequest";
   /**
    * <p>The name of the user whose MFA device you want to resynchronize.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7348,7 +6859,6 @@ export namespace ResyncMFADeviceRequest {
   export const filterSensitiveLog = (obj: ResyncMFADeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResyncMFADeviceRequest => __isa(o, "ResyncMFADeviceRequest");
 }
 
 /**
@@ -7356,7 +6866,6 @@ export namespace ResyncMFADeviceRequest {
  *          element in several API operations that interact with roles.</p>
  */
 export interface Role {
-  __type?: "Role";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the role was created.</p>
@@ -7435,7 +6944,6 @@ export namespace Role {
   export const filterSensitiveLog = (obj: Role): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Role => __isa(o, "Role");
 }
 
 /**
@@ -7443,7 +6951,6 @@ export namespace Role {
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
 export interface RoleDetail {
-  __type?: "RoleDetail";
   /**
    * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
@@ -7526,7 +7033,6 @@ export namespace RoleDetail {
   export const filterSensitiveLog = (obj: RoleDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleDetail => __isa(o, "RoleDetail");
 }
 
 /**
@@ -7540,7 +7046,6 @@ export namespace RoleDetail {
  *             <a>GetAccountAuthorizationDetails</a> operations.</p>
  */
 export interface RoleLastUsed {
-  __type?: "RoleLastUsed";
   /**
    * <p>The name of the AWS Region in which the role was last used.</p>
    */
@@ -7560,7 +7065,6 @@ export namespace RoleLastUsed {
   export const filterSensitiveLog = (obj: RoleLastUsed): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleLastUsed => __isa(o, "RoleLastUsed");
 }
 
 /**
@@ -7569,7 +7073,6 @@ export namespace RoleLastUsed {
  *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
  */
 export interface RoleUsageType {
-  __type?: "RoleUsageType";
   /**
    * <p>The name of the resource that is using the service-linked role.</p>
    */
@@ -7585,14 +7088,12 @@ export namespace RoleUsageType {
   export const filterSensitiveLog = (obj: RoleUsageType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleUsageType => __isa(o, "RoleUsageType");
 }
 
 /**
  * <p>Contains the list of SAML providers for this account.</p>
  */
 export interface SAMLProviderListEntry {
-  __type?: "SAMLProviderListEntry";
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider.</p>
    */
@@ -7613,7 +7114,6 @@ export namespace SAMLProviderListEntry {
   export const filterSensitiveLog = (obj: SAMLProviderListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SAMLProviderListEntry => __isa(o, "SAMLProviderListEntry");
 }
 
 /**
@@ -7621,7 +7121,6 @@ export namespace SAMLProviderListEntry {
  *          <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
  */
 export interface ServerCertificate {
-  __type?: "ServerCertificate";
   /**
    * <p>The meta information of the server certificate, such as its name, path, ID, and
    *          ARN.</p>
@@ -7643,7 +7142,6 @@ export namespace ServerCertificate {
   export const filterSensitiveLog = (obj: ServerCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerCertificate => __isa(o, "ServerCertificate");
 }
 
 /**
@@ -7653,7 +7151,6 @@ export namespace ServerCertificate {
  *          operations. </p>
  */
 export interface ServerCertificateMetadata {
-  __type?: "ServerCertificateMetadata";
   /**
    * <p> The stable and unique string identifying the server certificate. For more information
    *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>
@@ -7693,7 +7190,6 @@ export namespace ServerCertificateMetadata {
   export const filterSensitiveLog = (obj: ServerCertificateMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerCertificateMetadata => __isa(o, "ServerCertificateMetadata");
 }
 
 /**
@@ -7710,7 +7206,6 @@ export namespace ServiceFailureException {
   export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceFailureException => __isa(o, "ServiceFailureException");
 }
 
 /**
@@ -7718,7 +7213,6 @@ export namespace ServiceFailureException {
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
  */
 export interface ServiceLastAccessed {
-  __type?: "ServiceLastAccessed";
   /**
    * <p>An object that contains details about the most recent attempt to access a tracked action
    *          within the service.</p>
@@ -7783,7 +7277,6 @@ export namespace ServiceLastAccessed {
   export const filterSensitiveLog = (obj: ServiceLastAccessed): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceLastAccessed => __isa(o, "ServiceLastAccessed");
 }
 
 /**
@@ -7799,14 +7292,12 @@ export namespace ServiceNotSupportedException {
   export const filterSensitiveLog = (obj: ServiceNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNotSupportedException => __isa(o, "ServiceNotSupportedException");
 }
 
 /**
  * <p>Contains the details of a service-specific credential.</p>
  */
 export interface ServiceSpecificCredential {
-  __type?: "ServiceSpecificCredential";
   /**
    * <p>The name of the IAM user associated with the service-specific credential.</p>
    */
@@ -7853,14 +7344,12 @@ export namespace ServiceSpecificCredential {
     ...obj,
     ...(obj.ServicePassword && { ServicePassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ServiceSpecificCredential => __isa(o, "ServiceSpecificCredential");
 }
 
 /**
  * <p>Contains additional details about a service-specific credential.</p>
  */
 export interface ServiceSpecificCredentialMetadata {
-  __type?: "ServiceSpecificCredentialMetadata";
   /**
    * <p>The unique identifier for the service-specific credential.</p>
    */
@@ -7898,11 +7387,9 @@ export namespace ServiceSpecificCredentialMetadata {
   export const filterSensitiveLog = (obj: ServiceSpecificCredentialMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceSpecificCredentialMetadata => __isa(o, "ServiceSpecificCredentialMetadata");
 }
 
 export interface SetDefaultPolicyVersionRequest {
-  __type?: "SetDefaultPolicyVersionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
    *          set.</p>
@@ -7923,11 +7410,9 @@ export namespace SetDefaultPolicyVersionRequest {
   export const filterSensitiveLog = (obj: SetDefaultPolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDefaultPolicyVersionRequest => __isa(o, "SetDefaultPolicyVersionRequest");
 }
 
 export interface SetSecurityTokenServicePreferencesRequest {
-  __type?: "SetSecurityTokenServicePreferencesRequest";
   /**
    * <p>The version of the global endpoint token. Version 1 tokens are valid only in AWS
    *          Regions that are available by default. These tokens do not work in manually enabled
@@ -7944,8 +7429,6 @@ export namespace SetSecurityTokenServicePreferencesRequest {
   export const filterSensitiveLog = (obj: SetSecurityTokenServicePreferencesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetSecurityTokenServicePreferencesRequest =>
-    __isa(o, "SetSecurityTokenServicePreferencesRequest");
 }
 
 /**
@@ -7954,7 +7437,6 @@ export namespace SetSecurityTokenServicePreferencesRequest {
  *          operations. </p>
  */
 export interface SigningCertificate {
-  __type?: "SigningCertificate";
   /**
    * <p>The contents of the signing certificate.</p>
    */
@@ -7986,11 +7468,9 @@ export namespace SigningCertificate {
   export const filterSensitiveLog = (obj: SigningCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SigningCertificate => __isa(o, "SigningCertificate");
 }
 
 export interface SimulateCustomPolicyRequest {
-  __type?: "SimulateCustomPolicyRequest";
   /**
    * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
    *          context key is evaluated in one of the simulated IAM permissions policies, the
@@ -8207,7 +7687,6 @@ export namespace SimulateCustomPolicyRequest {
   export const filterSensitiveLog = (obj: SimulateCustomPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimulateCustomPolicyRequest => __isa(o, "SimulateCustomPolicyRequest");
 }
 
 /**
@@ -8215,7 +7694,6 @@ export namespace SimulateCustomPolicyRequest {
  *       <a>SimulateCustomPolicy</a> request.</p>
  */
 export interface SimulatePolicyResponse {
-  __type?: "SimulatePolicyResponse";
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -8243,11 +7721,9 @@ export namespace SimulatePolicyResponse {
   export const filterSensitiveLog = (obj: SimulatePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimulatePolicyResponse => __isa(o, "SimulatePolicyResponse");
 }
 
 export interface SimulatePrincipalPolicyRequest {
-  __type?: "SimulatePrincipalPolicyRequest";
   /**
    * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
    *          context key is evaluated in one of the simulated IAM permissions policies, the
@@ -8475,7 +7951,6 @@ export namespace SimulatePrincipalPolicyRequest {
   export const filterSensitiveLog = (obj: SimulatePrincipalPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimulatePrincipalPolicyRequest => __isa(o, "SimulatePrincipalPolicyRequest");
 }
 
 export enum SortKeyType {
@@ -8491,7 +7966,6 @@ export enum SortKeyType {
  *          and <a>UploadSSHPublicKey</a> operations. </p>
  */
 export interface SSHPublicKey {
-  __type?: "SSHPublicKey";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the SSH public key was uploaded.</p>
@@ -8530,7 +8004,6 @@ export namespace SSHPublicKey {
   export const filterSensitiveLog = (obj: SSHPublicKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SSHPublicKey => __isa(o, "SSHPublicKey");
 }
 
 /**
@@ -8540,7 +8013,6 @@ export namespace SSHPublicKey {
  *          operation.</p>
  */
 export interface SSHPublicKeyMetadata {
-  __type?: "SSHPublicKeyMetadata";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the SSH public key was uploaded.</p>
@@ -8569,7 +8041,6 @@ export namespace SSHPublicKeyMetadata {
   export const filterSensitiveLog = (obj: SSHPublicKeyMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SSHPublicKeyMetadata => __isa(o, "SSHPublicKeyMetadata");
 }
 
 /**
@@ -8580,7 +8051,6 @@ export namespace SSHPublicKeyMetadata {
  *             </code> type.</p>
  */
 export interface Statement {
-  __type?: "Statement";
   /**
    * <p>The identifier of the policy that was provided as an input.</p>
    */
@@ -8607,7 +8077,6 @@ export namespace Statement {
   export const filterSensitiveLog = (obj: Statement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Statement => __isa(o, "Statement");
 }
 
 export type StatusType = "Active" | "Inactive";
@@ -8646,7 +8115,6 @@ export type SummaryKeyType =
  *         <i>IAM User Guide</i>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key name that can be used to look up or retrieve the associated value. For example,
    *         <code>Department</code> or <code>Cost Center</code> are common choices.</p>
@@ -8673,11 +8141,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagRoleRequest {
-  __type?: "TagRoleRequest";
   /**
    * <p>The list of tags that you want to attach to the role. Each tag consists of a key name
    *       and an associated value. You can specify this with a JSON string.</p>
@@ -8696,11 +8162,9 @@ export namespace TagRoleRequest {
   export const filterSensitiveLog = (obj: TagRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagRoleRequest => __isa(o, "TagRoleRequest");
 }
 
 export interface TagUserRequest {
-  __type?: "TagUserRequest";
   /**
    * <p>The list of tags that you want to attach to the user. Each tag consists of a key name
    *       and an associated value.</p>
@@ -8719,7 +8183,6 @@ export namespace TagUserRequest {
   export const filterSensitiveLog = (obj: TagUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagUserRequest => __isa(o, "TagUserRequest");
 }
 
 /**
@@ -8727,7 +8190,6 @@ export namespace TagUserRequest {
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
  */
 export interface TrackedActionLastAccessed {
-  __type?: "TrackedActionLastAccessed";
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when an authenticated entity most recently attempted to access the
@@ -8763,7 +8225,6 @@ export namespace TrackedActionLastAccessed {
   export const filterSensitiveLog = (obj: TrackedActionLastAccessed): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackedActionLastAccessed => __isa(o, "TrackedActionLastAccessed");
 }
 
 /**
@@ -8782,7 +8243,6 @@ export namespace UnmodifiableEntityException {
   export const filterSensitiveLog = (obj: UnmodifiableEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnmodifiableEntityException => __isa(o, "UnmodifiableEntityException");
 }
 
 /**
@@ -8799,12 +8259,9 @@ export namespace UnrecognizedPublicKeyEncodingException {
   export const filterSensitiveLog = (obj: UnrecognizedPublicKeyEncodingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnrecognizedPublicKeyEncodingException =>
-    __isa(o, "UnrecognizedPublicKeyEncodingException");
 }
 
 export interface UntagRoleRequest {
-  __type?: "UntagRoleRequest";
   /**
    * <p>The name of the IAM role from which you want to remove tags.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
@@ -8823,11 +8280,9 @@ export namespace UntagRoleRequest {
   export const filterSensitiveLog = (obj: UntagRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagRoleRequest => __isa(o, "UntagRoleRequest");
 }
 
 export interface UntagUserRequest {
-  __type?: "UntagUserRequest";
   /**
    * <p>The name of the IAM user from which you want to remove tags.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
@@ -8846,11 +8301,9 @@ export namespace UntagUserRequest {
   export const filterSensitiveLog = (obj: UntagUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagUserRequest => __isa(o, "UntagUserRequest");
 }
 
 export interface UpdateAccessKeyRequest {
-  __type?: "UpdateAccessKeyRequest";
   /**
    * <p>The name of the user whose key you want to update.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -8877,11 +8330,9 @@ export namespace UpdateAccessKeyRequest {
   export const filterSensitiveLog = (obj: UpdateAccessKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccessKeyRequest => __isa(o, "UpdateAccessKeyRequest");
 }
 
 export interface UpdateAccountPasswordPolicyRequest {
-  __type?: "UpdateAccountPasswordPolicyRequest";
   /**
    * <p>Prevents IAM users from setting a new password after their password has expired. The
    *          IAM user cannot be accessed until an administrator resets the password.</p>
@@ -8966,12 +8417,9 @@ export namespace UpdateAccountPasswordPolicyRequest {
   export const filterSensitiveLog = (obj: UpdateAccountPasswordPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountPasswordPolicyRequest =>
-    __isa(o, "UpdateAccountPasswordPolicyRequest");
 }
 
 export interface UpdateAssumeRolePolicyRequest {
-  __type?: "UpdateAssumeRolePolicyRequest";
   /**
    * <p>The policy that grants an entity permission to assume the role.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for AWS CloudFormation
@@ -9009,11 +8457,9 @@ export namespace UpdateAssumeRolePolicyRequest {
   export const filterSensitiveLog = (obj: UpdateAssumeRolePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssumeRolePolicyRequest => __isa(o, "UpdateAssumeRolePolicyRequest");
 }
 
 export interface UpdateGroupRequest {
-  __type?: "UpdateGroupRequest";
   /**
    * <p>New path for the IAM group. Only include this if changing the group's path.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
@@ -9044,11 +8490,9 @@ export namespace UpdateGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
 export interface UpdateLoginProfileRequest {
-  __type?: "UpdateLoginProfileRequest";
   /**
    * <p>The new password for the specified IAM user.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -9092,11 +8536,9 @@ export namespace UpdateLoginProfileRequest {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateLoginProfileRequest => __isa(o, "UpdateLoginProfileRequest");
 }
 
 export interface UpdateOpenIDConnectProviderThumbprintRequest {
-  __type?: "UpdateOpenIDConnectProviderThumbprintRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you
    *          want to update the thumbprint. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
@@ -9117,12 +8559,9 @@ export namespace UpdateOpenIDConnectProviderThumbprintRequest {
   export const filterSensitiveLog = (obj: UpdateOpenIDConnectProviderThumbprintRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOpenIDConnectProviderThumbprintRequest =>
-    __isa(o, "UpdateOpenIDConnectProviderThumbprintRequest");
 }
 
 export interface UpdateRoleDescriptionRequest {
-  __type?: "UpdateRoleDescriptionRequest";
   /**
    * <p>The name of the role that you want to modify.</p>
    */
@@ -9138,11 +8577,9 @@ export namespace UpdateRoleDescriptionRequest {
   export const filterSensitiveLog = (obj: UpdateRoleDescriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleDescriptionRequest => __isa(o, "UpdateRoleDescriptionRequest");
 }
 
 export interface UpdateRoleDescriptionResponse {
-  __type?: "UpdateRoleDescriptionResponse";
   /**
    * <p>A structure that contains details about the modified role.</p>
    */
@@ -9153,11 +8590,9 @@ export namespace UpdateRoleDescriptionResponse {
   export const filterSensitiveLog = (obj: UpdateRoleDescriptionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleDescriptionResponse => __isa(o, "UpdateRoleDescriptionResponse");
 }
 
 export interface UpdateRoleRequest {
-  __type?: "UpdateRoleRequest";
   /**
    * <p>The new description that you want to apply to the specified role.</p>
    */
@@ -9190,22 +8625,17 @@ export namespace UpdateRoleRequest {
   export const filterSensitiveLog = (obj: UpdateRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleRequest => __isa(o, "UpdateRoleRequest");
 }
 
-export interface UpdateRoleResponse {
-  __type?: "UpdateRoleResponse";
-}
+export interface UpdateRoleResponse {}
 
 export namespace UpdateRoleResponse {
   export const filterSensitiveLog = (obj: UpdateRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleResponse => __isa(o, "UpdateRoleResponse");
 }
 
 export interface UpdateSAMLProviderRequest {
-  __type?: "UpdateSAMLProviderRequest";
   /**
    * <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The
    *          document includes the issuer's name, expiration information, and keys that can be used to
@@ -9227,7 +8657,6 @@ export namespace UpdateSAMLProviderRequest {
   export const filterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSAMLProviderRequest => __isa(o, "UpdateSAMLProviderRequest");
 }
 
 /**
@@ -9235,7 +8664,6 @@ export namespace UpdateSAMLProviderRequest {
  *     </p>
  */
 export interface UpdateSAMLProviderResponse {
-  __type?: "UpdateSAMLProviderResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
    */
@@ -9246,11 +8674,9 @@ export namespace UpdateSAMLProviderResponse {
   export const filterSensitiveLog = (obj: UpdateSAMLProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSAMLProviderResponse => __isa(o, "UpdateSAMLProviderResponse");
 }
 
 export interface UpdateServerCertificateRequest {
-  __type?: "UpdateServerCertificateRequest";
   /**
    * <p>The new name for the server certificate. Include this only if you are updating the
    *          server certificate's name. The name of the certificate cannot contain any spaces.</p>
@@ -9281,11 +8707,9 @@ export namespace UpdateServerCertificateRequest {
   export const filterSensitiveLog = (obj: UpdateServerCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServerCertificateRequest => __isa(o, "UpdateServerCertificateRequest");
 }
 
 export interface UpdateServiceSpecificCredentialRequest {
-  __type?: "UpdateServiceSpecificCredentialRequest";
   /**
    * <p>The status to be assigned to the service-specific credential.</p>
    */
@@ -9312,12 +8736,9 @@ export namespace UpdateServiceSpecificCredentialRequest {
   export const filterSensitiveLog = (obj: UpdateServiceSpecificCredentialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceSpecificCredentialRequest =>
-    __isa(o, "UpdateServiceSpecificCredentialRequest");
 }
 
 export interface UpdateSigningCertificateRequest {
-  __type?: "UpdateSigningCertificateRequest";
   /**
    * <p>The name of the IAM user the signing certificate belongs to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -9344,11 +8765,9 @@ export namespace UpdateSigningCertificateRequest {
   export const filterSensitiveLog = (obj: UpdateSigningCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSigningCertificateRequest => __isa(o, "UpdateSigningCertificateRequest");
 }
 
 export interface UpdateSSHPublicKeyRequest {
-  __type?: "UpdateSSHPublicKeyRequest";
   /**
    * <p>The status to assign to the SSH public key. <code>Active</code> means that the key can
    *          be used for authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the
@@ -9375,11 +8794,9 @@ export namespace UpdateSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSSHPublicKeyRequest => __isa(o, "UpdateSSHPublicKeyRequest");
 }
 
 export interface UpdateUserRequest {
-  __type?: "UpdateUserRequest";
   /**
    * <p>New path for the IAM user. Include this parameter only if you're changing the user's
    *          path.</p>
@@ -9412,11 +8829,9 @@ export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 export interface UploadServerCertificateRequest {
-  __type?: "UploadServerCertificateRequest";
   /**
    * <p>The contents of the private key in PEM-encoded format.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -9512,7 +8927,6 @@ export namespace UploadServerCertificateRequest {
     ...obj,
     ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UploadServerCertificateRequest => __isa(o, "UploadServerCertificateRequest");
 }
 
 /**
@@ -9520,7 +8934,6 @@ export namespace UploadServerCertificateRequest {
  *       request. </p>
  */
 export interface UploadServerCertificateResponse {
-  __type?: "UploadServerCertificateResponse";
   /**
    * <p>The meta information of the uploaded server certificate without its certificate body,
    *          certificate chain, and private key.</p>
@@ -9532,11 +8945,9 @@ export namespace UploadServerCertificateResponse {
   export const filterSensitiveLog = (obj: UploadServerCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadServerCertificateResponse => __isa(o, "UploadServerCertificateResponse");
 }
 
 export interface UploadSigningCertificateRequest {
-  __type?: "UploadSigningCertificateRequest";
   /**
    * <p>The contents of the signing certificate.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -9570,7 +8981,6 @@ export namespace UploadSigningCertificateRequest {
   export const filterSensitiveLog = (obj: UploadSigningCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadSigningCertificateRequest => __isa(o, "UploadSigningCertificateRequest");
 }
 
 /**
@@ -9578,7 +8988,6 @@ export namespace UploadSigningCertificateRequest {
  *       request. </p>
  */
 export interface UploadSigningCertificateResponse {
-  __type?: "UploadSigningCertificateResponse";
   /**
    * <p>Information about the certificate.</p>
    */
@@ -9589,11 +8998,9 @@ export namespace UploadSigningCertificateResponse {
   export const filterSensitiveLog = (obj: UploadSigningCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadSigningCertificateResponse => __isa(o, "UploadSigningCertificateResponse");
 }
 
 export interface UploadSSHPublicKeyRequest {
-  __type?: "UploadSSHPublicKeyRequest";
   /**
    * <p>The name of the IAM user to associate the SSH public key with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -9629,7 +9036,6 @@ export namespace UploadSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadSSHPublicKeyRequest => __isa(o, "UploadSSHPublicKeyRequest");
 }
 
 /**
@@ -9637,7 +9043,6 @@ export namespace UploadSSHPublicKeyRequest {
  *       request.</p>
  */
 export interface UploadSSHPublicKeyResponse {
-  __type?: "UploadSSHPublicKeyResponse";
   /**
    * <p>Contains information about the SSH public key.</p>
    */
@@ -9648,7 +9053,6 @@ export namespace UploadSSHPublicKeyResponse {
   export const filterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadSSHPublicKeyResponse => __isa(o, "UploadSSHPublicKeyResponse");
 }
 
 /**
@@ -9673,7 +9077,6 @@ export namespace UploadSSHPublicKeyResponse {
  *          </ul>
  */
 export interface User {
-  __type?: "User";
   /**
    * <p>The stable and unique string identifying the user. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -9748,7 +9151,6 @@ export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 /**
@@ -9757,7 +9159,6 @@ export namespace User {
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  */
 export interface UserDetail {
-  __type?: "UserDetail";
   /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
@@ -9823,14 +9224,12 @@ export namespace UserDetail {
   export const filterSensitiveLog = (obj: UserDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserDetail => __isa(o, "UserDetail");
 }
 
 /**
  * <p>Contains information about a virtual MFA device.</p>
  */
 export interface VirtualMFADevice {
-  __type?: "VirtualMFADevice";
   /**
    * <p> A QR code PNG image that encodes
    *             <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code>
@@ -9868,5 +9267,4 @@ export namespace VirtualMFADevice {
     ...(obj.QRCodePNG && { QRCodePNG: SENSITIVE_STRING }),
     ...(obj.Base32StringSeed && { Base32StringSeed: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is VirtualMFADevice => __isa(o, "VirtualMFADevice");
 }

@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An address book with attributes.</p>
  */
 export interface AddressBook {
-  __type?: "AddressBook";
   /**
    * <p>The description of the address book.</p>
    */
@@ -26,14 +25,12 @@ export namespace AddressBook {
   export const filterSensitiveLog = (obj: AddressBook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddressBook => __isa(o, "AddressBook");
 }
 
 /**
  * <p>Information related to an address book.</p>
  */
 export interface AddressBookData {
-  __type?: "AddressBookData";
   /**
    * <p>The description of the address book.</p>
    */
@@ -54,7 +51,6 @@ export namespace AddressBookData {
   export const filterSensitiveLog = (obj: AddressBookData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddressBookData => __isa(o, "AddressBookData");
 }
 
 /**
@@ -70,11 +66,9 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 export interface ApproveSkillRequest {
-  __type?: "ApproveSkillRequest";
   /**
    * <p>The unique identifier of the skill.</p>
    */
@@ -85,22 +79,17 @@ export namespace ApproveSkillRequest {
   export const filterSensitiveLog = (obj: ApproveSkillRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApproveSkillRequest => __isa(o, "ApproveSkillRequest");
 }
 
-export interface ApproveSkillResponse {
-  __type?: "ApproveSkillResponse";
-}
+export interface ApproveSkillResponse {}
 
 export namespace ApproveSkillResponse {
   export const filterSensitiveLog = (obj: ApproveSkillResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApproveSkillResponse => __isa(o, "ApproveSkillResponse");
 }
 
 export interface AssociateContactWithAddressBookRequest {
-  __type?: "AssociateContactWithAddressBookRequest";
   /**
    * <p>The ARN of the address book with which to associate the contact.</p>
    */
@@ -116,24 +105,17 @@ export namespace AssociateContactWithAddressBookRequest {
   export const filterSensitiveLog = (obj: AssociateContactWithAddressBookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateContactWithAddressBookRequest =>
-    __isa(o, "AssociateContactWithAddressBookRequest");
 }
 
-export interface AssociateContactWithAddressBookResponse {
-  __type?: "AssociateContactWithAddressBookResponse";
-}
+export interface AssociateContactWithAddressBookResponse {}
 
 export namespace AssociateContactWithAddressBookResponse {
   export const filterSensitiveLog = (obj: AssociateContactWithAddressBookResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateContactWithAddressBookResponse =>
-    __isa(o, "AssociateContactWithAddressBookResponse");
 }
 
 export interface AssociateDeviceWithNetworkProfileRequest {
-  __type?: "AssociateDeviceWithNetworkProfileRequest";
   /**
    * <p>The ARN of the network profile to associate with a device.</p>
    */
@@ -149,24 +131,17 @@ export namespace AssociateDeviceWithNetworkProfileRequest {
   export const filterSensitiveLog = (obj: AssociateDeviceWithNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDeviceWithNetworkProfileRequest =>
-    __isa(o, "AssociateDeviceWithNetworkProfileRequest");
 }
 
-export interface AssociateDeviceWithNetworkProfileResponse {
-  __type?: "AssociateDeviceWithNetworkProfileResponse";
-}
+export interface AssociateDeviceWithNetworkProfileResponse {}
 
 export namespace AssociateDeviceWithNetworkProfileResponse {
   export const filterSensitiveLog = (obj: AssociateDeviceWithNetworkProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDeviceWithNetworkProfileResponse =>
-    __isa(o, "AssociateDeviceWithNetworkProfileResponse");
 }
 
 export interface AssociateDeviceWithRoomRequest {
-  __type?: "AssociateDeviceWithRoomRequest";
   /**
    * <p>The ARN of the room with which to associate the device. Required.</p>
    */
@@ -182,22 +157,17 @@ export namespace AssociateDeviceWithRoomRequest {
   export const filterSensitiveLog = (obj: AssociateDeviceWithRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDeviceWithRoomRequest => __isa(o, "AssociateDeviceWithRoomRequest");
 }
 
-export interface AssociateDeviceWithRoomResponse {
-  __type?: "AssociateDeviceWithRoomResponse";
-}
+export interface AssociateDeviceWithRoomResponse {}
 
 export namespace AssociateDeviceWithRoomResponse {
   export const filterSensitiveLog = (obj: AssociateDeviceWithRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDeviceWithRoomResponse => __isa(o, "AssociateDeviceWithRoomResponse");
 }
 
 export interface AssociateSkillGroupWithRoomRequest {
-  __type?: "AssociateSkillGroupWithRoomRequest";
   /**
    * <p>The ARN of the skill group to associate with a room. Required.</p>
    */
@@ -213,24 +183,17 @@ export namespace AssociateSkillGroupWithRoomRequest {
   export const filterSensitiveLog = (obj: AssociateSkillGroupWithRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSkillGroupWithRoomRequest =>
-    __isa(o, "AssociateSkillGroupWithRoomRequest");
 }
 
-export interface AssociateSkillGroupWithRoomResponse {
-  __type?: "AssociateSkillGroupWithRoomResponse";
-}
+export interface AssociateSkillGroupWithRoomResponse {}
 
 export namespace AssociateSkillGroupWithRoomResponse {
   export const filterSensitiveLog = (obj: AssociateSkillGroupWithRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSkillGroupWithRoomResponse =>
-    __isa(o, "AssociateSkillGroupWithRoomResponse");
 }
 
 export interface AssociateSkillWithSkillGroupRequest {
-  __type?: "AssociateSkillWithSkillGroupRequest";
   /**
    * <p>The ARN of the skill group to associate the skill to. Required.</p>
    */
@@ -246,24 +209,17 @@ export namespace AssociateSkillWithSkillGroupRequest {
   export const filterSensitiveLog = (obj: AssociateSkillWithSkillGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSkillWithSkillGroupRequest =>
-    __isa(o, "AssociateSkillWithSkillGroupRequest");
 }
 
-export interface AssociateSkillWithSkillGroupResponse {
-  __type?: "AssociateSkillWithSkillGroupResponse";
-}
+export interface AssociateSkillWithSkillGroupResponse {}
 
 export namespace AssociateSkillWithSkillGroupResponse {
   export const filterSensitiveLog = (obj: AssociateSkillWithSkillGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSkillWithSkillGroupResponse =>
-    __isa(o, "AssociateSkillWithSkillGroupResponse");
 }
 
 export interface AssociateSkillWithUsersRequest {
-  __type?: "AssociateSkillWithUsersRequest";
   /**
    * <p>The private skill ID you want to make available to enrolled users.</p>
    */
@@ -274,18 +230,14 @@ export namespace AssociateSkillWithUsersRequest {
   export const filterSensitiveLog = (obj: AssociateSkillWithUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSkillWithUsersRequest => __isa(o, "AssociateSkillWithUsersRequest");
 }
 
-export interface AssociateSkillWithUsersResponse {
-  __type?: "AssociateSkillWithUsersResponse";
-}
+export interface AssociateSkillWithUsersResponse {}
 
 export namespace AssociateSkillWithUsersResponse {
   export const filterSensitiveLog = (obj: AssociateSkillWithUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateSkillWithUsersResponse => __isa(o, "AssociateSkillWithUsersResponse");
 }
 
 /**
@@ -301,7 +253,6 @@ export namespace AssociateSkillWithUsersResponse {
  *          </p>
  */
 export interface Audio {
-  __type?: "Audio";
   /**
    * <p>The locale of the audio message. Currently, en-US is supported.</p>
    */
@@ -318,14 +269,12 @@ export namespace Audio {
   export const filterSensitiveLog = (obj: Audio): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Audio => __isa(o, "Audio");
 }
 
 /**
  * <p>Usage report with specified parameters.</p>
  */
 export interface BusinessReport {
-  __type?: "BusinessReport";
   /**
    * <p>The failure code.</p>
    */
@@ -357,14 +306,12 @@ export namespace BusinessReport {
   export const filterSensitiveLog = (obj: BusinessReport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BusinessReport => __isa(o, "BusinessReport");
 }
 
 /**
  * <p>The content range of the report.</p>
  */
 export interface BusinessReportContentRange {
-  __type?: "BusinessReportContentRange";
   /**
    * <p>The interval of the content range.</p>
    */
@@ -375,7 +322,6 @@ export namespace BusinessReportContentRange {
   export const filterSensitiveLog = (obj: BusinessReportContentRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BusinessReportContentRange => __isa(o, "BusinessReportContentRange");
 }
 
 export enum BusinessReportFailureCode {
@@ -399,7 +345,6 @@ export enum BusinessReportInterval {
  * <p>The recurrence of the reports.</p>
  */
 export interface BusinessReportRecurrence {
-  __type?: "BusinessReportRecurrence";
   /**
    * <p>The start date.</p>
    */
@@ -410,14 +355,12 @@ export namespace BusinessReportRecurrence {
   export const filterSensitiveLog = (obj: BusinessReportRecurrence): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BusinessReportRecurrence => __isa(o, "BusinessReportRecurrence");
 }
 
 /**
  * <p>The S3 location of the output reports.</p>
  */
 export interface BusinessReportS3Location {
-  __type?: "BusinessReportS3Location";
   /**
    * <p>The S3 bucket name of the output reports.</p>
    */
@@ -433,14 +376,12 @@ export namespace BusinessReportS3Location {
   export const filterSensitiveLog = (obj: BusinessReportS3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BusinessReportS3Location => __isa(o, "BusinessReportS3Location");
 }
 
 /**
  * <p>The schedule of the usage report.</p>
  */
 export interface BusinessReportSchedule {
-  __type?: "BusinessReportSchedule";
   /**
    * <p>The name identifier of the schedule.</p>
    */
@@ -488,7 +429,6 @@ export namespace BusinessReportSchedule {
   export const filterSensitiveLog = (obj: BusinessReportSchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BusinessReportSchedule => __isa(o, "BusinessReportSchedule");
 }
 
 export enum BusinessReportStatus {
@@ -502,7 +442,6 @@ export enum BusinessReportStatus {
  *          category during creation, such as News, Social, and Sports.</p>
  */
 export interface Category {
-  __type?: "Category";
   /**
    * <p>The ID of the skill store category.</p>
    */
@@ -518,7 +457,6 @@ export namespace Category {
   export const filterSensitiveLog = (obj: Category): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Category => __isa(o, "Category");
 }
 
 export enum CommsProtocol {
@@ -540,7 +478,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -548,7 +485,6 @@ export namespace ConcurrentModificationException {
  *          detected.</p>
  */
 export interface ConferencePreference {
-  __type?: "ConferencePreference";
   /**
    * <p>The ARN of the default conference provider.</p>
    */
@@ -559,14 +495,12 @@ export namespace ConferencePreference {
   export const filterSensitiveLog = (obj: ConferencePreference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConferencePreference => __isa(o, "ConferencePreference");
 }
 
 /**
  * <p>An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. </p>
  */
 export interface ConferenceProvider {
-  __type?: "ConferenceProvider";
   /**
    * <p>The IP endpoint and protocol for calling.</p>
    */
@@ -602,7 +536,6 @@ export namespace ConferenceProvider {
   export const filterSensitiveLog = (obj: ConferenceProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConferenceProvider => __isa(o, "ConferenceProvider");
 }
 
 export enum ConferenceProviderType {
@@ -627,7 +560,6 @@ export enum ConnectionStatus {
  * <p>A contact with attributes.</p>
  */
 export interface Contact {
-  __type?: "Contact";
   /**
    * <p>The phone number of the contact. The phone number type defaults to WORK. You can
    *          either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which
@@ -673,14 +605,12 @@ export namespace Contact {
     ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is Contact => __isa(o, "Contact");
 }
 
 /**
  * <p>Information related to a contact.</p>
  */
 export interface ContactData {
-  __type?: "ContactData";
   /**
    * <p>The phone number of the contact. The phone number type defaults to WORK. You can
    *          specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you
@@ -726,7 +656,6 @@ export namespace ContactData {
     ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ContactData => __isa(o, "ContactData");
 }
 
 /**
@@ -734,7 +663,6 @@ export namespace ContactData {
  *          object.</p>
  */
 export interface Content {
-  __type?: "Content";
   /**
    * <p>The list of audio messages.</p>
    */
@@ -755,11 +683,9 @@ export namespace Content {
   export const filterSensitiveLog = (obj: Content): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Content => __isa(o, "Content");
 }
 
 export interface CreateAddressBookRequest {
-  __type?: "CreateAddressBookRequest";
   /**
    * <p>The description of the address book.</p>
    */
@@ -781,11 +707,9 @@ export namespace CreateAddressBookRequest {
   export const filterSensitiveLog = (obj: CreateAddressBookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAddressBookRequest => __isa(o, "CreateAddressBookRequest");
 }
 
 export interface CreateAddressBookResponse {
-  __type?: "CreateAddressBookResponse";
   /**
    * <p>The ARN of the newly created address book.</p>
    */
@@ -796,11 +720,9 @@ export namespace CreateAddressBookResponse {
   export const filterSensitiveLog = (obj: CreateAddressBookResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAddressBookResponse => __isa(o, "CreateAddressBookResponse");
 }
 
 export interface CreateBusinessReportScheduleRequest {
-  __type?: "CreateBusinessReportScheduleRequest";
   /**
    * <p>The S3 key where the report is delivered.</p>
    */
@@ -849,12 +771,9 @@ export namespace CreateBusinessReportScheduleRequest {
   export const filterSensitiveLog = (obj: CreateBusinessReportScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBusinessReportScheduleRequest =>
-    __isa(o, "CreateBusinessReportScheduleRequest");
 }
 
 export interface CreateBusinessReportScheduleResponse {
-  __type?: "CreateBusinessReportScheduleResponse";
   /**
    * <p>The ARN of the business report schedule.</p>
    */
@@ -865,12 +784,9 @@ export namespace CreateBusinessReportScheduleResponse {
   export const filterSensitiveLog = (obj: CreateBusinessReportScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBusinessReportScheduleResponse =>
-    __isa(o, "CreateBusinessReportScheduleResponse");
 }
 
 export interface CreateConferenceProviderRequest {
-  __type?: "CreateConferenceProviderRequest";
   /**
    * <p>The IP endpoint and protocol for calling.</p>
    */
@@ -906,11 +822,9 @@ export namespace CreateConferenceProviderRequest {
   export const filterSensitiveLog = (obj: CreateConferenceProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConferenceProviderRequest => __isa(o, "CreateConferenceProviderRequest");
 }
 
 export interface CreateConferenceProviderResponse {
-  __type?: "CreateConferenceProviderResponse";
   /**
    * <p>The ARN of the newly-created conference provider.</p>
    */
@@ -921,11 +835,9 @@ export namespace CreateConferenceProviderResponse {
   export const filterSensitiveLog = (obj: CreateConferenceProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConferenceProviderResponse => __isa(o, "CreateConferenceProviderResponse");
 }
 
 export interface CreateContactRequest {
-  __type?: "CreateContactRequest";
   /**
    * <p>The first name of the contact that is used to call the contact on the
    *          device.</p>
@@ -974,11 +886,9 @@ export namespace CreateContactRequest {
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
     ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateContactRequest => __isa(o, "CreateContactRequest");
 }
 
 export interface CreateContactResponse {
-  __type?: "CreateContactResponse";
   /**
    * <p>The ARN of the newly created address book.</p>
    */
@@ -989,7 +899,6 @@ export namespace CreateContactResponse {
   export const filterSensitiveLog = (obj: CreateContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateContactResponse => __isa(o, "CreateContactResponse");
 }
 
 /**
@@ -998,7 +907,6 @@ export namespace CreateContactResponse {
  *          ending.</p>
  */
 export interface CreateEndOfMeetingReminder {
-  __type?: "CreateEndOfMeetingReminder";
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
@@ -1019,11 +927,9 @@ export namespace CreateEndOfMeetingReminder {
   export const filterSensitiveLog = (obj: CreateEndOfMeetingReminder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndOfMeetingReminder => __isa(o, "CreateEndOfMeetingReminder");
 }
 
 export interface CreateGatewayGroupRequest {
-  __type?: "CreateGatewayGroupRequest";
   /**
    * <p>The description of the gateway group.</p>
    */
@@ -1044,11 +950,9 @@ export namespace CreateGatewayGroupRequest {
   export const filterSensitiveLog = (obj: CreateGatewayGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGatewayGroupRequest => __isa(o, "CreateGatewayGroupRequest");
 }
 
 export interface CreateGatewayGroupResponse {
-  __type?: "CreateGatewayGroupResponse";
   /**
    * <p>The ARN of the created gateway group.</p>
    */
@@ -1059,7 +963,6 @@ export namespace CreateGatewayGroupResponse {
   export const filterSensitiveLog = (obj: CreateGatewayGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGatewayGroupResponse => __isa(o, "CreateGatewayGroupResponse");
 }
 
 /**
@@ -1068,7 +971,6 @@ export namespace CreateGatewayGroupResponse {
  *          configured duration if the room is available.</p>
  */
 export interface CreateInstantBooking {
-  __type?: "CreateInstantBooking";
   /**
    * <p>Duration between 15 and 240 minutes at increments of 15 that determines how long to book
    *          an available room when a meeting is started with Alexa.</p>
@@ -1085,14 +987,12 @@ export namespace CreateInstantBooking {
   export const filterSensitiveLog = (obj: CreateInstantBooking): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstantBooking => __isa(o, "CreateInstantBooking");
 }
 
 /**
  * <p>Creates meeting room settings of a room profile.</p>
  */
 export interface CreateMeetingRoomConfiguration {
-  __type?: "CreateMeetingRoomConfiguration";
   /**
    * <p>Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.</p>
    */
@@ -1120,11 +1020,9 @@ export namespace CreateMeetingRoomConfiguration {
   export const filterSensitiveLog = (obj: CreateMeetingRoomConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMeetingRoomConfiguration => __isa(o, "CreateMeetingRoomConfiguration");
 }
 
 export interface CreateNetworkProfileRequest {
-  __type?: "CreateNetworkProfileRequest";
   /**
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported.</p>
@@ -1188,11 +1086,9 @@ export namespace CreateNetworkProfileRequest {
     ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
     ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateNetworkProfileRequest => __isa(o, "CreateNetworkProfileRequest");
 }
 
 export interface CreateNetworkProfileResponse {
-  __type?: "CreateNetworkProfileResponse";
   /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
@@ -1203,11 +1099,9 @@ export namespace CreateNetworkProfileResponse {
   export const filterSensitiveLog = (obj: CreateNetworkProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkProfileResponse => __isa(o, "CreateNetworkProfileResponse");
 }
 
 export interface CreateProfileRequest {
-  __type?: "CreateProfileRequest";
   /**
    * <p>The tags for the profile.</p>
    */
@@ -1278,11 +1172,9 @@ export namespace CreateProfileRequest {
   export const filterSensitiveLog = (obj: CreateProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProfileRequest => __isa(o, "CreateProfileRequest");
 }
 
 export interface CreateProfileResponse {
-  __type?: "CreateProfileResponse";
   /**
    * <p>The ARN of the newly created room profile in the response.</p>
    */
@@ -1293,14 +1185,12 @@ export namespace CreateProfileResponse {
   export const filterSensitiveLog = (obj: CreateProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProfileResponse => __isa(o, "CreateProfileResponse");
 }
 
 /**
  * <p>Creates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.</p>
  */
 export interface CreateRequireCheckIn {
-  __type?: "CreateRequireCheckIn";
   /**
    * <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.</p>
    */
@@ -1316,11 +1206,9 @@ export namespace CreateRequireCheckIn {
   export const filterSensitiveLog = (obj: CreateRequireCheckIn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRequireCheckIn => __isa(o, "CreateRequireCheckIn");
 }
 
 export interface CreateRoomRequest {
-  __type?: "CreateRoomRequest";
   /**
    * <p>The calendar ARN for the room.</p>
    */
@@ -1357,11 +1245,9 @@ export namespace CreateRoomRequest {
   export const filterSensitiveLog = (obj: CreateRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoomRequest => __isa(o, "CreateRoomRequest");
 }
 
 export interface CreateRoomResponse {
-  __type?: "CreateRoomResponse";
   /**
    * <p>The ARN of the newly created room in the response.</p>
    */
@@ -1372,11 +1258,9 @@ export namespace CreateRoomResponse {
   export const filterSensitiveLog = (obj: CreateRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRoomResponse => __isa(o, "CreateRoomResponse");
 }
 
 export interface CreateSkillGroupRequest {
-  __type?: "CreateSkillGroupRequest";
   /**
    * <p>The description for the skill group.</p>
    */
@@ -1403,11 +1287,9 @@ export namespace CreateSkillGroupRequest {
   export const filterSensitiveLog = (obj: CreateSkillGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSkillGroupRequest => __isa(o, "CreateSkillGroupRequest");
 }
 
 export interface CreateSkillGroupResponse {
-  __type?: "CreateSkillGroupResponse";
   /**
    * <p>The ARN of the newly created skill group in the response.</p>
    */
@@ -1418,11 +1300,9 @@ export namespace CreateSkillGroupResponse {
   export const filterSensitiveLog = (obj: CreateSkillGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSkillGroupResponse => __isa(o, "CreateSkillGroupResponse");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p>The ARN for the user.</p>
    */
@@ -1459,11 +1339,9 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
   /**
    * <p>The ARN of the newly created user in the response.</p>
    */
@@ -1474,11 +1352,9 @@ export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export interface DeleteAddressBookRequest {
-  __type?: "DeleteAddressBookRequest";
   /**
    * <p>The ARN of the address book to delete.</p>
    */
@@ -1489,22 +1365,17 @@ export namespace DeleteAddressBookRequest {
   export const filterSensitiveLog = (obj: DeleteAddressBookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAddressBookRequest => __isa(o, "DeleteAddressBookRequest");
 }
 
-export interface DeleteAddressBookResponse {
-  __type?: "DeleteAddressBookResponse";
-}
+export interface DeleteAddressBookResponse {}
 
 export namespace DeleteAddressBookResponse {
   export const filterSensitiveLog = (obj: DeleteAddressBookResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAddressBookResponse => __isa(o, "DeleteAddressBookResponse");
 }
 
 export interface DeleteBusinessReportScheduleRequest {
-  __type?: "DeleteBusinessReportScheduleRequest";
   /**
    * <p>The ARN of the business report schedule.</p>
    */
@@ -1515,24 +1386,17 @@ export namespace DeleteBusinessReportScheduleRequest {
   export const filterSensitiveLog = (obj: DeleteBusinessReportScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBusinessReportScheduleRequest =>
-    __isa(o, "DeleteBusinessReportScheduleRequest");
 }
 
-export interface DeleteBusinessReportScheduleResponse {
-  __type?: "DeleteBusinessReportScheduleResponse";
-}
+export interface DeleteBusinessReportScheduleResponse {}
 
 export namespace DeleteBusinessReportScheduleResponse {
   export const filterSensitiveLog = (obj: DeleteBusinessReportScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBusinessReportScheduleResponse =>
-    __isa(o, "DeleteBusinessReportScheduleResponse");
 }
 
 export interface DeleteConferenceProviderRequest {
-  __type?: "DeleteConferenceProviderRequest";
   /**
    * <p>The ARN of the conference provider.</p>
    */
@@ -1543,22 +1407,17 @@ export namespace DeleteConferenceProviderRequest {
   export const filterSensitiveLog = (obj: DeleteConferenceProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConferenceProviderRequest => __isa(o, "DeleteConferenceProviderRequest");
 }
 
-export interface DeleteConferenceProviderResponse {
-  __type?: "DeleteConferenceProviderResponse";
-}
+export interface DeleteConferenceProviderResponse {}
 
 export namespace DeleteConferenceProviderResponse {
   export const filterSensitiveLog = (obj: DeleteConferenceProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConferenceProviderResponse => __isa(o, "DeleteConferenceProviderResponse");
 }
 
 export interface DeleteContactRequest {
-  __type?: "DeleteContactRequest";
   /**
    * <p>The ARN of the contact to delete.</p>
    */
@@ -1569,22 +1428,17 @@ export namespace DeleteContactRequest {
   export const filterSensitiveLog = (obj: DeleteContactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteContactRequest => __isa(o, "DeleteContactRequest");
 }
 
-export interface DeleteContactResponse {
-  __type?: "DeleteContactResponse";
-}
+export interface DeleteContactResponse {}
 
 export namespace DeleteContactResponse {
   export const filterSensitiveLog = (obj: DeleteContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteContactResponse => __isa(o, "DeleteContactResponse");
 }
 
 export interface DeleteDeviceRequest {
-  __type?: "DeleteDeviceRequest";
   /**
    * <p>The ARN of the device for which to request details.</p>
    */
@@ -1595,22 +1449,17 @@ export namespace DeleteDeviceRequest {
   export const filterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceRequest => __isa(o, "DeleteDeviceRequest");
 }
 
-export interface DeleteDeviceResponse {
-  __type?: "DeleteDeviceResponse";
-}
+export interface DeleteDeviceResponse {}
 
 export namespace DeleteDeviceResponse {
   export const filterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceResponse => __isa(o, "DeleteDeviceResponse");
 }
 
 export interface DeleteDeviceUsageDataRequest {
-  __type?: "DeleteDeviceUsageDataRequest";
   /**
    * <p>The ARN of the device.</p>
    */
@@ -1626,22 +1475,17 @@ export namespace DeleteDeviceUsageDataRequest {
   export const filterSensitiveLog = (obj: DeleteDeviceUsageDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceUsageDataRequest => __isa(o, "DeleteDeviceUsageDataRequest");
 }
 
-export interface DeleteDeviceUsageDataResponse {
-  __type?: "DeleteDeviceUsageDataResponse";
-}
+export interface DeleteDeviceUsageDataResponse {}
 
 export namespace DeleteDeviceUsageDataResponse {
   export const filterSensitiveLog = (obj: DeleteDeviceUsageDataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceUsageDataResponse => __isa(o, "DeleteDeviceUsageDataResponse");
 }
 
 export interface DeleteGatewayGroupRequest {
-  __type?: "DeleteGatewayGroupRequest";
   /**
    * <p>The ARN of the gateway group to delete.</p>
    */
@@ -1652,22 +1496,17 @@ export namespace DeleteGatewayGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGatewayGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayGroupRequest => __isa(o, "DeleteGatewayGroupRequest");
 }
 
-export interface DeleteGatewayGroupResponse {
-  __type?: "DeleteGatewayGroupResponse";
-}
+export interface DeleteGatewayGroupResponse {}
 
 export namespace DeleteGatewayGroupResponse {
   export const filterSensitiveLog = (obj: DeleteGatewayGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayGroupResponse => __isa(o, "DeleteGatewayGroupResponse");
 }
 
 export interface DeleteNetworkProfileRequest {
-  __type?: "DeleteNetworkProfileRequest";
   /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
@@ -1678,22 +1517,17 @@ export namespace DeleteNetworkProfileRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkProfileRequest => __isa(o, "DeleteNetworkProfileRequest");
 }
 
-export interface DeleteNetworkProfileResponse {
-  __type?: "DeleteNetworkProfileResponse";
-}
+export interface DeleteNetworkProfileResponse {}
 
 export namespace DeleteNetworkProfileResponse {
   export const filterSensitiveLog = (obj: DeleteNetworkProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkProfileResponse => __isa(o, "DeleteNetworkProfileResponse");
 }
 
 export interface DeleteProfileRequest {
-  __type?: "DeleteProfileRequest";
   /**
    * <p>The ARN of the room profile to delete. Required.</p>
    */
@@ -1704,22 +1538,17 @@ export namespace DeleteProfileRequest {
   export const filterSensitiveLog = (obj: DeleteProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProfileRequest => __isa(o, "DeleteProfileRequest");
 }
 
-export interface DeleteProfileResponse {
-  __type?: "DeleteProfileResponse";
-}
+export interface DeleteProfileResponse {}
 
 export namespace DeleteProfileResponse {
   export const filterSensitiveLog = (obj: DeleteProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProfileResponse => __isa(o, "DeleteProfileResponse");
 }
 
 export interface DeleteRoomRequest {
-  __type?: "DeleteRoomRequest";
   /**
    * <p>The ARN of the room to delete. Required.</p>
    */
@@ -1730,22 +1559,17 @@ export namespace DeleteRoomRequest {
   export const filterSensitiveLog = (obj: DeleteRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoomRequest => __isa(o, "DeleteRoomRequest");
 }
 
-export interface DeleteRoomResponse {
-  __type?: "DeleteRoomResponse";
-}
+export interface DeleteRoomResponse {}
 
 export namespace DeleteRoomResponse {
   export const filterSensitiveLog = (obj: DeleteRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoomResponse => __isa(o, "DeleteRoomResponse");
 }
 
 export interface DeleteRoomSkillParameterRequest {
-  __type?: "DeleteRoomSkillParameterRequest";
   /**
    * <p>The ID of the skill from which to remove the room skill parameter details.</p>
    */
@@ -1766,22 +1590,17 @@ export namespace DeleteRoomSkillParameterRequest {
   export const filterSensitiveLog = (obj: DeleteRoomSkillParameterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoomSkillParameterRequest => __isa(o, "DeleteRoomSkillParameterRequest");
 }
 
-export interface DeleteRoomSkillParameterResponse {
-  __type?: "DeleteRoomSkillParameterResponse";
-}
+export interface DeleteRoomSkillParameterResponse {}
 
 export namespace DeleteRoomSkillParameterResponse {
   export const filterSensitiveLog = (obj: DeleteRoomSkillParameterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRoomSkillParameterResponse => __isa(o, "DeleteRoomSkillParameterResponse");
 }
 
 export interface DeleteSkillAuthorizationRequest {
-  __type?: "DeleteSkillAuthorizationRequest";
   /**
    * <p>The unique identifier of a skill.</p>
    */
@@ -1797,22 +1616,17 @@ export namespace DeleteSkillAuthorizationRequest {
   export const filterSensitiveLog = (obj: DeleteSkillAuthorizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSkillAuthorizationRequest => __isa(o, "DeleteSkillAuthorizationRequest");
 }
 
-export interface DeleteSkillAuthorizationResponse {
-  __type?: "DeleteSkillAuthorizationResponse";
-}
+export interface DeleteSkillAuthorizationResponse {}
 
 export namespace DeleteSkillAuthorizationResponse {
   export const filterSensitiveLog = (obj: DeleteSkillAuthorizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSkillAuthorizationResponse => __isa(o, "DeleteSkillAuthorizationResponse");
 }
 
 export interface DeleteSkillGroupRequest {
-  __type?: "DeleteSkillGroupRequest";
   /**
    * <p>The ARN of the skill group to delete. Required.</p>
    */
@@ -1823,22 +1637,17 @@ export namespace DeleteSkillGroupRequest {
   export const filterSensitiveLog = (obj: DeleteSkillGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSkillGroupRequest => __isa(o, "DeleteSkillGroupRequest");
 }
 
-export interface DeleteSkillGroupResponse {
-  __type?: "DeleteSkillGroupResponse";
-}
+export interface DeleteSkillGroupResponse {}
 
 export namespace DeleteSkillGroupResponse {
   export const filterSensitiveLog = (obj: DeleteSkillGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSkillGroupResponse => __isa(o, "DeleteSkillGroupResponse");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The ARN of the user's enrollment in the organization. Required.</p>
    */
@@ -1854,25 +1663,20 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
-export interface DeleteUserResponse {
-  __type?: "DeleteUserResponse";
-}
+export interface DeleteUserResponse {}
 
 export namespace DeleteUserResponse {
   export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserResponse => __isa(o, "DeleteUserResponse");
 }
 
 /**
  * <p>The details about the developer that published the skill.</p>
  */
 export interface DeveloperInfo {
-  __type?: "DeveloperInfo";
   /**
    * <p>The email of the developer.</p>
    */
@@ -1898,14 +1702,12 @@ export namespace DeveloperInfo {
   export const filterSensitiveLog = (obj: DeveloperInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeveloperInfo => __isa(o, "DeveloperInfo");
 }
 
 /**
  * <p>A device with attributes.</p>
  */
 export interface Device {
-  __type?: "Device";
   /**
    * <p>The ARN of a device.</p>
    */
@@ -1962,14 +1764,12 @@ export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
 /**
  * <p>Device attributes.</p>
  */
 export interface DeviceData {
-  __type?: "DeviceData";
   /**
    * <p>The name of the room associated with a device.</p>
    */
@@ -2040,14 +1840,12 @@ export namespace DeviceData {
   export const filterSensitiveLog = (obj: DeviceData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceData => __isa(o, "DeviceData");
 }
 
 /**
  * <p>The list of device events.</p>
  */
 export interface DeviceEvent {
-  __type?: "DeviceEvent";
   /**
    * <p>The type of device event.</p>
    */
@@ -2068,7 +1866,6 @@ export namespace DeviceEvent {
   export const filterSensitiveLog = (obj: DeviceEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceEvent => __isa(o, "DeviceEvent");
 }
 
 export enum DeviceEventType {
@@ -2080,7 +1877,6 @@ export enum DeviceEventType {
  * <p>Detailed information about a device's network profile.</p>
  */
 export interface DeviceNetworkProfileInfo {
-  __type?: "DeviceNetworkProfileInfo";
   /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
@@ -2101,7 +1897,6 @@ export namespace DeviceNetworkProfileInfo {
   export const filterSensitiveLog = (obj: DeviceNetworkProfileInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceNetworkProfileInfo => __isa(o, "DeviceNetworkProfileInfo");
 }
 
 /**
@@ -2117,7 +1912,6 @@ export namespace DeviceNotRegisteredException {
   export const filterSensitiveLog = (obj: DeviceNotRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceNotRegisteredException => __isa(o, "DeviceNotRegisteredException");
 }
 
 export enum DeviceStatus {
@@ -2132,7 +1926,6 @@ export enum DeviceStatus {
  * <p>Details of a device’s status.</p>
  */
 export interface DeviceStatusDetail {
-  __type?: "DeviceStatusDetail";
   /**
    * <p>The list of available features on the device.</p>
    */
@@ -2148,7 +1941,6 @@ export namespace DeviceStatusDetail {
   export const filterSensitiveLog = (obj: DeviceStatusDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceStatusDetail => __isa(o, "DeviceStatusDetail");
 }
 
 export enum DeviceStatusDetailCode {
@@ -2175,7 +1967,6 @@ export enum DeviceStatusDetailCode {
  * <p>Detailed information about a device's status.</p>
  */
 export interface DeviceStatusInfo {
-  __type?: "DeviceStatusInfo";
   /**
    * <p>The time (in epoch) when the device connection status changed.</p>
    */
@@ -2196,7 +1987,6 @@ export namespace DeviceStatusInfo {
   export const filterSensitiveLog = (obj: DeviceStatusInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceStatusInfo => __isa(o, "DeviceStatusInfo");
 }
 
 export enum DeviceUsageType {
@@ -2204,7 +1994,6 @@ export enum DeviceUsageType {
 }
 
 export interface DisassociateContactFromAddressBookRequest {
-  __type?: "DisassociateContactFromAddressBookRequest";
   /**
    * <p>The ARN of the address from which to disassociate the contact.</p>
    */
@@ -2220,24 +2009,17 @@ export namespace DisassociateContactFromAddressBookRequest {
   export const filterSensitiveLog = (obj: DisassociateContactFromAddressBookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateContactFromAddressBookRequest =>
-    __isa(o, "DisassociateContactFromAddressBookRequest");
 }
 
-export interface DisassociateContactFromAddressBookResponse {
-  __type?: "DisassociateContactFromAddressBookResponse";
-}
+export interface DisassociateContactFromAddressBookResponse {}
 
 export namespace DisassociateContactFromAddressBookResponse {
   export const filterSensitiveLog = (obj: DisassociateContactFromAddressBookResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateContactFromAddressBookResponse =>
-    __isa(o, "DisassociateContactFromAddressBookResponse");
 }
 
 export interface DisassociateDeviceFromRoomRequest {
-  __type?: "DisassociateDeviceFromRoomRequest";
   /**
    * <p>The ARN of the device to disassociate from a room. Required.</p>
    */
@@ -2248,23 +2030,17 @@ export namespace DisassociateDeviceFromRoomRequest {
   export const filterSensitiveLog = (obj: DisassociateDeviceFromRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateDeviceFromRoomRequest => __isa(o, "DisassociateDeviceFromRoomRequest");
 }
 
-export interface DisassociateDeviceFromRoomResponse {
-  __type?: "DisassociateDeviceFromRoomResponse";
-}
+export interface DisassociateDeviceFromRoomResponse {}
 
 export namespace DisassociateDeviceFromRoomResponse {
   export const filterSensitiveLog = (obj: DisassociateDeviceFromRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateDeviceFromRoomResponse =>
-    __isa(o, "DisassociateDeviceFromRoomResponse");
 }
 
 export interface DisassociateSkillFromSkillGroupRequest {
-  __type?: "DisassociateSkillFromSkillGroupRequest";
   /**
    * <p>The ARN of a skill group to associate to a skill.</p>
    */
@@ -2280,24 +2056,17 @@ export namespace DisassociateSkillFromSkillGroupRequest {
   export const filterSensitiveLog = (obj: DisassociateSkillFromSkillGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSkillFromSkillGroupRequest =>
-    __isa(o, "DisassociateSkillFromSkillGroupRequest");
 }
 
-export interface DisassociateSkillFromSkillGroupResponse {
-  __type?: "DisassociateSkillFromSkillGroupResponse";
-}
+export interface DisassociateSkillFromSkillGroupResponse {}
 
 export namespace DisassociateSkillFromSkillGroupResponse {
   export const filterSensitiveLog = (obj: DisassociateSkillFromSkillGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSkillFromSkillGroupResponse =>
-    __isa(o, "DisassociateSkillFromSkillGroupResponse");
 }
 
 export interface DisassociateSkillFromUsersRequest {
-  __type?: "DisassociateSkillFromUsersRequest";
   /**
    * <p> The private skill ID you want to make unavailable for enrolled users.</p>
    */
@@ -2308,23 +2077,17 @@ export namespace DisassociateSkillFromUsersRequest {
   export const filterSensitiveLog = (obj: DisassociateSkillFromUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSkillFromUsersRequest => __isa(o, "DisassociateSkillFromUsersRequest");
 }
 
-export interface DisassociateSkillFromUsersResponse {
-  __type?: "DisassociateSkillFromUsersResponse";
-}
+export interface DisassociateSkillFromUsersResponse {}
 
 export namespace DisassociateSkillFromUsersResponse {
   export const filterSensitiveLog = (obj: DisassociateSkillFromUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSkillFromUsersResponse =>
-    __isa(o, "DisassociateSkillFromUsersResponse");
 }
 
 export interface DisassociateSkillGroupFromRoomRequest {
-  __type?: "DisassociateSkillGroupFromRoomRequest";
   /**
    * <p>The ARN of the skill group to disassociate from a room. Required.</p>
    */
@@ -2341,20 +2104,14 @@ export namespace DisassociateSkillGroupFromRoomRequest {
   export const filterSensitiveLog = (obj: DisassociateSkillGroupFromRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSkillGroupFromRoomRequest =>
-    __isa(o, "DisassociateSkillGroupFromRoomRequest");
 }
 
-export interface DisassociateSkillGroupFromRoomResponse {
-  __type?: "DisassociateSkillGroupFromRoomResponse";
-}
+export interface DisassociateSkillGroupFromRoomResponse {}
 
 export namespace DisassociateSkillGroupFromRoomResponse {
   export const filterSensitiveLog = (obj: DisassociateSkillGroupFromRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateSkillGroupFromRoomResponse =>
-    __isa(o, "DisassociateSkillGroupFromRoomResponse");
 }
 
 export enum DistanceUnit {
@@ -2377,7 +2134,6 @@ export enum EnablementTypeFilter {
  *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
  */
 export interface EndOfMeetingReminder {
-  __type?: "EndOfMeetingReminder";
   /**
    * <p>Whether an end of meeting reminder is enabled or not.</p>
    */
@@ -2398,7 +2154,6 @@ export namespace EndOfMeetingReminder {
   export const filterSensitiveLog = (obj: EndOfMeetingReminder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndOfMeetingReminder => __isa(o, "EndOfMeetingReminder");
 }
 
 export enum EndOfMeetingReminderType {
@@ -2432,7 +2187,6 @@ export enum Feature {
  *          Filters can be used to match a set of resources by various criteria.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The values of a filter.</p>
    */
@@ -2448,11 +2202,9 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export interface ForgetSmartHomeAppliancesRequest {
-  __type?: "ForgetSmartHomeAppliancesRequest";
   /**
    * <p>The room that the appliances are associated with.</p>
    */
@@ -2463,25 +2215,20 @@ export namespace ForgetSmartHomeAppliancesRequest {
   export const filterSensitiveLog = (obj: ForgetSmartHomeAppliancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForgetSmartHomeAppliancesRequest => __isa(o, "ForgetSmartHomeAppliancesRequest");
 }
 
-export interface ForgetSmartHomeAppliancesResponse {
-  __type?: "ForgetSmartHomeAppliancesResponse";
-}
+export interface ForgetSmartHomeAppliancesResponse {}
 
 export namespace ForgetSmartHomeAppliancesResponse {
   export const filterSensitiveLog = (obj: ForgetSmartHomeAppliancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForgetSmartHomeAppliancesResponse => __isa(o, "ForgetSmartHomeAppliancesResponse");
 }
 
 /**
  * <p>The details of the gateway. </p>
  */
 export interface Gateway {
-  __type?: "Gateway";
   /**
    * <p>The ARN of the gateway.</p>
    */
@@ -2513,14 +2260,12 @@ export namespace Gateway {
   export const filterSensitiveLog = (obj: Gateway): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Gateway => __isa(o, "Gateway");
 }
 
 /**
  * <p>The details of the gateway group.</p>
  */
 export interface GatewayGroup {
-  __type?: "GatewayGroup";
   /**
    * <p>The description of the gateway group.</p>
    */
@@ -2541,14 +2286,12 @@ export namespace GatewayGroup {
   export const filterSensitiveLog = (obj: GatewayGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayGroup => __isa(o, "GatewayGroup");
 }
 
 /**
  * <p>The summary of a gateway group.</p>
  */
 export interface GatewayGroupSummary {
-  __type?: "GatewayGroupSummary";
   /**
    * <p>The name of the gateway group.</p>
    */
@@ -2569,14 +2312,12 @@ export namespace GatewayGroupSummary {
   export const filterSensitiveLog = (obj: GatewayGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayGroupSummary => __isa(o, "GatewayGroupSummary");
 }
 
 /**
  * <p>The summary of a gateway.</p>
  */
 export interface GatewaySummary {
-  __type?: "GatewaySummary";
   /**
    * <p>The description of the gateway.</p>
    */
@@ -2608,11 +2349,9 @@ export namespace GatewaySummary {
   export const filterSensitiveLog = (obj: GatewaySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewaySummary => __isa(o, "GatewaySummary");
 }
 
 export interface GetAddressBookRequest {
-  __type?: "GetAddressBookRequest";
   /**
    * <p>The ARN of the address book for which to request details.</p>
    */
@@ -2623,11 +2362,9 @@ export namespace GetAddressBookRequest {
   export const filterSensitiveLog = (obj: GetAddressBookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAddressBookRequest => __isa(o, "GetAddressBookRequest");
 }
 
 export interface GetAddressBookResponse {
-  __type?: "GetAddressBookResponse";
   /**
    * <p>The details of the requested address book.</p>
    */
@@ -2638,22 +2375,17 @@ export namespace GetAddressBookResponse {
   export const filterSensitiveLog = (obj: GetAddressBookResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAddressBookResponse => __isa(o, "GetAddressBookResponse");
 }
 
-export interface GetConferencePreferenceRequest {
-  __type?: "GetConferencePreferenceRequest";
-}
+export interface GetConferencePreferenceRequest {}
 
 export namespace GetConferencePreferenceRequest {
   export const filterSensitiveLog = (obj: GetConferencePreferenceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConferencePreferenceRequest => __isa(o, "GetConferencePreferenceRequest");
 }
 
 export interface GetConferencePreferenceResponse {
-  __type?: "GetConferencePreferenceResponse";
   /**
    * <p>The conference preference.</p>
    */
@@ -2664,11 +2396,9 @@ export namespace GetConferencePreferenceResponse {
   export const filterSensitiveLog = (obj: GetConferencePreferenceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConferencePreferenceResponse => __isa(o, "GetConferencePreferenceResponse");
 }
 
 export interface GetConferenceProviderRequest {
-  __type?: "GetConferenceProviderRequest";
   /**
    * <p>The ARN of the newly created conference provider.</p>
    */
@@ -2679,11 +2409,9 @@ export namespace GetConferenceProviderRequest {
   export const filterSensitiveLog = (obj: GetConferenceProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConferenceProviderRequest => __isa(o, "GetConferenceProviderRequest");
 }
 
 export interface GetConferenceProviderResponse {
-  __type?: "GetConferenceProviderResponse";
   /**
    * <p>The conference provider.</p>
    */
@@ -2694,11 +2422,9 @@ export namespace GetConferenceProviderResponse {
   export const filterSensitiveLog = (obj: GetConferenceProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConferenceProviderResponse => __isa(o, "GetConferenceProviderResponse");
 }
 
 export interface GetContactRequest {
-  __type?: "GetContactRequest";
   /**
    * <p>The ARN of the contact for which to request details.</p>
    */
@@ -2709,11 +2435,9 @@ export namespace GetContactRequest {
   export const filterSensitiveLog = (obj: GetContactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactRequest => __isa(o, "GetContactRequest");
 }
 
 export interface GetContactResponse {
-  __type?: "GetContactResponse";
   /**
    * <p>The details of the requested contact.</p>
    */
@@ -2725,11 +2449,9 @@ export namespace GetContactResponse {
     ...obj,
     ...(obj.Contact && { Contact: Contact.filterSensitiveLog(obj.Contact) }),
   });
-  export const isa = (o: any): o is GetContactResponse => __isa(o, "GetContactResponse");
 }
 
 export interface GetDeviceRequest {
-  __type?: "GetDeviceRequest";
   /**
    * <p>The ARN of the device for which to request details. Required.</p>
    */
@@ -2740,11 +2462,9 @@ export namespace GetDeviceRequest {
   export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceRequest => __isa(o, "GetDeviceRequest");
 }
 
 export interface GetDeviceResponse {
-  __type?: "GetDeviceResponse";
   /**
    * <p>The details of the device requested. Required.</p>
    */
@@ -2755,11 +2475,9 @@ export namespace GetDeviceResponse {
   export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceResponse => __isa(o, "GetDeviceResponse");
 }
 
 export interface GetGatewayGroupRequest {
-  __type?: "GetGatewayGroupRequest";
   /**
    * <p>The ARN of the gateway group to get.</p>
    */
@@ -2770,11 +2488,9 @@ export namespace GetGatewayGroupRequest {
   export const filterSensitiveLog = (obj: GetGatewayGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGatewayGroupRequest => __isa(o, "GetGatewayGroupRequest");
 }
 
 export interface GetGatewayGroupResponse {
-  __type?: "GetGatewayGroupResponse";
   /**
    * <p>The details of the gateway group.</p>
    */
@@ -2785,11 +2501,9 @@ export namespace GetGatewayGroupResponse {
   export const filterSensitiveLog = (obj: GetGatewayGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGatewayGroupResponse => __isa(o, "GetGatewayGroupResponse");
 }
 
 export interface GetGatewayRequest {
-  __type?: "GetGatewayRequest";
   /**
    * <p>The ARN of the gateway to get.</p>
    */
@@ -2800,11 +2514,9 @@ export namespace GetGatewayRequest {
   export const filterSensitiveLog = (obj: GetGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGatewayRequest => __isa(o, "GetGatewayRequest");
 }
 
 export interface GetGatewayResponse {
-  __type?: "GetGatewayResponse";
   /**
    * <p>The details of the gateway.</p>
    */
@@ -2815,22 +2527,17 @@ export namespace GetGatewayResponse {
   export const filterSensitiveLog = (obj: GetGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGatewayResponse => __isa(o, "GetGatewayResponse");
 }
 
-export interface GetInvitationConfigurationRequest {
-  __type?: "GetInvitationConfigurationRequest";
-}
+export interface GetInvitationConfigurationRequest {}
 
 export namespace GetInvitationConfigurationRequest {
   export const filterSensitiveLog = (obj: GetInvitationConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInvitationConfigurationRequest => __isa(o, "GetInvitationConfigurationRequest");
 }
 
 export interface GetInvitationConfigurationResponse {
-  __type?: "GetInvitationConfigurationResponse";
   /**
    * <p>The email ID of the organization or individual contact that the enrolled user can use.
    *       </p>
@@ -2853,12 +2560,9 @@ export namespace GetInvitationConfigurationResponse {
   export const filterSensitiveLog = (obj: GetInvitationConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInvitationConfigurationResponse =>
-    __isa(o, "GetInvitationConfigurationResponse");
 }
 
 export interface GetNetworkProfileRequest {
-  __type?: "GetNetworkProfileRequest";
   /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
@@ -2869,11 +2573,9 @@ export namespace GetNetworkProfileRequest {
   export const filterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNetworkProfileRequest => __isa(o, "GetNetworkProfileRequest");
 }
 
 export interface GetNetworkProfileResponse {
-  __type?: "GetNetworkProfileResponse";
   /**
    * <p>The network profile associated with a device.</p>
    */
@@ -2885,11 +2587,9 @@ export namespace GetNetworkProfileResponse {
     ...obj,
     ...(obj.NetworkProfile && { NetworkProfile: NetworkProfile.filterSensitiveLog(obj.NetworkProfile) }),
   });
-  export const isa = (o: any): o is GetNetworkProfileResponse => __isa(o, "GetNetworkProfileResponse");
 }
 
 export interface GetProfileRequest {
-  __type?: "GetProfileRequest";
   /**
    * <p>The ARN of the room profile for which to request details. Required.</p>
    */
@@ -2900,11 +2600,9 @@ export namespace GetProfileRequest {
   export const filterSensitiveLog = (obj: GetProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProfileRequest => __isa(o, "GetProfileRequest");
 }
 
 export interface GetProfileResponse {
-  __type?: "GetProfileResponse";
   /**
    * <p>The details of the room profile requested. Required.</p>
    */
@@ -2915,11 +2613,9 @@ export namespace GetProfileResponse {
   export const filterSensitiveLog = (obj: GetProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProfileResponse => __isa(o, "GetProfileResponse");
 }
 
 export interface GetRoomRequest {
-  __type?: "GetRoomRequest";
   /**
    * <p>The ARN of the room for which to request details. Required.</p>
    */
@@ -2930,11 +2626,9 @@ export namespace GetRoomRequest {
   export const filterSensitiveLog = (obj: GetRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoomRequest => __isa(o, "GetRoomRequest");
 }
 
 export interface GetRoomResponse {
-  __type?: "GetRoomResponse";
   /**
    * <p>The details of the room requested.</p>
    */
@@ -2945,11 +2639,9 @@ export namespace GetRoomResponse {
   export const filterSensitiveLog = (obj: GetRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoomResponse => __isa(o, "GetRoomResponse");
 }
 
 export interface GetRoomSkillParameterRequest {
-  __type?: "GetRoomSkillParameterRequest";
   /**
    * <p>The room skill parameter key for which to get details. Required.</p>
    */
@@ -2971,11 +2663,9 @@ export namespace GetRoomSkillParameterRequest {
   export const filterSensitiveLog = (obj: GetRoomSkillParameterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoomSkillParameterRequest => __isa(o, "GetRoomSkillParameterRequest");
 }
 
 export interface GetRoomSkillParameterResponse {
-  __type?: "GetRoomSkillParameterResponse";
   /**
    * <p>The details of the room skill parameter requested. Required.</p>
    */
@@ -2986,11 +2676,9 @@ export namespace GetRoomSkillParameterResponse {
   export const filterSensitiveLog = (obj: GetRoomSkillParameterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoomSkillParameterResponse => __isa(o, "GetRoomSkillParameterResponse");
 }
 
 export interface GetSkillGroupRequest {
-  __type?: "GetSkillGroupRequest";
   /**
    * <p>The ARN of the skill group for which to get details. Required.</p>
    */
@@ -3001,11 +2689,9 @@ export namespace GetSkillGroupRequest {
   export const filterSensitiveLog = (obj: GetSkillGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSkillGroupRequest => __isa(o, "GetSkillGroupRequest");
 }
 
 export interface GetSkillGroupResponse {
-  __type?: "GetSkillGroupResponse";
   /**
    * <p>The details of the skill group requested. Required.</p>
    */
@@ -3016,7 +2702,6 @@ export namespace GetSkillGroupResponse {
   export const filterSensitiveLog = (obj: GetSkillGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSkillGroupResponse => __isa(o, "GetSkillGroupResponse");
 }
 
 /**
@@ -3025,7 +2710,6 @@ export namespace GetSkillGroupResponse {
  *          duration if the room is available.</p>
  */
 export interface InstantBooking {
-  __type?: "InstantBooking";
   /**
    * <p>Whether instant booking is enabled or not.</p>
    */
@@ -3042,7 +2726,6 @@ export namespace InstantBooking {
   export const filterSensitiveLog = (obj: InstantBooking): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstantBooking => __isa(o, "InstantBooking");
 }
 
 /**
@@ -3058,8 +2741,6 @@ export namespace InvalidCertificateAuthorityException {
   export const filterSensitiveLog = (obj: InvalidCertificateAuthorityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCertificateAuthorityException =>
-    __isa(o, "InvalidCertificateAuthorityException");
 }
 
 /**
@@ -3075,7 +2756,6 @@ export namespace InvalidDeviceException {
   export const filterSensitiveLog = (obj: InvalidDeviceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeviceException => __isa(o, "InvalidDeviceException");
 }
 
 /**
@@ -3091,8 +2771,6 @@ export namespace InvalidSecretsManagerResourceException {
   export const filterSensitiveLog = (obj: InvalidSecretsManagerResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSecretsManagerResourceException =>
-    __isa(o, "InvalidSecretsManagerResourceException");
 }
 
 /**
@@ -3108,8 +2786,6 @@ export namespace InvalidServiceLinkedRoleStateException {
   export const filterSensitiveLog = (obj: InvalidServiceLinkedRoleStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidServiceLinkedRoleStateException =>
-    __isa(o, "InvalidServiceLinkedRoleStateException");
 }
 
 /**
@@ -3125,14 +2801,12 @@ export namespace InvalidUserStatusException {
   export const filterSensitiveLog = (obj: InvalidUserStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidUserStatusException => __isa(o, "InvalidUserStatusException");
 }
 
 /**
  * <p>The IP endpoint and protocol for calling.</p>
  */
 export interface IPDialIn {
-  __type?: "IPDialIn";
   /**
    * <p>The IP address.</p>
    */
@@ -3148,7 +2822,6 @@ export namespace IPDialIn {
   export const filterSensitiveLog = (obj: IPDialIn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPDialIn => __isa(o, "IPDialIn");
 }
 
 /**
@@ -3164,11 +2837,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListBusinessReportSchedulesRequest {
-  __type?: "ListBusinessReportSchedulesRequest";
   /**
    * <p>The token used to list the remaining schedules from the previous API call.</p>
    */
@@ -3184,12 +2855,9 @@ export namespace ListBusinessReportSchedulesRequest {
   export const filterSensitiveLog = (obj: ListBusinessReportSchedulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBusinessReportSchedulesRequest =>
-    __isa(o, "ListBusinessReportSchedulesRequest");
 }
 
 export interface ListBusinessReportSchedulesResponse {
-  __type?: "ListBusinessReportSchedulesResponse";
   /**
    * <p>The schedule of the reports.</p>
    */
@@ -3205,12 +2873,9 @@ export namespace ListBusinessReportSchedulesResponse {
   export const filterSensitiveLog = (obj: ListBusinessReportSchedulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBusinessReportSchedulesResponse =>
-    __isa(o, "ListBusinessReportSchedulesResponse");
 }
 
 export interface ListConferenceProvidersRequest {
-  __type?: "ListConferenceProvidersRequest";
   /**
    * <p>The tokens used for pagination.</p>
    */
@@ -3227,11 +2892,9 @@ export namespace ListConferenceProvidersRequest {
   export const filterSensitiveLog = (obj: ListConferenceProvidersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConferenceProvidersRequest => __isa(o, "ListConferenceProvidersRequest");
 }
 
 export interface ListConferenceProvidersResponse {
-  __type?: "ListConferenceProvidersResponse";
   /**
    * <p>The tokens used for pagination.</p>
    */
@@ -3247,11 +2910,9 @@ export namespace ListConferenceProvidersResponse {
   export const filterSensitiveLog = (obj: ListConferenceProvidersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConferenceProvidersResponse => __isa(o, "ListConferenceProvidersResponse");
 }
 
 export interface ListDeviceEventsRequest {
-  __type?: "ListDeviceEventsRequest";
   /**
    * <p>The event type to filter device events. If EventType isn't specified, this returns a
    *          list of all device events in reverse chronological order. If EventType is specified, this
@@ -3285,11 +2946,9 @@ export namespace ListDeviceEventsRequest {
   export const filterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceEventsRequest => __isa(o, "ListDeviceEventsRequest");
 }
 
 export interface ListDeviceEventsResponse {
-  __type?: "ListDeviceEventsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
    */
@@ -3305,11 +2964,9 @@ export namespace ListDeviceEventsResponse {
   export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeviceEventsResponse => __isa(o, "ListDeviceEventsResponse");
 }
 
 export interface ListGatewayGroupsRequest {
-  __type?: "ListGatewayGroupsRequest";
   /**
    * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
    */
@@ -3325,11 +2982,9 @@ export namespace ListGatewayGroupsRequest {
   export const filterSensitiveLog = (obj: ListGatewayGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewayGroupsRequest => __isa(o, "ListGatewayGroupsRequest");
 }
 
 export interface ListGatewayGroupsResponse {
-  __type?: "ListGatewayGroupsResponse";
   /**
    * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
    */
@@ -3345,11 +3000,9 @@ export namespace ListGatewayGroupsResponse {
   export const filterSensitiveLog = (obj: ListGatewayGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewayGroupsResponse => __isa(o, "ListGatewayGroupsResponse");
 }
 
 export interface ListGatewaysRequest {
-  __type?: "ListGatewaysRequest";
   /**
    * <p>The token used to paginate though multiple pages of gateway summaries.</p>
    */
@@ -3370,11 +3023,9 @@ export namespace ListGatewaysRequest {
   export const filterSensitiveLog = (obj: ListGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewaysRequest => __isa(o, "ListGatewaysRequest");
 }
 
 export interface ListGatewaysResponse {
-  __type?: "ListGatewaysResponse";
   /**
    * <p>The gateways in the list.</p>
    */
@@ -3390,11 +3041,9 @@ export namespace ListGatewaysResponse {
   export const filterSensitiveLog = (obj: ListGatewaysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewaysResponse => __isa(o, "ListGatewaysResponse");
 }
 
 export interface ListSkillsRequest {
-  __type?: "ListSkillsRequest";
   /**
    * <p>The ARN of the skill group for which to list enabled skills.</p>
    */
@@ -3429,11 +3078,9 @@ export namespace ListSkillsRequest {
   export const filterSensitiveLog = (obj: ListSkillsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSkillsRequest => __isa(o, "ListSkillsRequest");
 }
 
 export interface ListSkillsResponse {
-  __type?: "ListSkillsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
    */
@@ -3449,11 +3096,9 @@ export namespace ListSkillsResponse {
   export const filterSensitiveLog = (obj: ListSkillsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSkillsResponse => __isa(o, "ListSkillsResponse");
 }
 
 export interface ListSkillsStoreCategoriesRequest {
-  __type?: "ListSkillsStoreCategoriesRequest";
   /**
    * <p>The maximum number of categories returned, per paginated calls.</p>
    */
@@ -3469,11 +3114,9 @@ export namespace ListSkillsStoreCategoriesRequest {
   export const filterSensitiveLog = (obj: ListSkillsStoreCategoriesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSkillsStoreCategoriesRequest => __isa(o, "ListSkillsStoreCategoriesRequest");
 }
 
 export interface ListSkillsStoreCategoriesResponse {
-  __type?: "ListSkillsStoreCategoriesResponse";
   /**
    * <p>The list of categories.</p>
    */
@@ -3489,11 +3132,9 @@ export namespace ListSkillsStoreCategoriesResponse {
   export const filterSensitiveLog = (obj: ListSkillsStoreCategoriesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSkillsStoreCategoriesResponse => __isa(o, "ListSkillsStoreCategoriesResponse");
 }
 
 export interface ListSkillsStoreSkillsByCategoryRequest {
-  __type?: "ListSkillsStoreSkillsByCategoryRequest";
   /**
    * <p>The category ID for which the skills are being retrieved from the skill
    *          store.</p>
@@ -3515,12 +3156,9 @@ export namespace ListSkillsStoreSkillsByCategoryRequest {
   export const filterSensitiveLog = (obj: ListSkillsStoreSkillsByCategoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSkillsStoreSkillsByCategoryRequest =>
-    __isa(o, "ListSkillsStoreSkillsByCategoryRequest");
 }
 
 export interface ListSkillsStoreSkillsByCategoryResponse {
-  __type?: "ListSkillsStoreSkillsByCategoryResponse";
   /**
    * <p>The skill store skills.</p>
    */
@@ -3536,12 +3174,9 @@ export namespace ListSkillsStoreSkillsByCategoryResponse {
   export const filterSensitiveLog = (obj: ListSkillsStoreSkillsByCategoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSkillsStoreSkillsByCategoryResponse =>
-    __isa(o, "ListSkillsStoreSkillsByCategoryResponse");
 }
 
 export interface ListSmartHomeAppliancesRequest {
-  __type?: "ListSmartHomeAppliancesRequest";
   /**
    * <p>The tokens used for pagination.</p>
    */
@@ -3562,11 +3197,9 @@ export namespace ListSmartHomeAppliancesRequest {
   export const filterSensitiveLog = (obj: ListSmartHomeAppliancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSmartHomeAppliancesRequest => __isa(o, "ListSmartHomeAppliancesRequest");
 }
 
 export interface ListSmartHomeAppliancesResponse {
-  __type?: "ListSmartHomeAppliancesResponse";
   /**
    * <p>The smart home appliances.</p>
    */
@@ -3582,11 +3215,9 @@ export namespace ListSmartHomeAppliancesResponse {
   export const filterSensitiveLog = (obj: ListSmartHomeAppliancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSmartHomeAppliancesResponse => __isa(o, "ListSmartHomeAppliancesResponse");
 }
 
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
    *          results from this action. If this parameter is specified, the response includes only
@@ -3611,11 +3242,9 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
-  __type?: "ListTagsResponse";
   /**
    * <p>The tags requested for the specified resource.</p>
    */
@@ -3631,7 +3260,6 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export enum Locale {
@@ -3642,7 +3270,6 @@ export enum Locale {
  * <p>Meeting room settings of a room profile.</p>
  */
 export interface MeetingRoomConfiguration {
-  __type?: "MeetingRoomConfiguration";
   /**
    * <p>Settings to automatically book the room if available for a configured duration when
    *          joining a meeting with Alexa. </p>
@@ -3673,7 +3300,6 @@ export namespace MeetingRoomConfiguration {
   export const filterSensitiveLog = (obj: MeetingRoomConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeetingRoomConfiguration => __isa(o, "MeetingRoomConfiguration");
 }
 
 /**
@@ -3693,7 +3319,6 @@ export namespace MeetingRoomConfiguration {
  *          </ul>
  */
 export interface MeetingSetting {
-  __type?: "MeetingSetting";
   /**
    * <p>The values that indicate whether the pin is always required.</p>
    */
@@ -3704,7 +3329,6 @@ export namespace MeetingSetting {
   export const filterSensitiveLog = (obj: MeetingSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeetingSetting => __isa(o, "MeetingSetting");
 }
 
 /**
@@ -3720,7 +3344,6 @@ export namespace NameInUseException {
   export const filterSensitiveLog = (obj: NameInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NameInUseException => __isa(o, "NameInUseException");
 }
 
 export enum NetworkEapMethod {
@@ -3731,7 +3354,6 @@ export enum NetworkEapMethod {
  * <p>The network profile associated with a device.</p>
  */
 export interface NetworkProfile {
-  __type?: "NetworkProfile";
   /**
    * <p>The root certificates of your authentication server, which is installed on your devices
    *          and used to trust your authentication server during EAP negotiation.</p>
@@ -3795,14 +3417,12 @@ export namespace NetworkProfile {
     ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
     ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is NetworkProfile => __isa(o, "NetworkProfile");
 }
 
 /**
  * <p>The data associated with a network profile.</p>
  */
 export interface NetworkProfileData {
-  __type?: "NetworkProfileData";
   /**
    * <p>The SSID of the Wi-Fi network.</p>
    */
@@ -3846,7 +3466,6 @@ export namespace NetworkProfileData {
   export const filterSensitiveLog = (obj: NetworkProfileData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkProfileData => __isa(o, "NetworkProfileData");
 }
 
 export enum NetworkSecurityType {
@@ -3870,14 +3489,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>The phone number for the contact containing the raw number and phone number type.</p>
  */
 export interface PhoneNumber {
-  __type?: "PhoneNumber";
   /**
    * <p>The raw value of the phone number.</p>
    */
@@ -3895,7 +3512,6 @@ export namespace PhoneNumber {
     ...(obj.Number && { Number: SENSITIVE_STRING }),
     ...(obj.Type && { Type: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PhoneNumber => __isa(o, "PhoneNumber");
 }
 
 export enum PhoneNumberType {
@@ -3908,7 +3524,6 @@ export enum PhoneNumberType {
  * <p>A room profile with attributes.</p>
  */
 export interface Profile {
-  __type?: "Profile";
   /**
    * <p>The time zone of a room profile.</p>
    */
@@ -3985,14 +3600,12 @@ export namespace Profile {
   export const filterSensitiveLog = (obj: Profile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Profile => __isa(o, "Profile");
 }
 
 /**
  * <p>The data of a room profile.</p>
  */
 export interface ProfileData {
-  __type?: "ProfileData";
   /**
    * <p>The name of a room profile.</p>
    */
@@ -4044,14 +3657,12 @@ export namespace ProfileData {
   export const filterSensitiveLog = (obj: ProfileData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProfileData => __isa(o, "ProfileData");
 }
 
 /**
  * <p>The information for public switched telephone network (PSTN) conferencing.</p>
  */
 export interface PSTNDialIn {
-  __type?: "PSTNDialIn";
   /**
    * <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
    */
@@ -4077,11 +3688,9 @@ export namespace PSTNDialIn {
   export const filterSensitiveLog = (obj: PSTNDialIn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PSTNDialIn => __isa(o, "PSTNDialIn");
 }
 
 export interface PutConferencePreferenceRequest {
-  __type?: "PutConferencePreferenceRequest";
   /**
    * <p>The conference preference of a specific conference provider.</p>
    */
@@ -4092,22 +3701,17 @@ export namespace PutConferencePreferenceRequest {
   export const filterSensitiveLog = (obj: PutConferencePreferenceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConferencePreferenceRequest => __isa(o, "PutConferencePreferenceRequest");
 }
 
-export interface PutConferencePreferenceResponse {
-  __type?: "PutConferencePreferenceResponse";
-}
+export interface PutConferencePreferenceResponse {}
 
 export namespace PutConferencePreferenceResponse {
   export const filterSensitiveLog = (obj: PutConferencePreferenceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConferencePreferenceResponse => __isa(o, "PutConferencePreferenceResponse");
 }
 
 export interface PutInvitationConfigurationRequest {
-  __type?: "PutInvitationConfigurationRequest";
   /**
    * <p>The name of the organization sending the enrollment invite to a user.</p>
    */
@@ -4130,23 +3734,17 @@ export namespace PutInvitationConfigurationRequest {
   export const filterSensitiveLog = (obj: PutInvitationConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInvitationConfigurationRequest => __isa(o, "PutInvitationConfigurationRequest");
 }
 
-export interface PutInvitationConfigurationResponse {
-  __type?: "PutInvitationConfigurationResponse";
-}
+export interface PutInvitationConfigurationResponse {}
 
 export namespace PutInvitationConfigurationResponse {
   export const filterSensitiveLog = (obj: PutInvitationConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInvitationConfigurationResponse =>
-    __isa(o, "PutInvitationConfigurationResponse");
 }
 
 export interface PutRoomSkillParameterRequest {
-  __type?: "PutRoomSkillParameterRequest";
   /**
    * <p>The ARN of the room associated with the room skill parameter. Required.</p>
    */
@@ -4167,22 +3765,17 @@ export namespace PutRoomSkillParameterRequest {
   export const filterSensitiveLog = (obj: PutRoomSkillParameterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRoomSkillParameterRequest => __isa(o, "PutRoomSkillParameterRequest");
 }
 
-export interface PutRoomSkillParameterResponse {
-  __type?: "PutRoomSkillParameterResponse";
-}
+export interface PutRoomSkillParameterResponse {}
 
 export namespace PutRoomSkillParameterResponse {
   export const filterSensitiveLog = (obj: PutRoomSkillParameterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRoomSkillParameterResponse => __isa(o, "PutRoomSkillParameterResponse");
 }
 
 export interface PutSkillAuthorizationRequest {
-  __type?: "PutSkillAuthorizationRequest";
   /**
    * <p>The unique identifier of a skill.</p>
    */
@@ -4205,22 +3798,17 @@ export namespace PutSkillAuthorizationRequest {
     ...obj,
     ...(obj.AuthorizationResult && { AuthorizationResult: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSkillAuthorizationRequest => __isa(o, "PutSkillAuthorizationRequest");
 }
 
-export interface PutSkillAuthorizationResponse {
-  __type?: "PutSkillAuthorizationResponse";
-}
+export interface PutSkillAuthorizationResponse {}
 
 export namespace PutSkillAuthorizationResponse {
   export const filterSensitiveLog = (obj: PutSkillAuthorizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSkillAuthorizationResponse => __isa(o, "PutSkillAuthorizationResponse");
 }
 
 export interface RegisterAVSDeviceRequest {
-  __type?: "RegisterAVSDeviceRequest";
   /**
    * <p>The device type ID for your AVS device generated by Amazon when the OEM creates a new
    *          product on Amazon's Developer Console.</p>
@@ -4261,11 +3849,9 @@ export namespace RegisterAVSDeviceRequest {
   export const filterSensitiveLog = (obj: RegisterAVSDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterAVSDeviceRequest => __isa(o, "RegisterAVSDeviceRequest");
 }
 
 export interface RegisterAVSDeviceResponse {
-  __type?: "RegisterAVSDeviceResponse";
   /**
    * <p>The ARN of the device.</p>
    */
@@ -4276,11 +3862,9 @@ export namespace RegisterAVSDeviceResponse {
   export const filterSensitiveLog = (obj: RegisterAVSDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterAVSDeviceResponse => __isa(o, "RegisterAVSDeviceResponse");
 }
 
 export interface RejectSkillRequest {
-  __type?: "RejectSkillRequest";
   /**
    * <p>The unique identifier of the skill.</p>
    */
@@ -4291,25 +3875,20 @@ export namespace RejectSkillRequest {
   export const filterSensitiveLog = (obj: RejectSkillRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectSkillRequest => __isa(o, "RejectSkillRequest");
 }
 
-export interface RejectSkillResponse {
-  __type?: "RejectSkillResponse";
-}
+export interface RejectSkillResponse {}
 
 export namespace RejectSkillResponse {
   export const filterSensitiveLog = (obj: RejectSkillResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectSkillResponse => __isa(o, "RejectSkillResponse");
 }
 
 /**
  * <p>Settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
 export interface RequireCheckIn {
-  __type?: "RequireCheckIn";
   /**
    * <p>Whether require check in is enabled or not.</p>
    */
@@ -4325,7 +3904,6 @@ export namespace RequireCheckIn {
   export const filterSensitiveLog = (obj: RequireCheckIn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequireCheckIn => __isa(o, "RequireCheckIn");
 }
 
 export enum RequirePin {
@@ -4335,7 +3913,6 @@ export enum RequirePin {
 }
 
 export interface ResolveRoomRequest {
-  __type?: "ResolveRoomRequest";
   /**
    * <p>The ARN of the skill that was requested. Required.</p>
    */
@@ -4351,11 +3928,9 @@ export namespace ResolveRoomRequest {
   export const filterSensitiveLog = (obj: ResolveRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveRoomRequest => __isa(o, "ResolveRoomRequest");
 }
 
 export interface ResolveRoomResponse {
-  __type?: "ResolveRoomResponse";
   /**
    * <p>The name of the room from which the skill request was invoked.</p>
    */
@@ -4376,7 +3951,6 @@ export namespace ResolveRoomResponse {
   export const filterSensitiveLog = (obj: ResolveRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveRoomResponse => __isa(o, "ResolveRoomResponse");
 }
 
 /**
@@ -4392,7 +3966,6 @@ export namespace ResourceAssociatedException {
   export const filterSensitiveLog = (obj: ResourceAssociatedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAssociatedException => __isa(o, "ResourceAssociatedException");
 }
 
 /**
@@ -4413,11 +3986,9 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 export interface RevokeInvitationRequest {
-  __type?: "RevokeInvitationRequest";
   /**
    * <p>The ARN of the enrollment invitation to revoke. Required.</p>
    */
@@ -4433,25 +4004,20 @@ export namespace RevokeInvitationRequest {
   export const filterSensitiveLog = (obj: RevokeInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeInvitationRequest => __isa(o, "RevokeInvitationRequest");
 }
 
-export interface RevokeInvitationResponse {
-  __type?: "RevokeInvitationResponse";
-}
+export interface RevokeInvitationResponse {}
 
 export namespace RevokeInvitationResponse {
   export const filterSensitiveLog = (obj: RevokeInvitationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeInvitationResponse => __isa(o, "RevokeInvitationResponse");
 }
 
 /**
  * <p>A room with attributes.</p>
  */
 export interface Room {
-  __type?: "Room";
   /**
    * <p>The ARN of a room.</p>
    */
@@ -4482,14 +4048,12 @@ export namespace Room {
   export const filterSensitiveLog = (obj: Room): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Room => __isa(o, "Room");
 }
 
 /**
  * <p>The data of a room.</p>
  */
 export interface RoomData {
-  __type?: "RoomData";
   /**
    * <p>The profile name of a room.</p>
    */
@@ -4525,14 +4089,12 @@ export namespace RoomData {
   export const filterSensitiveLog = (obj: RoomData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoomData => __isa(o, "RoomData");
 }
 
 /**
  * <p>A skill parameter associated with a room.</p>
  */
 export interface RoomSkillParameter {
-  __type?: "RoomSkillParameter";
   /**
    * <p>The parameter key of a room skill parameter. ParameterKey is an enumerated type that
    *          only takes “DEFAULT” or “SCOPE” as valid values.</p>
@@ -4549,11 +4111,9 @@ export namespace RoomSkillParameter {
   export const filterSensitiveLog = (obj: RoomSkillParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoomSkillParameter => __isa(o, "RoomSkillParameter");
 }
 
 export interface SearchAddressBooksRequest {
-  __type?: "SearchAddressBooksRequest";
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
    *          results from this action. If this parameter is specified, the response only includes
@@ -4585,11 +4145,9 @@ export namespace SearchAddressBooksRequest {
   export const filterSensitiveLog = (obj: SearchAddressBooksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchAddressBooksRequest => __isa(o, "SearchAddressBooksRequest");
 }
 
 export interface SearchAddressBooksResponse {
-  __type?: "SearchAddressBooksResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
    */
@@ -4611,11 +4169,9 @@ export namespace SearchAddressBooksResponse {
   export const filterSensitiveLog = (obj: SearchAddressBooksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchAddressBooksResponse => __isa(o, "SearchAddressBooksResponse");
 }
 
 export interface SearchContactsRequest {
-  __type?: "SearchContactsRequest";
   /**
    * <p>The sort order to use in listing the specified set of contacts. The supported sort
    *          keys are DisplayName, FirstName, and LastName.</p>
@@ -4647,11 +4203,9 @@ export namespace SearchContactsRequest {
   export const filterSensitiveLog = (obj: SearchContactsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchContactsRequest => __isa(o, "SearchContactsRequest");
 }
 
 export interface SearchContactsResponse {
-  __type?: "SearchContactsResponse";
   /**
    * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
    */
@@ -4673,11 +4227,9 @@ export namespace SearchContactsResponse {
     ...obj,
     ...(obj.Contacts && { Contacts: obj.Contacts.map((item) => ContactData.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is SearchContactsResponse => __isa(o, "SearchContactsResponse");
 }
 
 export interface SearchDevicesRequest {
-  __type?: "SearchDevicesRequest";
   /**
    * <p>The sort order to use in listing the specified set of devices. Supported sort keys
    *          are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus,
@@ -4712,11 +4264,9 @@ export namespace SearchDevicesRequest {
   export const filterSensitiveLog = (obj: SearchDevicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDevicesRequest => __isa(o, "SearchDevicesRequest");
 }
 
 export interface SearchDevicesResponse {
-  __type?: "SearchDevicesResponse";
   /**
    * <p>The devices that meet the specified set of filter criteria, in sort order.</p>
    */
@@ -4737,11 +4287,9 @@ export namespace SearchDevicesResponse {
   export const filterSensitiveLog = (obj: SearchDevicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDevicesResponse => __isa(o, "SearchDevicesResponse");
 }
 
 export interface SearchNetworkProfilesRequest {
-  __type?: "SearchNetworkProfilesRequest";
   /**
    * <p>The sort order to use to list the specified set of network profiles. Valid sort criteria
    *          includes NetworkProfileName, Ssid, and SecurityType.</p>
@@ -4773,11 +4321,9 @@ export namespace SearchNetworkProfilesRequest {
   export const filterSensitiveLog = (obj: SearchNetworkProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchNetworkProfilesRequest => __isa(o, "SearchNetworkProfilesRequest");
 }
 
 export interface SearchNetworkProfilesResponse {
-  __type?: "SearchNetworkProfilesResponse";
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
    *          results from this action. If this parameter is specified, the response includes only
@@ -4801,11 +4347,9 @@ export namespace SearchNetworkProfilesResponse {
   export const filterSensitiveLog = (obj: SearchNetworkProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchNetworkProfilesResponse => __isa(o, "SearchNetworkProfilesResponse");
 }
 
 export interface SearchProfilesRequest {
-  __type?: "SearchProfilesRequest";
   /**
    * <p>The filters to use to list a specified set of room profiles. Supported filter keys
    *          are ProfileName and Address. Required. </p>
@@ -4837,11 +4381,9 @@ export namespace SearchProfilesRequest {
   export const filterSensitiveLog = (obj: SearchProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchProfilesRequest => __isa(o, "SearchProfilesRequest");
 }
 
 export interface SearchProfilesResponse {
-  __type?: "SearchProfilesResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
    */
@@ -4862,11 +4404,9 @@ export namespace SearchProfilesResponse {
   export const filterSensitiveLog = (obj: SearchProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchProfilesResponse => __isa(o, "SearchProfilesResponse");
 }
 
 export interface SearchRoomsRequest {
-  __type?: "SearchRoomsRequest";
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
    *          the specified <code>MaxResults</code> value, a token is included in the response so that
@@ -4898,11 +4438,9 @@ export namespace SearchRoomsRequest {
   export const filterSensitiveLog = (obj: SearchRoomsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchRoomsRequest => __isa(o, "SearchRoomsRequest");
 }
 
 export interface SearchRoomsResponse {
-  __type?: "SearchRoomsResponse";
   /**
    * <p>The token returned to indicate that there is more data available.</p>
    */
@@ -4923,11 +4461,9 @@ export namespace SearchRoomsResponse {
   export const filterSensitiveLog = (obj: SearchRoomsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchRoomsResponse => __isa(o, "SearchRoomsResponse");
 }
 
 export interface SearchSkillGroupsRequest {
-  __type?: "SearchSkillGroupsRequest";
   /**
    * <p>The filters to use to list a specified set of skill groups. The supported filter key
    *          is SkillGroupName. </p>
@@ -4960,11 +4496,9 @@ export namespace SearchSkillGroupsRequest {
   export const filterSensitiveLog = (obj: SearchSkillGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchSkillGroupsRequest => __isa(o, "SearchSkillGroupsRequest");
 }
 
 export interface SearchSkillGroupsResponse {
-  __type?: "SearchSkillGroupsResponse";
   /**
    * <p>The total number of skill groups returned.</p>
    */
@@ -4985,11 +4519,9 @@ export namespace SearchSkillGroupsResponse {
   export const filterSensitiveLog = (obj: SearchSkillGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchSkillGroupsResponse => __isa(o, "SearchSkillGroupsResponse");
 }
 
 export interface SearchUsersRequest {
-  __type?: "SearchUsersRequest";
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
    *          results from this action. If this parameter is specified, the response includes only
@@ -5022,11 +4554,9 @@ export namespace SearchUsersRequest {
   export const filterSensitiveLog = (obj: SearchUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchUsersRequest => __isa(o, "SearchUsersRequest");
 }
 
 export interface SearchUsersResponse {
-  __type?: "SearchUsersResponse";
   /**
    * <p>The users that meet the specified set of filter criteria, in sort order.</p>
    */
@@ -5047,11 +4577,9 @@ export namespace SearchUsersResponse {
   export const filterSensitiveLog = (obj: SearchUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchUsersResponse => __isa(o, "SearchUsersResponse");
 }
 
 export interface SendAnnouncementRequest {
-  __type?: "SendAnnouncementRequest";
   /**
    * <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
    *          announcement is not delivered.</p>
@@ -5078,11 +4606,9 @@ export namespace SendAnnouncementRequest {
   export const filterSensitiveLog = (obj: SendAnnouncementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendAnnouncementRequest => __isa(o, "SendAnnouncementRequest");
 }
 
 export interface SendAnnouncementResponse {
-  __type?: "SendAnnouncementResponse";
   /**
    * <p>The identifier of the announcement.</p>
    */
@@ -5093,11 +4619,9 @@ export namespace SendAnnouncementResponse {
   export const filterSensitiveLog = (obj: SendAnnouncementResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendAnnouncementResponse => __isa(o, "SendAnnouncementResponse");
 }
 
 export interface SendInvitationRequest {
-  __type?: "SendInvitationRequest";
   /**
    * <p>The ARN of the user to whom to send an invitation. Required.</p>
    */
@@ -5108,25 +4632,20 @@ export namespace SendInvitationRequest {
   export const filterSensitiveLog = (obj: SendInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendInvitationRequest => __isa(o, "SendInvitationRequest");
 }
 
-export interface SendInvitationResponse {
-  __type?: "SendInvitationResponse";
-}
+export interface SendInvitationResponse {}
 
 export namespace SendInvitationResponse {
   export const filterSensitiveLog = (obj: SendInvitationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendInvitationResponse => __isa(o, "SendInvitationResponse");
 }
 
 /**
  * <p>The SIP address for the contact containing the URI and SIP address type.</p>
  */
 export interface SipAddress {
-  __type?: "SipAddress";
   /**
    * <p>The URI for the SIP address.</p>
    */
@@ -5144,7 +4663,6 @@ export namespace SipAddress {
     ...(obj.Uri && { Uri: SENSITIVE_STRING }),
     ...(obj.Type && { Type: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SipAddress => __isa(o, "SipAddress");
 }
 
 export enum SipType {
@@ -5155,7 +4673,6 @@ export enum SipType {
  * <p>Granular information about the skill.</p>
  */
 export interface SkillDetails {
-  __type?: "SkillDetails";
   /**
    * <p>The details about what the skill supports organized as bullet points.</p>
    */
@@ -5215,14 +4732,12 @@ export namespace SkillDetails {
   export const filterSensitiveLog = (obj: SkillDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkillDetails => __isa(o, "SkillDetails");
 }
 
 /**
  * <p>A skill group with attributes.</p>
  */
 export interface SkillGroup {
-  __type?: "SkillGroup";
   /**
    * <p>The name of a skill group.</p>
    */
@@ -5243,14 +4758,12 @@ export namespace SkillGroup {
   export const filterSensitiveLog = (obj: SkillGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkillGroup => __isa(o, "SkillGroup");
 }
 
 /**
  * <p>The attributes of a skill group.</p>
  */
 export interface SkillGroupData {
-  __type?: "SkillGroupData";
   /**
    * <p>The description of a skill group.</p>
    */
@@ -5271,7 +4784,6 @@ export namespace SkillGroupData {
   export const filterSensitiveLog = (obj: SkillGroupData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkillGroupData => __isa(o, "SkillGroupData");
 }
 
 /**
@@ -5287,14 +4799,12 @@ export namespace SkillNotLinkedException {
   export const filterSensitiveLog = (obj: SkillNotLinkedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkillNotLinkedException => __isa(o, "SkillNotLinkedException");
 }
 
 /**
  * <p>The detailed information about an Alexa skill.</p>
  */
 export interface SkillsStoreSkill {
-  __type?: "SkillsStoreSkill";
   /**
    * <p>The URL where the skill icon resides.</p>
    */
@@ -5335,14 +4845,12 @@ export namespace SkillsStoreSkill {
   export const filterSensitiveLog = (obj: SkillsStoreSkill): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkillsStoreSkill => __isa(o, "SkillsStoreSkill");
 }
 
 /**
  * <p>The summary of skills.</p>
  */
 export interface SkillSummary {
-  __type?: "SkillSummary";
   /**
    * <p>The ARN of the skill summary.</p>
    */
@@ -5374,7 +4882,6 @@ export namespace SkillSummary {
   export const filterSensitiveLog = (obj: SkillSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkillSummary => __isa(o, "SkillSummary");
 }
 
 export enum SkillType {
@@ -5393,7 +4900,6 @@ export enum SkillTypeFilter {
  *          a smart appliance. </p>
  */
 export interface SmartHomeAppliance {
-  __type?: "SmartHomeAppliance";
   /**
    * <p>The friendly name of the smart home appliance.</p>
    */
@@ -5414,14 +4920,12 @@ export namespace SmartHomeAppliance {
   export const filterSensitiveLog = (obj: SmartHomeAppliance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SmartHomeAppliance => __isa(o, "SmartHomeAppliance");
 }
 
 /**
  * <p>An object representing a sort criteria. </p>
  */
 export interface Sort {
-  __type?: "Sort";
   /**
    * <p>The sort key of a sort object.</p>
    */
@@ -5437,7 +4941,6 @@ export namespace Sort {
   export const filterSensitiveLog = (obj: Sort): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Sort => __isa(o, "Sort");
 }
 
 export enum SortValue {
@@ -5449,7 +4952,6 @@ export enum SortValue {
  * <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
  */
 export interface Ssml {
-  __type?: "Ssml";
   /**
    * <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
    */
@@ -5465,11 +4967,9 @@ export namespace Ssml {
   export const filterSensitiveLog = (obj: Ssml): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ssml => __isa(o, "Ssml");
 }
 
 export interface StartDeviceSyncRequest {
-  __type?: "StartDeviceSyncRequest";
   /**
    * <p>The ARN of the room with which the device to sync is associated. Required.</p>
    */
@@ -5490,22 +4990,17 @@ export namespace StartDeviceSyncRequest {
   export const filterSensitiveLog = (obj: StartDeviceSyncRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeviceSyncRequest => __isa(o, "StartDeviceSyncRequest");
 }
 
-export interface StartDeviceSyncResponse {
-  __type?: "StartDeviceSyncResponse";
-}
+export interface StartDeviceSyncResponse {}
 
 export namespace StartDeviceSyncResponse {
   export const filterSensitiveLog = (obj: StartDeviceSyncResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeviceSyncResponse => __isa(o, "StartDeviceSyncResponse");
 }
 
 export interface StartSmartHomeApplianceDiscoveryRequest {
-  __type?: "StartSmartHomeApplianceDiscoveryRequest";
   /**
    * <p>The room where smart home appliance discovery was initiated.</p>
    */
@@ -5516,27 +5011,20 @@ export namespace StartSmartHomeApplianceDiscoveryRequest {
   export const filterSensitiveLog = (obj: StartSmartHomeApplianceDiscoveryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSmartHomeApplianceDiscoveryRequest =>
-    __isa(o, "StartSmartHomeApplianceDiscoveryRequest");
 }
 
-export interface StartSmartHomeApplianceDiscoveryResponse {
-  __type?: "StartSmartHomeApplianceDiscoveryResponse";
-}
+export interface StartSmartHomeApplianceDiscoveryResponse {}
 
 export namespace StartSmartHomeApplianceDiscoveryResponse {
   export const filterSensitiveLog = (obj: StartSmartHomeApplianceDiscoveryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSmartHomeApplianceDiscoveryResponse =>
-    __isa(o, "StartSmartHomeApplianceDiscoveryResponse");
 }
 
 /**
  * <p>A key-value pair that can be associated with a resource. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of a tag. Tag values are case sensitive and can be null.</p>
    */
@@ -5552,11 +5040,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The ARN of the resource to which to add metadata tags. Required. </p>
    */
@@ -5573,18 +5059,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TemperatureUnit {
@@ -5596,7 +5078,6 @@ export enum TemperatureUnit {
  * <p>The text message.</p>
  */
 export interface Text {
-  __type?: "Text";
   /**
    * <p>The value of the text message.</p>
    */
@@ -5612,7 +5093,6 @@ export namespace Text {
   export const filterSensitiveLog = (obj: Text): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Text => __isa(o, "Text");
 }
 
 /**
@@ -5628,11 +5108,9 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tags to be removed from the specified resource. Do not provide system tags.
    *          Required. </p>
@@ -5649,22 +5127,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateAddressBookRequest {
-  __type?: "UpdateAddressBookRequest";
   /**
    * <p>The updated name of the room.</p>
    */
@@ -5685,22 +5158,17 @@ export namespace UpdateAddressBookRequest {
   export const filterSensitiveLog = (obj: UpdateAddressBookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAddressBookRequest => __isa(o, "UpdateAddressBookRequest");
 }
 
-export interface UpdateAddressBookResponse {
-  __type?: "UpdateAddressBookResponse";
-}
+export interface UpdateAddressBookResponse {}
 
 export namespace UpdateAddressBookResponse {
   export const filterSensitiveLog = (obj: UpdateAddressBookResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAddressBookResponse => __isa(o, "UpdateAddressBookResponse");
 }
 
 export interface UpdateBusinessReportScheduleRequest {
-  __type?: "UpdateBusinessReportScheduleRequest";
   /**
    * <p>The ARN of the business report schedule.</p>
    */
@@ -5737,24 +5205,17 @@ export namespace UpdateBusinessReportScheduleRequest {
   export const filterSensitiveLog = (obj: UpdateBusinessReportScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBusinessReportScheduleRequest =>
-    __isa(o, "UpdateBusinessReportScheduleRequest");
 }
 
-export interface UpdateBusinessReportScheduleResponse {
-  __type?: "UpdateBusinessReportScheduleResponse";
-}
+export interface UpdateBusinessReportScheduleResponse {}
 
 export namespace UpdateBusinessReportScheduleResponse {
   export const filterSensitiveLog = (obj: UpdateBusinessReportScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBusinessReportScheduleResponse =>
-    __isa(o, "UpdateBusinessReportScheduleResponse");
 }
 
 export interface UpdateConferenceProviderRequest {
-  __type?: "UpdateConferenceProviderRequest";
   /**
    * <p>The ARN of the conference provider.</p>
    */
@@ -5785,22 +5246,17 @@ export namespace UpdateConferenceProviderRequest {
   export const filterSensitiveLog = (obj: UpdateConferenceProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConferenceProviderRequest => __isa(o, "UpdateConferenceProviderRequest");
 }
 
-export interface UpdateConferenceProviderResponse {
-  __type?: "UpdateConferenceProviderResponse";
-}
+export interface UpdateConferenceProviderResponse {}
 
 export namespace UpdateConferenceProviderResponse {
   export const filterSensitiveLog = (obj: UpdateConferenceProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConferenceProviderResponse => __isa(o, "UpdateConferenceProviderResponse");
 }
 
 export interface UpdateContactRequest {
-  __type?: "UpdateContactRequest";
   /**
    * <p>The list of SIP addresses for the contact.</p>
    */
@@ -5846,22 +5302,17 @@ export namespace UpdateContactRequest {
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateContactRequest => __isa(o, "UpdateContactRequest");
 }
 
-export interface UpdateContactResponse {
-  __type?: "UpdateContactResponse";
-}
+export interface UpdateContactResponse {}
 
 export namespace UpdateContactResponse {
   export const filterSensitiveLog = (obj: UpdateContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContactResponse => __isa(o, "UpdateContactResponse");
 }
 
 export interface UpdateDeviceRequest {
-  __type?: "UpdateDeviceRequest";
   /**
    * <p>The ARN of the device to update. Required.</p>
    */
@@ -5877,18 +5328,14 @@ export namespace UpdateDeviceRequest {
   export const filterSensitiveLog = (obj: UpdateDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceRequest => __isa(o, "UpdateDeviceRequest");
 }
 
-export interface UpdateDeviceResponse {
-  __type?: "UpdateDeviceResponse";
-}
+export interface UpdateDeviceResponse {}
 
 export namespace UpdateDeviceResponse {
   export const filterSensitiveLog = (obj: UpdateDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceResponse => __isa(o, "UpdateDeviceResponse");
 }
 
 /**
@@ -5896,7 +5343,6 @@ export namespace UpdateDeviceResponse {
  *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
  */
 export interface UpdateEndOfMeetingReminder {
-  __type?: "UpdateEndOfMeetingReminder";
   /**
    * <p>Updates settings for the end of meeting reminder feature that are applied to a room
    *          profile. The end of meeting reminder enables Alexa to remind users when a meeting is
@@ -5919,11 +5365,9 @@ export namespace UpdateEndOfMeetingReminder {
   export const filterSensitiveLog = (obj: UpdateEndOfMeetingReminder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndOfMeetingReminder => __isa(o, "UpdateEndOfMeetingReminder");
 }
 
 export interface UpdateGatewayGroupRequest {
-  __type?: "UpdateGatewayGroupRequest";
   /**
    * <p>The ARN of the gateway group to update.</p>
    */
@@ -5944,22 +5388,17 @@ export namespace UpdateGatewayGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGatewayGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayGroupRequest => __isa(o, "UpdateGatewayGroupRequest");
 }
 
-export interface UpdateGatewayGroupResponse {
-  __type?: "UpdateGatewayGroupResponse";
-}
+export interface UpdateGatewayGroupResponse {}
 
 export namespace UpdateGatewayGroupResponse {
   export const filterSensitiveLog = (obj: UpdateGatewayGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayGroupResponse => __isa(o, "UpdateGatewayGroupResponse");
 }
 
 export interface UpdateGatewayRequest {
-  __type?: "UpdateGatewayRequest";
   /**
    * <p>The ARN of the gateway to update.</p>
    */
@@ -5986,18 +5425,14 @@ export namespace UpdateGatewayRequest {
   export const filterSensitiveLog = (obj: UpdateGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayRequest => __isa(o, "UpdateGatewayRequest");
 }
 
-export interface UpdateGatewayResponse {
-  __type?: "UpdateGatewayResponse";
-}
+export interface UpdateGatewayResponse {}
 
 export namespace UpdateGatewayResponse {
   export const filterSensitiveLog = (obj: UpdateGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayResponse => __isa(o, "UpdateGatewayResponse");
 }
 
 /**
@@ -6006,7 +5441,6 @@ export namespace UpdateGatewayResponse {
  *          joins a meeting with Alexa.</p>
  */
 export interface UpdateInstantBooking {
-  __type?: "UpdateInstantBooking";
   /**
    * <p>Whether instant booking is enabled or not.</p>
    */
@@ -6023,14 +5457,12 @@ export namespace UpdateInstantBooking {
   export const filterSensitiveLog = (obj: UpdateInstantBooking): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInstantBooking => __isa(o, "UpdateInstantBooking");
 }
 
 /**
  * <p>Updates meeting room settings of a room profile.</p>
  */
 export interface UpdateMeetingRoomConfiguration {
-  __type?: "UpdateMeetingRoomConfiguration";
   /**
    * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
    *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
@@ -6058,11 +5490,9 @@ export namespace UpdateMeetingRoomConfiguration {
   export const filterSensitiveLog = (obj: UpdateMeetingRoomConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMeetingRoomConfiguration => __isa(o, "UpdateMeetingRoomConfiguration");
 }
 
 export interface UpdateNetworkProfileRequest {
-  __type?: "UpdateNetworkProfileRequest";
   /**
    * <p>The root certificate(s) of your authentication server that will be installed on your
    *          devices and used to trust your authentication server during EAP negotiation. </p>
@@ -6109,22 +5539,17 @@ export namespace UpdateNetworkProfileRequest {
     ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
     ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateNetworkProfileRequest => __isa(o, "UpdateNetworkProfileRequest");
 }
 
-export interface UpdateNetworkProfileResponse {
-  __type?: "UpdateNetworkProfileResponse";
-}
+export interface UpdateNetworkProfileResponse {}
 
 export namespace UpdateNetworkProfileResponse {
   export const filterSensitiveLog = (obj: UpdateNetworkProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNetworkProfileResponse => __isa(o, "UpdateNetworkProfileResponse");
 }
 
 export interface UpdateProfileRequest {
-  __type?: "UpdateProfileRequest";
   /**
    * <p>The updated name for the room profile.</p>
    */
@@ -6196,25 +5621,20 @@ export namespace UpdateProfileRequest {
   export const filterSensitiveLog = (obj: UpdateProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProfileRequest => __isa(o, "UpdateProfileRequest");
 }
 
-export interface UpdateProfileResponse {
-  __type?: "UpdateProfileResponse";
-}
+export interface UpdateProfileResponse {}
 
 export namespace UpdateProfileResponse {
   export const filterSensitiveLog = (obj: UpdateProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProfileResponse => __isa(o, "UpdateProfileResponse");
 }
 
 /**
  * <p>Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
 export interface UpdateRequireCheckIn {
-  __type?: "UpdateRequireCheckIn";
   /**
    * <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into. </p>
    */
@@ -6230,11 +5650,9 @@ export namespace UpdateRequireCheckIn {
   export const filterSensitiveLog = (obj: UpdateRequireCheckIn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRequireCheckIn => __isa(o, "UpdateRequireCheckIn");
 }
 
 export interface UpdateRoomRequest {
-  __type?: "UpdateRoomRequest";
   /**
    * <p>The updated description for the room.</p>
    */
@@ -6265,22 +5683,17 @@ export namespace UpdateRoomRequest {
   export const filterSensitiveLog = (obj: UpdateRoomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoomRequest => __isa(o, "UpdateRoomRequest");
 }
 
-export interface UpdateRoomResponse {
-  __type?: "UpdateRoomResponse";
-}
+export interface UpdateRoomResponse {}
 
 export namespace UpdateRoomResponse {
   export const filterSensitiveLog = (obj: UpdateRoomResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRoomResponse => __isa(o, "UpdateRoomResponse");
 }
 
 export interface UpdateSkillGroupRequest {
-  __type?: "UpdateSkillGroupRequest";
   /**
    * <p>The updated name for the skill group.</p>
    */
@@ -6301,25 +5714,20 @@ export namespace UpdateSkillGroupRequest {
   export const filterSensitiveLog = (obj: UpdateSkillGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSkillGroupRequest => __isa(o, "UpdateSkillGroupRequest");
 }
 
-export interface UpdateSkillGroupResponse {
-  __type?: "UpdateSkillGroupResponse";
-}
+export interface UpdateSkillGroupResponse {}
 
 export namespace UpdateSkillGroupResponse {
   export const filterSensitiveLog = (obj: UpdateSkillGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSkillGroupResponse => __isa(o, "UpdateSkillGroupResponse");
 }
 
 /**
  * <p>Information related to a user.</p>
  */
 export interface UserData {
-  __type?: "UserData";
   /**
    * <p>The email of a user.</p>
    */
@@ -6355,7 +5763,6 @@ export namespace UserData {
   export const filterSensitiveLog = (obj: UserData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserData => __isa(o, "UserData");
 }
 
 export enum WakeWord {

@@ -325,7 +325,6 @@ export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
   }
   const contents: CreateConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConfigurationSetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -409,7 +408,6 @@ export const deserializeAws_restJson1CreateConfigurationSetEventDestinationComma
   }
   const contents: CreateConfigurationSetEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConfigurationSetEventDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -501,7 +499,6 @@ export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
   }
   const contents: DeleteConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConfigurationSetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -577,7 +574,6 @@ export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationComma
   }
   const contents: DeleteConfigurationSetEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConfigurationSetEventDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -653,7 +649,6 @@ export const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
   }
   const contents: GetConfigurationSetEventDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConfigurationSetEventDestinationsResponse",
     EventDestinations: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -733,7 +728,6 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
   }
   const contents: ListConfigurationSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationSetsResponse",
     ConfigurationSets: undefined,
     NextToken: undefined,
   };
@@ -809,7 +803,6 @@ export const deserializeAws_restJson1SendVoiceMessageCommand = async (
   }
   const contents: SendVoiceMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendVoiceMessageResponse",
     MessageId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -881,7 +874,6 @@ export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationComma
   }
   const contents: UpdateConfigurationSetEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConfigurationSetEventDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1154,7 +1146,6 @@ const deserializeAws_restJson1CloudWatchLogsDestination = (
   context: __SerdeContext
 ): CloudWatchLogsDestination => {
   return {
-    __type: "CloudWatchLogsDestination",
     IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     LogGroupArn: output.LogGroupArn !== undefined && output.LogGroupArn !== null ? output.LogGroupArn : undefined,
   } as any;
@@ -1166,7 +1157,6 @@ const deserializeAws_restJson1ConfigurationSets = (output: any, context: __Serde
 
 const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
-    __type: "EventDestination",
     CloudWatchLogsDestination:
       output.CloudWatchLogsDestination !== undefined && output.CloudWatchLogsDestination !== null
         ? deserializeAws_restJson1CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
@@ -1201,7 +1191,6 @@ const deserializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
   return {
-    __type: "KinesisFirehoseDestination",
     DeliveryStreamArn:
       output.DeliveryStreamArn !== undefined && output.DeliveryStreamArn !== null
         ? output.DeliveryStreamArn
@@ -1212,7 +1201,6 @@ const deserializeAws_restJson1KinesisFirehoseDestination = (
 
 const deserializeAws_restJson1SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
   return {
-    __type: "SnsDestination",
     TopicArn: output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined,
   } as any;
 };

@@ -268,7 +268,6 @@ export const deserializeAws_json1_1DescribeTextTranslationJobCommand = async (
   contents = deserializeAws_json1_1DescribeTextTranslationJobResponse(data, context);
   const response: DescribeTextTranslationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTextTranslationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -340,7 +339,6 @@ export const deserializeAws_json1_1GetTerminologyCommand = async (
   contents = deserializeAws_json1_1GetTerminologyResponse(data, context);
   const response: GetTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTerminologyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -420,7 +418,6 @@ export const deserializeAws_json1_1ImportTerminologyCommand = async (
   contents = deserializeAws_json1_1ImportTerminologyResponse(data, context);
   const response: ImportTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportTerminologyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -500,7 +497,6 @@ export const deserializeAws_json1_1ListTerminologiesCommand = async (
   contents = deserializeAws_json1_1ListTerminologiesResponse(data, context);
   const response: ListTerminologiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTerminologiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -572,7 +568,6 @@ export const deserializeAws_json1_1ListTextTranslationJobsCommand = async (
   contents = deserializeAws_json1_1ListTextTranslationJobsResponse(data, context);
   const response: ListTextTranslationJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTextTranslationJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -652,7 +647,6 @@ export const deserializeAws_json1_1StartTextTranslationJobCommand = async (
   contents = deserializeAws_json1_1StartTextTranslationJobResponse(data, context);
   const response: StartTextTranslationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartTextTranslationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -740,7 +734,6 @@ export const deserializeAws_json1_1StopTextTranslationJobCommand = async (
   contents = deserializeAws_json1_1StopTextTranslationJobResponse(data, context);
   const response: StopTextTranslationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopTextTranslationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -812,7 +805,6 @@ export const deserializeAws_json1_1TranslateTextCommand = async (
   contents = deserializeAws_json1_1TranslateTextResponse(data, context);
   const response: TranslateTextCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TranslateTextResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1237,7 +1229,6 @@ const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, c
 
 const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeContext): AppliedTerminology => {
   return {
-    __type: "AppliedTerminology",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Terms:
       output.Terms !== undefined && output.Terms !== null
@@ -1255,7 +1246,6 @@ const deserializeAws_json1_1DescribeTextTranslationJobResponse = (
   context: __SerdeContext
 ): DescribeTextTranslationJobResponse => {
   return {
-    __type: "DescribeTextTranslationJobResponse",
     TextTranslationJobProperties:
       output.TextTranslationJobProperties !== undefined && output.TextTranslationJobProperties !== null
         ? deserializeAws_json1_1TextTranslationJobProperties(output.TextTranslationJobProperties, context)
@@ -1268,7 +1258,6 @@ const deserializeAws_json1_1DetectedLanguageLowConfidenceException = (
   context: __SerdeContext
 ): DetectedLanguageLowConfidenceException => {
   return {
-    __type: "DetectedLanguageLowConfidenceException",
     DetectedLanguageCode:
       output.DetectedLanguageCode !== undefined && output.DetectedLanguageCode !== null
         ? output.DetectedLanguageCode
@@ -1279,7 +1268,6 @@ const deserializeAws_json1_1DetectedLanguageLowConfidenceException = (
 
 const deserializeAws_json1_1EncryptionKey = (output: any, context: __SerdeContext): EncryptionKey => {
   return {
-    __type: "EncryptionKey",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -1287,7 +1275,6 @@ const deserializeAws_json1_1EncryptionKey = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1GetTerminologyResponse = (output: any, context: __SerdeContext): GetTerminologyResponse => {
   return {
-    __type: "GetTerminologyResponse",
     TerminologyDataLocation:
       output.TerminologyDataLocation !== undefined && output.TerminologyDataLocation !== null
         ? deserializeAws_json1_1TerminologyDataLocation(output.TerminologyDataLocation, context)
@@ -1304,7 +1291,6 @@ const deserializeAws_json1_1ImportTerminologyResponse = (
   context: __SerdeContext
 ): ImportTerminologyResponse => {
   return {
-    __type: "ImportTerminologyResponse",
     TerminologyProperties:
       output.TerminologyProperties !== undefined && output.TerminologyProperties !== null
         ? deserializeAws_json1_1TerminologyProperties(output.TerminologyProperties, context)
@@ -1314,7 +1300,6 @@ const deserializeAws_json1_1ImportTerminologyResponse = (
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
-    __type: "InputDataConfig",
     ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
@@ -1325,14 +1310,12 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidFilterException = (output: any, context: __SerdeContext): InvalidFilterException => {
   return {
-    __type: "InvalidFilterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1342,7 +1325,6 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    __type: "InvalidParameterValueException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1352,14 +1334,12 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext): JobDetails => {
   return {
-    __type: "JobDetails",
     DocumentsWithErrorsCount:
       output.DocumentsWithErrorsCount !== undefined && output.DocumentsWithErrorsCount !== null
         ? output.DocumentsWithErrorsCount
@@ -1381,7 +1361,6 @@ const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __Se
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1391,7 +1370,6 @@ const deserializeAws_json1_1ListTerminologiesResponse = (
   context: __SerdeContext
 ): ListTerminologiesResponse => {
   return {
-    __type: "ListTerminologiesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TerminologyPropertiesList:
       output.TerminologyPropertiesList !== undefined && output.TerminologyPropertiesList !== null
@@ -1405,7 +1383,6 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
   context: __SerdeContext
 ): ListTextTranslationJobsResponse => {
   return {
-    __type: "ListTextTranslationJobsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TextTranslationJobPropertiesList:
       output.TextTranslationJobPropertiesList !== undefined && output.TextTranslationJobPropertiesList !== null
@@ -1416,7 +1393,6 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
 
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
-    __type: "OutputDataConfig",
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
 };
@@ -1430,7 +1406,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1440,7 +1415,6 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1450,7 +1424,6 @@ const deserializeAws_json1_1StartTextTranslationJobResponse = (
   context: __SerdeContext
 ): StartTextTranslationJobResponse => {
   return {
-    __type: "StartTextTranslationJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -1461,7 +1434,6 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
   context: __SerdeContext
 ): StopTextTranslationJobResponse => {
   return {
-    __type: "StopTextTranslationJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -1473,7 +1445,6 @@ const deserializeAws_json1_1TargetLanguageCodeStringList = (output: any, context
 
 const deserializeAws_json1_1Term = (output: any, context: __SerdeContext): Term => {
   return {
-    __type: "Term",
     SourceText: output.SourceText !== undefined && output.SourceText !== null ? output.SourceText : undefined,
     TargetText: output.TargetText !== undefined && output.TargetText !== null ? output.TargetText : undefined,
   } as any;
@@ -1484,7 +1455,6 @@ const deserializeAws_json1_1TerminologyDataLocation = (
   context: __SerdeContext
 ): TerminologyDataLocation => {
   return {
-    __type: "TerminologyDataLocation",
     Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     RepositoryType:
       output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
@@ -1493,7 +1463,6 @@ const deserializeAws_json1_1TerminologyDataLocation = (
 
 const deserializeAws_json1_1TerminologyProperties = (output: any, context: __SerdeContext): TerminologyProperties => {
   return {
-    __type: "TerminologyProperties",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
@@ -1538,7 +1507,6 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
   context: __SerdeContext
 ): TextSizeLimitExceededException => {
   return {
-    __type: "TextSizeLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1548,7 +1516,6 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
   context: __SerdeContext
 ): TextTranslationJobProperties => {
   return {
-    __type: "TextTranslationJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -1602,14 +1569,12 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __SerdeContext): TranslateTextResponse => {
   return {
-    __type: "TranslateTextResponse",
     AppliedTerminologies:
       output.AppliedTerminologies !== undefined && output.AppliedTerminologies !== null
         ? deserializeAws_json1_1AppliedTerminologyList(output.AppliedTerminologies, context)
@@ -1632,7 +1597,6 @@ const deserializeAws_json1_1UnsupportedLanguagePairException = (
   context: __SerdeContext
 ): UnsupportedLanguagePairException => {
   return {
-    __type: "UnsupportedLanguagePairException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     SourceLanguageCode:
       output.SourceLanguageCode !== undefined && output.SourceLanguageCode !== null

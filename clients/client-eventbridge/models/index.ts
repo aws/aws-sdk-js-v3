@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface ActivateEventSourceRequest {
-  __type?: "ActivateEventSourceRequest";
   /**
    * <p>The name of the partner event source to activate.</p>
    */
@@ -13,7 +12,6 @@ export namespace ActivateEventSourceRequest {
   export const filterSensitiveLog = (obj: ActivateEventSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivateEventSourceRequest => __isa(o, "ActivateEventSourceRequest");
 }
 
 export enum AssignPublicIp {
@@ -27,7 +25,6 @@ export enum AssignPublicIp {
  *             use the <code>awsvpc</code> network mode.</p>
  */
 export interface AwsVpcConfiguration {
-  __type?: "AwsVpcConfiguration";
   /**
    * <p>Specifies whether the task's elastic network interface receives a public IP address.
    *             You can specify <code>ENABLED</code> only when <code>LaunchType</code> in
@@ -53,7 +50,6 @@ export namespace AwsVpcConfiguration {
   export const filterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsVpcConfiguration => __isa(o, "AwsVpcConfiguration");
 }
 
 /**
@@ -63,7 +59,6 @@ export namespace AwsVpcConfiguration {
  *             job.</p>
  */
 export interface BatchArrayProperties {
-  __type?: "BatchArrayProperties";
   /**
    * <p>The size of the array, if this is an array batch job. Valid values are integers
    *             between 2 and 10,000.</p>
@@ -75,14 +70,12 @@ export namespace BatchArrayProperties {
   export const filterSensitiveLog = (obj: BatchArrayProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchArrayProperties => __isa(o, "BatchArrayProperties");
 }
 
 /**
  * <p>The custom parameters to be used when the target is an AWS Batch job.</p>
  */
 export interface BatchParameters {
-  __type?: "BatchParameters";
   /**
    * <p>The array properties for the submitted job, such as the size of the array. The
    *             array size can be between 2 and 10,000. If you specify array properties for a job, it
@@ -116,7 +109,6 @@ export namespace BatchParameters {
   export const filterSensitiveLog = (obj: BatchParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchParameters => __isa(o, "BatchParameters");
 }
 
 /**
@@ -125,7 +117,6 @@ export namespace BatchParameters {
  *             definition.</p>
  */
 export interface BatchRetryStrategy {
-  __type?: "BatchRetryStrategy";
   /**
    * <p>The number of times to attempt to retry, if the job fails. Valid values are
    *             1–10.</p>
@@ -137,7 +128,6 @@ export namespace BatchRetryStrategy {
   export const filterSensitiveLog = (obj: BatchRetryStrategy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchRetryStrategy => __isa(o, "BatchRetryStrategy");
 }
 
 /**
@@ -153,7 +143,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -169,7 +158,6 @@ export namespace ConcurrentModificationException {
  *          </p>
  */
 export interface Condition {
-  __type?: "Condition";
   /**
    * <p>Specifies the type of condition. Currently the only supported value is
    *                 <code>StringEquals</code>.</p>
@@ -193,11 +181,9 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 export interface CreateEventBusRequest {
-  __type?: "CreateEventBusRequest";
   /**
    * <p>If you are creating a partner event bus, this specifies the partner event source that
    *             the new event bus will be matched with.</p>
@@ -224,11 +210,9 @@ export namespace CreateEventBusRequest {
   export const filterSensitiveLog = (obj: CreateEventBusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventBusRequest => __isa(o, "CreateEventBusRequest");
 }
 
 export interface CreateEventBusResponse {
-  __type?: "CreateEventBusResponse";
   /**
    * <p>The ARN of the new event bus.</p>
    */
@@ -239,11 +223,9 @@ export namespace CreateEventBusResponse {
   export const filterSensitiveLog = (obj: CreateEventBusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventBusResponse => __isa(o, "CreateEventBusResponse");
 }
 
 export interface CreatePartnerEventSourceRequest {
-  __type?: "CreatePartnerEventSourceRequest";
   /**
    * <p>The name of the partner event source. This name must be unique and must be in the
    *             format
@@ -266,11 +248,9 @@ export namespace CreatePartnerEventSourceRequest {
   export const filterSensitiveLog = (obj: CreatePartnerEventSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePartnerEventSourceRequest => __isa(o, "CreatePartnerEventSourceRequest");
 }
 
 export interface CreatePartnerEventSourceResponse {
-  __type?: "CreatePartnerEventSourceResponse";
   /**
    * <p>The ARN of the partner event source.</p>
    */
@@ -281,11 +261,9 @@ export namespace CreatePartnerEventSourceResponse {
   export const filterSensitiveLog = (obj: CreatePartnerEventSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePartnerEventSourceResponse => __isa(o, "CreatePartnerEventSourceResponse");
 }
 
 export interface DeactivateEventSourceRequest {
-  __type?: "DeactivateEventSourceRequest";
   /**
    * <p>The name of the partner event source to deactivate.</p>
    */
@@ -296,11 +274,9 @@ export namespace DeactivateEventSourceRequest {
   export const filterSensitiveLog = (obj: DeactivateEventSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeactivateEventSourceRequest => __isa(o, "DeactivateEventSourceRequest");
 }
 
 export interface DeleteEventBusRequest {
-  __type?: "DeleteEventBusRequest";
   /**
    * <p>The name of the event bus to delete.</p>
    */
@@ -311,11 +287,9 @@ export namespace DeleteEventBusRequest {
   export const filterSensitiveLog = (obj: DeleteEventBusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventBusRequest => __isa(o, "DeleteEventBusRequest");
 }
 
 export interface DeletePartnerEventSourceRequest {
-  __type?: "DeletePartnerEventSourceRequest";
   /**
    * <p>The AWS account ID of the AWS customer that the event source was created for.</p>
    */
@@ -331,11 +305,9 @@ export namespace DeletePartnerEventSourceRequest {
   export const filterSensitiveLog = (obj: DeletePartnerEventSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePartnerEventSourceRequest => __isa(o, "DeletePartnerEventSourceRequest");
 }
 
 export interface DeleteRuleRequest {
-  __type?: "DeleteRuleRequest";
   /**
    * <p>The event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
@@ -361,11 +333,9 @@ export namespace DeleteRuleRequest {
   export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleRequest => __isa(o, "DeleteRuleRequest");
 }
 
 export interface DescribeEventBusRequest {
-  __type?: "DescribeEventBusRequest";
   /**
    * <p>The name of the event bus to show details for. If you omit this, the default event bus
    *             is displayed.</p>
@@ -377,11 +347,9 @@ export namespace DescribeEventBusRequest {
   export const filterSensitiveLog = (obj: DescribeEventBusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventBusRequest => __isa(o, "DescribeEventBusRequest");
 }
 
 export interface DescribeEventBusResponse {
-  __type?: "DescribeEventBusResponse";
   /**
    * <p>The name of the event bus. Currently, this is always
    *             <code>default</code>.</p>
@@ -405,11 +373,9 @@ export namespace DescribeEventBusResponse {
   export const filterSensitiveLog = (obj: DescribeEventBusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventBusResponse => __isa(o, "DescribeEventBusResponse");
 }
 
 export interface DescribeEventSourceRequest {
-  __type?: "DescribeEventSourceRequest";
   /**
    * <p>The name of the partner event source to display the details of.</p>
    */
@@ -420,11 +386,9 @@ export namespace DescribeEventSourceRequest {
   export const filterSensitiveLog = (obj: DescribeEventSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSourceRequest => __isa(o, "DescribeEventSourceRequest");
 }
 
 export interface DescribeEventSourceResponse {
-  __type?: "DescribeEventSourceResponse";
   /**
    * <p>The name of the SaaS partner that created the event source.</p>
    */
@@ -465,11 +429,9 @@ export namespace DescribeEventSourceResponse {
   export const filterSensitiveLog = (obj: DescribeEventSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSourceResponse => __isa(o, "DescribeEventSourceResponse");
 }
 
 export interface DescribePartnerEventSourceRequest {
-  __type?: "DescribePartnerEventSourceRequest";
   /**
    * <p>The name of the event source to display.</p>
    */
@@ -480,11 +442,9 @@ export namespace DescribePartnerEventSourceRequest {
   export const filterSensitiveLog = (obj: DescribePartnerEventSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePartnerEventSourceRequest => __isa(o, "DescribePartnerEventSourceRequest");
 }
 
 export interface DescribePartnerEventSourceResponse {
-  __type?: "DescribePartnerEventSourceResponse";
   /**
    * <p>The ARN of the event source.</p>
    */
@@ -500,12 +460,9 @@ export namespace DescribePartnerEventSourceResponse {
   export const filterSensitiveLog = (obj: DescribePartnerEventSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePartnerEventSourceResponse =>
-    __isa(o, "DescribePartnerEventSourceResponse");
 }
 
 export interface DescribeRuleRequest {
-  __type?: "DescribeRuleRequest";
   /**
    * <p>The event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
@@ -522,11 +479,9 @@ export namespace DescribeRuleRequest {
   export const filterSensitiveLog = (obj: DescribeRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRuleRequest => __isa(o, "DescribeRuleRequest");
 }
 
 export interface DescribeRuleResponse {
-  __type?: "DescribeRuleResponse";
   /**
    * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5
    *             minutes)".</p>
@@ -581,11 +536,9 @@ export namespace DescribeRuleResponse {
   export const filterSensitiveLog = (obj: DescribeRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRuleResponse => __isa(o, "DescribeRuleResponse");
 }
 
 export interface DisableRuleRequest {
-  __type?: "DisableRuleRequest";
   /**
    * <p>The event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
@@ -602,14 +555,12 @@ export namespace DisableRuleRequest {
   export const filterSensitiveLog = (obj: DisableRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableRuleRequest => __isa(o, "DisableRuleRequest");
 }
 
 /**
  * <p>The custom parameters to be used when the target is an Amazon ECS task.</p>
  */
 export interface EcsParameters {
-  __type?: "EcsParameters";
   /**
    * <p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>
    */
@@ -663,11 +614,9 @@ export namespace EcsParameters {
   export const filterSensitiveLog = (obj: EcsParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EcsParameters => __isa(o, "EcsParameters");
 }
 
 export interface EnableRuleRequest {
-  __type?: "EnableRuleRequest";
   /**
    * <p>The event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
@@ -684,7 +633,6 @@ export namespace EnableRuleRequest {
   export const filterSensitiveLog = (obj: EnableRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableRuleRequest => __isa(o, "EnableRuleRequest");
 }
 
 /**
@@ -695,7 +643,6 @@ export namespace EnableRuleRequest {
  *             SaaS partner. These events come from the partners services or applications.</p>
  */
 export interface EventBus {
-  __type?: "EventBus";
   /**
    * <p>The ARN of the event bus.</p>
    */
@@ -717,7 +664,6 @@ export namespace EventBus {
   export const filterSensitiveLog = (obj: EventBus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventBus => __isa(o, "EventBus");
 }
 
 /**
@@ -726,7 +672,6 @@ export namespace EventBus {
  *             partner's applications or services.</p>
  */
 export interface EventSource {
-  __type?: "EventSource";
   /**
    * <p>The name of the event source.</p>
    */
@@ -767,7 +712,6 @@ export namespace EventSource {
   export const filterSensitiveLog = (obj: EventSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSource => __isa(o, "EventSource");
 }
 
 export enum EventSourceState {
@@ -781,7 +725,6 @@ export enum EventSourceState {
  *             APIs.</p>
  */
 export interface HttpParameters {
-  __type?: "HttpParameters";
   /**
    * <p>The headers that need to be sent as part of request invoking the API Gateway REST
    *             API.</p>
@@ -805,7 +748,6 @@ export namespace HttpParameters {
   export const filterSensitiveLog = (obj: HttpParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpParameters => __isa(o, "HttpParameters");
 }
 
 /**
@@ -813,7 +755,6 @@ export namespace HttpParameters {
  *             one or more pieces of data extracted from the event.</p>
  */
 export interface InputTransformer {
-  __type?: "InputTransformer";
   /**
    * <p>Input template where you specify placeholders that will be filled with the values
    *             of the keys from <code>InputPathsMap</code> to customize the data sent to the target.
@@ -888,7 +829,6 @@ export namespace InputTransformer {
   export const filterSensitiveLog = (obj: InputTransformer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputTransformer => __isa(o, "InputTransformer");
 }
 
 /**
@@ -904,7 +844,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
@@ -920,7 +859,6 @@ export namespace InvalidEventPatternException {
   export const filterSensitiveLog = (obj: InvalidEventPatternException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEventPatternException => __isa(o, "InvalidEventPatternException");
 }
 
 /**
@@ -936,7 +874,6 @@ export namespace InvalidStateException {
   export const filterSensitiveLog = (obj: InvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
@@ -946,7 +883,6 @@ export namespace InvalidStateException {
  *                 <code>eventId</code> as the partition key.</p>
  */
 export interface KinesisParameters {
-  __type?: "KinesisParameters";
   /**
    * <p>The JSON path to be extracted from the event and used as the partition key. For
    *             more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon Kinesis Streams Key
@@ -960,7 +896,6 @@ export namespace KinesisParameters {
   export const filterSensitiveLog = (obj: KinesisParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisParameters => __isa(o, "KinesisParameters");
 }
 
 export enum LaunchType {
@@ -982,11 +917,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListEventBusesRequest {
-  __type?: "ListEventBusesRequest";
   /**
    * <p>Specifying this limits the results to only those event buses with names that start
    *             with the specified prefix.</p>
@@ -1010,11 +943,9 @@ export namespace ListEventBusesRequest {
   export const filterSensitiveLog = (obj: ListEventBusesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventBusesRequest => __isa(o, "ListEventBusesRequest");
 }
 
 export interface ListEventBusesResponse {
-  __type?: "ListEventBusesResponse";
   /**
    * <p>This list of event buses.</p>
    */
@@ -1031,11 +962,9 @@ export namespace ListEventBusesResponse {
   export const filterSensitiveLog = (obj: ListEventBusesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventBusesResponse => __isa(o, "ListEventBusesResponse");
 }
 
 export interface ListEventSourcesRequest {
-  __type?: "ListEventSourcesRequest";
   /**
    * <p>Specifying this limits the results to only those partner event sources with names that
    *             start with the specified prefix.</p>
@@ -1059,11 +988,9 @@ export namespace ListEventSourcesRequest {
   export const filterSensitiveLog = (obj: ListEventSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventSourcesRequest => __isa(o, "ListEventSourcesRequest");
 }
 
 export interface ListEventSourcesResponse {
-  __type?: "ListEventSourcesResponse";
   /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of
    *             results.</p>
@@ -1080,11 +1007,9 @@ export namespace ListEventSourcesResponse {
   export const filterSensitiveLog = (obj: ListEventSourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventSourcesResponse => __isa(o, "ListEventSourcesResponse");
 }
 
 export interface ListPartnerEventSourceAccountsRequest {
-  __type?: "ListPartnerEventSourceAccountsRequest";
   /**
    * <p>The token returned by a previous call to this operation. Specifying this retrieves the
    *             next set of results.</p>
@@ -1108,12 +1033,9 @@ export namespace ListPartnerEventSourceAccountsRequest {
   export const filterSensitiveLog = (obj: ListPartnerEventSourceAccountsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartnerEventSourceAccountsRequest =>
-    __isa(o, "ListPartnerEventSourceAccountsRequest");
 }
 
 export interface ListPartnerEventSourceAccountsResponse {
-  __type?: "ListPartnerEventSourceAccountsResponse";
   /**
    * <p>The list of partner event sources returned by the operation.</p>
    */
@@ -1130,12 +1052,9 @@ export namespace ListPartnerEventSourceAccountsResponse {
   export const filterSensitiveLog = (obj: ListPartnerEventSourceAccountsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartnerEventSourceAccountsResponse =>
-    __isa(o, "ListPartnerEventSourceAccountsResponse");
 }
 
 export interface ListPartnerEventSourcesRequest {
-  __type?: "ListPartnerEventSourcesRequest";
   /**
    * <p>If you specify this, the results are limited to only those partner event sources that
    *             start with the string you specify.</p>
@@ -1160,11 +1079,9 @@ export namespace ListPartnerEventSourcesRequest {
   export const filterSensitiveLog = (obj: ListPartnerEventSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartnerEventSourcesRequest => __isa(o, "ListPartnerEventSourcesRequest");
 }
 
 export interface ListPartnerEventSourcesResponse {
-  __type?: "ListPartnerEventSourcesResponse";
   /**
    * <p>The list of partner event sources returned by the operation.</p>
    */
@@ -1181,11 +1098,9 @@ export namespace ListPartnerEventSourcesResponse {
   export const filterSensitiveLog = (obj: ListPartnerEventSourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartnerEventSourcesResponse => __isa(o, "ListPartnerEventSourcesResponse");
 }
 
 export interface ListRuleNamesByTargetRequest {
-  __type?: "ListRuleNamesByTargetRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -1213,11 +1128,9 @@ export namespace ListRuleNamesByTargetRequest {
   export const filterSensitiveLog = (obj: ListRuleNamesByTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRuleNamesByTargetRequest => __isa(o, "ListRuleNamesByTargetRequest");
 }
 
 export interface ListRuleNamesByTargetResponse {
-  __type?: "ListRuleNamesByTargetResponse";
   /**
    * <p>The names of the rules that can invoke the given target.</p>
    */
@@ -1234,11 +1147,9 @@ export namespace ListRuleNamesByTargetResponse {
   export const filterSensitiveLog = (obj: ListRuleNamesByTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRuleNamesByTargetResponse => __isa(o, "ListRuleNamesByTargetResponse");
 }
 
 export interface ListRulesRequest {
-  __type?: "ListRulesRequest";
   /**
    * <p>The token returned by a previous call to retrieve the next set of
    *             results.</p>
@@ -1266,11 +1177,9 @@ export namespace ListRulesRequest {
   export const filterSensitiveLog = (obj: ListRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRulesRequest => __isa(o, "ListRulesRequest");
 }
 
 export interface ListRulesResponse {
-  __type?: "ListRulesResponse";
   /**
    * <p>The rules that match the specified criteria.</p>
    */
@@ -1287,11 +1196,9 @@ export namespace ListRulesResponse {
   export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRulesResponse => __isa(o, "ListRulesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN of the EventBridge resource for which you want to view tags.</p>
    */
@@ -1302,11 +1209,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tag keys and values associated with the resource you specified</p>
    */
@@ -1317,11 +1222,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTargetsByRuleRequest {
-  __type?: "ListTargetsByRuleRequest";
   /**
    * <p>The event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
@@ -1349,11 +1252,9 @@ export namespace ListTargetsByRuleRequest {
   export const filterSensitiveLog = (obj: ListTargetsByRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsByRuleRequest => __isa(o, "ListTargetsByRuleRequest");
 }
 
 export interface ListTargetsByRuleResponse {
-  __type?: "ListTargetsByRuleResponse";
   /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more
    *             results, the value is null.</p>
@@ -1370,7 +1271,6 @@ export namespace ListTargetsByRuleResponse {
   export const filterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsByRuleResponse => __isa(o, "ListTargetsByRuleResponse");
 }
 
 /**
@@ -1392,14 +1292,12 @@ export namespace ManagedRuleException {
   export const filterSensitiveLog = (obj: ManagedRuleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedRuleException => __isa(o, "ManagedRuleException");
 }
 
 /**
  * <p>This structure specifies the network configuration for an ECS task.</p>
  */
 export interface NetworkConfiguration {
-  __type?: "NetworkConfiguration";
   /**
    * <p>Use this structure to specify the VPC subnets and security groups for the task, and
    *             whether a public IP address is to be used. This structure is relevant only for ECS tasks
@@ -1412,7 +1310,6 @@ export namespace NetworkConfiguration {
   export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkConfiguration => __isa(o, "NetworkConfiguration");
 }
 
 /**
@@ -1428,7 +1325,6 @@ export namespace OperationDisabledException {
   export const filterSensitiveLog = (obj: OperationDisabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationDisabledException => __isa(o, "OperationDisabledException");
 }
 
 /**
@@ -1437,7 +1333,6 @@ export namespace OperationDisabledException {
  *             partner's applications or services.</p>
  */
 export interface PartnerEventSource {
-  __type?: "PartnerEventSource";
   /**
    * <p>The name of the partner event source.</p>
    */
@@ -1453,14 +1348,12 @@ export namespace PartnerEventSource {
   export const filterSensitiveLog = (obj: PartnerEventSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartnerEventSource => __isa(o, "PartnerEventSource");
 }
 
 /**
  * <p>The AWS account that a partner event source has been offered to.</p>
  */
 export interface PartnerEventSourceAccount {
-  __type?: "PartnerEventSourceAccount";
   /**
    * <p>The date and time the event source was created.</p>
    */
@@ -1491,7 +1384,6 @@ export namespace PartnerEventSourceAccount {
   export const filterSensitiveLog = (obj: PartnerEventSourceAccount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartnerEventSourceAccount => __isa(o, "PartnerEventSourceAccount");
 }
 
 /**
@@ -1507,11 +1399,9 @@ export namespace PolicyLengthExceededException {
   export const filterSensitiveLog = (obj: PolicyLengthExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyLengthExceededException => __isa(o, "PolicyLengthExceededException");
 }
 
 export interface PutEventsRequest {
-  __type?: "PutEventsRequest";
   /**
    * <p>The entry that defines an event in your system. You can specify several parameters
    *             for the entry such as the source and type of the event, resources associated with the
@@ -1524,14 +1414,12 @@ export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsRequest => __isa(o, "PutEventsRequest");
 }
 
 /**
  * <p>Represents an event to be submitted.</p>
  */
 export interface PutEventsRequestEntry {
-  __type?: "PutEventsRequestEntry";
   /**
    * <p>The source of the event.</p>
    */
@@ -1572,11 +1460,9 @@ export namespace PutEventsRequestEntry {
   export const filterSensitiveLog = (obj: PutEventsRequestEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsRequestEntry => __isa(o, "PutEventsRequestEntry");
 }
 
 export interface PutEventsResponse {
-  __type?: "PutEventsResponse";
   /**
    * <p>The number of failed entries.</p>
    */
@@ -1594,14 +1480,12 @@ export namespace PutEventsResponse {
   export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsResponse => __isa(o, "PutEventsResponse");
 }
 
 /**
  * <p>Represents an event that failed to be submitted.</p>
  */
 export interface PutEventsResultEntry {
-  __type?: "PutEventsResultEntry";
   /**
    * <p>The error code that indicates why the event submission failed.</p>
    */
@@ -1622,11 +1506,9 @@ export namespace PutEventsResultEntry {
   export const filterSensitiveLog = (obj: PutEventsResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsResultEntry => __isa(o, "PutEventsResultEntry");
 }
 
 export interface PutPartnerEventsRequest {
-  __type?: "PutPartnerEventsRequest";
   /**
    * <p>The list of events to write to the event bus.</p>
    */
@@ -1637,14 +1519,12 @@ export namespace PutPartnerEventsRequest {
   export const filterSensitiveLog = (obj: PutPartnerEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPartnerEventsRequest => __isa(o, "PutPartnerEventsRequest");
 }
 
 /**
  * <p>The details about an event generated by an SaaS partner.</p>
  */
 export interface PutPartnerEventsRequestEntry {
-  __type?: "PutPartnerEventsRequestEntry";
   /**
    * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain
    *             fields and nested subobjects.</p>
@@ -1677,11 +1557,9 @@ export namespace PutPartnerEventsRequestEntry {
   export const filterSensitiveLog = (obj: PutPartnerEventsRequestEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPartnerEventsRequestEntry => __isa(o, "PutPartnerEventsRequestEntry");
 }
 
 export interface PutPartnerEventsResponse {
-  __type?: "PutPartnerEventsResponse";
   /**
    * <p>The number of events from this operation that could not be written to the partner
    *             event bus.</p>
@@ -1699,14 +1577,12 @@ export namespace PutPartnerEventsResponse {
   export const filterSensitiveLog = (obj: PutPartnerEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPartnerEventsResponse => __isa(o, "PutPartnerEventsResponse");
 }
 
 /**
  * <p>Represents an event that a partner tried to generate, but failed.</p>
  */
 export interface PutPartnerEventsResultEntry {
-  __type?: "PutPartnerEventsResultEntry";
   /**
    * <p>The error message that explains why the event submission failed.</p>
    */
@@ -1727,11 +1603,9 @@ export namespace PutPartnerEventsResultEntry {
   export const filterSensitiveLog = (obj: PutPartnerEventsResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPartnerEventsResultEntry => __isa(o, "PutPartnerEventsResultEntry");
 }
 
 export interface PutPermissionRequest {
-  __type?: "PutPermissionRequest";
   /**
    * <p>The action that you are enabling the other account to perform. Currently, this must
    *             be <code>events:PutEvents</code>.</p>
@@ -1784,11 +1658,9 @@ export namespace PutPermissionRequest {
   export const filterSensitiveLog = (obj: PutPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPermissionRequest => __isa(o, "PutPermissionRequest");
 }
 
 export interface PutRuleRequest {
-  __type?: "PutRuleRequest";
   /**
    * <p>The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5
    *             minutes)".</p>
@@ -1838,11 +1710,9 @@ export namespace PutRuleRequest {
   export const filterSensitiveLog = (obj: PutRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRuleRequest => __isa(o, "PutRuleRequest");
 }
 
 export interface PutRuleResponse {
-  __type?: "PutRuleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
@@ -1853,11 +1723,9 @@ export namespace PutRuleResponse {
   export const filterSensitiveLog = (obj: PutRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRuleResponse => __isa(o, "PutRuleResponse");
 }
 
 export interface PutTargetsRequest {
-  __type?: "PutTargetsRequest";
   /**
    * <p>The name of the event bus associated with the rule. If you omit this, the default
    *             event bus is used.</p>
@@ -1879,11 +1747,9 @@ export namespace PutTargetsRequest {
   export const filterSensitiveLog = (obj: PutTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutTargetsRequest => __isa(o, "PutTargetsRequest");
 }
 
 export interface PutTargetsResponse {
-  __type?: "PutTargetsResponse";
   /**
    * <p>The failed target entries.</p>
    */
@@ -1899,14 +1765,12 @@ export namespace PutTargetsResponse {
   export const filterSensitiveLog = (obj: PutTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutTargetsResponse => __isa(o, "PutTargetsResponse");
 }
 
 /**
  * <p>Represents a target that failed to be added to a rule.</p>
  */
 export interface PutTargetsResultEntry {
-  __type?: "PutTargetsResultEntry";
   /**
    * <p>The error message that explains why the target addition failed.</p>
    */
@@ -1929,11 +1793,9 @@ export namespace PutTargetsResultEntry {
   export const filterSensitiveLog = (obj: PutTargetsResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutTargetsResultEntry => __isa(o, "PutTargetsResultEntry");
 }
 
 export interface RemovePermissionRequest {
-  __type?: "RemovePermissionRequest";
   /**
    * <p>The statement ID corresponding to the account that is no longer allowed to put
    *             events to the default event bus.</p>
@@ -1951,11 +1813,9 @@ export namespace RemovePermissionRequest {
   export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 export interface RemoveTargetsRequest {
-  __type?: "RemoveTargetsRequest";
   /**
    * <p>If this is a managed rule, created by an AWS service on your behalf, you must specify
    *                 <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored
@@ -1985,11 +1845,9 @@ export namespace RemoveTargetsRequest {
   export const filterSensitiveLog = (obj: RemoveTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTargetsRequest => __isa(o, "RemoveTargetsRequest");
 }
 
 export interface RemoveTargetsResponse {
-  __type?: "RemoveTargetsResponse";
   /**
    * <p>The number of failed entries.</p>
    */
@@ -2005,14 +1863,12 @@ export namespace RemoveTargetsResponse {
   export const filterSensitiveLog = (obj: RemoveTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTargetsResponse => __isa(o, "RemoveTargetsResponse");
 }
 
 /**
  * <p>Represents a target that failed to be removed from a rule.</p>
  */
 export interface RemoveTargetsResultEntry {
-  __type?: "RemoveTargetsResultEntry";
   /**
    * <p>The error code that indicates why the target removal failed. If the value is
    *                 <code>ConcurrentModificationException</code>, too many requests were made at the
@@ -2035,7 +1891,6 @@ export namespace RemoveTargetsResultEntry {
   export const filterSensitiveLog = (obj: RemoveTargetsResultEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTargetsResultEntry => __isa(o, "RemoveTargetsResultEntry");
 }
 
 /**
@@ -2051,7 +1906,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -2067,14 +1921,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Contains information about a rule in Amazon EventBridge.</p>
  */
 export interface Rule {
-  __type?: "Rule";
   /**
    * <p>The state of the rule.</p>
    */
@@ -2130,7 +1982,6 @@ export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
 
 export enum RuleState {
@@ -2143,7 +1994,6 @@ export enum RuleState {
  *             which EC2 instances are to be sent the command. </p>
  */
 export interface RunCommandParameters {
-  __type?: "RunCommandParameters";
   /**
    * <p>Currently, we support including only one RunCommandTarget block, which specifies
    *             either an array of InstanceIds or a tag.</p>
@@ -2155,7 +2005,6 @@ export namespace RunCommandParameters {
   export const filterSensitiveLog = (obj: RunCommandParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunCommandParameters => __isa(o, "RunCommandParameters");
 }
 
 /**
@@ -2164,7 +2013,6 @@ export namespace RunCommandParameters {
  *             this key may specify multiple values.</p>
  */
 export interface RunCommandTarget {
-  __type?: "RunCommandTarget";
   /**
    * <p>If <code>Key</code> is <code>tag:</code>
    *             <i>tag-key</i>,
@@ -2186,7 +2034,6 @@ export namespace RunCommandTarget {
   export const filterSensitiveLog = (obj: RunCommandTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunCommandTarget => __isa(o, "RunCommandTarget");
 }
 
 /**
@@ -2194,7 +2041,6 @@ export namespace RunCommandTarget {
  *             queue.</p>
  */
 export interface SqsParameters {
-  __type?: "SqsParameters";
   /**
    * <p>The FIFO message group ID to use as the target.</p>
    */
@@ -2205,7 +2051,6 @@ export namespace SqsParameters {
   export const filterSensitiveLog = (obj: SqsParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqsParameters => __isa(o, "SqsParameters");
 }
 
 /**
@@ -2213,7 +2058,6 @@ export namespace SqsParameters {
  *             tagging.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value for the specified tag key.</p>
    */
@@ -2230,11 +2074,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The ARN of the EventBridge resource that you're adding tags to.</p>
    */
@@ -2250,18 +2092,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2275,7 +2113,6 @@ export namespace TagResourceResponse {
  *                 EventBridge User Guide</i>.</p>
  */
 export interface Target {
-  __type?: "Target";
   /**
    * <p>Valid JSON text passed to the target. In this case, nothing from the event itself
    *             is passed to the target. For more information, see <a href="http://www.rfc-editor.org/rfc/rfc7159.txt">The JavaScript Object Notation
@@ -2363,11 +2200,9 @@ export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Target => __isa(o, "Target");
 }
 
 export interface TestEventPatternRequest {
-  __type?: "TestEventPatternRequest";
   /**
    * <p>The event, in JSON format, to test against the event pattern.</p>
    */
@@ -2385,11 +2220,9 @@ export namespace TestEventPatternRequest {
   export const filterSensitiveLog = (obj: TestEventPatternRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestEventPatternRequest => __isa(o, "TestEventPatternRequest");
 }
 
 export interface TestEventPatternResponse {
-  __type?: "TestEventPatternResponse";
   /**
    * <p>Indicates whether the event matches the event pattern.</p>
    */
@@ -2400,11 +2233,9 @@ export namespace TestEventPatternResponse {
   export const filterSensitiveLog = (obj: TestEventPatternResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestEventPatternResponse => __isa(o, "TestEventPatternResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The ARN of the EventBridge resource from which you are removing tags.</p>
    */
@@ -2420,16 +2251,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

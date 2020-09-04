@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -6,7 +6,6 @@ import { Readable } from "stream";
  * <p>A container for facet information.</p>
  */
 export interface Bucket {
-  __type?: "Bucket";
   /**
    * <p>The number of hits that contain the facet value in the specified facet field.</p>
    */
@@ -22,14 +21,12 @@ export namespace Bucket {
   export const filterSensitiveLog = (obj: Bucket): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Bucket => __isa(o, "Bucket");
 }
 
 /**
  * <p>A container for the calculated facet values and counts.</p>
  */
 export interface BucketInfo {
-  __type?: "BucketInfo";
   /**
    * <p>A list of the calculated facet values and counts.</p>
    */
@@ -40,7 +37,6 @@ export namespace BucketInfo {
   export const filterSensitiveLog = (obj: BucketInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketInfo => __isa(o, "BucketInfo");
 }
 
 export type ContentType = "application/json" | "application/xml";
@@ -66,14 +62,12 @@ export namespace DocumentServiceException {
   export const filterSensitiveLog = (obj: DocumentServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentServiceException => __isa(o, "DocumentServiceException");
 }
 
 /**
  * <p>A warning returned by the document service when an issue is discovered while processing an upload request.</p>
  */
 export interface DocumentServiceWarning {
-  __type?: "DocumentServiceWarning";
   /**
    * <p>The description for a warning returned by the document service.</p>
    */
@@ -84,14 +78,12 @@ export namespace DocumentServiceWarning {
   export const filterSensitiveLog = (obj: DocumentServiceWarning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentServiceWarning => __isa(o, "DocumentServiceWarning");
 }
 
 /**
  * <p>The statistics for a field calculated in the request.</p>
  */
 export interface FieldStats {
-  __type?: "FieldStats";
   /**
    * <p>The maximum value found in the specified field in the result set.</p>
    *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
@@ -140,14 +132,12 @@ export namespace FieldStats {
   export const filterSensitiveLog = (obj: FieldStats): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldStats => __isa(o, "FieldStats");
 }
 
 /**
  * <p>Information about a document that matches the search request.</p>
  */
 export interface Hit {
-  __type?: "Hit";
   /**
    * <p>The highlights returned from a document that matches the search request.</p>
    */
@@ -173,14 +163,12 @@ export namespace Hit {
   export const filterSensitiveLog = (obj: Hit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Hit => __isa(o, "Hit");
 }
 
 /**
  * <p>The collection of documents that match the search request.</p>
  */
 export interface Hits {
-  __type?: "Hits";
   /**
    * <p>The index of the first matching document.</p>
    */
@@ -206,7 +194,6 @@ export namespace Hits {
   export const filterSensitiveLog = (obj: Hits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Hits => __isa(o, "Hits");
 }
 
 export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
@@ -227,14 +214,12 @@ export namespace SearchException {
   export const filterSensitiveLog = (obj: SearchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchException => __isa(o, "SearchException");
 }
 
 /**
  * <p>Container for the parameters to the <code>Search</code> request.</p>
  */
 export interface SearchRequest {
-  __type?: "SearchRequest";
   /**
    * <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p>
    *       <code>{"FIELD-A":{},"FIELD-B":{}}</code>
@@ -520,14 +505,12 @@ export namespace SearchRequest {
   export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchRequest => __isa(o, "SearchRequest");
 }
 
 /**
  * <p>The result of a <code>Search</code> request. Contains the documents that match the specified search criteria and any requested fields, highlights, and facet information.</p>
  */
 export interface SearchResponse {
-  __type?: "SearchResponse";
   /**
    * <p>The requested facet information.</p>
    */
@@ -553,14 +536,12 @@ export namespace SearchResponse {
   export const filterSensitiveLog = (obj: SearchResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchResponse => __isa(o, "SearchResponse");
 }
 
 /**
  * <p>Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).</p>
  */
 export interface SearchStatus {
-  __type?: "SearchStatus";
   /**
    * <p>How long it took to process the request, in milliseconds.</p>
    */
@@ -576,14 +557,12 @@ export namespace SearchStatus {
   export const filterSensitiveLog = (obj: SearchStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchStatus => __isa(o, "SearchStatus");
 }
 
 /**
  * <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>.</p>
  */
 export interface SuggestionMatch {
-  __type?: "SuggestionMatch";
   /**
    * <p>The document ID of the suggested document.</p>
    */
@@ -604,14 +583,12 @@ export namespace SuggestionMatch {
   export const filterSensitiveLog = (obj: SuggestionMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuggestionMatch => __isa(o, "SuggestionMatch");
 }
 
 /**
  * <p>Container for the suggestion information returned in a <code>SuggestResponse</code>.</p>
  */
 export interface SuggestModel {
-  __type?: "SuggestModel";
   /**
    * <p>The documents that match the query string.</p>
    */
@@ -632,14 +609,12 @@ export namespace SuggestModel {
   export const filterSensitiveLog = (obj: SuggestModel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuggestModel => __isa(o, "SuggestModel");
 }
 
 /**
  * <p>Container for the parameters to the <code>Suggest</code> request.</p>
  */
 export interface SuggestRequest {
-  __type?: "SuggestRequest";
   /**
    * <p>Specifies the string for which you want to get suggestions.</p>
    */
@@ -660,14 +635,12 @@ export namespace SuggestRequest {
   export const filterSensitiveLog = (obj: SuggestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuggestRequest => __isa(o, "SuggestRequest");
 }
 
 /**
  * <p>Contains the response to a <code>Suggest</code> request.</p>
  */
 export interface SuggestResponse {
-  __type?: "SuggestResponse";
   /**
    * <p>Container for the matching search suggestion information.</p>
    */
@@ -683,14 +656,12 @@ export namespace SuggestResponse {
   export const filterSensitiveLog = (obj: SuggestResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuggestResponse => __isa(o, "SuggestResponse");
 }
 
 /**
  * <p>Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).</p>
  */
 export interface SuggestStatus {
-  __type?: "SuggestStatus";
   /**
    * <p>The encrypted resource ID for the request.</p>
    */
@@ -706,14 +677,12 @@ export namespace SuggestStatus {
   export const filterSensitiveLog = (obj: SuggestStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuggestStatus => __isa(o, "SuggestStatus");
 }
 
 /**
  * <p>Container for the parameters to the <code>UploadDocuments</code> request.</p>
  */
 export interface UploadDocumentsRequest {
-  __type?: "UploadDocumentsRequest";
   /**
    * <p>A batch of documents formatted in JSON or HTML.</p>
    */
@@ -733,14 +702,12 @@ export namespace UploadDocumentsRequest {
   export const filterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadDocumentsRequest => __isa(o, "UploadDocumentsRequest");
 }
 
 /**
  * <p>Contains the response to an <code>UploadDocuments</code> request.</p>
  */
 export interface UploadDocumentsResponse {
-  __type?: "UploadDocumentsResponse";
   /**
    * <p>Any warnings returned by the document service about the documents being uploaded.</p>
    */
@@ -766,5 +733,4 @@ export namespace UploadDocumentsResponse {
   export const filterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadDocumentsResponse => __isa(o, "UploadDocumentsResponse");
 }

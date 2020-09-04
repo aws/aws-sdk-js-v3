@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Contains information about the errors encountered.</p>
  */
 export interface BatchPutMessageErrorEntry {
-  __type?: "BatchPutMessageErrorEntry";
   /**
    * <p>The ID of the message that caused the error. (See the value corresponding to the
    *           <code>"messageId"</code> key in the <code>"message"</code> object.)</p>
@@ -27,11 +26,9 @@ export namespace BatchPutMessageErrorEntry {
   export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutMessageErrorEntry => __isa(o, "BatchPutMessageErrorEntry");
 }
 
 export interface BatchPutMessageRequest {
-  __type?: "BatchPutMessageRequest";
   /**
    * <p>The list of messages to send. Each message has the following format:
    *           <code>'{ "messageId": "string", "inputName": "string", "payload": "string"}'</code>
@@ -44,11 +41,9 @@ export namespace BatchPutMessageRequest {
   export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutMessageRequest => __isa(o, "BatchPutMessageRequest");
 }
 
 export interface BatchPutMessageResponse {
-  __type?: "BatchPutMessageResponse";
   /**
    * <p>A list of any errors encountered when sending the messages.</p>
    */
@@ -59,14 +54,12 @@ export namespace BatchPutMessageResponse {
   export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutMessageResponse => __isa(o, "BatchPutMessageResponse");
 }
 
 /**
  * <p>Information about the error that occured when attempting to update a detector.</p>
  */
 export interface BatchUpdateDetectorErrorEntry {
-  __type?: "BatchUpdateDetectorErrorEntry";
   /**
    * <p>A message describing the error.</p>
    */
@@ -88,11 +81,9 @@ export namespace BatchUpdateDetectorErrorEntry {
   export const filterSensitiveLog = (obj: BatchUpdateDetectorErrorEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateDetectorErrorEntry => __isa(o, "BatchUpdateDetectorErrorEntry");
 }
 
 export interface BatchUpdateDetectorRequest {
-  __type?: "BatchUpdateDetectorRequest";
   /**
    * <p>The list of detectors (instances) to update, along with the values to update.</p>
    */
@@ -103,11 +94,9 @@ export namespace BatchUpdateDetectorRequest {
   export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateDetectorRequest => __isa(o, "BatchUpdateDetectorRequest");
 }
 
 export interface BatchUpdateDetectorResponse {
-  __type?: "BatchUpdateDetectorResponse";
   /**
    * <p>A list of those detector updates that resulted in errors. (If an error is listed here, the
    *         specific update did not occur.)</p>
@@ -119,11 +108,9 @@ export namespace BatchUpdateDetectorResponse {
   export const filterSensitiveLog = (obj: BatchUpdateDetectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateDetectorResponse => __isa(o, "BatchUpdateDetectorResponse");
 }
 
 export interface DescribeDetectorRequest {
-  __type?: "DescribeDetectorRequest";
   /**
    * <p>The name of the detector model whose detectors (instances) you want information about.</p>
    */
@@ -139,11 +126,9 @@ export namespace DescribeDetectorRequest {
   export const filterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDetectorRequest => __isa(o, "DescribeDetectorRequest");
 }
 
 export interface DescribeDetectorResponse {
-  __type?: "DescribeDetectorResponse";
   /**
    * <p>Information about the detector (instance).</p>
    */
@@ -154,14 +139,12 @@ export namespace DescribeDetectorResponse {
   export const filterSensitiveLog = (obj: DescribeDetectorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDetectorResponse => __isa(o, "DescribeDetectorResponse");
 }
 
 /**
  * <p>Information about the detector (instance).</p>
  */
 export interface Detector {
-  __type?: "Detector";
   /**
    * <p>The time the detector (instance) was last updated.</p>
    */
@@ -198,14 +181,12 @@ export namespace Detector {
   export const filterSensitiveLog = (obj: Detector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Detector => __isa(o, "Detector");
 }
 
 /**
  * <p>Information about the current state of the detector instance.</p>
  */
 export interface DetectorState {
-  __type?: "DetectorState";
   /**
    * <p>The name of the state.</p>
    */
@@ -226,14 +207,12 @@ export namespace DetectorState {
   export const filterSensitiveLog = (obj: DetectorState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorState => __isa(o, "DetectorState");
 }
 
 /**
  * <p>The new state, variable values, and timer settings of the detector (instance).</p>
  */
 export interface DetectorStateDefinition {
-  __type?: "DetectorStateDefinition";
   /**
    * <p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>
    */
@@ -255,14 +234,12 @@ export namespace DetectorStateDefinition {
   export const filterSensitiveLog = (obj: DetectorStateDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorStateDefinition => __isa(o, "DetectorStateDefinition");
 }
 
 /**
  * <p>Information about the detector state.</p>
  */
 export interface DetectorStateSummary {
-  __type?: "DetectorStateSummary";
   /**
    * <p>The name of the state.</p>
    */
@@ -273,14 +250,12 @@ export namespace DetectorStateSummary {
   export const filterSensitiveLog = (obj: DetectorStateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorStateSummary => __isa(o, "DetectorStateSummary");
 }
 
 /**
  * <p>Information about the detector (instance).</p>
  */
 export interface DetectorSummary {
-  __type?: "DetectorSummary";
   /**
    * <p>The time the detector (instance) was created.</p>
    */
@@ -317,7 +292,6 @@ export namespace DetectorSummary {
   export const filterSensitiveLog = (obj: DetectorSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorSummary => __isa(o, "DetectorSummary");
 }
 
 export enum ErrorCode {
@@ -344,7 +318,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -363,11 +336,9 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListDetectorsRequest {
-  __type?: "ListDetectorsRequest";
   /**
    * <p>A filter that limits results to those detectors (instances) in the given state.</p>
    */
@@ -393,11 +364,9 @@ export namespace ListDetectorsRequest {
   export const filterSensitiveLog = (obj: ListDetectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDetectorsRequest => __isa(o, "ListDetectorsRequest");
 }
 
 export interface ListDetectorsResponse {
-  __type?: "ListDetectorsResponse";
   /**
    * <p>A list of summary information about the detectors (instances).</p>
    */
@@ -414,14 +383,12 @@ export namespace ListDetectorsResponse {
   export const filterSensitiveLog = (obj: ListDetectorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDetectorsResponse => __isa(o, "ListDetectorsResponse");
 }
 
 /**
  * <p>Information about a message.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>The ID to assign to the message. Within each batch sent, each <code>"messageId"</code> must
    *         be unique.</p>
@@ -444,7 +411,6 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
@@ -463,7 +429,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -482,7 +447,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -501,14 +465,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The current state of a timer.</p>
  */
 export interface Timer {
-  __type?: "Timer";
   /**
    * <p>The number of seconds which have elapsed on the timer.</p>
    */
@@ -524,14 +486,12 @@ export namespace Timer {
   export const filterSensitiveLog = (obj: Timer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Timer => __isa(o, "Timer");
 }
 
 /**
  * <p>The new setting of a timer.</p>
  */
 export interface TimerDefinition {
-  __type?: "TimerDefinition";
   /**
    * <p>The new setting of the timer (the number of seconds before the timer elapses).</p>
    */
@@ -547,14 +507,12 @@ export namespace TimerDefinition {
   export const filterSensitiveLog = (obj: TimerDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimerDefinition => __isa(o, "TimerDefinition");
 }
 
 /**
  * <p>Information used to update the detector (instance).</p>
  */
 export interface UpdateDetectorRequest {
-  __type?: "UpdateDetectorRequest";
   /**
    * <p>The ID to assign to the detector update <code>"message"</code>. Each <code>"messageId"</code>
    *        must be unique within each batch sent.</p>
@@ -582,14 +540,12 @@ export namespace UpdateDetectorRequest {
   export const filterSensitiveLog = (obj: UpdateDetectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorRequest => __isa(o, "UpdateDetectorRequest");
 }
 
 /**
  * <p>The current state of the variable.</p>
  */
 export interface Variable {
-  __type?: "Variable";
   /**
    * <p>The name of the variable.</p>
    */
@@ -605,14 +561,12 @@ export namespace Variable {
   export const filterSensitiveLog = (obj: Variable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Variable => __isa(o, "Variable");
 }
 
 /**
  * <p>The new value of the variable.</p>
  */
 export interface VariableDefinition {
-  __type?: "VariableDefinition";
   /**
    * <p>The new value of the variable.</p>
    */
@@ -628,5 +582,4 @@ export namespace VariableDefinition {
   export const filterSensitiveLog = (obj: VariableDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VariableDefinition => __isa(o, "VariableDefinition");
 }

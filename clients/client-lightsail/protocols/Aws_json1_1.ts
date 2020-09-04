@@ -2319,7 +2319,6 @@ export const deserializeAws_json1_1AllocateStaticIpCommand = async (
   contents = deserializeAws_json1_1AllocateStaticIpResult(data, context);
   const response: AllocateStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AllocateStaticIpResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2423,7 +2422,6 @@ export const deserializeAws_json1_1AttachCertificateToDistributionCommand = asyn
   contents = deserializeAws_json1_1AttachCertificateToDistributionResult(data, context);
   const response: AttachCertificateToDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachCertificateToDistributionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2519,7 +2517,6 @@ export const deserializeAws_json1_1AttachDiskCommand = async (
   contents = deserializeAws_json1_1AttachDiskResult(data, context);
   const response: AttachDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachDiskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2623,7 +2620,6 @@ export const deserializeAws_json1_1AttachInstancesToLoadBalancerCommand = async 
   contents = deserializeAws_json1_1AttachInstancesToLoadBalancerResult(data, context);
   const response: AttachInstancesToLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachInstancesToLoadBalancerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2727,7 +2723,6 @@ export const deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand = asy
   contents = deserializeAws_json1_1AttachLoadBalancerTlsCertificateResult(data, context);
   const response: AttachLoadBalancerTlsCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachLoadBalancerTlsCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2831,7 +2826,6 @@ export const deserializeAws_json1_1AttachStaticIpCommand = async (
   contents = deserializeAws_json1_1AttachStaticIpResult(data, context);
   const response: AttachStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachStaticIpResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2935,7 +2929,6 @@ export const deserializeAws_json1_1CloseInstancePublicPortsCommand = async (
   contents = deserializeAws_json1_1CloseInstancePublicPortsResult(data, context);
   const response: CloseInstancePublicPortsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CloseInstancePublicPortsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3039,7 +3032,6 @@ export const deserializeAws_json1_1CopySnapshotCommand = async (
   contents = deserializeAws_json1_1CopySnapshotResult(data, context);
   const response: CopySnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopySnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3143,7 +3135,6 @@ export const deserializeAws_json1_1CreateCertificateCommand = async (
   contents = deserializeAws_json1_1CreateCertificateResult(data, context);
   const response: CreateCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3231,7 +3222,6 @@ export const deserializeAws_json1_1CreateCloudFormationStackCommand = async (
   contents = deserializeAws_json1_1CreateCloudFormationStackResult(data, context);
   const response: CreateCloudFormationStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCloudFormationStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3335,7 +3325,6 @@ export const deserializeAws_json1_1CreateContactMethodCommand = async (
   contents = deserializeAws_json1_1CreateContactMethodResult(data, context);
   const response: CreateContactMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateContactMethodResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3431,7 +3420,6 @@ export const deserializeAws_json1_1CreateDiskCommand = async (
   contents = deserializeAws_json1_1CreateDiskResult(data, context);
   const response: CreateDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDiskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3535,7 +3523,6 @@ export const deserializeAws_json1_1CreateDiskFromSnapshotCommand = async (
   contents = deserializeAws_json1_1CreateDiskFromSnapshotResult(data, context);
   const response: CreateDiskFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDiskFromSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3639,7 +3626,6 @@ export const deserializeAws_json1_1CreateDiskSnapshotCommand = async (
   contents = deserializeAws_json1_1CreateDiskSnapshotResult(data, context);
   const response: CreateDiskSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDiskSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3743,7 +3729,6 @@ export const deserializeAws_json1_1CreateDistributionCommand = async (
   contents = deserializeAws_json1_1CreateDistributionResult(data, context);
   const response: CreateDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDistributionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3839,7 +3824,6 @@ export const deserializeAws_json1_1CreateDomainCommand = async (
   contents = deserializeAws_json1_1CreateDomainResult(data, context);
   const response: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3943,7 +3927,6 @@ export const deserializeAws_json1_1CreateDomainEntryCommand = async (
   contents = deserializeAws_json1_1CreateDomainEntryResult(data, context);
   const response: CreateDomainEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainEntryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4047,7 +4030,6 @@ export const deserializeAws_json1_1CreateInstancesCommand = async (
   contents = deserializeAws_json1_1CreateInstancesResult(data, context);
   const response: CreateInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4151,7 +4133,6 @@ export const deserializeAws_json1_1CreateInstancesFromSnapshotCommand = async (
   contents = deserializeAws_json1_1CreateInstancesFromSnapshotResult(data, context);
   const response: CreateInstancesFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInstancesFromSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4255,7 +4236,6 @@ export const deserializeAws_json1_1CreateInstanceSnapshotCommand = async (
   contents = deserializeAws_json1_1CreateInstanceSnapshotResult(data, context);
   const response: CreateInstanceSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInstanceSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4359,7 +4339,6 @@ export const deserializeAws_json1_1CreateKeyPairCommand = async (
   contents = deserializeAws_json1_1CreateKeyPairResult(data, context);
   const response: CreateKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateKeyPairResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4463,7 +4442,6 @@ export const deserializeAws_json1_1CreateLoadBalancerCommand = async (
   contents = deserializeAws_json1_1CreateLoadBalancerResult(data, context);
   const response: CreateLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLoadBalancerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4567,7 +4545,6 @@ export const deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand = asy
   contents = deserializeAws_json1_1CreateLoadBalancerTlsCertificateResult(data, context);
   const response: CreateLoadBalancerTlsCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLoadBalancerTlsCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4671,7 +4648,6 @@ export const deserializeAws_json1_1CreateRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1CreateRelationalDatabaseResult(data, context);
   const response: CreateRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4775,7 +4751,6 @@ export const deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand =
   contents = deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotResult(data, context);
   const response: CreateRelationalDatabaseFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRelationalDatabaseFromSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4879,7 +4854,6 @@ export const deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand = asy
   contents = deserializeAws_json1_1CreateRelationalDatabaseSnapshotResult(data, context);
   const response: CreateRelationalDatabaseSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRelationalDatabaseSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4983,7 +4957,6 @@ export const deserializeAws_json1_1DeleteAlarmCommand = async (
   contents = deserializeAws_json1_1DeleteAlarmResult(data, context);
   const response: DeleteAlarmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAlarmResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5079,7 +5052,6 @@ export const deserializeAws_json1_1DeleteAutoSnapshotCommand = async (
   contents = deserializeAws_json1_1DeleteAutoSnapshotResult(data, context);
   const response: DeleteAutoSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAutoSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5175,7 +5147,6 @@ export const deserializeAws_json1_1DeleteCertificateCommand = async (
   contents = deserializeAws_json1_1DeleteCertificateResult(data, context);
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5263,7 +5234,6 @@ export const deserializeAws_json1_1DeleteContactMethodCommand = async (
   contents = deserializeAws_json1_1DeleteContactMethodResult(data, context);
   const response: DeleteContactMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteContactMethodResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5359,7 +5329,6 @@ export const deserializeAws_json1_1DeleteDiskCommand = async (
   contents = deserializeAws_json1_1DeleteDiskResult(data, context);
   const response: DeleteDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDiskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5463,7 +5432,6 @@ export const deserializeAws_json1_1DeleteDiskSnapshotCommand = async (
   contents = deserializeAws_json1_1DeleteDiskSnapshotResult(data, context);
   const response: DeleteDiskSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDiskSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5567,7 +5535,6 @@ export const deserializeAws_json1_1DeleteDistributionCommand = async (
   contents = deserializeAws_json1_1DeleteDistributionResult(data, context);
   const response: DeleteDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDistributionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5663,7 +5630,6 @@ export const deserializeAws_json1_1DeleteDomainCommand = async (
   contents = deserializeAws_json1_1DeleteDomainResult(data, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5767,7 +5733,6 @@ export const deserializeAws_json1_1DeleteDomainEntryCommand = async (
   contents = deserializeAws_json1_1DeleteDomainEntryResult(data, context);
   const response: DeleteDomainEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainEntryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5871,7 +5836,6 @@ export const deserializeAws_json1_1DeleteInstanceCommand = async (
   contents = deserializeAws_json1_1DeleteInstanceResult(data, context);
   const response: DeleteInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5975,7 +5939,6 @@ export const deserializeAws_json1_1DeleteInstanceSnapshotCommand = async (
   contents = deserializeAws_json1_1DeleteInstanceSnapshotResult(data, context);
   const response: DeleteInstanceSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInstanceSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6079,7 +6042,6 @@ export const deserializeAws_json1_1DeleteKeyPairCommand = async (
   contents = deserializeAws_json1_1DeleteKeyPairResult(data, context);
   const response: DeleteKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteKeyPairResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6183,7 +6145,6 @@ export const deserializeAws_json1_1DeleteKnownHostKeysCommand = async (
   contents = deserializeAws_json1_1DeleteKnownHostKeysResult(data, context);
   const response: DeleteKnownHostKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteKnownHostKeysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6287,7 +6248,6 @@ export const deserializeAws_json1_1DeleteLoadBalancerCommand = async (
   contents = deserializeAws_json1_1DeleteLoadBalancerResult(data, context);
   const response: DeleteLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLoadBalancerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6391,7 +6351,6 @@ export const deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand = asy
   contents = deserializeAws_json1_1DeleteLoadBalancerTlsCertificateResult(data, context);
   const response: DeleteLoadBalancerTlsCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLoadBalancerTlsCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6495,7 +6454,6 @@ export const deserializeAws_json1_1DeleteRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1DeleteRelationalDatabaseResult(data, context);
   const response: DeleteRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6599,7 +6557,6 @@ export const deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand = asy
   contents = deserializeAws_json1_1DeleteRelationalDatabaseSnapshotResult(data, context);
   const response: DeleteRelationalDatabaseSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRelationalDatabaseSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6703,7 +6660,6 @@ export const deserializeAws_json1_1DetachCertificateFromDistributionCommand = as
   contents = deserializeAws_json1_1DetachCertificateFromDistributionResult(data, context);
   const response: DetachCertificateFromDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachCertificateFromDistributionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6799,7 +6755,6 @@ export const deserializeAws_json1_1DetachDiskCommand = async (
   contents = deserializeAws_json1_1DetachDiskResult(data, context);
   const response: DetachDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachDiskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6903,7 +6858,6 @@ export const deserializeAws_json1_1DetachInstancesFromLoadBalancerCommand = asyn
   contents = deserializeAws_json1_1DetachInstancesFromLoadBalancerResult(data, context);
   const response: DetachInstancesFromLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachInstancesFromLoadBalancerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7007,7 +6961,6 @@ export const deserializeAws_json1_1DetachStaticIpCommand = async (
   contents = deserializeAws_json1_1DetachStaticIpResult(data, context);
   const response: DetachStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachStaticIpResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7111,7 +7064,6 @@ export const deserializeAws_json1_1DisableAddOnCommand = async (
   contents = deserializeAws_json1_1DisableAddOnResult(data, context);
   const response: DisableAddOnCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableAddOnResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7207,7 +7159,6 @@ export const deserializeAws_json1_1DownloadDefaultKeyPairCommand = async (
   contents = deserializeAws_json1_1DownloadDefaultKeyPairResult(data, context);
   const response: DownloadDefaultKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DownloadDefaultKeyPairResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7311,7 +7262,6 @@ export const deserializeAws_json1_1EnableAddOnCommand = async (
   contents = deserializeAws_json1_1EnableAddOnResult(data, context);
   const response: EnableAddOnCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableAddOnResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7407,7 +7357,6 @@ export const deserializeAws_json1_1ExportSnapshotCommand = async (
   contents = deserializeAws_json1_1ExportSnapshotResult(data, context);
   const response: ExportSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7511,7 +7460,6 @@ export const deserializeAws_json1_1GetActiveNamesCommand = async (
   contents = deserializeAws_json1_1GetActiveNamesResult(data, context);
   const response: GetActiveNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetActiveNamesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7615,7 +7563,6 @@ export const deserializeAws_json1_1GetAlarmsCommand = async (
   contents = deserializeAws_json1_1GetAlarmsResult(data, context);
   const response: GetAlarmsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAlarmsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7711,7 +7658,6 @@ export const deserializeAws_json1_1GetAutoSnapshotsCommand = async (
   contents = deserializeAws_json1_1GetAutoSnapshotsResult(data, context);
   const response: GetAutoSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAutoSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7807,7 +7753,6 @@ export const deserializeAws_json1_1GetBlueprintsCommand = async (
   contents = deserializeAws_json1_1GetBlueprintsResult(data, context);
   const response: GetBlueprintsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBlueprintsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7911,7 +7856,6 @@ export const deserializeAws_json1_1GetBundlesCommand = async (
   contents = deserializeAws_json1_1GetBundlesResult(data, context);
   const response: GetBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBundlesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8015,7 +7959,6 @@ export const deserializeAws_json1_1GetCertificatesCommand = async (
   contents = deserializeAws_json1_1GetCertificatesResult(data, context);
   const response: GetCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCertificatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8103,7 +8046,6 @@ export const deserializeAws_json1_1GetCloudFormationStackRecordsCommand = async 
   contents = deserializeAws_json1_1GetCloudFormationStackRecordsResult(data, context);
   const response: GetCloudFormationStackRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCloudFormationStackRecordsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8207,7 +8149,6 @@ export const deserializeAws_json1_1GetContactMethodsCommand = async (
   contents = deserializeAws_json1_1GetContactMethodsResult(data, context);
   const response: GetContactMethodsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContactMethodsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8303,7 +8244,6 @@ export const deserializeAws_json1_1GetDiskCommand = async (
   contents = deserializeAws_json1_1GetDiskResult(data, context);
   const response: GetDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDiskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8407,7 +8347,6 @@ export const deserializeAws_json1_1GetDisksCommand = async (
   contents = deserializeAws_json1_1GetDisksResult(data, context);
   const response: GetDisksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDisksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8511,7 +8450,6 @@ export const deserializeAws_json1_1GetDiskSnapshotCommand = async (
   contents = deserializeAws_json1_1GetDiskSnapshotResult(data, context);
   const response: GetDiskSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDiskSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8615,7 +8553,6 @@ export const deserializeAws_json1_1GetDiskSnapshotsCommand = async (
   contents = deserializeAws_json1_1GetDiskSnapshotsResult(data, context);
   const response: GetDiskSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDiskSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8719,7 +8656,6 @@ export const deserializeAws_json1_1GetDistributionBundlesCommand = async (
   contents = deserializeAws_json1_1GetDistributionBundlesResult(data, context);
   const response: GetDistributionBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionBundlesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8815,7 +8751,6 @@ export const deserializeAws_json1_1GetDistributionLatestCacheResetCommand = asyn
   contents = deserializeAws_json1_1GetDistributionLatestCacheResetResult(data, context);
   const response: GetDistributionLatestCacheResetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionLatestCacheResetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8911,7 +8846,6 @@ export const deserializeAws_json1_1GetDistributionMetricDataCommand = async (
   contents = deserializeAws_json1_1GetDistributionMetricDataResult(data, context);
   const response: GetDistributionMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionMetricDataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9007,7 +8941,6 @@ export const deserializeAws_json1_1GetDistributionsCommand = async (
   contents = deserializeAws_json1_1GetDistributionsResult(data, context);
   const response: GetDistributionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9103,7 +9036,6 @@ export const deserializeAws_json1_1GetDomainCommand = async (
   contents = deserializeAws_json1_1GetDomainResult(data, context);
   const response: GetDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9207,7 +9139,6 @@ export const deserializeAws_json1_1GetDomainsCommand = async (
   contents = deserializeAws_json1_1GetDomainsResult(data, context);
   const response: GetDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9311,7 +9242,6 @@ export const deserializeAws_json1_1GetExportSnapshotRecordsCommand = async (
   contents = deserializeAws_json1_1GetExportSnapshotRecordsResult(data, context);
   const response: GetExportSnapshotRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetExportSnapshotRecordsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9415,7 +9345,6 @@ export const deserializeAws_json1_1GetInstanceCommand = async (
   contents = deserializeAws_json1_1GetInstanceResult(data, context);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9519,7 +9448,6 @@ export const deserializeAws_json1_1GetInstanceAccessDetailsCommand = async (
   contents = deserializeAws_json1_1GetInstanceAccessDetailsResult(data, context);
   const response: GetInstanceAccessDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceAccessDetailsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9623,7 +9551,6 @@ export const deserializeAws_json1_1GetInstanceMetricDataCommand = async (
   contents = deserializeAws_json1_1GetInstanceMetricDataResult(data, context);
   const response: GetInstanceMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceMetricDataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9727,7 +9654,6 @@ export const deserializeAws_json1_1GetInstancePortStatesCommand = async (
   contents = deserializeAws_json1_1GetInstancePortStatesResult(data, context);
   const response: GetInstancePortStatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstancePortStatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9831,7 +9757,6 @@ export const deserializeAws_json1_1GetInstancesCommand = async (
   contents = deserializeAws_json1_1GetInstancesResult(data, context);
   const response: GetInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9935,7 +9860,6 @@ export const deserializeAws_json1_1GetInstanceSnapshotCommand = async (
   contents = deserializeAws_json1_1GetInstanceSnapshotResult(data, context);
   const response: GetInstanceSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10039,7 +9963,6 @@ export const deserializeAws_json1_1GetInstanceSnapshotsCommand = async (
   contents = deserializeAws_json1_1GetInstanceSnapshotsResult(data, context);
   const response: GetInstanceSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10143,7 +10066,6 @@ export const deserializeAws_json1_1GetInstanceStateCommand = async (
   contents = deserializeAws_json1_1GetInstanceStateResult(data, context);
   const response: GetInstanceStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceStateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10247,7 +10169,6 @@ export const deserializeAws_json1_1GetKeyPairCommand = async (
   contents = deserializeAws_json1_1GetKeyPairResult(data, context);
   const response: GetKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetKeyPairResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10351,7 +10272,6 @@ export const deserializeAws_json1_1GetKeyPairsCommand = async (
   contents = deserializeAws_json1_1GetKeyPairsResult(data, context);
   const response: GetKeyPairsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetKeyPairsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10455,7 +10375,6 @@ export const deserializeAws_json1_1GetLoadBalancerCommand = async (
   contents = deserializeAws_json1_1GetLoadBalancerResult(data, context);
   const response: GetLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoadBalancerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10559,7 +10478,6 @@ export const deserializeAws_json1_1GetLoadBalancerMetricDataCommand = async (
   contents = deserializeAws_json1_1GetLoadBalancerMetricDataResult(data, context);
   const response: GetLoadBalancerMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoadBalancerMetricDataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10663,7 +10581,6 @@ export const deserializeAws_json1_1GetLoadBalancersCommand = async (
   contents = deserializeAws_json1_1GetLoadBalancersResult(data, context);
   const response: GetLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoadBalancersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10767,7 +10684,6 @@ export const deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async
   contents = deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult(data, context);
   const response: GetLoadBalancerTlsCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoadBalancerTlsCertificatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10871,7 +10787,6 @@ export const deserializeAws_json1_1GetOperationCommand = async (
   contents = deserializeAws_json1_1GetOperationResult(data, context);
   const response: GetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOperationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10975,7 +10890,6 @@ export const deserializeAws_json1_1GetOperationsCommand = async (
   contents = deserializeAws_json1_1GetOperationsResult(data, context);
   const response: GetOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOperationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11079,7 +10993,6 @@ export const deserializeAws_json1_1GetOperationsForResourceCommand = async (
   contents = deserializeAws_json1_1GetOperationsForResourceResult(data, context);
   const response: GetOperationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOperationsForResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11183,7 +11096,6 @@ export const deserializeAws_json1_1GetRegionsCommand = async (
   contents = deserializeAws_json1_1GetRegionsResult(data, context);
   const response: GetRegionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRegionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11287,7 +11199,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1GetRelationalDatabaseResult(data, context);
   const response: GetRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11391,7 +11302,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommand = asyn
   contents = deserializeAws_json1_1GetRelationalDatabaseBlueprintsResult(data, context);
   const response: GetRelationalDatabaseBlueprintsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseBlueprintsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11495,7 +11405,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseBundlesCommand = async (
   contents = deserializeAws_json1_1GetRelationalDatabaseBundlesResult(data, context);
   const response: GetRelationalDatabaseBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseBundlesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11599,7 +11508,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseEventsCommand = async (
   contents = deserializeAws_json1_1GetRelationalDatabaseEventsResult(data, context);
   const response: GetRelationalDatabaseEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseEventsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11703,7 +11611,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseLogEventsCommand = async
   contents = deserializeAws_json1_1GetRelationalDatabaseLogEventsResult(data, context);
   const response: GetRelationalDatabaseLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseLogEventsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11807,7 +11714,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand = asyn
   contents = deserializeAws_json1_1GetRelationalDatabaseLogStreamsResult(data, context);
   const response: GetRelationalDatabaseLogStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseLogStreamsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11911,7 +11817,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordComman
   contents = deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordResult(data, context);
   const response: GetRelationalDatabaseMasterUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseMasterUserPasswordResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12015,7 +11920,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseMetricDataCommand = asyn
   contents = deserializeAws_json1_1GetRelationalDatabaseMetricDataResult(data, context);
   const response: GetRelationalDatabaseMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseMetricDataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12119,7 +12023,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseParametersCommand = asyn
   contents = deserializeAws_json1_1GetRelationalDatabaseParametersResult(data, context);
   const response: GetRelationalDatabaseParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseParametersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12223,7 +12126,6 @@ export const deserializeAws_json1_1GetRelationalDatabasesCommand = async (
   contents = deserializeAws_json1_1GetRelationalDatabasesResult(data, context);
   const response: GetRelationalDatabasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabasesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12327,7 +12229,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand = async 
   contents = deserializeAws_json1_1GetRelationalDatabaseSnapshotResult(data, context);
   const response: GetRelationalDatabaseSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12431,7 +12332,6 @@ export const deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommand = async
   contents = deserializeAws_json1_1GetRelationalDatabaseSnapshotsResult(data, context);
   const response: GetRelationalDatabaseSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRelationalDatabaseSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12535,7 +12435,6 @@ export const deserializeAws_json1_1GetStaticIpCommand = async (
   contents = deserializeAws_json1_1GetStaticIpResult(data, context);
   const response: GetStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStaticIpResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12639,7 +12538,6 @@ export const deserializeAws_json1_1GetStaticIpsCommand = async (
   contents = deserializeAws_json1_1GetStaticIpsResult(data, context);
   const response: GetStaticIpsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStaticIpsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12743,7 +12641,6 @@ export const deserializeAws_json1_1ImportKeyPairCommand = async (
   contents = deserializeAws_json1_1ImportKeyPairResult(data, context);
   const response: ImportKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportKeyPairResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12847,7 +12744,6 @@ export const deserializeAws_json1_1IsVpcPeeredCommand = async (
   contents = deserializeAws_json1_1IsVpcPeeredResult(data, context);
   const response: IsVpcPeeredCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IsVpcPeeredResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12951,7 +12847,6 @@ export const deserializeAws_json1_1OpenInstancePublicPortsCommand = async (
   contents = deserializeAws_json1_1OpenInstancePublicPortsResult(data, context);
   const response: OpenInstancePublicPortsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "OpenInstancePublicPortsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13055,7 +12950,6 @@ export const deserializeAws_json1_1PeerVpcCommand = async (
   contents = deserializeAws_json1_1PeerVpcResult(data, context);
   const response: PeerVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PeerVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13159,7 +13053,6 @@ export const deserializeAws_json1_1PutAlarmCommand = async (
   contents = deserializeAws_json1_1PutAlarmResult(data, context);
   const response: PutAlarmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAlarmResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13255,7 +13148,6 @@ export const deserializeAws_json1_1PutInstancePublicPortsCommand = async (
   contents = deserializeAws_json1_1PutInstancePublicPortsResult(data, context);
   const response: PutInstancePublicPortsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutInstancePublicPortsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13359,7 +13251,6 @@ export const deserializeAws_json1_1RebootInstanceCommand = async (
   contents = deserializeAws_json1_1RebootInstanceResult(data, context);
   const response: RebootInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13463,7 +13354,6 @@ export const deserializeAws_json1_1RebootRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1RebootRelationalDatabaseResult(data, context);
   const response: RebootRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13567,7 +13457,6 @@ export const deserializeAws_json1_1ReleaseStaticIpCommand = async (
   contents = deserializeAws_json1_1ReleaseStaticIpResult(data, context);
   const response: ReleaseStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReleaseStaticIpResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13671,7 +13560,6 @@ export const deserializeAws_json1_1ResetDistributionCacheCommand = async (
   contents = deserializeAws_json1_1ResetDistributionCacheResult(data, context);
   const response: ResetDistributionCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetDistributionCacheResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13767,7 +13655,6 @@ export const deserializeAws_json1_1SendContactMethodVerificationCommand = async 
   contents = deserializeAws_json1_1SendContactMethodVerificationResult(data, context);
   const response: SendContactMethodVerificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendContactMethodVerificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13863,7 +13750,6 @@ export const deserializeAws_json1_1StartInstanceCommand = async (
   contents = deserializeAws_json1_1StartInstanceResult(data, context);
   const response: StartInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13967,7 +13853,6 @@ export const deserializeAws_json1_1StartRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1StartRelationalDatabaseResult(data, context);
   const response: StartRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14071,7 +13956,6 @@ export const deserializeAws_json1_1StopInstanceCommand = async (
   contents = deserializeAws_json1_1StopInstanceResult(data, context);
   const response: StopInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14175,7 +14059,6 @@ export const deserializeAws_json1_1StopRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1StopRelationalDatabaseResult(data, context);
   const response: StopRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14279,7 +14162,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResult(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14383,7 +14265,6 @@ export const deserializeAws_json1_1TestAlarmCommand = async (
   contents = deserializeAws_json1_1TestAlarmResult(data, context);
   const response: TestAlarmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestAlarmResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14479,7 +14360,6 @@ export const deserializeAws_json1_1UnpeerVpcCommand = async (
   contents = deserializeAws_json1_1UnpeerVpcResult(data, context);
   const response: UnpeerVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnpeerVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14583,7 +14463,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResult(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14687,7 +14566,6 @@ export const deserializeAws_json1_1UpdateDistributionCommand = async (
   contents = deserializeAws_json1_1UpdateDistributionResult(data, context);
   const response: UpdateDistributionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDistributionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14783,7 +14661,6 @@ export const deserializeAws_json1_1UpdateDistributionBundleCommand = async (
   contents = deserializeAws_json1_1UpdateDistributionBundleResult(data, context);
   const response: UpdateDistributionBundleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDistributionBundleResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14879,7 +14756,6 @@ export const deserializeAws_json1_1UpdateDomainEntryCommand = async (
   contents = deserializeAws_json1_1UpdateDomainEntryResult(data, context);
   const response: UpdateDomainEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainEntryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14983,7 +14859,6 @@ export const deserializeAws_json1_1UpdateLoadBalancerAttributeCommand = async (
   contents = deserializeAws_json1_1UpdateLoadBalancerAttributeResult(data, context);
   const response: UpdateLoadBalancerAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLoadBalancerAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15087,7 +14962,6 @@ export const deserializeAws_json1_1UpdateRelationalDatabaseCommand = async (
   contents = deserializeAws_json1_1UpdateRelationalDatabaseResult(data, context);
   const response: UpdateRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRelationalDatabaseResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15191,7 +15065,6 @@ export const deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand = a
   contents = deserializeAws_json1_1UpdateRelationalDatabaseParametersResult(data, context);
   const response: UpdateRelationalDatabaseParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRelationalDatabaseParametersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16877,7 +16750,6 @@ const serializeAws_json1_1UpdateRelationalDatabaseRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -16890,7 +16762,6 @@ const deserializeAws_json1_1AccountSetupInProgressException = (
   context: __SerdeContext
 ): AccountSetupInProgressException => {
   return {
-    __type: "AccountSetupInProgressException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -16900,7 +16771,6 @@ const deserializeAws_json1_1AccountSetupInProgressException = (
 
 const deserializeAws_json1_1AddOn = (output: any, context: __SerdeContext): AddOn => {
   return {
-    __type: "AddOn",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     nextSnapshotTimeOfDay:
       output.nextSnapshotTimeOfDay !== undefined && output.nextSnapshotTimeOfDay !== null
@@ -16920,7 +16790,6 @@ const deserializeAws_json1_1AddOnList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
   return {
-    __type: "Alarm",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     comparisonOperator:
       output.comparisonOperator !== undefined && output.comparisonOperator !== null
@@ -16978,7 +16847,6 @@ const deserializeAws_json1_1AlarmsList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1AllocateStaticIpResult = (output: any, context: __SerdeContext): AllocateStaticIpResult => {
   return {
-    __type: "AllocateStaticIpResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -16991,7 +16859,6 @@ const deserializeAws_json1_1AttachCertificateToDistributionResult = (
   context: __SerdeContext
 ): AttachCertificateToDistributionResult => {
   return {
-    __type: "AttachCertificateToDistributionResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17001,7 +16868,6 @@ const deserializeAws_json1_1AttachCertificateToDistributionResult = (
 
 const deserializeAws_json1_1AttachDiskResult = (output: any, context: __SerdeContext): AttachDiskResult => {
   return {
-    __type: "AttachDiskResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17011,7 +16877,6 @@ const deserializeAws_json1_1AttachDiskResult = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1AttachedDisk = (output: any, context: __SerdeContext): AttachedDisk => {
   return {
-    __type: "AttachedDisk",
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
     sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
   } as any;
@@ -17026,7 +16891,6 @@ const deserializeAws_json1_1AttachInstancesToLoadBalancerResult = (
   context: __SerdeContext
 ): AttachInstancesToLoadBalancerResult => {
   return {
-    __type: "AttachInstancesToLoadBalancerResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17039,7 +16903,6 @@ const deserializeAws_json1_1AttachLoadBalancerTlsCertificateResult = (
   context: __SerdeContext
 ): AttachLoadBalancerTlsCertificateResult => {
   return {
-    __type: "AttachLoadBalancerTlsCertificateResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17049,7 +16912,6 @@ const deserializeAws_json1_1AttachLoadBalancerTlsCertificateResult = (
 
 const deserializeAws_json1_1AttachStaticIpResult = (output: any, context: __SerdeContext): AttachStaticIpResult => {
   return {
-    __type: "AttachStaticIpResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17059,7 +16921,6 @@ const deserializeAws_json1_1AttachStaticIpResult = (output: any, context: __Serd
 
 const deserializeAws_json1_1AutoSnapshotDetails = (output: any, context: __SerdeContext): AutoSnapshotDetails => {
   return {
-    __type: "AutoSnapshotDetails",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -17079,7 +16940,6 @@ const deserializeAws_json1_1AutoSnapshotDetailsList = (output: any, context: __S
 
 const deserializeAws_json1_1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   return {
-    __type: "AvailabilityZone",
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
     zoneName: output.zoneName !== undefined && output.zoneName !== null ? output.zoneName : undefined,
   } as any;
@@ -17091,7 +16951,6 @@ const deserializeAws_json1_1AvailabilityZoneList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Blueprint = (output: any, context: __SerdeContext): Blueprint => {
   return {
-    __type: "Blueprint",
     blueprintId: output.blueprintId !== undefined && output.blueprintId !== null ? output.blueprintId : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     group: output.group !== undefined && output.group !== null ? output.group : undefined,
@@ -17113,7 +16972,6 @@ const deserializeAws_json1_1BlueprintList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Bundle = (output: any, context: __SerdeContext): Bundle => {
   return {
-    __type: "Bundle",
     bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
     cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
     diskSizeInGb: output.diskSizeInGb !== undefined && output.diskSizeInGb !== null ? output.diskSizeInGb : undefined,
@@ -17140,7 +16998,6 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
   return {
-    __type: "CacheBehavior",
     behavior: output.behavior !== undefined && output.behavior !== null ? output.behavior : undefined,
   } as any;
 };
@@ -17151,7 +17008,6 @@ const deserializeAws_json1_1CacheBehaviorList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CacheBehaviorPerPath = (output: any, context: __SerdeContext): CacheBehaviorPerPath => {
   return {
-    __type: "CacheBehaviorPerPath",
     behavior: output.behavior !== undefined && output.behavior !== null ? output.behavior : undefined,
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
   } as any;
@@ -17159,7 +17015,6 @@ const deserializeAws_json1_1CacheBehaviorPerPath = (output: any, context: __Serd
 
 const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContext): CacheSettings => {
   return {
-    __type: "CacheSettings",
     allowedHTTPMethods:
       output.allowedHTTPMethods !== undefined && output.allowedHTTPMethods !== null
         ? output.allowedHTTPMethods
@@ -17188,7 +17043,6 @@ const deserializeAws_json1_1CacheSettings = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    __type: "Certificate",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -17250,7 +17104,6 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
   return {
-    __type: "CertificateSummary",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateDetail:
@@ -17276,7 +17129,6 @@ const deserializeAws_json1_1CloseInstancePublicPortsResult = (
   context: __SerdeContext
 ): CloseInstancePublicPortsResult => {
   return {
-    __type: "CloseInstancePublicPortsResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17289,7 +17141,6 @@ const deserializeAws_json1_1CloudFormationStackRecord = (
   context: __SerdeContext
 ): CloudFormationStackRecord => {
   return {
-    __type: "CloudFormationStackRecord",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -17325,7 +17176,6 @@ const deserializeAws_json1_1CloudFormationStackRecordSourceInfo = (
   context: __SerdeContext
 ): CloudFormationStackRecordSourceInfo => {
   return {
-    __type: "CloudFormationStackRecordSourceInfo",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
@@ -17341,7 +17191,6 @@ const deserializeAws_json1_1CloudFormationStackRecordSourceInfoList = (
 
 const deserializeAws_json1_1ContactMethod = (output: any, context: __SerdeContext): ContactMethod => {
   return {
-    __type: "ContactMethod",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     contactEndpoint:
       output.contactEndpoint !== undefined && output.contactEndpoint !== null ? output.contactEndpoint : undefined,
@@ -17374,7 +17223,6 @@ const deserializeAws_json1_1ContactProtocolsList = (
 
 const deserializeAws_json1_1CookieObject = (output: any, context: __SerdeContext): CookieObject => {
   return {
-    __type: "CookieObject",
     cookiesAllowList:
       output.cookiesAllowList !== undefined && output.cookiesAllowList !== null
         ? deserializeAws_json1_1StringList(output.cookiesAllowList, context)
@@ -17385,7 +17233,6 @@ const deserializeAws_json1_1CookieObject = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
   return {
-    __type: "CopySnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17398,7 +17245,6 @@ const deserializeAws_json1_1CreateCertificateResult = (
   context: __SerdeContext
 ): CreateCertificateResult => {
   return {
-    __type: "CreateCertificateResult",
     certificate:
       output.certificate !== undefined && output.certificate !== null
         ? deserializeAws_json1_1CertificateSummary(output.certificate, context)
@@ -17415,7 +17261,6 @@ const deserializeAws_json1_1CreateCloudFormationStackResult = (
   context: __SerdeContext
 ): CreateCloudFormationStackResult => {
   return {
-    __type: "CreateCloudFormationStackResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17428,7 +17273,6 @@ const deserializeAws_json1_1CreateContactMethodResult = (
   context: __SerdeContext
 ): CreateContactMethodResult => {
   return {
-    __type: "CreateContactMethodResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17441,7 +17285,6 @@ const deserializeAws_json1_1CreateDiskFromSnapshotResult = (
   context: __SerdeContext
 ): CreateDiskFromSnapshotResult => {
   return {
-    __type: "CreateDiskFromSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17451,7 +17294,6 @@ const deserializeAws_json1_1CreateDiskFromSnapshotResult = (
 
 const deserializeAws_json1_1CreateDiskResult = (output: any, context: __SerdeContext): CreateDiskResult => {
   return {
-    __type: "CreateDiskResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17464,7 +17306,6 @@ const deserializeAws_json1_1CreateDiskSnapshotResult = (
   context: __SerdeContext
 ): CreateDiskSnapshotResult => {
   return {
-    __type: "CreateDiskSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17477,7 +17318,6 @@ const deserializeAws_json1_1CreateDistributionResult = (
   context: __SerdeContext
 ): CreateDistributionResult => {
   return {
-    __type: "CreateDistributionResult",
     distribution:
       output.distribution !== undefined && output.distribution !== null
         ? deserializeAws_json1_1LightsailDistribution(output.distribution, context)
@@ -17494,7 +17334,6 @@ const deserializeAws_json1_1CreateDomainEntryResult = (
   context: __SerdeContext
 ): CreateDomainEntryResult => {
   return {
-    __type: "CreateDomainEntryResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17504,7 +17343,6 @@ const deserializeAws_json1_1CreateDomainEntryResult = (
 
 const deserializeAws_json1_1CreateDomainResult = (output: any, context: __SerdeContext): CreateDomainResult => {
   return {
-    __type: "CreateDomainResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17517,7 +17355,6 @@ const deserializeAws_json1_1CreateInstancesFromSnapshotResult = (
   context: __SerdeContext
 ): CreateInstancesFromSnapshotResult => {
   return {
-    __type: "CreateInstancesFromSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17530,7 +17367,6 @@ const deserializeAws_json1_1CreateInstanceSnapshotResult = (
   context: __SerdeContext
 ): CreateInstanceSnapshotResult => {
   return {
-    __type: "CreateInstanceSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17540,7 +17376,6 @@ const deserializeAws_json1_1CreateInstanceSnapshotResult = (
 
 const deserializeAws_json1_1CreateInstancesResult = (output: any, context: __SerdeContext): CreateInstancesResult => {
   return {
-    __type: "CreateInstancesResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17550,7 +17385,6 @@ const deserializeAws_json1_1CreateInstancesResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1CreateKeyPairResult = (output: any, context: __SerdeContext): CreateKeyPairResult => {
   return {
-    __type: "CreateKeyPairResult",
     keyPair:
       output.keyPair !== undefined && output.keyPair !== null
         ? deserializeAws_json1_1KeyPair(output.keyPair, context)
@@ -17571,7 +17405,6 @@ const deserializeAws_json1_1CreateLoadBalancerResult = (
   context: __SerdeContext
 ): CreateLoadBalancerResult => {
   return {
-    __type: "CreateLoadBalancerResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17584,7 +17417,6 @@ const deserializeAws_json1_1CreateLoadBalancerTlsCertificateResult = (
   context: __SerdeContext
 ): CreateLoadBalancerTlsCertificateResult => {
   return {
-    __type: "CreateLoadBalancerTlsCertificateResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17597,7 +17429,6 @@ const deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotResult = (
   context: __SerdeContext
 ): CreateRelationalDatabaseFromSnapshotResult => {
   return {
-    __type: "CreateRelationalDatabaseFromSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17610,7 +17441,6 @@ const deserializeAws_json1_1CreateRelationalDatabaseResult = (
   context: __SerdeContext
 ): CreateRelationalDatabaseResult => {
   return {
-    __type: "CreateRelationalDatabaseResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17623,7 +17453,6 @@ const deserializeAws_json1_1CreateRelationalDatabaseSnapshotResult = (
   context: __SerdeContext
 ): CreateRelationalDatabaseSnapshotResult => {
   return {
-    __type: "CreateRelationalDatabaseSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17633,7 +17462,6 @@ const deserializeAws_json1_1CreateRelationalDatabaseSnapshotResult = (
 
 const deserializeAws_json1_1DeleteAlarmResult = (output: any, context: __SerdeContext): DeleteAlarmResult => {
   return {
-    __type: "DeleteAlarmResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17646,7 +17474,6 @@ const deserializeAws_json1_1DeleteAutoSnapshotResult = (
   context: __SerdeContext
 ): DeleteAutoSnapshotResult => {
   return {
-    __type: "DeleteAutoSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17659,7 +17486,6 @@ const deserializeAws_json1_1DeleteCertificateResult = (
   context: __SerdeContext
 ): DeleteCertificateResult => {
   return {
-    __type: "DeleteCertificateResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17672,7 +17498,6 @@ const deserializeAws_json1_1DeleteContactMethodResult = (
   context: __SerdeContext
 ): DeleteContactMethodResult => {
   return {
-    __type: "DeleteContactMethodResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17682,7 +17507,6 @@ const deserializeAws_json1_1DeleteContactMethodResult = (
 
 const deserializeAws_json1_1DeleteDiskResult = (output: any, context: __SerdeContext): DeleteDiskResult => {
   return {
-    __type: "DeleteDiskResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17695,7 +17519,6 @@ const deserializeAws_json1_1DeleteDiskSnapshotResult = (
   context: __SerdeContext
 ): DeleteDiskSnapshotResult => {
   return {
-    __type: "DeleteDiskSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17708,7 +17531,6 @@ const deserializeAws_json1_1DeleteDistributionResult = (
   context: __SerdeContext
 ): DeleteDistributionResult => {
   return {
-    __type: "DeleteDistributionResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17721,7 +17543,6 @@ const deserializeAws_json1_1DeleteDomainEntryResult = (
   context: __SerdeContext
 ): DeleteDomainEntryResult => {
   return {
-    __type: "DeleteDomainEntryResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17731,7 +17552,6 @@ const deserializeAws_json1_1DeleteDomainEntryResult = (
 
 const deserializeAws_json1_1DeleteDomainResult = (output: any, context: __SerdeContext): DeleteDomainResult => {
   return {
-    __type: "DeleteDomainResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17741,7 +17561,6 @@ const deserializeAws_json1_1DeleteDomainResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DeleteInstanceResult = (output: any, context: __SerdeContext): DeleteInstanceResult => {
   return {
-    __type: "DeleteInstanceResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17754,7 +17573,6 @@ const deserializeAws_json1_1DeleteInstanceSnapshotResult = (
   context: __SerdeContext
 ): DeleteInstanceSnapshotResult => {
   return {
-    __type: "DeleteInstanceSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17764,7 +17582,6 @@ const deserializeAws_json1_1DeleteInstanceSnapshotResult = (
 
 const deserializeAws_json1_1DeleteKeyPairResult = (output: any, context: __SerdeContext): DeleteKeyPairResult => {
   return {
-    __type: "DeleteKeyPairResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17777,7 +17594,6 @@ const deserializeAws_json1_1DeleteKnownHostKeysResult = (
   context: __SerdeContext
 ): DeleteKnownHostKeysResult => {
   return {
-    __type: "DeleteKnownHostKeysResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17790,7 +17606,6 @@ const deserializeAws_json1_1DeleteLoadBalancerResult = (
   context: __SerdeContext
 ): DeleteLoadBalancerResult => {
   return {
-    __type: "DeleteLoadBalancerResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17803,7 +17618,6 @@ const deserializeAws_json1_1DeleteLoadBalancerTlsCertificateResult = (
   context: __SerdeContext
 ): DeleteLoadBalancerTlsCertificateResult => {
   return {
-    __type: "DeleteLoadBalancerTlsCertificateResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17816,7 +17630,6 @@ const deserializeAws_json1_1DeleteRelationalDatabaseResult = (
   context: __SerdeContext
 ): DeleteRelationalDatabaseResult => {
   return {
-    __type: "DeleteRelationalDatabaseResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17829,7 +17642,6 @@ const deserializeAws_json1_1DeleteRelationalDatabaseSnapshotResult = (
   context: __SerdeContext
 ): DeleteRelationalDatabaseSnapshotResult => {
   return {
-    __type: "DeleteRelationalDatabaseSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17839,7 +17651,6 @@ const deserializeAws_json1_1DeleteRelationalDatabaseSnapshotResult = (
 
 const deserializeAws_json1_1DestinationInfo = (output: any, context: __SerdeContext): DestinationInfo => {
   return {
-    __type: "DestinationInfo",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     service: output.service !== undefined && output.service !== null ? output.service : undefined,
   } as any;
@@ -17850,7 +17661,6 @@ const deserializeAws_json1_1DetachCertificateFromDistributionResult = (
   context: __SerdeContext
 ): DetachCertificateFromDistributionResult => {
   return {
-    __type: "DetachCertificateFromDistributionResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -17860,7 +17670,6 @@ const deserializeAws_json1_1DetachCertificateFromDistributionResult = (
 
 const deserializeAws_json1_1DetachDiskResult = (output: any, context: __SerdeContext): DetachDiskResult => {
   return {
-    __type: "DetachDiskResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17873,7 +17682,6 @@ const deserializeAws_json1_1DetachInstancesFromLoadBalancerResult = (
   context: __SerdeContext
 ): DetachInstancesFromLoadBalancerResult => {
   return {
-    __type: "DetachInstancesFromLoadBalancerResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17883,7 +17691,6 @@ const deserializeAws_json1_1DetachInstancesFromLoadBalancerResult = (
 
 const deserializeAws_json1_1DetachStaticIpResult = (output: any, context: __SerdeContext): DetachStaticIpResult => {
   return {
-    __type: "DetachStaticIpResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17893,7 +17700,6 @@ const deserializeAws_json1_1DetachStaticIpResult = (output: any, context: __Serd
 
 const deserializeAws_json1_1DisableAddOnResult = (output: any, context: __SerdeContext): DisableAddOnResult => {
   return {
-    __type: "DisableAddOnResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -17903,7 +17709,6 @@ const deserializeAws_json1_1DisableAddOnResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk => {
   return {
-    __type: "Disk",
     addOns:
       output.addOns !== undefined && output.addOns !== null
         ? deserializeAws_json1_1AddOnList(output.addOns, context)
@@ -17939,7 +17744,6 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
 
 const deserializeAws_json1_1DiskInfo = (output: any, context: __SerdeContext): DiskInfo => {
   return {
-    __type: "DiskInfo",
     isSystemDisk: output.isSystemDisk !== undefined && output.isSystemDisk !== null ? output.isSystemDisk : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
@@ -17957,7 +17761,6 @@ const deserializeAws_json1_1DiskList = (output: any, context: __SerdeContext): D
 
 const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext): DiskSnapshot => {
   return {
-    __type: "DiskSnapshot",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -17992,7 +17795,6 @@ const deserializeAws_json1_1DiskSnapshot = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DiskSnapshotInfo = (output: any, context: __SerdeContext): DiskSnapshotInfo => {
   return {
-    __type: "DiskSnapshotInfo",
     sizeInGb: output.sizeInGb !== undefined && output.sizeInGb !== null ? output.sizeInGb : undefined,
   } as any;
 };
@@ -18003,7 +17805,6 @@ const deserializeAws_json1_1DiskSnapshotList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1DistributionBundle = (output: any, context: __SerdeContext): DistributionBundle => {
   return {
-    __type: "DistributionBundle",
     bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
     isActive: output.isActive !== undefined && output.isActive !== null ? output.isActive : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -18025,7 +17826,6 @@ const deserializeAws_json1_1DistributionList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Domain => {
   return {
-    __type: "Domain",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -18051,7 +17851,6 @@ const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Dom
 
 const deserializeAws_json1_1DomainEntry = (output: any, context: __SerdeContext): DomainEntry => {
   return {
-    __type: "DomainEntry",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     isAlias: output.isAlias !== undefined && output.isAlias !== null ? output.isAlias : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -18084,7 +17883,6 @@ const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1DomainValidationRecord = (output: any, context: __SerdeContext): DomainValidationRecord => {
   return {
-    __type: "DomainValidationRecord",
     domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     resourceRecord:
       output.resourceRecord !== undefined && output.resourceRecord !== null
@@ -18105,7 +17903,6 @@ const deserializeAws_json1_1DownloadDefaultKeyPairResult = (
   context: __SerdeContext
 ): DownloadDefaultKeyPairResult => {
   return {
-    __type: "DownloadDefaultKeyPairResult",
     privateKeyBase64:
       output.privateKeyBase64 !== undefined && output.privateKeyBase64 !== null ? output.privateKeyBase64 : undefined,
     publicKeyBase64:
@@ -18115,7 +17912,6 @@ const deserializeAws_json1_1DownloadDefaultKeyPairResult = (
 
 const deserializeAws_json1_1EnableAddOnResult = (output: any, context: __SerdeContext): EnableAddOnResult => {
   return {
-    __type: "EnableAddOnResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -18125,7 +17921,6 @@ const deserializeAws_json1_1EnableAddOnResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ExportSnapshotRecord = (output: any, context: __SerdeContext): ExportSnapshotRecord => {
   return {
-    __type: "ExportSnapshotRecord",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -18161,7 +17956,6 @@ const deserializeAws_json1_1ExportSnapshotRecordSourceInfo = (
   context: __SerdeContext
 ): ExportSnapshotRecordSourceInfo => {
   return {
-    __type: "ExportSnapshotRecordSourceInfo",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -18186,7 +17980,6 @@ const deserializeAws_json1_1ExportSnapshotRecordSourceInfo = (
 
 const deserializeAws_json1_1ExportSnapshotResult = (output: any, context: __SerdeContext): ExportSnapshotResult => {
   return {
-    __type: "ExportSnapshotResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -18196,7 +17989,6 @@ const deserializeAws_json1_1ExportSnapshotResult = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetActiveNamesResult = (output: any, context: __SerdeContext): GetActiveNamesResult => {
   return {
-    __type: "GetActiveNamesResult",
     activeNames:
       output.activeNames !== undefined && output.activeNames !== null
         ? deserializeAws_json1_1StringList(output.activeNames, context)
@@ -18208,7 +18000,6 @@ const deserializeAws_json1_1GetActiveNamesResult = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetAlarmsResult = (output: any, context: __SerdeContext): GetAlarmsResult => {
   return {
-    __type: "GetAlarmsResult",
     alarms:
       output.alarms !== undefined && output.alarms !== null
         ? deserializeAws_json1_1AlarmsList(output.alarms, context)
@@ -18220,7 +18011,6 @@ const deserializeAws_json1_1GetAlarmsResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GetAutoSnapshotsResult = (output: any, context: __SerdeContext): GetAutoSnapshotsResult => {
   return {
-    __type: "GetAutoSnapshotsResult",
     autoSnapshots:
       output.autoSnapshots !== undefined && output.autoSnapshots !== null
         ? deserializeAws_json1_1AutoSnapshotDetailsList(output.autoSnapshots, context)
@@ -18232,7 +18022,6 @@ const deserializeAws_json1_1GetAutoSnapshotsResult = (output: any, context: __Se
 
 const deserializeAws_json1_1GetBlueprintsResult = (output: any, context: __SerdeContext): GetBlueprintsResult => {
   return {
-    __type: "GetBlueprintsResult",
     blueprints:
       output.blueprints !== undefined && output.blueprints !== null
         ? deserializeAws_json1_1BlueprintList(output.blueprints, context)
@@ -18244,7 +18033,6 @@ const deserializeAws_json1_1GetBlueprintsResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1GetBundlesResult = (output: any, context: __SerdeContext): GetBundlesResult => {
   return {
-    __type: "GetBundlesResult",
     bundles:
       output.bundles !== undefined && output.bundles !== null
         ? deserializeAws_json1_1BundleList(output.bundles, context)
@@ -18256,7 +18044,6 @@ const deserializeAws_json1_1GetBundlesResult = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetCertificatesResult = (output: any, context: __SerdeContext): GetCertificatesResult => {
   return {
-    __type: "GetCertificatesResult",
     certificates:
       output.certificates !== undefined && output.certificates !== null
         ? deserializeAws_json1_1CertificateSummaryList(output.certificates, context)
@@ -18269,7 +18056,6 @@ const deserializeAws_json1_1GetCloudFormationStackRecordsResult = (
   context: __SerdeContext
 ): GetCloudFormationStackRecordsResult => {
   return {
-    __type: "GetCloudFormationStackRecordsResult",
     cloudFormationStackRecords:
       output.cloudFormationStackRecords !== undefined && output.cloudFormationStackRecords !== null
         ? deserializeAws_json1_1CloudFormationStackRecordList(output.cloudFormationStackRecords, context)
@@ -18284,7 +18070,6 @@ const deserializeAws_json1_1GetContactMethodsResult = (
   context: __SerdeContext
 ): GetContactMethodsResult => {
   return {
-    __type: "GetContactMethodsResult",
     contactMethods:
       output.contactMethods !== undefined && output.contactMethods !== null
         ? deserializeAws_json1_1ContactMethodsList(output.contactMethods, context)
@@ -18294,7 +18079,6 @@ const deserializeAws_json1_1GetContactMethodsResult = (
 
 const deserializeAws_json1_1GetDiskResult = (output: any, context: __SerdeContext): GetDiskResult => {
   return {
-    __type: "GetDiskResult",
     disk:
       output.disk !== undefined && output.disk !== null ? deserializeAws_json1_1Disk(output.disk, context) : undefined,
   } as any;
@@ -18302,7 +18086,6 @@ const deserializeAws_json1_1GetDiskResult = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1GetDiskSnapshotResult = (output: any, context: __SerdeContext): GetDiskSnapshotResult => {
   return {
-    __type: "GetDiskSnapshotResult",
     diskSnapshot:
       output.diskSnapshot !== undefined && output.diskSnapshot !== null
         ? deserializeAws_json1_1DiskSnapshot(output.diskSnapshot, context)
@@ -18312,7 +18095,6 @@ const deserializeAws_json1_1GetDiskSnapshotResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1GetDiskSnapshotsResult = (output: any, context: __SerdeContext): GetDiskSnapshotsResult => {
   return {
-    __type: "GetDiskSnapshotsResult",
     diskSnapshots:
       output.diskSnapshots !== undefined && output.diskSnapshots !== null
         ? deserializeAws_json1_1DiskSnapshotList(output.diskSnapshots, context)
@@ -18324,7 +18106,6 @@ const deserializeAws_json1_1GetDiskSnapshotsResult = (output: any, context: __Se
 
 const deserializeAws_json1_1GetDisksResult = (output: any, context: __SerdeContext): GetDisksResult => {
   return {
-    __type: "GetDisksResult",
     disks:
       output.disks !== undefined && output.disks !== null
         ? deserializeAws_json1_1DiskList(output.disks, context)
@@ -18339,7 +18120,6 @@ const deserializeAws_json1_1GetDistributionBundlesResult = (
   context: __SerdeContext
 ): GetDistributionBundlesResult => {
   return {
-    __type: "GetDistributionBundlesResult",
     bundles:
       output.bundles !== undefined && output.bundles !== null
         ? deserializeAws_json1_1DistributionBundleList(output.bundles, context)
@@ -18352,7 +18132,6 @@ const deserializeAws_json1_1GetDistributionLatestCacheResetResult = (
   context: __SerdeContext
 ): GetDistributionLatestCacheResetResult => {
   return {
-    __type: "GetDistributionLatestCacheResetResult",
     createTime:
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
@@ -18366,7 +18145,6 @@ const deserializeAws_json1_1GetDistributionMetricDataResult = (
   context: __SerdeContext
 ): GetDistributionMetricDataResult => {
   return {
-    __type: "GetDistributionMetricDataResult",
     metricData:
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
@@ -18377,7 +18155,6 @@ const deserializeAws_json1_1GetDistributionMetricDataResult = (
 
 const deserializeAws_json1_1GetDistributionsResult = (output: any, context: __SerdeContext): GetDistributionsResult => {
   return {
-    __type: "GetDistributionsResult",
     distributions:
       output.distributions !== undefined && output.distributions !== null
         ? deserializeAws_json1_1DistributionList(output.distributions, context)
@@ -18389,7 +18166,6 @@ const deserializeAws_json1_1GetDistributionsResult = (output: any, context: __Se
 
 const deserializeAws_json1_1GetDomainResult = (output: any, context: __SerdeContext): GetDomainResult => {
   return {
-    __type: "GetDomainResult",
     domain:
       output.domain !== undefined && output.domain !== null
         ? deserializeAws_json1_1Domain(output.domain, context)
@@ -18399,7 +18175,6 @@ const deserializeAws_json1_1GetDomainResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GetDomainsResult = (output: any, context: __SerdeContext): GetDomainsResult => {
   return {
-    __type: "GetDomainsResult",
     domains:
       output.domains !== undefined && output.domains !== null
         ? deserializeAws_json1_1DomainList(output.domains, context)
@@ -18414,7 +18189,6 @@ const deserializeAws_json1_1GetExportSnapshotRecordsResult = (
   context: __SerdeContext
 ): GetExportSnapshotRecordsResult => {
   return {
-    __type: "GetExportSnapshotRecordsResult",
     exportSnapshotRecords:
       output.exportSnapshotRecords !== undefined && output.exportSnapshotRecords !== null
         ? deserializeAws_json1_1ExportSnapshotRecordList(output.exportSnapshotRecords, context)
@@ -18429,7 +18203,6 @@ const deserializeAws_json1_1GetInstanceAccessDetailsResult = (
   context: __SerdeContext
 ): GetInstanceAccessDetailsResult => {
   return {
-    __type: "GetInstanceAccessDetailsResult",
     accessDetails:
       output.accessDetails !== undefined && output.accessDetails !== null
         ? deserializeAws_json1_1InstanceAccessDetails(output.accessDetails, context)
@@ -18442,7 +18215,6 @@ const deserializeAws_json1_1GetInstanceMetricDataResult = (
   context: __SerdeContext
 ): GetInstanceMetricDataResult => {
   return {
-    __type: "GetInstanceMetricDataResult",
     metricData:
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
@@ -18456,7 +18228,6 @@ const deserializeAws_json1_1GetInstancePortStatesResult = (
   context: __SerdeContext
 ): GetInstancePortStatesResult => {
   return {
-    __type: "GetInstancePortStatesResult",
     portStates:
       output.portStates !== undefined && output.portStates !== null
         ? deserializeAws_json1_1InstancePortStateList(output.portStates, context)
@@ -18466,7 +18237,6 @@ const deserializeAws_json1_1GetInstancePortStatesResult = (
 
 const deserializeAws_json1_1GetInstanceResult = (output: any, context: __SerdeContext): GetInstanceResult => {
   return {
-    __type: "GetInstanceResult",
     instance:
       output.instance !== undefined && output.instance !== null
         ? deserializeAws_json1_1Instance(output.instance, context)
@@ -18479,7 +18249,6 @@ const deserializeAws_json1_1GetInstanceSnapshotResult = (
   context: __SerdeContext
 ): GetInstanceSnapshotResult => {
   return {
-    __type: "GetInstanceSnapshotResult",
     instanceSnapshot:
       output.instanceSnapshot !== undefined && output.instanceSnapshot !== null
         ? deserializeAws_json1_1InstanceSnapshot(output.instanceSnapshot, context)
@@ -18492,7 +18261,6 @@ const deserializeAws_json1_1GetInstanceSnapshotsResult = (
   context: __SerdeContext
 ): GetInstanceSnapshotsResult => {
   return {
-    __type: "GetInstanceSnapshotsResult",
     instanceSnapshots:
       output.instanceSnapshots !== undefined && output.instanceSnapshots !== null
         ? deserializeAws_json1_1InstanceSnapshotList(output.instanceSnapshots, context)
@@ -18504,7 +18272,6 @@ const deserializeAws_json1_1GetInstanceSnapshotsResult = (
 
 const deserializeAws_json1_1GetInstancesResult = (output: any, context: __SerdeContext): GetInstancesResult => {
   return {
-    __type: "GetInstancesResult",
     instances:
       output.instances !== undefined && output.instances !== null
         ? deserializeAws_json1_1InstanceList(output.instances, context)
@@ -18516,7 +18283,6 @@ const deserializeAws_json1_1GetInstancesResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1GetInstanceStateResult = (output: any, context: __SerdeContext): GetInstanceStateResult => {
   return {
-    __type: "GetInstanceStateResult",
     state:
       output.state !== undefined && output.state !== null
         ? deserializeAws_json1_1InstanceState(output.state, context)
@@ -18526,7 +18292,6 @@ const deserializeAws_json1_1GetInstanceStateResult = (output: any, context: __Se
 
 const deserializeAws_json1_1GetKeyPairResult = (output: any, context: __SerdeContext): GetKeyPairResult => {
   return {
-    __type: "GetKeyPairResult",
     keyPair:
       output.keyPair !== undefined && output.keyPair !== null
         ? deserializeAws_json1_1KeyPair(output.keyPair, context)
@@ -18536,7 +18301,6 @@ const deserializeAws_json1_1GetKeyPairResult = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetKeyPairsResult = (output: any, context: __SerdeContext): GetKeyPairsResult => {
   return {
-    __type: "GetKeyPairsResult",
     keyPairs:
       output.keyPairs !== undefined && output.keyPairs !== null
         ? deserializeAws_json1_1KeyPairList(output.keyPairs, context)
@@ -18551,7 +18315,6 @@ const deserializeAws_json1_1GetLoadBalancerMetricDataResult = (
   context: __SerdeContext
 ): GetLoadBalancerMetricDataResult => {
   return {
-    __type: "GetLoadBalancerMetricDataResult",
     metricData:
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
@@ -18562,7 +18325,6 @@ const deserializeAws_json1_1GetLoadBalancerMetricDataResult = (
 
 const deserializeAws_json1_1GetLoadBalancerResult = (output: any, context: __SerdeContext): GetLoadBalancerResult => {
   return {
-    __type: "GetLoadBalancerResult",
     loadBalancer:
       output.loadBalancer !== undefined && output.loadBalancer !== null
         ? deserializeAws_json1_1LoadBalancer(output.loadBalancer, context)
@@ -18572,7 +18334,6 @@ const deserializeAws_json1_1GetLoadBalancerResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1GetLoadBalancersResult = (output: any, context: __SerdeContext): GetLoadBalancersResult => {
   return {
-    __type: "GetLoadBalancersResult",
     loadBalancers:
       output.loadBalancers !== undefined && output.loadBalancers !== null
         ? deserializeAws_json1_1LoadBalancerList(output.loadBalancers, context)
@@ -18587,7 +18348,6 @@ const deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult = (
   context: __SerdeContext
 ): GetLoadBalancerTlsCertificatesResult => {
   return {
-    __type: "GetLoadBalancerTlsCertificatesResult",
     tlsCertificates:
       output.tlsCertificates !== undefined && output.tlsCertificates !== null
         ? deserializeAws_json1_1LoadBalancerTlsCertificateList(output.tlsCertificates, context)
@@ -18597,7 +18357,6 @@ const deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult = (
 
 const deserializeAws_json1_1GetOperationResult = (output: any, context: __SerdeContext): GetOperationResult => {
   return {
-    __type: "GetOperationResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -18610,7 +18369,6 @@ const deserializeAws_json1_1GetOperationsForResourceResult = (
   context: __SerdeContext
 ): GetOperationsForResourceResult => {
   return {
-    __type: "GetOperationsForResourceResult",
     nextPageCount:
       output.nextPageCount !== undefined && output.nextPageCount !== null ? output.nextPageCount : undefined,
     nextPageToken:
@@ -18624,7 +18382,6 @@ const deserializeAws_json1_1GetOperationsForResourceResult = (
 
 const deserializeAws_json1_1GetOperationsResult = (output: any, context: __SerdeContext): GetOperationsResult => {
   return {
-    __type: "GetOperationsResult",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     operations:
@@ -18636,7 +18393,6 @@ const deserializeAws_json1_1GetOperationsResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1GetRegionsResult = (output: any, context: __SerdeContext): GetRegionsResult => {
   return {
-    __type: "GetRegionsResult",
     regions:
       output.regions !== undefined && output.regions !== null
         ? deserializeAws_json1_1RegionList(output.regions, context)
@@ -18649,7 +18405,6 @@ const deserializeAws_json1_1GetRelationalDatabaseBlueprintsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseBlueprintsResult => {
   return {
-    __type: "GetRelationalDatabaseBlueprintsResult",
     blueprints:
       output.blueprints !== undefined && output.blueprints !== null
         ? deserializeAws_json1_1RelationalDatabaseBlueprintList(output.blueprints, context)
@@ -18664,7 +18419,6 @@ const deserializeAws_json1_1GetRelationalDatabaseBundlesResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseBundlesResult => {
   return {
-    __type: "GetRelationalDatabaseBundlesResult",
     bundles:
       output.bundles !== undefined && output.bundles !== null
         ? deserializeAws_json1_1RelationalDatabaseBundleList(output.bundles, context)
@@ -18679,7 +18433,6 @@ const deserializeAws_json1_1GetRelationalDatabaseEventsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseEventsResult => {
   return {
-    __type: "GetRelationalDatabaseEventsResult",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     relationalDatabaseEvents:
@@ -18694,7 +18447,6 @@ const deserializeAws_json1_1GetRelationalDatabaseLogEventsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseLogEventsResult => {
   return {
-    __type: "GetRelationalDatabaseLogEventsResult",
     nextBackwardToken:
       output.nextBackwardToken !== undefined && output.nextBackwardToken !== null
         ? output.nextBackwardToken
@@ -18713,7 +18465,6 @@ const deserializeAws_json1_1GetRelationalDatabaseLogStreamsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseLogStreamsResult => {
   return {
-    __type: "GetRelationalDatabaseLogStreamsResult",
     logStreams:
       output.logStreams !== undefined && output.logStreams !== null
         ? deserializeAws_json1_1StringList(output.logStreams, context)
@@ -18726,7 +18477,6 @@ const deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseMasterUserPasswordResult => {
   return {
-    __type: "GetRelationalDatabaseMasterUserPasswordResult",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -18743,7 +18493,6 @@ const deserializeAws_json1_1GetRelationalDatabaseMetricDataResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseMetricDataResult => {
   return {
-    __type: "GetRelationalDatabaseMetricDataResult",
     metricData:
       output.metricData !== undefined && output.metricData !== null
         ? deserializeAws_json1_1MetricDatapointList(output.metricData, context)
@@ -18757,7 +18506,6 @@ const deserializeAws_json1_1GetRelationalDatabaseParametersResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseParametersResult => {
   return {
-    __type: "GetRelationalDatabaseParametersResult",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     parameters:
@@ -18772,7 +18520,6 @@ const deserializeAws_json1_1GetRelationalDatabaseResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseResult => {
   return {
-    __type: "GetRelationalDatabaseResult",
     relationalDatabase:
       output.relationalDatabase !== undefined && output.relationalDatabase !== null
         ? deserializeAws_json1_1RelationalDatabase(output.relationalDatabase, context)
@@ -18785,7 +18532,6 @@ const deserializeAws_json1_1GetRelationalDatabaseSnapshotResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseSnapshotResult => {
   return {
-    __type: "GetRelationalDatabaseSnapshotResult",
     relationalDatabaseSnapshot:
       output.relationalDatabaseSnapshot !== undefined && output.relationalDatabaseSnapshot !== null
         ? deserializeAws_json1_1RelationalDatabaseSnapshot(output.relationalDatabaseSnapshot, context)
@@ -18798,7 +18544,6 @@ const deserializeAws_json1_1GetRelationalDatabaseSnapshotsResult = (
   context: __SerdeContext
 ): GetRelationalDatabaseSnapshotsResult => {
   return {
-    __type: "GetRelationalDatabaseSnapshotsResult",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     relationalDatabaseSnapshots:
@@ -18813,7 +18558,6 @@ const deserializeAws_json1_1GetRelationalDatabasesResult = (
   context: __SerdeContext
 ): GetRelationalDatabasesResult => {
   return {
-    __type: "GetRelationalDatabasesResult",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     relationalDatabases:
@@ -18825,7 +18569,6 @@ const deserializeAws_json1_1GetRelationalDatabasesResult = (
 
 const deserializeAws_json1_1GetStaticIpResult = (output: any, context: __SerdeContext): GetStaticIpResult => {
   return {
-    __type: "GetStaticIpResult",
     staticIp:
       output.staticIp !== undefined && output.staticIp !== null
         ? deserializeAws_json1_1StaticIp(output.staticIp, context)
@@ -18835,7 +18578,6 @@ const deserializeAws_json1_1GetStaticIpResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GetStaticIpsResult = (output: any, context: __SerdeContext): GetStaticIpsResult => {
   return {
-    __type: "GetStaticIpsResult",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     staticIps:
@@ -18851,7 +18593,6 @@ const deserializeAws_json1_1HeaderForwardList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1HeaderObject = (output: any, context: __SerdeContext): HeaderObject => {
   return {
-    __type: "HeaderObject",
     headersAllowList:
       output.headersAllowList !== undefined && output.headersAllowList !== null
         ? deserializeAws_json1_1HeaderForwardList(output.headersAllowList, context)
@@ -18862,7 +18603,6 @@ const deserializeAws_json1_1HeaderObject = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1HostKeyAttributes = (output: any, context: __SerdeContext): HostKeyAttributes => {
   return {
-    __type: "HostKeyAttributes",
     algorithm: output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
     fingerprintSHA1:
       output.fingerprintSHA1 !== undefined && output.fingerprintSHA1 !== null ? output.fingerprintSHA1 : undefined,
@@ -18892,7 +18632,6 @@ const deserializeAws_json1_1HostKeysList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ImportKeyPairResult = (output: any, context: __SerdeContext): ImportKeyPairResult => {
   return {
-    __type: "ImportKeyPairResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -18902,7 +18641,6 @@ const deserializeAws_json1_1ImportKeyPairResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    __type: "Instance",
     addOns:
       output.addOns !== undefined && output.addOns !== null
         ? deserializeAws_json1_1AddOnList(output.addOns, context)
@@ -18952,7 +18690,6 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
 
 const deserializeAws_json1_1InstanceAccessDetails = (output: any, context: __SerdeContext): InstanceAccessDetails => {
   return {
-    __type: "InstanceAccessDetails",
     certKey: output.certKey !== undefined && output.certKey !== null ? output.certKey : undefined,
     expiresAt:
       output.expiresAt !== undefined && output.expiresAt !== null
@@ -18977,7 +18714,6 @@ const deserializeAws_json1_1InstanceAccessDetails = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstanceHardware = (output: any, context: __SerdeContext): InstanceHardware => {
   return {
-    __type: "InstanceHardware",
     cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
     disks:
       output.disks !== undefined && output.disks !== null
@@ -18989,7 +18725,6 @@ const deserializeAws_json1_1InstanceHardware = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1InstanceHealthSummary = (output: any, context: __SerdeContext): InstanceHealthSummary => {
   return {
-    __type: "InstanceHealthSummary",
     instanceHealth:
       output.instanceHealth !== undefined && output.instanceHealth !== null ? output.instanceHealth : undefined,
     instanceHealthReason:
@@ -19013,7 +18748,6 @@ const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1InstanceNetworking = (output: any, context: __SerdeContext): InstanceNetworking => {
   return {
-    __type: "InstanceNetworking",
     monthlyTransfer:
       output.monthlyTransfer !== undefined && output.monthlyTransfer !== null
         ? deserializeAws_json1_1MonthlyTransfer(output.monthlyTransfer, context)
@@ -19034,7 +18768,6 @@ const deserializeAws_json1_1InstancePlatformList = (
 
 const deserializeAws_json1_1InstancePortInfo = (output: any, context: __SerdeContext): InstancePortInfo => {
   return {
-    __type: "InstancePortInfo",
     accessDirection:
       output.accessDirection !== undefined && output.accessDirection !== null ? output.accessDirection : undefined,
     accessFrom: output.accessFrom !== undefined && output.accessFrom !== null ? output.accessFrom : undefined,
@@ -19060,7 +18793,6 @@ const deserializeAws_json1_1InstancePortInfoList = (output: any, context: __Serd
 
 const deserializeAws_json1_1InstancePortState = (output: any, context: __SerdeContext): InstancePortState => {
   return {
-    __type: "InstancePortState",
     cidrListAliases:
       output.cidrListAliases !== undefined && output.cidrListAliases !== null
         ? deserializeAws_json1_1StringList(output.cidrListAliases, context)
@@ -19082,7 +18814,6 @@ const deserializeAws_json1_1InstancePortStateList = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeContext): InstanceSnapshot => {
   return {
-    __type: "InstanceSnapshot",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -19122,7 +18853,6 @@ const deserializeAws_json1_1InstanceSnapshot = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1InstanceSnapshotInfo = (output: any, context: __SerdeContext): InstanceSnapshotInfo => {
   return {
-    __type: "InstanceSnapshotInfo",
     fromBlueprintId:
       output.fromBlueprintId !== undefined && output.fromBlueprintId !== null ? output.fromBlueprintId : undefined,
     fromBundleId: output.fromBundleId !== undefined && output.fromBundleId !== null ? output.fromBundleId : undefined,
@@ -19139,7 +18869,6 @@ const deserializeAws_json1_1InstanceSnapshotList = (output: any, context: __Serd
 
 const deserializeAws_json1_1InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   return {
-    __type: "InstanceState",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -19147,7 +18876,6 @@ const deserializeAws_json1_1InstanceState = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -19157,14 +18885,12 @@ const deserializeAws_json1_1InvalidInputException = (output: any, context: __Ser
 
 const deserializeAws_json1_1IsVpcPeeredResult = (output: any, context: __SerdeContext): IsVpcPeeredResult => {
   return {
-    __type: "IsVpcPeeredResult",
     isPeered: output.isPeered !== undefined && output.isPeered !== null ? output.isPeered : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   return {
-    __type: "KeyPair",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -19191,7 +18917,6 @@ const deserializeAws_json1_1KeyPairList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1LightsailDistribution = (output: any, context: __SerdeContext): LightsailDistribution => {
   return {
-    __type: "LightsailDistribution",
     ableToUpdateBundle:
       output.ableToUpdateBundle !== undefined && output.ableToUpdateBundle !== null
         ? output.ableToUpdateBundle
@@ -19245,7 +18970,6 @@ const deserializeAws_json1_1LightsailDistribution = (output: any, context: __Ser
 
 const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   return {
-    __type: "LoadBalancer",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     configurationOptions:
       output.configurationOptions !== undefined && output.configurationOptions !== null
@@ -19309,7 +19033,6 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificate => {
   return {
-    __type: "LoadBalancerTlsCertificate",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -19382,7 +19105,6 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOption = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateDomainValidationOption => {
   return {
-    __type: "LoadBalancerTlsCertificateDomainValidationOption",
     domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     validationStatus:
       output.validationStatus !== undefined && output.validationStatus !== null ? output.validationStatus : undefined,
@@ -19403,7 +19125,6 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecord = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateDomainValidationRecord => {
   return {
-    __type: "LoadBalancerTlsCertificateDomainValidationRecord",
     domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
@@ -19434,7 +19155,6 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateRenewalSummary = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateRenewalSummary => {
   return {
-    __type: "LoadBalancerTlsCertificateRenewalSummary",
     domainValidationOptions:
       output.domainValidationOptions !== undefined && output.domainValidationOptions !== null
         ? deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOptionList(
@@ -19452,7 +19172,6 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateSummary = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateSummary => {
   return {
-    __type: "LoadBalancerTlsCertificateSummary",
     isAttached: output.isAttached !== undefined && output.isAttached !== null ? output.isAttached : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -19467,7 +19186,6 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateSummaryList = (
 
 const deserializeAws_json1_1LogEvent = (output: any, context: __SerdeContext): LogEvent => {
   return {
-    __type: "LogEvent",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -19482,7 +19200,6 @@ const deserializeAws_json1_1LogEventList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1MetricDatapoint = (output: any, context: __SerdeContext): MetricDatapoint => {
   return {
-    __type: "MetricDatapoint",
     average: output.average !== undefined && output.average !== null ? output.average : undefined,
     maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
     minimum: output.minimum !== undefined && output.minimum !== null ? output.minimum : undefined,
@@ -19502,7 +19219,6 @@ const deserializeAws_json1_1MetricDatapointList = (output: any, context: __Serde
 
 const deserializeAws_json1_1MonitoredResourceInfo = (output: any, context: __SerdeContext): MonitoredResourceInfo => {
   return {
-    __type: "MonitoredResourceInfo",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
@@ -19511,7 +19227,6 @@ const deserializeAws_json1_1MonitoredResourceInfo = (output: any, context: __Ser
 
 const deserializeAws_json1_1MonthlyTransfer = (output: any, context: __SerdeContext): MonthlyTransfer => {
   return {
-    __type: "MonthlyTransfer",
     gbPerMonthAllocated:
       output.gbPerMonthAllocated !== undefined && output.gbPerMonthAllocated !== null
         ? output.gbPerMonthAllocated
@@ -19521,7 +19236,6 @@ const deserializeAws_json1_1MonthlyTransfer = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -19541,7 +19255,6 @@ const deserializeAws_json1_1OpenInstancePublicPortsResult = (
   context: __SerdeContext
 ): OpenInstancePublicPortsResult => {
   return {
-    __type: "OpenInstancePublicPortsResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -19551,7 +19264,6 @@ const deserializeAws_json1_1OpenInstancePublicPortsResult = (
 
 const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): Operation => {
   return {
-    __type: "Operation",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -19583,7 +19295,6 @@ const deserializeAws_json1_1OperationFailureException = (
   context: __SerdeContext
 ): OperationFailureException => {
   return {
-    __type: "OperationFailureException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -19597,7 +19308,6 @@ const deserializeAws_json1_1OperationList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Origin = (output: any, context: __SerdeContext): Origin => {
   return {
-    __type: "Origin",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     protocolPolicy:
       output.protocolPolicy !== undefined && output.protocolPolicy !== null ? output.protocolPolicy : undefined,
@@ -19608,7 +19318,6 @@ const deserializeAws_json1_1Origin = (output: any, context: __SerdeContext): Ori
 
 const deserializeAws_json1_1PasswordData = (output: any, context: __SerdeContext): PasswordData => {
   return {
-    __type: "PasswordData",
     ciphertext: output.ciphertext !== undefined && output.ciphertext !== null ? output.ciphertext : undefined,
     keyPairName: output.keyPairName !== undefined && output.keyPairName !== null ? output.keyPairName : undefined,
   } as any;
@@ -19616,7 +19325,6 @@ const deserializeAws_json1_1PasswordData = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1PeerVpcResult = (output: any, context: __SerdeContext): PeerVpcResult => {
   return {
-    __type: "PeerVpcResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -19629,7 +19337,6 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
   context: __SerdeContext
 ): PendingMaintenanceAction => {
   return {
-    __type: "PendingMaintenanceAction",
     action: output.action !== undefined && output.action !== null ? output.action : undefined,
     currentApplyDate:
       output.currentApplyDate !== undefined && output.currentApplyDate !== null
@@ -19651,7 +19358,6 @@ const deserializeAws_json1_1PendingModifiedRelationalDatabaseValues = (
   context: __SerdeContext
 ): PendingModifiedRelationalDatabaseValues => {
   return {
-    __type: "PendingModifiedRelationalDatabaseValues",
     backupRetentionEnabled:
       output.backupRetentionEnabled !== undefined && output.backupRetentionEnabled !== null
         ? output.backupRetentionEnabled
@@ -19671,7 +19377,6 @@ const deserializeAws_json1_1PortList = (output: any, context: __SerdeContext): n
 
 const deserializeAws_json1_1PutAlarmResult = (output: any, context: __SerdeContext): PutAlarmResult => {
   return {
-    __type: "PutAlarmResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -19684,7 +19389,6 @@ const deserializeAws_json1_1PutInstancePublicPortsResult = (
   context: __SerdeContext
 ): PutInstancePublicPortsResult => {
   return {
-    __type: "PutInstancePublicPortsResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -19694,7 +19398,6 @@ const deserializeAws_json1_1PutInstancePublicPortsResult = (
 
 const deserializeAws_json1_1QueryStringObject = (output: any, context: __SerdeContext): QueryStringObject => {
   return {
-    __type: "QueryStringObject",
     option: output.option !== undefined && output.option !== null ? output.option : undefined,
     queryStringsAllowList:
       output.queryStringsAllowList !== undefined && output.queryStringsAllowList !== null
@@ -19705,7 +19408,6 @@ const deserializeAws_json1_1QueryStringObject = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RebootInstanceResult = (output: any, context: __SerdeContext): RebootInstanceResult => {
   return {
-    __type: "RebootInstanceResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -19718,7 +19420,6 @@ const deserializeAws_json1_1RebootRelationalDatabaseResult = (
   context: __SerdeContext
 ): RebootRelationalDatabaseResult => {
   return {
-    __type: "RebootRelationalDatabaseResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -19728,7 +19429,6 @@ const deserializeAws_json1_1RebootRelationalDatabaseResult = (
 
 const deserializeAws_json1_1Region = (output: any, context: __SerdeContext): Region => {
   return {
-    __type: "Region",
     availabilityZones:
       output.availabilityZones !== undefined && output.availabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZoneList(output.availabilityZones, context)
@@ -19751,7 +19451,6 @@ const deserializeAws_json1_1RegionList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1RelationalDatabase = (output: any, context: __SerdeContext): RelationalDatabase => {
   return {
-    __type: "RelationalDatabase",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     backupRetentionEnabled:
       output.backupRetentionEnabled !== undefined && output.backupRetentionEnabled !== null
@@ -19842,7 +19541,6 @@ const deserializeAws_json1_1RelationalDatabaseBlueprint = (
   context: __SerdeContext
 ): RelationalDatabaseBlueprint => {
   return {
-    __type: "RelationalDatabaseBlueprint",
     blueprintId: output.blueprintId !== undefined && output.blueprintId !== null ? output.blueprintId : undefined,
     engine: output.engine !== undefined && output.engine !== null ? output.engine : undefined,
     engineDescription:
@@ -19872,7 +19570,6 @@ const deserializeAws_json1_1RelationalDatabaseBundle = (
   context: __SerdeContext
 ): RelationalDatabaseBundle => {
   return {
-    __type: "RelationalDatabaseBundle",
     bundleId: output.bundleId !== undefined && output.bundleId !== null ? output.bundleId : undefined,
     cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
     diskSizeInGb: output.diskSizeInGb !== undefined && output.diskSizeInGb !== null ? output.diskSizeInGb : undefined,
@@ -19900,7 +19597,6 @@ const deserializeAws_json1_1RelationalDatabaseEndpoint = (
   context: __SerdeContext
 ): RelationalDatabaseEndpoint => {
   return {
-    __type: "RelationalDatabaseEndpoint",
     address: output.address !== undefined && output.address !== null ? output.address : undefined,
     port: output.port !== undefined && output.port !== null ? output.port : undefined,
   } as any;
@@ -19911,7 +19607,6 @@ const deserializeAws_json1_1RelationalDatabaseEvent = (
   context: __SerdeContext
 ): RelationalDatabaseEvent => {
   return {
-    __type: "RelationalDatabaseEvent",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -19937,7 +19632,6 @@ const deserializeAws_json1_1RelationalDatabaseHardware = (
   context: __SerdeContext
 ): RelationalDatabaseHardware => {
   return {
-    __type: "RelationalDatabaseHardware",
     cpuCount: output.cpuCount !== undefined && output.cpuCount !== null ? output.cpuCount : undefined,
     diskSizeInGb: output.diskSizeInGb !== undefined && output.diskSizeInGb !== null ? output.diskSizeInGb : undefined,
     ramSizeInGb: output.ramSizeInGb !== undefined && output.ramSizeInGb !== null ? output.ramSizeInGb : undefined,
@@ -19953,7 +19647,6 @@ const deserializeAws_json1_1RelationalDatabaseParameter = (
   context: __SerdeContext
 ): RelationalDatabaseParameter => {
   return {
-    __type: "RelationalDatabaseParameter",
     allowedValues:
       output.allowedValues !== undefined && output.allowedValues !== null ? output.allowedValues : undefined,
     applyMethod: output.applyMethod !== undefined && output.applyMethod !== null ? output.applyMethod : undefined,
@@ -19980,7 +19673,6 @@ const deserializeAws_json1_1RelationalDatabaseSnapshot = (
   context: __SerdeContext
 ): RelationalDatabaseSnapshot => {
   return {
-    __type: "RelationalDatabaseSnapshot",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -20030,7 +19722,6 @@ const deserializeAws_json1_1RelationalDatabaseSnapshotList = (
 
 const deserializeAws_json1_1ReleaseStaticIpResult = (output: any, context: __SerdeContext): ReleaseStaticIpResult => {
   return {
-    __type: "ReleaseStaticIpResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20040,7 +19731,6 @@ const deserializeAws_json1_1ReleaseStaticIpResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeContext): RenewalSummary => {
   return {
-    __type: "RenewalSummary",
     domainValidationRecords:
       output.domainValidationRecords !== undefined && output.domainValidationRecords !== null
         ? deserializeAws_json1_1DomainValidationRecordList(output.domainValidationRecords, context)
@@ -20063,7 +19753,6 @@ const deserializeAws_json1_1ResetDistributionCacheResult = (
   context: __SerdeContext
 ): ResetDistributionCacheResult => {
   return {
-    __type: "ResetDistributionCacheResult",
     createTime:
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
@@ -20078,7 +19767,6 @@ const deserializeAws_json1_1ResetDistributionCacheResult = (
 
 const deserializeAws_json1_1ResourceLocation = (output: any, context: __SerdeContext): ResourceLocation => {
   return {
-    __type: "ResourceLocation",
     availabilityZone:
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
     regionName: output.regionName !== undefined && output.regionName !== null ? output.regionName : undefined,
@@ -20087,7 +19775,6 @@ const deserializeAws_json1_1ResourceLocation = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
   return {
-    __type: "ResourceRecord",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
@@ -20099,7 +19786,6 @@ const deserializeAws_json1_1SendContactMethodVerificationResult = (
   context: __SerdeContext
 ): SendContactMethodVerificationResult => {
   return {
-    __type: "SendContactMethodVerificationResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20109,7 +19795,6 @@ const deserializeAws_json1_1SendContactMethodVerificationResult = (
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    __type: "ServiceException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -20119,7 +19804,6 @@ const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1StartInstanceResult = (output: any, context: __SerdeContext): StartInstanceResult => {
   return {
-    __type: "StartInstanceResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20132,7 +19816,6 @@ const deserializeAws_json1_1StartRelationalDatabaseResult = (
   context: __SerdeContext
 ): StartRelationalDatabaseResult => {
   return {
-    __type: "StartRelationalDatabaseResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20142,7 +19825,6 @@ const deserializeAws_json1_1StartRelationalDatabaseResult = (
 
 const deserializeAws_json1_1StaticIp = (output: any, context: __SerdeContext): StaticIp => {
   return {
-    __type: "StaticIp",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     attachedTo: output.attachedTo !== undefined && output.attachedTo !== null ? output.attachedTo : undefined,
     createdAt:
@@ -20167,7 +19849,6 @@ const deserializeAws_json1_1StaticIpList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1StopInstanceResult = (output: any, context: __SerdeContext): StopInstanceResult => {
   return {
-    __type: "StopInstanceResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20180,7 +19861,6 @@ const deserializeAws_json1_1StopRelationalDatabaseResult = (
   context: __SerdeContext
 ): StopRelationalDatabaseResult => {
   return {
-    __type: "StopRelationalDatabaseResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20198,7 +19878,6 @@ const deserializeAws_json1_1SubjectAlternativeNameList = (output: any, context: 
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -20210,7 +19889,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
   return {
-    __type: "TagResourceResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20220,7 +19898,6 @@ const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1TestAlarmResult = (output: any, context: __SerdeContext): TestAlarmResult => {
   return {
-    __type: "TestAlarmResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20233,7 +19910,6 @@ const deserializeAws_json1_1UnauthenticatedException = (
   context: __SerdeContext
 ): UnauthenticatedException => {
   return {
-    __type: "UnauthenticatedException",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -20243,7 +19919,6 @@ const deserializeAws_json1_1UnauthenticatedException = (
 
 const deserializeAws_json1_1UnpeerVpcResult = (output: any, context: __SerdeContext): UnpeerVpcResult => {
   return {
-    __type: "UnpeerVpcResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -20253,7 +19928,6 @@ const deserializeAws_json1_1UnpeerVpcResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
   return {
-    __type: "UntagResourceResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20266,7 +19940,6 @@ const deserializeAws_json1_1UpdateDistributionBundleResult = (
   context: __SerdeContext
 ): UpdateDistributionBundleResult => {
   return {
-    __type: "UpdateDistributionBundleResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -20279,7 +19952,6 @@ const deserializeAws_json1_1UpdateDistributionResult = (
   context: __SerdeContext
 ): UpdateDistributionResult => {
   return {
-    __type: "UpdateDistributionResult",
     operation:
       output.operation !== undefined && output.operation !== null
         ? deserializeAws_json1_1Operation(output.operation, context)
@@ -20292,7 +19964,6 @@ const deserializeAws_json1_1UpdateDomainEntryResult = (
   context: __SerdeContext
 ): UpdateDomainEntryResult => {
   return {
-    __type: "UpdateDomainEntryResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20305,7 +19976,6 @@ const deserializeAws_json1_1UpdateLoadBalancerAttributeResult = (
   context: __SerdeContext
 ): UpdateLoadBalancerAttributeResult => {
   return {
-    __type: "UpdateLoadBalancerAttributeResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20318,7 +19988,6 @@ const deserializeAws_json1_1UpdateRelationalDatabaseParametersResult = (
   context: __SerdeContext
 ): UpdateRelationalDatabaseParametersResult => {
   return {
-    __type: "UpdateRelationalDatabaseParametersResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)
@@ -20331,7 +20000,6 @@ const deserializeAws_json1_1UpdateRelationalDatabaseResult = (
   context: __SerdeContext
 ): UpdateRelationalDatabaseResult => {
   return {
-    __type: "UpdateRelationalDatabaseResult",
     operations:
       output.operations !== undefined && output.operations !== null
         ? deserializeAws_json1_1OperationList(output.operations, context)

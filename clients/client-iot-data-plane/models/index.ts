@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>The input for the DeleteThingShadow operation.</p>
  */
 export interface DeleteThingShadowRequest {
-  __type?: "DeleteThingShadowRequest";
   /**
    * <p>The name of the shadow.</p>
    */
@@ -40,14 +38,12 @@ export namespace DeleteThingShadowRequest {
   export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingShadowRequest => __isa(o, "DeleteThingShadowRequest");
 }
 
 /**
  * <p>The output from the DeleteThingShadow operation.</p>
  */
 export interface DeleteThingShadowResponse {
-  __type?: "DeleteThingShadowResponse";
   /**
    * <p>The state information, in JSON format.</p>
    */
@@ -58,14 +54,12 @@ export namespace DeleteThingShadowResponse {
   export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThingShadowResponse => __isa(o, "DeleteThingShadowResponse");
 }
 
 /**
  * <p>The input for the GetThingShadow operation.</p>
  */
 export interface GetThingShadowRequest {
-  __type?: "GetThingShadowRequest";
   /**
    * <p>The name of the thing.</p>
    */
@@ -81,14 +75,12 @@ export namespace GetThingShadowRequest {
   export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetThingShadowRequest => __isa(o, "GetThingShadowRequest");
 }
 
 /**
  * <p>The output from the GetThingShadow operation.</p>
  */
 export interface GetThingShadowResponse {
-  __type?: "GetThingShadowResponse";
   /**
    * <p>The state information, in JSON format.</p>
    */
@@ -99,7 +91,6 @@ export namespace GetThingShadowResponse {
   export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetThingShadowResponse => __isa(o, "GetThingShadowResponse");
 }
 
 /**
@@ -118,7 +109,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -137,11 +127,9 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListNamedShadowsForThingRequest {
-  __type?: "ListNamedShadowsForThingRequest";
   /**
    * <p>The token to retrieve the next set of results.</p>
    */
@@ -162,11 +150,9 @@ export namespace ListNamedShadowsForThingRequest {
   export const filterSensitiveLog = (obj: ListNamedShadowsForThingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNamedShadowsForThingRequest => __isa(o, "ListNamedShadowsForThingRequest");
 }
 
 export interface ListNamedShadowsForThingResponse {
-  __type?: "ListNamedShadowsForThingResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -187,7 +173,6 @@ export namespace ListNamedShadowsForThingResponse {
   export const filterSensitiveLog = (obj: ListNamedShadowsForThingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNamedShadowsForThingResponse => __isa(o, "ListNamedShadowsForThingResponse");
 }
 
 /**
@@ -206,14 +191,12 @@ export namespace MethodNotAllowedException {
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MethodNotAllowedException => __isa(o, "MethodNotAllowedException");
 }
 
 /**
  * <p>The input for the Publish operation.</p>
  */
 export interface PublishRequest {
-  __type?: "PublishRequest";
   /**
    * <p>The name of the MQTT topic.</p>
    */
@@ -234,7 +217,6 @@ export namespace PublishRequest {
   export const filterSensitiveLog = (obj: PublishRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublishRequest => __isa(o, "PublishRequest");
 }
 
 /**
@@ -253,7 +235,6 @@ export namespace RequestEntityTooLargeException {
   export const filterSensitiveLog = (obj: RequestEntityTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestEntityTooLargeException => __isa(o, "RequestEntityTooLargeException");
 }
 
 /**
@@ -272,7 +253,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -291,7 +271,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -310,7 +289,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -329,7 +307,6 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -348,15 +325,12 @@ export namespace UnsupportedDocumentEncodingException {
   export const filterSensitiveLog = (obj: UnsupportedDocumentEncodingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedDocumentEncodingException =>
-    __isa(o, "UnsupportedDocumentEncodingException");
 }
 
 /**
  * <p>The input for the UpdateThingShadow operation.</p>
  */
 export interface UpdateThingShadowRequest {
-  __type?: "UpdateThingShadowRequest";
   /**
    * <p>The name of the shadow.</p>
    */
@@ -377,14 +351,12 @@ export namespace UpdateThingShadowRequest {
   export const filterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingShadowRequest => __isa(o, "UpdateThingShadowRequest");
 }
 
 /**
  * <p>The output from the UpdateThingShadow operation.</p>
  */
 export interface UpdateThingShadowResponse {
-  __type?: "UpdateThingShadowResponse";
   /**
    * <p>The state information, in JSON format.</p>
    */
@@ -395,5 +367,4 @@ export namespace UpdateThingShadowResponse {
   export const filterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThingShadowResponse => __isa(o, "UpdateThingShadowResponse");
 }

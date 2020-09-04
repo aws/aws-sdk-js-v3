@@ -59,7 +59,6 @@ export const deserializeAws_json1_0SendCommandCommand = async (
   contents = deserializeAws_json1_0SendCommandResult(data, context);
   const response: SendCommandCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendCommandResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -292,14 +291,11 @@ const serializeAws_json1_0ValueHolder = (input: ValueHolder, context: __SerdeCon
 };
 
 const deserializeAws_json1_0AbortTransactionResult = (output: any, context: __SerdeContext): AbortTransactionResult => {
-  return {
-    __type: "AbortTransactionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_0BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
-    __type: "BadRequestException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -310,7 +306,6 @@ const deserializeAws_json1_0CommitTransactionResult = (
   context: __SerdeContext
 ): CommitTransactionResult => {
   return {
-    __type: "CommitTransactionResult",
     CommitDigest:
       output.CommitDigest !== undefined && output.CommitDigest !== null
         ? context.base64Decoder(output.CommitDigest)
@@ -321,14 +316,11 @@ const deserializeAws_json1_0CommitTransactionResult = (
 };
 
 const deserializeAws_json1_0EndSessionResult = (output: any, context: __SerdeContext): EndSessionResult => {
-  return {
-    __type: "EndSessionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_0ExecuteStatementResult = (output: any, context: __SerdeContext): ExecuteStatementResult => {
   return {
-    __type: "ExecuteStatementResult",
     FirstPage:
       output.FirstPage !== undefined && output.FirstPage !== null
         ? deserializeAws_json1_0Page(output.FirstPage, context)
@@ -338,7 +330,6 @@ const deserializeAws_json1_0ExecuteStatementResult = (output: any, context: __Se
 
 const deserializeAws_json1_0FetchPageResult = (output: any, context: __SerdeContext): FetchPageResult => {
   return {
-    __type: "FetchPageResult",
     Page:
       output.Page !== undefined && output.Page !== null ? deserializeAws_json1_0Page(output.Page, context) : undefined,
   } as any;
@@ -349,7 +340,6 @@ const deserializeAws_json1_0InvalidSessionException = (
   context: __SerdeContext
 ): InvalidSessionException => {
   return {
-    __type: "InvalidSessionException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -357,21 +347,18 @@ const deserializeAws_json1_0InvalidSessionException = (
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0OccConflictException = (output: any, context: __SerdeContext): OccConflictException => {
   return {
-    __type: "OccConflictException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0Page = (output: any, context: __SerdeContext): Page => {
   return {
-    __type: "Page",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     Values:
@@ -383,14 +370,12 @@ const deserializeAws_json1_0Page = (output: any, context: __SerdeContext): Page 
 
 const deserializeAws_json1_0RateExceededException = (output: any, context: __SerdeContext): RateExceededException => {
   return {
-    __type: "RateExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0SendCommandResult = (output: any, context: __SerdeContext): SendCommandResult => {
   return {
-    __type: "SendCommandResult",
     AbortTransaction:
       output.AbortTransaction !== undefined && output.AbortTransaction !== null
         ? deserializeAws_json1_0AbortTransactionResult(output.AbortTransaction, context)
@@ -424,14 +409,12 @@ const deserializeAws_json1_0SendCommandResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0StartSessionResult = (output: any, context: __SerdeContext): StartSessionResult => {
   return {
-    __type: "StartSessionResult",
     SessionToken: output.SessionToken !== undefined && output.SessionToken !== null ? output.SessionToken : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0StartTransactionResult = (output: any, context: __SerdeContext): StartTransactionResult => {
   return {
-    __type: "StartTransactionResult",
     TransactionId:
       output.TransactionId !== undefined && output.TransactionId !== null ? output.TransactionId : undefined,
   } as any;
@@ -439,7 +422,6 @@ const deserializeAws_json1_0StartTransactionResult = (output: any, context: __Se
 
 const deserializeAws_json1_0ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
   return {
-    __type: "ValueHolder",
     IonBinary:
       output.IonBinary !== undefined && output.IonBinary !== null ? context.base64Decoder(output.IonBinary) : undefined,
     IonText: output.IonText !== undefined && output.IonText !== null ? output.IonText : undefined,

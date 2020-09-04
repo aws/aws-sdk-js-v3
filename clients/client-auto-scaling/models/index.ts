@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,12 +15,9 @@ export namespace ActiveInstanceRefreshNotFoundFault {
   export const filterSensitiveLog = (obj: ActiveInstanceRefreshNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveInstanceRefreshNotFoundFault =>
-    __isa(o, "ActiveInstanceRefreshNotFoundFault");
 }
 
 export interface ActivitiesType {
-  __type?: "ActivitiesType";
   /**
    * <p>The scaling activities. Activities are sorted by start time. Activities still in
    *             progress are described first.</p>
@@ -40,7 +37,6 @@ export namespace ActivitiesType {
   export const filterSensitiveLog = (obj: ActivitiesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivitiesType => __isa(o, "ActivitiesType");
 }
 
 /**
@@ -48,7 +44,6 @@ export namespace ActivitiesType {
  *             to your Auto Scaling group, such as changing its size or replacing an instance.</p>
  */
 export interface Activity {
-  __type?: "Activity";
   /**
    * <p>The start time of the activity.</p>
    */
@@ -104,11 +99,9 @@ export namespace Activity {
   export const filterSensitiveLog = (obj: Activity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Activity => __isa(o, "Activity");
 }
 
 export interface ActivityType {
-  __type?: "ActivityType";
   /**
    * <p>A scaling activity.</p>
    */
@@ -119,14 +112,12 @@ export namespace ActivityType {
   export const filterSensitiveLog = (obj: ActivityType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityType => __isa(o, "ActivityType");
 }
 
 /**
  * <p>Describes a policy adjustment type.</p>
  */
 export interface AdjustmentType {
-  __type?: "AdjustmentType";
   /**
    * <p>The policy adjustment type. The valid values are <code>ChangeInCapacity</code>,
    *                 <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
@@ -138,14 +129,12 @@ export namespace AdjustmentType {
   export const filterSensitiveLog = (obj: AdjustmentType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdjustmentType => __isa(o, "AdjustmentType");
 }
 
 /**
  * <p>Describes an alarm.</p>
  */
 export interface Alarm {
-  __type?: "Alarm";
   /**
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    */
@@ -161,7 +150,6 @@ export namespace Alarm {
   export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
 }
 
 /**
@@ -180,11 +168,9 @@ export namespace AlreadyExistsFault {
   export const filterSensitiveLog = (obj: AlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsFault => __isa(o, "AlreadyExistsFault");
 }
 
 export interface AttachInstancesQuery {
-  __type?: "AttachInstancesQuery";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -200,22 +186,17 @@ export namespace AttachInstancesQuery {
   export const filterSensitiveLog = (obj: AttachInstancesQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachInstancesQuery => __isa(o, "AttachInstancesQuery");
 }
 
-export interface AttachLoadBalancersResultType {
-  __type?: "AttachLoadBalancersResultType";
-}
+export interface AttachLoadBalancersResultType {}
 
 export namespace AttachLoadBalancersResultType {
   export const filterSensitiveLog = (obj: AttachLoadBalancersResultType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancersResultType => __isa(o, "AttachLoadBalancersResultType");
 }
 
 export interface AttachLoadBalancersType {
-  __type?: "AttachLoadBalancersType";
   /**
    * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
    */
@@ -231,23 +212,17 @@ export namespace AttachLoadBalancersType {
   export const filterSensitiveLog = (obj: AttachLoadBalancersType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancersType => __isa(o, "AttachLoadBalancersType");
 }
 
-export interface AttachLoadBalancerTargetGroupsResultType {
-  __type?: "AttachLoadBalancerTargetGroupsResultType";
-}
+export interface AttachLoadBalancerTargetGroupsResultType {}
 
 export namespace AttachLoadBalancerTargetGroupsResultType {
   export const filterSensitiveLog = (obj: AttachLoadBalancerTargetGroupsResultType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancerTargetGroupsResultType =>
-    __isa(o, "AttachLoadBalancerTargetGroupsResultType");
 }
 
 export interface AttachLoadBalancerTargetGroupsType {
-  __type?: "AttachLoadBalancerTargetGroupsType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -264,15 +239,12 @@ export namespace AttachLoadBalancerTargetGroupsType {
   export const filterSensitiveLog = (obj: AttachLoadBalancerTargetGroupsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancerTargetGroupsType =>
-    __isa(o, "AttachLoadBalancerTargetGroupsType");
 }
 
 /**
  * <p>Describes an Auto Scaling group.</p>
  */
 export interface AutoScalingGroup {
-  __type?: "AutoScalingGroup";
   /**
    * <p>The tags for the group.</p>
    */
@@ -416,11 +388,9 @@ export namespace AutoScalingGroup {
   export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 export interface AutoScalingGroupNamesType {
-  __type?: "AutoScalingGroupNamesType";
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
@@ -446,11 +416,9 @@ export namespace AutoScalingGroupNamesType {
   export const filterSensitiveLog = (obj: AutoScalingGroupNamesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroupNamesType => __isa(o, "AutoScalingGroupNamesType");
 }
 
 export interface AutoScalingGroupsType {
-  __type?: "AutoScalingGroupsType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
@@ -469,14 +437,12 @@ export namespace AutoScalingGroupsType {
   export const filterSensitiveLog = (obj: AutoScalingGroupsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroupsType => __isa(o, "AutoScalingGroupsType");
 }
 
 /**
  * <p>Describes an EC2 instance associated with an Auto Scaling group.</p>
  */
 export interface AutoScalingInstanceDetails {
-  __type?: "AutoScalingInstanceDetails";
   /**
    * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
    *             in.</p>
@@ -538,11 +504,9 @@ export namespace AutoScalingInstanceDetails {
   export const filterSensitiveLog = (obj: AutoScalingInstanceDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingInstanceDetails => __isa(o, "AutoScalingInstanceDetails");
 }
 
 export interface AutoScalingInstancesType {
-  __type?: "AutoScalingInstancesType";
   /**
    * <p>The instances.</p>
    */
@@ -561,11 +525,9 @@ export namespace AutoScalingInstancesType {
   export const filterSensitiveLog = (obj: AutoScalingInstancesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingInstancesType => __isa(o, "AutoScalingInstancesType");
 }
 
 export interface BatchDeleteScheduledActionAnswer {
-  __type?: "BatchDeleteScheduledActionAnswer";
   /**
    * <p>The names of the scheduled actions that could not be deleted, including an error
    *             message.</p>
@@ -577,11 +539,9 @@ export namespace BatchDeleteScheduledActionAnswer {
   export const filterSensitiveLog = (obj: BatchDeleteScheduledActionAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteScheduledActionAnswer => __isa(o, "BatchDeleteScheduledActionAnswer");
 }
 
 export interface BatchDeleteScheduledActionType {
-  __type?: "BatchDeleteScheduledActionType";
   /**
    * <p>The names of the scheduled actions to delete. The maximum number allowed is 50.
    *         </p>
@@ -598,11 +558,9 @@ export namespace BatchDeleteScheduledActionType {
   export const filterSensitiveLog = (obj: BatchDeleteScheduledActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteScheduledActionType => __isa(o, "BatchDeleteScheduledActionType");
 }
 
 export interface BatchPutScheduledUpdateGroupActionAnswer {
-  __type?: "BatchPutScheduledUpdateGroupActionAnswer";
   /**
    * <p>The names of the scheduled actions that could not be created or updated, including an
    *             error message.</p>
@@ -614,12 +572,9 @@ export namespace BatchPutScheduledUpdateGroupActionAnswer {
   export const filterSensitiveLog = (obj: BatchPutScheduledUpdateGroupActionAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutScheduledUpdateGroupActionAnswer =>
-    __isa(o, "BatchPutScheduledUpdateGroupActionAnswer");
 }
 
 export interface BatchPutScheduledUpdateGroupActionType {
-  __type?: "BatchPutScheduledUpdateGroupActionType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -635,15 +590,12 @@ export namespace BatchPutScheduledUpdateGroupActionType {
   export const filterSensitiveLog = (obj: BatchPutScheduledUpdateGroupActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutScheduledUpdateGroupActionType =>
-    __isa(o, "BatchPutScheduledUpdateGroupActionType");
 }
 
 /**
  * <p>Describes a block device mapping.</p>
  */
 export interface BlockDeviceMapping {
-  __type?: "BlockDeviceMapping";
   /**
    * <p>The name of the virtual device (for example, <code>ephemeral0</code>).</p>
    *         <p>You can specify either <code>VirtualName</code> or <code>Ebs</code>, but not
@@ -681,11 +633,9 @@ export namespace BlockDeviceMapping {
   export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockDeviceMapping => __isa(o, "BlockDeviceMapping");
 }
 
 export interface CancelInstanceRefreshAnswer {
-  __type?: "CancelInstanceRefreshAnswer";
   /**
    * <p>The instance refresh ID.</p>
    */
@@ -696,11 +646,9 @@ export namespace CancelInstanceRefreshAnswer {
   export const filterSensitiveLog = (obj: CancelInstanceRefreshAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelInstanceRefreshAnswer => __isa(o, "CancelInstanceRefreshAnswer");
 }
 
 export interface CancelInstanceRefreshType {
-  __type?: "CancelInstanceRefreshType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -711,22 +659,17 @@ export namespace CancelInstanceRefreshType {
   export const filterSensitiveLog = (obj: CancelInstanceRefreshType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelInstanceRefreshType => __isa(o, "CancelInstanceRefreshType");
 }
 
-export interface CompleteLifecycleActionAnswer {
-  __type?: "CompleteLifecycleActionAnswer";
-}
+export interface CompleteLifecycleActionAnswer {}
 
 export namespace CompleteLifecycleActionAnswer {
   export const filterSensitiveLog = (obj: CompleteLifecycleActionAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteLifecycleActionAnswer => __isa(o, "CompleteLifecycleActionAnswer");
 }
 
 export interface CompleteLifecycleActionType {
-  __type?: "CompleteLifecycleActionType";
   /**
    * <p>A universally unique identifier (UUID) that identifies a specific lifecycle action
    *             associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you
@@ -760,11 +703,9 @@ export namespace CompleteLifecycleActionType {
   export const filterSensitiveLog = (obj: CompleteLifecycleActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteLifecycleActionType => __isa(o, "CompleteLifecycleActionType");
 }
 
 export interface CreateAutoScalingGroupType {
-  __type?: "CreateAutoScalingGroupType";
   /**
    * <p>The minimum size of the group.</p>
    */
@@ -987,11 +928,9 @@ export namespace CreateAutoScalingGroupType {
   export const filterSensitiveLog = (obj: CreateAutoScalingGroupType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAutoScalingGroupType => __isa(o, "CreateAutoScalingGroupType");
 }
 
 export interface CreateLaunchConfigurationType {
-  __type?: "CreateLaunchConfigurationType";
   /**
    * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the
    *             IAM role for the instance. The instance profile contains the IAM role.</p>
@@ -1186,11 +1125,9 @@ export namespace CreateLaunchConfigurationType {
   export const filterSensitiveLog = (obj: CreateLaunchConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLaunchConfigurationType => __isa(o, "CreateLaunchConfigurationType");
 }
 
 export interface CreateOrUpdateTagsType {
-  __type?: "CreateOrUpdateTagsType";
   /**
    * <p>One or more tags.</p>
    */
@@ -1201,7 +1138,6 @@ export namespace CreateOrUpdateTagsType {
   export const filterSensitiveLog = (obj: CreateOrUpdateTagsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOrUpdateTagsType => __isa(o, "CreateOrUpdateTagsType");
 }
 
 /**
@@ -1227,7 +1163,6 @@ export namespace CreateOrUpdateTagsType {
  *                 Concepts</a>.</p>
  */
 export interface CustomizedMetricSpecification {
-  __type?: "CustomizedMetricSpecification";
   /**
    * <p>The namespace of the metric.</p>
    */
@@ -1260,11 +1195,9 @@ export namespace CustomizedMetricSpecification {
   export const filterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomizedMetricSpecification => __isa(o, "CustomizedMetricSpecification");
 }
 
 export interface DeleteAutoScalingGroupType {
-  __type?: "DeleteAutoScalingGroupType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -1282,22 +1215,17 @@ export namespace DeleteAutoScalingGroupType {
   export const filterSensitiveLog = (obj: DeleteAutoScalingGroupType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAutoScalingGroupType => __isa(o, "DeleteAutoScalingGroupType");
 }
 
-export interface DeleteLifecycleHookAnswer {
-  __type?: "DeleteLifecycleHookAnswer";
-}
+export interface DeleteLifecycleHookAnswer {}
 
 export namespace DeleteLifecycleHookAnswer {
   export const filterSensitiveLog = (obj: DeleteLifecycleHookAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecycleHookAnswer => __isa(o, "DeleteLifecycleHookAnswer");
 }
 
 export interface DeleteLifecycleHookType {
-  __type?: "DeleteLifecycleHookType";
   /**
    * <p>The name of the lifecycle hook.</p>
    */
@@ -1313,11 +1241,9 @@ export namespace DeleteLifecycleHookType {
   export const filterSensitiveLog = (obj: DeleteLifecycleHookType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecycleHookType => __isa(o, "DeleteLifecycleHookType");
 }
 
 export interface DeleteNotificationConfigurationType {
-  __type?: "DeleteNotificationConfigurationType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -1334,12 +1260,9 @@ export namespace DeleteNotificationConfigurationType {
   export const filterSensitiveLog = (obj: DeleteNotificationConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationConfigurationType =>
-    __isa(o, "DeleteNotificationConfigurationType");
 }
 
 export interface DeletePolicyType {
-  __type?: "DeletePolicyType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -1355,11 +1278,9 @@ export namespace DeletePolicyType {
   export const filterSensitiveLog = (obj: DeletePolicyType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyType => __isa(o, "DeletePolicyType");
 }
 
 export interface DeleteScheduledActionType {
-  __type?: "DeleteScheduledActionType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -1375,11 +1296,9 @@ export namespace DeleteScheduledActionType {
   export const filterSensitiveLog = (obj: DeleteScheduledActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledActionType => __isa(o, "DeleteScheduledActionType");
 }
 
 export interface DeleteTagsType {
-  __type?: "DeleteTagsType";
   /**
    * <p>One or more tags.</p>
    */
@@ -1390,11 +1309,9 @@ export namespace DeleteTagsType {
   export const filterSensitiveLog = (obj: DeleteTagsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsType => __isa(o, "DeleteTagsType");
 }
 
 export interface DescribeAccountLimitsAnswer {
-  __type?: "DescribeAccountLimitsAnswer";
   /**
    * <p>The current number of groups for your AWS account.</p>
    */
@@ -1422,11 +1339,9 @@ export namespace DescribeAccountLimitsAnswer {
   export const filterSensitiveLog = (obj: DescribeAccountLimitsAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountLimitsAnswer => __isa(o, "DescribeAccountLimitsAnswer");
 }
 
 export interface DescribeAdjustmentTypesAnswer {
-  __type?: "DescribeAdjustmentTypesAnswer";
   /**
    * <p>The policy adjustment types.</p>
    */
@@ -1437,11 +1352,9 @@ export namespace DescribeAdjustmentTypesAnswer {
   export const filterSensitiveLog = (obj: DescribeAdjustmentTypesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAdjustmentTypesAnswer => __isa(o, "DescribeAdjustmentTypesAnswer");
 }
 
 export interface DescribeAutoScalingInstancesType {
-  __type?: "DescribeAutoScalingInstancesType";
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>50</code>.</p>
@@ -1466,11 +1379,9 @@ export namespace DescribeAutoScalingInstancesType {
   export const filterSensitiveLog = (obj: DescribeAutoScalingInstancesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAutoScalingInstancesType => __isa(o, "DescribeAutoScalingInstancesType");
 }
 
 export interface DescribeAutoScalingNotificationTypesAnswer {
-  __type?: "DescribeAutoScalingNotificationTypesAnswer";
   /**
    * <p>The notification types.</p>
    */
@@ -1481,12 +1392,9 @@ export namespace DescribeAutoScalingNotificationTypesAnswer {
   export const filterSensitiveLog = (obj: DescribeAutoScalingNotificationTypesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAutoScalingNotificationTypesAnswer =>
-    __isa(o, "DescribeAutoScalingNotificationTypesAnswer");
 }
 
 export interface DescribeInstanceRefreshesAnswer {
-  __type?: "DescribeInstanceRefreshesAnswer";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
@@ -1505,11 +1413,9 @@ export namespace DescribeInstanceRefreshesAnswer {
   export const filterSensitiveLog = (obj: DescribeInstanceRefreshesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceRefreshesAnswer => __isa(o, "DescribeInstanceRefreshesAnswer");
 }
 
 export interface DescribeInstanceRefreshesType {
-  __type?: "DescribeInstanceRefreshesType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -1537,11 +1443,9 @@ export namespace DescribeInstanceRefreshesType {
   export const filterSensitiveLog = (obj: DescribeInstanceRefreshesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstanceRefreshesType => __isa(o, "DescribeInstanceRefreshesType");
 }
 
 export interface DescribeLifecycleHooksAnswer {
-  __type?: "DescribeLifecycleHooksAnswer";
   /**
    * <p>The lifecycle hooks for the specified group.</p>
    */
@@ -1552,11 +1456,9 @@ export namespace DescribeLifecycleHooksAnswer {
   export const filterSensitiveLog = (obj: DescribeLifecycleHooksAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLifecycleHooksAnswer => __isa(o, "DescribeLifecycleHooksAnswer");
 }
 
 export interface DescribeLifecycleHooksType {
-  __type?: "DescribeLifecycleHooksType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -1573,11 +1475,9 @@ export namespace DescribeLifecycleHooksType {
   export const filterSensitiveLog = (obj: DescribeLifecycleHooksType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLifecycleHooksType => __isa(o, "DescribeLifecycleHooksType");
 }
 
 export interface DescribeLifecycleHookTypesAnswer {
-  __type?: "DescribeLifecycleHookTypesAnswer";
   /**
    * <p>The lifecycle hook types.</p>
    */
@@ -1588,11 +1488,9 @@ export namespace DescribeLifecycleHookTypesAnswer {
   export const filterSensitiveLog = (obj: DescribeLifecycleHookTypesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLifecycleHookTypesAnswer => __isa(o, "DescribeLifecycleHookTypesAnswer");
 }
 
 export interface DescribeLoadBalancersRequest {
-  __type?: "DescribeLoadBalancersRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
@@ -1615,11 +1513,9 @@ export namespace DescribeLoadBalancersRequest {
   export const filterSensitiveLog = (obj: DescribeLoadBalancersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancersRequest => __isa(o, "DescribeLoadBalancersRequest");
 }
 
 export interface DescribeLoadBalancersResponse {
-  __type?: "DescribeLoadBalancersResponse";
   /**
    * <p>The load balancers.</p>
    */
@@ -1638,11 +1534,9 @@ export namespace DescribeLoadBalancersResponse {
   export const filterSensitiveLog = (obj: DescribeLoadBalancersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancersResponse => __isa(o, "DescribeLoadBalancersResponse");
 }
 
 export interface DescribeLoadBalancerTargetGroupsRequest {
-  __type?: "DescribeLoadBalancerTargetGroupsRequest";
   /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
@@ -1665,12 +1559,9 @@ export namespace DescribeLoadBalancerTargetGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerTargetGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerTargetGroupsRequest =>
-    __isa(o, "DescribeLoadBalancerTargetGroupsRequest");
 }
 
 export interface DescribeLoadBalancerTargetGroupsResponse {
-  __type?: "DescribeLoadBalancerTargetGroupsResponse";
   /**
    * <p>Information about the target groups.</p>
    */
@@ -1689,12 +1580,9 @@ export namespace DescribeLoadBalancerTargetGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerTargetGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerTargetGroupsResponse =>
-    __isa(o, "DescribeLoadBalancerTargetGroupsResponse");
 }
 
 export interface DescribeMetricCollectionTypesAnswer {
-  __type?: "DescribeMetricCollectionTypesAnswer";
   /**
    * <p>One or more metrics.</p>
    */
@@ -1710,12 +1598,9 @@ export namespace DescribeMetricCollectionTypesAnswer {
   export const filterSensitiveLog = (obj: DescribeMetricCollectionTypesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMetricCollectionTypesAnswer =>
-    __isa(o, "DescribeMetricCollectionTypesAnswer");
 }
 
 export interface DescribeNotificationConfigurationsAnswer {
-  __type?: "DescribeNotificationConfigurationsAnswer";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
@@ -1734,12 +1619,9 @@ export namespace DescribeNotificationConfigurationsAnswer {
   export const filterSensitiveLog = (obj: DescribeNotificationConfigurationsAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotificationConfigurationsAnswer =>
-    __isa(o, "DescribeNotificationConfigurationsAnswer");
 }
 
 export interface DescribeNotificationConfigurationsType {
-  __type?: "DescribeNotificationConfigurationsType";
   /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
@@ -1762,12 +1644,9 @@ export namespace DescribeNotificationConfigurationsType {
   export const filterSensitiveLog = (obj: DescribeNotificationConfigurationsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotificationConfigurationsType =>
-    __isa(o, "DescribeNotificationConfigurationsType");
 }
 
 export interface DescribePoliciesType {
-  __type?: "DescribePoliciesType";
   /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
@@ -1804,11 +1683,9 @@ export namespace DescribePoliciesType {
   export const filterSensitiveLog = (obj: DescribePoliciesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePoliciesType => __isa(o, "DescribePoliciesType");
 }
 
 export interface DescribeScalingActivitiesType {
-  __type?: "DescribeScalingActivitiesType";
   /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
@@ -1839,11 +1716,9 @@ export namespace DescribeScalingActivitiesType {
   export const filterSensitiveLog = (obj: DescribeScalingActivitiesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingActivitiesType => __isa(o, "DescribeScalingActivitiesType");
 }
 
 export interface DescribeScheduledActionsType {
-  __type?: "DescribeScheduledActionsType";
   /**
    * <p>The names of one or more scheduled actions. You can specify up to 50 actions. If you
    *             omit this parameter, all scheduled actions are described. If you specify an unknown
@@ -1885,11 +1760,9 @@ export namespace DescribeScheduledActionsType {
   export const filterSensitiveLog = (obj: DescribeScheduledActionsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledActionsType => __isa(o, "DescribeScheduledActionsType");
 }
 
 export interface DescribeTagsType {
-  __type?: "DescribeTagsType";
   /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
@@ -1913,11 +1786,9 @@ export namespace DescribeTagsType {
   export const filterSensitiveLog = (obj: DescribeTagsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsType => __isa(o, "DescribeTagsType");
 }
 
 export interface DescribeTerminationPolicyTypesAnswer {
-  __type?: "DescribeTerminationPolicyTypesAnswer";
   /**
    * <p>The termination policies supported by Amazon EC2 Auto Scaling: <code>OldestInstance</code>,
    *                 <code>OldestLaunchConfiguration</code>, <code>NewestInstance</code>,
@@ -1931,12 +1802,9 @@ export namespace DescribeTerminationPolicyTypesAnswer {
   export const filterSensitiveLog = (obj: DescribeTerminationPolicyTypesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTerminationPolicyTypesAnswer =>
-    __isa(o, "DescribeTerminationPolicyTypesAnswer");
 }
 
 export interface DetachInstancesAnswer {
-  __type?: "DetachInstancesAnswer";
   /**
    * <p>The activities related to detaching the instances from the Auto Scaling group.</p>
    */
@@ -1947,11 +1815,9 @@ export namespace DetachInstancesAnswer {
   export const filterSensitiveLog = (obj: DetachInstancesAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachInstancesAnswer => __isa(o, "DetachInstancesAnswer");
 }
 
 export interface DetachInstancesQuery {
-  __type?: "DetachInstancesQuery";
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
@@ -1973,22 +1839,17 @@ export namespace DetachInstancesQuery {
   export const filterSensitiveLog = (obj: DetachInstancesQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachInstancesQuery => __isa(o, "DetachInstancesQuery");
 }
 
-export interface DetachLoadBalancersResultType {
-  __type?: "DetachLoadBalancersResultType";
-}
+export interface DetachLoadBalancersResultType {}
 
 export namespace DetachLoadBalancersResultType {
   export const filterSensitiveLog = (obj: DetachLoadBalancersResultType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachLoadBalancersResultType => __isa(o, "DetachLoadBalancersResultType");
 }
 
 export interface DetachLoadBalancersType {
-  __type?: "DetachLoadBalancersType";
   /**
    * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
    */
@@ -2004,23 +1865,17 @@ export namespace DetachLoadBalancersType {
   export const filterSensitiveLog = (obj: DetachLoadBalancersType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachLoadBalancersType => __isa(o, "DetachLoadBalancersType");
 }
 
-export interface DetachLoadBalancerTargetGroupsResultType {
-  __type?: "DetachLoadBalancerTargetGroupsResultType";
-}
+export interface DetachLoadBalancerTargetGroupsResultType {}
 
 export namespace DetachLoadBalancerTargetGroupsResultType {
   export const filterSensitiveLog = (obj: DetachLoadBalancerTargetGroupsResultType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachLoadBalancerTargetGroupsResultType =>
-    __isa(o, "DetachLoadBalancerTargetGroupsResultType");
 }
 
 export interface DetachLoadBalancerTargetGroupsType {
-  __type?: "DetachLoadBalancerTargetGroupsType";
   /**
    * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target
    *             groups.</p>
@@ -2037,12 +1892,9 @@ export namespace DetachLoadBalancerTargetGroupsType {
   export const filterSensitiveLog = (obj: DetachLoadBalancerTargetGroupsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachLoadBalancerTargetGroupsType =>
-    __isa(o, "DetachLoadBalancerTargetGroupsType");
 }
 
 export interface DisableMetricsCollectionQuery {
-  __type?: "DisableMetricsCollectionQuery";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -2126,7 +1978,6 @@ export namespace DisableMetricsCollectionQuery {
   export const filterSensitiveLog = (obj: DisableMetricsCollectionQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableMetricsCollectionQuery => __isa(o, "DisableMetricsCollectionQuery");
 }
 
 /**
@@ -2134,7 +1985,6 @@ export namespace DisableMetricsCollectionQuery {
  *             mapping.</p>
  */
 export interface Ebs {
-  __type?: "Ebs";
   /**
    * <p>Indicates whether the volume is deleted on instance termination. For Amazon EC2 Auto Scaling, the
    *             default value is <code>true</code>.</p>
@@ -2215,14 +2065,12 @@ export namespace Ebs {
   export const filterSensitiveLog = (obj: Ebs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ebs => __isa(o, "Ebs");
 }
 
 /**
  * <p>Describes an enabled metric.</p>
  */
 export interface EnabledMetric {
-  __type?: "EnabledMetric";
   /**
    * <p>The granularity of the metric. The only valid value is <code>1Minute</code>.</p>
    */
@@ -2305,11 +2153,9 @@ export namespace EnabledMetric {
   export const filterSensitiveLog = (obj: EnabledMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnabledMetric => __isa(o, "EnabledMetric");
 }
 
 export interface EnableMetricsCollectionQuery {
-  __type?: "EnableMetricsCollectionQuery";
   /**
    * <p>The granularity to associate with the metrics to collect. The only valid value is
    *                 <code>1Minute</code>.</p>
@@ -2403,11 +2249,9 @@ export namespace EnableMetricsCollectionQuery {
   export const filterSensitiveLog = (obj: EnableMetricsCollectionQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableMetricsCollectionQuery => __isa(o, "EnableMetricsCollectionQuery");
 }
 
 export interface EnterStandbyAnswer {
-  __type?: "EnterStandbyAnswer";
   /**
    * <p>The activities related to moving instances into <code>Standby</code> mode.</p>
    */
@@ -2418,11 +2262,9 @@ export namespace EnterStandbyAnswer {
   export const filterSensitiveLog = (obj: EnterStandbyAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnterStandbyAnswer => __isa(o, "EnterStandbyAnswer");
 }
 
 export interface EnterStandbyQuery {
-  __type?: "EnterStandbyQuery";
   /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
@@ -2444,11 +2286,9 @@ export namespace EnterStandbyQuery {
   export const filterSensitiveLog = (obj: EnterStandbyQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnterStandbyQuery => __isa(o, "EnterStandbyQuery");
 }
 
 export interface ExecutePolicyType {
-  __type?: "ExecutePolicyType";
   /**
    * <p>The metric value to compare to <code>BreachThreshold</code>. This enables you to
    *             execute a policy of type <code>StepScaling</code> and determine which step adjustment to
@@ -2493,11 +2333,9 @@ export namespace ExecutePolicyType {
   export const filterSensitiveLog = (obj: ExecutePolicyType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutePolicyType => __isa(o, "ExecutePolicyType");
 }
 
 export interface ExitStandbyAnswer {
-  __type?: "ExitStandbyAnswer";
   /**
    * <p>The activities related to moving instances out of <code>Standby</code> mode.</p>
    */
@@ -2508,11 +2346,9 @@ export namespace ExitStandbyAnswer {
   export const filterSensitiveLog = (obj: ExitStandbyAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExitStandbyAnswer => __isa(o, "ExitStandbyAnswer");
 }
 
 export interface ExitStandbyQuery {
-  __type?: "ExitStandbyQuery";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -2528,14 +2364,12 @@ export namespace ExitStandbyQuery {
   export const filterSensitiveLog = (obj: ExitStandbyQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExitStandbyQuery => __isa(o, "ExitStandbyQuery");
 }
 
 /**
  * <p>Describes a scheduled action that could not be created, updated, or deleted.</p>
  */
 export interface FailedScheduledUpdateGroupActionRequest {
-  __type?: "FailedScheduledUpdateGroupActionRequest";
   /**
    * <p>The error code.</p>
    */
@@ -2556,8 +2390,6 @@ export namespace FailedScheduledUpdateGroupActionRequest {
   export const filterSensitiveLog = (obj: FailedScheduledUpdateGroupActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedScheduledUpdateGroupActionRequest =>
-    __isa(o, "FailedScheduledUpdateGroupActionRequest");
 }
 
 /**
@@ -2567,7 +2399,6 @@ export namespace FailedScheduledUpdateGroupActionRequest {
  *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>One or more filter values. Filter values are case-sensitive.</p>
    */
@@ -2584,14 +2415,12 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
  * <p>Describes an EC2 instance.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
    *             in.</p>
@@ -2648,7 +2477,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 export enum InstanceMetadataEndpointState {
@@ -2666,7 +2494,6 @@ export enum InstanceMetadataHttpTokensState {
  *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
 export interface InstanceMetadataOptions {
-  __type?: "InstanceMetadataOptions";
   /**
    * <p>The state of token usage for your instance metadata requests. If the parameter is not
    *             specified in the request, the default state is <code>optional</code>.</p>
@@ -2705,14 +2532,12 @@ export namespace InstanceMetadataOptions {
   export const filterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceMetadataOptions => __isa(o, "InstanceMetadataOptions");
 }
 
 /**
  * <p>Describes whether detailed monitoring is enabled for the Auto Scaling instances.</p>
  */
 export interface InstanceMonitoring {
-  __type?: "InstanceMonitoring";
   /**
    * <p>If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
@@ -2724,14 +2549,12 @@ export namespace InstanceMonitoring {
   export const filterSensitiveLog = (obj: InstanceMonitoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceMonitoring => __isa(o, "InstanceMonitoring");
 }
 
 /**
  * <p>Describes an instance refresh for an Auto Scaling group. </p>
  */
 export interface InstanceRefresh {
-  __type?: "InstanceRefresh";
   /**
    * <p>The date and time at which the instance refresh ended.</p>
    */
@@ -2811,7 +2634,6 @@ export namespace InstanceRefresh {
   export const filterSensitiveLog = (obj: InstanceRefresh): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceRefresh => __isa(o, "InstanceRefresh");
 }
 
 /**
@@ -2828,7 +2650,6 @@ export namespace InstanceRefreshInProgressFault {
   export const filterSensitiveLog = (obj: InstanceRefreshInProgressFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceRefreshInProgressFault => __isa(o, "InstanceRefreshInProgressFault");
 }
 
 export enum InstanceRefreshStatus {
@@ -2854,7 +2675,6 @@ export enum InstanceRefreshStatus {
  *             policies.</p>
  */
 export interface InstancesDistribution {
-  __type?: "InstancesDistribution";
   /**
    * <p>Indicates how to allocate instances across Spot Instance pools.</p>
    *         <p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches
@@ -2933,7 +2753,6 @@ export namespace InstancesDistribution {
   export const filterSensitiveLog = (obj: InstancesDistribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstancesDistribution => __isa(o, "InstancesDistribution");
 }
 
 /**
@@ -2952,14 +2771,12 @@ export namespace InvalidNextToken {
   export const filterSensitiveLog = (obj: InvalidNextToken): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextToken => __isa(o, "InvalidNextToken");
 }
 
 /**
  * <p>Describes a launch configuration.</p>
  */
 export interface LaunchConfiguration {
-  __type?: "LaunchConfiguration";
   /**
    * <p>The instance type for the instances.</p>
    *         <p>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
@@ -3112,11 +2929,9 @@ export namespace LaunchConfiguration {
   export const filterSensitiveLog = (obj: LaunchConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchConfiguration => __isa(o, "LaunchConfiguration");
 }
 
 export interface LaunchConfigurationNamesType {
-  __type?: "LaunchConfigurationNamesType";
   /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
@@ -3140,11 +2955,9 @@ export namespace LaunchConfigurationNamesType {
   export const filterSensitiveLog = (obj: LaunchConfigurationNamesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchConfigurationNamesType => __isa(o, "LaunchConfigurationNamesType");
 }
 
 export interface LaunchConfigurationNameType {
-  __type?: "LaunchConfigurationNameType";
   /**
    * <p>The name of the launch configuration.</p>
    */
@@ -3155,11 +2968,9 @@ export namespace LaunchConfigurationNameType {
   export const filterSensitiveLog = (obj: LaunchConfigurationNameType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchConfigurationNameType => __isa(o, "LaunchConfigurationNameType");
 }
 
 export interface LaunchConfigurationsType {
-  __type?: "LaunchConfigurationsType";
   /**
    * <p>The launch configurations.</p>
    */
@@ -3178,7 +2989,6 @@ export namespace LaunchConfigurationsType {
   export const filterSensitiveLog = (obj: LaunchConfigurationsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchConfigurationsType => __isa(o, "LaunchConfigurationsType");
 }
 
 /**
@@ -3192,7 +3002,6 @@ export namespace LaunchConfigurationsType {
  *             termination policies.</p>
  */
 export interface LaunchTemplate {
-  __type?: "LaunchTemplate";
   /**
    * <p>Any parameters that you specify override the same parameters in the launch template.
    *             Currently, the only supported override is instance type. You can specify between 1 and
@@ -3213,7 +3022,6 @@ export namespace LaunchTemplate {
   export const filterSensitiveLog = (obj: LaunchTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplate => __isa(o, "LaunchTemplate");
 }
 
 /**
@@ -3223,7 +3031,6 @@ export namespace LaunchTemplate {
  *             group is 20.</p>
  */
 export interface LaunchTemplateOverrides {
-  __type?: "LaunchTemplateOverrides";
   /**
    * <p>The number of capacity units, which gives the instance type a proportional weight to
    *             other instance types. For example, larger instance types are generally weighted more
@@ -3251,7 +3058,6 @@ export namespace LaunchTemplateOverrides {
   export const filterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateOverrides => __isa(o, "LaunchTemplateOverrides");
 }
 
 /**
@@ -3262,7 +3068,6 @@ export namespace LaunchTemplateOverrides {
  *                 Template for an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface LaunchTemplateSpecification {
-  __type?: "LaunchTemplateSpecification";
   /**
    * <p>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a> API operation. New launch templates can be created
    *             using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a> API.</p>
@@ -3293,7 +3098,6 @@ export namespace LaunchTemplateSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpecification => __isa(o, "LaunchTemplateSpecification");
 }
 
 /**
@@ -3302,7 +3106,6 @@ export namespace LaunchTemplateSpecification {
  *             instances.</p>
  */
 export interface LifecycleHook {
-  __type?: "LifecycleHook";
   /**
    * <p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the
    *             transition state for the lifecycle hook. The notification target can be either an SQS
@@ -3373,7 +3176,6 @@ export namespace LifecycleHook {
   export const filterSensitiveLog = (obj: LifecycleHook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleHook => __isa(o, "LifecycleHook");
 }
 
 /**
@@ -3414,7 +3216,6 @@ export namespace LifecycleHook {
  *                 Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface LifecycleHookSpecification {
-  __type?: "LifecycleHookSpecification";
   /**
    * <p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the
    *             transition state for the lifecycle hook. The notification target can be either an SQS
@@ -3474,7 +3275,6 @@ export namespace LifecycleHookSpecification {
   export const filterSensitiveLog = (obj: LifecycleHookSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleHookSpecification => __isa(o, "LifecycleHookSpecification");
 }
 
 export enum LifecycleState {
@@ -3512,7 +3312,6 @@ export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 /**
@@ -3528,7 +3327,6 @@ export namespace LimitExceededFault {
  *                 <code>Added</code> state.</p>
  */
 export interface LoadBalancerState {
-  __type?: "LoadBalancerState";
   /**
    * <p>One of the following load balancer states:</p>
    *         <ul>
@@ -3573,7 +3371,6 @@ export namespace LoadBalancerState {
   export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerState => __isa(o, "LoadBalancerState");
 }
 
 /**
@@ -3586,7 +3383,6 @@ export namespace LoadBalancerState {
  *             group remains in the <code>Added</code> state.</p>
  */
 export interface LoadBalancerTargetGroupState {
-  __type?: "LoadBalancerTargetGroupState";
   /**
    * <p>The state of the target group.</p>
    *         <ul>
@@ -3630,14 +3426,12 @@ export namespace LoadBalancerTargetGroupState {
   export const filterSensitiveLog = (obj: LoadBalancerTargetGroupState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerTargetGroupState => __isa(o, "LoadBalancerTargetGroupState");
 }
 
 /**
  * <p>Describes a metric.</p>
  */
 export interface MetricCollectionType {
-  __type?: "MetricCollectionType";
   /**
    * <p>One of the following metrics:</p>
    *         <ul>
@@ -3715,14 +3509,12 @@ export namespace MetricCollectionType {
   export const filterSensitiveLog = (obj: MetricCollectionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricCollectionType => __isa(o, "MetricCollectionType");
 }
 
 /**
  * <p>Describes the dimension of a metric.</p>
  */
 export interface MetricDimension {
-  __type?: "MetricDimension";
   /**
    * <p>The name of the dimension.</p>
    */
@@ -3738,14 +3530,12 @@ export namespace MetricDimension {
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 /**
  * <p>Describes a granularity of a metric.</p>
  */
 export interface MetricGranularityType {
-  __type?: "MetricGranularityType";
   /**
    * <p>The granularity. The only valid value is <code>1Minute</code>.</p>
    */
@@ -3756,7 +3546,6 @@ export namespace MetricGranularityType {
   export const filterSensitiveLog = (obj: MetricGranularityType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricGranularityType => __isa(o, "MetricGranularityType");
 }
 
 export enum MetricStatistic {
@@ -3786,7 +3575,6 @@ export enum MetricType {
  *             information, see <a>CreateAutoScalingGroup</a> and <a>UpdateAutoScalingGroup</a>.</p>
  */
 export interface MixedInstancesPolicy {
-  __type?: "MixedInstancesPolicy";
   /**
    * <p>The launch template and instance types (overrides).</p>
    *         <p>Required when creating a mixed instances policy.</p>
@@ -3805,14 +3593,12 @@ export namespace MixedInstancesPolicy {
   export const filterSensitiveLog = (obj: MixedInstancesPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MixedInstancesPolicy => __isa(o, "MixedInstancesPolicy");
 }
 
 /**
  * <p>Describes a notification.</p>
  */
 export interface NotificationConfiguration {
-  __type?: "NotificationConfiguration";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -3861,11 +3647,9 @@ export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 export interface PoliciesType {
-  __type?: "PoliciesType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
@@ -3884,14 +3668,12 @@ export namespace PoliciesType {
   export const filterSensitiveLog = (obj: PoliciesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PoliciesType => __isa(o, "PoliciesType");
 }
 
 /**
  * <p>Contains the output of PutScalingPolicy.</p>
  */
 export interface PolicyARNType {
-  __type?: "PolicyARNType";
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    */
@@ -3907,7 +3689,6 @@ export namespace PolicyARNType {
   export const filterSensitiveLog = (obj: PolicyARNType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyARNType => __isa(o, "PolicyARNType");
 }
 
 /**
@@ -3915,7 +3696,6 @@ export namespace PolicyARNType {
  *             Amazon EC2 Auto Scaling.</p>
  */
 export interface PredefinedMetricSpecification {
-  __type?: "PredefinedMetricSpecification";
   /**
    * <p>The metric type. The following predefined metrics are available:</p>
    *         <ul>
@@ -3975,11 +3755,9 @@ export namespace PredefinedMetricSpecification {
   export const filterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredefinedMetricSpecification => __isa(o, "PredefinedMetricSpecification");
 }
 
 export interface ProcessesType {
-  __type?: "ProcessesType";
   /**
    * <p>The names of the process types.</p>
    */
@@ -3990,7 +3768,6 @@ export namespace ProcessesType {
   export const filterSensitiveLog = (obj: ProcessesType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessesType => __isa(o, "ProcessesType");
 }
 
 /**
@@ -3998,7 +3775,6 @@ export namespace ProcessesType {
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface ProcessType {
-  __type?: "ProcessType";
   /**
    * <p>One of the following processes:</p>
    *         <ul>
@@ -4056,22 +3832,17 @@ export namespace ProcessType {
   export const filterSensitiveLog = (obj: ProcessType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessType => __isa(o, "ProcessType");
 }
 
-export interface PutLifecycleHookAnswer {
-  __type?: "PutLifecycleHookAnswer";
-}
+export interface PutLifecycleHookAnswer {}
 
 export namespace PutLifecycleHookAnswer {
   export const filterSensitiveLog = (obj: PutLifecycleHookAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecycleHookAnswer => __isa(o, "PutLifecycleHookAnswer");
 }
 
 export interface PutLifecycleHookType {
-  __type?: "PutLifecycleHookType";
   /**
    * <p>The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance
    *             is in the transition state for the lifecycle hook. This target can be either an SQS
@@ -4146,11 +3917,9 @@ export namespace PutLifecycleHookType {
   export const filterSensitiveLog = (obj: PutLifecycleHookType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecycleHookType => __isa(o, "PutLifecycleHookType");
 }
 
 export interface PutNotificationConfigurationType {
-  __type?: "PutNotificationConfigurationType";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -4173,11 +3942,9 @@ export namespace PutNotificationConfigurationType {
   export const filterSensitiveLog = (obj: PutNotificationConfigurationType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutNotificationConfigurationType => __isa(o, "PutNotificationConfigurationType");
 }
 
 export interface PutScalingPolicyType {
-  __type?: "PutScalingPolicyType";
   /**
    * <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number
    *             or a percentage). The valid values are <code>ChangeInCapacity</code>,
@@ -4335,11 +4102,9 @@ export namespace PutScalingPolicyType {
   export const filterSensitiveLog = (obj: PutScalingPolicyType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScalingPolicyType => __isa(o, "PutScalingPolicyType");
 }
 
 export interface PutScheduledUpdateGroupActionType {
-  __type?: "PutScheduledUpdateGroupActionType";
   /**
    * <p>The recurring schedule for this action, in Unix cron syntax format. This format
    *             consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
@@ -4405,23 +4170,17 @@ export namespace PutScheduledUpdateGroupActionType {
   export const filterSensitiveLog = (obj: PutScheduledUpdateGroupActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScheduledUpdateGroupActionType => __isa(o, "PutScheduledUpdateGroupActionType");
 }
 
-export interface RecordLifecycleActionHeartbeatAnswer {
-  __type?: "RecordLifecycleActionHeartbeatAnswer";
-}
+export interface RecordLifecycleActionHeartbeatAnswer {}
 
 export namespace RecordLifecycleActionHeartbeatAnswer {
   export const filterSensitiveLog = (obj: RecordLifecycleActionHeartbeatAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordLifecycleActionHeartbeatAnswer =>
-    __isa(o, "RecordLifecycleActionHeartbeatAnswer");
 }
 
 export interface RecordLifecycleActionHeartbeatType {
-  __type?: "RecordLifecycleActionHeartbeatType";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -4449,15 +4208,12 @@ export namespace RecordLifecycleActionHeartbeatType {
   export const filterSensitiveLog = (obj: RecordLifecycleActionHeartbeatType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordLifecycleActionHeartbeatType =>
-    __isa(o, "RecordLifecycleActionHeartbeatType");
 }
 
 /**
  * <p>Describes information used to start an instance refresh. </p>
  */
 export interface RefreshPreferences {
-  __type?: "RefreshPreferences";
   /**
    * <p>The amount of capacity in the Auto Scaling group that must remain healthy during an instance
    *             refresh to allow the operation to continue, as a percentage of the desired capacity of
@@ -4479,7 +4235,6 @@ export namespace RefreshPreferences {
   export const filterSensitiveLog = (obj: RefreshPreferences): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshPreferences => __isa(o, "RefreshPreferences");
 }
 
 export enum RefreshStrategy {
@@ -4503,7 +4258,6 @@ export namespace ResourceContentionFault {
   export const filterSensitiveLog = (obj: ResourceContentionFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceContentionFault => __isa(o, "ResourceContentionFault");
 }
 
 /**
@@ -4522,7 +4276,6 @@ export namespace ResourceInUseFault {
   export const filterSensitiveLog = (obj: ResourceInUseFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseFault => __isa(o, "ResourceInUseFault");
 }
 
 /**
@@ -4542,7 +4295,6 @@ export namespace ScalingActivityInProgressFault {
   export const filterSensitiveLog = (obj: ScalingActivityInProgressFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingActivityInProgressFault => __isa(o, "ScalingActivityInProgressFault");
 }
 
 export enum ScalingActivityStatusCode {
@@ -4564,7 +4316,6 @@ export enum ScalingActivityStatusCode {
  * <p>Describes a scaling policy.</p>
  */
 export interface ScalingPolicy {
-  __type?: "ScalingPolicy";
   /**
    * <p>The CloudWatch alarms related to the policy.</p>
    */
@@ -4674,11 +4425,9 @@ export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 export interface ScalingProcessQuery {
-  __type?: "ScalingProcessQuery";
   /**
    * <p>One or more of the following processes:</p>
    *         <ul>
@@ -4742,11 +4491,9 @@ export namespace ScalingProcessQuery {
   export const filterSensitiveLog = (obj: ScalingProcessQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingProcessQuery => __isa(o, "ScalingProcessQuery");
 }
 
 export interface ScheduledActionsType {
-  __type?: "ScheduledActionsType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
@@ -4765,7 +4512,6 @@ export namespace ScheduledActionsType {
   export const filterSensitiveLog = (obj: ScheduledActionsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionsType => __isa(o, "ScheduledActionsType");
 }
 
 /**
@@ -4773,7 +4519,6 @@ export namespace ScheduledActionsType {
  *             action.</p>
  */
 export interface ScheduledUpdateGroupAction {
-  __type?: "ScheduledUpdateGroupAction";
   /**
    * <p>The maximum size of the Auto Scaling group.</p>
    */
@@ -4837,7 +4582,6 @@ export namespace ScheduledUpdateGroupAction {
   export const filterSensitiveLog = (obj: ScheduledUpdateGroupAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledUpdateGroupAction => __isa(o, "ScheduledUpdateGroupAction");
 }
 
 /**
@@ -4846,7 +4590,6 @@ export namespace ScheduledUpdateGroupAction {
  *             if not specified.</p>
  */
 export interface ScheduledUpdateGroupActionRequest {
-  __type?: "ScheduledUpdateGroupActionRequest";
   /**
    * <p>The recurring schedule for the action, in Unix cron syntax format. This format
    *             consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
@@ -4901,7 +4644,6 @@ export namespace ScheduledUpdateGroupActionRequest {
   export const filterSensitiveLog = (obj: ScheduledUpdateGroupActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledUpdateGroupActionRequest => __isa(o, "ScheduledUpdateGroupActionRequest");
 }
 
 /**
@@ -4917,11 +4659,9 @@ export namespace ServiceLinkedRoleFailure {
   export const filterSensitiveLog = (obj: ServiceLinkedRoleFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceLinkedRoleFailure => __isa(o, "ServiceLinkedRoleFailure");
 }
 
 export interface SetDesiredCapacityType {
-  __type?: "SetDesiredCapacityType";
   /**
    * <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating
    *             a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does
@@ -4945,11 +4685,9 @@ export namespace SetDesiredCapacityType {
   export const filterSensitiveLog = (obj: SetDesiredCapacityType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDesiredCapacityType => __isa(o, "SetDesiredCapacityType");
 }
 
 export interface SetInstanceHealthQuery {
-  __type?: "SetInstanceHealthQuery";
   /**
    * <p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
    *             specified for the group, by default, this call respects the grace period. Set this to
@@ -4979,22 +4717,17 @@ export namespace SetInstanceHealthQuery {
   export const filterSensitiveLog = (obj: SetInstanceHealthQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetInstanceHealthQuery => __isa(o, "SetInstanceHealthQuery");
 }
 
-export interface SetInstanceProtectionAnswer {
-  __type?: "SetInstanceProtectionAnswer";
-}
+export interface SetInstanceProtectionAnswer {}
 
 export namespace SetInstanceProtectionAnswer {
   export const filterSensitiveLog = (obj: SetInstanceProtectionAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetInstanceProtectionAnswer => __isa(o, "SetInstanceProtectionAnswer");
 }
 
 export interface SetInstanceProtectionQuery {
-  __type?: "SetInstanceProtectionQuery";
   /**
    * <p>The name of the Auto Scaling group.</p>
    */
@@ -5016,11 +4749,9 @@ export namespace SetInstanceProtectionQuery {
   export const filterSensitiveLog = (obj: SetInstanceProtectionQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetInstanceProtectionQuery => __isa(o, "SetInstanceProtectionQuery");
 }
 
 export interface StartInstanceRefreshAnswer {
-  __type?: "StartInstanceRefreshAnswer";
   /**
    * <p>A unique ID for tracking the progress of the request.</p>
    */
@@ -5031,11 +4762,9 @@ export namespace StartInstanceRefreshAnswer {
   export const filterSensitiveLog = (obj: StartInstanceRefreshAnswer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstanceRefreshAnswer => __isa(o, "StartInstanceRefreshAnswer");
 }
 
 export interface StartInstanceRefreshType {
-  __type?: "StartInstanceRefreshType";
   /**
    * <p>Set of preferences associated with the instance refresh request.</p>
    *         <p>If not provided, the default values are used. For <code>MinHealthyPercentage</code>,
@@ -5067,7 +4796,6 @@ export namespace StartInstanceRefreshType {
   export const filterSensitiveLog = (obj: StartInstanceRefreshType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstanceRefreshType => __isa(o, "StartInstanceRefreshType");
 }
 
 /**
@@ -5108,7 +4836,6 @@ export namespace StartInstanceRefreshType {
  *                 Adjustments</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface StepAdjustment {
-  __type?: "StepAdjustment";
   /**
    * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
    *             the metric value is above the breach threshold, the lower bound is inclusive (the metric
@@ -5140,7 +4867,6 @@ export namespace StepAdjustment {
   export const filterSensitiveLog = (obj: StepAdjustment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepAdjustment => __isa(o, "StepAdjustment");
 }
 
 /**
@@ -5148,7 +4874,6 @@ export namespace StepAdjustment {
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface SuspendedProcess {
-  __type?: "SuspendedProcess";
   /**
    * <p>The reason that the process was suspended.</p>
    */
@@ -5164,14 +4889,12 @@ export namespace SuspendedProcess {
   export const filterSensitiveLog = (obj: SuspendedProcess): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuspendedProcess => __isa(o, "SuspendedProcess");
 }
 
 /**
  * <p>Describes a tag for an Auto Scaling group.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag value.</p>
    */
@@ -5204,14 +4927,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Describes a tag for an Auto Scaling group.</p>
  */
 export interface TagDescription {
-  __type?: "TagDescription";
   /**
    * <p>Determines whether the tag is added to new instances as they are launched in the
    *             group.</p>
@@ -5244,11 +4965,9 @@ export namespace TagDescription {
   export const filterSensitiveLog = (obj: TagDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagDescription => __isa(o, "TagDescription");
 }
 
 export interface TagsType {
-  __type?: "TagsType";
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
@@ -5267,14 +4986,12 @@ export namespace TagsType {
   export const filterSensitiveLog = (obj: TagsType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagsType => __isa(o, "TagsType");
 }
 
 /**
  * <p>Represents a target tracking scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
  */
 export interface TargetTrackingConfiguration {
-  __type?: "TargetTrackingConfiguration";
   /**
    * <p>Indicates whether scaling in by the target tracking scaling policy is disabled. If
    *             scaling in is disabled, the target tracking scaling policy doesn't remove instances from
@@ -5305,11 +5022,9 @@ export namespace TargetTrackingConfiguration {
   export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetTrackingConfiguration => __isa(o, "TargetTrackingConfiguration");
 }
 
 export interface TerminateInstanceInAutoScalingGroupType {
-  __type?: "TerminateInstanceInAutoScalingGroupType";
   /**
    * <p>The ID of the instance.</p>
    */
@@ -5326,12 +5041,9 @@ export namespace TerminateInstanceInAutoScalingGroupType {
   export const filterSensitiveLog = (obj: TerminateInstanceInAutoScalingGroupType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateInstanceInAutoScalingGroupType =>
-    __isa(o, "TerminateInstanceInAutoScalingGroupType");
 }
 
 export interface UpdateAutoScalingGroupType {
-  __type?: "UpdateAutoScalingGroupType";
   /**
    * <p>The desired capacity is the initial capacity of the Auto Scaling group after this operation
    *             completes and the capacity it attempts to maintain.</p>
@@ -5483,5 +5195,4 @@ export namespace UpdateAutoScalingGroupType {
   export const filterSensitiveLog = (obj: UpdateAutoScalingGroupType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAutoScalingGroupType => __isa(o, "UpdateAutoScalingGroupType");
 }

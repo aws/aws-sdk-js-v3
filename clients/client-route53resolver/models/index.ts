@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateResolverEndpointIpAddressRequest {
-  __type?: "AssociateResolverEndpointIpAddressRequest";
   /**
    * <p>Either the IPv4 address that you want to add to a resolver endpoint or a subnet ID. If you specify a subnet ID,
    * 			Resolver chooses an IP address for you from the available IPs in the specified subnet.</p>
@@ -19,12 +18,9 @@ export namespace AssociateResolverEndpointIpAddressRequest {
   export const filterSensitiveLog = (obj: AssociateResolverEndpointIpAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResolverEndpointIpAddressRequest =>
-    __isa(o, "AssociateResolverEndpointIpAddressRequest");
 }
 
 export interface AssociateResolverEndpointIpAddressResponse {
-  __type?: "AssociateResolverEndpointIpAddressResponse";
   /**
    * <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>
    */
@@ -35,12 +31,9 @@ export namespace AssociateResolverEndpointIpAddressResponse {
   export const filterSensitiveLog = (obj: AssociateResolverEndpointIpAddressResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResolverEndpointIpAddressResponse =>
-    __isa(o, "AssociateResolverEndpointIpAddressResponse");
 }
 
 export interface AssociateResolverRuleRequest {
-  __type?: "AssociateResolverRuleRequest";
   /**
    * <p>The ID of the resolver rule that you want to associate with the VPC. To list the existing resolver rules, use
    * 			<a>ListResolverRules</a>.</p>
@@ -62,11 +55,9 @@ export namespace AssociateResolverRuleRequest {
   export const filterSensitiveLog = (obj: AssociateResolverRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResolverRuleRequest => __isa(o, "AssociateResolverRuleRequest");
 }
 
 export interface AssociateResolverRuleResponse {
-  __type?: "AssociateResolverRuleResponse";
   /**
    * <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>
    */
@@ -77,11 +68,9 @@ export namespace AssociateResolverRuleResponse {
   export const filterSensitiveLog = (obj: AssociateResolverRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResolverRuleResponse => __isa(o, "AssociateResolverRuleResponse");
 }
 
 export interface CreateResolverEndpointRequest {
-  __type?: "CreateResolverEndpointRequest";
   /**
    * <p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify
    * 			must include one or more inbound rules (for inbound resolver endpoints) or outbound rules (for outbound resolver endpoints).</p>
@@ -130,11 +119,9 @@ export namespace CreateResolverEndpointRequest {
   export const filterSensitiveLog = (obj: CreateResolverEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResolverEndpointRequest => __isa(o, "CreateResolverEndpointRequest");
 }
 
 export interface CreateResolverEndpointResponse {
-  __type?: "CreateResolverEndpointResponse";
   /**
    * <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>
    */
@@ -145,11 +132,9 @@ export namespace CreateResolverEndpointResponse {
   export const filterSensitiveLog = (obj: CreateResolverEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResolverEndpointResponse => __isa(o, "CreateResolverEndpointResponse");
 }
 
 export interface CreateResolverRuleRequest {
-  __type?: "CreateResolverRuleRequest";
   /**
    * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice.
    * 			<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
@@ -194,11 +179,9 @@ export namespace CreateResolverRuleRequest {
   export const filterSensitiveLog = (obj: CreateResolverRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResolverRuleRequest => __isa(o, "CreateResolverRuleRequest");
 }
 
 export interface CreateResolverRuleResponse {
-  __type?: "CreateResolverRuleResponse";
   /**
    * <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>
    */
@@ -209,11 +192,9 @@ export namespace CreateResolverRuleResponse {
   export const filterSensitiveLog = (obj: CreateResolverRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResolverRuleResponse => __isa(o, "CreateResolverRuleResponse");
 }
 
 export interface DeleteResolverEndpointRequest {
-  __type?: "DeleteResolverEndpointRequest";
   /**
    * <p>The ID of the resolver endpoint that you want to delete.</p>
    */
@@ -224,11 +205,9 @@ export namespace DeleteResolverEndpointRequest {
   export const filterSensitiveLog = (obj: DeleteResolverEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResolverEndpointRequest => __isa(o, "DeleteResolverEndpointRequest");
 }
 
 export interface DeleteResolverEndpointResponse {
-  __type?: "DeleteResolverEndpointResponse";
   /**
    * <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>
    */
@@ -239,11 +218,9 @@ export namespace DeleteResolverEndpointResponse {
   export const filterSensitiveLog = (obj: DeleteResolverEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResolverEndpointResponse => __isa(o, "DeleteResolverEndpointResponse");
 }
 
 export interface DeleteResolverRuleRequest {
-  __type?: "DeleteResolverRuleRequest";
   /**
    * <p>The ID of the resolver rule that you want to delete.</p>
    */
@@ -254,11 +231,9 @@ export namespace DeleteResolverRuleRequest {
   export const filterSensitiveLog = (obj: DeleteResolverRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResolverRuleRequest => __isa(o, "DeleteResolverRuleRequest");
 }
 
 export interface DeleteResolverRuleResponse {
-  __type?: "DeleteResolverRuleResponse";
   /**
    * <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>
    */
@@ -269,11 +244,9 @@ export namespace DeleteResolverRuleResponse {
   export const filterSensitiveLog = (obj: DeleteResolverRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResolverRuleResponse => __isa(o, "DeleteResolverRuleResponse");
 }
 
 export interface DisassociateResolverEndpointIpAddressRequest {
-  __type?: "DisassociateResolverEndpointIpAddressRequest";
   /**
    * <p>The ID of the resolver endpoint that you want to disassociate an IP address from.</p>
    */
@@ -289,12 +262,9 @@ export namespace DisassociateResolverEndpointIpAddressRequest {
   export const filterSensitiveLog = (obj: DisassociateResolverEndpointIpAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResolverEndpointIpAddressRequest =>
-    __isa(o, "DisassociateResolverEndpointIpAddressRequest");
 }
 
 export interface DisassociateResolverEndpointIpAddressResponse {
-  __type?: "DisassociateResolverEndpointIpAddressResponse";
   /**
    * <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>
    */
@@ -305,12 +275,9 @@ export namespace DisassociateResolverEndpointIpAddressResponse {
   export const filterSensitiveLog = (obj: DisassociateResolverEndpointIpAddressResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResolverEndpointIpAddressResponse =>
-    __isa(o, "DisassociateResolverEndpointIpAddressResponse");
 }
 
 export interface DisassociateResolverRuleRequest {
-  __type?: "DisassociateResolverRuleRequest";
   /**
    * <p>The ID of the resolver rule that you want to disassociate from the specified VPC.</p>
    */
@@ -326,11 +293,9 @@ export namespace DisassociateResolverRuleRequest {
   export const filterSensitiveLog = (obj: DisassociateResolverRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResolverRuleRequest => __isa(o, "DisassociateResolverRuleRequest");
 }
 
 export interface DisassociateResolverRuleResponse {
-  __type?: "DisassociateResolverRuleResponse";
   /**
    * <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>
    */
@@ -341,14 +306,12 @@ export namespace DisassociateResolverRuleResponse {
   export const filterSensitiveLog = (obj: DisassociateResolverRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResolverRuleResponse => __isa(o, "DisassociateResolverRuleResponse");
 }
 
 /**
  * <p>For <code>List</code> operations, an optional specification to return a subset of objects, such as resolver endpoints or resolver rules.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,
    * 			the name of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify
@@ -368,11 +331,9 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export interface GetResolverEndpointRequest {
-  __type?: "GetResolverEndpointRequest";
   /**
    * <p>The ID of the resolver endpoint that you want to get information about.</p>
    */
@@ -383,11 +344,9 @@ export namespace GetResolverEndpointRequest {
   export const filterSensitiveLog = (obj: GetResolverEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverEndpointRequest => __isa(o, "GetResolverEndpointRequest");
 }
 
 export interface GetResolverEndpointResponse {
-  __type?: "GetResolverEndpointResponse";
   /**
    * <p>Information about the resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>
    */
@@ -398,11 +357,9 @@ export namespace GetResolverEndpointResponse {
   export const filterSensitiveLog = (obj: GetResolverEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverEndpointResponse => __isa(o, "GetResolverEndpointResponse");
 }
 
 export interface GetResolverRuleAssociationRequest {
-  __type?: "GetResolverRuleAssociationRequest";
   /**
    * <p>The ID of the resolver rule association that you want to get information about.</p>
    */
@@ -413,11 +370,9 @@ export namespace GetResolverRuleAssociationRequest {
   export const filterSensitiveLog = (obj: GetResolverRuleAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRuleAssociationRequest => __isa(o, "GetResolverRuleAssociationRequest");
 }
 
 export interface GetResolverRuleAssociationResponse {
-  __type?: "GetResolverRuleAssociationResponse";
   /**
    * <p>Information about the resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>
    */
@@ -428,12 +383,9 @@ export namespace GetResolverRuleAssociationResponse {
   export const filterSensitiveLog = (obj: GetResolverRuleAssociationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRuleAssociationResponse =>
-    __isa(o, "GetResolverRuleAssociationResponse");
 }
 
 export interface GetResolverRulePolicyRequest {
-  __type?: "GetResolverRulePolicyRequest";
   /**
    * <p>The ID of the resolver rule policy that you want to get information about.</p>
    */
@@ -444,11 +396,9 @@ export namespace GetResolverRulePolicyRequest {
   export const filterSensitiveLog = (obj: GetResolverRulePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRulePolicyRequest => __isa(o, "GetResolverRulePolicyRequest");
 }
 
 export interface GetResolverRulePolicyResponse {
-  __type?: "GetResolverRulePolicyResponse";
   /**
    * <p>Information about the resolver rule policy that you specified in a <code>GetResolverRulePolicy</code> request.</p>
    */
@@ -459,11 +409,9 @@ export namespace GetResolverRulePolicyResponse {
   export const filterSensitiveLog = (obj: GetResolverRulePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRulePolicyResponse => __isa(o, "GetResolverRulePolicyResponse");
 }
 
 export interface GetResolverRuleRequest {
-  __type?: "GetResolverRuleRequest";
   /**
    * <p>The ID of the resolver rule that you want to get information about.</p>
    */
@@ -474,11 +422,9 @@ export namespace GetResolverRuleRequest {
   export const filterSensitiveLog = (obj: GetResolverRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRuleRequest => __isa(o, "GetResolverRuleRequest");
 }
 
 export interface GetResolverRuleResponse {
-  __type?: "GetResolverRuleResponse";
   /**
    * <p>Information about the resolver rule that you specified in a <code>GetResolverRule</code> request.</p>
    */
@@ -489,7 +435,6 @@ export namespace GetResolverRuleResponse {
   export const filterSensitiveLog = (obj: GetResolverRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResolverRuleResponse => __isa(o, "GetResolverRuleResponse");
 }
 
 /**
@@ -505,7 +450,6 @@ export namespace InternalServiceErrorException {
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -521,7 +465,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -542,7 +485,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -558,7 +500,6 @@ export namespace InvalidPolicyDocument {
   export const filterSensitiveLog = (obj: InvalidPolicyDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPolicyDocument => __isa(o, "InvalidPolicyDocument");
 }
 
 /**
@@ -574,7 +515,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -590,14 +530,12 @@ export namespace InvalidTagException {
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 /**
  * <p>In an <a>CreateResolverEndpoint</a> request, a subnet and IP address that you want to use for DNS queries.</p>
  */
 export interface IpAddressRequest {
-  __type?: "IpAddressRequest";
   /**
    * <p>The IP address that you want to use for DNS queries.</p>
    */
@@ -613,7 +551,6 @@ export namespace IpAddressRequest {
   export const filterSensitiveLog = (obj: IpAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpAddressRequest => __isa(o, "IpAddressRequest");
 }
 
 /**
@@ -621,7 +558,6 @@ export namespace IpAddressRequest {
  * 			the resolver endpoint uses for DNS queries.</p>
  */
 export interface IpAddressResponse {
-  __type?: "IpAddressResponse";
   /**
    * <p>A status code that gives the current status of the request.</p>
    */
@@ -662,7 +598,6 @@ export namespace IpAddressResponse {
   export const filterSensitiveLog = (obj: IpAddressResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpAddressResponse => __isa(o, "IpAddressResponse");
 }
 
 export enum IpAddressStatus {
@@ -682,7 +617,6 @@ export enum IpAddressStatus {
  * <p>In an <a>UpdateResolverEndpoint</a> request, information about an IP address to update.</p>
  */
 export interface IpAddressUpdate {
-  __type?: "IpAddressUpdate";
   /**
    * <p>The new IP address.</p>
    */
@@ -705,7 +639,6 @@ export namespace IpAddressUpdate {
   export const filterSensitiveLog = (obj: IpAddressUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpAddressUpdate => __isa(o, "IpAddressUpdate");
 }
 
 /**
@@ -726,11 +659,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListResolverEndpointIpAddressesRequest {
-  __type?: "ListResolverEndpointIpAddressesRequest";
   /**
    * <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>
    * 		       <p>If the specified resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
@@ -755,12 +686,9 @@ export namespace ListResolverEndpointIpAddressesRequest {
   export const filterSensitiveLog = (obj: ListResolverEndpointIpAddressesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverEndpointIpAddressesRequest =>
-    __isa(o, "ListResolverEndpointIpAddressesRequest");
 }
 
 export interface ListResolverEndpointIpAddressesResponse {
-  __type?: "ListResolverEndpointIpAddressesResponse";
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    */
@@ -784,12 +712,9 @@ export namespace ListResolverEndpointIpAddressesResponse {
   export const filterSensitiveLog = (obj: ListResolverEndpointIpAddressesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverEndpointIpAddressesResponse =>
-    __isa(o, "ListResolverEndpointIpAddressesResponse");
 }
 
 export interface ListResolverEndpointsRequest {
-  __type?: "ListResolverEndpointsRequest";
   /**
    * <p>The maximum number of resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request.
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 resolver endpoints. </p>
@@ -817,11 +742,9 @@ export namespace ListResolverEndpointsRequest {
   export const filterSensitiveLog = (obj: ListResolverEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverEndpointsRequest => __isa(o, "ListResolverEndpointsRequest");
 }
 
 export interface ListResolverEndpointsResponse {
-  __type?: "ListResolverEndpointsResponse";
   /**
    * <p>The value that you specified for <code>MaxResults</code> in the request.</p>
    */
@@ -843,11 +766,9 @@ export namespace ListResolverEndpointsResponse {
   export const filterSensitiveLog = (obj: ListResolverEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverEndpointsResponse => __isa(o, "ListResolverEndpointsResponse");
 }
 
 export interface ListResolverRuleAssociationsRequest {
-  __type?: "ListResolverRuleAssociationsRequest";
   /**
    * <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request.
    * 			If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>
@@ -875,12 +796,9 @@ export namespace ListResolverRuleAssociationsRequest {
   export const filterSensitiveLog = (obj: ListResolverRuleAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverRuleAssociationsRequest =>
-    __isa(o, "ListResolverRuleAssociationsRequest");
 }
 
 export interface ListResolverRuleAssociationsResponse {
-  __type?: "ListResolverRuleAssociationsResponse";
   /**
    * <p>The associations that were created between resolver rules and VPCs using the current AWS account, and that match the
    * 			specified filters, if any.</p>
@@ -904,12 +822,9 @@ export namespace ListResolverRuleAssociationsResponse {
   export const filterSensitiveLog = (obj: ListResolverRuleAssociationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverRuleAssociationsResponse =>
-    __isa(o, "ListResolverRuleAssociationsResponse");
 }
 
 export interface ListResolverRulesRequest {
-  __type?: "ListResolverRulesRequest";
   /**
    * <p>For the first <code>ListResolverRules</code> request, omit this value.</p>
    * 		       <p>If you have more than <code>MaxResults</code> resolver rules, you can submit another <code>ListResolverRules</code> request
@@ -937,11 +852,9 @@ export namespace ListResolverRulesRequest {
   export const filterSensitiveLog = (obj: ListResolverRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverRulesRequest => __isa(o, "ListResolverRulesRequest");
 }
 
 export interface ListResolverRulesResponse {
-  __type?: "ListResolverRulesResponse";
   /**
    * <p>If more than <code>MaxResults</code> resolver rules match the specified criteria, you can submit another
    * 			<code>ListResolverRules</code> request to get the next group of results. In the next request, specify the value of
@@ -964,11 +877,9 @@ export namespace ListResolverRulesResponse {
   export const filterSensitiveLog = (obj: ListResolverRulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResolverRulesResponse => __isa(o, "ListResolverRulesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to list tags for.</p>
    */
@@ -992,11 +903,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>If more than <code>MaxResults</code> tags match the specified criteria, you can submit another
    * 			<code>ListTagsForResource</code> request to get the next group of results. In the next request, specify the value of
@@ -1014,11 +923,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface PutResolverRulePolicyRequest {
-  __type?: "PutResolverRulePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the account that you want to grant permissions to.</p>
    */
@@ -1034,14 +941,12 @@ export namespace PutResolverRulePolicyRequest {
   export const filterSensitiveLog = (obj: PutResolverRulePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResolverRulePolicyRequest => __isa(o, "PutResolverRulePolicyRequest");
 }
 
 /**
  * <p>The response to a <code>PutResolverRulePolicy</code> request.</p>
  */
 export interface PutResolverRulePolicyResponse {
-  __type?: "PutResolverRulePolicyResponse";
   /**
    * <p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>
    */
@@ -1052,7 +957,6 @@ export namespace PutResolverRulePolicyResponse {
   export const filterSensitiveLog = (obj: PutResolverRulePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResolverRulePolicyResponse => __isa(o, "PutResolverRulePolicyResponse");
 }
 
 /**
@@ -1061,7 +965,6 @@ export namespace PutResolverRulePolicyResponse {
  * 			for an existing inbound or outbound resolver endpoint.</p>
  */
 export interface ResolverEndpoint {
-  __type?: "ResolverEndpoint";
   /**
    * <p>The name that you assigned to the resolver endpoint when you submitted a <a>CreateResolverEndpoint</a> request.</p>
    */
@@ -1138,7 +1041,6 @@ export namespace ResolverEndpoint {
   export const filterSensitiveLog = (obj: ResolverEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolverEndpoint => __isa(o, "ResolverEndpoint");
 }
 
 export enum ResolverEndpointDirection {
@@ -1162,7 +1064,6 @@ export enum ResolverEndpointStatus {
  * 			request.</p>
  */
 export interface ResolverRule {
-  __type?: "ResolverRule";
   /**
    * <p>The ARN (Amazon Resource Name) for the resolver rule specified by <code>Id</code>.</p>
    */
@@ -1232,7 +1133,6 @@ export namespace ResolverRule {
   export const filterSensitiveLog = (obj: ResolverRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolverRule => __isa(o, "ResolverRule");
 }
 
 /**
@@ -1241,7 +1141,6 @@ export namespace ResolverRule {
  * 			information about an association between a resolver rule and a VPC.</p>
  */
 export interface ResolverRuleAssociation {
-  __type?: "ResolverRuleAssociation";
   /**
    * <p>The ID of the VPC that you associated the resolver rule with.</p>
    */
@@ -1278,7 +1177,6 @@ export namespace ResolverRuleAssociation {
   export const filterSensitiveLog = (obj: ResolverRuleAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolverRuleAssociation => __isa(o, "ResolverRuleAssociation");
 }
 
 export enum ResolverRuleAssociationStatus {
@@ -1293,7 +1191,6 @@ export enum ResolverRuleAssociationStatus {
  * <p>In an <a>UpdateResolverRule</a> request, information about the changes that you want to make.</p>
  */
 export interface ResolverRuleConfig {
-  __type?: "ResolverRuleConfig";
   /**
    * <p>The ID of the new outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in
    * 			<code>TargetIps</code>.</p>
@@ -1315,7 +1212,6 @@ export namespace ResolverRuleConfig {
   export const filterSensitiveLog = (obj: ResolverRuleConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolverRuleConfig => __isa(o, "ResolverRuleConfig");
 }
 
 export enum ResolverRuleStatus {
@@ -1343,7 +1239,6 @@ export namespace ResourceExistsException {
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
@@ -1364,7 +1259,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1385,7 +1279,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1406,7 +1299,6 @@ export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUnavailableException => __isa(o, "ResourceUnavailableException");
 }
 
 export enum RuleTypeOption {
@@ -1425,7 +1317,6 @@ export enum ShareStatus {
  * <p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes,
    * 			the value of <code>Key</code> might be <code>account-id</code>.</p>
@@ -1443,11 +1334,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags that you want to add to the specified resource.</p>
    */
@@ -1496,25 +1385,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>In a <a>CreateResolverRule</a> request, an array of the IPs that you want to forward DNS queries to.</p>
  */
 export interface TargetAddress {
-  __type?: "TargetAddress";
   /**
    * <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>
    */
@@ -1530,7 +1414,6 @@ export namespace TargetAddress {
   export const filterSensitiveLog = (obj: TargetAddress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetAddress => __isa(o, "TargetAddress");
 }
 
 /**
@@ -1546,7 +1429,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1562,11 +1444,9 @@ export namespace UnknownResourceException {
   export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnknownResourceException => __isa(o, "UnknownResourceException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable
    * 			<code>Get</code> or <code>List</code> command: </p>
@@ -1615,22 +1495,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateResolverEndpointRequest {
-  __type?: "UpdateResolverEndpointRequest";
   /**
    * <p>The ID of the resolver endpoint that you want to update.</p>
    */
@@ -1646,11 +1521,9 @@ export namespace UpdateResolverEndpointRequest {
   export const filterSensitiveLog = (obj: UpdateResolverEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResolverEndpointRequest => __isa(o, "UpdateResolverEndpointRequest");
 }
 
 export interface UpdateResolverEndpointResponse {
-  __type?: "UpdateResolverEndpointResponse";
   /**
    * <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>
    */
@@ -1661,11 +1534,9 @@ export namespace UpdateResolverEndpointResponse {
   export const filterSensitiveLog = (obj: UpdateResolverEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResolverEndpointResponse => __isa(o, "UpdateResolverEndpointResponse");
 }
 
 export interface UpdateResolverRuleRequest {
-  __type?: "UpdateResolverRuleRequest";
   /**
    * <p>The new settings for the resolver rule.</p>
    */
@@ -1681,11 +1552,9 @@ export namespace UpdateResolverRuleRequest {
   export const filterSensitiveLog = (obj: UpdateResolverRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResolverRuleRequest => __isa(o, "UpdateResolverRuleRequest");
 }
 
 export interface UpdateResolverRuleResponse {
-  __type?: "UpdateResolverRuleResponse";
   /**
    * <p>The response to an <code>UpdateResolverRule</code> request.</p>
    */
@@ -1696,5 +1565,4 @@ export namespace UpdateResolverRuleResponse {
   export const filterSensitiveLog = (obj: UpdateResolverRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResolverRuleResponse => __isa(o, "UpdateResolverRuleResponse");
 }

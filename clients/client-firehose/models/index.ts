@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -9,7 +9,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          one of them, you must also provide a value for the other.</p>
  */
 export interface BufferingHints {
-  __type?: "BufferingHints";
   /**
    * <p>Buffer incoming data to the specified size, in MiBs, before delivering it to the
    *          destination. The default value is 5. This parameter is optional but if you specify a value
@@ -34,14 +33,12 @@ export namespace BufferingHints {
   export const filterSensitiveLog = (obj: BufferingHints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BufferingHints => __isa(o, "BufferingHints");
 }
 
 /**
  * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
  */
 export interface CloudWatchLoggingOptions {
-  __type?: "CloudWatchLoggingOptions";
   /**
    * <p>The CloudWatch log stream name for logging. This value is required if CloudWatch
    *          logging is enabled.</p>
@@ -64,7 +61,6 @@ export namespace CloudWatchLoggingOptions {
   export const filterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLoggingOptions => __isa(o, "CloudWatchLoggingOptions");
 }
 
 export enum CompressionFormat {
@@ -92,7 +88,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export enum ContentEncoding {
@@ -104,7 +99,6 @@ export enum ContentEncoding {
  * <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
  */
 export interface CopyCommand {
-  __type?: "CopyCommand";
   /**
    * <p>The name of the target table. The table must already exist in the database.</p>
    */
@@ -144,11 +138,9 @@ export namespace CopyCommand {
   export const filterSensitiveLog = (obj: CopyCommand): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyCommand => __isa(o, "CopyCommand");
 }
 
 export interface CreateDeliveryStreamInput {
-  __type?: "CreateDeliveryStreamInput";
   /**
    * <p>The destination in Amazon Redshift. You can specify only one destination.</p>
    */
@@ -244,11 +236,9 @@ export namespace CreateDeliveryStreamInput {
       ),
     }),
   });
-  export const isa = (o: any): o is CreateDeliveryStreamInput => __isa(o, "CreateDeliveryStreamInput");
 }
 
 export interface CreateDeliveryStreamOutput {
-  __type?: "CreateDeliveryStreamOutput";
   /**
    * <p>The ARN of the delivery stream.</p>
    */
@@ -259,7 +249,6 @@ export namespace CreateDeliveryStreamOutput {
   export const filterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeliveryStreamOutput => __isa(o, "CreateDeliveryStreamOutput");
 }
 
 /**
@@ -270,7 +259,6 @@ export namespace CreateDeliveryStreamOutput {
  *          Parquet or ORC format. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html">Kinesis Data Firehose Record Format Conversion</a>.</p>
  */
 export interface DataFormatConversionConfiguration {
-  __type?: "DataFormatConversionConfiguration";
   /**
    * <p>Specifies the serializer that you want Kinesis Data Firehose to use to convert the
    *          format of your data to the Parquet or ORC format. This parameter is required if
@@ -302,11 +290,9 @@ export namespace DataFormatConversionConfiguration {
   export const filterSensitiveLog = (obj: DataFormatConversionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataFormatConversionConfiguration => __isa(o, "DataFormatConversionConfiguration");
 }
 
 export interface DeleteDeliveryStreamInput {
-  __type?: "DeleteDeliveryStreamInput";
   /**
    * <p>The name of the delivery stream.</p>
    */
@@ -328,25 +314,20 @@ export namespace DeleteDeliveryStreamInput {
   export const filterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeliveryStreamInput => __isa(o, "DeleteDeliveryStreamInput");
 }
 
-export interface DeleteDeliveryStreamOutput {
-  __type?: "DeleteDeliveryStreamOutput";
-}
+export interface DeleteDeliveryStreamOutput {}
 
 export namespace DeleteDeliveryStreamOutput {
   export const filterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeliveryStreamOutput => __isa(o, "DeleteDeliveryStreamOutput");
 }
 
 /**
  * <p>Contains information about a delivery stream.</p>
  */
 export interface DeliveryStreamDescription {
-  __type?: "DeliveryStreamDescription";
   /**
    * <p>The name of the delivery stream.</p>
    */
@@ -437,7 +418,6 @@ export namespace DeliveryStreamDescription {
       Destinations: obj.Destinations.map((item) => DestinationDescription.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DeliveryStreamDescription => __isa(o, "DeliveryStreamDescription");
 }
 
 /**
@@ -446,7 +426,6 @@ export namespace DeliveryStreamDescription {
  *          get <code>DeliveryStreamEncryptionConfiguration</code> by invoking the <a>DescribeDeliveryStream</a> operation. </p>
  */
 export interface DeliveryStreamEncryptionConfiguration {
-  __type?: "DeliveryStreamEncryptionConfiguration";
   /**
    * <p>Provides details in case one of the following operations fails due to an error related
    *          to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>,
@@ -481,8 +460,6 @@ export namespace DeliveryStreamEncryptionConfiguration {
   export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeliveryStreamEncryptionConfiguration =>
-    __isa(o, "DeliveryStreamEncryptionConfiguration");
 }
 
 /**
@@ -490,7 +467,6 @@ export namespace DeliveryStreamEncryptionConfiguration {
  *          Encryption (SSE). </p>
  */
 export interface DeliveryStreamEncryptionConfigurationInput {
-  __type?: "DeliveryStreamEncryptionConfigurationInput";
   /**
    * <p>Indicates the type of customer master key (CMK) to use for encryption. The default
    *          setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> with
@@ -525,8 +501,6 @@ export namespace DeliveryStreamEncryptionConfigurationInput {
   export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeliveryStreamEncryptionConfigurationInput =>
-    __isa(o, "DeliveryStreamEncryptionConfigurationInput");
 }
 
 export enum DeliveryStreamEncryptionStatus {
@@ -567,7 +541,6 @@ export enum DeliveryStreamStatus {
 export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
 
 export interface DescribeDeliveryStreamInput {
-  __type?: "DescribeDeliveryStreamInput";
   /**
    * <p>The limit on the number of destinations to return. You can have one destination per
    *          delivery stream.</p>
@@ -590,11 +563,9 @@ export namespace DescribeDeliveryStreamInput {
   export const filterSensitiveLog = (obj: DescribeDeliveryStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDeliveryStreamInput => __isa(o, "DescribeDeliveryStreamInput");
 }
 
 export interface DescribeDeliveryStreamOutput {
-  __type?: "DescribeDeliveryStreamOutput";
   /**
    * <p>Information about the delivery stream.</p>
    */
@@ -608,7 +579,6 @@ export namespace DescribeDeliveryStreamOutput {
       DeliveryStreamDescription: DeliveryStreamDescription.filterSensitiveLog(obj.DeliveryStreamDescription),
     }),
   });
-  export const isa = (o: any): o is DescribeDeliveryStreamOutput => __isa(o, "DescribeDeliveryStreamOutput");
 }
 
 /**
@@ -618,7 +588,6 @@ export namespace DescribeDeliveryStreamOutput {
  *          the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON">Apache Hive JSON SerDe</a> and the <a href="https://github.com/rcongiu/Hive-JSON-Serde">OpenX JSON SerDe</a>.</p>
  */
 export interface Deserializer {
-  __type?: "Deserializer";
   /**
    * <p>The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing
    *          data, which means converting it from the JSON format in preparation for serializing it to
@@ -640,14 +609,12 @@ export namespace Deserializer {
   export const filterSensitiveLog = (obj: Deserializer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deserializer => __isa(o, "Deserializer");
 }
 
 /**
  * <p>Describes the destination for a delivery stream.</p>
  */
 export interface DestinationDescription {
-  __type?: "DestinationDescription";
   /**
    * <p>The destination in Amazon Redshift.</p>
    */
@@ -698,7 +665,6 @@ export namespace DestinationDescription {
       ),
     }),
   });
-  export const isa = (o: any): o is DestinationDescription => __isa(o, "DestinationDescription");
 }
 
 /**
@@ -706,7 +672,6 @@ export namespace DestinationDescription {
  *          destination.</p>
  */
 export interface ElasticsearchBufferingHints {
-  __type?: "ElasticsearchBufferingHints";
   /**
    * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the
    *          destination. The default value is 5.</p>
@@ -727,14 +692,12 @@ export namespace ElasticsearchBufferingHints {
   export const filterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchBufferingHints => __isa(o, "ElasticsearchBufferingHints");
 }
 
 /**
  * <p>Describes the configuration of a destination in Amazon ES.</p>
  */
 export interface ElasticsearchDestinationConfiguration {
-  __type?: "ElasticsearchDestinationConfiguration";
   /**
    * <p>The Elasticsearch index name.</p>
    */
@@ -834,15 +797,12 @@ export namespace ElasticsearchDestinationConfiguration {
   export const filterSensitiveLog = (obj: ElasticsearchDestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDestinationConfiguration =>
-    __isa(o, "ElasticsearchDestinationConfiguration");
 }
 
 /**
  * <p>The destination description in Amazon ES.</p>
  */
 export interface ElasticsearchDestinationDescription {
-  __type?: "ElasticsearchDestinationDescription";
   /**
    * <p>The Amazon CloudWatch logging options.</p>
    */
@@ -921,15 +881,12 @@ export namespace ElasticsearchDestinationDescription {
   export const filterSensitiveLog = (obj: ElasticsearchDestinationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDestinationDescription =>
-    __isa(o, "ElasticsearchDestinationDescription");
 }
 
 /**
  * <p>Describes an update for a destination in Amazon ES.</p>
  */
 export interface ElasticsearchDestinationUpdate {
-  __type?: "ElasticsearchDestinationUpdate";
   /**
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
@@ -1013,7 +970,6 @@ export namespace ElasticsearchDestinationUpdate {
   export const filterSensitiveLog = (obj: ElasticsearchDestinationUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDestinationUpdate => __isa(o, "ElasticsearchDestinationUpdate");
 }
 
 export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHour" | "OneMonth" | "OneWeek";
@@ -1023,7 +979,6 @@ export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHou
  *          documents to Amazon ES.</p>
  */
 export interface ElasticsearchRetryOptions {
-  __type?: "ElasticsearchRetryOptions";
   /**
    * <p>After an initial failure to deliver to Amazon ES, the total amount of time during
    *          which Kinesis Data Firehose retries delivery (including the first attempt). After this time
@@ -1037,7 +992,6 @@ export namespace ElasticsearchRetryOptions {
   export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchRetryOptions => __isa(o, "ElasticsearchRetryOptions");
 }
 
 export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
@@ -1046,7 +1000,6 @@ export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
  * <p>Describes the encryption for a destination in Amazon S3.</p>
  */
 export interface EncryptionConfiguration {
-  __type?: "EncryptionConfiguration";
   /**
    * <p>The encryption key.</p>
    */
@@ -1063,14 +1016,12 @@ export namespace EncryptionConfiguration {
   export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfiguration => __isa(o, "EncryptionConfiguration");
 }
 
 /**
  * <p>Describes the configuration of a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationConfiguration {
-  __type?: "ExtendedS3DestinationConfiguration";
   /**
    * <p>The configuration for backup in Amazon S3.</p>
    */
@@ -1148,15 +1099,12 @@ export namespace ExtendedS3DestinationConfiguration {
   export const filterSensitiveLog = (obj: ExtendedS3DestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExtendedS3DestinationConfiguration =>
-    __isa(o, "ExtendedS3DestinationConfiguration");
 }
 
 /**
  * <p>Describes a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationDescription {
-  __type?: "ExtendedS3DestinationDescription";
   /**
    * <p>The buffering option.</p>
    */
@@ -1232,14 +1180,12 @@ export namespace ExtendedS3DestinationDescription {
   export const filterSensitiveLog = (obj: ExtendedS3DestinationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExtendedS3DestinationDescription => __isa(o, "ExtendedS3DestinationDescription");
 }
 
 /**
  * <p>Describes an update for a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationUpdate {
-  __type?: "ExtendedS3DestinationUpdate";
   /**
    * <p>The encryption configuration. If no value is specified, the default is no
    *          encryption.</p>
@@ -1316,7 +1262,6 @@ export namespace ExtendedS3DestinationUpdate {
   export const filterSensitiveLog = (obj: ExtendedS3DestinationUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExtendedS3DestinationUpdate => __isa(o, "ExtendedS3DestinationUpdate");
 }
 
 /**
@@ -1325,7 +1270,6 @@ export namespace ExtendedS3DestinationUpdate {
  *             <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
  */
 export interface FailureDescription {
-  __type?: "FailureDescription";
   /**
    * <p>The type of error that caused the failure.</p>
    */
@@ -1341,7 +1285,6 @@ export namespace FailureDescription {
   export const filterSensitiveLog = (obj: FailureDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailureDescription => __isa(o, "FailureDescription");
 }
 
 export type HECEndpointType = "Event" | "Raw";
@@ -1353,7 +1296,6 @@ export type HECEndpointType = "Event" | "Raw";
  *          which one offers the functionality you need. The other option is the OpenX SerDe.</p>
  */
 export interface HiveJsonSerDe {
-  __type?: "HiveJsonSerDe";
   /**
    * <p>Indicates how you want Kinesis Data Firehose to parse the date and timestamps that
    *          may be present in your input data JSON. To specify these format strings, follow the pattern
@@ -1368,7 +1310,6 @@ export namespace HiveJsonSerDe {
   export const filterSensitiveLog = (obj: HiveJsonSerDe): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HiveJsonSerDe => __isa(o, "HiveJsonSerDe");
 }
 
 /**
@@ -1379,7 +1320,6 @@ export namespace HiveJsonSerDe {
  *          one of them, you must also provide a value for the other. </p>
  */
 export interface HttpEndpointBufferingHints {
-  __type?: "HttpEndpointBufferingHints";
   /**
    * <p>Buffer incoming data for the specified period of time, in seconds, before delivering it
    *          to the destination. The default value is 300 (5 minutes). </p>
@@ -1400,7 +1340,6 @@ export namespace HttpEndpointBufferingHints {
   export const filterSensitiveLog = (obj: HttpEndpointBufferingHints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpEndpointBufferingHints => __isa(o, "HttpEndpointBufferingHints");
 }
 
 /**
@@ -1408,7 +1347,6 @@ export namespace HttpEndpointBufferingHints {
  *          destination.</p>
  */
 export interface HttpEndpointCommonAttribute {
-  __type?: "HttpEndpointCommonAttribute";
   /**
    * <p>The name of the HTTP endpoint common attribute.</p>
    */
@@ -1426,7 +1364,6 @@ export namespace HttpEndpointCommonAttribute {
     ...(obj.AttributeName && { AttributeName: SENSITIVE_STRING }),
     ...(obj.AttributeValue && { AttributeValue: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HttpEndpointCommonAttribute => __isa(o, "HttpEndpointCommonAttribute");
 }
 
 /**
@@ -1434,7 +1371,6 @@ export namespace HttpEndpointCommonAttribute {
  *          data.</p>
  */
 export interface HttpEndpointConfiguration {
-  __type?: "HttpEndpointConfiguration";
   /**
    * <p>The access key required for Kinesis Firehose to authenticate with the HTTP endpoint
    *          selected as the destination.</p>
@@ -1458,14 +1394,12 @@ export namespace HttpEndpointConfiguration {
     ...(obj.AccessKey && { AccessKey: SENSITIVE_STRING }),
     ...(obj.Url && { Url: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HttpEndpointConfiguration => __isa(o, "HttpEndpointConfiguration");
 }
 
 /**
  * <p>Describes the HTTP endpoint selected as the destination. </p>
  */
 export interface HttpEndpointDescription {
-  __type?: "HttpEndpointDescription";
   /**
    * <p>The name of the HTTP endpoint selected as the destination.</p>
    */
@@ -1482,14 +1416,12 @@ export namespace HttpEndpointDescription {
     ...obj,
     ...(obj.Url && { Url: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HttpEndpointDescription => __isa(o, "HttpEndpointDescription");
 }
 
 /**
  * <p>Describes the configuration of the HTTP endpoint destination.</p>
  */
 export interface HttpEndpointDestinationConfiguration {
-  __type?: "HttpEndpointDestinationConfiguration";
   /**
    * <p>Describes a data processing configuration.</p>
    */
@@ -1557,15 +1489,12 @@ export namespace HttpEndpointDestinationConfiguration {
       RequestConfiguration: HttpEndpointRequestConfiguration.filterSensitiveLog(obj.RequestConfiguration),
     }),
   });
-  export const isa = (o: any): o is HttpEndpointDestinationConfiguration =>
-    __isa(o, "HttpEndpointDestinationConfiguration");
 }
 
 /**
  * <p>Describes the HTTP endpoint destination.</p>
  */
 export interface HttpEndpointDestinationDescription {
-  __type?: "HttpEndpointDestinationDescription";
   /**
    * <p>Describes a destination in Amazon S3.</p>
    */
@@ -1633,15 +1562,12 @@ export namespace HttpEndpointDestinationDescription {
       EndpointConfiguration: HttpEndpointDescription.filterSensitiveLog(obj.EndpointConfiguration),
     }),
   });
-  export const isa = (o: any): o is HttpEndpointDestinationDescription =>
-    __isa(o, "HttpEndpointDestinationDescription");
 }
 
 /**
  * <p>Updates the specified HTTP endpoint destination.</p>
  */
 export interface HttpEndpointDestinationUpdate {
-  __type?: "HttpEndpointDestinationUpdate";
   /**
    * <p>Describes the configuration of the HTTP endpoint destination.</p>
    */
@@ -1709,14 +1635,12 @@ export namespace HttpEndpointDestinationUpdate {
       RequestConfiguration: HttpEndpointRequestConfiguration.filterSensitiveLog(obj.RequestConfiguration),
     }),
   });
-  export const isa = (o: any): o is HttpEndpointDestinationUpdate => __isa(o, "HttpEndpointDestinationUpdate");
 }
 
 /**
  * <p>The configuration of the HTTP endpoint request.</p>
  */
 export interface HttpEndpointRequestConfiguration {
-  __type?: "HttpEndpointRequestConfiguration";
   /**
    * <p>Kinesis Data Firehose uses the content encoding to compress the body of a request before
    *          sending the request to the destination. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">Content-Encoding</a> in MDN Web Docs, the official Mozilla documentation.</p>
@@ -1736,7 +1660,6 @@ export namespace HttpEndpointRequestConfiguration {
       CommonAttributes: obj.CommonAttributes.map((item) => HttpEndpointCommonAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is HttpEndpointRequestConfiguration => __isa(o, "HttpEndpointRequestConfiguration");
 }
 
 /**
@@ -1745,7 +1668,6 @@ export namespace HttpEndpointRequestConfiguration {
  *          receipt from the specified HTTP endpoint destination.</p>
  */
 export interface HttpEndpointRetryOptions {
-  __type?: "HttpEndpointRetryOptions";
   /**
    * <p>The total amount of time that Kinesis Data Firehose spends on retries. This duration
    *          starts after the initial attempt to send data to the custom destination via HTTPS endpoint
@@ -1759,7 +1681,6 @@ export namespace HttpEndpointRetryOptions {
   export const filterSensitiveLog = (obj: HttpEndpointRetryOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpEndpointRetryOptions => __isa(o, "HttpEndpointRetryOptions");
 }
 
 export type HttpEndpointS3BackupMode = "AllData" | "FailedDataOnly";
@@ -1769,7 +1690,6 @@ export type HttpEndpointS3BackupMode = "AllData" | "FailedDataOnly";
  *          This parameter is required if <code>Enabled</code> is set to true.</p>
  */
 export interface InputFormatConfiguration {
-  __type?: "InputFormatConfiguration";
   /**
    * <p>Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe
    *          or the OpenX JSON SerDe. If both are non-null, the server rejects the request.</p>
@@ -1781,7 +1701,6 @@ export namespace InputFormatConfiguration {
   export const filterSensitiveLog = (obj: InputFormatConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputFormatConfiguration => __isa(o, "InputFormatConfiguration");
 }
 
 /**
@@ -1800,7 +1719,6 @@ export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -1821,7 +1739,6 @@ export namespace InvalidKMSResourceException {
   export const filterSensitiveLog = (obj: InvalidKMSResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidKMSResourceException => __isa(o, "InvalidKMSResourceException");
 }
 
 export enum KeyType {
@@ -1834,7 +1751,6 @@ export enum KeyType {
  *          the source for a delivery stream.</p>
  */
 export interface KinesisStreamSourceConfiguration {
-  __type?: "KinesisStreamSourceConfiguration";
   /**
    * <p>The ARN of the role that provides access to the source Kinesis data stream. For more
    *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and Access Management (IAM) ARN Format</a>.</p>
@@ -1851,7 +1767,6 @@ export namespace KinesisStreamSourceConfiguration {
   export const filterSensitiveLog = (obj: KinesisStreamSourceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamSourceConfiguration => __isa(o, "KinesisStreamSourceConfiguration");
 }
 
 /**
@@ -1859,7 +1774,6 @@ export namespace KinesisStreamSourceConfiguration {
  *          delivery stream.</p>
  */
 export interface KinesisStreamSourceDescription {
-  __type?: "KinesisStreamSourceDescription";
   /**
    * <p>Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting
    *          with this timestamp.</p>
@@ -1883,14 +1797,12 @@ export namespace KinesisStreamSourceDescription {
   export const filterSensitiveLog = (obj: KinesisStreamSourceDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamSourceDescription => __isa(o, "KinesisStreamSourceDescription");
 }
 
 /**
  * <p>Describes an encryption key for a destination in Amazon S3.</p>
  */
 export interface KMSEncryptionConfig {
-  __type?: "KMSEncryptionConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS
    *          Region as the destination Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
@@ -1903,7 +1815,6 @@ export namespace KMSEncryptionConfig {
   export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSEncryptionConfig => __isa(o, "KMSEncryptionConfig");
 }
 
 /**
@@ -1922,11 +1833,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDeliveryStreamsInput {
-  __type?: "ListDeliveryStreamsInput";
   /**
    * <p>The list of delivery streams returned by this call to
    *             <code>ListDeliveryStreams</code> will start with the delivery stream whose name comes
@@ -1964,11 +1873,9 @@ export namespace ListDeliveryStreamsInput {
   export const filterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeliveryStreamsInput => __isa(o, "ListDeliveryStreamsInput");
 }
 
 export interface ListDeliveryStreamsOutput {
-  __type?: "ListDeliveryStreamsOutput";
   /**
    * <p>Indicates whether there are more delivery streams available to list.</p>
    */
@@ -1984,11 +1891,9 @@ export namespace ListDeliveryStreamsOutput {
   export const filterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeliveryStreamsOutput => __isa(o, "ListDeliveryStreamsOutput");
 }
 
 export interface ListTagsForDeliveryStreamInput {
-  __type?: "ListTagsForDeliveryStreamInput";
   /**
    * <p>The key to use as the starting point for the list of tags. If you set this parameter,
    *             <code>ListTagsForDeliveryStream</code> gets all tags that occur after
@@ -2014,11 +1919,9 @@ export namespace ListTagsForDeliveryStreamInput {
   export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForDeliveryStreamInput => __isa(o, "ListTagsForDeliveryStreamInput");
 }
 
 export interface ListTagsForDeliveryStreamOutput {
-  __type?: "ListTagsForDeliveryStreamOutput";
   /**
    * <p>A list of tags associated with <code>DeliveryStreamName</code>, starting with the
    *          first tag after <code>ExclusiveStartTagKey</code> and up to the specified
@@ -2038,7 +1941,6 @@ export namespace ListTagsForDeliveryStreamOutput {
   export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForDeliveryStreamOutput => __isa(o, "ListTagsForDeliveryStreamOutput");
 }
 
 export type NoEncryptionConfig = "NoEncryption";
@@ -2050,7 +1952,6 @@ export type NoEncryptionConfig = "NoEncryption";
  *          functionality you need. The other option is the native Hive / HCatalog JsonSerDe.</p>
  */
 export interface OpenXJsonSerDe {
-  __type?: "OpenXJsonSerDe";
   /**
    * <p>Maps column names to JSON keys that aren't identical to the column names. This is
    *          useful when the JSON contains keys that are Hive keywords. For example,
@@ -2081,7 +1982,6 @@ export namespace OpenXJsonSerDe {
   export const filterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OpenXJsonSerDe => __isa(o, "OpenXJsonSerDe");
 }
 
 export enum OrcCompression {
@@ -2101,7 +2001,6 @@ export enum OrcFormatVersion {
  *          ORC</a>.</p>
  */
 export interface OrcSerDe {
-  __type?: "OrcSerDe";
   /**
    * <p>The column names for which you want Kinesis Data Firehose to create bloom filters. The
    *          default is <code>null</code>.</p>
@@ -2176,7 +2075,6 @@ export namespace OrcSerDe {
   export const filterSensitiveLog = (obj: OrcSerDe): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrcSerDe => __isa(o, "OrcSerDe");
 }
 
 /**
@@ -2185,7 +2083,6 @@ export namespace OrcSerDe {
  *             <code>Enabled</code> is set to true.</p>
  */
 export interface OutputFormatConfiguration {
-  __type?: "OutputFormatConfiguration";
   /**
    * <p>Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet
    *          SerDe. If both are non-null, the server rejects the request.</p>
@@ -2197,7 +2094,6 @@ export namespace OutputFormatConfiguration {
   export const filterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputFormatConfiguration => __isa(o, "OutputFormatConfiguration");
 }
 
 export enum ParquetCompression {
@@ -2211,7 +2107,6 @@ export enum ParquetCompression {
  *          Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.</p>
  */
 export interface ParquetSerDe {
-  __type?: "ParquetSerDe";
   /**
    * <p>The compression code to use over data blocks. The possible values are
    *             <code>UNCOMPRESSED</code>, <code>SNAPPY</code>, and <code>GZIP</code>, with the default
@@ -2256,7 +2151,6 @@ export namespace ParquetSerDe {
   export const filterSensitiveLog = (obj: ParquetSerDe): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParquetSerDe => __isa(o, "ParquetSerDe");
 }
 
 export enum ParquetWriterVersion {
@@ -2268,7 +2162,6 @@ export enum ParquetWriterVersion {
  * <p>Describes a data processing configuration.</p>
  */
 export interface ProcessingConfiguration {
-  __type?: "ProcessingConfiguration";
   /**
    * <p>Enables or disables data processing.</p>
    */
@@ -2284,14 +2177,12 @@ export namespace ProcessingConfiguration {
   export const filterSensitiveLog = (obj: ProcessingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingConfiguration => __isa(o, "ProcessingConfiguration");
 }
 
 /**
  * <p>Describes a data processor.</p>
  */
 export interface Processor {
-  __type?: "Processor";
   /**
    * <p>The type of processor.</p>
    */
@@ -2307,14 +2198,12 @@ export namespace Processor {
   export const filterSensitiveLog = (obj: Processor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Processor => __isa(o, "Processor");
 }
 
 /**
  * <p>Describes the processor parameter.</p>
  */
 export interface ProcessorParameter {
-  __type?: "ProcessorParameter";
   /**
    * <p>The name of the parameter.</p>
    */
@@ -2330,7 +2219,6 @@ export namespace ProcessorParameter {
   export const filterSensitiveLog = (obj: ProcessorParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessorParameter => __isa(o, "ProcessorParameter");
 }
 
 export enum ProcessorParameterName {
@@ -2344,7 +2232,6 @@ export enum ProcessorParameterName {
 export type ProcessorType = "Lambda";
 
 export interface PutRecordBatchInput {
-  __type?: "PutRecordBatchInput";
   /**
    * <p>One or more records.</p>
    */
@@ -2360,11 +2247,9 @@ export namespace PutRecordBatchInput {
   export const filterSensitiveLog = (obj: PutRecordBatchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecordBatchInput => __isa(o, "PutRecordBatchInput");
 }
 
 export interface PutRecordBatchOutput {
-  __type?: "PutRecordBatchOutput";
   /**
    * <p>Indicates whether server-side encryption (SSE) was enabled during this operation.</p>
    */
@@ -2389,7 +2274,6 @@ export namespace PutRecordBatchOutput {
   export const filterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecordBatchOutput => __isa(o, "PutRecordBatchOutput");
 }
 
 /**
@@ -2399,7 +2283,6 @@ export namespace PutRecordBatchOutput {
  *          code and an error message.</p>
  */
 export interface PutRecordBatchResponseEntry {
-  __type?: "PutRecordBatchResponseEntry";
   /**
    * <p>The error message for an individual record result.</p>
    */
@@ -2420,11 +2303,9 @@ export namespace PutRecordBatchResponseEntry {
   export const filterSensitiveLog = (obj: PutRecordBatchResponseEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecordBatchResponseEntry => __isa(o, "PutRecordBatchResponseEntry");
 }
 
 export interface PutRecordInput {
-  __type?: "PutRecordInput";
   /**
    * <p>The record.</p>
    */
@@ -2440,11 +2321,9 @@ export namespace PutRecordInput {
   export const filterSensitiveLog = (obj: PutRecordInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecordInput => __isa(o, "PutRecordInput");
 }
 
 export interface PutRecordOutput {
-  __type?: "PutRecordOutput";
   /**
    * <p>The ID of the record.</p>
    */
@@ -2460,14 +2339,12 @@ export namespace PutRecordOutput {
   export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecordOutput => __isa(o, "PutRecordOutput");
 }
 
 /**
  * <p>The unit of data in a delivery stream.</p>
  */
 export interface _Record {
-  __type?: "Record";
   /**
    * <p>The data blob, which is base64-encoded when the blob is serialized. The maximum size
    *          of the data blob, before base64-encoding, is 1,000 KiB.</p>
@@ -2479,14 +2356,12 @@ export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
  * <p>Describes the configuration of a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationConfiguration {
-  __type?: "RedshiftDestinationConfiguration";
   /**
    * <p>The configuration for the intermediate Amazon S3 location from which Amazon Redshift
    *          obtains data. Restrictions are described in the topic for <a>CreateDeliveryStream</a>.</p>
@@ -2558,14 +2433,12 @@ export namespace RedshiftDestinationConfiguration {
     ...(obj.Username && { Username: SENSITIVE_STRING }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RedshiftDestinationConfiguration => __isa(o, "RedshiftDestinationConfiguration");
 }
 
 /**
  * <p>Describes a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationDescription {
-  __type?: "RedshiftDestinationDescription";
   /**
    * <p>The Amazon S3 backup mode.</p>
    */
@@ -2624,14 +2497,12 @@ export namespace RedshiftDestinationDescription {
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RedshiftDestinationDescription => __isa(o, "RedshiftDestinationDescription");
 }
 
 /**
  * <p>Describes an update for a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationUpdate {
-  __type?: "RedshiftDestinationUpdate";
   /**
    * <p>The Amazon S3 destination for backup.</p>
    */
@@ -2701,7 +2572,6 @@ export namespace RedshiftDestinationUpdate {
     ...(obj.Username && { Username: SENSITIVE_STRING }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RedshiftDestinationUpdate => __isa(o, "RedshiftDestinationUpdate");
 }
 
 /**
@@ -2709,7 +2579,6 @@ export namespace RedshiftDestinationUpdate {
  *          documents to Amazon Redshift.</p>
  */
 export interface RedshiftRetryOptions {
-  __type?: "RedshiftRetryOptions";
   /**
    * <p>The length of time during which Kinesis Data Firehose retries delivery after a
    *          failure, starting from the initial request and including the first attempt. The default
@@ -2724,7 +2593,6 @@ export namespace RedshiftRetryOptions {
   export const filterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedshiftRetryOptions => __isa(o, "RedshiftRetryOptions");
 }
 
 export type RedshiftS3BackupMode = "Disabled" | "Enabled";
@@ -2745,7 +2613,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -2764,7 +2631,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export type S3BackupMode = "Disabled" | "Enabled";
@@ -2773,7 +2639,6 @@ export type S3BackupMode = "Disabled" | "Enabled";
  * <p>Describes the configuration of a destination in Amazon S3.</p>
  */
 export interface S3DestinationConfiguration {
-  __type?: "S3DestinationConfiguration";
   /**
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>.</p>
@@ -2832,14 +2697,12 @@ export namespace S3DestinationConfiguration {
   export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationConfiguration => __isa(o, "S3DestinationConfiguration");
 }
 
 /**
  * <p>Describes a destination in Amazon S3.</p>
  */
 export interface S3DestinationDescription {
-  __type?: "S3DestinationDescription";
   /**
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
@@ -2895,14 +2758,12 @@ export namespace S3DestinationDescription {
   export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationDescription => __isa(o, "S3DestinationDescription");
 }
 
 /**
  * <p>Describes an update for a destination in Amazon S3.</p>
  */
 export interface S3DestinationUpdate {
-  __type?: "S3DestinationUpdate";
   /**
    * <p>The encryption configuration. If no value is specified, the default is no
    *          encryption.</p>
@@ -2961,7 +2822,6 @@ export namespace S3DestinationUpdate {
   export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationUpdate => __isa(o, "S3DestinationUpdate");
 }
 
 /**
@@ -2970,7 +2830,6 @@ export namespace S3DestinationUpdate {
  *          to true.</p>
  */
 export interface SchemaConfiguration {
-  __type?: "SchemaConfiguration";
   /**
    * <p>Specifies the name of the AWS Glue database that contains the schema for the output
    *          data.</p>
@@ -3014,7 +2873,6 @@ export namespace SchemaConfiguration {
   export const filterSensitiveLog = (obj: SchemaConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchemaConfiguration => __isa(o, "SchemaConfiguration");
 }
 
 /**
@@ -3023,7 +2881,6 @@ export namespace SchemaConfiguration {
  *          serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.</p>
  */
 export interface Serializer {
-  __type?: "Serializer";
   /**
    * <p>A serializer to use for converting data to the ORC format before storing it in Amazon
    *          S3. For more information, see <a href="https://orc.apache.org/docs/">Apache
@@ -3042,7 +2899,6 @@ export namespace Serializer {
   export const filterSensitiveLog = (obj: Serializer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Serializer => __isa(o, "Serializer");
 }
 
 /**
@@ -3064,7 +2920,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -3072,7 +2927,6 @@ export namespace ServiceUnavailableException {
  *          delivery stream.</p>
  */
 export interface SourceDescription {
-  __type?: "SourceDescription";
   /**
    * <p>The <a>KinesisStreamSourceDescription</a> value for the source Kinesis
    *          data stream.</p>
@@ -3084,14 +2938,12 @@ export namespace SourceDescription {
   export const filterSensitiveLog = (obj: SourceDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceDescription => __isa(o, "SourceDescription");
 }
 
 /**
  * <p>Describes the configuration of a destination in Splunk.</p>
  */
 export interface SplunkDestinationConfiguration {
-  __type?: "SplunkDestinationConfiguration";
   /**
    * <p>The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from
    *          Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose
@@ -3155,14 +3007,12 @@ export namespace SplunkDestinationConfiguration {
   export const filterSensitiveLog = (obj: SplunkDestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SplunkDestinationConfiguration => __isa(o, "SplunkDestinationConfiguration");
 }
 
 /**
  * <p>Describes a destination in Splunk.</p>
  */
 export interface SplunkDestinationDescription {
-  __type?: "SplunkDestinationDescription";
   /**
    * <p>Defines how documents should be delivered to Amazon S3. When set to
    *             <code>FailedDocumentsOnly</code>, Kinesis Data Firehose writes any data that could not
@@ -3223,14 +3073,12 @@ export namespace SplunkDestinationDescription {
   export const filterSensitiveLog = (obj: SplunkDestinationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SplunkDestinationDescription => __isa(o, "SplunkDestinationDescription");
 }
 
 /**
  * <p>Describes an update for a destination in Splunk.</p>
  */
 export interface SplunkDestinationUpdate {
-  __type?: "SplunkDestinationUpdate";
   /**
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
@@ -3294,7 +3142,6 @@ export namespace SplunkDestinationUpdate {
   export const filterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SplunkDestinationUpdate => __isa(o, "SplunkDestinationUpdate");
 }
 
 /**
@@ -3302,7 +3149,6 @@ export namespace SplunkDestinationUpdate {
  *          documents to Splunk, or if it doesn't receive an acknowledgment from Splunk.</p>
  */
 export interface SplunkRetryOptions {
-  __type?: "SplunkRetryOptions";
   /**
    * <p>The total amount of time that Kinesis Data Firehose spends on retries. This duration
    *          starts after the initial attempt to send data to Splunk fails. It doesn't include the
@@ -3316,13 +3162,11 @@ export namespace SplunkRetryOptions {
   export const filterSensitiveLog = (obj: SplunkRetryOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SplunkRetryOptions => __isa(o, "SplunkRetryOptions");
 }
 
 export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
 
 export interface StartDeliveryStreamEncryptionInput {
-  __type?: "StartDeliveryStreamEncryptionInput";
   /**
    * <p>The name of the delivery stream for which you want to enable server-side encryption
    *          (SSE).</p>
@@ -3340,24 +3184,17 @@ export namespace StartDeliveryStreamEncryptionInput {
   export const filterSensitiveLog = (obj: StartDeliveryStreamEncryptionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeliveryStreamEncryptionInput =>
-    __isa(o, "StartDeliveryStreamEncryptionInput");
 }
 
-export interface StartDeliveryStreamEncryptionOutput {
-  __type?: "StartDeliveryStreamEncryptionOutput";
-}
+export interface StartDeliveryStreamEncryptionOutput {}
 
 export namespace StartDeliveryStreamEncryptionOutput {
   export const filterSensitiveLog = (obj: StartDeliveryStreamEncryptionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeliveryStreamEncryptionOutput =>
-    __isa(o, "StartDeliveryStreamEncryptionOutput");
 }
 
 export interface StopDeliveryStreamEncryptionInput {
-  __type?: "StopDeliveryStreamEncryptionInput";
   /**
    * <p>The name of the delivery stream for which you want to disable server-side encryption
    *          (SSE).</p>
@@ -3369,19 +3206,14 @@ export namespace StopDeliveryStreamEncryptionInput {
   export const filterSensitiveLog = (obj: StopDeliveryStreamEncryptionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDeliveryStreamEncryptionInput => __isa(o, "StopDeliveryStreamEncryptionInput");
 }
 
-export interface StopDeliveryStreamEncryptionOutput {
-  __type?: "StopDeliveryStreamEncryptionOutput";
-}
+export interface StopDeliveryStreamEncryptionOutput {}
 
 export namespace StopDeliveryStreamEncryptionOutput {
   export const filterSensitiveLog = (obj: StopDeliveryStreamEncryptionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDeliveryStreamEncryptionOutput =>
-    __isa(o, "StopDeliveryStreamEncryptionOutput");
 }
 
 /**
@@ -3389,7 +3221,6 @@ export namespace StopDeliveryStreamEncryptionOutput {
  *          pair.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>An optional string, which you can use to describe or define the tag. Maximum length:
    *          256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - %
@@ -3408,11 +3239,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagDeliveryStreamInput {
-  __type?: "TagDeliveryStreamInput";
   /**
    * <p>The name of the delivery stream to which you want to add the tags.</p>
    */
@@ -3428,22 +3257,17 @@ export namespace TagDeliveryStreamInput {
   export const filterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagDeliveryStreamInput => __isa(o, "TagDeliveryStreamInput");
 }
 
-export interface TagDeliveryStreamOutput {
-  __type?: "TagDeliveryStreamOutput";
-}
+export interface TagDeliveryStreamOutput {}
 
 export namespace TagDeliveryStreamOutput {
   export const filterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagDeliveryStreamOutput => __isa(o, "TagDeliveryStreamOutput");
 }
 
 export interface UntagDeliveryStreamInput {
-  __type?: "UntagDeliveryStreamInput";
   /**
    * <p>A list of tag keys. Each corresponding tag is removed from the delivery
    *          stream.</p>
@@ -3460,22 +3284,17 @@ export namespace UntagDeliveryStreamInput {
   export const filterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagDeliveryStreamInput => __isa(o, "UntagDeliveryStreamInput");
 }
 
-export interface UntagDeliveryStreamOutput {
-  __type?: "UntagDeliveryStreamOutput";
-}
+export interface UntagDeliveryStreamOutput {}
 
 export namespace UntagDeliveryStreamOutput {
   export const filterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagDeliveryStreamOutput => __isa(o, "UntagDeliveryStreamOutput");
 }
 
 export interface UpdateDestinationInput {
-  __type?: "UpdateDestinationInput";
   /**
    * <p>Describes an update to the specified HTTP endpoint destination.</p>
    */
@@ -3538,25 +3357,20 @@ export namespace UpdateDestinationInput {
       RedshiftDestinationUpdate: RedshiftDestinationUpdate.filterSensitiveLog(obj.RedshiftDestinationUpdate),
     }),
   });
-  export const isa = (o: any): o is UpdateDestinationInput => __isa(o, "UpdateDestinationInput");
 }
 
-export interface UpdateDestinationOutput {
-  __type?: "UpdateDestinationOutput";
-}
+export interface UpdateDestinationOutput {}
 
 export namespace UpdateDestinationOutput {
   export const filterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDestinationOutput => __isa(o, "UpdateDestinationOutput");
 }
 
 /**
  * <p>The details of the VPC of the Amazon ES destination.</p>
  */
 export interface VpcConfiguration {
-  __type?: "VpcConfiguration";
   /**
    * <p>The IDs of the security groups that you want Kinesis Data Firehose to use when it
    *          creates ENIs in the VPC of the Amazon ES destination. You can use the same security group
@@ -3643,14 +3457,12 @@ export namespace VpcConfiguration {
   export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfiguration => __isa(o, "VpcConfiguration");
 }
 
 /**
  * <p>The details of the VPC of the Amazon ES destination.</p>
  */
 export interface VpcConfigurationDescription {
-  __type?: "VpcConfigurationDescription";
   /**
    * <p>The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in the VPC of the
    *          Amazon ES destination. Make sure that the routing tables and inbound and outbound rules
@@ -3741,5 +3553,4 @@ export namespace VpcConfigurationDescription {
   export const filterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfigurationDescription => __isa(o, "VpcConfigurationDescription");
 }

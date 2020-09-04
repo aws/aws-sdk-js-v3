@@ -1660,7 +1660,6 @@ export const deserializeAws_json1_1AcceptMatchCommand = async (
   contents = deserializeAws_json1_1AcceptMatchOutput(data, context);
   const response: AcceptMatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptMatchOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1740,7 +1739,6 @@ export const deserializeAws_json1_1ClaimGameServerCommand = async (
   contents = deserializeAws_json1_1ClaimGameServerOutput(data, context);
   const response: ClaimGameServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClaimGameServerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1836,7 +1834,6 @@ export const deserializeAws_json1_1CreateAliasCommand = async (
   contents = deserializeAws_json1_1CreateAliasOutput(data, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAliasOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1932,7 +1929,6 @@ export const deserializeAws_json1_1CreateBuildCommand = async (
   contents = deserializeAws_json1_1CreateBuildOutput(data, context);
   const response: CreateBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBuildOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2020,7 +2016,6 @@ export const deserializeAws_json1_1CreateFleetCommand = async (
   contents = deserializeAws_json1_1CreateFleetOutput(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFleetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2124,7 +2119,6 @@ export const deserializeAws_json1_1CreateGameServerGroupCommand = async (
   contents = deserializeAws_json1_1CreateGameServerGroupOutput(data, context);
   const response: CreateGameServerGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGameServerGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2212,7 +2206,6 @@ export const deserializeAws_json1_1CreateGameSessionCommand = async (
   contents = deserializeAws_json1_1CreateGameSessionOutput(data, context);
   const response: CreateGameSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGameSessionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2340,7 +2333,6 @@ export const deserializeAws_json1_1CreateGameSessionQueueCommand = async (
   contents = deserializeAws_json1_1CreateGameSessionQueueOutput(data, context);
   const response: CreateGameSessionQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGameSessionQueueOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2428,7 +2420,6 @@ export const deserializeAws_json1_1CreateMatchmakingConfigurationCommand = async
   contents = deserializeAws_json1_1CreateMatchmakingConfigurationOutput(data, context);
   const response: CreateMatchmakingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMatchmakingConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2524,7 +2515,6 @@ export const deserializeAws_json1_1CreateMatchmakingRuleSetCommand = async (
   contents = deserializeAws_json1_1CreateMatchmakingRuleSetOutput(data, context);
   const response: CreateMatchmakingRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMatchmakingRuleSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2604,7 +2594,6 @@ export const deserializeAws_json1_1CreatePlayerSessionCommand = async (
   contents = deserializeAws_json1_1CreatePlayerSessionOutput(data, context);
   const response: CreatePlayerSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePlayerSessionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2708,7 +2697,6 @@ export const deserializeAws_json1_1CreatePlayerSessionsCommand = async (
   contents = deserializeAws_json1_1CreatePlayerSessionsOutput(data, context);
   const response: CreatePlayerSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePlayerSessionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2812,7 +2800,6 @@ export const deserializeAws_json1_1CreateScriptCommand = async (
   contents = deserializeAws_json1_1CreateScriptOutput(data, context);
   const response: CreateScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateScriptOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2900,7 +2887,6 @@ export const deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand = async 
   contents = deserializeAws_json1_1CreateVpcPeeringAuthorizationOutput(data, context);
   const response: CreateVpcPeeringAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcPeeringAuthorizationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2980,7 +2966,6 @@ export const deserializeAws_json1_1CreateVpcPeeringConnectionCommand = async (
   contents = deserializeAws_json1_1CreateVpcPeeringConnectionOutput(data, context);
   const response: CreateVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcPeeringConnectionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3320,7 +3305,6 @@ export const deserializeAws_json1_1DeleteGameServerGroupCommand = async (
   contents = deserializeAws_json1_1DeleteGameServerGroupOutput(data, context);
   const response: DeleteGameServerGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGameServerGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3400,7 +3384,6 @@ export const deserializeAws_json1_1DeleteGameSessionQueueCommand = async (
   contents = deserializeAws_json1_1DeleteGameSessionQueueOutput(data, context);
   const response: DeleteGameSessionQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGameSessionQueueOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3488,7 +3471,6 @@ export const deserializeAws_json1_1DeleteMatchmakingConfigurationCommand = async
   contents = deserializeAws_json1_1DeleteMatchmakingConfigurationOutput(data, context);
   const response: DeleteMatchmakingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMatchmakingConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3576,7 +3558,6 @@ export const deserializeAws_json1_1DeleteMatchmakingRuleSetCommand = async (
   contents = deserializeAws_json1_1DeleteMatchmakingRuleSetOutput(data, context);
   const response: DeleteMatchmakingRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMatchmakingRuleSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3824,7 +3805,6 @@ export const deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand = async 
   contents = deserializeAws_json1_1DeleteVpcPeeringAuthorizationOutput(data, context);
   const response: DeleteVpcPeeringAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcPeeringAuthorizationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3904,7 +3884,6 @@ export const deserializeAws_json1_1DeleteVpcPeeringConnectionCommand = async (
   contents = deserializeAws_json1_1DeleteVpcPeeringConnectionOutput(data, context);
   const response: DeleteVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcPeeringConnectionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4060,7 +4039,6 @@ export const deserializeAws_json1_1DescribeAliasCommand = async (
   contents = deserializeAws_json1_1DescribeAliasOutput(data, context);
   const response: DescribeAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAliasOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4140,7 +4118,6 @@ export const deserializeAws_json1_1DescribeBuildCommand = async (
   contents = deserializeAws_json1_1DescribeBuildOutput(data, context);
   const response: DescribeBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBuildOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4220,7 +4197,6 @@ export const deserializeAws_json1_1DescribeEC2InstanceLimitsCommand = async (
   contents = deserializeAws_json1_1DescribeEC2InstanceLimitsOutput(data, context);
   const response: DescribeEC2InstanceLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEC2InstanceLimitsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4292,7 +4268,6 @@ export const deserializeAws_json1_1DescribeFleetAttributesCommand = async (
   contents = deserializeAws_json1_1DescribeFleetAttributesOutput(data, context);
   const response: DescribeFleetAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetAttributesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4372,7 +4347,6 @@ export const deserializeAws_json1_1DescribeFleetCapacityCommand = async (
   contents = deserializeAws_json1_1DescribeFleetCapacityOutput(data, context);
   const response: DescribeFleetCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetCapacityOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4452,7 +4426,6 @@ export const deserializeAws_json1_1DescribeFleetEventsCommand = async (
   contents = deserializeAws_json1_1DescribeFleetEventsOutput(data, context);
   const response: DescribeFleetEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetEventsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4532,7 +4505,6 @@ export const deserializeAws_json1_1DescribeFleetPortSettingsCommand = async (
   contents = deserializeAws_json1_1DescribeFleetPortSettingsOutput(data, context);
   const response: DescribeFleetPortSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetPortSettingsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4612,7 +4584,6 @@ export const deserializeAws_json1_1DescribeFleetUtilizationCommand = async (
   contents = deserializeAws_json1_1DescribeFleetUtilizationOutput(data, context);
   const response: DescribeFleetUtilizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetUtilizationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4692,7 +4663,6 @@ export const deserializeAws_json1_1DescribeGameServerCommand = async (
   contents = deserializeAws_json1_1DescribeGameServerOutput(data, context);
   const response: DescribeGameServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGameServerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4772,7 +4742,6 @@ export const deserializeAws_json1_1DescribeGameServerGroupCommand = async (
   contents = deserializeAws_json1_1DescribeGameServerGroupOutput(data, context);
   const response: DescribeGameServerGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGameServerGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4852,7 +4821,6 @@ export const deserializeAws_json1_1DescribeGameSessionDetailsCommand = async (
   contents = deserializeAws_json1_1DescribeGameSessionDetailsOutput(data, context);
   const response: DescribeGameSessionDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGameSessionDetailsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4940,7 +4908,6 @@ export const deserializeAws_json1_1DescribeGameSessionPlacementCommand = async (
   contents = deserializeAws_json1_1DescribeGameSessionPlacementOutput(data, context);
   const response: DescribeGameSessionPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGameSessionPlacementOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5020,7 +4987,6 @@ export const deserializeAws_json1_1DescribeGameSessionQueuesCommand = async (
   contents = deserializeAws_json1_1DescribeGameSessionQueuesOutput(data, context);
   const response: DescribeGameSessionQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGameSessionQueuesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5100,7 +5066,6 @@ export const deserializeAws_json1_1DescribeGameSessionsCommand = async (
   contents = deserializeAws_json1_1DescribeGameSessionsOutput(data, context);
   const response: DescribeGameSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGameSessionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5188,7 +5153,6 @@ export const deserializeAws_json1_1DescribeInstancesCommand = async (
   contents = deserializeAws_json1_1DescribeInstancesOutput(data, context);
   const response: DescribeInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstancesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5268,7 +5232,6 @@ export const deserializeAws_json1_1DescribeMatchmakingCommand = async (
   contents = deserializeAws_json1_1DescribeMatchmakingOutput(data, context);
   const response: DescribeMatchmakingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMatchmakingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5340,7 +5303,6 @@ export const deserializeAws_json1_1DescribeMatchmakingConfigurationsCommand = as
   contents = deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput(data, context);
   const response: DescribeMatchmakingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMatchmakingConfigurationsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5412,7 +5374,6 @@ export const deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand = async (
   contents = deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput(data, context);
   const response: DescribeMatchmakingRuleSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMatchmakingRuleSetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5492,7 +5453,6 @@ export const deserializeAws_json1_1DescribePlayerSessionsCommand = async (
   contents = deserializeAws_json1_1DescribePlayerSessionsOutput(data, context);
   const response: DescribePlayerSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePlayerSessionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5572,7 +5532,6 @@ export const deserializeAws_json1_1DescribeRuntimeConfigurationCommand = async (
   contents = deserializeAws_json1_1DescribeRuntimeConfigurationOutput(data, context);
   const response: DescribeRuntimeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRuntimeConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5652,7 +5611,6 @@ export const deserializeAws_json1_1DescribeScalingPoliciesCommand = async (
   contents = deserializeAws_json1_1DescribeScalingPoliciesOutput(data, context);
   const response: DescribeScalingPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalingPoliciesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5732,7 +5690,6 @@ export const deserializeAws_json1_1DescribeScriptCommand = async (
   contents = deserializeAws_json1_1DescribeScriptOutput(data, context);
   const response: DescribeScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScriptOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5812,7 +5769,6 @@ export const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand = asy
   contents = deserializeAws_json1_1DescribeVpcPeeringAuthorizationsOutput(data, context);
   const response: DescribeVpcPeeringAuthorizationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcPeeringAuthorizationsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5884,7 +5840,6 @@ export const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand = async 
   contents = deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput(data, context);
   const response: DescribeVpcPeeringConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcPeeringConnectionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5964,7 +5919,6 @@ export const deserializeAws_json1_1GetGameSessionLogUrlCommand = async (
   contents = deserializeAws_json1_1GetGameSessionLogUrlOutput(data, context);
   const response: GetGameSessionLogUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGameSessionLogUrlOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6044,7 +5998,6 @@ export const deserializeAws_json1_1GetInstanceAccessCommand = async (
   contents = deserializeAws_json1_1GetInstanceAccessOutput(data, context);
   const response: GetInstanceAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceAccessOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6124,7 +6077,6 @@ export const deserializeAws_json1_1ListAliasesCommand = async (
   contents = deserializeAws_json1_1ListAliasesOutput(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAliasesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6196,7 +6148,6 @@ export const deserializeAws_json1_1ListBuildsCommand = async (
   contents = deserializeAws_json1_1ListBuildsOutput(data, context);
   const response: ListBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBuildsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6268,7 +6219,6 @@ export const deserializeAws_json1_1ListFleetsCommand = async (
   contents = deserializeAws_json1_1ListFleetsOutput(data, context);
   const response: ListFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFleetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6348,7 +6298,6 @@ export const deserializeAws_json1_1ListGameServerGroupsCommand = async (
   contents = deserializeAws_json1_1ListGameServerGroupsOutput(data, context);
   const response: ListGameServerGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGameServerGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6420,7 +6369,6 @@ export const deserializeAws_json1_1ListGameServersCommand = async (
   contents = deserializeAws_json1_1ListGameServersOutput(data, context);
   const response: ListGameServersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGameServersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6492,7 +6440,6 @@ export const deserializeAws_json1_1ListScriptsCommand = async (
   contents = deserializeAws_json1_1ListScriptsOutput(data, context);
   const response: ListScriptsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListScriptsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6564,7 +6511,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6644,7 +6590,6 @@ export const deserializeAws_json1_1PutScalingPolicyCommand = async (
   contents = deserializeAws_json1_1PutScalingPolicyOutput(data, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutScalingPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6724,7 +6669,6 @@ export const deserializeAws_json1_1RegisterGameServerCommand = async (
   contents = deserializeAws_json1_1RegisterGameServerOutput(data, context);
   const response: RegisterGameServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterGameServerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6812,7 +6756,6 @@ export const deserializeAws_json1_1RequestUploadCredentialsCommand = async (
   contents = deserializeAws_json1_1RequestUploadCredentialsOutput(data, context);
   const response: RequestUploadCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestUploadCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6892,7 +6835,6 @@ export const deserializeAws_json1_1ResolveAliasCommand = async (
   contents = deserializeAws_json1_1ResolveAliasOutput(data, context);
   const response: ResolveAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResolveAliasOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6980,7 +6922,6 @@ export const deserializeAws_json1_1ResumeGameServerGroupCommand = async (
   contents = deserializeAws_json1_1ResumeGameServerGroupOutput(data, context);
   const response: ResumeGameServerGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResumeGameServerGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7060,7 +7001,6 @@ export const deserializeAws_json1_1SearchGameSessionsCommand = async (
   contents = deserializeAws_json1_1SearchGameSessionsOutput(data, context);
   const response: SearchGameSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchGameSessionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7148,7 +7088,6 @@ export const deserializeAws_json1_1StartFleetActionsCommand = async (
   contents = deserializeAws_json1_1StartFleetActionsOutput(data, context);
   const response: StartFleetActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartFleetActionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7228,7 +7167,6 @@ export const deserializeAws_json1_1StartGameSessionPlacementCommand = async (
   contents = deserializeAws_json1_1StartGameSessionPlacementOutput(data, context);
   const response: StartGameSessionPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartGameSessionPlacementOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7308,7 +7246,6 @@ export const deserializeAws_json1_1StartMatchBackfillCommand = async (
   contents = deserializeAws_json1_1StartMatchBackfillOutput(data, context);
   const response: StartMatchBackfillCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartMatchBackfillOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7388,7 +7325,6 @@ export const deserializeAws_json1_1StartMatchmakingCommand = async (
   contents = deserializeAws_json1_1StartMatchmakingOutput(data, context);
   const response: StartMatchmakingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartMatchmakingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7468,7 +7404,6 @@ export const deserializeAws_json1_1StopFleetActionsCommand = async (
   contents = deserializeAws_json1_1StopFleetActionsOutput(data, context);
   const response: StopFleetActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopFleetActionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7548,7 +7483,6 @@ export const deserializeAws_json1_1StopGameSessionPlacementCommand = async (
   contents = deserializeAws_json1_1StopGameSessionPlacementOutput(data, context);
   const response: StopGameSessionPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopGameSessionPlacementOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7628,7 +7562,6 @@ export const deserializeAws_json1_1StopMatchmakingCommand = async (
   contents = deserializeAws_json1_1StopMatchmakingOutput(data, context);
   const response: StopMatchmakingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopMatchmakingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7708,7 +7641,6 @@ export const deserializeAws_json1_1SuspendGameServerGroupCommand = async (
   contents = deserializeAws_json1_1SuspendGameServerGroupOutput(data, context);
   const response: SuspendGameServerGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SuspendGameServerGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7788,7 +7720,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7868,7 +7799,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7948,7 +7878,6 @@ export const deserializeAws_json1_1UpdateAliasCommand = async (
   contents = deserializeAws_json1_1UpdateAliasOutput(data, context);
   const response: UpdateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAliasOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8028,7 +7957,6 @@ export const deserializeAws_json1_1UpdateBuildCommand = async (
   contents = deserializeAws_json1_1UpdateBuildOutput(data, context);
   const response: UpdateBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBuildOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8108,7 +8036,6 @@ export const deserializeAws_json1_1UpdateFleetAttributesCommand = async (
   contents = deserializeAws_json1_1UpdateFleetAttributesOutput(data, context);
   const response: UpdateFleetAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFleetAttributesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8212,7 +8139,6 @@ export const deserializeAws_json1_1UpdateFleetCapacityCommand = async (
   contents = deserializeAws_json1_1UpdateFleetCapacityOutput(data, context);
   const response: UpdateFleetCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFleetCapacityOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8316,7 +8242,6 @@ export const deserializeAws_json1_1UpdateFleetPortSettingsCommand = async (
   contents = deserializeAws_json1_1UpdateFleetPortSettingsOutput(data, context);
   const response: UpdateFleetPortSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFleetPortSettingsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8420,7 +8345,6 @@ export const deserializeAws_json1_1UpdateGameServerCommand = async (
   contents = deserializeAws_json1_1UpdateGameServerOutput(data, context);
   const response: UpdateGameServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGameServerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8500,7 +8424,6 @@ export const deserializeAws_json1_1UpdateGameServerGroupCommand = async (
   contents = deserializeAws_json1_1UpdateGameServerGroupOutput(data, context);
   const response: UpdateGameServerGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGameServerGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8580,7 +8503,6 @@ export const deserializeAws_json1_1UpdateGameSessionCommand = async (
   contents = deserializeAws_json1_1UpdateGameSessionOutput(data, context);
   const response: UpdateGameSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGameSessionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8676,7 +8598,6 @@ export const deserializeAws_json1_1UpdateGameSessionQueueCommand = async (
   contents = deserializeAws_json1_1UpdateGameSessionQueueOutput(data, context);
   const response: UpdateGameSessionQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGameSessionQueueOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8756,7 +8677,6 @@ export const deserializeAws_json1_1UpdateMatchmakingConfigurationCommand = async
   contents = deserializeAws_json1_1UpdateMatchmakingConfigurationOutput(data, context);
   const response: UpdateMatchmakingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMatchmakingConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8836,7 +8756,6 @@ export const deserializeAws_json1_1UpdateRuntimeConfigurationCommand = async (
   contents = deserializeAws_json1_1UpdateRuntimeConfigurationOutput(data, context);
   const response: UpdateRuntimeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRuntimeConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8924,7 +8843,6 @@ export const deserializeAws_json1_1UpdateScriptCommand = async (
   contents = deserializeAws_json1_1UpdateScriptOutput(data, context);
   const response: UpdateScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateScriptOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9004,7 +8922,6 @@ export const deserializeAws_json1_1ValidateMatchmakingRuleSetCommand = async (
   contents = deserializeAws_json1_1ValidateMatchmakingRuleSetOutput(data, context);
   const response: ValidateMatchmakingRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ValidateMatchmakingRuleSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10624,14 +10541,11 @@ const serializeAws_json1_1VpcSubnets = (input: string[], context: __SerdeContext
 };
 
 const deserializeAws_json1_1AcceptMatchOutput = (output: any, context: __SerdeContext): AcceptMatchOutput => {
-  return {
-    __type: "AcceptMatchOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Alias = (output: any, context: __SerdeContext): Alias => {
   return {
-    __type: "Alias",
     AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
     AliasId: output.AliasId !== undefined && output.AliasId !== null ? output.AliasId : undefined,
     CreationTime:
@@ -10657,7 +10571,6 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    __type: "AttributeValue",
     N: output.N !== undefined && output.N !== null ? output.N : undefined,
     S: output.S !== undefined && output.S !== null ? output.S : undefined,
     SDM:
@@ -10671,7 +10584,6 @@ const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1AwsCredentials = (output: any, context: __SerdeContext): AwsCredentials => {
   return {
-    __type: "AwsCredentials",
     AccessKeyId: output.AccessKeyId !== undefined && output.AccessKeyId !== null ? output.AccessKeyId : undefined,
     SecretAccessKey:
       output.SecretAccessKey !== undefined && output.SecretAccessKey !== null ? output.SecretAccessKey : undefined,
@@ -10681,7 +10593,6 @@ const deserializeAws_json1_1AwsCredentials = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Build => {
   return {
-    __type: "Build",
     BuildArn: output.BuildArn !== undefined && output.BuildArn !== null ? output.BuildArn : undefined,
     BuildId: output.BuildId !== undefined && output.BuildId !== null ? output.BuildId : undefined,
     CreationTime:
@@ -10706,7 +10617,6 @@ const deserializeAws_json1_1CertificateConfiguration = (
   context: __SerdeContext
 ): CertificateConfiguration => {
   return {
-    __type: "CertificateConfiguration",
     CertificateType:
       output.CertificateType !== undefined && output.CertificateType !== null ? output.CertificateType : undefined,
   } as any;
@@ -10714,7 +10624,6 @@ const deserializeAws_json1_1CertificateConfiguration = (
 
 const deserializeAws_json1_1ClaimGameServerOutput = (output: any, context: __SerdeContext): ClaimGameServerOutput => {
   return {
-    __type: "ClaimGameServerOutput",
     GameServer:
       output.GameServer !== undefined && output.GameServer !== null
         ? deserializeAws_json1_1GameServer(output.GameServer, context)
@@ -10724,14 +10633,12 @@ const deserializeAws_json1_1ClaimGameServerOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    __type: "ConflictException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateAliasOutput = (output: any, context: __SerdeContext): CreateAliasOutput => {
   return {
-    __type: "CreateAliasOutput",
     Alias:
       output.Alias !== undefined && output.Alias !== null
         ? deserializeAws_json1_1Alias(output.Alias, context)
@@ -10741,7 +10648,6 @@ const deserializeAws_json1_1CreateAliasOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CreateBuildOutput = (output: any, context: __SerdeContext): CreateBuildOutput => {
   return {
-    __type: "CreateBuildOutput",
     Build:
       output.Build !== undefined && output.Build !== null
         ? deserializeAws_json1_1Build(output.Build, context)
@@ -10759,7 +10665,6 @@ const deserializeAws_json1_1CreateBuildOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CreateFleetOutput = (output: any, context: __SerdeContext): CreateFleetOutput => {
   return {
-    __type: "CreateFleetOutput",
     FleetAttributes:
       output.FleetAttributes !== undefined && output.FleetAttributes !== null
         ? deserializeAws_json1_1FleetAttributes(output.FleetAttributes, context)
@@ -10772,7 +10677,6 @@ const deserializeAws_json1_1CreateGameServerGroupOutput = (
   context: __SerdeContext
 ): CreateGameServerGroupOutput => {
   return {
-    __type: "CreateGameServerGroupOutput",
     GameServerGroup:
       output.GameServerGroup !== undefined && output.GameServerGroup !== null
         ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
@@ -10785,7 +10689,6 @@ const deserializeAws_json1_1CreateGameSessionOutput = (
   context: __SerdeContext
 ): CreateGameSessionOutput => {
   return {
-    __type: "CreateGameSessionOutput",
     GameSession:
       output.GameSession !== undefined && output.GameSession !== null
         ? deserializeAws_json1_1GameSession(output.GameSession, context)
@@ -10798,7 +10701,6 @@ const deserializeAws_json1_1CreateGameSessionQueueOutput = (
   context: __SerdeContext
 ): CreateGameSessionQueueOutput => {
   return {
-    __type: "CreateGameSessionQueueOutput",
     GameSessionQueue:
       output.GameSessionQueue !== undefined && output.GameSessionQueue !== null
         ? deserializeAws_json1_1GameSessionQueue(output.GameSessionQueue, context)
@@ -10811,7 +10713,6 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationOutput = (
   context: __SerdeContext
 ): CreateMatchmakingConfigurationOutput => {
   return {
-    __type: "CreateMatchmakingConfigurationOutput",
     Configuration:
       output.Configuration !== undefined && output.Configuration !== null
         ? deserializeAws_json1_1MatchmakingConfiguration(output.Configuration, context)
@@ -10824,7 +10725,6 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetOutput = (
   context: __SerdeContext
 ): CreateMatchmakingRuleSetOutput => {
   return {
-    __type: "CreateMatchmakingRuleSetOutput",
     RuleSet:
       output.RuleSet !== undefined && output.RuleSet !== null
         ? deserializeAws_json1_1MatchmakingRuleSet(output.RuleSet, context)
@@ -10837,7 +10737,6 @@ const deserializeAws_json1_1CreatePlayerSessionOutput = (
   context: __SerdeContext
 ): CreatePlayerSessionOutput => {
   return {
-    __type: "CreatePlayerSessionOutput",
     PlayerSession:
       output.PlayerSession !== undefined && output.PlayerSession !== null
         ? deserializeAws_json1_1PlayerSession(output.PlayerSession, context)
@@ -10850,7 +10749,6 @@ const deserializeAws_json1_1CreatePlayerSessionsOutput = (
   context: __SerdeContext
 ): CreatePlayerSessionsOutput => {
   return {
-    __type: "CreatePlayerSessionsOutput",
     PlayerSessions:
       output.PlayerSessions !== undefined && output.PlayerSessions !== null
         ? deserializeAws_json1_1PlayerSessionList(output.PlayerSessions, context)
@@ -10860,7 +10758,6 @@ const deserializeAws_json1_1CreatePlayerSessionsOutput = (
 
 const deserializeAws_json1_1CreateScriptOutput = (output: any, context: __SerdeContext): CreateScriptOutput => {
   return {
-    __type: "CreateScriptOutput",
     Script:
       output.Script !== undefined && output.Script !== null
         ? deserializeAws_json1_1Script(output.Script, context)
@@ -10873,7 +10770,6 @@ const deserializeAws_json1_1CreateVpcPeeringAuthorizationOutput = (
   context: __SerdeContext
 ): CreateVpcPeeringAuthorizationOutput => {
   return {
-    __type: "CreateVpcPeeringAuthorizationOutput",
     VpcPeeringAuthorization:
       output.VpcPeeringAuthorization !== undefined && output.VpcPeeringAuthorization !== null
         ? deserializeAws_json1_1VpcPeeringAuthorization(output.VpcPeeringAuthorization, context)
@@ -10885,9 +10781,7 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateVpcPeeringConnectionOutput => {
-  return {
-    __type: "CreateVpcPeeringConnectionOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteGameServerGroupOutput = (
@@ -10895,7 +10789,6 @@ const deserializeAws_json1_1DeleteGameServerGroupOutput = (
   context: __SerdeContext
 ): DeleteGameServerGroupOutput => {
   return {
-    __type: "DeleteGameServerGroupOutput",
     GameServerGroup:
       output.GameServerGroup !== undefined && output.GameServerGroup !== null
         ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
@@ -10907,50 +10800,39 @@ const deserializeAws_json1_1DeleteGameSessionQueueOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteGameSessionQueueOutput => {
-  return {
-    __type: "DeleteGameSessionQueueOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteMatchmakingConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteMatchmakingConfigurationOutput => {
-  return {
-    __type: "DeleteMatchmakingConfigurationOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteMatchmakingRuleSetOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteMatchmakingRuleSetOutput => {
-  return {
-    __type: "DeleteMatchmakingRuleSetOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteVpcPeeringAuthorizationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcPeeringAuthorizationOutput => {
-  return {
-    __type: "DeleteVpcPeeringAuthorizationOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteVpcPeeringConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcPeeringConnectionOutput => {
-  return {
-    __type: "DeleteVpcPeeringConnectionOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeAliasOutput = (output: any, context: __SerdeContext): DescribeAliasOutput => {
   return {
-    __type: "DescribeAliasOutput",
     Alias:
       output.Alias !== undefined && output.Alias !== null
         ? deserializeAws_json1_1Alias(output.Alias, context)
@@ -10960,7 +10842,6 @@ const deserializeAws_json1_1DescribeAliasOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1DescribeBuildOutput = (output: any, context: __SerdeContext): DescribeBuildOutput => {
   return {
-    __type: "DescribeBuildOutput",
     Build:
       output.Build !== undefined && output.Build !== null
         ? deserializeAws_json1_1Build(output.Build, context)
@@ -10973,7 +10854,6 @@ const deserializeAws_json1_1DescribeEC2InstanceLimitsOutput = (
   context: __SerdeContext
 ): DescribeEC2InstanceLimitsOutput => {
   return {
-    __type: "DescribeEC2InstanceLimitsOutput",
     EC2InstanceLimits:
       output.EC2InstanceLimits !== undefined && output.EC2InstanceLimits !== null
         ? deserializeAws_json1_1EC2InstanceLimitList(output.EC2InstanceLimits, context)
@@ -10986,7 +10866,6 @@ const deserializeAws_json1_1DescribeFleetAttributesOutput = (
   context: __SerdeContext
 ): DescribeFleetAttributesOutput => {
   return {
-    __type: "DescribeFleetAttributesOutput",
     FleetAttributes:
       output.FleetAttributes !== undefined && output.FleetAttributes !== null
         ? deserializeAws_json1_1FleetAttributesList(output.FleetAttributes, context)
@@ -11000,7 +10879,6 @@ const deserializeAws_json1_1DescribeFleetCapacityOutput = (
   context: __SerdeContext
 ): DescribeFleetCapacityOutput => {
   return {
-    __type: "DescribeFleetCapacityOutput",
     FleetCapacity:
       output.FleetCapacity !== undefined && output.FleetCapacity !== null
         ? deserializeAws_json1_1FleetCapacityList(output.FleetCapacity, context)
@@ -11014,7 +10892,6 @@ const deserializeAws_json1_1DescribeFleetEventsOutput = (
   context: __SerdeContext
 ): DescribeFleetEventsOutput => {
   return {
-    __type: "DescribeFleetEventsOutput",
     Events:
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_json1_1EventList(output.Events, context)
@@ -11028,7 +10905,6 @@ const deserializeAws_json1_1DescribeFleetPortSettingsOutput = (
   context: __SerdeContext
 ): DescribeFleetPortSettingsOutput => {
   return {
-    __type: "DescribeFleetPortSettingsOutput",
     InboundPermissions:
       output.InboundPermissions !== undefined && output.InboundPermissions !== null
         ? deserializeAws_json1_1IpPermissionsList(output.InboundPermissions, context)
@@ -11041,7 +10917,6 @@ const deserializeAws_json1_1DescribeFleetUtilizationOutput = (
   context: __SerdeContext
 ): DescribeFleetUtilizationOutput => {
   return {
-    __type: "DescribeFleetUtilizationOutput",
     FleetUtilization:
       output.FleetUtilization !== undefined && output.FleetUtilization !== null
         ? deserializeAws_json1_1FleetUtilizationList(output.FleetUtilization, context)
@@ -11055,7 +10930,6 @@ const deserializeAws_json1_1DescribeGameServerGroupOutput = (
   context: __SerdeContext
 ): DescribeGameServerGroupOutput => {
   return {
-    __type: "DescribeGameServerGroupOutput",
     GameServerGroup:
       output.GameServerGroup !== undefined && output.GameServerGroup !== null
         ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
@@ -11068,7 +10942,6 @@ const deserializeAws_json1_1DescribeGameServerOutput = (
   context: __SerdeContext
 ): DescribeGameServerOutput => {
   return {
-    __type: "DescribeGameServerOutput",
     GameServer:
       output.GameServer !== undefined && output.GameServer !== null
         ? deserializeAws_json1_1GameServer(output.GameServer, context)
@@ -11081,7 +10954,6 @@ const deserializeAws_json1_1DescribeGameSessionDetailsOutput = (
   context: __SerdeContext
 ): DescribeGameSessionDetailsOutput => {
   return {
-    __type: "DescribeGameSessionDetailsOutput",
     GameSessionDetails:
       output.GameSessionDetails !== undefined && output.GameSessionDetails !== null
         ? deserializeAws_json1_1GameSessionDetailList(output.GameSessionDetails, context)
@@ -11095,7 +10967,6 @@ const deserializeAws_json1_1DescribeGameSessionPlacementOutput = (
   context: __SerdeContext
 ): DescribeGameSessionPlacementOutput => {
   return {
-    __type: "DescribeGameSessionPlacementOutput",
     GameSessionPlacement:
       output.GameSessionPlacement !== undefined && output.GameSessionPlacement !== null
         ? deserializeAws_json1_1GameSessionPlacement(output.GameSessionPlacement, context)
@@ -11108,7 +10979,6 @@ const deserializeAws_json1_1DescribeGameSessionQueuesOutput = (
   context: __SerdeContext
 ): DescribeGameSessionQueuesOutput => {
   return {
-    __type: "DescribeGameSessionQueuesOutput",
     GameSessionQueues:
       output.GameSessionQueues !== undefined && output.GameSessionQueues !== null
         ? deserializeAws_json1_1GameSessionQueueList(output.GameSessionQueues, context)
@@ -11122,7 +10992,6 @@ const deserializeAws_json1_1DescribeGameSessionsOutput = (
   context: __SerdeContext
 ): DescribeGameSessionsOutput => {
   return {
-    __type: "DescribeGameSessionsOutput",
     GameSessions:
       output.GameSessions !== undefined && output.GameSessions !== null
         ? deserializeAws_json1_1GameSessionList(output.GameSessions, context)
@@ -11136,7 +11005,6 @@ const deserializeAws_json1_1DescribeInstancesOutput = (
   context: __SerdeContext
 ): DescribeInstancesOutput => {
   return {
-    __type: "DescribeInstancesOutput",
     Instances:
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1InstanceList(output.Instances, context)
@@ -11150,7 +11018,6 @@ const deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput = (
   context: __SerdeContext
 ): DescribeMatchmakingConfigurationsOutput => {
   return {
-    __type: "DescribeMatchmakingConfigurationsOutput",
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
         ? deserializeAws_json1_1MatchmakingConfigurationList(output.Configurations, context)
@@ -11164,7 +11031,6 @@ const deserializeAws_json1_1DescribeMatchmakingOutput = (
   context: __SerdeContext
 ): DescribeMatchmakingOutput => {
   return {
-    __type: "DescribeMatchmakingOutput",
     TicketList:
       output.TicketList !== undefined && output.TicketList !== null
         ? deserializeAws_json1_1MatchmakingTicketList(output.TicketList, context)
@@ -11177,7 +11043,6 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput = (
   context: __SerdeContext
 ): DescribeMatchmakingRuleSetsOutput => {
   return {
-    __type: "DescribeMatchmakingRuleSetsOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RuleSets:
       output.RuleSets !== undefined && output.RuleSets !== null
@@ -11191,7 +11056,6 @@ const deserializeAws_json1_1DescribePlayerSessionsOutput = (
   context: __SerdeContext
 ): DescribePlayerSessionsOutput => {
   return {
-    __type: "DescribePlayerSessionsOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PlayerSessions:
       output.PlayerSessions !== undefined && output.PlayerSessions !== null
@@ -11205,7 +11069,6 @@ const deserializeAws_json1_1DescribeRuntimeConfigurationOutput = (
   context: __SerdeContext
 ): DescribeRuntimeConfigurationOutput => {
   return {
-    __type: "DescribeRuntimeConfigurationOutput",
     RuntimeConfiguration:
       output.RuntimeConfiguration !== undefined && output.RuntimeConfiguration !== null
         ? deserializeAws_json1_1RuntimeConfiguration(output.RuntimeConfiguration, context)
@@ -11218,7 +11081,6 @@ const deserializeAws_json1_1DescribeScalingPoliciesOutput = (
   context: __SerdeContext
 ): DescribeScalingPoliciesOutput => {
   return {
-    __type: "DescribeScalingPoliciesOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingPolicies:
       output.ScalingPolicies !== undefined && output.ScalingPolicies !== null
@@ -11229,7 +11091,6 @@ const deserializeAws_json1_1DescribeScalingPoliciesOutput = (
 
 const deserializeAws_json1_1DescribeScriptOutput = (output: any, context: __SerdeContext): DescribeScriptOutput => {
   return {
-    __type: "DescribeScriptOutput",
     Script:
       output.Script !== undefined && output.Script !== null
         ? deserializeAws_json1_1Script(output.Script, context)
@@ -11242,7 +11103,6 @@ const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsOutput = (
   context: __SerdeContext
 ): DescribeVpcPeeringAuthorizationsOutput => {
   return {
-    __type: "DescribeVpcPeeringAuthorizationsOutput",
     VpcPeeringAuthorizations:
       output.VpcPeeringAuthorizations !== undefined && output.VpcPeeringAuthorizations !== null
         ? deserializeAws_json1_1VpcPeeringAuthorizationList(output.VpcPeeringAuthorizations, context)
@@ -11255,7 +11115,6 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput = (
   context: __SerdeContext
 ): DescribeVpcPeeringConnectionsOutput => {
   return {
-    __type: "DescribeVpcPeeringConnectionsOutput",
     VpcPeeringConnections:
       output.VpcPeeringConnections !== undefined && output.VpcPeeringConnections !== null
         ? deserializeAws_json1_1VpcPeeringConnectionList(output.VpcPeeringConnections, context)
@@ -11265,7 +11124,6 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput = (
 
 const deserializeAws_json1_1EC2InstanceCounts = (output: any, context: __SerdeContext): EC2InstanceCounts => {
   return {
-    __type: "EC2InstanceCounts",
     ACTIVE: output.ACTIVE !== undefined && output.ACTIVE !== null ? output.ACTIVE : undefined,
     DESIRED: output.DESIRED !== undefined && output.DESIRED !== null ? output.DESIRED : undefined,
     IDLE: output.IDLE !== undefined && output.IDLE !== null ? output.IDLE : undefined,
@@ -11278,7 +11136,6 @@ const deserializeAws_json1_1EC2InstanceCounts = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1EC2InstanceLimit = (output: any, context: __SerdeContext): EC2InstanceLimit => {
   return {
-    __type: "EC2InstanceLimit",
     CurrentInstances:
       output.CurrentInstances !== undefined && output.CurrentInstances !== null ? output.CurrentInstances : undefined,
     EC2InstanceType:
@@ -11294,7 +11151,6 @@ const deserializeAws_json1_1EC2InstanceLimitList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    __type: "Event",
     EventCode: output.EventCode !== undefined && output.EventCode !== null ? output.EventCode : undefined,
     EventId: output.EventId !== undefined && output.EventId !== null ? output.EventId : undefined,
     EventTime:
@@ -11318,7 +11174,6 @@ const deserializeAws_json1_1FleetActionList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeContext): FleetAttributes => {
   return {
-    __type: "FleetAttributes",
     BuildArn: output.BuildArn !== undefined && output.BuildArn !== null ? output.BuildArn : undefined,
     BuildId: output.BuildId !== undefined && output.BuildId !== null ? output.BuildId : undefined,
     CertificateConfiguration:
@@ -11381,7 +11236,6 @@ const deserializeAws_json1_1FleetAttributesList = (output: any, context: __Serde
 
 const deserializeAws_json1_1FleetCapacity = (output: any, context: __SerdeContext): FleetCapacity => {
   return {
-    __type: "FleetCapacity",
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
     InstanceCounts:
       output.InstanceCounts !== undefined && output.InstanceCounts !== null
@@ -11396,7 +11250,6 @@ const deserializeAws_json1_1FleetCapacityExceededException = (
   context: __SerdeContext
 ): FleetCapacityExceededException => {
   return {
-    __type: "FleetCapacityExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -11411,7 +11264,6 @@ const deserializeAws_json1_1FleetIdList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1FleetUtilization = (output: any, context: __SerdeContext): FleetUtilization => {
   return {
-    __type: "FleetUtilization",
     ActiveGameSessionCount:
       output.ActiveGameSessionCount !== undefined && output.ActiveGameSessionCount !== null
         ? output.ActiveGameSessionCount
@@ -11438,7 +11290,6 @@ const deserializeAws_json1_1FleetUtilizationList = (output: any, context: __Serd
 
 const deserializeAws_json1_1GameProperty = (output: any, context: __SerdeContext): GameProperty => {
   return {
-    __type: "GameProperty",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -11450,7 +11301,6 @@ const deserializeAws_json1_1GamePropertyList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext): GameServer => {
   return {
-    __type: "GameServer",
     ClaimStatus: output.ClaimStatus !== undefined && output.ClaimStatus !== null ? output.ClaimStatus : undefined,
     ConnectionInfo:
       output.ConnectionInfo !== undefined && output.ConnectionInfo !== null ? output.ConnectionInfo : undefined,
@@ -11489,7 +11339,6 @@ const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeContext): GameServerGroup => {
   return {
-    __type: "GameServerGroup",
     AutoScalingGroupArn:
       output.AutoScalingGroupArn !== undefined && output.AutoScalingGroupArn !== null
         ? output.AutoScalingGroupArn
@@ -11549,7 +11398,6 @@ const deserializeAws_json1_1GameServers = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext): GameSession => {
   return {
-    __type: "GameSession",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -11597,7 +11445,6 @@ const deserializeAws_json1_1GameSessionConnectionInfo = (
   context: __SerdeContext
 ): GameSessionConnectionInfo => {
   return {
-    __type: "GameSessionConnectionInfo",
     DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
     GameSessionArn:
       output.GameSessionArn !== undefined && output.GameSessionArn !== null ? output.GameSessionArn : undefined,
@@ -11612,7 +11459,6 @@ const deserializeAws_json1_1GameSessionConnectionInfo = (
 
 const deserializeAws_json1_1GameSessionDetail = (output: any, context: __SerdeContext): GameSessionDetail => {
   return {
-    __type: "GameSessionDetail",
     GameSession:
       output.GameSession !== undefined && output.GameSession !== null
         ? deserializeAws_json1_1GameSession(output.GameSession, context)
@@ -11631,7 +11477,6 @@ const deserializeAws_json1_1GameSessionFullException = (
   context: __SerdeContext
 ): GameSessionFullException => {
   return {
-    __type: "GameSessionFullException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -11642,7 +11487,6 @@ const deserializeAws_json1_1GameSessionList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __SerdeContext): GameSessionPlacement => {
   return {
-    __type: "GameSessionPlacement",
     DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
@@ -11693,7 +11537,6 @@ const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __Serd
 
 const deserializeAws_json1_1GameSessionQueue = (output: any, context: __SerdeContext): GameSessionQueue => {
   return {
-    __type: "GameSessionQueue",
     Destinations:
       output.Destinations !== undefined && output.Destinations !== null
         ? deserializeAws_json1_1GameSessionQueueDestinationList(output.Destinations, context)
@@ -11717,7 +11560,6 @@ const deserializeAws_json1_1GameSessionQueueDestination = (
   context: __SerdeContext
 ): GameSessionQueueDestination => {
   return {
-    __type: "GameSessionQueueDestination",
     DestinationArn:
       output.DestinationArn !== undefined && output.DestinationArn !== null ? output.DestinationArn : undefined,
   } as any;
@@ -11739,7 +11581,6 @@ const deserializeAws_json1_1GetGameSessionLogUrlOutput = (
   context: __SerdeContext
 ): GetGameSessionLogUrlOutput => {
   return {
-    __type: "GetGameSessionLogUrlOutput",
     PreSignedUrl: output.PreSignedUrl !== undefined && output.PreSignedUrl !== null ? output.PreSignedUrl : undefined,
   } as any;
 };
@@ -11749,7 +11590,6 @@ const deserializeAws_json1_1GetInstanceAccessOutput = (
   context: __SerdeContext
 ): GetInstanceAccessOutput => {
   return {
-    __type: "GetInstanceAccessOutput",
     InstanceAccess:
       output.InstanceAccess !== undefined && output.InstanceAccess !== null
         ? deserializeAws_json1_1InstanceAccess(output.InstanceAccess, context)
@@ -11762,14 +11602,12 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
   return {
-    __type: "IdempotentParameterMismatchException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    __type: "Instance",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -11787,7 +11625,6 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
 
 const deserializeAws_json1_1InstanceAccess = (output: any, context: __SerdeContext): InstanceAccess => {
   return {
-    __type: "InstanceAccess",
     Credentials:
       output.Credentials !== undefined && output.Credentials !== null
         ? deserializeAws_json1_1InstanceCredentials(output.Credentials, context)
@@ -11802,7 +11639,6 @@ const deserializeAws_json1_1InstanceAccess = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1InstanceCredentials = (output: any, context: __SerdeContext): InstanceCredentials => {
   return {
-    __type: "InstanceCredentials",
     Secret: output.Secret !== undefined && output.Secret !== null ? output.Secret : undefined,
     UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
   } as any;
@@ -11810,7 +11646,6 @@ const deserializeAws_json1_1InstanceCredentials = (output: any, context: __Serde
 
 const deserializeAws_json1_1InstanceDefinition = (output: any, context: __SerdeContext): InstanceDefinition => {
   return {
-    __type: "InstanceDefinition",
     InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
     WeightedCapacity:
       output.WeightedCapacity !== undefined && output.WeightedCapacity !== null ? output.WeightedCapacity : undefined,
@@ -11830,7 +11665,6 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    __type: "InternalServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -11840,7 +11674,6 @@ const deserializeAws_json1_1InvalidFleetStatusException = (
   context: __SerdeContext
 ): InvalidFleetStatusException => {
   return {
-    __type: "InvalidFleetStatusException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -11850,7 +11683,6 @@ const deserializeAws_json1_1InvalidGameSessionStatusException = (
   context: __SerdeContext
 ): InvalidGameSessionStatusException => {
   return {
-    __type: "InvalidGameSessionStatusException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -11860,14 +11692,12 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1IpPermission = (output: any, context: __SerdeContext): IpPermission => {
   return {
-    __type: "IpPermission",
     FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
     IpRange: output.IpRange !== undefined && output.IpRange !== null ? output.IpRange : undefined,
     Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
@@ -11891,14 +11721,12 @@ const deserializeAws_json1_1LatencyMap = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListAliasesOutput = (output: any, context: __SerdeContext): ListAliasesOutput => {
   return {
-    __type: "ListAliasesOutput",
     Aliases:
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1AliasList(output.Aliases, context)
@@ -11909,7 +11737,6 @@ const deserializeAws_json1_1ListAliasesOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeContext): ListBuildsOutput => {
   return {
-    __type: "ListBuildsOutput",
     Builds:
       output.Builds !== undefined && output.Builds !== null
         ? deserializeAws_json1_1BuildList(output.Builds, context)
@@ -11920,7 +11747,6 @@ const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ListFleetsOutput = (output: any, context: __SerdeContext): ListFleetsOutput => {
   return {
-    __type: "ListFleetsOutput",
     FleetIds:
       output.FleetIds !== undefined && output.FleetIds !== null
         ? deserializeAws_json1_1FleetIdList(output.FleetIds, context)
@@ -11934,7 +11760,6 @@ const deserializeAws_json1_1ListGameServerGroupsOutput = (
   context: __SerdeContext
 ): ListGameServerGroupsOutput => {
   return {
-    __type: "ListGameServerGroupsOutput",
     GameServerGroups:
       output.GameServerGroups !== undefined && output.GameServerGroups !== null
         ? deserializeAws_json1_1GameServerGroups(output.GameServerGroups, context)
@@ -11945,7 +11770,6 @@ const deserializeAws_json1_1ListGameServerGroupsOutput = (
 
 const deserializeAws_json1_1ListGameServersOutput = (output: any, context: __SerdeContext): ListGameServersOutput => {
   return {
-    __type: "ListGameServersOutput",
     GameServers:
       output.GameServers !== undefined && output.GameServers !== null
         ? deserializeAws_json1_1GameServers(output.GameServers, context)
@@ -11956,7 +11780,6 @@ const deserializeAws_json1_1ListGameServersOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1ListScriptsOutput = (output: any, context: __SerdeContext): ListScriptsOutput => {
   return {
-    __type: "ListScriptsOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Scripts:
       output.Scripts !== undefined && output.Scripts !== null
@@ -11970,7 +11793,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -11980,7 +11802,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1MatchedPlayerSession = (output: any, context: __SerdeContext): MatchedPlayerSession => {
   return {
-    __type: "MatchedPlayerSession",
     PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
     PlayerSessionId:
       output.PlayerSessionId !== undefined && output.PlayerSessionId !== null ? output.PlayerSessionId : undefined,
@@ -11999,7 +11820,6 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
   context: __SerdeContext
 ): MatchmakingConfiguration => {
   return {
-    __type: "MatchmakingConfiguration",
     AcceptanceRequired:
       output.AcceptanceRequired !== undefined && output.AcceptanceRequired !== null
         ? output.AcceptanceRequired
@@ -12055,7 +11875,6 @@ const deserializeAws_json1_1MatchmakingConfigurationList = (
 
 const deserializeAws_json1_1MatchmakingRuleSet = (output: any, context: __SerdeContext): MatchmakingRuleSet => {
   return {
-    __type: "MatchmakingRuleSet",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -12072,7 +11891,6 @@ const deserializeAws_json1_1MatchmakingRuleSetList = (output: any, context: __Se
 
 const deserializeAws_json1_1MatchmakingTicket = (output: any, context: __SerdeContext): MatchmakingTicket => {
   return {
-    __type: "MatchmakingTicket",
     ConfigurationArn:
       output.ConfigurationArn !== undefined && output.ConfigurationArn !== null ? output.ConfigurationArn : undefined,
     ConfigurationName:
@@ -12115,21 +11933,18 @@ const deserializeAws_json1_1MetricGroupList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OutOfCapacityException = (output: any, context: __SerdeContext): OutOfCapacityException => {
   return {
-    __type: "OutOfCapacityException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PlacedPlayerSession = (output: any, context: __SerdeContext): PlacedPlayerSession => {
   return {
-    __type: "PlacedPlayerSession",
     PlayerId: output.PlayerId !== undefined && output.PlayerId !== null ? output.PlayerId : undefined,
     PlayerSessionId:
       output.PlayerSessionId !== undefined && output.PlayerSessionId !== null ? output.PlayerSessionId : undefined,
@@ -12142,7 +11957,6 @@ const deserializeAws_json1_1PlacedPlayerSessionList = (output: any, context: __S
 
 const deserializeAws_json1_1Player = (output: any, context: __SerdeContext): Player => {
   return {
-    __type: "Player",
     LatencyInMs:
       output.LatencyInMs !== undefined && output.LatencyInMs !== null
         ? deserializeAws_json1_1LatencyMap(output.LatencyInMs, context)
@@ -12171,7 +11985,6 @@ const deserializeAws_json1_1PlayerAttributeMap = (
 
 const deserializeAws_json1_1PlayerLatency = (output: any, context: __SerdeContext): PlayerLatency => {
   return {
-    __type: "PlayerLatency",
     LatencyInMilliseconds:
       output.LatencyInMilliseconds !== undefined && output.LatencyInMilliseconds !== null
         ? output.LatencyInMilliseconds
@@ -12188,7 +12001,6 @@ const deserializeAws_json1_1PlayerLatencyList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1PlayerLatencyPolicy = (output: any, context: __SerdeContext): PlayerLatencyPolicy => {
   return {
-    __type: "PlayerLatencyPolicy",
     MaximumIndividualPlayerLatencyMilliseconds:
       output.MaximumIndividualPlayerLatencyMilliseconds !== undefined &&
       output.MaximumIndividualPlayerLatencyMilliseconds !== null
@@ -12211,7 +12023,6 @@ const deserializeAws_json1_1PlayerList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1PlayerSession = (output: any, context: __SerdeContext): PlayerSession => {
   return {
-    __type: "PlayerSession",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -12241,7 +12052,6 @@ const deserializeAws_json1_1PlayerSessionList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1PutScalingPolicyOutput = (output: any, context: __SerdeContext): PutScalingPolicyOutput => {
   return {
-    __type: "PutScalingPolicyOutput",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -12255,7 +12065,6 @@ const deserializeAws_json1_1RegisterGameServerOutput = (
   context: __SerdeContext
 ): RegisterGameServerOutput => {
   return {
-    __type: "RegisterGameServerOutput",
     GameServer:
       output.GameServer !== undefined && output.GameServer !== null
         ? deserializeAws_json1_1GameServer(output.GameServer, context)
@@ -12268,7 +12077,6 @@ const deserializeAws_json1_1RequestUploadCredentialsOutput = (
   context: __SerdeContext
 ): RequestUploadCredentialsOutput => {
   return {
-    __type: "RequestUploadCredentialsOutput",
     StorageLocation:
       output.StorageLocation !== undefined && output.StorageLocation !== null
         ? deserializeAws_json1_1S3Location(output.StorageLocation, context)
@@ -12282,7 +12090,6 @@ const deserializeAws_json1_1RequestUploadCredentialsOutput = (
 
 const deserializeAws_json1_1ResolveAliasOutput = (output: any, context: __SerdeContext): ResolveAliasOutput => {
   return {
-    __type: "ResolveAliasOutput",
     FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
   } as any;
@@ -12293,7 +12100,6 @@ const deserializeAws_json1_1ResourceCreationLimitPolicy = (
   context: __SerdeContext
 ): ResourceCreationLimitPolicy => {
   return {
-    __type: "ResourceCreationLimitPolicy",
     NewGameSessionsPerCreator:
       output.NewGameSessionsPerCreator !== undefined && output.NewGameSessionsPerCreator !== null
         ? output.NewGameSessionsPerCreator
@@ -12310,7 +12116,6 @@ const deserializeAws_json1_1ResumeGameServerGroupOutput = (
   context: __SerdeContext
 ): ResumeGameServerGroupOutput => {
   return {
-    __type: "ResumeGameServerGroupOutput",
     GameServerGroup:
       output.GameServerGroup !== undefined && output.GameServerGroup !== null
         ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
@@ -12320,7 +12125,6 @@ const deserializeAws_json1_1ResumeGameServerGroupOutput = (
 
 const deserializeAws_json1_1RoutingStrategy = (output: any, context: __SerdeContext): RoutingStrategy => {
   return {
-    __type: "RoutingStrategy",
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
@@ -12329,7 +12133,6 @@ const deserializeAws_json1_1RoutingStrategy = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1RuntimeConfiguration = (output: any, context: __SerdeContext): RuntimeConfiguration => {
   return {
-    __type: "RuntimeConfiguration",
     GameSessionActivationTimeoutSeconds:
       output.GameSessionActivationTimeoutSeconds !== undefined && output.GameSessionActivationTimeoutSeconds !== null
         ? output.GameSessionActivationTimeoutSeconds
@@ -12347,7 +12150,6 @@ const deserializeAws_json1_1RuntimeConfiguration = (output: any, context: __Serd
 
 const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    __type: "S3Location",
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     ObjectVersion:
@@ -12358,7 +12160,6 @@ const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   return {
-    __type: "ScalingPolicy",
     ComparisonOperator:
       output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
         ? output.ComparisonOperator
@@ -12394,7 +12195,6 @@ const deserializeAws_json1_1ScalingPolicyList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Script = (output: any, context: __SerdeContext): Script => {
   return {
-    __type: "Script",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -12420,7 +12220,6 @@ const deserializeAws_json1_1SearchGameSessionsOutput = (
   context: __SerdeContext
 ): SearchGameSessionsOutput => {
   return {
-    __type: "SearchGameSessionsOutput",
     GameSessions:
       output.GameSessions !== undefined && output.GameSessions !== null
         ? deserializeAws_json1_1GameSessionList(output.GameSessions, context)
@@ -12431,7 +12230,6 @@ const deserializeAws_json1_1SearchGameSessionsOutput = (
 
 const deserializeAws_json1_1ServerProcess = (output: any, context: __SerdeContext): ServerProcess => {
   return {
-    __type: "ServerProcess",
     ConcurrentExecutions:
       output.ConcurrentExecutions !== undefined && output.ConcurrentExecutions !== null
         ? output.ConcurrentExecutions
@@ -12449,9 +12247,7 @@ const deserializeAws_json1_1StartFleetActionsOutput = (
   output: any,
   context: __SerdeContext
 ): StartFleetActionsOutput => {
-  return {
-    __type: "StartFleetActionsOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartGameSessionPlacementOutput = (
@@ -12459,7 +12255,6 @@ const deserializeAws_json1_1StartGameSessionPlacementOutput = (
   context: __SerdeContext
 ): StartGameSessionPlacementOutput => {
   return {
-    __type: "StartGameSessionPlacementOutput",
     GameSessionPlacement:
       output.GameSessionPlacement !== undefined && output.GameSessionPlacement !== null
         ? deserializeAws_json1_1GameSessionPlacement(output.GameSessionPlacement, context)
@@ -12472,7 +12267,6 @@ const deserializeAws_json1_1StartMatchBackfillOutput = (
   context: __SerdeContext
 ): StartMatchBackfillOutput => {
   return {
-    __type: "StartMatchBackfillOutput",
     MatchmakingTicket:
       output.MatchmakingTicket !== undefined && output.MatchmakingTicket !== null
         ? deserializeAws_json1_1MatchmakingTicket(output.MatchmakingTicket, context)
@@ -12482,7 +12276,6 @@ const deserializeAws_json1_1StartMatchBackfillOutput = (
 
 const deserializeAws_json1_1StartMatchmakingOutput = (output: any, context: __SerdeContext): StartMatchmakingOutput => {
   return {
-    __type: "StartMatchmakingOutput",
     MatchmakingTicket:
       output.MatchmakingTicket !== undefined && output.MatchmakingTicket !== null
         ? deserializeAws_json1_1MatchmakingTicket(output.MatchmakingTicket, context)
@@ -12491,9 +12284,7 @@ const deserializeAws_json1_1StartMatchmakingOutput = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1StopFleetActionsOutput = (output: any, context: __SerdeContext): StopFleetActionsOutput => {
-  return {
-    __type: "StopFleetActionsOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StopGameSessionPlacementOutput = (
@@ -12501,7 +12292,6 @@ const deserializeAws_json1_1StopGameSessionPlacementOutput = (
   context: __SerdeContext
 ): StopGameSessionPlacementOutput => {
   return {
-    __type: "StopGameSessionPlacementOutput",
     GameSessionPlacement:
       output.GameSessionPlacement !== undefined && output.GameSessionPlacement !== null
         ? deserializeAws_json1_1GameSessionPlacement(output.GameSessionPlacement, context)
@@ -12510,9 +12300,7 @@ const deserializeAws_json1_1StopGameSessionPlacementOutput = (
 };
 
 const deserializeAws_json1_1StopMatchmakingOutput = (output: any, context: __SerdeContext): StopMatchmakingOutput => {
-  return {
-    __type: "StopMatchmakingOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
@@ -12534,7 +12322,6 @@ const deserializeAws_json1_1SuspendGameServerGroupOutput = (
   context: __SerdeContext
 ): SuspendGameServerGroupOutput => {
   return {
-    __type: "SuspendGameServerGroupOutput",
     GameServerGroup:
       output.GameServerGroup !== undefined && output.GameServerGroup !== null
         ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
@@ -12544,7 +12331,6 @@ const deserializeAws_json1_1SuspendGameServerGroupOutput = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -12552,7 +12338,6 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 
 const deserializeAws_json1_1TaggingFailedException = (output: any, context: __SerdeContext): TaggingFailedException => {
   return {
-    __type: "TaggingFailedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -12562,14 +12347,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   return {
-    __type: "TargetConfiguration",
     TargetValue: output.TargetValue !== undefined && output.TargetValue !== null ? output.TargetValue : undefined,
   } as any;
 };
@@ -12579,14 +12361,12 @@ const deserializeAws_json1_1TerminalRoutingStrategyException = (
   context: __SerdeContext
 ): TerminalRoutingStrategyException => {
   return {
-    __type: "TerminalRoutingStrategyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
   return {
-    __type: "UnauthorizedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -12596,20 +12376,16 @@ const deserializeAws_json1_1UnsupportedRegionException = (
   context: __SerdeContext
 ): UnsupportedRegionException => {
   return {
-    __type: "UnsupportedRegionException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateAliasOutput = (output: any, context: __SerdeContext): UpdateAliasOutput => {
   return {
-    __type: "UpdateAliasOutput",
     Alias:
       output.Alias !== undefined && output.Alias !== null
         ? deserializeAws_json1_1Alias(output.Alias, context)
@@ -12619,7 +12395,6 @@ const deserializeAws_json1_1UpdateAliasOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1UpdateBuildOutput = (output: any, context: __SerdeContext): UpdateBuildOutput => {
   return {
-    __type: "UpdateBuildOutput",
     Build:
       output.Build !== undefined && output.Build !== null
         ? deserializeAws_json1_1Build(output.Build, context)
@@ -12632,7 +12407,6 @@ const deserializeAws_json1_1UpdateFleetAttributesOutput = (
   context: __SerdeContext
 ): UpdateFleetAttributesOutput => {
   return {
-    __type: "UpdateFleetAttributesOutput",
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
   } as any;
 };
@@ -12642,7 +12416,6 @@ const deserializeAws_json1_1UpdateFleetCapacityOutput = (
   context: __SerdeContext
 ): UpdateFleetCapacityOutput => {
   return {
-    __type: "UpdateFleetCapacityOutput",
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
   } as any;
 };
@@ -12652,7 +12425,6 @@ const deserializeAws_json1_1UpdateFleetPortSettingsOutput = (
   context: __SerdeContext
 ): UpdateFleetPortSettingsOutput => {
   return {
-    __type: "UpdateFleetPortSettingsOutput",
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
   } as any;
 };
@@ -12662,7 +12434,6 @@ const deserializeAws_json1_1UpdateGameServerGroupOutput = (
   context: __SerdeContext
 ): UpdateGameServerGroupOutput => {
   return {
-    __type: "UpdateGameServerGroupOutput",
     GameServerGroup:
       output.GameServerGroup !== undefined && output.GameServerGroup !== null
         ? deserializeAws_json1_1GameServerGroup(output.GameServerGroup, context)
@@ -12672,7 +12443,6 @@ const deserializeAws_json1_1UpdateGameServerGroupOutput = (
 
 const deserializeAws_json1_1UpdateGameServerOutput = (output: any, context: __SerdeContext): UpdateGameServerOutput => {
   return {
-    __type: "UpdateGameServerOutput",
     GameServer:
       output.GameServer !== undefined && output.GameServer !== null
         ? deserializeAws_json1_1GameServer(output.GameServer, context)
@@ -12685,7 +12455,6 @@ const deserializeAws_json1_1UpdateGameSessionOutput = (
   context: __SerdeContext
 ): UpdateGameSessionOutput => {
   return {
-    __type: "UpdateGameSessionOutput",
     GameSession:
       output.GameSession !== undefined && output.GameSession !== null
         ? deserializeAws_json1_1GameSession(output.GameSession, context)
@@ -12698,7 +12467,6 @@ const deserializeAws_json1_1UpdateGameSessionQueueOutput = (
   context: __SerdeContext
 ): UpdateGameSessionQueueOutput => {
   return {
-    __type: "UpdateGameSessionQueueOutput",
     GameSessionQueue:
       output.GameSessionQueue !== undefined && output.GameSessionQueue !== null
         ? deserializeAws_json1_1GameSessionQueue(output.GameSessionQueue, context)
@@ -12711,7 +12479,6 @@ const deserializeAws_json1_1UpdateMatchmakingConfigurationOutput = (
   context: __SerdeContext
 ): UpdateMatchmakingConfigurationOutput => {
   return {
-    __type: "UpdateMatchmakingConfigurationOutput",
     Configuration:
       output.Configuration !== undefined && output.Configuration !== null
         ? deserializeAws_json1_1MatchmakingConfiguration(output.Configuration, context)
@@ -12724,7 +12491,6 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationOutput = (
   context: __SerdeContext
 ): UpdateRuntimeConfigurationOutput => {
   return {
-    __type: "UpdateRuntimeConfigurationOutput",
     RuntimeConfiguration:
       output.RuntimeConfiguration !== undefined && output.RuntimeConfiguration !== null
         ? deserializeAws_json1_1RuntimeConfiguration(output.RuntimeConfiguration, context)
@@ -12734,7 +12500,6 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationOutput = (
 
 const deserializeAws_json1_1UpdateScriptOutput = (output: any, context: __SerdeContext): UpdateScriptOutput => {
   return {
-    __type: "UpdateScriptOutput",
     Script:
       output.Script !== undefined && output.Script !== null
         ? deserializeAws_json1_1Script(output.Script, context)
@@ -12747,7 +12512,6 @@ const deserializeAws_json1_1ValidateMatchmakingRuleSetOutput = (
   context: __SerdeContext
 ): ValidateMatchmakingRuleSetOutput => {
   return {
-    __type: "ValidateMatchmakingRuleSetOutput",
     Valid: output.Valid !== undefined && output.Valid !== null ? output.Valid : undefined,
   } as any;
 };
@@ -12757,7 +12521,6 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
   context: __SerdeContext
 ): VpcPeeringAuthorization => {
   return {
-    __type: "VpcPeeringAuthorization",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -12787,7 +12550,6 @@ const deserializeAws_json1_1VpcPeeringAuthorizationList = (
 
 const deserializeAws_json1_1VpcPeeringConnection = (output: any, context: __SerdeContext): VpcPeeringConnection => {
   return {
-    __type: "VpcPeeringConnection",
     FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
     GameLiftVpcId:
@@ -12818,7 +12580,6 @@ const deserializeAws_json1_1VpcPeeringConnectionStatus = (
   context: __SerdeContext
 ): VpcPeeringConnectionStatus => {
   return {
-    __type: "VpcPeeringConnectionStatus",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;

@@ -804,7 +804,6 @@ export const deserializeAws_restJson1AcceptResourceShareInvitationCommand = asyn
   }
   const contents: AcceptResourceShareInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptResourceShareInvitationResponse",
     clientToken: undefined,
     resourceShareInvitation: undefined,
   };
@@ -945,7 +944,6 @@ export const deserializeAws_restJson1AssociateResourceShareCommand = async (
   }
   const contents: AssociateResourceShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateResourceShareResponse",
     clientToken: undefined,
     resourceShareAssociations: undefined,
   };
@@ -1080,7 +1078,6 @@ export const deserializeAws_restJson1AssociateResourceSharePermissionCommand = a
   }
   const contents: AssociateResourceSharePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateResourceSharePermissionResponse",
     clientToken: undefined,
     returnValue: undefined,
   };
@@ -1188,7 +1185,6 @@ export const deserializeAws_restJson1CreateResourceShareCommand = async (
   }
   const contents: CreateResourceShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResourceShareResponse",
     clientToken: undefined,
     resourceShare: undefined,
   };
@@ -1328,7 +1324,6 @@ export const deserializeAws_restJson1DeleteResourceShareCommand = async (
   }
   const contents: DeleteResourceShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResourceShareResponse",
     clientToken: undefined,
     returnValue: undefined,
   };
@@ -1452,7 +1447,6 @@ export const deserializeAws_restJson1DisassociateResourceShareCommand = async (
   }
   const contents: DisassociateResourceShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateResourceShareResponse",
     clientToken: undefined,
     resourceShareAssociations: undefined,
   };
@@ -1587,7 +1581,6 @@ export const deserializeAws_restJson1DisassociateResourceSharePermissionCommand 
   }
   const contents: DisassociateResourceSharePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateResourceSharePermissionResponse",
     clientToken: undefined,
     returnValue: undefined,
   };
@@ -1695,7 +1688,6 @@ export const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand = a
   }
   const contents: EnableSharingWithAwsOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableSharingWithAwsOrganizationResponse",
     returnValue: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1767,7 +1759,6 @@ export const deserializeAws_restJson1GetPermissionCommand = async (
   }
   const contents: GetPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPermissionResponse",
     permission: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1863,7 +1854,6 @@ export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
   }
   const contents: GetResourcePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourcePoliciesResponse",
     nextToken: undefined,
     policies: undefined,
   };
@@ -1963,7 +1953,6 @@ export const deserializeAws_restJson1GetResourceShareAssociationsCommand = async
   }
   const contents: GetResourceShareAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceShareAssociationsResponse",
     nextToken: undefined,
     resourceShareAssociations: undefined,
   };
@@ -2074,7 +2063,6 @@ export const deserializeAws_restJson1GetResourceShareInvitationsCommand = async 
   }
   const contents: GetResourceShareInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceShareInvitationsResponse",
     nextToken: undefined,
     resourceShareInvitations: undefined,
   };
@@ -2193,7 +2181,6 @@ export const deserializeAws_restJson1GetResourceSharesCommand = async (
   }
   const contents: GetResourceSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceSharesResponse",
     nextToken: undefined,
     resourceShares: undefined,
   };
@@ -2293,7 +2280,6 @@ export const deserializeAws_restJson1ListPendingInvitationResourcesCommand = asy
   }
   const contents: ListPendingInvitationResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPendingInvitationResourcesResponse",
     nextToken: undefined,
     resources: undefined,
   };
@@ -2420,7 +2406,6 @@ export const deserializeAws_restJson1ListPermissionsCommand = async (
   }
   const contents: ListPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPermissionsResponse",
     nextToken: undefined,
     permissions: undefined,
   };
@@ -2512,7 +2497,6 @@ export const deserializeAws_restJson1ListPrincipalsCommand = async (
   }
   const contents: ListPrincipalsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPrincipalsResponse",
     nextToken: undefined,
     principals: undefined,
   };
@@ -2612,7 +2596,6 @@ export const deserializeAws_restJson1ListResourcesCommand = async (
   }
   const contents: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourcesResponse",
     nextToken: undefined,
     resources: undefined,
   };
@@ -2720,7 +2703,6 @@ export const deserializeAws_restJson1ListResourceSharePermissionsCommand = async
   }
   const contents: ListResourceSharePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceSharePermissionsResponse",
     nextToken: undefined,
     permissions: undefined,
   };
@@ -2828,7 +2810,6 @@ export const deserializeAws_restJson1ListResourceTypesCommand = async (
   }
   const contents: ListResourceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceTypesResponse",
     nextToken: undefined,
     resourceTypes: undefined,
   };
@@ -2912,7 +2893,6 @@ export const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyComman
   }
   const contents: PromoteResourceShareCreatedFromPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PromoteResourceShareCreatedFromPolicyResponse",
     returnValue: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3016,7 +2996,6 @@ export const deserializeAws_restJson1RejectResourceShareInvitationCommand = asyn
   }
   const contents: RejectResourceShareInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectResourceShareInvitationResponse",
     clientToken: undefined,
     resourceShareInvitation: undefined,
   };
@@ -3157,7 +3136,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3257,7 +3235,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3325,7 +3302,6 @@ export const deserializeAws_restJson1UpdateResourceShareCommand = async (
   }
   const contents: UpdateResourceShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResourceShareResponse",
     clientToken: undefined,
     resourceShare: undefined,
   };
@@ -3853,7 +3829,6 @@ const deserializeAws_restJson1PolicyList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
   return {
-    __type: "Principal",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -3875,7 +3850,6 @@ const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -3902,7 +3876,6 @@ const deserializeAws_restJson1ResourceList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ResourceShare = (output: any, context: __SerdeContext): ResourceShare => {
   return {
-    __type: "ResourceShare",
     allowExternalPrincipals:
       output.allowExternalPrincipals !== undefined && output.allowExternalPrincipals !== null
         ? output.allowExternalPrincipals
@@ -3936,7 +3909,6 @@ const deserializeAws_restJson1ResourceShareAssociation = (
   context: __SerdeContext
 ): ResourceShareAssociation => {
   return {
-    __type: "ResourceShareAssociation",
     associatedEntity:
       output.associatedEntity !== undefined && output.associatedEntity !== null ? output.associatedEntity : undefined,
     associationType:
@@ -3974,7 +3946,6 @@ const deserializeAws_restJson1ResourceShareInvitation = (
   context: __SerdeContext
 ): ResourceShareInvitation => {
   return {
-    __type: "ResourceShareInvitation",
     invitationTimestamp:
       output.invitationTimestamp !== undefined && output.invitationTimestamp !== null
         ? new Date(Math.round(output.invitationTimestamp * 1000))
@@ -4019,7 +3990,6 @@ const deserializeAws_restJson1ResourceSharePermissionDetail = (
   context: __SerdeContext
 ): ResourceSharePermissionDetail => {
   return {
-    __type: "ResourceSharePermissionDetail",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -4050,7 +4020,6 @@ const deserializeAws_restJson1ResourceSharePermissionSummary = (
   context: __SerdeContext
 ): ResourceSharePermissionSummary => {
   return {
-    __type: "ResourceSharePermissionSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -4074,7 +4043,6 @@ const deserializeAws_restJson1ServiceNameAndResourceType = (
   context: __SerdeContext
 ): ServiceNameAndResourceType => {
   return {
-    __type: "ServiceNameAndResourceType",
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
     serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
   } as any;
@@ -4089,7 +4057,6 @@ const deserializeAws_restJson1ServiceNameAndResourceTypeList = (
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;

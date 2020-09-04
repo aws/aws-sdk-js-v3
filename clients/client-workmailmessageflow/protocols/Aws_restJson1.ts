@@ -54,7 +54,6 @@ export const deserializeAws_restJson1GetRawMessageContentCommand = async (
   }
   const contents: GetRawMessageContentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRawMessageContentResponse",
     messageContent: undefined,
   };
   const data: any = output.body;

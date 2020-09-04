@@ -353,7 +353,6 @@ export const deserializeAws_json1_1AssociateNodeCommand = async (
   contents = deserializeAws_json1_1AssociateNodeResponse(data, context);
   const response: AssociateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateNodeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -425,7 +424,6 @@ export const deserializeAws_json1_1CreateBackupCommand = async (
   contents = deserializeAws_json1_1CreateBackupResponse(data, context);
   const response: CreateBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -505,7 +503,6 @@ export const deserializeAws_json1_1CreateServerCommand = async (
   contents = deserializeAws_json1_1CreateServerResponse(data, context);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -585,7 +582,6 @@ export const deserializeAws_json1_1DeleteBackupCommand = async (
   contents = deserializeAws_json1_1DeleteBackupResponse(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -657,7 +653,6 @@ export const deserializeAws_json1_1DeleteServerCommand = async (
   contents = deserializeAws_json1_1DeleteServerResponse(data, context);
   const response: DeleteServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -729,7 +724,6 @@ export const deserializeAws_json1_1DescribeAccountAttributesCommand = async (
   contents = deserializeAws_json1_1DescribeAccountAttributesResponse(data, context);
   const response: DescribeAccountAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -777,7 +771,6 @@ export const deserializeAws_json1_1DescribeBackupsCommand = async (
   contents = deserializeAws_json1_1DescribeBackupsResponse(data, context);
   const response: DescribeBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBackupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -849,7 +842,6 @@ export const deserializeAws_json1_1DescribeEventsCommand = async (
   contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -921,7 +913,6 @@ export const deserializeAws_json1_1DescribeNodeAssociationStatusCommand = async 
   contents = deserializeAws_json1_1DescribeNodeAssociationStatusResponse(data, context);
   const response: DescribeNodeAssociationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNodeAssociationStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -985,7 +976,6 @@ export const deserializeAws_json1_1DescribeServersCommand = async (
   contents = deserializeAws_json1_1DescribeServersResponse(data, context);
   const response: DescribeServersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1057,7 +1047,6 @@ export const deserializeAws_json1_1DisassociateNodeCommand = async (
   contents = deserializeAws_json1_1DisassociateNodeResponse(data, context);
   const response: DisassociateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateNodeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1129,7 +1118,6 @@ export const deserializeAws_json1_1ExportServerEngineAttributeCommand = async (
   contents = deserializeAws_json1_1ExportServerEngineAttributeResponse(data, context);
   const response: ExportServerEngineAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportServerEngineAttributeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1201,7 +1189,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1265,7 +1252,6 @@ export const deserializeAws_json1_1RestoreServerCommand = async (
   contents = deserializeAws_json1_1RestoreServerResponse(data, context);
   const response: RestoreServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1337,7 +1323,6 @@ export const deserializeAws_json1_1StartMaintenanceCommand = async (
   contents = deserializeAws_json1_1StartMaintenanceResponse(data, context);
   const response: StartMaintenanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartMaintenanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1409,7 +1394,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1481,7 +1465,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1553,7 +1536,6 @@ export const deserializeAws_json1_1UpdateServerCommand = async (
   contents = deserializeAws_json1_1UpdateServerResponse(data, context);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1625,7 +1607,6 @@ export const deserializeAws_json1_1UpdateServerEngineAttributesCommand = async (
   contents = deserializeAws_json1_1UpdateServerEngineAttributesResponse(data, context);
   const response: UpdateServerEngineAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServerEngineAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2002,7 +1983,6 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
 
 const deserializeAws_json1_1AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
   return {
-    __type: "AccountAttribute",
     Maximum: output.Maximum !== undefined && output.Maximum !== null ? output.Maximum : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Used: output.Used !== undefined && output.Used !== null ? output.Used : undefined,
@@ -2015,7 +1995,6 @@ const deserializeAws_json1_1AccountAttributes = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1AssociateNodeResponse = (output: any, context: __SerdeContext): AssociateNodeResponse => {
   return {
-    __type: "AssociateNodeResponse",
     NodeAssociationStatusToken:
       output.NodeAssociationStatusToken !== undefined && output.NodeAssociationStatusToken !== null
         ? output.NodeAssociationStatusToken
@@ -2025,7 +2004,6 @@ const deserializeAws_json1_1AssociateNodeResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
   return {
-    __type: "Backup",
     BackupArn: output.BackupArn !== undefined && output.BackupArn !== null ? output.BackupArn : undefined,
     BackupId: output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     BackupType: output.BackupType !== undefined && output.BackupType !== null ? output.BackupType : undefined,
@@ -2082,7 +2060,6 @@ const deserializeAws_json1_1Backups = (output: any, context: __SerdeContext): Ba
 
 const deserializeAws_json1_1CreateBackupResponse = (output: any, context: __SerdeContext): CreateBackupResponse => {
   return {
-    __type: "CreateBackupResponse",
     Backup:
       output.Backup !== undefined && output.Backup !== null
         ? deserializeAws_json1_1Backup(output.Backup, context)
@@ -2092,7 +2069,6 @@ const deserializeAws_json1_1CreateBackupResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1CreateServerResponse = (output: any, context: __SerdeContext): CreateServerResponse => {
   return {
-    __type: "CreateServerResponse",
     Server:
       output.Server !== undefined && output.Server !== null
         ? deserializeAws_json1_1Server(output.Server, context)
@@ -2101,15 +2077,11 @@ const deserializeAws_json1_1CreateServerResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __SerdeContext): DeleteBackupResponse => {
-  return {
-    __type: "DeleteBackupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteServerResponse = (output: any, context: __SerdeContext): DeleteServerResponse => {
-  return {
-    __type: "DeleteServerResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeAccountAttributesResponse = (
@@ -2117,7 +2089,6 @@ const deserializeAws_json1_1DescribeAccountAttributesResponse = (
   context: __SerdeContext
 ): DescribeAccountAttributesResponse => {
   return {
-    __type: "DescribeAccountAttributesResponse",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1AccountAttributes(output.Attributes, context)
@@ -2130,7 +2101,6 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   context: __SerdeContext
 ): DescribeBackupsResponse => {
   return {
-    __type: "DescribeBackupsResponse",
     Backups:
       output.Backups !== undefined && output.Backups !== null
         ? deserializeAws_json1_1Backups(output.Backups, context)
@@ -2141,7 +2111,6 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
 
 const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
   return {
-    __type: "DescribeEventsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ServerEvents:
       output.ServerEvents !== undefined && output.ServerEvents !== null
@@ -2155,7 +2124,6 @@ const deserializeAws_json1_1DescribeNodeAssociationStatusResponse = (
   context: __SerdeContext
 ): DescribeNodeAssociationStatusResponse => {
   return {
-    __type: "DescribeNodeAssociationStatusResponse",
     EngineAttributes:
       output.EngineAttributes !== undefined && output.EngineAttributes !== null
         ? deserializeAws_json1_1EngineAttributes(output.EngineAttributes, context)
@@ -2172,7 +2140,6 @@ const deserializeAws_json1_1DescribeServersResponse = (
   context: __SerdeContext
 ): DescribeServersResponse => {
   return {
-    __type: "DescribeServersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Servers:
       output.Servers !== undefined && output.Servers !== null
@@ -2186,7 +2153,6 @@ const deserializeAws_json1_1DisassociateNodeResponse = (
   context: __SerdeContext
 ): DisassociateNodeResponse => {
   return {
-    __type: "DisassociateNodeResponse",
     NodeAssociationStatusToken:
       output.NodeAssociationStatusToken !== undefined && output.NodeAssociationStatusToken !== null
         ? output.NodeAssociationStatusToken
@@ -2196,7 +2162,6 @@ const deserializeAws_json1_1DisassociateNodeResponse = (
 
 const deserializeAws_json1_1EngineAttribute = (output: any, context: __SerdeContext): EngineAttribute => {
   return {
-    __type: "EngineAttribute",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2211,7 +2176,6 @@ const deserializeAws_json1_1ExportServerEngineAttributeResponse = (
   context: __SerdeContext
 ): ExportServerEngineAttributeResponse => {
   return {
-    __type: "ExportServerEngineAttributeResponse",
     EngineAttribute:
       output.EngineAttribute !== undefined && output.EngineAttribute !== null
         ? deserializeAws_json1_1EngineAttribute(output.EngineAttribute, context)
@@ -2225,21 +2189,18 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
   return {
-    __type: "InvalidStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2249,7 +2210,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -2263,7 +2223,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2273,20 +2232,16 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RestoreServerResponse = (output: any, context: __SerdeContext): RestoreServerResponse => {
-  return {
-    __type: "RestoreServerResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Server => {
   return {
-    __type: "Server",
     AssociatePublicIpAddress:
       output.AssociatePublicIpAddress !== undefined && output.AssociatePublicIpAddress !== null
         ? output.AssociatePublicIpAddress
@@ -2354,7 +2309,6 @@ const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Ser
 
 const deserializeAws_json1_1ServerEvent = (output: any, context: __SerdeContext): ServerEvent => {
   return {
-    __type: "ServerEvent",
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -2378,7 +2332,6 @@ const deserializeAws_json1_1StartMaintenanceResponse = (
   context: __SerdeContext
 ): StartMaintenanceResponse => {
   return {
-    __type: "StartMaintenanceResponse",
     Server:
       output.Server !== undefined && output.Server !== null
         ? deserializeAws_json1_1Server(output.Server, context)
@@ -2392,7 +2345,6 @@ const deserializeAws_json1_1Strings = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2403,15 +2355,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateServerEngineAttributesResponse = (
@@ -2419,7 +2367,6 @@ const deserializeAws_json1_1UpdateServerEngineAttributesResponse = (
   context: __SerdeContext
 ): UpdateServerEngineAttributesResponse => {
   return {
-    __type: "UpdateServerEngineAttributesResponse",
     Server:
       output.Server !== undefined && output.Server !== null
         ? deserializeAws_json1_1Server(output.Server, context)
@@ -2429,7 +2376,6 @@ const deserializeAws_json1_1UpdateServerEngineAttributesResponse = (
 
 const deserializeAws_json1_1UpdateServerResponse = (output: any, context: __SerdeContext): UpdateServerResponse => {
   return {
-    __type: "UpdateServerResponse",
     Server:
       output.Server !== undefined && output.Server !== null
         ? deserializeAws_json1_1Server(output.Server, context)
@@ -2439,7 +2385,6 @@ const deserializeAws_json1_1UpdateServerResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

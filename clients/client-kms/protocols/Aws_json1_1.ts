@@ -831,7 +831,6 @@ export const deserializeAws_json1_1CancelKeyDeletionCommand = async (
   contents = deserializeAws_json1_1CancelKeyDeletionResponse(data, context);
   const response: CancelKeyDeletionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelKeyDeletionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -919,7 +918,6 @@ export const deserializeAws_json1_1ConnectCustomKeyStoreCommand = async (
   contents = deserializeAws_json1_1ConnectCustomKeyStoreResponse(data, context);
   const response: ConnectCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConnectCustomKeyStoreResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1107,7 +1105,6 @@ export const deserializeAws_json1_1CreateCustomKeyStoreCommand = async (
   contents = deserializeAws_json1_1CreateCustomKeyStoreResponse(data, context);
   const response: CreateCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCustomKeyStoreResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1211,7 +1208,6 @@ export const deserializeAws_json1_1CreateGrantCommand = async (
   contents = deserializeAws_json1_1CreateGrantResponse(data, context);
   const response: CreateGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGrantResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1323,7 +1319,6 @@ export const deserializeAws_json1_1CreateKeyCommand = async (
   contents = deserializeAws_json1_1CreateKeyResponse(data, context);
   const response: CreateKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1451,7 +1446,6 @@ export const deserializeAws_json1_1DecryptCommand = async (
   contents = deserializeAws_json1_1DecryptResponse(data, context);
   const response: DecryptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DecryptResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1655,7 +1649,6 @@ export const deserializeAws_json1_1DeleteCustomKeyStoreCommand = async (
   contents = deserializeAws_json1_1DeleteCustomKeyStoreResponse(data, context);
   const response: DeleteCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCustomKeyStoreResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1827,7 +1820,6 @@ export const deserializeAws_json1_1DescribeCustomKeyStoresCommand = async (
   contents = deserializeAws_json1_1DescribeCustomKeyStoresResponse(data, context);
   const response: DescribeCustomKeyStoresCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCustomKeyStoresResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1891,7 +1883,6 @@ export const deserializeAws_json1_1DescribeKeyCommand = async (
   contents = deserializeAws_json1_1DescribeKeyResponse(data, context);
   const response: DescribeKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2155,7 +2146,6 @@ export const deserializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
   contents = deserializeAws_json1_1DisconnectCustomKeyStoreResponse(data, context);
   const response: DisconnectCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisconnectCustomKeyStoreResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2419,7 +2409,6 @@ export const deserializeAws_json1_1EncryptCommand = async (
   contents = deserializeAws_json1_1EncryptResponse(data, context);
   const response: EncryptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EncryptResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2531,7 +2520,6 @@ export const deserializeAws_json1_1GenerateDataKeyCommand = async (
   contents = deserializeAws_json1_1GenerateDataKeyResponse(data, context);
   const response: GenerateDataKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateDataKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2643,7 +2631,6 @@ export const deserializeAws_json1_1GenerateDataKeyPairCommand = async (
   contents = deserializeAws_json1_1GenerateDataKeyPairResponse(data, context);
   const response: GenerateDataKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateDataKeyPairResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2763,7 +2750,6 @@ export const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = 
   contents = deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse(data, context);
   const response: GenerateDataKeyPairWithoutPlaintextCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateDataKeyPairWithoutPlaintextResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2883,7 +2869,6 @@ export const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = asyn
   contents = deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse(data, context);
   const response: GenerateDataKeyWithoutPlaintextCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateDataKeyWithoutPlaintextResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2995,7 +2980,6 @@ export const deserializeAws_json1_1GenerateRandomCommand = async (
   contents = deserializeAws_json1_1GenerateRandomResponse(data, context);
   const response: GenerateRandomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateRandomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3075,7 +3059,6 @@ export const deserializeAws_json1_1GetKeyPolicyCommand = async (
   contents = deserializeAws_json1_1GetKeyPolicyResponse(data, context);
   const response: GetKeyPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetKeyPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3163,7 +3146,6 @@ export const deserializeAws_json1_1GetKeyRotationStatusCommand = async (
   contents = deserializeAws_json1_1GetKeyRotationStatusResponse(data, context);
   const response: GetKeyRotationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetKeyRotationStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3259,7 +3241,6 @@ export const deserializeAws_json1_1GetParametersForImportCommand = async (
   contents = deserializeAws_json1_1GetParametersForImportResponse(data, context);
   const response: GetParametersForImportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetParametersForImportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3355,7 +3336,6 @@ export const deserializeAws_json1_1GetPublicKeyCommand = async (
   contents = deserializeAws_json1_1GetPublicKeyResponse(data, context);
   const response: GetPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPublicKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3483,7 +3463,6 @@ export const deserializeAws_json1_1ImportKeyMaterialCommand = async (
   contents = deserializeAws_json1_1ImportKeyMaterialResponse(data, context);
   const response: ImportKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportKeyMaterialResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3611,7 +3590,6 @@ export const deserializeAws_json1_1ListAliasesCommand = async (
   contents = deserializeAws_json1_1ListAliasesResponse(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAliasesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3699,7 +3677,6 @@ export const deserializeAws_json1_1ListGrantsCommand = async (
   contents = deserializeAws_json1_1ListGrantsResponse(data, context);
   const response: ListGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGrantsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3795,7 +3772,6 @@ export const deserializeAws_json1_1ListKeyPoliciesCommand = async (
   contents = deserializeAws_json1_1ListKeyPoliciesResponse(data, context);
   const response: ListKeyPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListKeyPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3883,7 +3859,6 @@ export const deserializeAws_json1_1ListKeysCommand = async (
   contents = deserializeAws_json1_1ListKeysResponse(data, context);
   const response: ListKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListKeysResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3955,7 +3930,6 @@ export const deserializeAws_json1_1ListResourceTagsCommand = async (
   contents = deserializeAws_json1_1ListResourceTagsResponse(data, context);
   const response: ListResourceTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4035,7 +4009,6 @@ export const deserializeAws_json1_1ListRetirableGrantsCommand = async (
   contents = deserializeAws_json1_1ListGrantsResponse(data, context);
   const response: ListRetirableGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGrantsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4231,7 +4204,6 @@ export const deserializeAws_json1_1ReEncryptCommand = async (
   contents = deserializeAws_json1_1ReEncryptResponse(data, context);
   const response: ReEncryptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReEncryptResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4551,7 +4523,6 @@ export const deserializeAws_json1_1ScheduleKeyDeletionCommand = async (
   contents = deserializeAws_json1_1ScheduleKeyDeletionResponse(data, context);
   const response: ScheduleKeyDeletionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScheduleKeyDeletionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4639,7 +4610,6 @@ export const deserializeAws_json1_1SignCommand = async (
   contents = deserializeAws_json1_1SignResponse(data, context);
   const response: SignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SignResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5011,7 +4981,6 @@ export const deserializeAws_json1_1UpdateCustomKeyStoreCommand = async (
   contents = deserializeAws_json1_1UpdateCustomKeyStoreResponse(data, context);
   const response: UpdateCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCustomKeyStoreResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5207,7 +5176,6 @@ export const deserializeAws_json1_1VerifyCommand = async (
   contents = deserializeAws_json1_1VerifyResponse(data, context);
   const response: VerifyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VerifyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6343,7 +6311,6 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeContext): AliasListEntry => {
   return {
-    __type: "AliasListEntry",
     AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
     AliasName: output.AliasName !== undefined && output.AliasName !== null ? output.AliasName : undefined,
     TargetKeyId: output.TargetKeyId !== undefined && output.TargetKeyId !== null ? output.TargetKeyId : undefined,
@@ -6352,7 +6319,6 @@ const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   return {
-    __type: "AlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6362,7 +6328,6 @@ const deserializeAws_json1_1CancelKeyDeletionResponse = (
   context: __SerdeContext
 ): CancelKeyDeletionResponse => {
   return {
-    __type: "CancelKeyDeletionResponse",
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
   } as any;
 };
@@ -6372,7 +6337,6 @@ const deserializeAws_json1_1CloudHsmClusterInUseException = (
   context: __SerdeContext
 ): CloudHsmClusterInUseException => {
   return {
-    __type: "CloudHsmClusterInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6382,7 +6346,6 @@ const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationException = (
   context: __SerdeContext
 ): CloudHsmClusterInvalidConfigurationException => {
   return {
-    __type: "CloudHsmClusterInvalidConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6392,7 +6355,6 @@ const deserializeAws_json1_1CloudHsmClusterNotActiveException = (
   context: __SerdeContext
 ): CloudHsmClusterNotActiveException => {
   return {
-    __type: "CloudHsmClusterNotActiveException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6402,7 +6364,6 @@ const deserializeAws_json1_1CloudHsmClusterNotFoundException = (
   context: __SerdeContext
 ): CloudHsmClusterNotFoundException => {
   return {
-    __type: "CloudHsmClusterNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6412,7 +6373,6 @@ const deserializeAws_json1_1CloudHsmClusterNotRelatedException = (
   context: __SerdeContext
 ): CloudHsmClusterNotRelatedException => {
   return {
-    __type: "CloudHsmClusterNotRelatedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6421,9 +6381,7 @@ const deserializeAws_json1_1ConnectCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): ConnectCustomKeyStoreResponse => {
-  return {
-    __type: "ConnectCustomKeyStoreResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateCustomKeyStoreResponse = (
@@ -6431,7 +6389,6 @@ const deserializeAws_json1_1CreateCustomKeyStoreResponse = (
   context: __SerdeContext
 ): CreateCustomKeyStoreResponse => {
   return {
-    __type: "CreateCustomKeyStoreResponse",
     CustomKeyStoreId:
       output.CustomKeyStoreId !== undefined && output.CustomKeyStoreId !== null ? output.CustomKeyStoreId : undefined,
   } as any;
@@ -6439,7 +6396,6 @@ const deserializeAws_json1_1CreateCustomKeyStoreResponse = (
 
 const deserializeAws_json1_1CreateGrantResponse = (output: any, context: __SerdeContext): CreateGrantResponse => {
   return {
-    __type: "CreateGrantResponse",
     GrantId: output.GrantId !== undefined && output.GrantId !== null ? output.GrantId : undefined,
     GrantToken: output.GrantToken !== undefined && output.GrantToken !== null ? output.GrantToken : undefined,
   } as any;
@@ -6447,7 +6403,6 @@ const deserializeAws_json1_1CreateGrantResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1CreateKeyResponse = (output: any, context: __SerdeContext): CreateKeyResponse => {
   return {
-    __type: "CreateKeyResponse",
     KeyMetadata:
       output.KeyMetadata !== undefined && output.KeyMetadata !== null
         ? deserializeAws_json1_1KeyMetadata(output.KeyMetadata, context)
@@ -6460,7 +6415,6 @@ const deserializeAws_json1_1CustomKeyStoreHasCMKsException = (
   context: __SerdeContext
 ): CustomKeyStoreHasCMKsException => {
   return {
-    __type: "CustomKeyStoreHasCMKsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6470,7 +6424,6 @@ const deserializeAws_json1_1CustomKeyStoreInvalidStateException = (
   context: __SerdeContext
 ): CustomKeyStoreInvalidStateException => {
   return {
-    __type: "CustomKeyStoreInvalidStateException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6480,7 +6433,6 @@ const deserializeAws_json1_1CustomKeyStoreNameInUseException = (
   context: __SerdeContext
 ): CustomKeyStoreNameInUseException => {
   return {
-    __type: "CustomKeyStoreNameInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6490,7 +6442,6 @@ const deserializeAws_json1_1CustomKeyStoreNotFoundException = (
   context: __SerdeContext
 ): CustomKeyStoreNotFoundException => {
   return {
-    __type: "CustomKeyStoreNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6507,7 +6458,6 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
   context: __SerdeContext
 ): CustomKeyStoresListEntry => {
   return {
-    __type: "CustomKeyStoresListEntry",
     CloudHsmClusterId:
       output.CloudHsmClusterId !== undefined && output.CloudHsmClusterId !== null
         ? output.CloudHsmClusterId
@@ -6537,7 +6487,6 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
 
 const deserializeAws_json1_1DecryptResponse = (output: any, context: __SerdeContext): DecryptResponse => {
   return {
-    __type: "DecryptResponse",
     EncryptionAlgorithm:
       output.EncryptionAlgorithm !== undefined && output.EncryptionAlgorithm !== null
         ? output.EncryptionAlgorithm
@@ -6552,9 +6501,7 @@ const deserializeAws_json1_1DeleteCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteCustomKeyStoreResponse => {
-  return {
-    __type: "DeleteCustomKeyStoreResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DependencyTimeoutException = (
@@ -6562,7 +6509,6 @@ const deserializeAws_json1_1DependencyTimeoutException = (
   context: __SerdeContext
 ): DependencyTimeoutException => {
   return {
-    __type: "DependencyTimeoutException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6572,7 +6518,6 @@ const deserializeAws_json1_1DescribeCustomKeyStoresResponse = (
   context: __SerdeContext
 ): DescribeCustomKeyStoresResponse => {
   return {
-    __type: "DescribeCustomKeyStoresResponse",
     CustomKeyStores:
       output.CustomKeyStores !== undefined && output.CustomKeyStores !== null
         ? deserializeAws_json1_1CustomKeyStoresList(output.CustomKeyStores, context)
@@ -6584,7 +6529,6 @@ const deserializeAws_json1_1DescribeCustomKeyStoresResponse = (
 
 const deserializeAws_json1_1DescribeKeyResponse = (output: any, context: __SerdeContext): DescribeKeyResponse => {
   return {
-    __type: "DescribeKeyResponse",
     KeyMetadata:
       output.KeyMetadata !== undefined && output.KeyMetadata !== null
         ? deserializeAws_json1_1KeyMetadata(output.KeyMetadata, context)
@@ -6594,7 +6538,6 @@ const deserializeAws_json1_1DescribeKeyResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1DisabledException = (output: any, context: __SerdeContext): DisabledException => {
   return {
-    __type: "DisabledException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6603,9 +6546,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): DisconnectCustomKeyStoreResponse => {
-  return {
-    __type: "DisconnectCustomKeyStoreResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
@@ -6630,7 +6571,6 @@ const deserializeAws_json1_1EncryptionContextType = (
 
 const deserializeAws_json1_1EncryptResponse = (output: any, context: __SerdeContext): EncryptResponse => {
   return {
-    __type: "EncryptResponse",
     CiphertextBlob:
       output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
         ? context.base64Decoder(output.CiphertextBlob)
@@ -6648,7 +6588,6 @@ const deserializeAws_json1_1ExpiredImportTokenException = (
   context: __SerdeContext
 ): ExpiredImportTokenException => {
   return {
-    __type: "ExpiredImportTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6658,7 +6597,6 @@ const deserializeAws_json1_1GenerateDataKeyPairResponse = (
   context: __SerdeContext
 ): GenerateDataKeyPairResponse => {
   return {
-    __type: "GenerateDataKeyPairResponse",
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     KeyPairSpec: output.KeyPairSpec !== undefined && output.KeyPairSpec !== null ? output.KeyPairSpec : undefined,
     PrivateKeyCiphertextBlob:
@@ -6679,7 +6617,6 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse = (
   context: __SerdeContext
 ): GenerateDataKeyPairWithoutPlaintextResponse => {
   return {
-    __type: "GenerateDataKeyPairWithoutPlaintextResponse",
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     KeyPairSpec: output.KeyPairSpec !== undefined && output.KeyPairSpec !== null ? output.KeyPairSpec : undefined,
     PrivateKeyCiphertextBlob:
@@ -6696,7 +6633,6 @@ const deserializeAws_json1_1GenerateDataKeyResponse = (
   context: __SerdeContext
 ): GenerateDataKeyResponse => {
   return {
-    __type: "GenerateDataKeyResponse",
     CiphertextBlob:
       output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
         ? context.base64Decoder(output.CiphertextBlob)
@@ -6712,7 +6648,6 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
   context: __SerdeContext
 ): GenerateDataKeyWithoutPlaintextResponse => {
   return {
-    __type: "GenerateDataKeyWithoutPlaintextResponse",
     CiphertextBlob:
       output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
         ? context.base64Decoder(output.CiphertextBlob)
@@ -6723,7 +6658,6 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
 
 const deserializeAws_json1_1GenerateRandomResponse = (output: any, context: __SerdeContext): GenerateRandomResponse => {
   return {
-    __type: "GenerateRandomResponse",
     Plaintext:
       output.Plaintext !== undefined && output.Plaintext !== null ? context.base64Decoder(output.Plaintext) : undefined,
   } as any;
@@ -6731,7 +6665,6 @@ const deserializeAws_json1_1GenerateRandomResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1GetKeyPolicyResponse = (output: any, context: __SerdeContext): GetKeyPolicyResponse => {
   return {
-    __type: "GetKeyPolicyResponse",
     Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
   } as any;
 };
@@ -6741,7 +6674,6 @@ const deserializeAws_json1_1GetKeyRotationStatusResponse = (
   context: __SerdeContext
 ): GetKeyRotationStatusResponse => {
   return {
-    __type: "GetKeyRotationStatusResponse",
     KeyRotationEnabled:
       output.KeyRotationEnabled !== undefined && output.KeyRotationEnabled !== null
         ? output.KeyRotationEnabled
@@ -6754,7 +6686,6 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
   context: __SerdeContext
 ): GetParametersForImportResponse => {
   return {
-    __type: "GetParametersForImportResponse",
     ImportToken:
       output.ImportToken !== undefined && output.ImportToken !== null
         ? context.base64Decoder(output.ImportToken)
@@ -6771,7 +6702,6 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
 
 const deserializeAws_json1_1GetPublicKeyResponse = (output: any, context: __SerdeContext): GetPublicKeyResponse => {
   return {
-    __type: "GetPublicKeyResponse",
     CustomerMasterKeySpec:
       output.CustomerMasterKeySpec !== undefined && output.CustomerMasterKeySpec !== null
         ? output.CustomerMasterKeySpec
@@ -6793,7 +6723,6 @@ const deserializeAws_json1_1GetPublicKeyResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1GrantConstraints = (output: any, context: __SerdeContext): GrantConstraints => {
   return {
-    __type: "GrantConstraints",
     EncryptionContextEquals:
       output.EncryptionContextEquals !== undefined && output.EncryptionContextEquals !== null
         ? deserializeAws_json1_1EncryptionContextType(output.EncryptionContextEquals, context)
@@ -6811,7 +6740,6 @@ const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry => {
   return {
-    __type: "GrantListEntry",
     Constraints:
       output.Constraints !== undefined && output.Constraints !== null
         ? deserializeAws_json1_1GrantConstraints(output.Constraints, context)
@@ -6849,14 +6777,11 @@ const deserializeAws_json1_1ImportKeyMaterialResponse = (
   output: any,
   context: __SerdeContext
 ): ImportKeyMaterialResponse => {
-  return {
-    __type: "ImportKeyMaterialResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1IncorrectKeyException = (output: any, context: __SerdeContext): IncorrectKeyException => {
   return {
-    __type: "IncorrectKeyException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6866,7 +6791,6 @@ const deserializeAws_json1_1IncorrectKeyMaterialException = (
   context: __SerdeContext
 ): IncorrectKeyMaterialException => {
   return {
-    __type: "IncorrectKeyMaterialException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6876,7 +6800,6 @@ const deserializeAws_json1_1IncorrectTrustAnchorException = (
   context: __SerdeContext
 ): IncorrectTrustAnchorException => {
   return {
-    __type: "IncorrectTrustAnchorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6886,14 +6809,12 @@ const deserializeAws_json1_1InvalidAliasNameException = (
   context: __SerdeContext
 ): InvalidAliasNameException => {
   return {
-    __type: "InvalidAliasNameException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
   return {
-    __type: "InvalidArnException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6903,7 +6824,6 @@ const deserializeAws_json1_1InvalidCiphertextException = (
   context: __SerdeContext
 ): InvalidCiphertextException => {
   return {
-    __type: "InvalidCiphertextException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6913,7 +6833,6 @@ const deserializeAws_json1_1InvalidGrantIdException = (
   context: __SerdeContext
 ): InvalidGrantIdException => {
   return {
-    __type: "InvalidGrantIdException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6923,7 +6842,6 @@ const deserializeAws_json1_1InvalidGrantTokenException = (
   context: __SerdeContext
 ): InvalidGrantTokenException => {
   return {
-    __type: "InvalidGrantTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6933,7 +6851,6 @@ const deserializeAws_json1_1InvalidImportTokenException = (
   context: __SerdeContext
 ): InvalidImportTokenException => {
   return {
-    __type: "InvalidImportTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6943,14 +6860,12 @@ const deserializeAws_json1_1InvalidKeyUsageException = (
   context: __SerdeContext
 ): InvalidKeyUsageException => {
   return {
-    __type: "InvalidKeyUsageException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidMarkerException = (output: any, context: __SerdeContext): InvalidMarkerException => {
   return {
-    __type: "InvalidMarkerException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6961,7 +6876,6 @@ const deserializeAws_json1_1KeyList = (output: any, context: __SerdeContext): Ke
 
 const deserializeAws_json1_1KeyListEntry = (output: any, context: __SerdeContext): KeyListEntry => {
   return {
-    __type: "KeyListEntry",
     KeyArn: output.KeyArn !== undefined && output.KeyArn !== null ? output.KeyArn : undefined,
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
   } as any;
@@ -6969,7 +6883,6 @@ const deserializeAws_json1_1KeyListEntry = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
   return {
-    __type: "KeyMetadata",
     AWSAccountId: output.AWSAccountId !== undefined && output.AWSAccountId !== null ? output.AWSAccountId : undefined,
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CloudHsmClusterId:
@@ -7017,14 +6930,12 @@ const deserializeAws_json1_1KeyUnavailableException = (
   context: __SerdeContext
 ): KeyUnavailableException => {
   return {
-    __type: "KeyUnavailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KMSInternalException = (output: any, context: __SerdeContext): KMSInternalException => {
   return {
-    __type: "KMSInternalException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7034,7 +6945,6 @@ const deserializeAws_json1_1KMSInvalidSignatureException = (
   context: __SerdeContext
 ): KMSInvalidSignatureException => {
   return {
-    __type: "KMSInvalidSignatureException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7044,21 +6954,18 @@ const deserializeAws_json1_1KMSInvalidStateException = (
   context: __SerdeContext
 ): KMSInvalidStateException => {
   return {
-    __type: "KMSInvalidStateException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
   return {
-    __type: "ListAliasesResponse",
     Aliases:
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1AliasList(output.Aliases, context)
@@ -7070,7 +6977,6 @@ const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListGrantsResponse = (output: any, context: __SerdeContext): ListGrantsResponse => {
   return {
-    __type: "ListGrantsResponse",
     Grants:
       output.Grants !== undefined && output.Grants !== null
         ? deserializeAws_json1_1GrantList(output.Grants, context)
@@ -7085,7 +6991,6 @@ const deserializeAws_json1_1ListKeyPoliciesResponse = (
   context: __SerdeContext
 ): ListKeyPoliciesResponse => {
   return {
-    __type: "ListKeyPoliciesResponse",
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
     PolicyNames:
       output.PolicyNames !== undefined && output.PolicyNames !== null
@@ -7097,7 +7002,6 @@ const deserializeAws_json1_1ListKeyPoliciesResponse = (
 
 const deserializeAws_json1_1ListKeysResponse = (output: any, context: __SerdeContext): ListKeysResponse => {
   return {
-    __type: "ListKeysResponse",
     Keys:
       output.Keys !== undefined && output.Keys !== null
         ? deserializeAws_json1_1KeyList(output.Keys, context)
@@ -7112,7 +7016,6 @@ const deserializeAws_json1_1ListResourceTagsResponse = (
   context: __SerdeContext
 ): ListResourceTagsResponse => {
   return {
-    __type: "ListResourceTagsResponse",
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -7127,14 +7030,12 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   return {
-    __type: "MalformedPolicyDocumentException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7145,7 +7046,6 @@ const deserializeAws_json1_1PolicyNameList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptResponse => {
   return {
-    __type: "ReEncryptResponse",
     CiphertextBlob:
       output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
         ? context.base64Decoder(output.CiphertextBlob)
@@ -7168,7 +7068,6 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
   context: __SerdeContext
 ): ScheduleKeyDeletionResponse => {
   return {
-    __type: "ScheduleKeyDeletionResponse",
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
         ? new Date(Math.round(output.DeletionDate * 1000))
@@ -7186,7 +7085,6 @@ const deserializeAws_json1_1SigningAlgorithmSpecList = (
 
 const deserializeAws_json1_1SignResponse = (output: any, context: __SerdeContext): SignResponse => {
   return {
-    __type: "SignResponse",
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     Signature:
       output.Signature !== undefined && output.Signature !== null ? context.base64Decoder(output.Signature) : undefined,
@@ -7197,7 +7095,6 @@ const deserializeAws_json1_1SignResponse = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
     TagValue: output.TagValue !== undefined && output.TagValue !== null ? output.TagValue : undefined,
   } as any;
@@ -7205,7 +7102,6 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 
 const deserializeAws_json1_1TagException = (output: any, context: __SerdeContext): TagException => {
   return {
-    __type: "TagException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7219,7 +7115,6 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   context: __SerdeContext
 ): UnsupportedOperationException => {
   return {
-    __type: "UnsupportedOperationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7228,14 +7123,11 @@ const deserializeAws_json1_1UpdateCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateCustomKeyStoreResponse => {
-  return {
-    __type: "UpdateCustomKeyStoreResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1VerifyResponse = (output: any, context: __SerdeContext): VerifyResponse => {
   return {
-    __type: "VerifyResponse",
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     SignatureValid:
       output.SignatureValid !== undefined && output.SignatureValid !== null ? output.SignatureValid : undefined,

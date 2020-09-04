@@ -714,7 +714,6 @@ export const deserializeAws_queryDeleteAnomalyDetectorCommand = async (
   contents = deserializeAws_queryDeleteAnomalyDetectorOutput(data.DeleteAnomalyDetectorResult, context);
   const response: DeleteAnomalyDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAnomalyDetectorOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -793,7 +792,6 @@ export const deserializeAws_queryDeleteDashboardsCommand = async (
   contents = deserializeAws_queryDeleteDashboardsOutput(data.DeleteDashboardsResult, context);
   const response: DeleteDashboardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDashboardsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -864,7 +862,6 @@ export const deserializeAws_queryDeleteInsightRulesCommand = async (
   contents = deserializeAws_queryDeleteInsightRulesOutput(data.DeleteInsightRulesResult, context);
   const response: DeleteInsightRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInsightRulesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -927,7 +924,6 @@ export const deserializeAws_queryDescribeAlarmHistoryCommand = async (
   contents = deserializeAws_queryDescribeAlarmHistoryOutput(data.DescribeAlarmHistoryResult, context);
   const response: DescribeAlarmHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAlarmHistoryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -982,7 +978,6 @@ export const deserializeAws_queryDescribeAlarmsCommand = async (
   contents = deserializeAws_queryDescribeAlarmsOutput(data.DescribeAlarmsResult, context);
   const response: DescribeAlarmsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAlarmsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1037,7 +1032,6 @@ export const deserializeAws_queryDescribeAlarmsForMetricCommand = async (
   contents = deserializeAws_queryDescribeAlarmsForMetricOutput(data.DescribeAlarmsForMetricResult, context);
   const response: DescribeAlarmsForMetricCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAlarmsForMetricOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1084,7 +1078,6 @@ export const deserializeAws_queryDescribeAnomalyDetectorsCommand = async (
   contents = deserializeAws_queryDescribeAnomalyDetectorsOutput(data.DescribeAnomalyDetectorsResult, context);
   const response: DescribeAnomalyDetectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAnomalyDetectorsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1155,7 +1148,6 @@ export const deserializeAws_queryDescribeInsightRulesCommand = async (
   contents = deserializeAws_queryDescribeInsightRulesOutput(data.DescribeInsightRulesResult, context);
   const response: DescribeInsightRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInsightRulesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1253,7 +1245,6 @@ export const deserializeAws_queryDisableInsightRulesCommand = async (
   contents = deserializeAws_queryDisableInsightRulesOutput(data.DisableInsightRulesResult, context);
   const response: DisableInsightRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableInsightRulesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1359,7 +1350,6 @@ export const deserializeAws_queryEnableInsightRulesCommand = async (
   contents = deserializeAws_queryEnableInsightRulesOutput(data.EnableInsightRulesResult, context);
   const response: EnableInsightRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableInsightRulesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1430,7 +1420,6 @@ export const deserializeAws_queryGetDashboardCommand = async (
   contents = deserializeAws_queryGetDashboardOutput(data.GetDashboardResult, context);
   const response: GetDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDashboardOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1501,7 +1490,6 @@ export const deserializeAws_queryGetInsightRuleReportCommand = async (
   contents = deserializeAws_queryGetInsightRuleReportOutput(data.GetInsightRuleReportResult, context);
   const response: GetInsightRuleReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInsightRuleReportOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1572,7 +1560,6 @@ export const deserializeAws_queryGetMetricDataCommand = async (
   contents = deserializeAws_queryGetMetricDataOutput(data.GetMetricDataResult, context);
   const response: GetMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMetricDataOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1627,7 +1614,6 @@ export const deserializeAws_queryGetMetricStatisticsCommand = async (
   contents = deserializeAws_queryGetMetricStatisticsOutput(data.GetMetricStatisticsResult, context);
   const response: GetMetricStatisticsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMetricStatisticsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1706,7 +1692,6 @@ export const deserializeAws_queryGetMetricWidgetImageCommand = async (
   contents = deserializeAws_queryGetMetricWidgetImageOutput(data.GetMetricWidgetImageResult, context);
   const response: GetMetricWidgetImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMetricWidgetImageOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1753,7 +1738,6 @@ export const deserializeAws_queryListDashboardsCommand = async (
   contents = deserializeAws_queryListDashboardsOutput(data.ListDashboardsResult, context);
   const response: ListDashboardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDashboardsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1816,7 +1800,6 @@ export const deserializeAws_queryListMetricsCommand = async (
   contents = deserializeAws_queryListMetricsOutput(data.ListMetricsResult, context);
   const response: ListMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMetricsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1879,7 +1862,6 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   contents = deserializeAws_queryListTagsForResourceOutput(data.ListTagsForResourceResult, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1950,7 +1932,6 @@ export const deserializeAws_queryPutAnomalyDetectorCommand = async (
   contents = deserializeAws_queryPutAnomalyDetectorOutput(data.PutAnomalyDetectorResult, context);
   const response: PutAnomalyDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAnomalyDetectorOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2080,7 +2061,6 @@ export const deserializeAws_queryPutDashboardCommand = async (
   contents = deserializeAws_queryPutDashboardOutput(data.PutDashboardResult, context);
   const response: PutDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDashboardOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2143,7 +2123,6 @@ export const deserializeAws_queryPutInsightRuleCommand = async (
   contents = deserializeAws_queryPutInsightRuleOutput(data.PutInsightRuleResult, context);
   const response: PutInsightRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutInsightRuleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2399,7 +2378,6 @@ export const deserializeAws_queryTagResourceCommand = async (
   contents = deserializeAws_queryTagResourceOutput(data.TagResourceResult, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2478,7 +2456,6 @@ export const deserializeAws_queryUntagResourceCommand = async (
   contents = deserializeAws_queryUntagResourceOutput(data.UntagResourceResult, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3812,7 +3789,6 @@ const serializeAws_queryValues = (input: number[], context: __SerdeContext): any
 
 const deserializeAws_queryAlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistoryItem => {
   let contents: any = {
-    __type: "AlarmHistoryItem",
     HistoryData: undefined,
     Timestamp: undefined,
     HistorySummary: undefined,
@@ -3847,7 +3823,6 @@ const deserializeAws_queryAlarmHistoryItems = (output: any, context: __SerdeCont
 
 const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetector => {
   let contents: any = {
-    __type: "AnomalyDetector",
     StateValue: undefined,
     Dimensions: undefined,
     Namespace: undefined,
@@ -3887,7 +3862,6 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
   context: __SerdeContext
 ): AnomalyDetectorConfiguration => {
   let contents: any = {
-    __type: "AnomalyDetectorConfiguration",
     MetricTimezone: undefined,
     ExcludedTimeRanges: undefined,
   };
@@ -3920,7 +3894,6 @@ const deserializeAws_queryBatchFailures = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm => {
   let contents: any = {
-    __type: "CompositeAlarm",
     AlarmRule: undefined,
     StateReasonData: undefined,
     StateValue: undefined,
@@ -4004,7 +3977,6 @@ const deserializeAws_queryConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   let contents: any = {
-    __type: "ConcurrentModificationException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -4019,7 +3991,6 @@ const deserializeAws_queryDashboardEntries = (output: any, context: __SerdeConte
 
 const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext): DashboardEntry => {
   let contents: any = {
-    __type: "DashboardEntry",
     Size: undefined,
     LastModified: undefined,
     DashboardName: undefined,
@@ -4045,7 +4016,6 @@ const deserializeAws_queryDashboardInvalidInputError = (
   context: __SerdeContext
 ): DashboardInvalidInputError => {
   let contents: any = {
-    __type: "DashboardInvalidInputError",
     dashboardValidationMessages: undefined,
     message: undefined,
   };
@@ -4069,7 +4039,6 @@ const deserializeAws_queryDashboardInvalidInputError = (
 
 const deserializeAws_queryDashboardNotFoundError = (output: any, context: __SerdeContext): DashboardNotFoundError => {
   let contents: any = {
-    __type: "DashboardNotFoundError",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4083,7 +4052,6 @@ const deserializeAws_queryDashboardValidationMessage = (
   context: __SerdeContext
 ): DashboardValidationMessage => {
   let contents: any = {
-    __type: "DashboardValidationMessage",
     Message: undefined,
     DataPath: undefined,
   };
@@ -4105,7 +4073,6 @@ const deserializeAws_queryDashboardValidationMessages = (
 
 const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Datapoint => {
   let contents: any = {
-    __type: "Datapoint",
     Minimum: undefined,
     Unit: undefined,
     Sum: undefined,
@@ -4170,16 +4137,12 @@ const deserializeAws_queryDeleteAnomalyDetectorOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteAnomalyDetectorOutput => {
-  let contents: any = {
-    __type: "DeleteAnomalyDetectorOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteDashboardsOutput = (output: any, context: __SerdeContext): DeleteDashboardsOutput => {
-  let contents: any = {
-    __type: "DeleteDashboardsOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -4188,7 +4151,6 @@ const deserializeAws_queryDeleteInsightRulesOutput = (
   context: __SerdeContext
 ): DeleteInsightRulesOutput => {
   let contents: any = {
-    __type: "DeleteInsightRulesOutput",
     Failures: undefined,
   };
   if (output.Failures === "") {
@@ -4208,7 +4170,6 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
   context: __SerdeContext
 ): DescribeAlarmHistoryOutput => {
   let contents: any = {
-    __type: "DescribeAlarmHistoryOutput",
     NextToken: undefined,
     AlarmHistoryItems: undefined,
   };
@@ -4232,7 +4193,6 @@ const deserializeAws_queryDescribeAlarmsForMetricOutput = (
   context: __SerdeContext
 ): DescribeAlarmsForMetricOutput => {
   let contents: any = {
-    __type: "DescribeAlarmsForMetricOutput",
     MetricAlarms: undefined,
   };
   if (output.MetricAlarms === "") {
@@ -4249,7 +4209,6 @@ const deserializeAws_queryDescribeAlarmsForMetricOutput = (
 
 const deserializeAws_queryDescribeAlarmsOutput = (output: any, context: __SerdeContext): DescribeAlarmsOutput => {
   let contents: any = {
-    __type: "DescribeAlarmsOutput",
     NextToken: undefined,
     MetricAlarms: undefined,
     CompositeAlarms: undefined,
@@ -4283,7 +4242,6 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
   context: __SerdeContext
 ): DescribeAnomalyDetectorsOutput => {
   let contents: any = {
-    __type: "DescribeAnomalyDetectorsOutput",
     AnomalyDetectors: undefined,
     NextToken: undefined,
   };
@@ -4307,7 +4265,6 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
   context: __SerdeContext
 ): DescribeInsightRulesOutput => {
   let contents: any = {
-    __type: "DescribeInsightRulesOutput",
     InsightRules: undefined,
     NextToken: undefined,
   };
@@ -4328,7 +4285,6 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
 
 const deserializeAws_queryDimension = (output: any, context: __SerdeContext): Dimension => {
   let contents: any = {
-    __type: "Dimension",
     Value: undefined,
     Name: undefined,
   };
@@ -4350,7 +4306,6 @@ const deserializeAws_queryDisableInsightRulesOutput = (
   context: __SerdeContext
 ): DisableInsightRulesOutput => {
   let contents: any = {
-    __type: "DisableInsightRulesOutput",
     Failures: undefined,
   };
   if (output.Failures === "") {
@@ -4370,7 +4325,6 @@ const deserializeAws_queryEnableInsightRulesOutput = (
   context: __SerdeContext
 ): EnableInsightRulesOutput => {
   let contents: any = {
-    __type: "EnableInsightRulesOutput",
     Failures: undefined,
   };
   if (output.Failures === "") {
@@ -4387,7 +4341,6 @@ const deserializeAws_queryEnableInsightRulesOutput = (
 
 const deserializeAws_queryGetDashboardOutput = (output: any, context: __SerdeContext): GetDashboardOutput => {
   let contents: any = {
-    __type: "GetDashboardOutput",
     DashboardArn: undefined,
     DashboardBody: undefined,
     DashboardName: undefined,
@@ -4409,7 +4362,6 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
   context: __SerdeContext
 ): GetInsightRuleReportOutput => {
   let contents: any = {
-    __type: "GetInsightRuleReportOutput",
     AggregationStatistic: undefined,
     Contributors: undefined,
     AggregateValue: undefined,
@@ -4458,7 +4410,6 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
 
 const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeContext): GetMetricDataOutput => {
   let contents: any = {
-    __type: "GetMetricDataOutput",
     Messages: undefined,
     MetricDataResults: undefined,
     NextToken: undefined,
@@ -4492,7 +4443,6 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
   context: __SerdeContext
 ): GetMetricStatisticsOutput => {
   let contents: any = {
-    __type: "GetMetricStatisticsOutput",
     Label: undefined,
     Datapoints: undefined,
   };
@@ -4516,7 +4466,6 @@ const deserializeAws_queryGetMetricWidgetImageOutput = (
   context: __SerdeContext
 ): GetMetricWidgetImageOutput => {
   let contents: any = {
-    __type: "GetMetricWidgetImageOutput",
     MetricWidgetImage: undefined,
   };
   if (output["MetricWidgetImage"] !== undefined) {
@@ -4527,7 +4476,6 @@ const deserializeAws_queryGetMetricWidgetImageOutput = (
 
 const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): InsightRule => {
   let contents: any = {
-    __type: "InsightRule",
     State: undefined,
     Schema: undefined,
     Name: undefined,
@@ -4550,7 +4498,6 @@ const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): 
 
 const deserializeAws_queryInsightRuleContributor = (output: any, context: __SerdeContext): InsightRuleContributor => {
   let contents: any = {
-    __type: "InsightRuleContributor",
     Keys: undefined,
     Datapoints: undefined,
     ApproximateAggregateValue: undefined,
@@ -4584,7 +4531,6 @@ const deserializeAws_queryInsightRuleContributorDatapoint = (
   context: __SerdeContext
 ): InsightRuleContributorDatapoint => {
   let contents: any = {
-    __type: "InsightRuleContributorDatapoint",
     ApproximateValue: undefined,
     Timestamp: undefined,
   };
@@ -4624,7 +4570,6 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
   context: __SerdeContext
 ): InsightRuleMetricDatapoint => {
   let contents: any = {
-    __type: "InsightRuleMetricDatapoint",
     Minimum: undefined,
     SampleCount: undefined,
     UniqueContributors: undefined,
@@ -4674,7 +4619,6 @@ const deserializeAws_queryInsightRules = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryInternalServiceFault = (output: any, context: __SerdeContext): InternalServiceFault => {
   let contents: any = {
-    __type: "InternalServiceFault",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -4685,7 +4629,6 @@ const deserializeAws_queryInternalServiceFault = (output: any, context: __SerdeC
 
 const deserializeAws_queryInvalidFormatFault = (output: any, context: __SerdeContext): InvalidFormatFault => {
   let contents: any = {
-    __type: "InvalidFormatFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4696,7 +4639,6 @@ const deserializeAws_queryInvalidFormatFault = (output: any, context: __SerdeCon
 
 const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
   let contents: any = {
-    __type: "InvalidNextToken",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4710,7 +4652,6 @@ const deserializeAws_queryInvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   let contents: any = {
-    __type: "InvalidParameterCombinationException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4724,7 +4665,6 @@ const deserializeAws_queryInvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   let contents: any = {
-    __type: "InvalidParameterValueException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4735,7 +4675,6 @@ const deserializeAws_queryInvalidParameterValueException = (
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   let contents: any = {
-    __type: "LimitExceededException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -4746,7 +4685,6 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
   let contents: any = {
-    __type: "LimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4757,7 +4695,6 @@ const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeCon
 
 const deserializeAws_queryListDashboardsOutput = (output: any, context: __SerdeContext): ListDashboardsOutput => {
   let contents: any = {
-    __type: "ListDashboardsOutput",
     DashboardEntries: undefined,
     NextToken: undefined,
   };
@@ -4778,7 +4715,6 @@ const deserializeAws_queryListDashboardsOutput = (output: any, context: __SerdeC
 
 const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeContext): ListMetricsOutput => {
   let contents: any = {
-    __type: "ListMetricsOutput",
     NextToken: undefined,
     Metrics: undefined,
   };
@@ -4799,7 +4735,6 @@ const deserializeAws_queryListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   let contents: any = {
-    __type: "ListTagsForResourceOutput",
     Tags: undefined,
   };
   if (output.Tags === "") {
@@ -4813,7 +4748,6 @@ const deserializeAws_queryListTagsForResourceOutput = (
 
 const deserializeAws_queryMessageData = (output: any, context: __SerdeContext): MessageData => {
   let contents: any = {
-    __type: "MessageData",
     Value: undefined,
     Code: undefined,
   };
@@ -4828,7 +4762,6 @@ const deserializeAws_queryMessageData = (output: any, context: __SerdeContext): 
 
 const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metric => {
   let contents: any = {
-    __type: "Metric",
     Namespace: undefined,
     MetricName: undefined,
     Dimensions: undefined,
@@ -4853,7 +4786,6 @@ const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metri
 
 const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
   let contents: any = {
-    __type: "MetricAlarm",
     AlarmDescription: undefined,
     StateValue: undefined,
     InsufficientDataActions: undefined,
@@ -5006,7 +4938,6 @@ const deserializeAws_queryMetricDataQueries = (output: any, context: __SerdeCont
 
 const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
   let contents: any = {
-    __type: "MetricDataQuery",
     Expression: undefined,
     Period: undefined,
     ReturnData: undefined,
@@ -5037,7 +4968,6 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
 
 const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
   let contents: any = {
-    __type: "MetricDataResult",
     StatusCode: undefined,
     Messages: undefined,
     Timestamps: undefined,
@@ -5095,7 +5025,6 @@ const deserializeAws_queryMetrics = (output: any, context: __SerdeContext): Metr
 
 const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): MetricStat => {
   let contents: any = {
-    __type: "MetricStat",
     Metric: undefined,
     Period: undefined,
     Unit: undefined,
@@ -5121,7 +5050,6 @@ const deserializeAws_queryMissingRequiredParameterException = (
   context: __SerdeContext
 ): MissingRequiredParameterException => {
   let contents: any = {
-    __type: "MissingRequiredParameterException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5132,7 +5060,6 @@ const deserializeAws_queryMissingRequiredParameterException = (
 
 const deserializeAws_queryPartialFailure = (output: any, context: __SerdeContext): PartialFailure => {
   let contents: any = {
-    __type: "PartialFailure",
     ExceptionType: undefined,
     FailureResource: undefined,
     FailureDescription: undefined,
@@ -5157,15 +5084,12 @@ const deserializeAws_queryPutAnomalyDetectorOutput = (
   output: any,
   context: __SerdeContext
 ): PutAnomalyDetectorOutput => {
-  let contents: any = {
-    __type: "PutAnomalyDetectorOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryPutDashboardOutput = (output: any, context: __SerdeContext): PutDashboardOutput => {
   let contents: any = {
-    __type: "PutDashboardOutput",
     DashboardValidationMessages: undefined,
   };
   if (output.DashboardValidationMessages === "") {
@@ -5184,15 +5108,12 @@ const deserializeAws_queryPutDashboardOutput = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryPutInsightRuleOutput = (output: any, context: __SerdeContext): PutInsightRuleOutput => {
-  let contents: any = {
-    __type: "PutInsightRuleOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range => {
   let contents: any = {
-    __type: "Range",
     EndTime: undefined,
     StartTime: undefined,
   };
@@ -5211,7 +5132,6 @@ const deserializeAws_queryResourceList = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
   let contents: any = {
-    __type: "ResourceNotFound",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5225,7 +5145,6 @@ const deserializeAws_queryResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   let contents: any = {
-    __type: "ResourceNotFoundException",
     ResourceId: undefined,
     ResourceType: undefined,
     Message: undefined,
@@ -5244,7 +5163,6 @@ const deserializeAws_queryResourceNotFoundException = (
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -5262,9 +5180,7 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 };
 
 const deserializeAws_queryTagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  let contents: any = {
-    __type: "TagResourceOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -5273,9 +5189,7 @@ const deserializeAws_queryTimestamps = (output: any, context: __SerdeContext): D
 };
 
 const deserializeAws_queryUntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  let contents: any = {
-    __type: "UntagResourceOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 

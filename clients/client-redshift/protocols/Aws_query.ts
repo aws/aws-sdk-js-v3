@@ -2133,7 +2133,6 @@ export const deserializeAws_queryAcceptReservedNodeExchangeCommand = async (
   );
   const response: AcceptReservedNodeExchangeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptReservedNodeExchangeOutputMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2239,7 +2238,6 @@ export const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = a
   );
   const response: AuthorizeClusterSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AuthorizeClusterSecurityGroupIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2318,7 +2316,6 @@ export const deserializeAws_queryAuthorizeSnapshotAccessCommand = async (
   contents = deserializeAws_queryAuthorizeSnapshotAccessResult(data.AuthorizeSnapshotAccessResult, context);
   const response: AuthorizeSnapshotAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AuthorizeSnapshotAccessResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2413,7 +2410,6 @@ export const deserializeAws_queryBatchDeleteClusterSnapshotsCommand = async (
   contents = deserializeAws_queryBatchDeleteClusterSnapshotsResult(data.BatchDeleteClusterSnapshotsResult, context);
   const response: BatchDeleteClusterSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDeleteClusterSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2471,7 +2467,6 @@ export const deserializeAws_queryBatchModifyClusterSnapshotsCommand = async (
   );
   const response: BatchModifyClusterSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchModifyClusterSnapshotsOutputMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2534,7 +2529,6 @@ export const deserializeAws_queryCancelResizeCommand = async (
   contents = deserializeAws_queryResizeProgressMessage(data.CancelResizeResult, context);
   const response: CancelResizeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResizeProgressMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2613,7 +2607,6 @@ export const deserializeAws_queryCopyClusterSnapshotCommand = async (
   contents = deserializeAws_queryCopyClusterSnapshotResult(data.CopyClusterSnapshotResult, context);
   const response: CopyClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyClusterSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2700,7 +2693,6 @@ export const deserializeAws_queryCreateClusterCommand = async (
   contents = deserializeAws_queryCreateClusterResult(data.CreateClusterResult, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2923,7 +2915,6 @@ export const deserializeAws_queryCreateClusterParameterGroupCommand = async (
   contents = deserializeAws_queryCreateClusterParameterGroupResult(data.CreateClusterParameterGroupResult, context);
   const response: CreateClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterParameterGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3002,7 +2993,6 @@ export const deserializeAws_queryCreateClusterSecurityGroupCommand = async (
   contents = deserializeAws_queryCreateClusterSecurityGroupResult(data.CreateClusterSecurityGroupResult, context);
   const response: CreateClusterSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterSecurityGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3081,7 +3071,6 @@ export const deserializeAws_queryCreateClusterSnapshotCommand = async (
   contents = deserializeAws_queryCreateClusterSnapshotResult(data.CreateClusterSnapshotResult, context);
   const response: CreateClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3184,7 +3173,6 @@ export const deserializeAws_queryCreateClusterSubnetGroupCommand = async (
   contents = deserializeAws_queryCreateClusterSubnetGroupResult(data.CreateClusterSubnetGroupResult, context);
   const response: CreateClusterSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterSubnetGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3295,7 +3283,6 @@ export const deserializeAws_queryCreateEventSubscriptionCommand = async (
   contents = deserializeAws_queryCreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
   const response: CreateEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEventSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3430,7 +3417,6 @@ export const deserializeAws_queryCreateHsmClientCertificateCommand = async (
   contents = deserializeAws_queryCreateHsmClientCertificateResult(data.CreateHsmClientCertificateResult, context);
   const response: CreateHsmClientCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHsmClientCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3509,7 +3495,6 @@ export const deserializeAws_queryCreateHsmConfigurationCommand = async (
   contents = deserializeAws_queryCreateHsmConfigurationResult(data.CreateHsmConfigurationResult, context);
   const response: CreateHsmConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHsmConfigurationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3588,7 +3573,6 @@ export const deserializeAws_queryCreateScheduledActionCommand = async (
   contents = deserializeAws_queryScheduledAction(data.CreateScheduledActionResult, context);
   const response: CreateScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScheduledAction",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3683,7 +3667,6 @@ export const deserializeAws_queryCreateSnapshotCopyGrantCommand = async (
   contents = deserializeAws_queryCreateSnapshotCopyGrantResult(data.CreateSnapshotCopyGrantResult, context);
   const response: CreateSnapshotCopyGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSnapshotCopyGrantResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3778,7 +3761,6 @@ export const deserializeAws_queryCreateSnapshotScheduleCommand = async (
   contents = deserializeAws_querySnapshotSchedule(data.CreateSnapshotScheduleResult, context);
   const response: CreateSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SnapshotSchedule",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3932,7 +3914,6 @@ export const deserializeAws_queryCreateUsageLimitCommand = async (
   contents = deserializeAws_queryUsageLimit(data.CreateUsageLimitResult, context);
   const response: CreateUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsageLimit",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4035,7 +4016,6 @@ export const deserializeAws_queryDeleteClusterCommand = async (
   contents = deserializeAws_queryDeleteClusterResult(data.DeleteClusterResult, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4240,7 +4220,6 @@ export const deserializeAws_queryDeleteClusterSnapshotCommand = async (
   contents = deserializeAws_queryDeleteClusterSnapshotResult(data.DeleteClusterSnapshotResult, context);
   const response: DeleteClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClusterSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4842,7 +4821,6 @@ export const deserializeAws_queryDescribeAccountAttributesCommand = async (
   contents = deserializeAws_queryAccountAttributeList(data.DescribeAccountAttributesResult, context);
   const response: DescribeAccountAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AccountAttributeList",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4889,7 +4867,6 @@ export const deserializeAws_queryDescribeClusterDbRevisionsCommand = async (
   contents = deserializeAws_queryClusterDbRevisionsMessage(data.DescribeClusterDbRevisionsResult, context);
   const response: DescribeClusterDbRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterDbRevisionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4952,7 +4929,6 @@ export const deserializeAws_queryDescribeClusterParameterGroupsCommand = async (
   contents = deserializeAws_queryClusterParameterGroupsMessage(data.DescribeClusterParameterGroupsResult, context);
   const response: DescribeClusterParameterGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterParameterGroupsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5015,7 +4991,6 @@ export const deserializeAws_queryDescribeClusterParametersCommand = async (
   contents = deserializeAws_queryClusterParameterGroupDetails(data.DescribeClusterParametersResult, context);
   const response: DescribeClusterParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterParameterGroupDetails",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5070,7 +5045,6 @@ export const deserializeAws_queryDescribeClustersCommand = async (
   contents = deserializeAws_queryClustersMessage(data.DescribeClustersResult, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClustersMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5133,7 +5107,6 @@ export const deserializeAws_queryDescribeClusterSecurityGroupsCommand = async (
   contents = deserializeAws_queryClusterSecurityGroupMessage(data.DescribeClusterSecurityGroupsResult, context);
   const response: DescribeClusterSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSecurityGroupMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5196,7 +5169,6 @@ export const deserializeAws_queryDescribeClusterSnapshotsCommand = async (
   contents = deserializeAws_querySnapshotMessage(data.DescribeClusterSnapshotsResult, context);
   const response: DescribeClusterSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SnapshotMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5267,7 +5239,6 @@ export const deserializeAws_queryDescribeClusterSubnetGroupsCommand = async (
   contents = deserializeAws_queryClusterSubnetGroupMessage(data.DescribeClusterSubnetGroupsResult, context);
   const response: DescribeClusterSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSubnetGroupMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5330,7 +5301,6 @@ export const deserializeAws_queryDescribeClusterTracksCommand = async (
   contents = deserializeAws_queryTrackListMessage(data.DescribeClusterTracksResult, context);
   const response: DescribeClusterTracksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TrackListMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5393,7 +5363,6 @@ export const deserializeAws_queryDescribeClusterVersionsCommand = async (
   contents = deserializeAws_queryClusterVersionsMessage(data.DescribeClusterVersionsResult, context);
   const response: DescribeClusterVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterVersionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5443,7 +5412,6 @@ export const deserializeAws_queryDescribeDefaultClusterParametersCommand = async
   );
   const response: DescribeDefaultClusterParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDefaultClusterParametersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5490,7 +5458,6 @@ export const deserializeAws_queryDescribeEventCategoriesCommand = async (
   contents = deserializeAws_queryEventCategoriesMessage(data.DescribeEventCategoriesResult, context);
   const response: DescribeEventCategoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventCategoriesMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5537,7 +5504,6 @@ export const deserializeAws_queryDescribeEventsCommand = async (
   contents = deserializeAws_queryEventsMessage(data.DescribeEventsResult, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5584,7 +5550,6 @@ export const deserializeAws_queryDescribeEventSubscriptionsCommand = async (
   contents = deserializeAws_queryEventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
   const response: DescribeEventSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSubscriptionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5647,7 +5612,6 @@ export const deserializeAws_queryDescribeHsmClientCertificatesCommand = async (
   contents = deserializeAws_queryHsmClientCertificateMessage(data.DescribeHsmClientCertificatesResult, context);
   const response: DescribeHsmClientCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HsmClientCertificateMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5710,7 +5674,6 @@ export const deserializeAws_queryDescribeHsmConfigurationsCommand = async (
   contents = deserializeAws_queryHsmConfigurationMessage(data.DescribeHsmConfigurationsResult, context);
   const response: DescribeHsmConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HsmConfigurationMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5773,7 +5736,6 @@ export const deserializeAws_queryDescribeLoggingStatusCommand = async (
   contents = deserializeAws_queryLoggingStatus(data.DescribeLoggingStatusResult, context);
   const response: DescribeLoggingStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LoggingStatus",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5828,7 +5790,6 @@ export const deserializeAws_queryDescribeNodeConfigurationOptionsCommand = async
   contents = deserializeAws_queryNodeConfigurationOptionsMessage(data.DescribeNodeConfigurationOptionsResult, context);
   const response: DescribeNodeConfigurationOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NodeConfigurationOptionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5907,7 +5868,6 @@ export const deserializeAws_queryDescribeOrderableClusterOptionsCommand = async 
   contents = deserializeAws_queryOrderableClusterOptionsMessage(data.DescribeOrderableClusterOptionsResult, context);
   const response: DescribeOrderableClusterOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "OrderableClusterOptionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5954,7 +5914,6 @@ export const deserializeAws_queryDescribeReservedNodeOfferingsCommand = async (
   contents = deserializeAws_queryReservedNodeOfferingsMessage(data.DescribeReservedNodeOfferingsResult, context);
   const response: DescribeReservedNodeOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReservedNodeOfferingsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6025,7 +5984,6 @@ export const deserializeAws_queryDescribeReservedNodesCommand = async (
   contents = deserializeAws_queryReservedNodesMessage(data.DescribeReservedNodesResult, context);
   const response: DescribeReservedNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReservedNodesMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6088,7 +6046,6 @@ export const deserializeAws_queryDescribeResizeCommand = async (
   contents = deserializeAws_queryResizeProgressMessage(data.DescribeResizeResult, context);
   const response: DescribeResizeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResizeProgressMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6151,7 +6108,6 @@ export const deserializeAws_queryDescribeScheduledActionsCommand = async (
   contents = deserializeAws_queryScheduledActionsMessage(data.DescribeScheduledActionsResult, context);
   const response: DescribeScheduledActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScheduledActionsMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6214,7 +6170,6 @@ export const deserializeAws_queryDescribeSnapshotCopyGrantsCommand = async (
   contents = deserializeAws_querySnapshotCopyGrantMessage(data.DescribeSnapshotCopyGrantsResult, context);
   const response: DescribeSnapshotCopyGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SnapshotCopyGrantMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6277,7 +6232,6 @@ export const deserializeAws_queryDescribeSnapshotSchedulesCommand = async (
   contents = deserializeAws_queryDescribeSnapshotSchedulesOutputMessage(data.DescribeSnapshotSchedulesResult, context);
   const response: DescribeSnapshotSchedulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSnapshotSchedulesOutputMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6324,7 +6278,6 @@ export const deserializeAws_queryDescribeStorageCommand = async (
   contents = deserializeAws_queryCustomerStorageMessage(data.DescribeStorageResult, context);
   const response: DescribeStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CustomerStorageMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6371,7 +6324,6 @@ export const deserializeAws_queryDescribeTableRestoreStatusCommand = async (
   contents = deserializeAws_queryTableRestoreStatusMessage(data.DescribeTableRestoreStatusResult, context);
   const response: DescribeTableRestoreStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TableRestoreStatusMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6434,7 +6386,6 @@ export const deserializeAws_queryDescribeTagsCommand = async (
   contents = deserializeAws_queryTaggedResourceListMessage(data.DescribeTagsResult, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TaggedResourceListMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6497,7 +6448,6 @@ export const deserializeAws_queryDescribeUsageLimitsCommand = async (
   contents = deserializeAws_queryUsageLimitList(data.DescribeUsageLimitsResult, context);
   const response: DescribeUsageLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsageLimitList",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6560,7 +6510,6 @@ export const deserializeAws_queryDisableLoggingCommand = async (
   contents = deserializeAws_queryLoggingStatus(data.DisableLoggingResult, context);
   const response: DisableLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LoggingStatus",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6615,7 +6564,6 @@ export const deserializeAws_queryDisableSnapshotCopyCommand = async (
   contents = deserializeAws_queryDisableSnapshotCopyResult(data.DisableSnapshotCopyResult, context);
   const response: DisableSnapshotCopyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableSnapshotCopyResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6694,7 +6642,6 @@ export const deserializeAws_queryEnableLoggingCommand = async (
   contents = deserializeAws_queryLoggingStatus(data.EnableLoggingResult, context);
   const response: EnableLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LoggingStatus",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6789,7 +6736,6 @@ export const deserializeAws_queryEnableSnapshotCopyCommand = async (
   contents = deserializeAws_queryEnableSnapshotCopyResult(data.EnableSnapshotCopyResult, context);
   const response: EnableSnapshotCopyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableSnapshotCopyResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6924,7 +6870,6 @@ export const deserializeAws_queryGetClusterCredentialsCommand = async (
   contents = deserializeAws_queryClusterCredentials(data.GetClusterCredentialsResult, context);
   const response: GetClusterCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterCredentials",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6990,7 +6935,6 @@ export const deserializeAws_queryGetReservedNodeExchangeOfferingsCommand = async
   );
   const response: GetReservedNodeExchangeOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReservedNodeExchangeOfferingsOutputMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7085,7 +7029,6 @@ export const deserializeAws_queryModifyClusterCommand = async (
   contents = deserializeAws_queryModifyClusterResult(data.ModifyClusterResult, context);
   const response: ModifyClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7284,7 +7227,6 @@ export const deserializeAws_queryModifyClusterDbRevisionCommand = async (
   contents = deserializeAws_queryModifyClusterDbRevisionResult(data.ModifyClusterDbRevisionResult, context);
   const response: ModifyClusterDbRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterDbRevisionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7355,7 +7297,6 @@ export const deserializeAws_queryModifyClusterIamRolesCommand = async (
   contents = deserializeAws_queryModifyClusterIamRolesResult(data.ModifyClusterIamRolesResult, context);
   const response: ModifyClusterIamRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterIamRolesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7418,7 +7359,6 @@ export const deserializeAws_queryModifyClusterMaintenanceCommand = async (
   contents = deserializeAws_queryModifyClusterMaintenanceResult(data.ModifyClusterMaintenanceResult, context);
   const response: ModifyClusterMaintenanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterMaintenanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7481,7 +7421,6 @@ export const deserializeAws_queryModifyClusterParameterGroupCommand = async (
   contents = deserializeAws_queryClusterParameterGroupNameMessage(data.ModifyClusterParameterGroupResult, context);
   const response: ModifyClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterParameterGroupNameMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7544,7 +7483,6 @@ export const deserializeAws_queryModifyClusterSnapshotCommand = async (
   contents = deserializeAws_queryModifyClusterSnapshotResult(data.ModifyClusterSnapshotResult, context);
   const response: ModifyClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7682,7 +7620,6 @@ export const deserializeAws_queryModifyClusterSubnetGroupCommand = async (
   contents = deserializeAws_queryModifyClusterSubnetGroupResult(data.ModifyClusterSubnetGroupResult, context);
   const response: ModifyClusterSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterSubnetGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7777,7 +7714,6 @@ export const deserializeAws_queryModifyEventSubscriptionCommand = async (
   contents = deserializeAws_queryModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
   const response: ModifyEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyEventSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7896,7 +7832,6 @@ export const deserializeAws_queryModifyScheduledActionCommand = async (
   contents = deserializeAws_queryScheduledAction(data.ModifyScheduledActionResult, context);
   const response: ModifyScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScheduledAction",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7986,7 +7921,6 @@ export const deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand = asyn
   );
   const response: ModifySnapshotCopyRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifySnapshotCopyRetentionPeriodResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8073,7 +8007,6 @@ export const deserializeAws_queryModifySnapshotScheduleCommand = async (
   contents = deserializeAws_querySnapshotSchedule(data.ModifySnapshotScheduleResult, context);
   const response: ModifySnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SnapshotSchedule",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8144,7 +8077,6 @@ export const deserializeAws_queryModifyUsageLimitCommand = async (
   contents = deserializeAws_queryUsageLimit(data.ModifyUsageLimitResult, context);
   const response: ModifyUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsageLimit",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8215,7 +8147,6 @@ export const deserializeAws_queryPauseClusterCommand = async (
   contents = deserializeAws_queryPauseClusterResult(data.PauseClusterResult, context);
   const response: PauseClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PauseClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8278,7 +8209,6 @@ export const deserializeAws_queryPurchaseReservedNodeOfferingCommand = async (
   contents = deserializeAws_queryPurchaseReservedNodeOfferingResult(data.PurchaseReservedNodeOfferingResult, context);
   const response: PurchaseReservedNodeOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseReservedNodeOfferingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8357,7 +8287,6 @@ export const deserializeAws_queryRebootClusterCommand = async (
   contents = deserializeAws_queryRebootClusterResult(data.RebootClusterResult, context);
   const response: RebootClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8420,7 +8349,6 @@ export const deserializeAws_queryResetClusterParameterGroupCommand = async (
   contents = deserializeAws_queryClusterParameterGroupNameMessage(data.ResetClusterParameterGroupResult, context);
   const response: ResetClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterParameterGroupNameMessage",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8483,7 +8411,6 @@ export const deserializeAws_queryResizeClusterCommand = async (
   contents = deserializeAws_queryResizeClusterResult(data.ResizeClusterResult, context);
   const response: ResizeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResizeClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8602,7 +8529,6 @@ export const deserializeAws_queryRestoreFromClusterSnapshotCommand = async (
   contents = deserializeAws_queryRestoreFromClusterSnapshotResult(data.RestoreFromClusterSnapshotResult, context);
   const response: RestoreFromClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreFromClusterSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8852,7 +8778,6 @@ export const deserializeAws_queryRestoreTableFromClusterSnapshotCommand = async 
   );
   const response: RestoreTableFromClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreTableFromClusterSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8955,7 +8880,6 @@ export const deserializeAws_queryResumeClusterCommand = async (
   contents = deserializeAws_queryResumeClusterResult(data.ResumeClusterResult, context);
   const response: ResumeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResumeClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9021,7 +8945,6 @@ export const deserializeAws_queryRevokeClusterSecurityGroupIngressCommand = asyn
   );
   const response: RevokeClusterSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeClusterSecurityGroupIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9092,7 +9015,6 @@ export const deserializeAws_queryRevokeSnapshotAccessCommand = async (
   contents = deserializeAws_queryRevokeSnapshotAccessResult(data.RevokeSnapshotAccessResult, context);
   const response: RevokeSnapshotAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeSnapshotAccessResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9163,7 +9085,6 @@ export const deserializeAws_queryRotateEncryptionKeyCommand = async (
   contents = deserializeAws_queryRotateEncryptionKeyResult(data.RotateEncryptionKeyResult, context);
   const response: RotateEncryptionKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RotateEncryptionKeyResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13276,7 +13197,6 @@ const deserializeAws_queryAcceptReservedNodeExchangeOutputMessage = (
   context: __SerdeContext
 ): AcceptReservedNodeExchangeOutputMessage => {
   let contents: any = {
-    __type: "AcceptReservedNodeExchangeOutputMessage",
     ExchangedReservedNode: undefined,
   };
   if (output["ExchangedReservedNode"] !== undefined) {
@@ -13290,7 +13210,6 @@ const deserializeAws_queryAccessToSnapshotDeniedFault = (
   context: __SerdeContext
 ): AccessToSnapshotDeniedFault => {
   let contents: any = {
-    __type: "AccessToSnapshotDeniedFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13301,7 +13220,6 @@ const deserializeAws_queryAccessToSnapshotDeniedFault = (
 
 const deserializeAws_queryAccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
   let contents: any = {
-    __type: "AccountAttribute",
     AttributeName: undefined,
     AttributeValues: undefined,
   };
@@ -13322,7 +13240,6 @@ const deserializeAws_queryAccountAttribute = (output: any, context: __SerdeConte
 
 const deserializeAws_queryAccountAttributeList = (output: any, context: __SerdeContext): AccountAttributeList => {
   let contents: any = {
-    __type: "AccountAttributeList",
     AccountAttributes: undefined,
   };
   if (output.AccountAttributes === "") {
@@ -13349,7 +13266,6 @@ const deserializeAws_queryAccountWithRestoreAccess = (
   context: __SerdeContext
 ): AccountWithRestoreAccess => {
   let contents: any = {
-    __type: "AccountWithRestoreAccess",
     AccountId: undefined,
     AccountAlias: undefined,
   };
@@ -13379,7 +13295,6 @@ const deserializeAws_queryAttributeValueList = (output: any, context: __SerdeCon
 
 const deserializeAws_queryAttributeValueTarget = (output: any, context: __SerdeContext): AttributeValueTarget => {
   let contents: any = {
-    __type: "AttributeValueTarget",
     AttributeValue: undefined,
   };
   if (output["AttributeValue"] !== undefined) {
@@ -13393,7 +13308,6 @@ const deserializeAws_queryAuthorizationAlreadyExistsFault = (
   context: __SerdeContext
 ): AuthorizationAlreadyExistsFault => {
   let contents: any = {
-    __type: "AuthorizationAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13407,7 +13321,6 @@ const deserializeAws_queryAuthorizationNotFoundFault = (
   context: __SerdeContext
 ): AuthorizationNotFoundFault => {
   let contents: any = {
-    __type: "AuthorizationNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13421,7 +13334,6 @@ const deserializeAws_queryAuthorizationQuotaExceededFault = (
   context: __SerdeContext
 ): AuthorizationQuotaExceededFault => {
   let contents: any = {
-    __type: "AuthorizationQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13435,7 +13347,6 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressResult = (
   context: __SerdeContext
 ): AuthorizeClusterSecurityGroupIngressResult => {
   let contents: any = {
-    __type: "AuthorizeClusterSecurityGroupIngressResult",
     ClusterSecurityGroup: undefined,
   };
   if (output["ClusterSecurityGroup"] !== undefined) {
@@ -13449,7 +13360,6 @@ const deserializeAws_queryAuthorizeSnapshotAccessResult = (
   context: __SerdeContext
 ): AuthorizeSnapshotAccessResult => {
   let contents: any = {
-    __type: "AuthorizeSnapshotAccessResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -13460,7 +13370,6 @@ const deserializeAws_queryAuthorizeSnapshotAccessResult = (
 
 const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   let contents: any = {
-    __type: "AvailabilityZone",
     Name: undefined,
     SupportedPlatforms: undefined,
   };
@@ -13488,7 +13397,6 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsResult = (
   context: __SerdeContext
 ): BatchDeleteClusterSnapshotsResult => {
   let contents: any = {
-    __type: "BatchDeleteClusterSnapshotsResult",
     Resources: undefined,
     Errors: undefined,
   };
@@ -13518,7 +13426,6 @@ const deserializeAws_queryBatchDeleteRequestSizeExceededFault = (
   context: __SerdeContext
 ): BatchDeleteRequestSizeExceededFault => {
   let contents: any = {
-    __type: "BatchDeleteRequestSizeExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13532,7 +13439,6 @@ const deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFault = (
   context: __SerdeContext
 ): BatchModifyClusterSnapshotsLimitExceededFault => {
   let contents: any = {
-    __type: "BatchModifyClusterSnapshotsLimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13546,7 +13452,6 @@ const deserializeAws_queryBatchModifyClusterSnapshotsOutputMessage = (
   context: __SerdeContext
 ): BatchModifyClusterSnapshotsOutputMessage => {
   let contents: any = {
-    __type: "BatchModifyClusterSnapshotsOutputMessage",
     Errors: undefined,
     Resources: undefined,
   };
@@ -13587,7 +13492,6 @@ const deserializeAws_queryBatchSnapshotOperationErrors = (
 
 const deserializeAws_queryBucketNotFoundFault = (output: any, context: __SerdeContext): BucketNotFoundFault => {
   let contents: any = {
-    __type: "BucketNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13598,7 +13502,6 @@ const deserializeAws_queryBucketNotFoundFault = (output: any, context: __SerdeCo
 
 const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Cluster => {
   let contents: any = {
-    __type: "Cluster",
     Endpoint: undefined,
     HsmStatus: undefined,
     PubliclyAccessible: undefined,
@@ -13852,7 +13755,6 @@ const deserializeAws_queryClusterAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterAlreadyExistsFault => {
   let contents: any = {
-    __type: "ClusterAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -13866,7 +13768,6 @@ const deserializeAws_queryClusterAssociatedToSchedule = (
   context: __SerdeContext
 ): ClusterAssociatedToSchedule => {
   let contents: any = {
-    __type: "ClusterAssociatedToSchedule",
     ScheduleAssociationState: undefined,
     ClusterIdentifier: undefined,
   };
@@ -13881,7 +13782,6 @@ const deserializeAws_queryClusterAssociatedToSchedule = (
 
 const deserializeAws_queryClusterCredentials = (output: any, context: __SerdeContext): ClusterCredentials => {
   let contents: any = {
-    __type: "ClusterCredentials",
     DbPassword: undefined,
     DbUser: undefined,
     Expiration: undefined,
@@ -13900,7 +13800,6 @@ const deserializeAws_queryClusterCredentials = (output: any, context: __SerdeCon
 
 const deserializeAws_queryClusterDbRevision = (output: any, context: __SerdeContext): ClusterDbRevision => {
   let contents: any = {
-    __type: "ClusterDbRevision",
     CurrentDatabaseRevision: undefined,
     DatabaseRevisionReleaseDate: undefined,
     RevisionTargets: undefined,
@@ -13936,7 +13835,6 @@ const deserializeAws_queryClusterDbRevisionsMessage = (
   context: __SerdeContext
 ): ClusterDbRevisionsMessage => {
   let contents: any = {
-    __type: "ClusterDbRevisionsMessage",
     ClusterDbRevisions: undefined,
     Marker: undefined,
   };
@@ -13957,7 +13855,6 @@ const deserializeAws_queryClusterDbRevisionsMessage = (
 
 const deserializeAws_queryClusterIamRole = (output: any, context: __SerdeContext): ClusterIamRole => {
   let contents: any = {
-    __type: "ClusterIamRole",
     ApplyStatus: undefined,
     IamRoleArn: undefined,
   };
@@ -13980,7 +13877,6 @@ const deserializeAws_queryClusterList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_queryClusterNode = (output: any, context: __SerdeContext): ClusterNode => {
   let contents: any = {
-    __type: "ClusterNode",
     PrivateIPAddress: undefined,
     NodeRole: undefined,
     PublicIPAddress: undefined,
@@ -14003,7 +13899,6 @@ const deserializeAws_queryClusterNodesList = (output: any, context: __SerdeConte
 
 const deserializeAws_queryClusterNotFoundFault = (output: any, context: __SerdeContext): ClusterNotFoundFault => {
   let contents: any = {
-    __type: "ClusterNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14017,7 +13912,6 @@ const deserializeAws_queryClusterOnLatestRevisionFault = (
   context: __SerdeContext
 ): ClusterOnLatestRevisionFault => {
   let contents: any = {
-    __type: "ClusterOnLatestRevisionFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14028,7 +13922,6 @@ const deserializeAws_queryClusterOnLatestRevisionFault = (
 
 const deserializeAws_queryClusterParameterGroup = (output: any, context: __SerdeContext): ClusterParameterGroup => {
   let contents: any = {
-    __type: "ClusterParameterGroup",
     Tags: undefined,
     Description: undefined,
     ParameterGroupFamily: undefined,
@@ -14057,7 +13950,6 @@ const deserializeAws_queryClusterParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterParameterGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "ClusterParameterGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14071,7 +13963,6 @@ const deserializeAws_queryClusterParameterGroupDetails = (
   context: __SerdeContext
 ): ClusterParameterGroupDetails => {
   let contents: any = {
-    __type: "ClusterParameterGroupDetails",
     Marker: undefined,
     Parameters: undefined,
   };
@@ -14095,7 +13986,6 @@ const deserializeAws_queryClusterParameterGroupNameMessage = (
   context: __SerdeContext
 ): ClusterParameterGroupNameMessage => {
   let contents: any = {
-    __type: "ClusterParameterGroupNameMessage",
     ParameterGroupStatus: undefined,
     ParameterGroupName: undefined,
   };
@@ -14113,7 +14003,6 @@ const deserializeAws_queryClusterParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): ClusterParameterGroupNotFoundFault => {
   let contents: any = {
-    __type: "ClusterParameterGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14127,7 +14016,6 @@ const deserializeAws_queryClusterParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): ClusterParameterGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "ClusterParameterGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14141,7 +14029,6 @@ const deserializeAws_queryClusterParameterGroupsMessage = (
   context: __SerdeContext
 ): ClusterParameterGroupsMessage => {
   let contents: any = {
-    __type: "ClusterParameterGroupsMessage",
     ParameterGroups: undefined,
     Marker: undefined,
   };
@@ -14165,7 +14052,6 @@ const deserializeAws_queryClusterParameterGroupStatus = (
   context: __SerdeContext
 ): ClusterParameterGroupStatus => {
   let contents: any = {
-    __type: "ClusterParameterGroupStatus",
     ParameterGroupName: undefined,
     ParameterApplyStatus: undefined,
     ClusterParameterStatusList: undefined,
@@ -14200,7 +14086,6 @@ const deserializeAws_queryClusterParameterGroupStatusList = (
 
 const deserializeAws_queryClusterParameterStatus = (output: any, context: __SerdeContext): ClusterParameterStatus => {
   let contents: any = {
-    __type: "ClusterParameterStatus",
     ParameterApplyStatus: undefined,
     ParameterApplyErrorDescription: undefined,
     ParameterName: undefined,
@@ -14229,7 +14114,6 @@ const deserializeAws_queryClusterQuotaExceededFault = (
   context: __SerdeContext
 ): ClusterQuotaExceededFault => {
   let contents: any = {
-    __type: "ClusterQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14240,7 +14124,6 @@ const deserializeAws_queryClusterQuotaExceededFault = (
 
 const deserializeAws_queryClusterSecurityGroup = (output: any, context: __SerdeContext): ClusterSecurityGroup => {
   let contents: any = {
-    __type: "ClusterSecurityGroup",
     Tags: undefined,
     ClusterSecurityGroupName: undefined,
     Description: undefined,
@@ -14282,7 +14165,6 @@ const deserializeAws_queryClusterSecurityGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterSecurityGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "ClusterSecurityGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14296,7 +14178,6 @@ const deserializeAws_queryClusterSecurityGroupMembership = (
   context: __SerdeContext
 ): ClusterSecurityGroupMembership => {
   let contents: any = {
-    __type: "ClusterSecurityGroupMembership",
     ClusterSecurityGroupName: undefined,
     Status: undefined,
   };
@@ -14321,7 +14202,6 @@ const deserializeAws_queryClusterSecurityGroupMessage = (
   context: __SerdeContext
 ): ClusterSecurityGroupMessage => {
   let contents: any = {
-    __type: "ClusterSecurityGroupMessage",
     Marker: undefined,
     ClusterSecurityGroups: undefined,
   };
@@ -14348,7 +14228,6 @@ const deserializeAws_queryClusterSecurityGroupNotFoundFault = (
   context: __SerdeContext
 ): ClusterSecurityGroupNotFoundFault => {
   let contents: any = {
-    __type: "ClusterSecurityGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14362,7 +14241,6 @@ const deserializeAws_queryClusterSecurityGroupQuotaExceededFault = (
   context: __SerdeContext
 ): ClusterSecurityGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "ClusterSecurityGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14377,7 +14255,6 @@ const deserializeAws_queryClusterSecurityGroups = (output: any, context: __Serde
 
 const deserializeAws_queryClustersMessage = (output: any, context: __SerdeContext): ClustersMessage => {
   let contents: any = {
-    __type: "ClustersMessage",
     Marker: undefined,
     Clusters: undefined,
   };
@@ -14398,7 +14275,6 @@ const deserializeAws_queryClusterSnapshotAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterSnapshotAlreadyExistsFault => {
   let contents: any = {
-    __type: "ClusterSnapshotAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14412,7 +14288,6 @@ const deserializeAws_queryClusterSnapshotCopyStatus = (
   context: __SerdeContext
 ): ClusterSnapshotCopyStatus => {
   let contents: any = {
-    __type: "ClusterSnapshotCopyStatus",
     RetentionPeriod: undefined,
     SnapshotCopyGrantName: undefined,
     ManualSnapshotRetentionPeriod: undefined,
@@ -14438,7 +14313,6 @@ const deserializeAws_queryClusterSnapshotNotFoundFault = (
   context: __SerdeContext
 ): ClusterSnapshotNotFoundFault => {
   let contents: any = {
-    __type: "ClusterSnapshotNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14452,7 +14326,6 @@ const deserializeAws_queryClusterSnapshotQuotaExceededFault = (
   context: __SerdeContext
 ): ClusterSnapshotQuotaExceededFault => {
   let contents: any = {
-    __type: "ClusterSnapshotQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14463,7 +14336,6 @@ const deserializeAws_queryClusterSnapshotQuotaExceededFault = (
 
 const deserializeAws_queryClusterSubnetGroup = (output: any, context: __SerdeContext): ClusterSubnetGroup => {
   let contents: any = {
-    __type: "ClusterSubnetGroup",
     Description: undefined,
     Subnets: undefined,
     ClusterSubnetGroupName: undefined,
@@ -14503,7 +14375,6 @@ const deserializeAws_queryClusterSubnetGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterSubnetGroupAlreadyExistsFault => {
   let contents: any = {
-    __type: "ClusterSubnetGroupAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14517,7 +14388,6 @@ const deserializeAws_queryClusterSubnetGroupMessage = (
   context: __SerdeContext
 ): ClusterSubnetGroupMessage => {
   let contents: any = {
-    __type: "ClusterSubnetGroupMessage",
     Marker: undefined,
     ClusterSubnetGroups: undefined,
   };
@@ -14544,7 +14414,6 @@ const deserializeAws_queryClusterSubnetGroupNotFoundFault = (
   context: __SerdeContext
 ): ClusterSubnetGroupNotFoundFault => {
   let contents: any = {
-    __type: "ClusterSubnetGroupNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14558,7 +14427,6 @@ const deserializeAws_queryClusterSubnetGroupQuotaExceededFault = (
   context: __SerdeContext
 ): ClusterSubnetGroupQuotaExceededFault => {
   let contents: any = {
-    __type: "ClusterSubnetGroupQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14576,7 +14444,6 @@ const deserializeAws_queryClusterSubnetQuotaExceededFault = (
   context: __SerdeContext
 ): ClusterSubnetQuotaExceededFault => {
   let contents: any = {
-    __type: "ClusterSubnetQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14587,7 +14454,6 @@ const deserializeAws_queryClusterSubnetQuotaExceededFault = (
 
 const deserializeAws_queryClusterVersion = (output: any, context: __SerdeContext): ClusterVersion => {
   let contents: any = {
-    __type: "ClusterVersion",
     Description: undefined,
     ClusterVersion: undefined,
     ClusterParameterGroupFamily: undefined,
@@ -14610,7 +14476,6 @@ const deserializeAws_queryClusterVersionList = (output: any, context: __SerdeCon
 
 const deserializeAws_queryClusterVersionsMessage = (output: any, context: __SerdeContext): ClusterVersionsMessage => {
   let contents: any = {
-    __type: "ClusterVersionsMessage",
     ClusterVersions: undefined,
     Marker: undefined,
   };
@@ -14634,7 +14499,6 @@ const deserializeAws_queryCopyClusterSnapshotResult = (
   context: __SerdeContext
 ): CopyClusterSnapshotResult => {
   let contents: any = {
-    __type: "CopyClusterSnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -14648,7 +14512,6 @@ const deserializeAws_queryCopyToRegionDisabledFault = (
   context: __SerdeContext
 ): CopyToRegionDisabledFault => {
   let contents: any = {
-    __type: "CopyToRegionDisabledFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14662,7 +14525,6 @@ const deserializeAws_queryCreateClusterParameterGroupResult = (
   context: __SerdeContext
 ): CreateClusterParameterGroupResult => {
   let contents: any = {
-    __type: "CreateClusterParameterGroupResult",
     ClusterParameterGroup: undefined,
   };
   if (output["ClusterParameterGroup"] !== undefined) {
@@ -14676,7 +14538,6 @@ const deserializeAws_queryCreateClusterParameterGroupResult = (
 
 const deserializeAws_queryCreateClusterResult = (output: any, context: __SerdeContext): CreateClusterResult => {
   let contents: any = {
-    __type: "CreateClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -14690,7 +14551,6 @@ const deserializeAws_queryCreateClusterSecurityGroupResult = (
   context: __SerdeContext
 ): CreateClusterSecurityGroupResult => {
   let contents: any = {
-    __type: "CreateClusterSecurityGroupResult",
     ClusterSecurityGroup: undefined,
   };
   if (output["ClusterSecurityGroup"] !== undefined) {
@@ -14704,7 +14564,6 @@ const deserializeAws_queryCreateClusterSnapshotResult = (
   context: __SerdeContext
 ): CreateClusterSnapshotResult => {
   let contents: any = {
-    __type: "CreateClusterSnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -14718,7 +14577,6 @@ const deserializeAws_queryCreateClusterSubnetGroupResult = (
   context: __SerdeContext
 ): CreateClusterSubnetGroupResult => {
   let contents: any = {
-    __type: "CreateClusterSubnetGroupResult",
     ClusterSubnetGroup: undefined,
   };
   if (output["ClusterSubnetGroup"] !== undefined) {
@@ -14732,7 +14590,6 @@ const deserializeAws_queryCreateEventSubscriptionResult = (
   context: __SerdeContext
 ): CreateEventSubscriptionResult => {
   let contents: any = {
-    __type: "CreateEventSubscriptionResult",
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -14746,7 +14603,6 @@ const deserializeAws_queryCreateHsmClientCertificateResult = (
   context: __SerdeContext
 ): CreateHsmClientCertificateResult => {
   let contents: any = {
-    __type: "CreateHsmClientCertificateResult",
     HsmClientCertificate: undefined,
   };
   if (output["HsmClientCertificate"] !== undefined) {
@@ -14760,7 +14616,6 @@ const deserializeAws_queryCreateHsmConfigurationResult = (
   context: __SerdeContext
 ): CreateHsmConfigurationResult => {
   let contents: any = {
-    __type: "CreateHsmConfigurationResult",
     HsmConfiguration: undefined,
   };
   if (output["HsmConfiguration"] !== undefined) {
@@ -14774,7 +14629,6 @@ const deserializeAws_queryCreateSnapshotCopyGrantResult = (
   context: __SerdeContext
 ): CreateSnapshotCopyGrantResult => {
   let contents: any = {
-    __type: "CreateSnapshotCopyGrantResult",
     SnapshotCopyGrant: undefined,
   };
   if (output["SnapshotCopyGrant"] !== undefined) {
@@ -14785,7 +14639,6 @@ const deserializeAws_queryCreateSnapshotCopyGrantResult = (
 
 const deserializeAws_queryCustomerStorageMessage = (output: any, context: __SerdeContext): CustomerStorageMessage => {
   let contents: any = {
-    __type: "CustomerStorageMessage",
     TotalProvisionedStorageInMegaBytes: undefined,
     TotalBackupSizeInMegaBytes: undefined,
   };
@@ -14800,7 +14653,6 @@ const deserializeAws_queryCustomerStorageMessage = (output: any, context: __Serd
 
 const deserializeAws_queryDataTransferProgress = (output: any, context: __SerdeContext): DataTransferProgress => {
   let contents: any = {
-    __type: "DataTransferProgress",
     EstimatedTimeToCompletionInSeconds: undefined,
     Status: undefined,
     ElapsedTimeInSeconds: undefined,
@@ -14834,7 +14686,6 @@ const deserializeAws_queryDefaultClusterParameters = (
   context: __SerdeContext
 ): DefaultClusterParameters => {
   let contents: any = {
-    __type: "DefaultClusterParameters",
     Parameters: undefined,
     Marker: undefined,
     ParameterGroupFamily: undefined,
@@ -14862,7 +14713,6 @@ const deserializeAws_queryDeferredMaintenanceWindow = (
   context: __SerdeContext
 ): DeferredMaintenanceWindow => {
   let contents: any = {
-    __type: "DeferredMaintenanceWindow",
     DeferMaintenanceIdentifier: undefined,
     DeferMaintenanceEndTime: undefined,
     DeferMaintenanceStartTime: undefined,
@@ -14888,7 +14738,6 @@ const deserializeAws_queryDeferredMaintenanceWindowsList = (
 
 const deserializeAws_queryDeleteClusterResult = (output: any, context: __SerdeContext): DeleteClusterResult => {
   let contents: any = {
-    __type: "DeleteClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -14902,7 +14751,6 @@ const deserializeAws_queryDeleteClusterSnapshotResult = (
   context: __SerdeContext
 ): DeleteClusterSnapshotResult => {
   let contents: any = {
-    __type: "DeleteClusterSnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -14916,7 +14764,6 @@ const deserializeAws_queryDependentServiceRequestThrottlingFault = (
   context: __SerdeContext
 ): DependentServiceRequestThrottlingFault => {
   let contents: any = {
-    __type: "DependentServiceRequestThrottlingFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14930,7 +14777,6 @@ const deserializeAws_queryDependentServiceUnavailableFault = (
   context: __SerdeContext
 ): DependentServiceUnavailableFault => {
   let contents: any = {
-    __type: "DependentServiceUnavailableFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -14944,7 +14790,6 @@ const deserializeAws_queryDescribeDefaultClusterParametersResult = (
   context: __SerdeContext
 ): DescribeDefaultClusterParametersResult => {
   let contents: any = {
-    __type: "DescribeDefaultClusterParametersResult",
     DefaultClusterParameters: undefined,
   };
   if (output["DefaultClusterParameters"] !== undefined) {
@@ -14961,7 +14806,6 @@ const deserializeAws_queryDescribeSnapshotSchedulesOutputMessage = (
   context: __SerdeContext
 ): DescribeSnapshotSchedulesOutputMessage => {
   let contents: any = {
-    __type: "DescribeSnapshotSchedulesOutputMessage",
     SnapshotSchedules: undefined,
     Marker: undefined,
   };
@@ -14985,7 +14829,6 @@ const deserializeAws_queryDisableSnapshotCopyResult = (
   context: __SerdeContext
 ): DisableSnapshotCopyResult => {
   let contents: any = {
-    __type: "DisableSnapshotCopyResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -14996,7 +14839,6 @@ const deserializeAws_queryDisableSnapshotCopyResult = (
 
 const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
   let contents: any = {
-    __type: "EC2SecurityGroup",
     EC2SecurityGroupOwnerId: undefined,
     EC2SecurityGroupName: undefined,
     Tags: undefined,
@@ -15026,7 +14868,6 @@ const deserializeAws_queryEC2SecurityGroupList = (output: any, context: __SerdeC
 
 const deserializeAws_queryElasticIpStatus = (output: any, context: __SerdeContext): ElasticIpStatus => {
   let contents: any = {
-    __type: "ElasticIpStatus",
     Status: undefined,
     ElasticIp: undefined,
   };
@@ -15048,7 +14889,6 @@ const deserializeAws_queryEnableSnapshotCopyResult = (
   context: __SerdeContext
 ): EnableSnapshotCopyResult => {
   let contents: any = {
-    __type: "EnableSnapshotCopyResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -15059,7 +14899,6 @@ const deserializeAws_queryEnableSnapshotCopyResult = (
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
   let contents: any = {
-    __type: "Endpoint",
     Address: undefined,
     Port: undefined,
   };
@@ -15074,7 +14913,6 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
 
 const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event => {
   let contents: any = {
-    __type: "Event",
     Date: undefined,
     SourceType: undefined,
     Severity: undefined,
@@ -15119,7 +14957,6 @@ const deserializeAws_queryEventCategoriesList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryEventCategoriesMap = (output: any, context: __SerdeContext): EventCategoriesMap => {
   let contents: any = {
-    __type: "EventCategoriesMap",
     SourceType: undefined,
     Events: undefined,
   };
@@ -15144,7 +14981,6 @@ const deserializeAws_queryEventCategoriesMapList = (output: any, context: __Serd
 
 const deserializeAws_queryEventCategoriesMessage = (output: any, context: __SerdeContext): EventCategoriesMessage => {
   let contents: any = {
-    __type: "EventCategoriesMessage",
     EventCategoriesMapList: undefined,
   };
   if (output.EventCategoriesMapList === "") {
@@ -15164,7 +15000,6 @@ const deserializeAws_queryEventCategoriesMessage = (output: any, context: __Serd
 
 const deserializeAws_queryEventInfoMap = (output: any, context: __SerdeContext): EventInfoMap => {
   let contents: any = {
-    __type: "EventInfoMap",
     Severity: undefined,
     EventCategories: undefined,
     EventId: undefined,
@@ -15201,7 +15036,6 @@ const deserializeAws_queryEventList = (output: any, context: __SerdeContext): Ev
 
 const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
   let contents: any = {
-    __type: "EventsMessage",
     Events: undefined,
     Marker: undefined,
   };
@@ -15219,7 +15053,6 @@ const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryEventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
   let contents: any = {
-    __type: "EventSubscription",
     SourceIdsList: undefined,
     Status: undefined,
     EventCategoriesList: undefined,
@@ -15288,7 +15121,6 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
   context: __SerdeContext
 ): EventSubscriptionQuotaExceededFault => {
   let contents: any = {
-    __type: "EventSubscriptionQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15306,7 +15138,6 @@ const deserializeAws_queryEventSubscriptionsMessage = (
   context: __SerdeContext
 ): EventSubscriptionsMessage => {
   let contents: any = {
-    __type: "EventSubscriptionsMessage",
     Marker: undefined,
     EventSubscriptionsList: undefined,
   };
@@ -15333,7 +15164,6 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsOutputMessage = (
   context: __SerdeContext
 ): GetReservedNodeExchangeOfferingsOutputMessage => {
   let contents: any = {
-    __type: "GetReservedNodeExchangeOfferingsOutputMessage",
     Marker: undefined,
     ReservedNodeOfferings: undefined,
   };
@@ -15357,7 +15187,6 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsOutputMessage = (
 
 const deserializeAws_queryHsmClientCertificate = (output: any, context: __SerdeContext): HsmClientCertificate => {
   let contents: any = {
-    __type: "HsmClientCertificate",
     Tags: undefined,
     HsmClientCertificateIdentifier: undefined,
     HsmClientCertificatePublicKey: undefined,
@@ -15382,7 +15211,6 @@ const deserializeAws_queryHsmClientCertificateAlreadyExistsFault = (
   context: __SerdeContext
 ): HsmClientCertificateAlreadyExistsFault => {
   let contents: any = {
-    __type: "HsmClientCertificateAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15400,7 +15228,6 @@ const deserializeAws_queryHsmClientCertificateMessage = (
   context: __SerdeContext
 ): HsmClientCertificateMessage => {
   let contents: any = {
-    __type: "HsmClientCertificateMessage",
     Marker: undefined,
     HsmClientCertificates: undefined,
   };
@@ -15427,7 +15254,6 @@ const deserializeAws_queryHsmClientCertificateNotFoundFault = (
   context: __SerdeContext
 ): HsmClientCertificateNotFoundFault => {
   let contents: any = {
-    __type: "HsmClientCertificateNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15441,7 +15267,6 @@ const deserializeAws_queryHsmClientCertificateQuotaExceededFault = (
   context: __SerdeContext
 ): HsmClientCertificateQuotaExceededFault => {
   let contents: any = {
-    __type: "HsmClientCertificateQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15452,7 +15277,6 @@ const deserializeAws_queryHsmClientCertificateQuotaExceededFault = (
 
 const deserializeAws_queryHsmConfiguration = (output: any, context: __SerdeContext): HsmConfiguration => {
   let contents: any = {
-    __type: "HsmConfiguration",
     Description: undefined,
     Tags: undefined,
     HsmPartitionName: undefined,
@@ -15485,7 +15309,6 @@ const deserializeAws_queryHsmConfigurationAlreadyExistsFault = (
   context: __SerdeContext
 ): HsmConfigurationAlreadyExistsFault => {
   let contents: any = {
-    __type: "HsmConfigurationAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15500,7 +15323,6 @@ const deserializeAws_queryHsmConfigurationList = (output: any, context: __SerdeC
 
 const deserializeAws_queryHsmConfigurationMessage = (output: any, context: __SerdeContext): HsmConfigurationMessage => {
   let contents: any = {
-    __type: "HsmConfigurationMessage",
     HsmConfigurations: undefined,
     Marker: undefined,
   };
@@ -15524,7 +15346,6 @@ const deserializeAws_queryHsmConfigurationNotFoundFault = (
   context: __SerdeContext
 ): HsmConfigurationNotFoundFault => {
   let contents: any = {
-    __type: "HsmConfigurationNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15538,7 +15359,6 @@ const deserializeAws_queryHsmConfigurationQuotaExceededFault = (
   context: __SerdeContext
 ): HsmConfigurationQuotaExceededFault => {
   let contents: any = {
-    __type: "HsmConfigurationQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15549,7 +15369,6 @@ const deserializeAws_queryHsmConfigurationQuotaExceededFault = (
 
 const deserializeAws_queryHsmStatus = (output: any, context: __SerdeContext): HsmStatus => {
   let contents: any = {
-    __type: "HsmStatus",
     Status: undefined,
     HsmClientCertificateIdentifier: undefined,
     HsmConfigurationIdentifier: undefined,
@@ -15583,7 +15402,6 @@ const deserializeAws_queryIncompatibleOrderableOptions = (
   context: __SerdeContext
 ): IncompatibleOrderableOptions => {
   let contents: any = {
-    __type: "IncompatibleOrderableOptions",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15597,7 +15415,6 @@ const deserializeAws_queryInProgressTableRestoreQuotaExceededFault = (
   context: __SerdeContext
 ): InProgressTableRestoreQuotaExceededFault => {
   let contents: any = {
-    __type: "InProgressTableRestoreQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15611,7 +15428,6 @@ const deserializeAws_queryInsufficientClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientClusterCapacityFault => {
   let contents: any = {
-    __type: "InsufficientClusterCapacityFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15625,7 +15441,6 @@ const deserializeAws_queryInsufficientS3BucketPolicyFault = (
   context: __SerdeContext
 ): InsufficientS3BucketPolicyFault => {
   let contents: any = {
-    __type: "InsufficientS3BucketPolicyFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15639,7 +15454,6 @@ const deserializeAws_queryInvalidClusterParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidClusterParameterGroupStateFault => {
   let contents: any = {
-    __type: "InvalidClusterParameterGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15653,7 +15467,6 @@ const deserializeAws_queryInvalidClusterSecurityGroupStateFault = (
   context: __SerdeContext
 ): InvalidClusterSecurityGroupStateFault => {
   let contents: any = {
-    __type: "InvalidClusterSecurityGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15667,7 +15480,6 @@ const deserializeAws_queryInvalidClusterSnapshotScheduleStateFault = (
   context: __SerdeContext
 ): InvalidClusterSnapshotScheduleStateFault => {
   let contents: any = {
-    __type: "InvalidClusterSnapshotScheduleStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15681,7 +15493,6 @@ const deserializeAws_queryInvalidClusterSnapshotStateFault = (
   context: __SerdeContext
 ): InvalidClusterSnapshotStateFault => {
   let contents: any = {
-    __type: "InvalidClusterSnapshotStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15695,7 +15506,6 @@ const deserializeAws_queryInvalidClusterStateFault = (
   context: __SerdeContext
 ): InvalidClusterStateFault => {
   let contents: any = {
-    __type: "InvalidClusterStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15709,7 +15519,6 @@ const deserializeAws_queryInvalidClusterSubnetGroupStateFault = (
   context: __SerdeContext
 ): InvalidClusterSubnetGroupStateFault => {
   let contents: any = {
-    __type: "InvalidClusterSubnetGroupStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15723,7 +15532,6 @@ const deserializeAws_queryInvalidClusterSubnetStateFault = (
   context: __SerdeContext
 ): InvalidClusterSubnetStateFault => {
   let contents: any = {
-    __type: "InvalidClusterSubnetStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15737,7 +15545,6 @@ const deserializeAws_queryInvalidClusterTrackFault = (
   context: __SerdeContext
 ): InvalidClusterTrackFault => {
   let contents: any = {
-    __type: "InvalidClusterTrackFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15748,7 +15555,6 @@ const deserializeAws_queryInvalidClusterTrackFault = (
 
 const deserializeAws_queryInvalidElasticIpFault = (output: any, context: __SerdeContext): InvalidElasticIpFault => {
   let contents: any = {
-    __type: "InvalidElasticIpFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15762,7 +15568,6 @@ const deserializeAws_queryInvalidHsmClientCertificateStateFault = (
   context: __SerdeContext
 ): InvalidHsmClientCertificateStateFault => {
   let contents: any = {
-    __type: "InvalidHsmClientCertificateStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15776,7 +15581,6 @@ const deserializeAws_queryInvalidHsmConfigurationStateFault = (
   context: __SerdeContext
 ): InvalidHsmConfigurationStateFault => {
   let contents: any = {
-    __type: "InvalidHsmConfigurationStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15790,7 +15594,6 @@ const deserializeAws_queryInvalidReservedNodeStateFault = (
   context: __SerdeContext
 ): InvalidReservedNodeStateFault => {
   let contents: any = {
-    __type: "InvalidReservedNodeStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15801,7 +15604,6 @@ const deserializeAws_queryInvalidReservedNodeStateFault = (
 
 const deserializeAws_queryInvalidRestoreFault = (output: any, context: __SerdeContext): InvalidRestoreFault => {
   let contents: any = {
-    __type: "InvalidRestoreFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15815,7 +15617,6 @@ const deserializeAws_queryInvalidRetentionPeriodFault = (
   context: __SerdeContext
 ): InvalidRetentionPeriodFault => {
   let contents: any = {
-    __type: "InvalidRetentionPeriodFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15829,7 +15630,6 @@ const deserializeAws_queryInvalidS3BucketNameFault = (
   context: __SerdeContext
 ): InvalidS3BucketNameFault => {
   let contents: any = {
-    __type: "InvalidS3BucketNameFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15840,7 +15640,6 @@ const deserializeAws_queryInvalidS3BucketNameFault = (
 
 const deserializeAws_queryInvalidS3KeyPrefixFault = (output: any, context: __SerdeContext): InvalidS3KeyPrefixFault => {
   let contents: any = {
-    __type: "InvalidS3KeyPrefixFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15854,7 +15653,6 @@ const deserializeAws_queryInvalidScheduledActionFault = (
   context: __SerdeContext
 ): InvalidScheduledActionFault => {
   let contents: any = {
-    __type: "InvalidScheduledActionFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15865,7 +15663,6 @@ const deserializeAws_queryInvalidScheduledActionFault = (
 
 const deserializeAws_queryInvalidScheduleFault = (output: any, context: __SerdeContext): InvalidScheduleFault => {
   let contents: any = {
-    __type: "InvalidScheduleFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15879,7 +15676,6 @@ const deserializeAws_queryInvalidSnapshotCopyGrantStateFault = (
   context: __SerdeContext
 ): InvalidSnapshotCopyGrantStateFault => {
   let contents: any = {
-    __type: "InvalidSnapshotCopyGrantStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15890,7 +15686,6 @@ const deserializeAws_queryInvalidSnapshotCopyGrantStateFault = (
 
 const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   let contents: any = {
-    __type: "InvalidSubnet",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15904,7 +15699,6 @@ const deserializeAws_queryInvalidSubscriptionStateFault = (
   context: __SerdeContext
 ): InvalidSubscriptionStateFault => {
   let contents: any = {
-    __type: "InvalidSubscriptionStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15918,7 +15712,6 @@ const deserializeAws_queryInvalidTableRestoreArgumentFault = (
   context: __SerdeContext
 ): InvalidTableRestoreArgumentFault => {
   let contents: any = {
-    __type: "InvalidTableRestoreArgumentFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15929,7 +15722,6 @@ const deserializeAws_queryInvalidTableRestoreArgumentFault = (
 
 const deserializeAws_queryInvalidTagFault = (output: any, context: __SerdeContext): InvalidTagFault => {
   let contents: any = {
-    __type: "InvalidTagFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15940,7 +15732,6 @@ const deserializeAws_queryInvalidTagFault = (output: any, context: __SerdeContex
 
 const deserializeAws_queryInvalidUsageLimitFault = (output: any, context: __SerdeContext): InvalidUsageLimitFault => {
   let contents: any = {
-    __type: "InvalidUsageLimitFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15954,7 +15745,6 @@ const deserializeAws_queryInvalidVPCNetworkStateFault = (
   context: __SerdeContext
 ): InvalidVPCNetworkStateFault => {
   let contents: any = {
-    __type: "InvalidVPCNetworkStateFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15965,7 +15755,6 @@ const deserializeAws_queryInvalidVPCNetworkStateFault = (
 
 const deserializeAws_queryIPRange = (output: any, context: __SerdeContext): IPRange => {
   let contents: any = {
-    __type: "IPRange",
     Tags: undefined,
     CIDRIP: undefined,
     Status: undefined,
@@ -15991,7 +15780,6 @@ const deserializeAws_queryIPRangeList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
   let contents: any = {
-    __type: "LimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16002,7 +15790,6 @@ const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeCon
 
 const deserializeAws_queryLoggingStatus = (output: any, context: __SerdeContext): LoggingStatus => {
   let contents: any = {
-    __type: "LoggingStatus",
     S3KeyPrefix: undefined,
     LastFailureMessage: undefined,
     LoggingEnabled: undefined,
@@ -16033,7 +15820,6 @@ const deserializeAws_queryLoggingStatus = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryMaintenanceTrack = (output: any, context: __SerdeContext): MaintenanceTrack => {
   let contents: any = {
-    __type: "MaintenanceTrack",
     MaintenanceTrackName: undefined,
     UpdateTargets: undefined,
     DatabaseVersion: undefined,
@@ -16061,7 +15847,6 @@ const deserializeAws_queryModifyClusterDbRevisionResult = (
   context: __SerdeContext
 ): ModifyClusterDbRevisionResult => {
   let contents: any = {
-    __type: "ModifyClusterDbRevisionResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16075,7 +15860,6 @@ const deserializeAws_queryModifyClusterIamRolesResult = (
   context: __SerdeContext
 ): ModifyClusterIamRolesResult => {
   let contents: any = {
-    __type: "ModifyClusterIamRolesResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16089,7 +15873,6 @@ const deserializeAws_queryModifyClusterMaintenanceResult = (
   context: __SerdeContext
 ): ModifyClusterMaintenanceResult => {
   let contents: any = {
-    __type: "ModifyClusterMaintenanceResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16100,7 +15883,6 @@ const deserializeAws_queryModifyClusterMaintenanceResult = (
 
 const deserializeAws_queryModifyClusterResult = (output: any, context: __SerdeContext): ModifyClusterResult => {
   let contents: any = {
-    __type: "ModifyClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16114,7 +15896,6 @@ const deserializeAws_queryModifyClusterSnapshotResult = (
   context: __SerdeContext
 ): ModifyClusterSnapshotResult => {
   let contents: any = {
-    __type: "ModifyClusterSnapshotResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -16128,7 +15909,6 @@ const deserializeAws_queryModifyClusterSubnetGroupResult = (
   context: __SerdeContext
 ): ModifyClusterSubnetGroupResult => {
   let contents: any = {
-    __type: "ModifyClusterSubnetGroupResult",
     ClusterSubnetGroup: undefined,
   };
   if (output["ClusterSubnetGroup"] !== undefined) {
@@ -16142,7 +15922,6 @@ const deserializeAws_queryModifyEventSubscriptionResult = (
   context: __SerdeContext
 ): ModifyEventSubscriptionResult => {
   let contents: any = {
-    __type: "ModifyEventSubscriptionResult",
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -16156,7 +15935,6 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodResult = (
   context: __SerdeContext
 ): ModifySnapshotCopyRetentionPeriodResult => {
   let contents: any = {
-    __type: "ModifySnapshotCopyRetentionPeriodResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16167,7 +15945,6 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodResult = (
 
 const deserializeAws_queryNodeConfigurationOption = (output: any, context: __SerdeContext): NodeConfigurationOption => {
   let contents: any = {
-    __type: "NodeConfigurationOption",
     EstimatedDiskUtilizationPercent: undefined,
     Mode: undefined,
     NodeType: undefined,
@@ -16200,7 +15977,6 @@ const deserializeAws_queryNodeConfigurationOptionsMessage = (
   context: __SerdeContext
 ): NodeConfigurationOptionsMessage => {
   let contents: any = {
-    __type: "NodeConfigurationOptionsMessage",
     Marker: undefined,
     NodeConfigurationOptionList: undefined,
   };
@@ -16227,7 +16003,6 @@ const deserializeAws_queryNumberOfNodesPerClusterLimitExceededFault = (
   context: __SerdeContext
 ): NumberOfNodesPerClusterLimitExceededFault => {
   let contents: any = {
-    __type: "NumberOfNodesPerClusterLimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16241,7 +16016,6 @@ const deserializeAws_queryNumberOfNodesQuotaExceededFault = (
   context: __SerdeContext
 ): NumberOfNodesQuotaExceededFault => {
   let contents: any = {
-    __type: "NumberOfNodesQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16252,7 +16026,6 @@ const deserializeAws_queryNumberOfNodesQuotaExceededFault = (
 
 const deserializeAws_queryOrderableClusterOption = (output: any, context: __SerdeContext): OrderableClusterOption => {
   let contents: any = {
-    __type: "OrderableClusterOption",
     ClusterType: undefined,
     NodeType: undefined,
     AvailabilityZones: undefined,
@@ -16291,7 +16064,6 @@ const deserializeAws_queryOrderableClusterOptionsMessage = (
   context: __SerdeContext
 ): OrderableClusterOptionsMessage => {
   let contents: any = {
-    __type: "OrderableClusterOptionsMessage",
     OrderableClusterOptions: undefined,
     Marker: undefined,
   };
@@ -16315,7 +16087,6 @@ const deserializeAws_queryOrderableClusterOptionsMessage = (
 
 const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
   let contents: any = {
-    __type: "Parameter",
     DataType: undefined,
     AllowedValues: undefined,
     Source: undefined,
@@ -16366,7 +16137,6 @@ const deserializeAws_queryParametersList = (output: any, context: __SerdeContext
 
 const deserializeAws_queryPauseClusterMessage = (output: any, context: __SerdeContext): PauseClusterMessage => {
   let contents: any = {
-    __type: "PauseClusterMessage",
     ClusterIdentifier: undefined,
   };
   if (output["ClusterIdentifier"] !== undefined) {
@@ -16377,7 +16147,6 @@ const deserializeAws_queryPauseClusterMessage = (output: any, context: __SerdeCo
 
 const deserializeAws_queryPauseClusterResult = (output: any, context: __SerdeContext): PauseClusterResult => {
   let contents: any = {
-    __type: "PauseClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16392,7 +16161,6 @@ const deserializeAws_queryPendingActionsList = (output: any, context: __SerdeCon
 
 const deserializeAws_queryPendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
   let contents: any = {
-    __type: "PendingModifiedValues",
     ClusterVersion: undefined,
     PubliclyAccessible: undefined,
     ClusterIdentifier: undefined,
@@ -16446,7 +16214,6 @@ const deserializeAws_queryPurchaseReservedNodeOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedNodeOfferingResult => {
   let contents: any = {
-    __type: "PurchaseReservedNodeOfferingResult",
     ReservedNode: undefined,
   };
   if (output["ReservedNode"] !== undefined) {
@@ -16457,7 +16224,6 @@ const deserializeAws_queryPurchaseReservedNodeOfferingResult = (
 
 const deserializeAws_queryRebootClusterResult = (output: any, context: __SerdeContext): RebootClusterResult => {
   let contents: any = {
-    __type: "RebootClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16468,7 +16234,6 @@ const deserializeAws_queryRebootClusterResult = (output: any, context: __SerdeCo
 
 const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   let contents: any = {
-    __type: "RecurringCharge",
     RecurringChargeAmount: undefined,
     RecurringChargeFrequency: undefined,
   };
@@ -16487,7 +16252,6 @@ const deserializeAws_queryRecurringChargeList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryReservedNode = (output: any, context: __SerdeContext): ReservedNode => {
   let contents: any = {
-    __type: "ReservedNode",
     RecurringCharges: undefined,
     ReservedNodeOfferingType: undefined,
     FixedPrice: undefined,
@@ -16555,7 +16319,6 @@ const deserializeAws_queryReservedNodeAlreadyExistsFault = (
   context: __SerdeContext
 ): ReservedNodeAlreadyExistsFault => {
   let contents: any = {
-    __type: "ReservedNodeAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16569,7 +16332,6 @@ const deserializeAws_queryReservedNodeAlreadyMigratedFault = (
   context: __SerdeContext
 ): ReservedNodeAlreadyMigratedFault => {
   let contents: any = {
-    __type: "ReservedNodeAlreadyMigratedFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16587,7 +16349,6 @@ const deserializeAws_queryReservedNodeNotFoundFault = (
   context: __SerdeContext
 ): ReservedNodeNotFoundFault => {
   let contents: any = {
-    __type: "ReservedNodeNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16598,7 +16359,6 @@ const deserializeAws_queryReservedNodeNotFoundFault = (
 
 const deserializeAws_queryReservedNodeOffering = (output: any, context: __SerdeContext): ReservedNodeOffering => {
   let contents: any = {
-    __type: "ReservedNodeOffering",
     ReservedNodeOfferingType: undefined,
     CurrencyCode: undefined,
     OfferingType: undefined,
@@ -16654,7 +16414,6 @@ const deserializeAws_queryReservedNodeOfferingNotFoundFault = (
   context: __SerdeContext
 ): ReservedNodeOfferingNotFoundFault => {
   let contents: any = {
-    __type: "ReservedNodeOfferingNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16668,7 +16427,6 @@ const deserializeAws_queryReservedNodeOfferingsMessage = (
   context: __SerdeContext
 ): ReservedNodeOfferingsMessage => {
   let contents: any = {
-    __type: "ReservedNodeOfferingsMessage",
     ReservedNodeOfferings: undefined,
     Marker: undefined,
   };
@@ -16695,7 +16453,6 @@ const deserializeAws_queryReservedNodeQuotaExceededFault = (
   context: __SerdeContext
 ): ReservedNodeQuotaExceededFault => {
   let contents: any = {
-    __type: "ReservedNodeQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16706,7 +16463,6 @@ const deserializeAws_queryReservedNodeQuotaExceededFault = (
 
 const deserializeAws_queryReservedNodesMessage = (output: any, context: __SerdeContext): ReservedNodesMessage => {
   let contents: any = {
-    __type: "ReservedNodesMessage",
     ReservedNodes: undefined,
     Marker: undefined,
   };
@@ -16727,7 +16483,6 @@ const deserializeAws_queryReservedNodesMessage = (output: any, context: __SerdeC
 
 const deserializeAws_queryResizeClusterMessage = (output: any, context: __SerdeContext): ResizeClusterMessage => {
   let contents: any = {
-    __type: "ResizeClusterMessage",
     NodeType: undefined,
     Classic: undefined,
     NumberOfNodes: undefined,
@@ -16754,7 +16509,6 @@ const deserializeAws_queryResizeClusterMessage = (output: any, context: __SerdeC
 
 const deserializeAws_queryResizeClusterResult = (output: any, context: __SerdeContext): ResizeClusterResult => {
   let contents: any = {
-    __type: "ResizeClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16765,7 +16519,6 @@ const deserializeAws_queryResizeClusterResult = (output: any, context: __SerdeCo
 
 const deserializeAws_queryResizeInfo = (output: any, context: __SerdeContext): ResizeInfo => {
   let contents: any = {
-    __type: "ResizeInfo",
     AllowCancelResize: undefined,
     ResizeType: undefined,
   };
@@ -16780,7 +16533,6 @@ const deserializeAws_queryResizeInfo = (output: any, context: __SerdeContext): R
 
 const deserializeAws_queryResizeNotFoundFault = (output: any, context: __SerdeContext): ResizeNotFoundFault => {
   let contents: any = {
-    __type: "ResizeNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16791,7 +16543,6 @@ const deserializeAws_queryResizeNotFoundFault = (output: any, context: __SerdeCo
 
 const deserializeAws_queryResizeProgressMessage = (output: any, context: __SerdeContext): ResizeProgressMessage => {
   let contents: any = {
-    __type: "ResizeProgressMessage",
     ResizeType: undefined,
     TargetNumberOfNodes: undefined,
     AvgResizeRateInMegaBytesPerSecond: undefined,
@@ -16880,7 +16631,6 @@ const deserializeAws_queryResizeProgressMessage = (output: any, context: __Serde
 
 const deserializeAws_queryResourceNotFoundFault = (output: any, context: __SerdeContext): ResourceNotFoundFault => {
   let contents: any = {
-    __type: "ResourceNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16898,7 +16648,6 @@ const deserializeAws_queryRestoreFromClusterSnapshotResult = (
   context: __SerdeContext
 ): RestoreFromClusterSnapshotResult => {
   let contents: any = {
-    __type: "RestoreFromClusterSnapshotResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16909,7 +16658,6 @@ const deserializeAws_queryRestoreFromClusterSnapshotResult = (
 
 const deserializeAws_queryRestoreStatus = (output: any, context: __SerdeContext): RestoreStatus => {
   let contents: any = {
-    __type: "RestoreStatus",
     SnapshotSizeInMegaBytes: undefined,
     ProgressInMegaBytes: undefined,
     Status: undefined,
@@ -16943,7 +16691,6 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotResult = (
   context: __SerdeContext
 ): RestoreTableFromClusterSnapshotResult => {
   let contents: any = {
-    __type: "RestoreTableFromClusterSnapshotResult",
     TableRestoreStatus: undefined,
   };
   if (output["TableRestoreStatus"] !== undefined) {
@@ -16954,7 +16701,6 @@ const deserializeAws_queryRestoreTableFromClusterSnapshotResult = (
 
 const deserializeAws_queryResumeClusterMessage = (output: any, context: __SerdeContext): ResumeClusterMessage => {
   let contents: any = {
-    __type: "ResumeClusterMessage",
     ClusterIdentifier: undefined,
   };
   if (output["ClusterIdentifier"] !== undefined) {
@@ -16965,7 +16711,6 @@ const deserializeAws_queryResumeClusterMessage = (output: any, context: __SerdeC
 
 const deserializeAws_queryResumeClusterResult = (output: any, context: __SerdeContext): ResumeClusterResult => {
   let contents: any = {
-    __type: "ResumeClusterResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -16976,7 +16721,6 @@ const deserializeAws_queryResumeClusterResult = (output: any, context: __SerdeCo
 
 const deserializeAws_queryRevisionTarget = (output: any, context: __SerdeContext): RevisionTarget => {
   let contents: any = {
-    __type: "RevisionTarget",
     DatabaseRevisionReleaseDate: undefined,
     Description: undefined,
     DatabaseRevision: undefined,
@@ -17002,7 +16746,6 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressResult = (
   context: __SerdeContext
 ): RevokeClusterSecurityGroupIngressResult => {
   let contents: any = {
-    __type: "RevokeClusterSecurityGroupIngressResult",
     ClusterSecurityGroup: undefined,
   };
   if (output["ClusterSecurityGroup"] !== undefined) {
@@ -17016,7 +16759,6 @@ const deserializeAws_queryRevokeSnapshotAccessResult = (
   context: __SerdeContext
 ): RevokeSnapshotAccessResult => {
   let contents: any = {
-    __type: "RevokeSnapshotAccessResult",
     Snapshot: undefined,
   };
   if (output["Snapshot"] !== undefined) {
@@ -17030,7 +16772,6 @@ const deserializeAws_queryRotateEncryptionKeyResult = (
   context: __SerdeContext
 ): RotateEncryptionKeyResult => {
   let contents: any = {
-    __type: "RotateEncryptionKeyResult",
     Cluster: undefined,
   };
   if (output["Cluster"] !== undefined) {
@@ -17041,7 +16782,6 @@ const deserializeAws_queryRotateEncryptionKeyResult = (
 
 const deserializeAws_queryScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
   let contents: any = {
-    __type: "ScheduledAction",
     NextInvocations: undefined,
     ScheduledActionDescription: undefined,
     ScheduledActionName: undefined,
@@ -17093,7 +16833,6 @@ const deserializeAws_queryScheduledActionAlreadyExistsFault = (
   context: __SerdeContext
 ): ScheduledActionAlreadyExistsFault => {
   let contents: any = {
-    __type: "ScheduledActionAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17111,7 +16850,6 @@ const deserializeAws_queryScheduledActionNotFoundFault = (
   context: __SerdeContext
 ): ScheduledActionNotFoundFault => {
   let contents: any = {
-    __type: "ScheduledActionNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17125,7 +16863,6 @@ const deserializeAws_queryScheduledActionQuotaExceededFault = (
   context: __SerdeContext
 ): ScheduledActionQuotaExceededFault => {
   let contents: any = {
-    __type: "ScheduledActionQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17136,7 +16873,6 @@ const deserializeAws_queryScheduledActionQuotaExceededFault = (
 
 const deserializeAws_queryScheduledActionsMessage = (output: any, context: __SerdeContext): ScheduledActionsMessage => {
   let contents: any = {
-    __type: "ScheduledActionsMessage",
     ScheduledActions: undefined,
     Marker: undefined,
   };
@@ -17161,7 +16897,6 @@ const deserializeAws_queryScheduledActionTimeList = (output: any, context: __Ser
 
 const deserializeAws_queryScheduledActionType = (output: any, context: __SerdeContext): ScheduledActionType => {
   let contents: any = {
-    __type: "ScheduledActionType",
     ResizeCluster: undefined,
     ResumeCluster: undefined,
     PauseCluster: undefined,
@@ -17183,7 +16918,6 @@ const deserializeAws_queryScheduledActionTypeUnsupportedFault = (
   context: __SerdeContext
 ): ScheduledActionTypeUnsupportedFault => {
   let contents: any = {
-    __type: "ScheduledActionTypeUnsupportedFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17201,7 +16935,6 @@ const deserializeAws_queryScheduleDefinitionTypeUnsupportedFault = (
   context: __SerdeContext
 ): ScheduleDefinitionTypeUnsupportedFault => {
   let contents: any = {
-    __type: "ScheduleDefinitionTypeUnsupportedFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17216,7 +16949,6 @@ const deserializeAws_queryScheduledSnapshotTimeList = (output: any, context: __S
 
 const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Snapshot => {
   let contents: any = {
-    __type: "Snapshot",
     EncryptedWithHSM: undefined,
     ClusterVersion: undefined,
     MaintenanceTrackName: undefined,
@@ -17376,7 +17108,6 @@ const deserializeAws_querySnapshotCopyAlreadyDisabledFault = (
   context: __SerdeContext
 ): SnapshotCopyAlreadyDisabledFault => {
   let contents: any = {
-    __type: "SnapshotCopyAlreadyDisabledFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17390,7 +17121,6 @@ const deserializeAws_querySnapshotCopyAlreadyEnabledFault = (
   context: __SerdeContext
 ): SnapshotCopyAlreadyEnabledFault => {
   let contents: any = {
-    __type: "SnapshotCopyAlreadyEnabledFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17404,7 +17134,6 @@ const deserializeAws_querySnapshotCopyDisabledFault = (
   context: __SerdeContext
 ): SnapshotCopyDisabledFault => {
   let contents: any = {
-    __type: "SnapshotCopyDisabledFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17415,7 +17144,6 @@ const deserializeAws_querySnapshotCopyDisabledFault = (
 
 const deserializeAws_querySnapshotCopyGrant = (output: any, context: __SerdeContext): SnapshotCopyGrant => {
   let contents: any = {
-    __type: "SnapshotCopyGrant",
     Tags: undefined,
     SnapshotCopyGrantName: undefined,
     KmsKeyId: undefined,
@@ -17440,7 +17168,6 @@ const deserializeAws_querySnapshotCopyGrantAlreadyExistsFault = (
   context: __SerdeContext
 ): SnapshotCopyGrantAlreadyExistsFault => {
   let contents: any = {
-    __type: "SnapshotCopyGrantAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17458,7 +17185,6 @@ const deserializeAws_querySnapshotCopyGrantMessage = (
   context: __SerdeContext
 ): SnapshotCopyGrantMessage => {
   let contents: any = {
-    __type: "SnapshotCopyGrantMessage",
     Marker: undefined,
     SnapshotCopyGrants: undefined,
   };
@@ -17482,7 +17208,6 @@ const deserializeAws_querySnapshotCopyGrantNotFoundFault = (
   context: __SerdeContext
 ): SnapshotCopyGrantNotFoundFault => {
   let contents: any = {
-    __type: "SnapshotCopyGrantNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17496,7 +17221,6 @@ const deserializeAws_querySnapshotCopyGrantQuotaExceededFault = (
   context: __SerdeContext
 ): SnapshotCopyGrantQuotaExceededFault => {
   let contents: any = {
-    __type: "SnapshotCopyGrantQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17507,7 +17231,6 @@ const deserializeAws_querySnapshotCopyGrantQuotaExceededFault = (
 
 const deserializeAws_querySnapshotErrorMessage = (output: any, context: __SerdeContext): SnapshotErrorMessage => {
   let contents: any = {
-    __type: "SnapshotErrorMessage",
     FailureReason: undefined,
     SnapshotIdentifier: undefined,
     SnapshotClusterIdentifier: undefined,
@@ -17538,7 +17261,6 @@ const deserializeAws_querySnapshotList = (output: any, context: __SerdeContext):
 
 const deserializeAws_querySnapshotMessage = (output: any, context: __SerdeContext): SnapshotMessage => {
   let contents: any = {
-    __type: "SnapshotMessage",
     Marker: undefined,
     Snapshots: undefined,
   };
@@ -17559,7 +17281,6 @@ const deserializeAws_querySnapshotMessage = (output: any, context: __SerdeContex
 
 const deserializeAws_querySnapshotSchedule = (output: any, context: __SerdeContext): SnapshotSchedule => {
   let contents: any = {
-    __type: "SnapshotSchedule",
     NextInvocations: undefined,
     AssociatedClusters: undefined,
     AssociatedClusterCount: undefined,
@@ -17624,7 +17345,6 @@ const deserializeAws_querySnapshotScheduleAlreadyExistsFault = (
   context: __SerdeContext
 ): SnapshotScheduleAlreadyExistsFault => {
   let contents: any = {
-    __type: "SnapshotScheduleAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17642,7 +17362,6 @@ const deserializeAws_querySnapshotScheduleNotFoundFault = (
   context: __SerdeContext
 ): SnapshotScheduleNotFoundFault => {
   let contents: any = {
-    __type: "SnapshotScheduleNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17656,7 +17375,6 @@ const deserializeAws_querySnapshotScheduleQuotaExceededFault = (
   context: __SerdeContext
 ): SnapshotScheduleQuotaExceededFault => {
   let contents: any = {
-    __type: "SnapshotScheduleQuotaExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17670,7 +17388,6 @@ const deserializeAws_querySnapshotScheduleUpdateInProgressFault = (
   context: __SerdeContext
 ): SnapshotScheduleUpdateInProgressFault => {
   let contents: any = {
-    __type: "SnapshotScheduleUpdateInProgressFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17681,7 +17398,6 @@ const deserializeAws_querySnapshotScheduleUpdateInProgressFault = (
 
 const deserializeAws_querySNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
   let contents: any = {
-    __type: "SNSInvalidTopicFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17692,7 +17408,6 @@ const deserializeAws_querySNSInvalidTopicFault = (output: any, context: __SerdeC
 
 const deserializeAws_querySNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNoAuthorizationFault => {
   let contents: any = {
-    __type: "SNSNoAuthorizationFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17706,7 +17421,6 @@ const deserializeAws_querySNSTopicArnNotFoundFault = (
   context: __SerdeContext
 ): SNSTopicArnNotFoundFault => {
   let contents: any = {
-    __type: "SNSTopicArnNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17721,7 +17435,6 @@ const deserializeAws_querySourceIdsList = (output: any, context: __SerdeContext)
 
 const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeContext): SourceNotFoundFault => {
   let contents: any = {
-    __type: "SourceNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17732,7 +17445,6 @@ const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeCo
 
 const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {
   let contents: any = {
-    __type: "Subnet",
     SubnetAvailabilityZone: undefined,
     SubnetIdentifier: undefined,
     SubnetStatus: undefined,
@@ -17751,7 +17463,6 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
 
 const deserializeAws_querySubnetAlreadyInUse = (output: any, context: __SerdeContext): SubnetAlreadyInUse => {
   let contents: any = {
-    __type: "SubnetAlreadyInUse",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17769,7 +17480,6 @@ const deserializeAws_querySubscriptionAlreadyExistFault = (
   context: __SerdeContext
 ): SubscriptionAlreadyExistFault => {
   let contents: any = {
-    __type: "SubscriptionAlreadyExistFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17783,7 +17493,6 @@ const deserializeAws_querySubscriptionCategoryNotFoundFault = (
   context: __SerdeContext
 ): SubscriptionCategoryNotFoundFault => {
   let contents: any = {
-    __type: "SubscriptionCategoryNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17797,7 +17506,6 @@ const deserializeAws_querySubscriptionEventIdNotFoundFault = (
   context: __SerdeContext
 ): SubscriptionEventIdNotFoundFault => {
   let contents: any = {
-    __type: "SubscriptionEventIdNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17811,7 +17519,6 @@ const deserializeAws_querySubscriptionNotFoundFault = (
   context: __SerdeContext
 ): SubscriptionNotFoundFault => {
   let contents: any = {
-    __type: "SubscriptionNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17825,7 +17532,6 @@ const deserializeAws_querySubscriptionSeverityNotFoundFault = (
   context: __SerdeContext
 ): SubscriptionSeverityNotFoundFault => {
   let contents: any = {
-    __type: "SubscriptionSeverityNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17836,7 +17542,6 @@ const deserializeAws_querySubscriptionSeverityNotFoundFault = (
 
 const deserializeAws_querySupportedOperation = (output: any, context: __SerdeContext): SupportedOperation => {
   let contents: any = {
-    __type: "SupportedOperation",
     OperationName: undefined,
   };
   if (output["OperationName"] !== undefined) {
@@ -17851,7 +17556,6 @@ const deserializeAws_querySupportedOperationList = (output: any, context: __Serd
 
 const deserializeAws_querySupportedPlatform = (output: any, context: __SerdeContext): SupportedPlatform => {
   let contents: any = {
-    __type: "SupportedPlatform",
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -17866,7 +17570,6 @@ const deserializeAws_querySupportedPlatformsList = (output: any, context: __Serd
 
 const deserializeAws_queryTableLimitExceededFault = (output: any, context: __SerdeContext): TableLimitExceededFault => {
   let contents: any = {
-    __type: "TableLimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17880,7 +17583,6 @@ const deserializeAws_queryTableRestoreNotFoundFault = (
   context: __SerdeContext
 ): TableRestoreNotFoundFault => {
   let contents: any = {
-    __type: "TableRestoreNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17891,7 +17593,6 @@ const deserializeAws_queryTableRestoreNotFoundFault = (
 
 const deserializeAws_queryTableRestoreStatus = (output: any, context: __SerdeContext): TableRestoreStatus => {
   let contents: any = {
-    __type: "TableRestoreStatus",
     TargetSchemaName: undefined,
     TotalDataInMegaBytes: undefined,
     TargetDatabaseName: undefined,
@@ -17961,7 +17662,6 @@ const deserializeAws_queryTableRestoreStatusMessage = (
   context: __SerdeContext
 ): TableRestoreStatusMessage => {
   let contents: any = {
-    __type: "TableRestoreStatusMessage",
     TableRestoreStatusDetails: undefined,
     Marker: undefined,
   };
@@ -17985,7 +17685,6 @@ const deserializeAws_queryTableRestoreStatusMessage = (
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Value: undefined,
     Key: undefined,
   };
@@ -18000,7 +17699,6 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 
 const deserializeAws_queryTaggedResource = (output: any, context: __SerdeContext): TaggedResource => {
   let contents: any = {
-    __type: "TaggedResource",
     Tag: undefined,
     ResourceName: undefined,
     ResourceType: undefined,
@@ -18026,7 +17724,6 @@ const deserializeAws_queryTaggedResourceListMessage = (
   context: __SerdeContext
 ): TaggedResourceListMessage => {
   let contents: any = {
-    __type: "TaggedResourceListMessage",
     TaggedResources: undefined,
     Marker: undefined,
   };
@@ -18047,7 +17744,6 @@ const deserializeAws_queryTaggedResourceListMessage = (
 
 const deserializeAws_queryTagLimitExceededFault = (output: any, context: __SerdeContext): TagLimitExceededFault => {
   let contents: any = {
-    __type: "TagLimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18066,7 +17762,6 @@ const deserializeAws_queryTrackList = (output: any, context: __SerdeContext): Ma
 
 const deserializeAws_queryTrackListMessage = (output: any, context: __SerdeContext): TrackListMessage => {
   let contents: any = {
-    __type: "TrackListMessage",
     Marker: undefined,
     MaintenanceTracks: undefined,
   };
@@ -18087,7 +17782,6 @@ const deserializeAws_queryTrackListMessage = (output: any, context: __SerdeConte
 
 const deserializeAws_queryUnauthorizedOperation = (output: any, context: __SerdeContext): UnauthorizedOperation => {
   let contents: any = {
-    __type: "UnauthorizedOperation",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18101,7 +17795,6 @@ const deserializeAws_queryUnknownSnapshotCopyRegionFault = (
   context: __SerdeContext
 ): UnknownSnapshotCopyRegionFault => {
   let contents: any = {
-    __type: "UnknownSnapshotCopyRegionFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18115,7 +17808,6 @@ const deserializeAws_queryUnsupportedOperationFault = (
   context: __SerdeContext
 ): UnsupportedOperationFault => {
   let contents: any = {
-    __type: "UnsupportedOperationFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18126,7 +17818,6 @@ const deserializeAws_queryUnsupportedOperationFault = (
 
 const deserializeAws_queryUnsupportedOptionFault = (output: any, context: __SerdeContext): UnsupportedOptionFault => {
   let contents: any = {
-    __type: "UnsupportedOptionFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18137,7 +17828,6 @@ const deserializeAws_queryUnsupportedOptionFault = (output: any, context: __Serd
 
 const deserializeAws_queryUpdateTarget = (output: any, context: __SerdeContext): UpdateTarget => {
   let contents: any = {
-    __type: "UpdateTarget",
     MaintenanceTrackName: undefined,
     DatabaseVersion: undefined,
     SupportedOperations: undefined,
@@ -18165,7 +17855,6 @@ const deserializeAws_queryUpdateTarget = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryUsageLimit = (output: any, context: __SerdeContext): UsageLimit => {
   let contents: any = {
-    __type: "UsageLimit",
     ClusterIdentifier: undefined,
     FeatureType: undefined,
     Tags: undefined,
@@ -18210,7 +17899,6 @@ const deserializeAws_queryUsageLimitAlreadyExistsFault = (
   context: __SerdeContext
 ): UsageLimitAlreadyExistsFault => {
   let contents: any = {
-    __type: "UsageLimitAlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18221,7 +17909,6 @@ const deserializeAws_queryUsageLimitAlreadyExistsFault = (
 
 const deserializeAws_queryUsageLimitList = (output: any, context: __SerdeContext): UsageLimitList => {
   let contents: any = {
-    __type: "UsageLimitList",
     Marker: undefined,
     UsageLimits: undefined,
   };
@@ -18242,7 +17929,6 @@ const deserializeAws_queryUsageLimitList = (output: any, context: __SerdeContext
 
 const deserializeAws_queryUsageLimitNotFoundFault = (output: any, context: __SerdeContext): UsageLimitNotFoundFault => {
   let contents: any = {
-    __type: "UsageLimitNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18260,7 +17946,6 @@ const deserializeAws_queryVpcSecurityGroupMembership = (
   context: __SerdeContext
 ): VpcSecurityGroupMembership => {
   let contents: any = {
-    __type: "VpcSecurityGroupMembership",
     VpcSecurityGroupId: undefined,
     Status: undefined,
   };

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -34,14 +34,12 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>Contains detailed information about a backup job.</p>
  */
 export interface BackupJob {
-  __type?: "BackupJob";
   /**
    * <p>The date and time a job to create a backup job is completed, in Unix format and
    *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
@@ -161,7 +159,6 @@ export namespace BackupJob {
   export const filterSensitiveLog = (obj: BackupJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupJob => __isa(o, "BackupJob");
 }
 
 export enum BackupJobState {
@@ -181,7 +178,6 @@ export enum BackupJobState {
  *          scheduled task and can back up a different selection of AWS resources.</p>
  */
 export interface BackupPlan {
-  __type?: "BackupPlan";
   /**
    * <p>The display name of a backup plan.</p>
    */
@@ -199,7 +195,6 @@ export namespace BackupPlan {
     ...obj,
     ...(obj.Rules && { Rules: obj.Rules.map((item) => BackupRule.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BackupPlan => __isa(o, "BackupPlan");
 }
 
 /**
@@ -208,7 +203,6 @@ export namespace BackupPlan {
  *          scheduled task and can back up a different selection of AWS resources. </p>
  */
 export interface BackupPlanInput {
-  __type?: "BackupPlanInput";
   /**
    * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task
    *          that is used to back up a selection of resources.</p>
@@ -226,14 +220,12 @@ export namespace BackupPlanInput {
     ...obj,
     ...(obj.Rules && { Rules: obj.Rules.map((item) => BackupRuleInput.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BackupPlanInput => __isa(o, "BackupPlanInput");
 }
 
 /**
  * <p>Contains metadata about a backup plan.</p>
  */
 export interface BackupPlansListMember {
-  __type?: "BackupPlansListMember";
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
@@ -291,14 +283,12 @@ export namespace BackupPlansListMember {
   export const filterSensitiveLog = (obj: BackupPlansListMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupPlansListMember => __isa(o, "BackupPlansListMember");
 }
 
 /**
  * <p>An object specifying metadata associated with a backup plan template.</p>
  */
 export interface BackupPlanTemplatesListMember {
-  __type?: "BackupPlanTemplatesListMember";
   /**
    * <p>Uniquely identifies a stored backup plan template.</p>
    */
@@ -314,14 +304,12 @@ export namespace BackupPlanTemplatesListMember {
   export const filterSensitiveLog = (obj: BackupPlanTemplatesListMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupPlanTemplatesListMember => __isa(o, "BackupPlanTemplatesListMember");
 }
 
 /**
  * <p>Specifies a scheduled task used to back up a selection of resources.</p>
  */
 export interface BackupRule {
-  __type?: "BackupRule";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -383,14 +371,12 @@ export namespace BackupRule {
     ...obj,
     ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BackupRule => __isa(o, "BackupRule");
 }
 
 /**
  * <p>Specifies a scheduled task used to back up a selection of resources.</p>
  */
 export interface BackupRuleInput {
-  __type?: "BackupRuleInput";
   /**
    * <p>To help organize your resources, you can assign your own metadata to the resources that
    *          you create. Each tag is a key-value pair.</p>
@@ -446,14 +432,12 @@ export namespace BackupRuleInput {
     ...obj,
     ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BackupRuleInput => __isa(o, "BackupRuleInput");
 }
 
 /**
  * <p>Used to specify a set of resources to a backup plan.</p>
  */
 export interface BackupSelection {
-  __type?: "BackupSelection";
   /**
    * <p>An array of conditions used to specify a set of resources to assign to a backup plan;
    *          for example, <code>"STRINGEQUALS": {"ec2:ResourceTag/Department":
@@ -483,14 +467,12 @@ export namespace BackupSelection {
   export const filterSensitiveLog = (obj: BackupSelection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupSelection => __isa(o, "BackupSelection");
 }
 
 /**
  * <p>Contains metadata about a <code>BackupSelection</code> object.</p>
  */
 export interface BackupSelectionsListMember {
-  __type?: "BackupSelectionsListMember";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -531,7 +513,6 @@ export namespace BackupSelectionsListMember {
   export const filterSensitiveLog = (obj: BackupSelectionsListMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupSelectionsListMember => __isa(o, "BackupSelectionsListMember");
 }
 
 export enum BackupVaultEvent {
@@ -556,7 +537,6 @@ export enum BackupVaultEvent {
  * <p>Contains metadata about a backup vault.</p>
  */
 export interface BackupVaultListMember {
-  __type?: "BackupVaultListMember";
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
    *          without the risk of executing the operation twice.</p>
@@ -600,7 +580,6 @@ export namespace BackupVaultListMember {
   export const filterSensitiveLog = (obj: BackupVaultListMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupVaultListMember => __isa(o, "BackupVaultListMember");
 }
 
 /**
@@ -615,7 +594,6 @@ export namespace BackupVaultListMember {
  *          be changed after a backup has been transitioned to cold.</p>
  */
 export interface CalculatedLifecycle {
-  __type?: "CalculatedLifecycle";
   /**
    * <p>A timestamp that specifies when to transition a recovery point to cold storage.</p>
    */
@@ -631,7 +609,6 @@ export namespace CalculatedLifecycle {
   export const filterSensitiveLog = (obj: CalculatedLifecycle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CalculatedLifecycle => __isa(o, "CalculatedLifecycle");
 }
 
 /**
@@ -640,7 +617,6 @@ export namespace CalculatedLifecycle {
  *          in a selection that is assigned to a backup plan.</p>
  */
 export interface Condition {
-  __type?: "Condition";
   /**
    * <p>An operation, such as <code>STRINGEQUALS</code>, that is applied to a key-value pair
    *          used to filter resources in a selection.</p>
@@ -664,7 +640,6 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 export enum ConditionType {
@@ -675,7 +650,6 @@ export enum ConditionType {
  * <p>The details of the copy operation.</p>
  */
 export interface CopyAction {
-  __type?: "CopyAction";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for
    *          the copied backup. For example,
@@ -698,14 +672,12 @@ export namespace CopyAction {
   export const filterSensitiveLog = (obj: CopyAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyAction => __isa(o, "CopyAction");
 }
 
 /**
  * <p>Contains detailed information about a copy job.</p>
  */
 export interface CopyJob {
-  __type?: "CopyJob";
   /**
    * <p>The date and time a copy job is completed, in Unix format and Coordinated Universal Time (UTC). The
    *          value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087
@@ -799,7 +771,6 @@ export namespace CopyJob {
   export const filterSensitiveLog = (obj: CopyJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyJob => __isa(o, "CopyJob");
 }
 
 export enum CopyJobState {
@@ -810,7 +781,6 @@ export enum CopyJobState {
 }
 
 export interface CreateBackupPlanInput {
-  __type?: "CreateBackupPlanInput";
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
    *          more sets of <code>Rules</code>.</p>
@@ -838,11 +808,9 @@ export namespace CreateBackupPlanInput {
     ...(obj.BackupPlan && { BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan) }),
     ...(obj.BackupPlanTags && { BackupPlanTags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateBackupPlanInput => __isa(o, "CreateBackupPlanInput");
 }
 
 export interface CreateBackupPlanOutput {
-  __type?: "CreateBackupPlanOutput";
   /**
    * <p>The date and time that a backup plan is created, in Unix format and Coordinated
    *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
@@ -873,11 +841,9 @@ export namespace CreateBackupPlanOutput {
   export const filterSensitiveLog = (obj: CreateBackupPlanOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupPlanOutput => __isa(o, "CreateBackupPlanOutput");
 }
 
 export interface CreateBackupSelectionInput {
-  __type?: "CreateBackupSelectionInput";
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
    *          without the risk of executing the operation twice.</p>
@@ -900,11 +866,9 @@ export namespace CreateBackupSelectionInput {
   export const filterSensitiveLog = (obj: CreateBackupSelectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupSelectionInput => __isa(o, "CreateBackupSelectionInput");
 }
 
 export interface CreateBackupSelectionOutput {
-  __type?: "CreateBackupSelectionOutput";
   /**
    * <p>Uniquely identifies the body of a request to assign a set of resources to a backup
    *          plan.</p>
@@ -929,11 +893,9 @@ export namespace CreateBackupSelectionOutput {
   export const filterSensitiveLog = (obj: CreateBackupSelectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupSelectionOutput => __isa(o, "CreateBackupSelectionOutput");
 }
 
 export interface CreateBackupVaultInput {
-  __type?: "CreateBackupVaultInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -965,11 +927,9 @@ export namespace CreateBackupVaultInput {
     ...obj,
     ...(obj.BackupVaultTags && { BackupVaultTags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateBackupVaultInput => __isa(o, "CreateBackupVaultInput");
 }
 
 export interface CreateBackupVaultOutput {
-  __type?: "CreateBackupVaultOutput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
@@ -996,11 +956,9 @@ export namespace CreateBackupVaultOutput {
   export const filterSensitiveLog = (obj: CreateBackupVaultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupVaultOutput => __isa(o, "CreateBackupVaultOutput");
 }
 
 export interface DeleteBackupPlanInput {
-  __type?: "DeleteBackupPlanInput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -1011,11 +969,9 @@ export namespace DeleteBackupPlanInput {
   export const filterSensitiveLog = (obj: DeleteBackupPlanInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupPlanInput => __isa(o, "DeleteBackupPlanInput");
 }
 
 export interface DeleteBackupPlanOutput {
-  __type?: "DeleteBackupPlanOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
@@ -1046,11 +1002,9 @@ export namespace DeleteBackupPlanOutput {
   export const filterSensitiveLog = (obj: DeleteBackupPlanOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupPlanOutput => __isa(o, "DeleteBackupPlanOutput");
 }
 
 export interface DeleteBackupSelectionInput {
-  __type?: "DeleteBackupSelectionInput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -1067,11 +1021,9 @@ export namespace DeleteBackupSelectionInput {
   export const filterSensitiveLog = (obj: DeleteBackupSelectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupSelectionInput => __isa(o, "DeleteBackupSelectionInput");
 }
 
 export interface DeleteBackupVaultAccessPolicyInput {
-  __type?: "DeleteBackupVaultAccessPolicyInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -1084,12 +1036,9 @@ export namespace DeleteBackupVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: DeleteBackupVaultAccessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupVaultAccessPolicyInput =>
-    __isa(o, "DeleteBackupVaultAccessPolicyInput");
 }
 
 export interface DeleteBackupVaultInput {
-  __type?: "DeleteBackupVaultInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -1102,11 +1051,9 @@ export namespace DeleteBackupVaultInput {
   export const filterSensitiveLog = (obj: DeleteBackupVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupVaultInput => __isa(o, "DeleteBackupVaultInput");
 }
 
 export interface DeleteBackupVaultNotificationsInput {
-  __type?: "DeleteBackupVaultNotificationsInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
@@ -1119,12 +1066,9 @@ export namespace DeleteBackupVaultNotificationsInput {
   export const filterSensitiveLog = (obj: DeleteBackupVaultNotificationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupVaultNotificationsInput =>
-    __isa(o, "DeleteBackupVaultNotificationsInput");
 }
 
 export interface DeleteRecoveryPointInput {
-  __type?: "DeleteRecoveryPointInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -1143,7 +1087,6 @@ export namespace DeleteRecoveryPointInput {
   export const filterSensitiveLog = (obj: DeleteRecoveryPointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRecoveryPointInput => __isa(o, "DeleteRecoveryPointInput");
 }
 
 /**
@@ -1170,11 +1113,9 @@ export namespace DependencyFailureException {
   export const filterSensitiveLog = (obj: DependencyFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependencyFailureException => __isa(o, "DependencyFailureException");
 }
 
 export interface DescribeBackupJobInput {
-  __type?: "DescribeBackupJobInput";
   /**
    * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
    */
@@ -1185,11 +1126,9 @@ export namespace DescribeBackupJobInput {
   export const filterSensitiveLog = (obj: DescribeBackupJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupJobInput => __isa(o, "DescribeBackupJobInput");
 }
 
 export interface DescribeBackupJobOutput {
-  __type?: "DescribeBackupJobOutput";
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
@@ -1310,11 +1249,9 @@ export namespace DescribeBackupJobOutput {
   export const filterSensitiveLog = (obj: DescribeBackupJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupJobOutput => __isa(o, "DescribeBackupJobOutput");
 }
 
 export interface DescribeBackupVaultInput {
-  __type?: "DescribeBackupVaultInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -1327,11 +1264,9 @@ export namespace DescribeBackupVaultInput {
   export const filterSensitiveLog = (obj: DescribeBackupVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupVaultInput => __isa(o, "DescribeBackupVaultInput");
 }
 
 export interface DescribeBackupVaultOutput {
-  __type?: "DescribeBackupVaultOutput";
   /**
    * <p>The number of recovery points that are stored in a backup vault.</p>
    */
@@ -1375,11 +1310,9 @@ export namespace DescribeBackupVaultOutput {
   export const filterSensitiveLog = (obj: DescribeBackupVaultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupVaultOutput => __isa(o, "DescribeBackupVaultOutput");
 }
 
 export interface DescribeCopyJobInput {
-  __type?: "DescribeCopyJobInput";
   /**
    * <p>Uniquely identifies a copy job.</p>
    */
@@ -1390,11 +1323,9 @@ export namespace DescribeCopyJobInput {
   export const filterSensitiveLog = (obj: DescribeCopyJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCopyJobInput => __isa(o, "DescribeCopyJobInput");
 }
 
 export interface DescribeCopyJobOutput {
-  __type?: "DescribeCopyJobOutput";
   /**
    * <p>Contains detailed information about a copy job.</p>
    */
@@ -1405,11 +1336,9 @@ export namespace DescribeCopyJobOutput {
   export const filterSensitiveLog = (obj: DescribeCopyJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCopyJobOutput => __isa(o, "DescribeCopyJobOutput");
 }
 
 export interface DescribeProtectedResourceInput {
-  __type?: "DescribeProtectedResourceInput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
@@ -1421,11 +1350,9 @@ export namespace DescribeProtectedResourceInput {
   export const filterSensitiveLog = (obj: DescribeProtectedResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProtectedResourceInput => __isa(o, "DescribeProtectedResourceInput");
 }
 
 export interface DescribeProtectedResourceOutput {
-  __type?: "DescribeProtectedResourceOutput";
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
    *          resource type.</p>
@@ -1451,11 +1378,9 @@ export namespace DescribeProtectedResourceOutput {
   export const filterSensitiveLog = (obj: DescribeProtectedResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProtectedResourceOutput => __isa(o, "DescribeProtectedResourceOutput");
 }
 
 export interface DescribeRecoveryPointInput {
-  __type?: "DescribeRecoveryPointInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -1474,11 +1399,9 @@ export namespace DescribeRecoveryPointInput {
   export const filterSensitiveLog = (obj: DescribeRecoveryPointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRecoveryPointInput => __isa(o, "DescribeRecoveryPointInput");
 }
 
 export interface DescribeRecoveryPointOutput {
-  __type?: "DescribeRecoveryPointOutput";
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
    *          it expires. AWS Backup transitions and expires backups automatically according to the
@@ -1602,22 +1525,17 @@ export namespace DescribeRecoveryPointOutput {
   export const filterSensitiveLog = (obj: DescribeRecoveryPointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRecoveryPointOutput => __isa(o, "DescribeRecoveryPointOutput");
 }
 
-export interface DescribeRegionSettingsInput {
-  __type?: "DescribeRegionSettingsInput";
-}
+export interface DescribeRegionSettingsInput {}
 
 export namespace DescribeRegionSettingsInput {
   export const filterSensitiveLog = (obj: DescribeRegionSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRegionSettingsInput => __isa(o, "DescribeRegionSettingsInput");
 }
 
 export interface DescribeRegionSettingsOutput {
-  __type?: "DescribeRegionSettingsOutput";
   /**
    * <p>Returns a list of all services along with the opt-in preferences in the region.</p>
    */
@@ -1628,11 +1546,9 @@ export namespace DescribeRegionSettingsOutput {
   export const filterSensitiveLog = (obj: DescribeRegionSettingsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRegionSettingsOutput => __isa(o, "DescribeRegionSettingsOutput");
 }
 
 export interface DescribeRestoreJobInput {
-  __type?: "DescribeRestoreJobInput";
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
    */
@@ -1643,11 +1559,9 @@ export namespace DescribeRestoreJobInput {
   export const filterSensitiveLog = (obj: DescribeRestoreJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRestoreJobInput => __isa(o, "DescribeRestoreJobInput");
 }
 
 export interface DescribeRestoreJobOutput {
-  __type?: "DescribeRestoreJobOutput";
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
@@ -1731,11 +1645,9 @@ export namespace DescribeRestoreJobOutput {
   export const filterSensitiveLog = (obj: DescribeRestoreJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRestoreJobOutput => __isa(o, "DescribeRestoreJobOutput");
 }
 
 export interface ExportBackupPlanTemplateInput {
-  __type?: "ExportBackupPlanTemplateInput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -1746,11 +1658,9 @@ export namespace ExportBackupPlanTemplateInput {
   export const filterSensitiveLog = (obj: ExportBackupPlanTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportBackupPlanTemplateInput => __isa(o, "ExportBackupPlanTemplateInput");
 }
 
 export interface ExportBackupPlanTemplateOutput {
-  __type?: "ExportBackupPlanTemplateOutput";
   /**
    * <p>The body of a backup plan template in JSON format.</p>
    *          <note>
@@ -1766,11 +1676,9 @@ export namespace ExportBackupPlanTemplateOutput {
   export const filterSensitiveLog = (obj: ExportBackupPlanTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportBackupPlanTemplateOutput => __isa(o, "ExportBackupPlanTemplateOutput");
 }
 
 export interface GetBackupPlanFromJSONInput {
-  __type?: "GetBackupPlanFromJSONInput";
   /**
    * <p>A customer-supplied backup plan document in JSON format.</p>
    */
@@ -1781,11 +1689,9 @@ export namespace GetBackupPlanFromJSONInput {
   export const filterSensitiveLog = (obj: GetBackupPlanFromJSONInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupPlanFromJSONInput => __isa(o, "GetBackupPlanFromJSONInput");
 }
 
 export interface GetBackupPlanFromJSONOutput {
-  __type?: "GetBackupPlanFromJSONOutput";
   /**
    * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
    *          more sets of <code>Rules</code>.</p>
@@ -1798,11 +1704,9 @@ export namespace GetBackupPlanFromJSONOutput {
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan) }),
   });
-  export const isa = (o: any): o is GetBackupPlanFromJSONOutput => __isa(o, "GetBackupPlanFromJSONOutput");
 }
 
 export interface GetBackupPlanFromTemplateInput {
-  __type?: "GetBackupPlanFromTemplateInput";
   /**
    * <p>Uniquely identifies a stored backup plan template.</p>
    */
@@ -1813,11 +1717,9 @@ export namespace GetBackupPlanFromTemplateInput {
   export const filterSensitiveLog = (obj: GetBackupPlanFromTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupPlanFromTemplateInput => __isa(o, "GetBackupPlanFromTemplateInput");
 }
 
 export interface GetBackupPlanFromTemplateOutput {
-  __type?: "GetBackupPlanFromTemplateOutput";
   /**
    * <p>Returns the body of a backup plan based on the target template, including the name,
    *          rules, and backup vault of the plan.</p>
@@ -1830,11 +1732,9 @@ export namespace GetBackupPlanFromTemplateOutput {
     ...obj,
     ...(obj.BackupPlanDocument && { BackupPlanDocument: BackupPlan.filterSensitiveLog(obj.BackupPlanDocument) }),
   });
-  export const isa = (o: any): o is GetBackupPlanFromTemplateOutput => __isa(o, "GetBackupPlanFromTemplateOutput");
 }
 
 export interface GetBackupPlanInput {
-  __type?: "GetBackupPlanInput";
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
@@ -1851,11 +1751,9 @@ export namespace GetBackupPlanInput {
   export const filterSensitiveLog = (obj: GetBackupPlanInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupPlanInput => __isa(o, "GetBackupPlanInput");
 }
 
 export interface GetBackupPlanOutput {
-  __type?: "GetBackupPlanOutput";
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
    *          without the risk of executing the operation twice.</p>
@@ -1915,11 +1813,9 @@ export namespace GetBackupPlanOutput {
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan) }),
   });
-  export const isa = (o: any): o is GetBackupPlanOutput => __isa(o, "GetBackupPlanOutput");
 }
 
 export interface GetBackupSelectionInput {
-  __type?: "GetBackupSelectionInput";
   /**
    * <p>Uniquely identifies the body of a request to assign a set of resources to a backup
    *          plan.</p>
@@ -1936,11 +1832,9 @@ export namespace GetBackupSelectionInput {
   export const filterSensitiveLog = (obj: GetBackupSelectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupSelectionInput => __isa(o, "GetBackupSelectionInput");
 }
 
 export interface GetBackupSelectionOutput {
-  __type?: "GetBackupSelectionOutput";
   /**
    * <p>The date and time a backup selection is created, in Unix format and Coordinated
    *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
@@ -1976,11 +1870,9 @@ export namespace GetBackupSelectionOutput {
   export const filterSensitiveLog = (obj: GetBackupSelectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupSelectionOutput => __isa(o, "GetBackupSelectionOutput");
 }
 
 export interface GetBackupVaultAccessPolicyInput {
-  __type?: "GetBackupVaultAccessPolicyInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -1993,11 +1885,9 @@ export namespace GetBackupVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: GetBackupVaultAccessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupVaultAccessPolicyInput => __isa(o, "GetBackupVaultAccessPolicyInput");
 }
 
 export interface GetBackupVaultAccessPolicyOutput {
-  __type?: "GetBackupVaultAccessPolicyOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
@@ -2021,11 +1911,9 @@ export namespace GetBackupVaultAccessPolicyOutput {
   export const filterSensitiveLog = (obj: GetBackupVaultAccessPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupVaultAccessPolicyOutput => __isa(o, "GetBackupVaultAccessPolicyOutput");
 }
 
 export interface GetBackupVaultNotificationsInput {
-  __type?: "GetBackupVaultNotificationsInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -2038,11 +1926,9 @@ export namespace GetBackupVaultNotificationsInput {
   export const filterSensitiveLog = (obj: GetBackupVaultNotificationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupVaultNotificationsInput => __isa(o, "GetBackupVaultNotificationsInput");
 }
 
 export interface GetBackupVaultNotificationsOutput {
-  __type?: "GetBackupVaultNotificationsOutput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
@@ -2073,11 +1959,9 @@ export namespace GetBackupVaultNotificationsOutput {
   export const filterSensitiveLog = (obj: GetBackupVaultNotificationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackupVaultNotificationsOutput => __isa(o, "GetBackupVaultNotificationsOutput");
 }
 
 export interface GetRecoveryPointRestoreMetadataInput {
-  __type?: "GetRecoveryPointRestoreMetadataInput";
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -2096,12 +1980,9 @@ export namespace GetRecoveryPointRestoreMetadataInput {
   export const filterSensitiveLog = (obj: GetRecoveryPointRestoreMetadataInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecoveryPointRestoreMetadataInput =>
-    __isa(o, "GetRecoveryPointRestoreMetadataInput");
 }
 
 export interface GetRecoveryPointRestoreMetadataOutput {
-  __type?: "GetRecoveryPointRestoreMetadataOutput";
   /**
    * <p>The set of metadata key-value pairs that describes the original configuration of the
    *          backed-up resource. These values vary depending on the service that is being
@@ -2127,12 +2008,9 @@ export namespace GetRecoveryPointRestoreMetadataOutput {
     ...obj,
     ...(obj.RestoreMetadata && { RestoreMetadata: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRecoveryPointRestoreMetadataOutput =>
-    __isa(o, "GetRecoveryPointRestoreMetadataOutput");
 }
 
 export interface GetSupportedResourceTypesOutput {
-  __type?: "GetSupportedResourceTypesOutput";
   /**
    * <p>Contains a string with the supported AWS resource types:</p>
    *          <ul>
@@ -2169,7 +2047,6 @@ export namespace GetSupportedResourceTypesOutput {
   export const filterSensitiveLog = (obj: GetSupportedResourceTypesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSupportedResourceTypesOutput => __isa(o, "GetSupportedResourceTypesOutput");
 }
 
 /**
@@ -2197,7 +2074,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -2224,7 +2100,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2236,7 +2111,6 @@ export namespace InvalidRequestException {
  *          setting cannot be changed after a backup has been transitioned to cold.</p>
  */
 export interface Lifecycle {
-  __type?: "Lifecycle";
   /**
    * <p>Specifies the number of days after creation that a recovery point is deleted. Must be
    *          greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</p>
@@ -2254,7 +2128,6 @@ export namespace Lifecycle {
   export const filterSensitiveLog = (obj: Lifecycle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Lifecycle => __isa(o, "Lifecycle");
 }
 
 /**
@@ -2281,11 +2154,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListBackupJobsInput {
-  __type?: "ListBackupJobsInput";
   /**
    * <p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p>
    */
@@ -2369,11 +2240,9 @@ export namespace ListBackupJobsInput {
   export const filterSensitiveLog = (obj: ListBackupJobsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupJobsInput => __isa(o, "ListBackupJobsInput");
 }
 
 export interface ListBackupJobsOutput {
-  __type?: "ListBackupJobsOutput";
   /**
    * <p>An array of structures containing metadata about your backup jobs returned in JSON
    *          format.</p>
@@ -2393,11 +2262,9 @@ export namespace ListBackupJobsOutput {
   export const filterSensitiveLog = (obj: ListBackupJobsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupJobsOutput => __isa(o, "ListBackupJobsOutput");
 }
 
 export interface ListBackupPlansInput {
-  __type?: "ListBackupPlansInput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2422,11 +2289,9 @@ export namespace ListBackupPlansInput {
   export const filterSensitiveLog = (obj: ListBackupPlansInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupPlansInput => __isa(o, "ListBackupPlansInput");
 }
 
 export interface ListBackupPlansOutput {
-  __type?: "ListBackupPlansOutput";
   /**
    * <p>An array of backup plan list items containing metadata about your saved backup
    *          plans.</p>
@@ -2446,11 +2311,9 @@ export namespace ListBackupPlansOutput {
   export const filterSensitiveLog = (obj: ListBackupPlansOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupPlansOutput => __isa(o, "ListBackupPlansOutput");
 }
 
 export interface ListBackupPlanTemplatesInput {
-  __type?: "ListBackupPlanTemplatesInput";
   /**
    * <p>The maximum number of items to be returned.</p>
    */
@@ -2469,11 +2332,9 @@ export namespace ListBackupPlanTemplatesInput {
   export const filterSensitiveLog = (obj: ListBackupPlanTemplatesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupPlanTemplatesInput => __isa(o, "ListBackupPlanTemplatesInput");
 }
 
 export interface ListBackupPlanTemplatesOutput {
-  __type?: "ListBackupPlanTemplatesOutput";
   /**
    * <p>An array of template list items containing metadata about your saved templates.</p>
    */
@@ -2492,11 +2353,9 @@ export namespace ListBackupPlanTemplatesOutput {
   export const filterSensitiveLog = (obj: ListBackupPlanTemplatesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupPlanTemplatesOutput => __isa(o, "ListBackupPlanTemplatesOutput");
 }
 
 export interface ListBackupPlanVersionsInput {
-  __type?: "ListBackupPlanVersionsInput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -2520,11 +2379,9 @@ export namespace ListBackupPlanVersionsInput {
   export const filterSensitiveLog = (obj: ListBackupPlanVersionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupPlanVersionsInput => __isa(o, "ListBackupPlanVersionsInput");
 }
 
 export interface ListBackupPlanVersionsOutput {
-  __type?: "ListBackupPlanVersionsOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2543,11 +2400,9 @@ export namespace ListBackupPlanVersionsOutput {
   export const filterSensitiveLog = (obj: ListBackupPlanVersionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupPlanVersionsOutput => __isa(o, "ListBackupPlanVersionsOutput");
 }
 
 export interface ListBackupSelectionsInput {
-  __type?: "ListBackupSelectionsInput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2571,11 +2426,9 @@ export namespace ListBackupSelectionsInput {
   export const filterSensitiveLog = (obj: ListBackupSelectionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupSelectionsInput => __isa(o, "ListBackupSelectionsInput");
 }
 
 export interface ListBackupSelectionsOutput {
-  __type?: "ListBackupSelectionsOutput";
   /**
    * <p>An array of backup selection list items containing metadata about each resource in the
    *          list.</p>
@@ -2595,11 +2448,9 @@ export namespace ListBackupSelectionsOutput {
   export const filterSensitiveLog = (obj: ListBackupSelectionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupSelectionsOutput => __isa(o, "ListBackupSelectionsOutput");
 }
 
 export interface ListBackupVaultsInput {
-  __type?: "ListBackupVaultsInput";
   /**
    * <p>The maximum number of items to be returned.</p>
    */
@@ -2618,11 +2469,9 @@ export namespace ListBackupVaultsInput {
   export const filterSensitiveLog = (obj: ListBackupVaultsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupVaultsInput => __isa(o, "ListBackupVaultsInput");
 }
 
 export interface ListBackupVaultsOutput {
-  __type?: "ListBackupVaultsOutput";
   /**
    * <p>An array of backup vault list members containing vault metadata, including Amazon
    *          Resource Name (ARN), display name, creation date, number of saved recovery points, and
@@ -2643,11 +2492,9 @@ export namespace ListBackupVaultsOutput {
   export const filterSensitiveLog = (obj: ListBackupVaultsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupVaultsOutput => __isa(o, "ListBackupVaultsOutput");
 }
 
 export interface ListCopyJobsInput {
-  __type?: "ListCopyJobsInput";
   /**
    * <p>The account ID to list the jobs from. Returns only copy jobs associated with the specified account ID.</p>
    */
@@ -2727,11 +2574,9 @@ export namespace ListCopyJobsInput {
   export const filterSensitiveLog = (obj: ListCopyJobsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCopyJobsInput => __isa(o, "ListCopyJobsInput");
 }
 
 export interface ListCopyJobsOutput {
-  __type?: "ListCopyJobsOutput";
   /**
    * <p>An array of structures containing metadata about your copy jobs returned in JSON format. </p>
    */
@@ -2748,11 +2593,9 @@ export namespace ListCopyJobsOutput {
   export const filterSensitiveLog = (obj: ListCopyJobsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCopyJobsOutput => __isa(o, "ListCopyJobsOutput");
 }
 
 export interface ListProtectedResourcesInput {
-  __type?: "ListProtectedResourcesInput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2771,11 +2614,9 @@ export namespace ListProtectedResourcesInput {
   export const filterSensitiveLog = (obj: ListProtectedResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProtectedResourcesInput => __isa(o, "ListProtectedResourcesInput");
 }
 
 export interface ListProtectedResourcesOutput {
-  __type?: "ListProtectedResourcesOutput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2796,11 +2637,9 @@ export namespace ListProtectedResourcesOutput {
   export const filterSensitiveLog = (obj: ListProtectedResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProtectedResourcesOutput => __isa(o, "ListProtectedResourcesOutput");
 }
 
 export interface ListRecoveryPointsByBackupVaultInput {
-  __type?: "ListRecoveryPointsByBackupVaultInput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2852,12 +2691,9 @@ export namespace ListRecoveryPointsByBackupVaultInput {
   export const filterSensitiveLog = (obj: ListRecoveryPointsByBackupVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecoveryPointsByBackupVaultInput =>
-    __isa(o, "ListRecoveryPointsByBackupVaultInput");
 }
 
 export interface ListRecoveryPointsByBackupVaultOutput {
-  __type?: "ListRecoveryPointsByBackupVaultOutput";
   /**
    * <p>An array of objects that contain detailed information about recovery points saved in a
    *          backup vault.</p>
@@ -2877,12 +2713,9 @@ export namespace ListRecoveryPointsByBackupVaultOutput {
   export const filterSensitiveLog = (obj: ListRecoveryPointsByBackupVaultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecoveryPointsByBackupVaultOutput =>
-    __isa(o, "ListRecoveryPointsByBackupVaultOutput");
 }
 
 export interface ListRecoveryPointsByResourceInput {
-  __type?: "ListRecoveryPointsByResourceInput";
   /**
    * <p>The maximum number of items to be returned.</p>
    */
@@ -2907,11 +2740,9 @@ export namespace ListRecoveryPointsByResourceInput {
   export const filterSensitiveLog = (obj: ListRecoveryPointsByResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecoveryPointsByResourceInput => __isa(o, "ListRecoveryPointsByResourceInput");
 }
 
 export interface ListRecoveryPointsByResourceOutput {
-  __type?: "ListRecoveryPointsByResourceOutput";
   /**
    * <p>An array of objects that contain detailed information about recovery points of the
    *          specified resource type.</p>
@@ -2931,12 +2762,9 @@ export namespace ListRecoveryPointsByResourceOutput {
   export const filterSensitiveLog = (obj: ListRecoveryPointsByResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecoveryPointsByResourceOutput =>
-    __isa(o, "ListRecoveryPointsByResourceOutput");
 }
 
 export interface ListRestoreJobsInput {
-  __type?: "ListRestoreJobsInput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -2975,11 +2803,9 @@ export namespace ListRestoreJobsInput {
   export const filterSensitiveLog = (obj: ListRestoreJobsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRestoreJobsInput => __isa(o, "ListRestoreJobsInput");
 }
 
 export interface ListRestoreJobsOutput {
-  __type?: "ListRestoreJobsOutput";
   /**
    * <p>An array of objects that contain detailed information about jobs to restore saved
    *          resources.</p>
@@ -2999,11 +2825,9 @@ export namespace ListRestoreJobsOutput {
   export const filterSensitiveLog = (obj: ListRestoreJobsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRestoreJobsOutput => __isa(o, "ListRestoreJobsOutput");
 }
 
 export interface ListTagsInput {
-  __type?: "ListTagsInput";
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
@@ -3029,11 +2853,9 @@ export namespace ListTagsInput {
   export const filterSensitiveLog = (obj: ListTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsInput => __isa(o, "ListTagsInput");
 }
 
 export interface ListTagsOutput {
-  __type?: "ListTagsOutput";
   /**
    * <p>To help organize your resources, you can assign your own metadata to the resources you
    *          create. Each tag is a key-value pair.</p>
@@ -3054,7 +2876,6 @@ export namespace ListTagsOutput {
     ...obj,
     ...(obj.Tags && { Tags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListTagsOutput => __isa(o, "ListTagsOutput");
 }
 
 /**
@@ -3080,14 +2901,12 @@ export namespace MissingParameterValueException {
   export const filterSensitiveLog = (obj: MissingParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingParameterValueException => __isa(o, "MissingParameterValueException");
 }
 
 /**
  * <p>A structure that contains information about a backed-up resource.</p>
  */
 export interface ProtectedResource {
-  __type?: "ProtectedResource";
   /**
    * <p>The type of AWS resource; for example, an Amazon Elastic Block Store (Amazon EBS) volume
    *          or an Amazon Relational Database Service (Amazon RDS) database.</p>
@@ -3113,11 +2932,9 @@ export namespace ProtectedResource {
   export const filterSensitiveLog = (obj: ProtectedResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProtectedResource => __isa(o, "ProtectedResource");
 }
 
 export interface PutBackupVaultAccessPolicyInput {
-  __type?: "PutBackupVaultAccessPolicyInput";
   /**
    * <p>The backup vault access policy document in JSON format.</p>
    */
@@ -3135,11 +2952,9 @@ export namespace PutBackupVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: PutBackupVaultAccessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBackupVaultAccessPolicyInput => __isa(o, "PutBackupVaultAccessPolicyInput");
 }
 
 export interface PutBackupVaultNotificationsInput {
-  __type?: "PutBackupVaultNotificationsInput";
   /**
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
@@ -3164,14 +2979,12 @@ export namespace PutBackupVaultNotificationsInput {
   export const filterSensitiveLog = (obj: PutBackupVaultNotificationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBackupVaultNotificationsInput => __isa(o, "PutBackupVaultNotificationsInput");
 }
 
 /**
  * <p>Contains detailed information about the recovery points stored in a backup vault.</p>
  */
 export interface RecoveryPointByBackupVault {
-  __type?: "RecoveryPointByBackupVault";
   /**
    * <p>The size, in bytes, of a backup.</p>
    */
@@ -3285,14 +3098,12 @@ export namespace RecoveryPointByBackupVault {
   export const filterSensitiveLog = (obj: RecoveryPointByBackupVault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecoveryPointByBackupVault => __isa(o, "RecoveryPointByBackupVault");
 }
 
 /**
  * <p>Contains detailed information about a saved recovery point.</p>
  */
 export interface RecoveryPointByResource {
-  __type?: "RecoveryPointByResource";
   /**
    * <p>A status code specifying the state of the recovery point.</p>
    */
@@ -3335,7 +3146,6 @@ export namespace RecoveryPointByResource {
   export const filterSensitiveLog = (obj: RecoveryPointByResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecoveryPointByResource => __isa(o, "RecoveryPointByResource");
 }
 
 /**
@@ -3343,7 +3153,6 @@ export namespace RecoveryPointByResource {
  *          recovery point backup.</p>
  */
 export interface RecoveryPointCreator {
-  __type?: "RecoveryPointCreator";
   /**
    * <p>Uniquely identifies a rule used to schedule the backup of a selection of
    *          resources.</p>
@@ -3372,7 +3181,6 @@ export namespace RecoveryPointCreator {
   export const filterSensitiveLog = (obj: RecoveryPointCreator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecoveryPointCreator => __isa(o, "RecoveryPointCreator");
 }
 
 export enum RecoveryPointStatus {
@@ -3405,14 +3213,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Contains metadata about a restore job.</p>
  */
 export interface RestoreJobsListMember {
-  __type?: "RestoreJobsListMember";
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
@@ -3496,7 +3302,6 @@ export namespace RestoreJobsListMember {
   export const filterSensitiveLog = (obj: RestoreJobsListMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreJobsListMember => __isa(o, "RestoreJobsListMember");
 }
 
 export enum RestoreJobStatus {
@@ -3531,11 +3336,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartBackupJobInput {
-  __type?: "StartBackupJobInput";
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
    *          it expires. AWS Backup will transition and expire backups automatically according to the
@@ -3594,11 +3397,9 @@ export namespace StartBackupJobInput {
     ...obj,
     ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartBackupJobInput => __isa(o, "StartBackupJobInput");
 }
 
 export interface StartBackupJobOutput {
-  __type?: "StartBackupJobOutput";
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
@@ -3623,11 +3424,9 @@ export namespace StartBackupJobOutput {
   export const filterSensitiveLog = (obj: StartBackupJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBackupJobOutput => __isa(o, "StartBackupJobOutput");
 }
 
 export interface StartCopyJobInput {
-  __type?: "StartCopyJobInput";
   /**
    * <p>The name of a logical source container where backups are stored.
    *          Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
@@ -3673,11 +3472,9 @@ export namespace StartCopyJobInput {
   export const filterSensitiveLog = (obj: StartCopyJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCopyJobInput => __isa(o, "StartCopyJobInput");
 }
 
 export interface StartCopyJobOutput {
-  __type?: "StartCopyJobOutput";
   /**
    * <p>The date and time that a copy job is started, in Unix format and Coordinated Universal Time (UTC).
    *          The value of <code>CreationDate</code> is accurate to milliseconds.
@@ -3695,11 +3492,9 @@ export namespace StartCopyJobOutput {
   export const filterSensitiveLog = (obj: StartCopyJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCopyJobOutput => __isa(o, "StartCopyJobOutput");
 }
 
 export interface StartRestoreJobInput {
-  __type?: "StartRestoreJobInput";
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
@@ -3800,11 +3595,9 @@ export namespace StartRestoreJobInput {
     ...obj,
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartRestoreJobInput => __isa(o, "StartRestoreJobInput");
 }
 
 export interface StartRestoreJobOutput {
-  __type?: "StartRestoreJobOutput";
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
    */
@@ -3815,11 +3608,9 @@ export namespace StartRestoreJobOutput {
   export const filterSensitiveLog = (obj: StartRestoreJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartRestoreJobOutput => __isa(o, "StartRestoreJobOutput");
 }
 
 export interface StopBackupJobInput {
-  __type?: "StopBackupJobInput";
   /**
    * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
    */
@@ -3830,7 +3621,6 @@ export namespace StopBackupJobInput {
   export const filterSensitiveLog = (obj: StopBackupJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBackupJobInput => __isa(o, "StopBackupJobInput");
 }
 
 export enum StorageClass {
@@ -3840,7 +3630,6 @@ export enum StorageClass {
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>Key-value pairs that are used to help organize your resources. You can assign your own
    *          metadata to the resources you create. </p>
@@ -3859,11 +3648,9 @@ export namespace TagResourceInput {
     ...obj,
     ...(obj.Tags && { Tags: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>A list of keys to identify which key-value tags to remove from a resource.</p>
    */
@@ -3881,11 +3668,9 @@ export namespace UntagResourceInput {
     ...obj,
     ...(obj.TagKeyList && { TagKeyList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UpdateBackupPlanInput {
-  __type?: "UpdateBackupPlanInput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -3903,11 +3688,9 @@ export namespace UpdateBackupPlanInput {
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan) }),
   });
-  export const isa = (o: any): o is UpdateBackupPlanInput => __isa(o, "UpdateBackupPlanInput");
 }
 
 export interface UpdateBackupPlanOutput {
-  __type?: "UpdateBackupPlanOutput";
   /**
    * <p>Uniquely identifies a backup plan.</p>
    */
@@ -3938,11 +3721,9 @@ export namespace UpdateBackupPlanOutput {
   export const filterSensitiveLog = (obj: UpdateBackupPlanOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBackupPlanOutput => __isa(o, "UpdateBackupPlanOutput");
 }
 
 export interface UpdateRecoveryPointLifecycleInput {
-  __type?: "UpdateRecoveryPointLifecycleInput";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
@@ -3972,11 +3753,9 @@ export namespace UpdateRecoveryPointLifecycleInput {
   export const filterSensitiveLog = (obj: UpdateRecoveryPointLifecycleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecoveryPointLifecycleInput => __isa(o, "UpdateRecoveryPointLifecycleInput");
 }
 
 export interface UpdateRecoveryPointLifecycleOutput {
-  __type?: "UpdateRecoveryPointLifecycleOutput";
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
    *             <code>MoveToColdStorageAt</code> timestamps.</p>
@@ -4011,12 +3790,9 @@ export namespace UpdateRecoveryPointLifecycleOutput {
   export const filterSensitiveLog = (obj: UpdateRecoveryPointLifecycleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecoveryPointLifecycleOutput =>
-    __isa(o, "UpdateRecoveryPointLifecycleOutput");
 }
 
 export interface UpdateRegionSettingsInput {
-  __type?: "UpdateRegionSettingsInput";
   /**
    * <p>Updates the list of services along with the opt-in preferences for the region.</p>
    */
@@ -4027,5 +3803,4 @@ export namespace UpdateRegionSettingsInput {
   export const filterSensitiveLog = (obj: UpdateRegionSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegionSettingsInput => __isa(o, "UpdateRegionSettingsInput");
 }

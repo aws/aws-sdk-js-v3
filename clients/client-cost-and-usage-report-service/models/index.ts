@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AdditionalArtifact {
@@ -31,7 +31,6 @@ export enum CompressionFormat {
  * <p>Deletes the specified report.</p>
  */
 export interface DeleteReportDefinitionRequest {
-  __type?: "DeleteReportDefinitionRequest";
   /**
    * <p>The name of the report that you want to create. The name must be unique,
    *         is case sensitive, and can't include spaces. </p>
@@ -43,14 +42,12 @@ export namespace DeleteReportDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReportDefinitionRequest => __isa(o, "DeleteReportDefinitionRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
 export interface DeleteReportDefinitionResponse {
-  __type?: "DeleteReportDefinitionResponse";
   /**
    * <p>Whether the deletion was successful or not.</p>
    */
@@ -61,14 +58,12 @@ export namespace DeleteReportDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteReportDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReportDefinitionResponse => __isa(o, "DeleteReportDefinitionResponse");
 }
 
 /**
  * <p>Requests a list of AWS Cost and Usage reports owned by the account.</p>
  */
 export interface DescribeReportDefinitionsRequest {
-  __type?: "DescribeReportDefinitionsRequest";
   /**
    * <p>A generic string.</p>
    */
@@ -84,14 +79,12 @@ export namespace DescribeReportDefinitionsRequest {
   export const filterSensitiveLog = (obj: DescribeReportDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReportDefinitionsRequest => __isa(o, "DescribeReportDefinitionsRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
 export interface DescribeReportDefinitionsResponse {
-  __type?: "DescribeReportDefinitionsResponse";
   /**
    * <p>A generic string.</p>
    */
@@ -107,7 +100,6 @@ export namespace DescribeReportDefinitionsResponse {
   export const filterSensitiveLog = (obj: DescribeReportDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReportDefinitionsResponse => __isa(o, "DescribeReportDefinitionsResponse");
 }
 
 /**
@@ -126,7 +118,6 @@ export namespace DuplicateReportNameException {
   export const filterSensitiveLog = (obj: DuplicateReportNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateReportNameException => __isa(o, "DuplicateReportNameException");
 }
 
 /**
@@ -145,11 +136,9 @@ export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 export interface ModifyReportDefinitionRequest {
-  __type?: "ModifyReportDefinitionRequest";
   /**
    * <p>The name of the report that you want to create. The name must be unique,
    *         is case sensitive, and can't include spaces. </p>
@@ -169,25 +158,20 @@ export namespace ModifyReportDefinitionRequest {
   export const filterSensitiveLog = (obj: ModifyReportDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReportDefinitionRequest => __isa(o, "ModifyReportDefinitionRequest");
 }
 
-export interface ModifyReportDefinitionResponse {
-  __type?: "ModifyReportDefinitionResponse";
-}
+export interface ModifyReportDefinitionResponse {}
 
 export namespace ModifyReportDefinitionResponse {
   export const filterSensitiveLog = (obj: ModifyReportDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReportDefinitionResponse => __isa(o, "ModifyReportDefinitionResponse");
 }
 
 /**
  * <p>Creates a Cost and Usage Report.</p>
  */
 export interface PutReportDefinitionRequest {
-  __type?: "PutReportDefinitionRequest";
   /**
    * <p>Represents the output of the PutReportDefinition operation. The content consists of the detailed
    *       metadata and data file information. </p>
@@ -199,21 +183,17 @@ export namespace PutReportDefinitionRequest {
   export const filterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutReportDefinitionRequest => __isa(o, "PutReportDefinitionRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
  */
-export interface PutReportDefinitionResponse {
-  __type?: "PutReportDefinitionResponse";
-}
+export interface PutReportDefinitionResponse {}
 
 export namespace PutReportDefinitionResponse {
   export const filterSensitiveLog = (obj: PutReportDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutReportDefinitionResponse => __isa(o, "PutReportDefinitionResponse");
 }
 
 /**
@@ -223,7 +203,6 @@ export namespace PutReportDefinitionResponse {
  *     </p>
  */
 export interface ReportDefinition {
-  __type?: "ReportDefinition";
   /**
    * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
    *          to deliver the report in addition to the previous versions.</p>
@@ -288,7 +267,6 @@ export namespace ReportDefinition {
   export const filterSensitiveLog = (obj: ReportDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportDefinition => __isa(o, "ReportDefinition");
 }
 
 export enum ReportFormat {
@@ -312,7 +290,6 @@ export namespace ReportLimitReachedException {
   export const filterSensitiveLog = (obj: ReportLimitReachedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportLimitReachedException => __isa(o, "ReportLimitReachedException");
 }
 
 export enum ReportVersioning {
@@ -345,5 +322,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

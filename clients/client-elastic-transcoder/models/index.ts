@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -27,7 +26,6 @@ export namespace AccessDeniedException {
  *             "Prepend", "Append", or "Fallback", and use an empty <code>Artwork</code> array.</p>
  */
 export interface Artwork {
-  __type?: "Artwork";
   /**
    * <p>The name of the file to be used as album art. To determine which Amazon S3 bucket contains the
    *             specified file, Elastic Transcoder checks the pipeline specified by <code>PipelineId</code>; the
@@ -123,14 +121,12 @@ export namespace Artwork {
   export const filterSensitiveLog = (obj: Artwork): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Artwork => __isa(o, "Artwork");
 }
 
 /**
  * <p>Options associated with your audio codec.</p>
  */
 export interface AudioCodecOptions {
-  __type?: "AudioCodecOptions";
   /**
    * <p>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</p>
    *         <p>Specify the AAC profile for the output file. Elastic Transcoder supports the following profiles:</p>
@@ -196,14 +192,12 @@ export namespace AudioCodecOptions {
   export const filterSensitiveLog = (obj: AudioCodecOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioCodecOptions => __isa(o, "AudioCodecOptions");
 }
 
 /**
  * <p>Parameters required for transcoding audio.</p>
  */
 export interface AudioParameters {
-  __type?: "AudioParameters";
   /**
    * <p>The number of audio channels in the output file. The following values are valid:</p>
    *         <p>
@@ -466,14 +460,12 @@ export namespace AudioParameters {
   export const filterSensitiveLog = (obj: AudioParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioParameters => __isa(o, "AudioParameters");
 }
 
 /**
  * <p>The <code>CancelJobRequest</code> structure.</p>
  */
 export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
   /**
    * <p>The identifier of the job that you want to cancel.</p>
    *         <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of
@@ -486,29 +478,24 @@ export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
 /**
  * <p>The response body contains a JSON object. If the job is successfully canceled, the value
  *             of <code>Success</code> is <code>true</code>.</p>
  */
-export interface CancelJobResponse {
-  __type?: "CancelJobResponse";
-}
+export interface CancelJobResponse {}
 
 export namespace CancelJobResponse {
   export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobResponse => __isa(o, "CancelJobResponse");
 }
 
 /**
  * <p>The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
  */
 export interface CaptionFormat {
-  __type?: "CaptionFormat";
   /**
    * <p>The format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.</p>
    *          <ul>
@@ -599,14 +586,12 @@ export namespace CaptionFormat {
   export const filterSensitiveLog = (obj: CaptionFormat): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionFormat => __isa(o, "CaptionFormat");
 }
 
 /**
  * <p>The captions to be created, if any.</p>
  */
 export interface Captions {
-  __type?: "Captions";
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
    *          <ul>
@@ -652,14 +637,12 @@ export namespace Captions {
   export const filterSensitiveLog = (obj: Captions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Captions => __isa(o, "Captions");
 }
 
 /**
  * <p>A source file for the input sidecar captions used during the transcoding process.</p>
  */
 export interface CaptionSource {
-  __type?: "CaptionSource";
   /**
    * <p>The label of the caption shown in the player when choosing a language. We recommend that you
    *             put the caption language name here, in the language of the captions.</p>
@@ -705,14 +688,12 @@ export namespace CaptionSource {
   export const filterSensitiveLog = (obj: CaptionSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionSource => __isa(o, "CaptionSource");
 }
 
 /**
  * <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
  */
 export interface Clip {
-  __type?: "Clip";
   /**
    * <p>Settings that determine when a clip begins and how long it lasts.</p>
    */
@@ -723,14 +704,12 @@ export namespace Clip {
   export const filterSensitiveLog = (obj: Clip): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Clip => __isa(o, "Clip");
 }
 
 /**
  * <p>The <code>CreateJobOutput</code> structure.</p>
  */
 export interface CreateJobOutput {
-  __type?: "CreateJobOutput";
   /**
    * <p>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.</p>
    *          <p>If you don't want Elastic Transcoder to create thumbnails, specify "".</p>
@@ -902,14 +881,12 @@ export namespace CreateJobOutput {
   export const filterSensitiveLog = (obj: CreateJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobOutput => __isa(o, "CreateJobOutput");
 }
 
 /**
  * <p>Information about the master playlist.</p>
  */
 export interface CreateJobPlaylist {
-  __type?: "CreateJobPlaylist";
   /**
    * <p>The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
    */
@@ -991,14 +968,12 @@ export namespace CreateJobPlaylist {
   export const filterSensitiveLog = (obj: CreateJobPlaylist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobPlaylist => __isa(o, "CreateJobPlaylist");
 }
 
 /**
  * <p>The <code>CreateJobRequest</code> structure.</p>
  */
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * <p>If you specify a preset in <code>PresetId</code> for which the value of
    *                 <code>Container</code> is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains
@@ -1060,14 +1035,12 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 /**
  * <p>The CreateJobResponse structure.</p>
  */
 export interface CreateJobResponse {
-  __type?: "CreateJobResponse";
   /**
    * <p>A section of the response body that provides information about the job that is created.</p>
    */
@@ -1078,14 +1051,12 @@ export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
  * <p>The <code>CreatePipelineRequest</code> structure.</p>
  */
 export interface CreatePipelineRequest {
-  __type?: "CreatePipelineRequest";
   /**
    * <p>The name of the pipeline. We recommend that the name be unique within the AWS account,
    *             but uniqueness is not enforced.</p>
@@ -1390,14 +1361,12 @@ export namespace CreatePipelineRequest {
   export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineRequest => __isa(o, "CreatePipelineRequest");
 }
 
 /**
  * <p>When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
 export interface CreatePipelineResponse {
-  __type?: "CreatePipelineResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline that is created.</p>
    */
@@ -1416,14 +1385,12 @@ export namespace CreatePipelineResponse {
   export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineResponse => __isa(o, "CreatePipelineResponse");
 }
 
 /**
  * <p>The <code>CreatePresetRequest</code> structure.</p>
  */
 export interface CreatePresetRequest {
-  __type?: "CreatePresetRequest";
   /**
    * <p>The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.</p>
    */
@@ -1463,14 +1430,12 @@ export namespace CreatePresetRequest {
   export const filterSensitiveLog = (obj: CreatePresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresetRequest => __isa(o, "CreatePresetRequest");
 }
 
 /**
  * <p>The <code>CreatePresetResponse</code> structure.</p>
  */
 export interface CreatePresetResponse {
-  __type?: "CreatePresetResponse";
   /**
    * <p>A section of the response body that provides information about the preset that is created.</p>
    */
@@ -1489,14 +1454,12 @@ export namespace CreatePresetResponse {
   export const filterSensitiveLog = (obj: CreatePresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresetResponse => __isa(o, "CreatePresetResponse");
 }
 
 /**
  * <p>The <code>DeletePipelineRequest</code> structure.</p>
  */
 export interface DeletePipelineRequest {
-  __type?: "DeletePipelineRequest";
   /**
    * <p>The identifier of the pipeline that you want to delete.</p>
    */
@@ -1507,28 +1470,23 @@ export namespace DeletePipelineRequest {
   export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineRequest => __isa(o, "DeletePipelineRequest");
 }
 
 /**
  * <p>The <code>DeletePipelineResponse</code> structure.</p>
  */
-export interface DeletePipelineResponse {
-  __type?: "DeletePipelineResponse";
-}
+export interface DeletePipelineResponse {}
 
 export namespace DeletePipelineResponse {
   export const filterSensitiveLog = (obj: DeletePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineResponse => __isa(o, "DeletePipelineResponse");
 }
 
 /**
  * <p>The <code>DeletePresetRequest</code> structure.</p>
  */
 export interface DeletePresetRequest {
-  __type?: "DeletePresetRequest";
   /**
    * <p>The identifier of the preset for which you want to get detailed information.</p>
    */
@@ -1539,28 +1497,23 @@ export namespace DeletePresetRequest {
   export const filterSensitiveLog = (obj: DeletePresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePresetRequest => __isa(o, "DeletePresetRequest");
 }
 
 /**
  * <p>The <code>DeletePresetResponse</code> structure.</p>
  */
-export interface DeletePresetResponse {
-  __type?: "DeletePresetResponse";
-}
+export interface DeletePresetResponse {}
 
 export namespace DeletePresetResponse {
   export const filterSensitiveLog = (obj: DeletePresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePresetResponse => __isa(o, "DeletePresetResponse");
 }
 
 /**
  * <p>The detected properties of the input file. Elastic Transcoder identifies these values from the input file.</p>
  */
 export interface DetectedProperties {
-  __type?: "DetectedProperties";
   /**
    * <p>The detected width of the input file, in pixels.</p>
    */
@@ -1591,7 +1544,6 @@ export namespace DetectedProperties {
   export const filterSensitiveLog = (obj: DetectedProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectedProperties => __isa(o, "DetectedProperties");
 }
 
 /**
@@ -1601,7 +1553,6 @@ export namespace DetectedProperties {
  *             Elastic Transcoder to use to encrypt your output files.</p>
  */
 export interface Encryption {
-  __type?: "Encryption";
   /**
    * <p>The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting
    *             your input files or encrypting your output files. Elastic Transcoder supports the following options:</p>
@@ -1693,14 +1644,12 @@ export namespace Encryption {
   export const filterSensitiveLog = (obj: Encryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
 
 /**
  * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.</p>
  */
 export interface HlsContentProtection {
-  __type?: "HlsContentProtection";
   /**
    * <p>If Elastic Transcoder is generating your key for you, you must leave this field blank.</p>
    *          <p>The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want
@@ -1752,7 +1701,6 @@ export namespace HlsContentProtection {
   export const filterSensitiveLog = (obj: HlsContentProtection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsContentProtection => __isa(o, "HlsContentProtection");
 }
 
 export interface IncompatibleVersionException extends __SmithyException, $MetadataBearer {
@@ -1765,14 +1713,12 @@ export namespace IncompatibleVersionException {
   export const filterSensitiveLog = (obj: IncompatibleVersionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncompatibleVersionException => __isa(o, "IncompatibleVersionException");
 }
 
 /**
  * <p>The captions to be created, if any.</p>
  */
 export interface InputCaptions {
-  __type?: "InputCaptions";
   /**
    * <p>Source files for the input sidecar captions used during the transcoding
    *             process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
@@ -1813,7 +1759,6 @@ export namespace InputCaptions {
   export const filterSensitiveLog = (obj: InputCaptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputCaptions => __isa(o, "InputCaptions");
 }
 
 /**
@@ -1829,14 +1774,12 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
  * <p>A section of the response body that provides information about the job that is created.</p>
  */
 export interface Job {
-  __type?: "Job";
   /**
    * <p>A section of the request or response body that provides information about the file that is being transcoded.</p>
    */
@@ -1952,14 +1895,12 @@ export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
  * <p>The .jpg or .png file associated with an audio file.</p>
  */
 export interface JobAlbumArt {
-  __type?: "JobAlbumArt";
   /**
    * <p>The file to be used as album art. There can be multiple artworks associated with an audio file,
    *             to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code>
@@ -1999,14 +1940,12 @@ export namespace JobAlbumArt {
   export const filterSensitiveLog = (obj: JobAlbumArt): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobAlbumArt => __isa(o, "JobAlbumArt");
 }
 
 /**
  * <p>Information about the file that you're transcoding.</p>
  */
 export interface JobInput {
-  __type?: "JobInput";
   /**
    * <p>The encryption settings, if any, that are used for decrypting your input files. If
    *             your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file.</p>
@@ -2137,7 +2076,6 @@ export namespace JobInput {
   export const filterSensitiveLog = (obj: JobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobInput => __isa(o, "JobInput");
 }
 
 /**
@@ -2151,7 +2089,6 @@ export namespace JobInput {
  *             object.</p>
  */
 export interface JobOutput {
-  __type?: "JobOutput";
   /**
    * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your thumbnail.</p>
    */
@@ -2416,7 +2353,6 @@ export namespace JobOutput {
   export const filterSensitiveLog = (obj: JobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobOutput => __isa(o, "JobOutput");
 }
 
 /**
@@ -2424,7 +2360,6 @@ export namespace JobOutput {
  *     rectangular, use the .png format, which supports transparency.</p>
  */
 export interface JobWatermark {
-  __type?: "JobWatermark";
   /**
    * <p> The name of the .png or .jpg file that you want to use for the watermark. To determine
    *     which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by
@@ -2453,7 +2388,6 @@ export namespace JobWatermark {
   export const filterSensitiveLog = (obj: JobWatermark): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobWatermark => __isa(o, "JobWatermark");
 }
 
 /**
@@ -2470,14 +2404,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>The <code>ListJobsByPipelineRequest</code> structure.</p>
  */
 export interface ListJobsByPipelineRequest {
-  __type?: "ListJobsByPipelineRequest";
   /**
    * <p> To list jobs in chronological order by the date and time that they were submitted, enter
    *                 <code>true</code>. To list jobs in reverse chronological order, enter
@@ -2501,14 +2433,12 @@ export namespace ListJobsByPipelineRequest {
   export const filterSensitiveLog = (obj: ListJobsByPipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsByPipelineRequest => __isa(o, "ListJobsByPipelineRequest");
 }
 
 /**
  * <p>The <code>ListJobsByPipelineResponse</code> structure.</p>
  */
 export interface ListJobsByPipelineResponse {
-  __type?: "ListJobsByPipelineResponse";
   /**
    * <p> A value that you use to access the second and subsequent pages of results, if any. When
    *             the jobs in the specified pipeline fit on one page or when you've reached the last page
@@ -2526,14 +2456,12 @@ export namespace ListJobsByPipelineResponse {
   export const filterSensitiveLog = (obj: ListJobsByPipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsByPipelineResponse => __isa(o, "ListJobsByPipelineResponse");
 }
 
 /**
  * <p>The <code>ListJobsByStatusRequest</code> structure.</p>
  */
 export interface ListJobsByStatusRequest {
-  __type?: "ListJobsByStatusRequest";
   /**
    * <p> To list jobs in chronological order by the date and time that they were submitted, enter
    *                 <code>true</code>. To list jobs in reverse chronological order, enter
@@ -2560,7 +2488,6 @@ export namespace ListJobsByStatusRequest {
   export const filterSensitiveLog = (obj: ListJobsByStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsByStatusRequest => __isa(o, "ListJobsByStatusRequest");
 }
 
 /**
@@ -2569,7 +2496,6 @@ export namespace ListJobsByStatusRequest {
  *         </p>
  */
 export interface ListJobsByStatusResponse {
-  __type?: "ListJobsByStatusResponse";
   /**
    * <p>An array of <code>Job</code> objects that have the specified status.</p>
    */
@@ -2587,14 +2513,12 @@ export namespace ListJobsByStatusResponse {
   export const filterSensitiveLog = (obj: ListJobsByStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsByStatusResponse => __isa(o, "ListJobsByStatusResponse");
 }
 
 /**
  * <p>The <code>ListPipelineRequest</code> structure.</p>
  */
 export interface ListPipelinesRequest {
-  __type?: "ListPipelinesRequest";
   /**
    * <p>To list pipelines in chronological order by the date and time that they were created, enter
    *             <code>true</code>. To list pipelines in reverse chronological order, enter
@@ -2613,14 +2537,12 @@ export namespace ListPipelinesRequest {
   export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesRequest => __isa(o, "ListPipelinesRequest");
 }
 
 /**
  * <p>A list of the pipelines associated with the current AWS account.</p>
  */
 export interface ListPipelinesResponse {
-  __type?: "ListPipelinesResponse";
   /**
    * <p>An array of <code>Pipeline</code> objects.</p>
    */
@@ -2638,14 +2560,12 @@ export namespace ListPipelinesResponse {
   export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesResponse => __isa(o, "ListPipelinesResponse");
 }
 
 /**
  * <p>The <code>ListPresetsRequest</code> structure.</p>
  */
 export interface ListPresetsRequest {
-  __type?: "ListPresetsRequest";
   /**
    * <p>When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
    *             subsequent <code>GET</code> requests to get each successive page of results. </p>
@@ -2664,14 +2584,12 @@ export namespace ListPresetsRequest {
   export const filterSensitiveLog = (obj: ListPresetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPresetsRequest => __isa(o, "ListPresetsRequest");
 }
 
 /**
  * <p>The <code>ListPresetsResponse</code> structure.</p>
  */
 export interface ListPresetsResponse {
-  __type?: "ListPresetsResponse";
   /**
    * <p>An array of <code>Preset</code> objects.</p>
    */
@@ -2689,7 +2607,6 @@ export namespace ListPresetsResponse {
   export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPresetsResponse => __isa(o, "ListPresetsResponse");
 }
 
 /**
@@ -2699,7 +2616,6 @@ export namespace ListPresetsResponse {
  *          </important>
  */
 export interface Notifications {
-  __type?: "Notifications";
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.</p>
    */
@@ -2725,14 +2641,12 @@ export namespace Notifications {
   export const filterSensitiveLog = (obj: Notifications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Notifications => __isa(o, "Notifications");
 }
 
 /**
  * <p>The <code>Permission</code> structure.</p>
  */
 export interface Permission {
-  __type?: "Permission";
   /**
    * <p>The AWS user or group that you want to have access to transcoded files and playlists. To
    *             identify the user or group, you can specify the canonical user ID for an AWS account, an origin
@@ -2801,14 +2715,12 @@ export namespace Permission {
   export const filterSensitiveLog = (obj: Permission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Permission => __isa(o, "Permission");
 }
 
 /**
  * <p>The pipeline (queue) that is used to manage jobs.</p>
  */
 export interface Pipeline {
-  __type?: "Pipeline";
   /**
    * <p>Information about the Amazon S3 bucket in which you want Elastic Transcoder to save
    *             thumbnail files. Either you specify both <code>ContentConfig</code> and
@@ -3080,14 +2992,12 @@ export namespace Pipeline {
   export const filterSensitiveLog = (obj: Pipeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Pipeline => __isa(o, "Pipeline");
 }
 
 /**
  * <p>The <code>PipelineOutputConfig</code> structure.</p>
  */
 export interface PipelineOutputConfig {
-  __type?: "PipelineOutputConfig";
   /**
    * <p>Optional. The <code>Permissions</code> object specifies which users and/or predefined
    *             Amazon S3 groups you want to have access to transcoded files and playlists, and the type
@@ -3142,7 +3052,6 @@ export namespace PipelineOutputConfig {
   export const filterSensitiveLog = (obj: PipelineOutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineOutputConfig => __isa(o, "PipelineOutputConfig");
 }
 
 /**
@@ -3153,7 +3062,6 @@ export namespace PipelineOutputConfig {
  *             playlist per output format. The maximum number of master playlists in a job is 30. </p>
  */
 export interface Playlist {
-  __type?: "Playlist";
   /**
    * <p>The name that you want Elastic Transcoder to assign to the master playlist, for example,
    *             nyc-vacation.m3u8. If the name includes a <code>/</code> character, the
@@ -3241,7 +3149,6 @@ export namespace Playlist {
   export const filterSensitiveLog = (obj: Playlist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Playlist => __isa(o, "Playlist");
 }
 
 /**
@@ -3251,7 +3158,6 @@ export namespace Playlist {
  *          <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
  */
 export interface PlayReadyDrm {
-  __type?: "PlayReadyDrm";
   /**
    * <p>The type of DRM, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
    */
@@ -3304,7 +3210,6 @@ export namespace PlayReadyDrm {
   export const filterSensitiveLog = (obj: PlayReadyDrm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlayReadyDrm => __isa(o, "PlayReadyDrm");
 }
 
 /**
@@ -3315,7 +3220,6 @@ export namespace PlayReadyDrm {
  *             when you create a job.</p>
  */
 export interface Preset {
-  __type?: "Preset";
   /**
    * <p>Whether the preset is a default preset provided by Elastic Transcoder
    *                 (<code>System</code>) or a preset that you have defined (<code>Custom</code>).</p>
@@ -3370,7 +3274,6 @@ export namespace Preset {
   export const filterSensitiveLog = (obj: Preset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Preset => __isa(o, "Preset");
 }
 
 /**
@@ -3386,7 +3289,6 @@ export namespace Preset {
  *             the same preset for up to four watermarks that have different dimensions.</p>
  */
 export interface PresetWatermark {
-  __type?: "PresetWatermark";
   /**
    * <p>The horizontal position of the watermark unless you specify a non-zero value for
    *                 <code>HorizontalOffset</code>: </p>
@@ -3605,14 +3507,12 @@ export namespace PresetWatermark {
   export const filterSensitiveLog = (obj: PresetWatermark): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PresetWatermark => __isa(o, "PresetWatermark");
 }
 
 /**
  * <p>The <code>ReadJobRequest</code> structure.</p>
  */
 export interface ReadJobRequest {
-  __type?: "ReadJobRequest";
   /**
    * <p>The identifier of the job for which you want to get detailed information.</p>
    */
@@ -3623,14 +3523,12 @@ export namespace ReadJobRequest {
   export const filterSensitiveLog = (obj: ReadJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReadJobRequest => __isa(o, "ReadJobRequest");
 }
 
 /**
  * <p>The <code>ReadJobResponse</code> structure.</p>
  */
 export interface ReadJobResponse {
-  __type?: "ReadJobResponse";
   /**
    * <p>A section of the response body that provides information about the job.</p>
    */
@@ -3641,14 +3539,12 @@ export namespace ReadJobResponse {
   export const filterSensitiveLog = (obj: ReadJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReadJobResponse => __isa(o, "ReadJobResponse");
 }
 
 /**
  * <p>The <code>ReadPipelineRequest</code> structure.</p>
  */
 export interface ReadPipelineRequest {
-  __type?: "ReadPipelineRequest";
   /**
    * <p>The identifier of the pipeline to read.</p>
    */
@@ -3659,14 +3555,12 @@ export namespace ReadPipelineRequest {
   export const filterSensitiveLog = (obj: ReadPipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReadPipelineRequest => __isa(o, "ReadPipelineRequest");
 }
 
 /**
  * <p>The <code>ReadPipelineResponse</code> structure.</p>
  */
 export interface ReadPipelineResponse {
-  __type?: "ReadPipelineResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline.</p>
    */
@@ -3685,14 +3579,12 @@ export namespace ReadPipelineResponse {
   export const filterSensitiveLog = (obj: ReadPipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReadPipelineResponse => __isa(o, "ReadPipelineResponse");
 }
 
 /**
  * <p>The <code>ReadPresetRequest</code> structure.</p>
  */
 export interface ReadPresetRequest {
-  __type?: "ReadPresetRequest";
   /**
    * <p>The identifier of the preset for which you want to get detailed information.</p>
    */
@@ -3703,14 +3595,12 @@ export namespace ReadPresetRequest {
   export const filterSensitiveLog = (obj: ReadPresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReadPresetRequest => __isa(o, "ReadPresetRequest");
 }
 
 /**
  * <p>The <code>ReadPresetResponse</code> structure.</p>
  */
 export interface ReadPresetResponse {
-  __type?: "ReadPresetResponse";
   /**
    * <p>A section of the response body that provides information about the preset.</p>
    */
@@ -3721,7 +3611,6 @@ export namespace ReadPresetResponse {
   export const filterSensitiveLog = (obj: ReadPresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReadPresetResponse => __isa(o, "ReadPresetResponse");
 }
 
 /**
@@ -3738,7 +3627,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3755,14 +3643,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p> The <code>TestRoleRequest</code> structure. </p>
  */
 export interface TestRoleRequest {
-  __type?: "TestRoleRequest";
   /**
    * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.</p>
    */
@@ -3788,14 +3674,12 @@ export namespace TestRoleRequest {
   export const filterSensitiveLog = (obj: TestRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRoleRequest => __isa(o, "TestRoleRequest");
 }
 
 /**
  * <p>The <code>TestRoleResponse</code> structure.</p>
  */
 export interface TestRoleResponse {
-  __type?: "TestRoleResponse";
   /**
    * <p>If the operation is successful, this value is <code>true</code>; otherwise, the value is
    *                 <code>false</code>.</p>
@@ -3813,14 +3697,12 @@ export namespace TestRoleResponse {
   export const filterSensitiveLog = (obj: TestRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRoleResponse => __isa(o, "TestRoleResponse");
 }
 
 /**
  * <p>Thumbnails for videos.</p>
  */
 export interface Thumbnails {
-  __type?: "Thumbnails";
   /**
    * <p>The approximate number of seconds between thumbnails. Specify an integer value.</p>
    */
@@ -3947,14 +3829,12 @@ export namespace Thumbnails {
   export const filterSensitiveLog = (obj: Thumbnails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Thumbnails => __isa(o, "Thumbnails");
 }
 
 /**
  * <p>Settings that determine when a clip begins and how long it lasts.</p>
  */
 export interface TimeSpan {
-  __type?: "TimeSpan";
   /**
    * <p>The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999;
    *            SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a
@@ -3977,14 +3857,12 @@ export namespace TimeSpan {
   export const filterSensitiveLog = (obj: TimeSpan): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeSpan => __isa(o, "TimeSpan");
 }
 
 /**
  * <p>Details about the timing of a job.</p>
  */
 export interface Timing {
-  __type?: "Timing";
   /**
    * <p>The time the job began transcoding, in epoch milliseconds.</p>
    */
@@ -4005,14 +3883,12 @@ export namespace Timing {
   export const filterSensitiveLog = (obj: Timing): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Timing => __isa(o, "Timing");
 }
 
 /**
  * <p>The <code>UpdatePipelineNotificationsRequest</code> structure.</p>
  */
 export interface UpdatePipelineNotificationsRequest {
-  __type?: "UpdatePipelineNotificationsRequest";
   /**
    * <p>The identifier of the pipeline for which you want to change notification settings.</p>
    */
@@ -4057,15 +3933,12 @@ export namespace UpdatePipelineNotificationsRequest {
   export const filterSensitiveLog = (obj: UpdatePipelineNotificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineNotificationsRequest =>
-    __isa(o, "UpdatePipelineNotificationsRequest");
 }
 
 /**
  * <p>The <code>UpdatePipelineNotificationsResponse</code> structure.</p>
  */
 export interface UpdatePipelineNotificationsResponse {
-  __type?: "UpdatePipelineNotificationsResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline associated
    *             with this notification.</p>
@@ -4077,15 +3950,12 @@ export namespace UpdatePipelineNotificationsResponse {
   export const filterSensitiveLog = (obj: UpdatePipelineNotificationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineNotificationsResponse =>
-    __isa(o, "UpdatePipelineNotificationsResponse");
 }
 
 /**
  * <p>The <code>UpdatePipelineRequest</code> structure.</p>
  */
 export interface UpdatePipelineRequest {
-  __type?: "UpdatePipelineRequest";
   /**
    * <p>The ID of the pipeline that you want to update.</p>
    */
@@ -4357,14 +4227,12 @@ export namespace UpdatePipelineRequest {
   export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineRequest => __isa(o, "UpdatePipelineRequest");
 }
 
 /**
  * <p>When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
 export interface UpdatePipelineResponse {
-  __type?: "UpdatePipelineResponse";
   /**
    * <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the
    *             pipeline.</p>
@@ -4383,14 +4251,12 @@ export namespace UpdatePipelineResponse {
   export const filterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineResponse => __isa(o, "UpdatePipelineResponse");
 }
 
 /**
  * <p>The <code>UpdatePipelineStatusRequest</code> structure.</p>
  */
 export interface UpdatePipelineStatusRequest {
-  __type?: "UpdatePipelineStatusRequest";
   /**
    * <p>The identifier of the pipeline to update.</p>
    */
@@ -4416,7 +4282,6 @@ export namespace UpdatePipelineStatusRequest {
   export const filterSensitiveLog = (obj: UpdatePipelineStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineStatusRequest => __isa(o, "UpdatePipelineStatusRequest");
 }
 
 /**
@@ -4424,7 +4289,6 @@ export namespace UpdatePipelineStatusRequest {
  *             Elastic Transcoder returns the values that you specified in the request.</p>
  */
 export interface UpdatePipelineStatusResponse {
-  __type?: "UpdatePipelineStatusResponse";
   /**
    * <p>A section of the response body that provides information about the pipeline.</p>
    */
@@ -4435,7 +4299,6 @@ export namespace UpdatePipelineStatusResponse {
   export const filterSensitiveLog = (obj: UpdatePipelineStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineStatusResponse => __isa(o, "UpdatePipelineStatusResponse");
 }
 
 /**
@@ -4451,14 +4314,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>The <code>VideoParameters</code> structure.</p>
  */
 export interface VideoParameters {
-  __type?: "VideoParameters";
   /**
    * <p>The frames per second for the video stream in the output file. Valid values include:</p>
    *         <p>
@@ -5033,7 +4894,6 @@ export namespace VideoParameters {
   export const filterSensitiveLog = (obj: VideoParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoParameters => __isa(o, "VideoParameters");
 }
 
 /**
@@ -5043,7 +4903,6 @@ export namespace VideoParameters {
  *             and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
  */
 export interface Warning {
-  __type?: "Warning";
   /**
    * <p>The message explaining what resources are in a different region from the pipeline.</p>
    *         <note>
@@ -5062,5 +4921,4 @@ export namespace Warning {
   export const filterSensitiveLog = (obj: Warning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Warning => __isa(o, "Warning");
 }

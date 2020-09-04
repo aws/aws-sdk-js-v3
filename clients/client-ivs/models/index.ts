@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
@@ -14,14 +14,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Error related to a specific channel, specified by its ARN.</p>
  */
 export interface BatchError {
-  __type?: "BatchError";
   /**
    * <p>Error code.</p>
    */
@@ -42,11 +40,9 @@ export namespace BatchError {
   export const filterSensitiveLog = (obj: BatchError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchError => __isa(o, "BatchError");
 }
 
 export interface BatchGetChannelRequest {
-  __type?: "BatchGetChannelRequest";
   /**
    * <p>Array of ARNs, one per channel.</p>
    */
@@ -57,11 +53,9 @@ export namespace BatchGetChannelRequest {
   export const filterSensitiveLog = (obj: BatchGetChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetChannelRequest => __isa(o, "BatchGetChannelRequest");
 }
 
 export interface BatchGetChannelResponse {
-  __type?: "BatchGetChannelResponse";
   /**
    * <p>Each error object is related to a specific ARN in the request.</p>
    */
@@ -74,11 +68,9 @@ export namespace BatchGetChannelResponse {
   export const filterSensitiveLog = (obj: BatchGetChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetChannelResponse => __isa(o, "BatchGetChannelResponse");
 }
 
 export interface BatchGetStreamKeyRequest {
-  __type?: "BatchGetStreamKeyRequest";
   /**
    * <p>Array of ARNs, one per channel.</p>
    */
@@ -89,11 +81,9 @@ export namespace BatchGetStreamKeyRequest {
   export const filterSensitiveLog = (obj: BatchGetStreamKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetStreamKeyRequest => __isa(o, "BatchGetStreamKeyRequest");
 }
 
 export interface BatchGetStreamKeyResponse {
-  __type?: "BatchGetStreamKeyResponse";
   streamKeys?: StreamKey[];
   errors?: BatchError[];
 }
@@ -102,14 +92,12 @@ export namespace BatchGetStreamKeyResponse {
   export const filterSensitiveLog = (obj: BatchGetStreamKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetStreamKeyResponse => __isa(o, "BatchGetStreamKeyResponse");
 }
 
 /**
  * <p>Object specifying a channel.</p>
  */
 export interface Channel {
-  __type?: "Channel";
   /**
    * <p>Channel playback URL.</p>
    */
@@ -168,7 +156,6 @@ export namespace Channel {
   export const filterSensitiveLog = (obj: Channel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
 
 export enum ChannelLatencyMode {
@@ -189,14 +176,12 @@ export namespace ChannelNotBroadcasting {
   export const filterSensitiveLog = (obj: ChannelNotBroadcasting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelNotBroadcasting => __isa(o, "ChannelNotBroadcasting");
 }
 
 /**
  * <p>Summary information about a channel.</p>
  */
 export interface ChannelSummary {
-  __type?: "ChannelSummary";
   /**
    * <p>Channel ARN.</p>
    */
@@ -222,7 +207,6 @@ export namespace ChannelSummary {
   export const filterSensitiveLog = (obj: ChannelSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelSummary => __isa(o, "ChannelSummary");
 }
 
 export enum ChannelType {
@@ -243,11 +227,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateChannelRequest {
-  __type?: "CreateChannelRequest";
   /**
    * <p>Channel name.</p>
    */
@@ -290,11 +272,9 @@ export namespace CreateChannelRequest {
   export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChannelRequest => __isa(o, "CreateChannelRequest");
 }
 
 export interface CreateChannelResponse {
-  __type?: "CreateChannelResponse";
   /**
    * <p>Object specifying a channel.</p>
    */
@@ -310,11 +290,9 @@ export namespace CreateChannelResponse {
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChannelResponse => __isa(o, "CreateChannelResponse");
 }
 
 export interface CreateStreamKeyRequest {
-  __type?: "CreateStreamKeyRequest";
   /**
    * <p>ARN of the channel for which to create the stream key.</p>
    */
@@ -330,11 +308,9 @@ export namespace CreateStreamKeyRequest {
   export const filterSensitiveLog = (obj: CreateStreamKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamKeyRequest => __isa(o, "CreateStreamKeyRequest");
 }
 
 export interface CreateStreamKeyResponse {
-  __type?: "CreateStreamKeyResponse";
   /**
    * <p>Stream key used to authenticate an RTMPS stream for ingestion.</p>
    */
@@ -345,11 +321,9 @@ export namespace CreateStreamKeyResponse {
   export const filterSensitiveLog = (obj: CreateStreamKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamKeyResponse => __isa(o, "CreateStreamKeyResponse");
 }
 
 export interface DeleteChannelRequest {
-  __type?: "DeleteChannelRequest";
   /**
    * <p>ARN of the channel to be deleted.</p>
    */
@@ -360,11 +334,9 @@ export namespace DeleteChannelRequest {
   export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChannelRequest => __isa(o, "DeleteChannelRequest");
 }
 
 export interface DeleteStreamKeyRequest {
-  __type?: "DeleteStreamKeyRequest";
   /**
    * <p>ARN of the stream key to be deleted.</p>
    */
@@ -375,11 +347,9 @@ export namespace DeleteStreamKeyRequest {
   export const filterSensitiveLog = (obj: DeleteStreamKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamKeyRequest => __isa(o, "DeleteStreamKeyRequest");
 }
 
 export interface GetChannelRequest {
-  __type?: "GetChannelRequest";
   /**
    * <p>ARN of the channel for which the configuration is to be retrieved.</p>
    */
@@ -390,11 +360,9 @@ export namespace GetChannelRequest {
   export const filterSensitiveLog = (obj: GetChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChannelRequest => __isa(o, "GetChannelRequest");
 }
 
 export interface GetChannelResponse {
-  __type?: "GetChannelResponse";
   /**
    * <p>Object specifying a channel.</p>
    */
@@ -405,11 +373,9 @@ export namespace GetChannelResponse {
   export const filterSensitiveLog = (obj: GetChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChannelResponse => __isa(o, "GetChannelResponse");
 }
 
 export interface GetStreamKeyRequest {
-  __type?: "GetStreamKeyRequest";
   /**
    * <p>ARN for the stream key to be retrieved.</p>
    */
@@ -420,11 +386,9 @@ export namespace GetStreamKeyRequest {
   export const filterSensitiveLog = (obj: GetStreamKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamKeyRequest => __isa(o, "GetStreamKeyRequest");
 }
 
 export interface GetStreamKeyResponse {
-  __type?: "GetStreamKeyResponse";
   /**
    * <p>Object specifying a stream key.</p>
    */
@@ -435,11 +399,9 @@ export namespace GetStreamKeyResponse {
   export const filterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamKeyResponse => __isa(o, "GetStreamKeyResponse");
 }
 
 export interface GetStreamRequest {
-  __type?: "GetStreamRequest";
   /**
    * <p>Channel ARN for stream to be accessed.</p>
    */
@@ -450,11 +412,9 @@ export namespace GetStreamRequest {
   export const filterSensitiveLog = (obj: GetStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamRequest => __isa(o, "GetStreamRequest");
 }
 
 export interface GetStreamResponse {
-  __type?: "GetStreamResponse";
   /**
    * <p>Specifies a live video stream that has been ingested and distributed.</p>
    */
@@ -465,7 +425,6 @@ export namespace GetStreamResponse {
   export const filterSensitiveLog = (obj: GetStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamResponse => __isa(o, "GetStreamResponse");
 }
 
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
@@ -481,11 +440,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListChannelsRequest {
-  __type?: "ListChannelsRequest";
   /**
    * <p>Maximum number of channels to return.</p>
    */
@@ -507,11 +464,9 @@ export namespace ListChannelsRequest {
   export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChannelsRequest => __isa(o, "ListChannelsRequest");
 }
 
 export interface ListChannelsResponse {
-  __type?: "ListChannelsResponse";
   /**
    * <p>List of the matching channels.</p>
    */
@@ -528,11 +483,9 @@ export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChannelsResponse => __isa(o, "ListChannelsResponse");
 }
 
 export interface ListStreamKeysRequest {
-  __type?: "ListStreamKeysRequest";
   /**
    * <p>Channel ARN used to filter the list.</p>
    */
@@ -554,11 +507,9 @@ export namespace ListStreamKeysRequest {
   export const filterSensitiveLog = (obj: ListStreamKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamKeysRequest => __isa(o, "ListStreamKeysRequest");
 }
 
 export interface ListStreamKeysResponse {
-  __type?: "ListStreamKeysResponse";
   /**
    * <p>List of stream keys.</p>
    */
@@ -575,11 +526,9 @@ export namespace ListStreamKeysResponse {
   export const filterSensitiveLog = (obj: ListStreamKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamKeysResponse => __isa(o, "ListStreamKeysResponse");
 }
 
 export interface ListStreamsRequest {
-  __type?: "ListStreamsRequest";
   /**
    * <p>Maximum number of streams to return.</p>
    */
@@ -596,11 +545,9 @@ export namespace ListStreamsRequest {
   export const filterSensitiveLog = (obj: ListStreamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsRequest => __isa(o, "ListStreamsRequest");
 }
 
 export interface ListStreamsResponse {
-  __type?: "ListStreamsResponse";
   /**
    * <p>List of streams.</p>
    */
@@ -617,11 +564,9 @@ export namespace ListStreamsResponse {
   export const filterSensitiveLog = (obj: ListStreamsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsResponse => __isa(o, "ListStreamsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The first tag to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
@@ -643,11 +588,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>If there are more tags than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
@@ -661,7 +604,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface PendingVerification extends __SmithyException, $MetadataBearer {
@@ -677,11 +619,9 @@ export namespace PendingVerification {
   export const filterSensitiveLog = (obj: PendingVerification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingVerification => __isa(o, "PendingVerification");
 }
 
 export interface PutMetadataRequest {
-  __type?: "PutMetadataRequest";
   /**
    * <p>Metadata to insert into the stream. Maximum: 1 KB per request.</p>
    */
@@ -698,7 +638,6 @@ export namespace PutMetadataRequest {
   export const filterSensitiveLog = (obj: PutMetadataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutMetadataRequest => __isa(o, "PutMetadataRequest");
 }
 
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
@@ -714,7 +653,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
@@ -730,11 +668,9 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface StopStreamRequest {
-  __type?: "StopStreamRequest";
   /**
    * <p>ARN of the channel for which the stream is to be stopped.</p>
    */
@@ -745,25 +681,20 @@ export namespace StopStreamRequest {
   export const filterSensitiveLog = (obj: StopStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStreamRequest => __isa(o, "StopStreamRequest");
 }
 
-export interface StopStreamResponse {
-  __type?: "StopStreamResponse";
-}
+export interface StopStreamResponse {}
 
 export namespace StopStreamResponse {
   export const filterSensitiveLog = (obj: StopStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStreamResponse => __isa(o, "StopStreamResponse");
 }
 
 /**
  * <p>Specifies a live video stream that has been ingested and distributed.</p>
  */
 export interface _Stream {
-  __type?: "Stream";
   /**
    * <p>ISO-8601 formatted timestamp of the stream’s start.</p>
    */
@@ -800,7 +731,6 @@ export namespace _Stream {
   export const filterSensitiveLog = (obj: _Stream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Stream => __isa(o, "Stream");
 }
 
 export enum StreamHealth {
@@ -813,7 +743,6 @@ export enum StreamHealth {
  * <p>Object specifying a stream key.</p>
  */
 export interface StreamKey {
-  __type?: "StreamKey";
   /**
    * <p>Channel ARN for the stream.</p>
    */
@@ -840,14 +769,12 @@ export namespace StreamKey {
   export const filterSensitiveLog = (obj: StreamKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamKey => __isa(o, "StreamKey");
 }
 
 /**
  * <p>Summary information about a stream key.</p>
  */
 export interface StreamKeySummary {
-  __type?: "StreamKeySummary";
   /**
    * <p>Channel ARN for the stream.</p>
    */
@@ -869,7 +796,6 @@ export namespace StreamKeySummary {
   export const filterSensitiveLog = (obj: StreamKeySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamKeySummary => __isa(o, "StreamKeySummary");
 }
 
 export enum StreamState {
@@ -881,7 +807,6 @@ export enum StreamState {
  * <p>Summary information about a stream.</p>
  */
 export interface StreamSummary {
-  __type?: "StreamSummary";
   /**
    * <p>The stream’s state.</p>
    */
@@ -912,7 +837,6 @@ export namespace StreamSummary {
   export const filterSensitiveLog = (obj: StreamSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamSummary => __isa(o, "StreamSummary");
 }
 
 export interface StreamUnavailable extends __SmithyException, $MetadataBearer {
@@ -928,11 +852,9 @@ export namespace StreamUnavailable {
   export const filterSensitiveLog = (obj: StreamUnavailable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamUnavailable => __isa(o, "StreamUnavailable");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>ARN of the resource for which tags are to be added or updated.</p>
    */
@@ -948,18 +870,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
@@ -975,11 +893,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>ARN of the resource for which tags are to be removed.</p>
    */
@@ -995,22 +911,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateChannelRequest {
-  __type?: "UpdateChannelRequest";
   /**
    * <p>Channel latency mode. Default: <code>LOW</code>.</p>
    */
@@ -1053,11 +964,9 @@ export namespace UpdateChannelRequest {
   export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateChannelRequest => __isa(o, "UpdateChannelRequest");
 }
 
 export interface UpdateChannelResponse {
-  __type?: "UpdateChannelResponse";
   /**
    * <p>Object specifying a channel.</p>
    */
@@ -1068,7 +977,6 @@ export namespace UpdateChannelResponse {
   export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateChannelResponse => __isa(o, "UpdateChannelResponse");
 }
 
 export interface ValidationException extends __SmithyException, $MetadataBearer {
@@ -1084,5 +992,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

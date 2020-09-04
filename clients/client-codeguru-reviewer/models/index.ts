@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,11 +14,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateRepositoryRequest {
-  __type?: "AssociateRepositoryRequest";
   /**
    * <p>The repository to associate.</p>
    */
@@ -50,11 +48,9 @@ export namespace AssociateRepositoryRequest {
   export const filterSensitiveLog = (obj: AssociateRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateRepositoryRequest => __isa(o, "AssociateRepositoryRequest");
 }
 
 export interface AssociateRepositoryResponse {
-  __type?: "AssociateRepositoryResponse";
   /**
    * <p>Information about the repository association.</p>
    */
@@ -65,7 +61,6 @@ export namespace AssociateRepositoryResponse {
   export const filterSensitiveLog = (obj: AssociateRepositoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateRepositoryResponse => __isa(o, "AssociateRepositoryResponse");
 }
 
 /**
@@ -73,7 +68,6 @@ export namespace AssociateRepositoryResponse {
  *       AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured. </p>
  */
 export interface CodeCommitRepository {
-  __type?: "CodeCommitRepository";
   /**
    * <p>The name of the AWS CodeCommit repository. For more information, see
    *          <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a>
@@ -86,7 +80,6 @@ export namespace CodeCommitRepository {
   export const filterSensitiveLog = (obj: CodeCommitRepository): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeCommitRepository => __isa(o, "CodeCommitRepository");
 }
 
 /**
@@ -95,7 +88,6 @@ export namespace CodeCommitRepository {
  *       </p>
  */
 export interface CodeReview {
-  __type?: "CodeReview";
   /**
    * <p>
    *          The reason for the state of the code review.
@@ -212,7 +204,6 @@ export namespace CodeReview {
   export const filterSensitiveLog = (obj: CodeReview): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeReview => __isa(o, "CodeReview");
 }
 
 /**
@@ -221,7 +212,6 @@ export namespace CodeReview {
  *       </p>
  */
 export interface CodeReviewSummary {
-  __type?: "CodeReviewSummary";
   /**
    * <p>
    *          The provider type of the repository association.
@@ -327,7 +317,6 @@ export namespace CodeReviewSummary {
   export const filterSensitiveLog = (obj: CodeReviewSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeReviewSummary => __isa(o, "CodeReviewSummary");
 }
 
 /**
@@ -336,7 +325,6 @@ export namespace CodeReviewSummary {
  *       </p>
  */
 export interface CommitDiffSourceCodeType {
-  __type?: "CommitDiffSourceCodeType";
   /**
    * <p>
    *          The SHA of the source commit.
@@ -356,7 +344,6 @@ export namespace CommitDiffSourceCodeType {
   export const filterSensitiveLog = (obj: CommitDiffSourceCodeType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitDiffSourceCodeType => __isa(o, "CommitDiffSourceCodeType");
 }
 
 /**
@@ -373,11 +360,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface DescribeCodeReviewRequest {
-  __type?: "DescribeCodeReviewRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
    *                <code>CodeReview</code>
@@ -391,11 +376,9 @@ export namespace DescribeCodeReviewRequest {
   export const filterSensitiveLog = (obj: DescribeCodeReviewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCodeReviewRequest => __isa(o, "DescribeCodeReviewRequest");
 }
 
 export interface DescribeCodeReviewResponse {
-  __type?: "DescribeCodeReviewResponse";
   /**
    * <p>
    *          Information about the code review.
@@ -408,11 +391,9 @@ export namespace DescribeCodeReviewResponse {
   export const filterSensitiveLog = (obj: DescribeCodeReviewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCodeReviewResponse => __isa(o, "DescribeCodeReviewResponse");
 }
 
 export interface DescribeRecommendationFeedbackRequest {
-  __type?: "DescribeRecommendationFeedbackRequest";
   /**
    * <p>
    *          The recommendation ID that can be used to track the provided recommendations and then to collect the feedback.
@@ -445,12 +426,9 @@ export namespace DescribeRecommendationFeedbackRequest {
   export const filterSensitiveLog = (obj: DescribeRecommendationFeedbackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRecommendationFeedbackRequest =>
-    __isa(o, "DescribeRecommendationFeedbackRequest");
 }
 
 export interface DescribeRecommendationFeedbackResponse {
-  __type?: "DescribeRecommendationFeedbackResponse";
   /**
    * <p>
    *          The recommendation feedback given by the user.
@@ -463,12 +441,9 @@ export namespace DescribeRecommendationFeedbackResponse {
   export const filterSensitiveLog = (obj: DescribeRecommendationFeedbackResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRecommendationFeedbackResponse =>
-    __isa(o, "DescribeRecommendationFeedbackResponse");
 }
 
 export interface DescribeRepositoryAssociationRequest {
-  __type?: "DescribeRepositoryAssociationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the
    *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
@@ -483,12 +458,9 @@ export namespace DescribeRepositoryAssociationRequest {
   export const filterSensitiveLog = (obj: DescribeRepositoryAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoryAssociationRequest =>
-    __isa(o, "DescribeRepositoryAssociationRequest");
 }
 
 export interface DescribeRepositoryAssociationResponse {
-  __type?: "DescribeRepositoryAssociationResponse";
   /**
    * <p>Information about the repository association.</p>
    */
@@ -499,12 +471,9 @@ export namespace DescribeRepositoryAssociationResponse {
   export const filterSensitiveLog = (obj: DescribeRepositoryAssociationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRepositoryAssociationResponse =>
-    __isa(o, "DescribeRepositoryAssociationResponse");
 }
 
 export interface DisassociateRepositoryRequest {
-  __type?: "DisassociateRepositoryRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the
    *          <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
@@ -519,11 +488,9 @@ export namespace DisassociateRepositoryRequest {
   export const filterSensitiveLog = (obj: DisassociateRepositoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateRepositoryRequest => __isa(o, "DisassociateRepositoryRequest");
 }
 
 export interface DisassociateRepositoryResponse {
-  __type?: "DisassociateRepositoryResponse";
   /**
    * <p>Information about the disassociated repository.</p>
    */
@@ -534,7 +501,6 @@ export namespace DisassociateRepositoryResponse {
   export const filterSensitiveLog = (obj: DisassociateRepositoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateRepositoryResponse => __isa(o, "DisassociateRepositoryResponse");
 }
 
 /**
@@ -550,7 +516,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export enum JobState {
@@ -561,7 +526,6 @@ export enum JobState {
 }
 
 export interface ListCodeReviewsRequest {
-  __type?: "ListCodeReviewsRequest";
   /**
    * <p>
    *          The maximum number of results that are returned per call. The default is 100.
@@ -633,11 +597,9 @@ export namespace ListCodeReviewsRequest {
   export const filterSensitiveLog = (obj: ListCodeReviewsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCodeReviewsRequest => __isa(o, "ListCodeReviewsRequest");
 }
 
 export interface ListCodeReviewsResponse {
-  __type?: "ListCodeReviewsResponse";
   /**
    * <p>
    *          Pagination token.
@@ -657,11 +619,9 @@ export namespace ListCodeReviewsResponse {
   export const filterSensitiveLog = (obj: ListCodeReviewsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCodeReviewsResponse => __isa(o, "ListCodeReviewsResponse");
 }
 
 export interface ListRecommendationFeedbackRequest {
-  __type?: "ListRecommendationFeedbackRequest";
   /**
    * <p>
    *          The maximum number of results that are returned per call. The default is 100.
@@ -709,11 +669,9 @@ export namespace ListRecommendationFeedbackRequest {
   export const filterSensitiveLog = (obj: ListRecommendationFeedbackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecommendationFeedbackRequest => __isa(o, "ListRecommendationFeedbackRequest");
 }
 
 export interface ListRecommendationFeedbackResponse {
-  __type?: "ListRecommendationFeedbackResponse";
   /**
    * <p> Recommendation feedback summaries corresponding to the code review ARN. </p>
    */
@@ -732,12 +690,9 @@ export namespace ListRecommendationFeedbackResponse {
   export const filterSensitiveLog = (obj: ListRecommendationFeedbackResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecommendationFeedbackResponse =>
-    __isa(o, "ListRecommendationFeedbackResponse");
 }
 
 export interface ListRecommendationsRequest {
-  __type?: "ListRecommendationsRequest";
   /**
    * <p>
    *          The maximum number of results that are returned per call. The default is 100.
@@ -765,11 +720,9 @@ export namespace ListRecommendationsRequest {
   export const filterSensitiveLog = (obj: ListRecommendationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecommendationsRequest => __isa(o, "ListRecommendationsRequest");
 }
 
 export interface ListRecommendationsResponse {
-  __type?: "ListRecommendationsResponse";
   /**
    * <p>
    *          List of recommendations for the requested code review.
@@ -789,11 +742,9 @@ export namespace ListRecommendationsResponse {
   export const filterSensitiveLog = (obj: ListRecommendationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecommendationsResponse => __isa(o, "ListRecommendationsResponse");
 }
 
 export interface ListRepositoryAssociationsRequest {
-  __type?: "ListRepositoryAssociationsRequest";
   /**
    * <p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code>
    *          in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns
@@ -893,11 +844,9 @@ export namespace ListRepositoryAssociationsRequest {
   export const filterSensitiveLog = (obj: ListRepositoryAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoryAssociationsRequest => __isa(o, "ListRepositoryAssociationsRequest");
 }
 
 export interface ListRepositoryAssociationsResponse {
-  __type?: "ListRepositoryAssociationsResponse";
   /**
    * <p>A list of repository associations that meet the criteria of the request.</p>
    */
@@ -916,8 +865,6 @@ export namespace ListRepositoryAssociationsResponse {
   export const filterSensitiveLog = (obj: ListRepositoryAssociationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoryAssociationsResponse =>
-    __isa(o, "ListRepositoryAssociationsResponse");
 }
 
 /**
@@ -926,7 +873,6 @@ export namespace ListRepositoryAssociationsResponse {
  *       </p>
  */
 export interface Metrics {
-  __type?: "Metrics";
   /**
    * <p>
    *         Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions,
@@ -952,7 +898,6 @@ export namespace Metrics {
   export const filterSensitiveLog = (obj: Metrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Metrics => __isa(o, "Metrics");
 }
 
 /**
@@ -961,7 +906,6 @@ export namespace Metrics {
  *       </p>
  */
 export interface MetricsSummary {
-  __type?: "MetricsSummary";
   /**
    * <p>
    *          Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions,
@@ -987,7 +931,6 @@ export namespace MetricsSummary {
   export const filterSensitiveLog = (obj: MetricsSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricsSummary => __isa(o, "MetricsSummary");
 }
 
 /**
@@ -1003,7 +946,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum ProviderType {
@@ -1014,7 +956,6 @@ export enum ProviderType {
 }
 
 export interface PutRecommendationFeedbackRequest {
-  __type?: "PutRecommendationFeedbackRequest";
   /**
    * <p>
    *          List for storing reactions. Reactions are utf-8 text code for emojis. If you send an empty list it clears all your feedback.
@@ -1042,18 +983,14 @@ export namespace PutRecommendationFeedbackRequest {
   export const filterSensitiveLog = (obj: PutRecommendationFeedbackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecommendationFeedbackRequest => __isa(o, "PutRecommendationFeedbackRequest");
 }
 
-export interface PutRecommendationFeedbackResponse {
-  __type?: "PutRecommendationFeedbackResponse";
-}
+export interface PutRecommendationFeedbackResponse {}
 
 export namespace PutRecommendationFeedbackResponse {
   export const filterSensitiveLog = (obj: PutRecommendationFeedbackResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRecommendationFeedbackResponse => __isa(o, "PutRecommendationFeedbackResponse");
 }
 
 export enum Reaction {
@@ -1067,7 +1004,6 @@ export enum Reaction {
  *       </p>
  */
 export interface RecommendationFeedback {
-  __type?: "RecommendationFeedback";
   /**
    * <p>
    *          The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback.
@@ -1121,7 +1057,6 @@ export namespace RecommendationFeedback {
   export const filterSensitiveLog = (obj: RecommendationFeedback): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendationFeedback => __isa(o, "RecommendationFeedback");
 }
 
 /**
@@ -1130,7 +1065,6 @@ export namespace RecommendationFeedback {
  *       </p>
  */
 export interface RecommendationFeedbackSummary {
-  __type?: "RecommendationFeedbackSummary";
   /**
    * <p>
    *          List for storing reactions. Reactions are utf-8 text code for emojis.
@@ -1162,7 +1096,6 @@ export namespace RecommendationFeedbackSummary {
   export const filterSensitiveLog = (obj: RecommendationFeedbackSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendationFeedbackSummary => __isa(o, "RecommendationFeedbackSummary");
 }
 
 /**
@@ -1171,7 +1104,6 @@ export namespace RecommendationFeedbackSummary {
  *       </p>
  */
 export interface RecommendationSummary {
-  __type?: "RecommendationSummary";
   /**
    * <p>Name of the file on which a recommendation is provided.</p>
    */
@@ -1210,7 +1142,6 @@ export namespace RecommendationSummary {
   export const filterSensitiveLog = (obj: RecommendationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendationSummary => __isa(o, "RecommendationSummary");
 }
 
 /**
@@ -1221,7 +1152,6 @@ export namespace RecommendationSummary {
  *       </p>
  */
 export interface Repository {
-  __type?: "Repository";
   /**
    * <p>
    *          Information about a GitHub Enterprise Server repository.
@@ -1246,7 +1176,6 @@ export namespace Repository {
   export const filterSensitiveLog = (obj: Repository): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
 
 /**
@@ -1257,7 +1186,6 @@ export namespace Repository {
  *          operation returns a <code>RepositoryAssociation</code> object.</p>
  */
 export interface RepositoryAssociation {
-  __type?: "RepositoryAssociation";
   /**
    * <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
    */
@@ -1365,7 +1293,6 @@ export namespace RepositoryAssociation {
   export const filterSensitiveLog = (obj: RepositoryAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryAssociation => __isa(o, "RepositoryAssociation");
 }
 
 export enum RepositoryAssociationState {
@@ -1383,7 +1310,6 @@ export enum RepositoryAssociationState {
  *          operation returns a list of <code>RepositoryAssociationSummary</code> objects.</p>
  */
 export interface RepositoryAssociationSummary {
-  __type?: "RepositoryAssociationSummary";
   /**
    * <p>The state of the repository association.</p>
    *          <p>The valid repository association states are:</p>
@@ -1489,7 +1415,6 @@ export namespace RepositoryAssociationSummary {
   export const filterSensitiveLog = (obj: RepositoryAssociationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryAssociationSummary => __isa(o, "RepositoryAssociationSummary");
 }
 
 /**
@@ -1507,7 +1432,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1516,7 +1440,6 @@ export namespace ResourceNotFoundException {
  *       </p>
  */
 export interface SourceCodeType {
-  __type?: "SourceCodeType";
   /**
    * <p>
    *          The commit diff for the pull request.
@@ -1529,7 +1452,6 @@ export namespace SourceCodeType {
   export const filterSensitiveLog = (obj: SourceCodeType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceCodeType => __isa(o, "SourceCodeType");
 }
 
 /**
@@ -1538,7 +1460,6 @@ export namespace SourceCodeType {
  *       </p>
  */
 export interface ThirdPartySourceRepository {
-  __type?: "ThirdPartySourceRepository";
   /**
    * <p>
    *          The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
@@ -1569,7 +1490,6 @@ export namespace ThirdPartySourceRepository {
   export const filterSensitiveLog = (obj: ThirdPartySourceRepository): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThirdPartySourceRepository => __isa(o, "ThirdPartySourceRepository");
 }
 
 /**
@@ -1585,7 +1505,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export enum Type {
@@ -1605,5 +1524,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

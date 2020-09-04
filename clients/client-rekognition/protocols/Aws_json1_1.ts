@@ -933,7 +933,6 @@ export const deserializeAws_json1_1CompareFacesCommand = async (
   contents = deserializeAws_json1_1CompareFacesResponse(data, context);
   const response: CompareFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CompareFacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1045,7 +1044,6 @@ export const deserializeAws_json1_1CreateCollectionCommand = async (
   contents = deserializeAws_json1_1CreateCollectionResponse(data, context);
   const response: CreateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCollectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1141,7 +1139,6 @@ export const deserializeAws_json1_1CreateProjectCommand = async (
   contents = deserializeAws_json1_1CreateProjectResponse(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1245,7 +1242,6 @@ export const deserializeAws_json1_1CreateProjectVersionCommand = async (
   contents = deserializeAws_json1_1CreateProjectVersionResponse(data, context);
   const response: CreateProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1357,7 +1353,6 @@ export const deserializeAws_json1_1CreateStreamProcessorCommand = async (
   contents = deserializeAws_json1_1CreateStreamProcessorResponse(data, context);
   const response: CreateStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamProcessorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1461,7 +1456,6 @@ export const deserializeAws_json1_1DeleteCollectionCommand = async (
   contents = deserializeAws_json1_1DeleteCollectionResponse(data, context);
   const response: DeleteCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCollectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1557,7 +1551,6 @@ export const deserializeAws_json1_1DeleteFacesCommand = async (
   contents = deserializeAws_json1_1DeleteFacesResponse(data, context);
   const response: DeleteFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1653,7 +1646,6 @@ export const deserializeAws_json1_1DeleteProjectCommand = async (
   contents = deserializeAws_json1_1DeleteProjectResponse(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1757,7 +1749,6 @@ export const deserializeAws_json1_1DeleteProjectVersionCommand = async (
   contents = deserializeAws_json1_1DeleteProjectVersionResponse(data, context);
   const response: DeleteProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1861,7 +1852,6 @@ export const deserializeAws_json1_1DeleteStreamProcessorCommand = async (
   contents = deserializeAws_json1_1DeleteStreamProcessorResponse(data, context);
   const response: DeleteStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteStreamProcessorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1965,7 +1955,6 @@ export const deserializeAws_json1_1DescribeCollectionCommand = async (
   contents = deserializeAws_json1_1DescribeCollectionResponse(data, context);
   const response: DescribeCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCollectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2061,7 +2050,6 @@ export const deserializeAws_json1_1DescribeProjectsCommand = async (
   contents = deserializeAws_json1_1DescribeProjectsResponse(data, context);
   const response: DescribeProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2157,7 +2145,6 @@ export const deserializeAws_json1_1DescribeProjectVersionsCommand = async (
   contents = deserializeAws_json1_1DescribeProjectVersionsResponse(data, context);
   const response: DescribeProjectVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectVersionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2261,7 +2248,6 @@ export const deserializeAws_json1_1DescribeStreamProcessorCommand = async (
   contents = deserializeAws_json1_1DescribeStreamProcessorResponse(data, context);
   const response: DescribeStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStreamProcessorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2357,7 +2343,6 @@ export const deserializeAws_json1_1DetectCustomLabelsCommand = async (
   contents = deserializeAws_json1_1DetectCustomLabelsResponse(data, context);
   const response: DetectCustomLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectCustomLabelsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2493,7 +2478,6 @@ export const deserializeAws_json1_1DetectFacesCommand = async (
   contents = deserializeAws_json1_1DetectFacesResponse(data, context);
   const response: DetectFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectFacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2605,7 +2589,6 @@ export const deserializeAws_json1_1DetectLabelsCommand = async (
   contents = deserializeAws_json1_1DetectLabelsResponse(data, context);
   const response: DetectLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectLabelsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2717,7 +2700,6 @@ export const deserializeAws_json1_1DetectModerationLabelsCommand = async (
   contents = deserializeAws_json1_1DetectModerationLabelsResponse(data, context);
   const response: DetectModerationLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectModerationLabelsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2837,7 +2819,6 @@ export const deserializeAws_json1_1DetectTextCommand = async (
   contents = deserializeAws_json1_1DetectTextResponse(data, context);
   const response: DetectTextCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectTextResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2949,7 +2930,6 @@ export const deserializeAws_json1_1GetCelebrityInfoCommand = async (
   contents = deserializeAws_json1_1GetCelebrityInfoResponse(data, context);
   const response: GetCelebrityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCelebrityInfoResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3045,7 +3025,6 @@ export const deserializeAws_json1_1GetCelebrityRecognitionCommand = async (
   contents = deserializeAws_json1_1GetCelebrityRecognitionResponse(data, context);
   const response: GetCelebrityRecognitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCelebrityRecognitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3149,7 +3128,6 @@ export const deserializeAws_json1_1GetContentModerationCommand = async (
   contents = deserializeAws_json1_1GetContentModerationResponse(data, context);
   const response: GetContentModerationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContentModerationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3253,7 +3231,6 @@ export const deserializeAws_json1_1GetFaceDetectionCommand = async (
   contents = deserializeAws_json1_1GetFaceDetectionResponse(data, context);
   const response: GetFaceDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFaceDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3357,7 +3334,6 @@ export const deserializeAws_json1_1GetFaceSearchCommand = async (
   contents = deserializeAws_json1_1GetFaceSearchResponse(data, context);
   const response: GetFaceSearchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFaceSearchResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3461,7 +3437,6 @@ export const deserializeAws_json1_1GetLabelDetectionCommand = async (
   contents = deserializeAws_json1_1GetLabelDetectionResponse(data, context);
   const response: GetLabelDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLabelDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3565,7 +3540,6 @@ export const deserializeAws_json1_1GetPersonTrackingCommand = async (
   contents = deserializeAws_json1_1GetPersonTrackingResponse(data, context);
   const response: GetPersonTrackingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPersonTrackingResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3669,7 +3643,6 @@ export const deserializeAws_json1_1GetSegmentDetectionCommand = async (
   contents = deserializeAws_json1_1GetSegmentDetectionResponse(data, context);
   const response: GetSegmentDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3773,7 +3746,6 @@ export const deserializeAws_json1_1GetTextDetectionCommand = async (
   contents = deserializeAws_json1_1GetTextDetectionResponse(data, context);
   const response: GetTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTextDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3877,7 +3849,6 @@ export const deserializeAws_json1_1IndexFacesCommand = async (
   contents = deserializeAws_json1_1IndexFacesResponse(data, context);
   const response: IndexFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IndexFacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3997,7 +3968,6 @@ export const deserializeAws_json1_1ListCollectionsCommand = async (
   contents = deserializeAws_json1_1ListCollectionsResponse(data, context);
   const response: ListCollectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCollectionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4101,7 +4071,6 @@ export const deserializeAws_json1_1ListFacesCommand = async (
   contents = deserializeAws_json1_1ListFacesResponse(data, context);
   const response: ListFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4205,7 +4174,6 @@ export const deserializeAws_json1_1ListStreamProcessorsCommand = async (
   contents = deserializeAws_json1_1ListStreamProcessorsResponse(data, context);
   const response: ListStreamProcessorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamProcessorsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4301,7 +4269,6 @@ export const deserializeAws_json1_1RecognizeCelebritiesCommand = async (
   contents = deserializeAws_json1_1RecognizeCelebritiesResponse(data, context);
   const response: RecognizeCelebritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RecognizeCelebritiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4413,7 +4380,6 @@ export const deserializeAws_json1_1SearchFacesCommand = async (
   contents = deserializeAws_json1_1SearchFacesResponse(data, context);
   const response: SearchFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchFacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4509,7 +4475,6 @@ export const deserializeAws_json1_1SearchFacesByImageCommand = async (
   contents = deserializeAws_json1_1SearchFacesByImageResponse(data, context);
   const response: SearchFacesByImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchFacesByImageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4629,7 +4594,6 @@ export const deserializeAws_json1_1StartCelebrityRecognitionCommand = async (
   contents = deserializeAws_json1_1StartCelebrityRecognitionResponse(data, context);
   const response: StartCelebrityRecognitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartCelebrityRecognitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4749,7 +4713,6 @@ export const deserializeAws_json1_1StartContentModerationCommand = async (
   contents = deserializeAws_json1_1StartContentModerationResponse(data, context);
   const response: StartContentModerationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartContentModerationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4869,7 +4832,6 @@ export const deserializeAws_json1_1StartFaceDetectionCommand = async (
   contents = deserializeAws_json1_1StartFaceDetectionResponse(data, context);
   const response: StartFaceDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartFaceDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4989,7 +4951,6 @@ export const deserializeAws_json1_1StartFaceSearchCommand = async (
   contents = deserializeAws_json1_1StartFaceSearchResponse(data, context);
   const response: StartFaceSearchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartFaceSearchResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5117,7 +5078,6 @@ export const deserializeAws_json1_1StartLabelDetectionCommand = async (
   contents = deserializeAws_json1_1StartLabelDetectionResponse(data, context);
   const response: StartLabelDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartLabelDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5237,7 +5197,6 @@ export const deserializeAws_json1_1StartPersonTrackingCommand = async (
   contents = deserializeAws_json1_1StartPersonTrackingResponse(data, context);
   const response: StartPersonTrackingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartPersonTrackingResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5357,7 +5316,6 @@ export const deserializeAws_json1_1StartProjectVersionCommand = async (
   contents = deserializeAws_json1_1StartProjectVersionResponse(data, context);
   const response: StartProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartProjectVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5469,7 +5427,6 @@ export const deserializeAws_json1_1StartSegmentDetectionCommand = async (
   contents = deserializeAws_json1_1StartSegmentDetectionResponse(data, context);
   const response: StartSegmentDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSegmentDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5589,7 +5546,6 @@ export const deserializeAws_json1_1StartStreamProcessorCommand = async (
   contents = deserializeAws_json1_1StartStreamProcessorResponse(data, context);
   const response: StartStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartStreamProcessorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5693,7 +5649,6 @@ export const deserializeAws_json1_1StartTextDetectionCommand = async (
   contents = deserializeAws_json1_1StartTextDetectionResponse(data, context);
   const response: StartTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartTextDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5813,7 +5768,6 @@ export const deserializeAws_json1_1StopProjectVersionCommand = async (
   contents = deserializeAws_json1_1StopProjectVersionResponse(data, context);
   const response: StopProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopProjectVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5917,7 +5871,6 @@ export const deserializeAws_json1_1StopStreamProcessorCommand = async (
   contents = deserializeAws_json1_1StopStreamProcessorResponse(data, context);
   const response: StopStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopStreamProcessorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6999,7 +6952,6 @@ const serializeAws_json1_1Video = (input: Video, context: __SerdeContext): any =
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -7008,7 +6960,6 @@ const deserializeAws_json1_1AccessDeniedException = (output: any, context: __Ser
 
 const deserializeAws_json1_1AgeRange = (output: any, context: __SerdeContext): AgeRange => {
   return {
-    __type: "AgeRange",
     High: output.High !== undefined && output.High !== null ? output.High : undefined,
     Low: output.Low !== undefined && output.Low !== null ? output.Low : undefined,
   } as any;
@@ -7016,7 +6967,6 @@ const deserializeAws_json1_1AgeRange = (output: any, context: __SerdeContext): A
 
 const deserializeAws_json1_1Asset = (output: any, context: __SerdeContext): Asset => {
   return {
-    __type: "Asset",
     GroundTruthManifest:
       output.GroundTruthManifest !== undefined && output.GroundTruthManifest !== null
         ? deserializeAws_json1_1GroundTruthManifest(output.GroundTruthManifest, context)
@@ -7030,7 +6980,6 @@ const deserializeAws_json1_1Assets = (output: any, context: __SerdeContext): Ass
 
 const deserializeAws_json1_1AudioMetadata = (output: any, context: __SerdeContext): AudioMetadata => {
   return {
-    __type: "AudioMetadata",
     Codec: output.Codec !== undefined && output.Codec !== null ? output.Codec : undefined,
     DurationMillis:
       output.DurationMillis !== undefined && output.DurationMillis !== null ? output.DurationMillis : undefined,
@@ -7046,7 +6995,6 @@ const deserializeAws_json1_1AudioMetadataList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Beard = (output: any, context: __SerdeContext): Beard => {
   return {
-    __type: "Beard",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -7054,7 +7002,6 @@ const deserializeAws_json1_1Beard = (output: any, context: __SerdeContext): Bear
 
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
-    __type: "BoundingBox",
     Height: output.Height !== undefined && output.Height !== null ? output.Height : undefined,
     Left: output.Left !== undefined && output.Left !== null ? output.Left : undefined,
     Top: output.Top !== undefined && output.Top !== null ? output.Top : undefined,
@@ -7064,7 +7011,6 @@ const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Celebrity = (output: any, context: __SerdeContext): Celebrity => {
   return {
-    __type: "Celebrity",
     Face:
       output.Face !== undefined && output.Face !== null
         ? deserializeAws_json1_1ComparedFace(output.Face, context)
@@ -7080,7 +7026,6 @@ const deserializeAws_json1_1Celebrity = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1CelebrityDetail = (output: any, context: __SerdeContext): CelebrityDetail => {
   return {
-    __type: "CelebrityDetail",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -7103,7 +7048,6 @@ const deserializeAws_json1_1CelebrityList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1CelebrityRecognition = (output: any, context: __SerdeContext): CelebrityRecognition => {
   return {
-    __type: "CelebrityRecognition",
     Celebrity:
       output.Celebrity !== undefined && output.Celebrity !== null
         ? deserializeAws_json1_1CelebrityDetail(output.Celebrity, context)
@@ -7122,7 +7066,6 @@ const deserializeAws_json1_1CollectionIdList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ComparedFace = (output: any, context: __SerdeContext): ComparedFace => {
   return {
-    __type: "ComparedFace",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -7150,7 +7093,6 @@ const deserializeAws_json1_1ComparedSourceImageFace = (
   context: __SerdeContext
 ): ComparedSourceImageFace => {
   return {
-    __type: "ComparedSourceImageFace",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -7161,7 +7103,6 @@ const deserializeAws_json1_1ComparedSourceImageFace = (
 
 const deserializeAws_json1_1CompareFacesMatch = (output: any, context: __SerdeContext): CompareFacesMatch => {
   return {
-    __type: "CompareFacesMatch",
     Face:
       output.Face !== undefined && output.Face !== null
         ? deserializeAws_json1_1ComparedFace(output.Face, context)
@@ -7176,7 +7117,6 @@ const deserializeAws_json1_1CompareFacesMatchList = (output: any, context: __Ser
 
 const deserializeAws_json1_1CompareFacesResponse = (output: any, context: __SerdeContext): CompareFacesResponse => {
   return {
-    __type: "CompareFacesResponse",
     FaceMatches:
       output.FaceMatches !== undefined && output.FaceMatches !== null
         ? deserializeAws_json1_1CompareFacesMatchList(output.FaceMatches, context)
@@ -7209,7 +7149,6 @@ const deserializeAws_json1_1ContentModerationDetection = (
   context: __SerdeContext
 ): ContentModerationDetection => {
   return {
-    __type: "ContentModerationDetection",
     ModerationLabel:
       output.ModerationLabel !== undefined && output.ModerationLabel !== null
         ? deserializeAws_json1_1ModerationLabel(output.ModerationLabel, context)
@@ -7230,7 +7169,6 @@ const deserializeAws_json1_1CreateCollectionResponse = (
   context: __SerdeContext
 ): CreateCollectionResponse => {
   return {
-    __type: "CreateCollectionResponse",
     CollectionArn:
       output.CollectionArn !== undefined && output.CollectionArn !== null ? output.CollectionArn : undefined,
     FaceModelVersion:
@@ -7241,7 +7179,6 @@ const deserializeAws_json1_1CreateCollectionResponse = (
 
 const deserializeAws_json1_1CreateProjectResponse = (output: any, context: __SerdeContext): CreateProjectResponse => {
   return {
-    __type: "CreateProjectResponse",
     ProjectArn: output.ProjectArn !== undefined && output.ProjectArn !== null ? output.ProjectArn : undefined,
   } as any;
 };
@@ -7251,7 +7188,6 @@ const deserializeAws_json1_1CreateProjectVersionResponse = (
   context: __SerdeContext
 ): CreateProjectVersionResponse => {
   return {
-    __type: "CreateProjectVersionResponse",
     ProjectVersionArn:
       output.ProjectVersionArn !== undefined && output.ProjectVersionArn !== null
         ? output.ProjectVersionArn
@@ -7264,7 +7200,6 @@ const deserializeAws_json1_1CreateStreamProcessorResponse = (
   context: __SerdeContext
 ): CreateStreamProcessorResponse => {
   return {
-    __type: "CreateStreamProcessorResponse",
     StreamProcessorArn:
       output.StreamProcessorArn !== undefined && output.StreamProcessorArn !== null
         ? output.StreamProcessorArn
@@ -7274,7 +7209,6 @@ const deserializeAws_json1_1CreateStreamProcessorResponse = (
 
 const deserializeAws_json1_1CustomLabel = (output: any, context: __SerdeContext): CustomLabel => {
   return {
-    __type: "CustomLabel",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Geometry:
       output.Geometry !== undefined && output.Geometry !== null
@@ -7293,14 +7227,12 @@ const deserializeAws_json1_1DeleteCollectionResponse = (
   context: __SerdeContext
 ): DeleteCollectionResponse => {
   return {
-    __type: "DeleteCollectionResponse",
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteFacesResponse = (output: any, context: __SerdeContext): DeleteFacesResponse => {
   return {
-    __type: "DeleteFacesResponse",
     DeletedFaces:
       output.DeletedFaces !== undefined && output.DeletedFaces !== null
         ? deserializeAws_json1_1FaceIdList(output.DeletedFaces, context)
@@ -7310,7 +7242,6 @@ const deserializeAws_json1_1DeleteFacesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1DeleteProjectResponse = (output: any, context: __SerdeContext): DeleteProjectResponse => {
   return {
-    __type: "DeleteProjectResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
@@ -7320,7 +7251,6 @@ const deserializeAws_json1_1DeleteProjectVersionResponse = (
   context: __SerdeContext
 ): DeleteProjectVersionResponse => {
   return {
-    __type: "DeleteProjectVersionResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
@@ -7329,9 +7259,7 @@ const deserializeAws_json1_1DeleteStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteStreamProcessorResponse => {
-  return {
-    __type: "DeleteStreamProcessorResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeCollectionResponse = (
@@ -7339,7 +7267,6 @@ const deserializeAws_json1_1DescribeCollectionResponse = (
   context: __SerdeContext
 ): DescribeCollectionResponse => {
   return {
-    __type: "DescribeCollectionResponse",
     CollectionARN:
       output.CollectionARN !== undefined && output.CollectionARN !== null ? output.CollectionARN : undefined,
     CreationTimestamp:
@@ -7357,7 +7284,6 @@ const deserializeAws_json1_1DescribeProjectsResponse = (
   context: __SerdeContext
 ): DescribeProjectsResponse => {
   return {
-    __type: "DescribeProjectsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ProjectDescriptions:
       output.ProjectDescriptions !== undefined && output.ProjectDescriptions !== null
@@ -7371,7 +7297,6 @@ const deserializeAws_json1_1DescribeProjectVersionsResponse = (
   context: __SerdeContext
 ): DescribeProjectVersionsResponse => {
   return {
-    __type: "DescribeProjectVersionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ProjectVersionDescriptions:
       output.ProjectVersionDescriptions !== undefined && output.ProjectVersionDescriptions !== null
@@ -7385,7 +7310,6 @@ const deserializeAws_json1_1DescribeStreamProcessorResponse = (
   context: __SerdeContext
 ): DescribeStreamProcessorResponse => {
   return {
-    __type: "DescribeStreamProcessorResponse",
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
         ? new Date(Math.round(output.CreationTimestamp * 1000))
@@ -7423,7 +7347,6 @@ const deserializeAws_json1_1DetectCustomLabelsResponse = (
   context: __SerdeContext
 ): DetectCustomLabelsResponse => {
   return {
-    __type: "DetectCustomLabelsResponse",
     CustomLabels:
       output.CustomLabels !== undefined && output.CustomLabels !== null
         ? deserializeAws_json1_1CustomLabels(output.CustomLabels, context)
@@ -7433,7 +7356,6 @@ const deserializeAws_json1_1DetectCustomLabelsResponse = (
 
 const deserializeAws_json1_1DetectFacesResponse = (output: any, context: __SerdeContext): DetectFacesResponse => {
   return {
-    __type: "DetectFacesResponse",
     FaceDetails:
       output.FaceDetails !== undefined && output.FaceDetails !== null
         ? deserializeAws_json1_1FaceDetailList(output.FaceDetails, context)
@@ -7447,7 +7369,6 @@ const deserializeAws_json1_1DetectFacesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1DetectLabelsResponse = (output: any, context: __SerdeContext): DetectLabelsResponse => {
   return {
-    __type: "DetectLabelsResponse",
     LabelModelVersion:
       output.LabelModelVersion !== undefined && output.LabelModelVersion !== null
         ? output.LabelModelVersion
@@ -7468,7 +7389,6 @@ const deserializeAws_json1_1DetectModerationLabelsResponse = (
   context: __SerdeContext
 ): DetectModerationLabelsResponse => {
   return {
-    __type: "DetectModerationLabelsResponse",
     HumanLoopActivationOutput:
       output.HumanLoopActivationOutput !== undefined && output.HumanLoopActivationOutput !== null
         ? deserializeAws_json1_1HumanLoopActivationOutput(output.HumanLoopActivationOutput, context)
@@ -7486,7 +7406,6 @@ const deserializeAws_json1_1DetectModerationLabelsResponse = (
 
 const deserializeAws_json1_1DetectTextResponse = (output: any, context: __SerdeContext): DetectTextResponse => {
   return {
-    __type: "DetectTextResponse",
     TextDetections:
       output.TextDetections !== undefined && output.TextDetections !== null
         ? deserializeAws_json1_1TextDetectionList(output.TextDetections, context)
@@ -7498,7 +7417,6 @@ const deserializeAws_json1_1DetectTextResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Emotion = (output: any, context: __SerdeContext): Emotion => {
   return {
-    __type: "Emotion",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -7510,7 +7428,6 @@ const deserializeAws_json1_1Emotions = (output: any, context: __SerdeContext): E
 
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
-    __type: "EvaluationResult",
     F1Score: output.F1Score !== undefined && output.F1Score !== null ? output.F1Score : undefined,
     Summary:
       output.Summary !== undefined && output.Summary !== null
@@ -7521,7 +7438,6 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Eyeglasses = (output: any, context: __SerdeContext): Eyeglasses => {
   return {
-    __type: "Eyeglasses",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -7529,7 +7445,6 @@ const deserializeAws_json1_1Eyeglasses = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1EyeOpen = (output: any, context: __SerdeContext): EyeOpen => {
   return {
-    __type: "EyeOpen",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -7537,7 +7452,6 @@ const deserializeAws_json1_1EyeOpen = (output: any, context: __SerdeContext): Ey
 
 const deserializeAws_json1_1Face = (output: any, context: __SerdeContext): Face => {
   return {
-    __type: "Face",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -7552,7 +7466,6 @@ const deserializeAws_json1_1Face = (output: any, context: __SerdeContext): Face 
 
 const deserializeAws_json1_1FaceDetail = (output: any, context: __SerdeContext): FaceDetail => {
   return {
-    __type: "FaceDetail",
     AgeRange:
       output.AgeRange !== undefined && output.AgeRange !== null
         ? deserializeAws_json1_1AgeRange(output.AgeRange, context)
@@ -7617,7 +7530,6 @@ const deserializeAws_json1_1FaceDetailList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1FaceDetection = (output: any, context: __SerdeContext): FaceDetection => {
   return {
-    __type: "FaceDetection",
     Face:
       output.Face !== undefined && output.Face !== null
         ? deserializeAws_json1_1FaceDetail(output.Face, context)
@@ -7640,7 +7552,6 @@ const deserializeAws_json1_1FaceList = (output: any, context: __SerdeContext): F
 
 const deserializeAws_json1_1FaceMatch = (output: any, context: __SerdeContext): FaceMatch => {
   return {
-    __type: "FaceMatch",
     Face:
       output.Face !== undefined && output.Face !== null ? deserializeAws_json1_1Face(output.Face, context) : undefined,
     Similarity: output.Similarity !== undefined && output.Similarity !== null ? output.Similarity : undefined,
@@ -7657,7 +7568,6 @@ const deserializeAws_json1_1FaceModelVersionList = (output: any, context: __Serd
 
 const deserializeAws_json1_1FaceRecord = (output: any, context: __SerdeContext): FaceRecord => {
   return {
-    __type: "FaceRecord",
     Face:
       output.Face !== undefined && output.Face !== null ? deserializeAws_json1_1Face(output.Face, context) : undefined,
     FaceDetail:
@@ -7673,7 +7583,6 @@ const deserializeAws_json1_1FaceRecordList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1FaceSearchSettings = (output: any, context: __SerdeContext): FaceSearchSettings => {
   return {
-    __type: "FaceSearchSettings",
     CollectionId: output.CollectionId !== undefined && output.CollectionId !== null ? output.CollectionId : undefined,
     FaceMatchThreshold:
       output.FaceMatchThreshold !== undefined && output.FaceMatchThreshold !== null
@@ -7684,7 +7593,6 @@ const deserializeAws_json1_1FaceSearchSettings = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Gender = (output: any, context: __SerdeContext): Gender => {
   return {
-    __type: "Gender",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -7692,7 +7600,6 @@ const deserializeAws_json1_1Gender = (output: any, context: __SerdeContext): Gen
 
 const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
   return {
-    __type: "Geometry",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -7709,7 +7616,6 @@ const deserializeAws_json1_1GetCelebrityInfoResponse = (
   context: __SerdeContext
 ): GetCelebrityInfoResponse => {
   return {
-    __type: "GetCelebrityInfoResponse",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Urls:
       output.Urls !== undefined && output.Urls !== null ? deserializeAws_json1_1Urls(output.Urls, context) : undefined,
@@ -7721,7 +7627,6 @@ const deserializeAws_json1_1GetCelebrityRecognitionResponse = (
   context: __SerdeContext
 ): GetCelebrityRecognitionResponse => {
   return {
-    __type: "GetCelebrityRecognitionResponse",
     Celebrities:
       output.Celebrities !== undefined && output.Celebrities !== null
         ? deserializeAws_json1_1CelebrityRecognitions(output.Celebrities, context)
@@ -7742,7 +7647,6 @@ const deserializeAws_json1_1GetContentModerationResponse = (
   context: __SerdeContext
 ): GetContentModerationResponse => {
   return {
-    __type: "GetContentModerationResponse",
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
     ModerationLabels:
       output.ModerationLabels !== undefined && output.ModerationLabels !== null
@@ -7767,7 +7671,6 @@ const deserializeAws_json1_1GetFaceDetectionResponse = (
   context: __SerdeContext
 ): GetFaceDetectionResponse => {
   return {
-    __type: "GetFaceDetectionResponse",
     Faces:
       output.Faces !== undefined && output.Faces !== null
         ? deserializeAws_json1_1FaceDetections(output.Faces, context)
@@ -7785,7 +7688,6 @@ const deserializeAws_json1_1GetFaceDetectionResponse = (
 
 const deserializeAws_json1_1GetFaceSearchResponse = (output: any, context: __SerdeContext): GetFaceSearchResponse => {
   return {
-    __type: "GetFaceSearchResponse",
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Persons:
@@ -7806,7 +7708,6 @@ const deserializeAws_json1_1GetLabelDetectionResponse = (
   context: __SerdeContext
 ): GetLabelDetectionResponse => {
   return {
-    __type: "GetLabelDetectionResponse",
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
     LabelModelVersion:
       output.LabelModelVersion !== undefined && output.LabelModelVersion !== null
@@ -7831,7 +7732,6 @@ const deserializeAws_json1_1GetPersonTrackingResponse = (
   context: __SerdeContext
 ): GetPersonTrackingResponse => {
   return {
-    __type: "GetPersonTrackingResponse",
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Persons:
@@ -7852,7 +7752,6 @@ const deserializeAws_json1_1GetSegmentDetectionResponse = (
   context: __SerdeContext
 ): GetSegmentDetectionResponse => {
   return {
-    __type: "GetSegmentDetectionResponse",
     AudioMetadata:
       output.AudioMetadata !== undefined && output.AudioMetadata !== null
         ? deserializeAws_json1_1AudioMetadataList(output.AudioMetadata, context)
@@ -7881,7 +7780,6 @@ const deserializeAws_json1_1GetTextDetectionResponse = (
   context: __SerdeContext
 ): GetTextDetectionResponse => {
   return {
-    __type: "GetTextDetectionResponse",
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     StatusMessage:
@@ -7901,7 +7799,6 @@ const deserializeAws_json1_1GetTextDetectionResponse = (
 
 const deserializeAws_json1_1GroundTruthManifest = (output: any, context: __SerdeContext): GroundTruthManifest => {
   return {
-    __type: "GroundTruthManifest",
     S3Object:
       output.S3Object !== undefined && output.S3Object !== null
         ? deserializeAws_json1_1S3Object(output.S3Object, context)
@@ -7914,7 +7811,6 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
   context: __SerdeContext
 ): HumanLoopActivationOutput => {
   return {
-    __type: "HumanLoopActivationOutput",
     HumanLoopActivationConditionsEvaluationResults:
       output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
       output.HumanLoopActivationConditionsEvaluationResults !== null
@@ -7937,7 +7833,6 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
   context: __SerdeContext
 ): HumanLoopQuotaExceededException => {
   return {
-    __type: "HumanLoopQuotaExceededException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -7952,7 +7847,6 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
   return {
-    __type: "IdempotentParameterMismatchException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -7961,7 +7855,6 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 
 const deserializeAws_json1_1ImageQuality = (output: any, context: __SerdeContext): ImageQuality => {
   return {
-    __type: "ImageQuality",
     Brightness: output.Brightness !== undefined && output.Brightness !== null ? output.Brightness : undefined,
     Sharpness: output.Sharpness !== undefined && output.Sharpness !== null ? output.Sharpness : undefined,
   } as any;
@@ -7969,7 +7862,6 @@ const deserializeAws_json1_1ImageQuality = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ImageTooLargeException = (output: any, context: __SerdeContext): ImageTooLargeException => {
   return {
-    __type: "ImageTooLargeException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -7978,7 +7870,6 @@ const deserializeAws_json1_1ImageTooLargeException = (output: any, context: __Se
 
 const deserializeAws_json1_1IndexFacesResponse = (output: any, context: __SerdeContext): IndexFacesResponse => {
   return {
-    __type: "IndexFacesResponse",
     FaceModelVersion:
       output.FaceModelVersion !== undefined && output.FaceModelVersion !== null ? output.FaceModelVersion : undefined,
     FaceRecords:
@@ -7998,7 +7889,6 @@ const deserializeAws_json1_1IndexFacesResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    __type: "Instance",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -8013,7 +7903,6 @@ const deserializeAws_json1_1Instances = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8025,7 +7914,6 @@ const deserializeAws_json1_1InvalidImageFormatException = (
   context: __SerdeContext
 ): InvalidImageFormatException => {
   return {
-    __type: "InvalidImageFormatException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8037,7 +7925,6 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
   return {
-    __type: "InvalidPaginationTokenException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8049,7 +7936,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8061,7 +7947,6 @@ const deserializeAws_json1_1InvalidS3ObjectException = (
   context: __SerdeContext
 ): InvalidS3ObjectException => {
   return {
-    __type: "InvalidS3ObjectException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8070,21 +7955,18 @@ const deserializeAws_json1_1InvalidS3ObjectException = (
 
 const deserializeAws_json1_1KinesisDataStream = (output: any, context: __SerdeContext): KinesisDataStream => {
   return {
-    __type: "KinesisDataStream",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KinesisVideoStream = (output: any, context: __SerdeContext): KinesisVideoStream => {
   return {
-    __type: "KinesisVideoStream",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Label => {
   return {
-    __type: "Label",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Instances:
       output.Instances !== undefined && output.Instances !== null
@@ -8100,7 +7982,6 @@ const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Labe
 
 const deserializeAws_json1_1LabelDetection = (output: any, context: __SerdeContext): LabelDetection => {
   return {
-    __type: "LabelDetection",
     Label:
       output.Label !== undefined && output.Label !== null
         ? deserializeAws_json1_1Label(output.Label, context)
@@ -8119,7 +8000,6 @@ const deserializeAws_json1_1Labels = (output: any, context: __SerdeContext): Lab
 
 const deserializeAws_json1_1Landmark = (output: any, context: __SerdeContext): Landmark => {
   return {
-    __type: "Landmark",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     X: output.X !== undefined && output.X !== null ? output.X : undefined,
     Y: output.Y !== undefined && output.Y !== null ? output.Y : undefined,
@@ -8132,7 +8012,6 @@ const deserializeAws_json1_1Landmarks = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8144,7 +8023,6 @@ const deserializeAws_json1_1ListCollectionsResponse = (
   context: __SerdeContext
 ): ListCollectionsResponse => {
   return {
-    __type: "ListCollectionsResponse",
     CollectionIds:
       output.CollectionIds !== undefined && output.CollectionIds !== null
         ? deserializeAws_json1_1CollectionIdList(output.CollectionIds, context)
@@ -8159,7 +8037,6 @@ const deserializeAws_json1_1ListCollectionsResponse = (
 
 const deserializeAws_json1_1ListFacesResponse = (output: any, context: __SerdeContext): ListFacesResponse => {
   return {
-    __type: "ListFacesResponse",
     FaceModelVersion:
       output.FaceModelVersion !== undefined && output.FaceModelVersion !== null ? output.FaceModelVersion : undefined,
     Faces:
@@ -8175,7 +8052,6 @@ const deserializeAws_json1_1ListStreamProcessorsResponse = (
   context: __SerdeContext
 ): ListStreamProcessorsResponse => {
   return {
-    __type: "ListStreamProcessorsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     StreamProcessors:
       output.StreamProcessors !== undefined && output.StreamProcessors !== null
@@ -8186,7 +8062,6 @@ const deserializeAws_json1_1ListStreamProcessorsResponse = (
 
 const deserializeAws_json1_1ModerationLabel = (output: any, context: __SerdeContext): ModerationLabel => {
   return {
-    __type: "ModerationLabel",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ParentName: output.ParentName !== undefined && output.ParentName !== null ? output.ParentName : undefined,
@@ -8199,7 +8074,6 @@ const deserializeAws_json1_1ModerationLabels = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1MouthOpen = (output: any, context: __SerdeContext): MouthOpen => {
   return {
-    __type: "MouthOpen",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8207,7 +8081,6 @@ const deserializeAws_json1_1MouthOpen = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Mustache = (output: any, context: __SerdeContext): Mustache => {
   return {
-    __type: "Mustache",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8215,7 +8088,6 @@ const deserializeAws_json1_1Mustache = (output: any, context: __SerdeContext): M
 
 const deserializeAws_json1_1OutputConfig = (output: any, context: __SerdeContext): OutputConfig => {
   return {
-    __type: "OutputConfig",
     S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
     S3KeyPrefix: output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null ? output.S3KeyPrefix : undefined,
   } as any;
@@ -8223,7 +8095,6 @@ const deserializeAws_json1_1OutputConfig = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Parent = (output: any, context: __SerdeContext): Parent => {
   return {
-    __type: "Parent",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -8234,7 +8105,6 @@ const deserializeAws_json1_1Parents = (output: any, context: __SerdeContext): Pa
 
 const deserializeAws_json1_1PersonDetail = (output: any, context: __SerdeContext): PersonDetail => {
   return {
-    __type: "PersonDetail",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -8249,7 +8119,6 @@ const deserializeAws_json1_1PersonDetail = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1PersonDetection = (output: any, context: __SerdeContext): PersonDetection => {
   return {
-    __type: "PersonDetection",
     Person:
       output.Person !== undefined && output.Person !== null
         ? deserializeAws_json1_1PersonDetail(output.Person, context)
@@ -8264,7 +8133,6 @@ const deserializeAws_json1_1PersonDetections = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1PersonMatch = (output: any, context: __SerdeContext): PersonMatch => {
   return {
-    __type: "PersonMatch",
     FaceMatches:
       output.FaceMatches !== undefined && output.FaceMatches !== null
         ? deserializeAws_json1_1FaceMatchList(output.FaceMatches, context)
@@ -8283,7 +8151,6 @@ const deserializeAws_json1_1PersonMatches = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
   return {
-    __type: "Point",
     X: output.X !== undefined && output.X !== null ? output.X : undefined,
     Y: output.Y !== undefined && output.Y !== null ? output.Y : undefined,
   } as any;
@@ -8295,7 +8162,6 @@ const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Po
 
 const deserializeAws_json1_1Pose = (output: any, context: __SerdeContext): Pose => {
   return {
-    __type: "Pose",
     Pitch: output.Pitch !== undefined && output.Pitch !== null ? output.Pitch : undefined,
     Roll: output.Roll !== undefined && output.Roll !== null ? output.Roll : undefined,
     Yaw: output.Yaw !== undefined && output.Yaw !== null ? output.Yaw : undefined,
@@ -8304,7 +8170,6 @@ const deserializeAws_json1_1Pose = (output: any, context: __SerdeContext): Pose 
 
 const deserializeAws_json1_1ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
   return {
-    __type: "ProjectDescription",
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
         ? new Date(Math.round(output.CreationTimestamp * 1000))
@@ -8323,7 +8188,6 @@ const deserializeAws_json1_1ProjectVersionDescription = (
   context: __SerdeContext
 ): ProjectVersionDescription => {
   return {
-    __type: "ProjectVersionDescription",
     BillableTrainingTimeInSeconds:
       output.BillableTrainingTimeInSeconds !== undefined && output.BillableTrainingTimeInSeconds !== null
         ? output.BillableTrainingTimeInSeconds
@@ -8378,7 +8242,6 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
   context: __SerdeContext
 ): ProvisionedThroughputExceededException => {
   return {
-    __type: "ProvisionedThroughputExceededException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8394,7 +8257,6 @@ const deserializeAws_json1_1RecognizeCelebritiesResponse = (
   context: __SerdeContext
 ): RecognizeCelebritiesResponse => {
   return {
-    __type: "RecognizeCelebritiesResponse",
     CelebrityFaces:
       output.CelebrityFaces !== undefined && output.CelebrityFaces !== null
         ? deserializeAws_json1_1CelebrityList(output.CelebrityFaces, context)
@@ -8415,7 +8277,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8424,7 +8285,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8436,7 +8296,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8448,7 +8307,6 @@ const deserializeAws_json1_1ResourceNotReadyException = (
   context: __SerdeContext
 ): ResourceNotReadyException => {
   return {
-    __type: "ResourceNotReadyException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8457,7 +8315,6 @@ const deserializeAws_json1_1ResourceNotReadyException = (
 
 const deserializeAws_json1_1S3Object = (output: any, context: __SerdeContext): S3Object => {
   return {
-    __type: "S3Object",
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
@@ -8469,7 +8326,6 @@ const deserializeAws_json1_1SearchFacesByImageResponse = (
   context: __SerdeContext
 ): SearchFacesByImageResponse => {
   return {
-    __type: "SearchFacesByImageResponse",
     FaceMatches:
       output.FaceMatches !== undefined && output.FaceMatches !== null
         ? deserializeAws_json1_1FaceMatchList(output.FaceMatches, context)
@@ -8489,7 +8345,6 @@ const deserializeAws_json1_1SearchFacesByImageResponse = (
 
 const deserializeAws_json1_1SearchFacesResponse = (output: any, context: __SerdeContext): SearchFacesResponse => {
   return {
-    __type: "SearchFacesResponse",
     FaceMatches:
       output.FaceMatches !== undefined && output.FaceMatches !== null
         ? deserializeAws_json1_1FaceMatchList(output.FaceMatches, context)
@@ -8503,7 +8358,6 @@ const deserializeAws_json1_1SearchFacesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1SegmentDetection = (output: any, context: __SerdeContext): SegmentDetection => {
   return {
-    __type: "SegmentDetection",
     DurationMillis:
       output.DurationMillis !== undefined && output.DurationMillis !== null ? output.DurationMillis : undefined,
     DurationSMPTE:
@@ -8540,7 +8394,6 @@ const deserializeAws_json1_1SegmentDetections = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1SegmentTypeInfo = (output: any, context: __SerdeContext): SegmentTypeInfo => {
   return {
-    __type: "SegmentTypeInfo",
     ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8552,7 +8405,6 @@ const deserializeAws_json1_1SegmentTypesInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ShotSegment = (output: any, context: __SerdeContext): ShotSegment => {
   return {
-    __type: "ShotSegment",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
   } as any;
@@ -8560,7 +8412,6 @@ const deserializeAws_json1_1ShotSegment = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Smile = (output: any, context: __SerdeContext): Smile => {
   return {
-    __type: "Smile",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8571,7 +8422,6 @@ const deserializeAws_json1_1StartCelebrityRecognitionResponse = (
   context: __SerdeContext
 ): StartCelebrityRecognitionResponse => {
   return {
-    __type: "StartCelebrityRecognitionResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8581,7 +8431,6 @@ const deserializeAws_json1_1StartContentModerationResponse = (
   context: __SerdeContext
 ): StartContentModerationResponse => {
   return {
-    __type: "StartContentModerationResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8591,7 +8440,6 @@ const deserializeAws_json1_1StartFaceDetectionResponse = (
   context: __SerdeContext
 ): StartFaceDetectionResponse => {
   return {
-    __type: "StartFaceDetectionResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8601,7 +8449,6 @@ const deserializeAws_json1_1StartFaceSearchResponse = (
   context: __SerdeContext
 ): StartFaceSearchResponse => {
   return {
-    __type: "StartFaceSearchResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8611,7 +8458,6 @@ const deserializeAws_json1_1StartLabelDetectionResponse = (
   context: __SerdeContext
 ): StartLabelDetectionResponse => {
   return {
-    __type: "StartLabelDetectionResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8621,7 +8467,6 @@ const deserializeAws_json1_1StartPersonTrackingResponse = (
   context: __SerdeContext
 ): StartPersonTrackingResponse => {
   return {
-    __type: "StartPersonTrackingResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8631,7 +8476,6 @@ const deserializeAws_json1_1StartProjectVersionResponse = (
   context: __SerdeContext
 ): StartProjectVersionResponse => {
   return {
-    __type: "StartProjectVersionResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
@@ -8641,7 +8485,6 @@ const deserializeAws_json1_1StartSegmentDetectionResponse = (
   context: __SerdeContext
 ): StartSegmentDetectionResponse => {
   return {
-    __type: "StartSegmentDetectionResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8650,9 +8493,7 @@ const deserializeAws_json1_1StartStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): StartStreamProcessorResponse => {
-  return {
-    __type: "StartStreamProcessorResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartTextDetectionResponse = (
@@ -8660,7 +8501,6 @@ const deserializeAws_json1_1StartTextDetectionResponse = (
   context: __SerdeContext
 ): StartTextDetectionResponse => {
   return {
-    __type: "StartTextDetectionResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -8670,7 +8510,6 @@ const deserializeAws_json1_1StopProjectVersionResponse = (
   context: __SerdeContext
 ): StopProjectVersionResponse => {
   return {
-    __type: "StopProjectVersionResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
@@ -8679,14 +8518,11 @@ const deserializeAws_json1_1StopStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): StopStreamProcessorResponse => {
-  return {
-    __type: "StopStreamProcessorResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StreamProcessor = (output: any, context: __SerdeContext): StreamProcessor => {
   return {
-    __type: "StreamProcessor",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
@@ -8694,7 +8530,6 @@ const deserializeAws_json1_1StreamProcessor = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1StreamProcessorInput = (output: any, context: __SerdeContext): StreamProcessorInput => {
   return {
-    __type: "StreamProcessorInput",
     KinesisVideoStream:
       output.KinesisVideoStream !== undefined && output.KinesisVideoStream !== null
         ? deserializeAws_json1_1KinesisVideoStream(output.KinesisVideoStream, context)
@@ -8708,7 +8543,6 @@ const deserializeAws_json1_1StreamProcessorList = (output: any, context: __Serde
 
 const deserializeAws_json1_1StreamProcessorOutput = (output: any, context: __SerdeContext): StreamProcessorOutput => {
   return {
-    __type: "StreamProcessorOutput",
     KinesisDataStream:
       output.KinesisDataStream !== undefined && output.KinesisDataStream !== null
         ? deserializeAws_json1_1KinesisDataStream(output.KinesisDataStream, context)
@@ -8721,7 +8555,6 @@ const deserializeAws_json1_1StreamProcessorSettings = (
   context: __SerdeContext
 ): StreamProcessorSettings => {
   return {
-    __type: "StreamProcessorSettings",
     FaceSearch:
       output.FaceSearch !== undefined && output.FaceSearch !== null
         ? deserializeAws_json1_1FaceSearchSettings(output.FaceSearch, context)
@@ -8731,7 +8564,6 @@ const deserializeAws_json1_1StreamProcessorSettings = (
 
 const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Summary => {
   return {
-    __type: "Summary",
     S3Object:
       output.S3Object !== undefined && output.S3Object !== null
         ? deserializeAws_json1_1S3Object(output.S3Object, context)
@@ -8741,7 +8573,6 @@ const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Su
 
 const deserializeAws_json1_1Sunglasses = (output: any, context: __SerdeContext): Sunglasses => {
   return {
-    __type: "Sunglasses",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8749,7 +8580,6 @@ const deserializeAws_json1_1Sunglasses = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1TechnicalCueSegment = (output: any, context: __SerdeContext): TechnicalCueSegment => {
   return {
-    __type: "TechnicalCueSegment",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8757,7 +8587,6 @@ const deserializeAws_json1_1TechnicalCueSegment = (output: any, context: __Serde
 
 const deserializeAws_json1_1TestingData = (output: any, context: __SerdeContext): TestingData => {
   return {
-    __type: "TestingData",
     Assets:
       output.Assets !== undefined && output.Assets !== null
         ? deserializeAws_json1_1Assets(output.Assets, context)
@@ -8768,7 +8597,6 @@ const deserializeAws_json1_1TestingData = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1TestingDataResult = (output: any, context: __SerdeContext): TestingDataResult => {
   return {
-    __type: "TestingDataResult",
     Input:
       output.Input !== undefined && output.Input !== null
         ? deserializeAws_json1_1TestingData(output.Input, context)
@@ -8782,7 +8610,6 @@ const deserializeAws_json1_1TestingDataResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1TextDetection = (output: any, context: __SerdeContext): TextDetection => {
   return {
-    __type: "TextDetection",
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     DetectedText: output.DetectedText !== undefined && output.DetectedText !== null ? output.DetectedText : undefined,
     Geometry:
@@ -8801,7 +8628,6 @@ const deserializeAws_json1_1TextDetectionList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1TextDetectionResult = (output: any, context: __SerdeContext): TextDetectionResult => {
   return {
-    __type: "TextDetectionResult",
     TextDetection:
       output.TextDetection !== undefined && output.TextDetection !== null
         ? deserializeAws_json1_1TextDetection(output.TextDetection, context)
@@ -8816,7 +8642,6 @@ const deserializeAws_json1_1TextDetectionResults = (output: any, context: __Serd
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8825,7 +8650,6 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeAws_json1_1TrainingData = (output: any, context: __SerdeContext): TrainingData => {
   return {
-    __type: "TrainingData",
     Assets:
       output.Assets !== undefined && output.Assets !== null
         ? deserializeAws_json1_1Assets(output.Assets, context)
@@ -8835,7 +8659,6 @@ const deserializeAws_json1_1TrainingData = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1TrainingDataResult = (output: any, context: __SerdeContext): TrainingDataResult => {
   return {
-    __type: "TrainingDataResult",
     Input:
       output.Input !== undefined && output.Input !== null
         ? deserializeAws_json1_1TrainingData(output.Input, context)
@@ -8849,7 +8672,6 @@ const deserializeAws_json1_1TrainingDataResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1UnindexedFace = (output: any, context: __SerdeContext): UnindexedFace => {
   return {
-    __type: "UnindexedFace",
     FaceDetail:
       output.FaceDetail !== undefined && output.FaceDetail !== null
         ? deserializeAws_json1_1FaceDetail(output.FaceDetail, context)
@@ -8871,7 +8693,6 @@ const deserializeAws_json1_1Urls = (output: any, context: __SerdeContext): strin
 
 const deserializeAws_json1_1VideoMetadata = (output: any, context: __SerdeContext): VideoMetadata => {
   return {
-    __type: "VideoMetadata",
     Codec: output.Codec !== undefined && output.Codec !== null ? output.Codec : undefined,
     DurationMillis:
       output.DurationMillis !== undefined && output.DurationMillis !== null ? output.DurationMillis : undefined,
@@ -8888,7 +8709,6 @@ const deserializeAws_json1_1VideoMetadataList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1VideoTooLargeException = (output: any, context: __SerdeContext): VideoTooLargeException => {
   return {
-    __type: "VideoTooLargeException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,

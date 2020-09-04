@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -32,11 +31,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateServerRequest {
-  __type?: "CreateServerRequest";
   /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
    *       transfer protocol-enabled server. When you host your endpoint within your VPC, you can make it
@@ -196,11 +193,9 @@ export namespace CreateServerRequest {
     ...obj,
     ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateServerRequest => __isa(o, "CreateServerRequest");
 }
 
 export interface CreateServerResponse {
-  __type?: "CreateServerResponse";
   /**
    * <p>The service-assigned ID of the file transfer protocol-enabled server that is
    *       created.</p>
@@ -212,11 +207,9 @@ export namespace CreateServerResponse {
   export const filterSensitiveLog = (obj: CreateServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServerResponse => __isa(o, "CreateServerResponse");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance.
    *       This is the specific server that you added your user to.</p>
@@ -330,11 +323,9 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
   /**
    * <p>A unique string that identifies a user account associated with a file transfer
    *       protocol-enabled server.</p>
@@ -351,11 +342,9 @@ export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export interface DeleteServerRequest {
-  __type?: "DeleteServerRequest";
   /**
    * <p>A unique system-assigned identifier for a file transfer protocol-enabled server
    *       instance.</p>
@@ -367,11 +356,9 @@ export namespace DeleteServerRequest {
   export const filterSensitiveLog = (obj: DeleteServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServerRequest => __isa(o, "DeleteServerRequest");
 }
 
 export interface DeleteSshPublicKeyRequest {
-  __type?: "DeleteSshPublicKeyRequest";
   /**
    * <p>A unique identifier used to reference your user's specific SSH key.</p>
    */
@@ -393,11 +380,9 @@ export namespace DeleteSshPublicKeyRequest {
   export const filterSensitiveLog = (obj: DeleteSshPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSshPublicKeyRequest => __isa(o, "DeleteSshPublicKeyRequest");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
    *       that has the user assigned to it.</p>
@@ -415,7 +400,6 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 /**
@@ -426,7 +410,6 @@ export namespace DeleteUserRequest {
  *       protocols, the server ID and state, and assigned tags or metadata.</p>
  */
 export interface DescribedServer {
-  __type?: "DescribedServer";
   /**
    * <p>Defines the type of endpoint that your file transfer protocol-enabled server is connected
    *       to. If your server is connected to a VPC endpoint, your server isn't accessible over the
@@ -541,14 +524,12 @@ export namespace DescribedServer {
   export const filterSensitiveLog = (obj: DescribedServer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribedServer => __isa(o, "DescribedServer");
 }
 
 /**
  * <p>Returns properties of the user that you want to describe.</p>
  */
 export interface DescribedUser {
-  __type?: "DescribedUser";
   /**
    * <p>Specifies the logical directory mappings that specify what Amazon S3 paths and keys should
    *       be visible to your user and how you want to make them visible. You will need to specify the
@@ -626,11 +607,9 @@ export namespace DescribedUser {
   export const filterSensitiveLog = (obj: DescribedUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribedUser => __isa(o, "DescribedUser");
 }
 
 export interface DescribeServerRequest {
-  __type?: "DescribeServerRequest";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server.</p>
    */
@@ -641,11 +620,9 @@ export namespace DescribeServerRequest {
   export const filterSensitiveLog = (obj: DescribeServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServerRequest => __isa(o, "DescribeServerRequest");
 }
 
 export interface DescribeServerResponse {
-  __type?: "DescribeServerResponse";
   /**
    * <p>An array containing the properties of a file transfer protocol-enabled server with the
    *         <code>ServerID</code> you specified.</p>
@@ -657,11 +634,9 @@ export namespace DescribeServerResponse {
   export const filterSensitiveLog = (obj: DescribeServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServerResponse => __isa(o, "DescribeServerResponse");
 }
 
 export interface DescribeUserRequest {
-  __type?: "DescribeUserRequest";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that has
    *       this user assigned.</p>
@@ -680,11 +655,9 @@ export namespace DescribeUserRequest {
   export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
-  __type?: "DescribeUserResponse";
   /**
    * <p>An array containing the properties of the user account for the <code>ServerID</code> value
    *       that you specified.</p>
@@ -702,7 +675,6 @@ export namespace DescribeUserResponse {
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
@@ -713,7 +685,6 @@ export namespace DescribeUserResponse {
  *       endpoint.</p>
  */
 export interface EndpointDetails {
-  __type?: "EndpointDetails";
   /**
    * <p>A list of subnet IDs that are required to host your file transfer protocol-enabled server
    *       endpoint in your VPC.</p>
@@ -763,7 +734,6 @@ export namespace EndpointDetails {
   export const filterSensitiveLog = (obj: EndpointDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointDetails => __isa(o, "EndpointDetails");
 }
 
 export enum EndpointType {
@@ -777,7 +747,6 @@ export enum EndpointType {
  *         <code>HomeDirectoryMappings</code>.</p>
  */
 export interface HomeDirectoryMapEntry {
-  __type?: "HomeDirectoryMapEntry";
   /**
    * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
    */
@@ -793,7 +762,6 @@ export namespace HomeDirectoryMapEntry {
   export const filterSensitiveLog = (obj: HomeDirectoryMapEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HomeDirectoryMapEntry => __isa(o, "HomeDirectoryMapEntry");
 }
 
 export enum HomeDirectoryType {
@@ -807,7 +775,6 @@ export enum HomeDirectoryType {
  *       authentication.</p>
  */
 export interface IdentityProviderDetails {
-  __type?: "IdentityProviderDetails";
   /**
    * <p>Provides the location of the service endpoint used to authenticate users.</p>
    */
@@ -824,7 +791,6 @@ export namespace IdentityProviderDetails {
   export const filterSensitiveLog = (obj: IdentityProviderDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityProviderDetails => __isa(o, "IdentityProviderDetails");
 }
 
 export enum IdentityProviderType {
@@ -833,7 +799,6 @@ export enum IdentityProviderType {
 }
 
 export interface ImportSshPublicKeyRequest {
-  __type?: "ImportSshPublicKeyRequest";
   /**
    * <p>The public key portion of an SSH key pair.</p>
    */
@@ -855,7 +820,6 @@ export namespace ImportSshPublicKeyRequest {
   export const filterSensitiveLog = (obj: ImportSshPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportSshPublicKeyRequest => __isa(o, "ImportSshPublicKeyRequest");
 }
 
 /**
@@ -864,7 +828,6 @@ export namespace ImportSshPublicKeyRequest {
  *       on each server that they are associated with.</p>
  */
 export interface ImportSshPublicKeyResponse {
-  __type?: "ImportSshPublicKeyResponse";
   /**
    * <p>The name given to a public key by the system that was imported.</p>
    */
@@ -885,7 +848,6 @@ export namespace ImportSshPublicKeyResponse {
   export const filterSensitiveLog = (obj: ImportSshPublicKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportSshPublicKeyResponse => __isa(o, "ImportSshPublicKeyResponse");
 }
 
 /**
@@ -901,7 +863,6 @@ export namespace InternalServiceError {
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
@@ -917,7 +878,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -933,14 +893,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>Returns properties of a file transfer protocol-enabled server that was specified.</p>
  */
 export interface ListedServer {
-  __type?: "ListedServer";
   /**
    * <p>Specifies the number of users that are assigned to a file transfer protocol-enabled server
    *       you specified with the <code>ServerId</code>.</p>
@@ -998,14 +956,12 @@ export namespace ListedServer {
   export const filterSensitiveLog = (obj: ListedServer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListedServer => __isa(o, "ListedServer");
 }
 
 /**
  * <p>Returns properties of the user that you specify.</p>
  */
 export interface ListedUser {
-  __type?: "ListedUser";
   /**
    * <p>Specifies the type of landing directory (folder) you mapped for your users' home
    *       directory. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket
@@ -1052,11 +1008,9 @@ export namespace ListedUser {
   export const filterSensitiveLog = (obj: ListedUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListedUser => __isa(o, "ListedUser");
 }
 
 export interface ListServersRequest {
-  __type?: "ListServersRequest";
   /**
    * <p>When additional results are obtained from the<code>ListServers</code> command, a
    *         <code>NextToken</code> parameter is returned in the output. You can then pass the
@@ -1076,11 +1030,9 @@ export namespace ListServersRequest {
   export const filterSensitiveLog = (obj: ListServersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServersRequest => __isa(o, "ListServersRequest");
 }
 
 export interface ListServersResponse {
-  __type?: "ListServersResponse";
   /**
    * <p>An array of file transfer protocol-enabled servers that were listed.</p>
    */
@@ -1099,11 +1051,9 @@ export namespace ListServersResponse {
   export const filterSensitiveLog = (obj: ListServersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServersResponse => __isa(o, "ListServersResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>Specifies the number of tags to return as a response to the
    *         <code>ListTagsForResource</code> request.</p>
@@ -1128,11 +1078,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>When you can get additional results from the <code>ListTagsForResource</code> call, a
    *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
@@ -1157,11 +1105,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>Specifies the number of users to return as a response to the <code>ListUsers</code>
    *       request.</p>
@@ -1187,11 +1133,9 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p>Returns the user accounts and their properties for the <code>ServerId</code> value that
    *       you specify.</p>
@@ -1217,7 +1161,6 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 export enum Protocol {
@@ -1241,7 +1184,6 @@ export namespace ResourceExistsException {
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
@@ -1260,7 +1202,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1276,7 +1217,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -1287,7 +1227,6 @@ export namespace ServiceUnavailableException {
  *       associated with their user name on a specific server.</p>
  */
 export interface SshPublicKey {
-  __type?: "SshPublicKey";
   /**
    * <p>Specifies the <code>SshPublicKeyId</code> parameter contains the identifier of the public
    *       key.</p>
@@ -1310,11 +1249,9 @@ export namespace SshPublicKey {
   export const filterSensitiveLog = (obj: SshPublicKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SshPublicKey => __isa(o, "SshPublicKey");
 }
 
 export interface StartServerRequest {
-  __type?: "StartServerRequest";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that you
    *       start.</p>
@@ -1326,7 +1263,6 @@ export namespace StartServerRequest {
   export const filterSensitiveLog = (obj: StartServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartServerRequest => __isa(o, "StartServerRequest");
 }
 
 export enum State {
@@ -1339,7 +1275,6 @@ export enum State {
 }
 
 export interface StopServerRequest {
-  __type?: "StopServerRequest";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that you
    *       stopped.</p>
@@ -1351,7 +1286,6 @@ export namespace StopServerRequest {
   export const filterSensitiveLog = (obj: StopServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopServerRequest => __isa(o, "StopServerRequest");
 }
 
 /**
@@ -1362,7 +1296,6 @@ export namespace StopServerRequest {
  *         <code>Research</code> and <code>Accounting</code> to that group.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The name assigned to the tag that you create.</p>
    */
@@ -1378,11 +1311,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by
    *       type. You can attach this metadata to user accounts for any purpose.</p>
@@ -1400,11 +1331,9 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TestIdentityProviderRequest {
-  __type?: "TestIdentityProviderRequest";
   /**
    * <p>The password of the user account to be tested.</p>
    */
@@ -1451,11 +1380,9 @@ export namespace TestIdentityProviderRequest {
     ...obj,
     ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TestIdentityProviderRequest => __isa(o, "TestIdentityProviderRequest");
 }
 
 export interface TestIdentityProviderResponse {
-  __type?: "TestIdentityProviderResponse";
   /**
    * <p>The response that is returned from your API Gateway.</p>
    */
@@ -1481,7 +1408,6 @@ export namespace TestIdentityProviderResponse {
   export const filterSensitiveLog = (obj: TestIdentityProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestIdentityProviderResponse => __isa(o, "TestIdentityProviderResponse");
 }
 
 /**
@@ -1499,11 +1425,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is
    *       an identifier for a specific AWS resource, such as a server, user, or role.</p>
@@ -1521,11 +1445,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateServerRequest {
-  __type?: "UpdateServerRequest";
   /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
    *       transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server
@@ -1667,11 +1589,9 @@ export namespace UpdateServerRequest {
     ...obj,
     ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateServerRequest => __isa(o, "UpdateServerRequest");
 }
 
 export interface UpdateServerResponse {
-  __type?: "UpdateServerResponse";
   /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that the
    *       user account is assigned to.</p>
@@ -1683,11 +1603,9 @@ export namespace UpdateServerResponse {
   export const filterSensitiveLog = (obj: UpdateServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServerResponse => __isa(o, "UpdateServerResponse");
 }
 
 export interface UpdateUserRequest {
-  __type?: "UpdateUserRequest";
   /**
    * <p>Allows you to supply a scope-down policy for your user so you can use the same IAM role
    *       across multiple users. The policy scopes down user access to portions of your Amazon S3
@@ -1786,7 +1704,6 @@ export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 /**
@@ -1795,7 +1712,6 @@ export namespace UpdateUserRequest {
  *       server identifier for the request to update a user's properties.</p>
  */
 export interface UpdateUserResponse {
-  __type?: "UpdateUserResponse";
   /**
    * <p>The unique identifier for a user that is assigned to a file transfer protocol-enabled
    *       server instance that was specified in the request.</p>
@@ -1813,5 +1729,4 @@ export namespace UpdateUserResponse {
   export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserResponse => __isa(o, "UpdateUserResponse");
 }

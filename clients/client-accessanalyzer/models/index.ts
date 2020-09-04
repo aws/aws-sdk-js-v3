@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,14 +14,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Contains details about the analyzed resource.</p>
  */
 export interface AnalyzedResource {
-  __type?: "AnalyzedResource";
   /**
    * <p>The ARN of the resource that was analyzed.</p>
    */
@@ -84,14 +82,12 @@ export namespace AnalyzedResource {
   export const filterSensitiveLog = (obj: AnalyzedResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyzedResource => __isa(o, "AnalyzedResource");
 }
 
 /**
  * <p>Contains the ARN of the analyzed resource.</p>
  */
 export interface AnalyzedResourceSummary {
-  __type?: "AnalyzedResourceSummary";
   /**
    * <p>The ARN of the analyzed resource.</p>
    */
@@ -112,7 +108,6 @@ export namespace AnalyzedResourceSummary {
   export const filterSensitiveLog = (obj: AnalyzedResourceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyzedResourceSummary => __isa(o, "AnalyzedResourceSummary");
 }
 
 export type AnalyzerStatus = "ACTIVE" | "CREATING" | "DISABLED" | "FAILED";
@@ -121,7 +116,6 @@ export type AnalyzerStatus = "ACTIVE" | "CREATING" | "DISABLED" | "FAILED";
  * <p>Contains information about the analyzer.</p>
  */
 export interface AnalyzerSummary {
-  __type?: "AnalyzerSummary";
   /**
    * <p>The ARN of the analyzer.</p>
    */
@@ -180,14 +174,12 @@ export namespace AnalyzerSummary {
   export const filterSensitiveLog = (obj: AnalyzerSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyzerSummary => __isa(o, "AnalyzerSummary");
 }
 
 /**
  * <p>Contains information about an archive rule.</p>
  */
 export interface ArchiveRuleSummary {
-  __type?: "ArchiveRuleSummary";
   /**
    * <p>The name of the archive rule.</p>
    */
@@ -213,7 +205,6 @@ export namespace ArchiveRuleSummary {
   export const filterSensitiveLog = (obj: ArchiveRuleSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArchiveRuleSummary => __isa(o, "ArchiveRuleSummary");
 }
 
 /**
@@ -238,14 +229,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>Creates an analyzer.</p>
  */
 export interface CreateAnalyzerRequest {
-  __type?: "CreateAnalyzerRequest";
   /**
    * <p>The name of the analyzer to create.</p>
    */
@@ -278,14 +267,12 @@ export namespace CreateAnalyzerRequest {
   export const filterSensitiveLog = (obj: CreateAnalyzerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAnalyzerRequest => __isa(o, "CreateAnalyzerRequest");
 }
 
 /**
  * <p>The response to the request to create an analyzer.</p>
  */
 export interface CreateAnalyzerResponse {
-  __type?: "CreateAnalyzerResponse";
   /**
    * <p>The ARN of the analyzer that was created by the request.</p>
    */
@@ -296,14 +283,12 @@ export namespace CreateAnalyzerResponse {
   export const filterSensitiveLog = (obj: CreateAnalyzerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAnalyzerResponse => __isa(o, "CreateAnalyzerResponse");
 }
 
 /**
  * <p>Creates an archive rule.</p>
  */
 export interface CreateArchiveRuleRequest {
-  __type?: "CreateArchiveRuleRequest";
   /**
    * <p>The name of the created analyzer.</p>
    */
@@ -329,14 +314,12 @@ export namespace CreateArchiveRuleRequest {
   export const filterSensitiveLog = (obj: CreateArchiveRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateArchiveRuleRequest => __isa(o, "CreateArchiveRuleRequest");
 }
 
 /**
  * <p>The criteria to use in the filter that defines the archive rule.</p>
  */
 export interface Criterion {
-  __type?: "Criterion";
   /**
    * <p>An "equals" operator to match for the filter used to create the rule.</p>
    */
@@ -362,14 +345,12 @@ export namespace Criterion {
   export const filterSensitiveLog = (obj: Criterion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Criterion => __isa(o, "Criterion");
 }
 
 /**
  * <p>Deletes an analyzer.</p>
  */
 export interface DeleteAnalyzerRequest {
-  __type?: "DeleteAnalyzerRequest";
   /**
    * <p>The name of the analyzer to delete.</p>
    */
@@ -385,14 +366,12 @@ export namespace DeleteAnalyzerRequest {
   export const filterSensitiveLog = (obj: DeleteAnalyzerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAnalyzerRequest => __isa(o, "DeleteAnalyzerRequest");
 }
 
 /**
  * <p>Deletes an archive rule.</p>
  */
 export interface DeleteArchiveRuleRequest {
-  __type?: "DeleteArchiveRuleRequest";
   /**
    * <p>The name of the analyzer that associated with the archive rule to delete.</p>
    */
@@ -413,14 +392,12 @@ export namespace DeleteArchiveRuleRequest {
   export const filterSensitiveLog = (obj: DeleteArchiveRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteArchiveRuleRequest => __isa(o, "DeleteArchiveRuleRequest");
 }
 
 /**
  * <p>Contains information about a finding.</p>
  */
 export interface Finding {
-  __type?: "Finding";
   /**
    * <p>The ID of the finding.</p>
    */
@@ -498,14 +475,12 @@ export namespace Finding {
   export const filterSensitiveLog = (obj: Finding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Finding => __isa(o, "Finding");
 }
 
 /**
  * <p>The source of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
  */
 export interface FindingSource {
-  __type?: "FindingSource";
   /**
    * <p>Indicates the type of access that generated the finding.</p>
    */
@@ -521,14 +496,12 @@ export namespace FindingSource {
   export const filterSensitiveLog = (obj: FindingSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindingSource => __isa(o, "FindingSource");
 }
 
 /**
  * <p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
  */
 export interface FindingSourceDetail {
-  __type?: "FindingSourceDetail";
   /**
    * <p>The ARN of the access point that generated the finding.</p>
    */
@@ -539,7 +512,6 @@ export namespace FindingSourceDetail {
   export const filterSensitiveLog = (obj: FindingSourceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindingSourceDetail => __isa(o, "FindingSourceDetail");
 }
 
 export type FindingSourceType = "BUCKET_ACL" | "KMS_GRANT" | "POLICY" | "S3_ACCESS_POINT";
@@ -552,7 +524,6 @@ export type FindingStatusUpdate = "ACTIVE" | "ARCHIVED";
  * <p>Contains information about a finding.</p>
  */
 export interface FindingSummary {
-  __type?: "FindingSummary";
   /**
    * <p>The ID of the finding.</p>
    */
@@ -631,14 +602,12 @@ export namespace FindingSummary {
   export const filterSensitiveLog = (obj: FindingSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindingSummary => __isa(o, "FindingSummary");
 }
 
 /**
  * <p>Retrieves an analyzed resource.</p>
  */
 export interface GetAnalyzedResourceRequest {
-  __type?: "GetAnalyzedResourceRequest";
   /**
    * <p>The ARN of the analyzer to retrieve information from.</p>
    */
@@ -654,14 +623,12 @@ export namespace GetAnalyzedResourceRequest {
   export const filterSensitiveLog = (obj: GetAnalyzedResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAnalyzedResourceRequest => __isa(o, "GetAnalyzedResourceRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface GetAnalyzedResourceResponse {
-  __type?: "GetAnalyzedResourceResponse";
   /**
    * <p>An <code>AnalyedResource</code> object that contains information that Access Analyzer
    *          found when it analyzed the resource.</p>
@@ -673,14 +640,12 @@ export namespace GetAnalyzedResourceResponse {
   export const filterSensitiveLog = (obj: GetAnalyzedResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAnalyzedResourceResponse => __isa(o, "GetAnalyzedResourceResponse");
 }
 
 /**
  * <p>Retrieves an analyzer.</p>
  */
 export interface GetAnalyzerRequest {
-  __type?: "GetAnalyzerRequest";
   /**
    * <p>The name of the analyzer retrieved.</p>
    */
@@ -691,14 +656,12 @@ export namespace GetAnalyzerRequest {
   export const filterSensitiveLog = (obj: GetAnalyzerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAnalyzerRequest => __isa(o, "GetAnalyzerRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface GetAnalyzerResponse {
-  __type?: "GetAnalyzerResponse";
   /**
    * <p>An <code>AnalyzerSummary</code> object that contains information about the
    *          analyzer.</p>
@@ -710,14 +673,12 @@ export namespace GetAnalyzerResponse {
   export const filterSensitiveLog = (obj: GetAnalyzerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAnalyzerResponse => __isa(o, "GetAnalyzerResponse");
 }
 
 /**
  * <p>Retrieves an archive rule.</p>
  */
 export interface GetArchiveRuleRequest {
-  __type?: "GetArchiveRuleRequest";
   /**
    * <p>The name of the analyzer to retrieve rules from.</p>
    */
@@ -733,14 +694,12 @@ export namespace GetArchiveRuleRequest {
   export const filterSensitiveLog = (obj: GetArchiveRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetArchiveRuleRequest => __isa(o, "GetArchiveRuleRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface GetArchiveRuleResponse {
-  __type?: "GetArchiveRuleResponse";
   /**
    * <p>Contains information about an archive rule.</p>
    */
@@ -751,14 +710,12 @@ export namespace GetArchiveRuleResponse {
   export const filterSensitiveLog = (obj: GetArchiveRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetArchiveRuleResponse => __isa(o, "GetArchiveRuleResponse");
 }
 
 /**
  * <p>Retrieves a finding.</p>
  */
 export interface GetFindingRequest {
-  __type?: "GetFindingRequest";
   /**
    * <p>The ARN of the analyzer that generated the finding.</p>
    */
@@ -774,14 +731,12 @@ export namespace GetFindingRequest {
   export const filterSensitiveLog = (obj: GetFindingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFindingRequest => __isa(o, "GetFindingRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface GetFindingResponse {
-  __type?: "GetFindingResponse";
   /**
    * <p>A <code>finding</code> object that contains finding details.</p>
    */
@@ -792,7 +747,6 @@ export namespace GetFindingResponse {
   export const filterSensitiveLog = (obj: GetFindingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFindingResponse => __isa(o, "GetFindingResponse");
 }
 
 /**
@@ -800,7 +754,6 @@ export namespace GetFindingResponse {
  *          criteria.</p>
  */
 export interface InlineArchiveRule {
-  __type?: "InlineArchiveRule";
   /**
    * <p>The name of the rule.</p>
    */
@@ -816,7 +769,6 @@ export namespace InlineArchiveRule {
   export const filterSensitiveLog = (obj: InlineArchiveRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InlineArchiveRule => __isa(o, "InlineArchiveRule");
 }
 
 /**
@@ -837,14 +789,12 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>Retrieves a list of resources that have been analyzed.</p>
  */
 export interface ListAnalyzedResourcesRequest {
-  __type?: "ListAnalyzedResourcesRequest";
   /**
    * <p>The ARN of the analyzer to retrieve a list of analyzed resources from.</p>
    */
@@ -870,14 +820,12 @@ export namespace ListAnalyzedResourcesRequest {
   export const filterSensitiveLog = (obj: ListAnalyzedResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAnalyzedResourcesRequest => __isa(o, "ListAnalyzedResourcesRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface ListAnalyzedResourcesResponse {
-  __type?: "ListAnalyzedResourcesResponse";
   /**
    * <p>A list of resources that were analyzed.</p>
    */
@@ -893,14 +841,12 @@ export namespace ListAnalyzedResourcesResponse {
   export const filterSensitiveLog = (obj: ListAnalyzedResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAnalyzedResourcesResponse => __isa(o, "ListAnalyzedResourcesResponse");
 }
 
 /**
  * <p>Retrieves a list of analyzers.</p>
  */
 export interface ListAnalyzersRequest {
-  __type?: "ListAnalyzersRequest";
   /**
    * <p>A token used for pagination of results returned.</p>
    */
@@ -921,14 +867,12 @@ export namespace ListAnalyzersRequest {
   export const filterSensitiveLog = (obj: ListAnalyzersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAnalyzersRequest => __isa(o, "ListAnalyzersRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface ListAnalyzersResponse {
-  __type?: "ListAnalyzersResponse";
   /**
    * <p>The analyzers retrieved.</p>
    */
@@ -944,14 +888,12 @@ export namespace ListAnalyzersResponse {
   export const filterSensitiveLog = (obj: ListAnalyzersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAnalyzersResponse => __isa(o, "ListAnalyzersResponse");
 }
 
 /**
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
  */
 export interface ListArchiveRulesRequest {
-  __type?: "ListArchiveRulesRequest";
   /**
    * <p>The name of the analyzer to retrieve rules from.</p>
    */
@@ -972,14 +914,12 @@ export namespace ListArchiveRulesRequest {
   export const filterSensitiveLog = (obj: ListArchiveRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListArchiveRulesRequest => __isa(o, "ListArchiveRulesRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface ListArchiveRulesResponse {
-  __type?: "ListArchiveRulesResponse";
   /**
    * <p>A list of archive rules created for the specified analyzer.</p>
    */
@@ -995,14 +935,12 @@ export namespace ListArchiveRulesResponse {
   export const filterSensitiveLog = (obj: ListArchiveRulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListArchiveRulesResponse => __isa(o, "ListArchiveRulesResponse");
 }
 
 /**
  * <p>Retrieves a list of findings generated by the specified analyzer.</p>
  */
 export interface ListFindingsRequest {
-  __type?: "ListFindingsRequest";
   /**
    * <p>The ARN of the analyzer to retrieve findings from.</p>
    */
@@ -1033,14 +971,12 @@ export namespace ListFindingsRequest {
   export const filterSensitiveLog = (obj: ListFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFindingsRequest => __isa(o, "ListFindingsRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface ListFindingsResponse {
-  __type?: "ListFindingsResponse";
   /**
    * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
    *          if any.</p>
@@ -1057,14 +993,12 @@ export namespace ListFindingsResponse {
   export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFindingsResponse => __isa(o, "ListFindingsResponse");
 }
 
 /**
  * <p>Retrieves a list of tags applied to the specified resource.</p>
  */
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN of the resource to retrieve tags from.</p>
    */
@@ -1075,14 +1009,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are applied to the specified resource.</p>
    */
@@ -1093,7 +1025,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export type OrderBy = "ASC" | "DESC";
@@ -1126,7 +1057,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export type ResourceType =
@@ -1159,14 +1089,12 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
  * <p>The criteria used to sort.</p>
  */
 export interface SortCriteria {
-  __type?: "SortCriteria";
   /**
    * <p>The name of the attribute to sort on.</p>
    */
@@ -1182,14 +1110,12 @@ export namespace SortCriteria {
   export const filterSensitiveLog = (obj: SortCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SortCriteria => __isa(o, "SortCriteria");
 }
 
 /**
  * <p>Starts a scan of the policies applied to the specified resource.</p>
  */
 export interface StartResourceScanRequest {
-  __type?: "StartResourceScanRequest";
   /**
    * <p>The ARN of the analyzer to use to scan the policies applied to the specified
    *          resource.</p>
@@ -1206,7 +1132,6 @@ export namespace StartResourceScanRequest {
   export const filterSensitiveLog = (obj: StartResourceScanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartResourceScanRequest => __isa(o, "StartResourceScanRequest");
 }
 
 /**
@@ -1216,7 +1141,6 @@ export namespace StartResourceScanRequest {
  *          service-linked roles required in the member accounts of the AWS organization.</p>
  */
 export interface StatusReason {
-  __type?: "StatusReason";
   /**
    * <p>The reason code for the current status of the analyzer.</p>
    */
@@ -1227,14 +1151,12 @@ export namespace StatusReason {
   export const filterSensitiveLog = (obj: StatusReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatusReason => __isa(o, "StatusReason");
 }
 
 /**
  * <p>Adds a tag to the specified resource.</p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The ARN of the resource to add the tag to.</p>
    */
@@ -1250,21 +1172,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1285,7 +1203,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export type Type = "ACCOUNT" | "ORGANIZATION";
@@ -1294,7 +1211,6 @@ export type Type = "ACCOUNT" | "ORGANIZATION";
  * <p>Removes a tag from the specified resource.</p>
  */
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The ARN of the resource to remove the tag from.</p>
    */
@@ -1310,28 +1226,23 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p>The response to the request.</p>
  */
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>Updates the specified archive rule.</p>
  */
 export interface UpdateArchiveRuleRequest {
-  __type?: "UpdateArchiveRuleRequest";
   /**
    * <p>The name of the analyzer to update the archive rules for.</p>
    */
@@ -1358,14 +1269,12 @@ export namespace UpdateArchiveRuleRequest {
   export const filterSensitiveLog = (obj: UpdateArchiveRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateArchiveRuleRequest => __isa(o, "UpdateArchiveRuleRequest");
 }
 
 /**
  * <p>Updates findings with the new values provided in the request.</p>
  */
 export interface UpdateFindingsRequest {
-  __type?: "UpdateFindingsRequest";
   /**
    * <p>The ARN of the analyzer that generated the findings to update.</p>
    */
@@ -1398,7 +1307,6 @@ export namespace UpdateFindingsRequest {
   export const filterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFindingsRequest => __isa(o, "UpdateFindingsRequest");
 }
 
 /**
@@ -1423,14 +1331,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>Contains information about a validation exception.</p>
  */
 export interface ValidationExceptionField {
-  __type?: "ValidationExceptionField";
   /**
    * <p>The name of the validation exception.</p>
    */
@@ -1446,7 +1352,6 @@ export namespace ValidationExceptionField {
   export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationExceptionField => __isa(o, "ValidationExceptionField");
 }
 
 export enum ValidationExceptionReason {

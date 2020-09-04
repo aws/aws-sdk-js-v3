@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -18,7 +18,6 @@ export namespace AccessDeniedFault {
   export const filterSensitiveLog = (obj: AccessDeniedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedFault => __isa(o, "AccessDeniedFault");
 }
 
 /**
@@ -26,7 +25,6 @@ export namespace AccessDeniedFault {
  *          allowed.</p>
  */
 export interface AccountQuota {
-  __type?: "AccountQuota";
   /**
    * <p>The amount currently used toward the quota maximum.</p>
    */
@@ -47,14 +45,12 @@ export namespace AccountQuota {
   export const filterSensitiveLog = (obj: AccountQuota): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountQuota => __isa(o, "AccountQuota");
 }
 
 /**
  * <p>Associates a set of tags with an AWS DMS resource.</p>
  */
 export interface AddTagsToResourceMessage {
-  __type?: "AddTagsToResourceMessage";
   /**
    * <p>One or more tags to be assigned to the resource.</p>
    */
@@ -71,28 +67,23 @@ export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceMessage => __isa(o, "AddTagsToResourceMessage");
 }
 
 /**
  * <p></p>
  */
-export interface AddTagsToResourceResponse {
-  __type?: "AddTagsToResourceResponse";
-}
+export interface AddTagsToResourceResponse {}
 
 export namespace AddTagsToResourceResponse {
   export const filterSensitiveLog = (obj: AddTagsToResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceResponse => __isa(o, "AddTagsToResourceResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ApplyPendingMaintenanceActionMessage {
-  __type?: "ApplyPendingMaintenanceActionMessage";
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
    */
@@ -132,15 +123,12 @@ export namespace ApplyPendingMaintenanceActionMessage {
   export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplyPendingMaintenanceActionMessage =>
-    __isa(o, "ApplyPendingMaintenanceActionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ApplyPendingMaintenanceActionResponse {
-  __type?: "ApplyPendingMaintenanceActionResponse";
   /**
    * <p>The AWS DMS resource that the pending maintenance action will be applied to.</p>
    */
@@ -151,8 +139,6 @@ export namespace ApplyPendingMaintenanceActionResponse {
   export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplyPendingMaintenanceActionResponse =>
-    __isa(o, "ApplyPendingMaintenanceActionResponse");
 }
 
 export enum AuthMechanismValue {
@@ -170,7 +156,6 @@ export enum AuthTypeValue {
  * <p>The name of an Availability Zone for use during database migration.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The name of the Availability Zone.</p>
    */
@@ -181,14 +166,12 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
  * <p></p>
  */
 export interface CancelReplicationTaskAssessmentRunMessage {
-  __type?: "CancelReplicationTaskAssessmentRunMessage";
   /**
    * <p>Amazon Resource Name (ARN) of the premigration assessment run to be canceled.</p>
    */
@@ -199,15 +182,12 @@ export namespace CancelReplicationTaskAssessmentRunMessage {
   export const filterSensitiveLog = (obj: CancelReplicationTaskAssessmentRunMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelReplicationTaskAssessmentRunMessage =>
-    __isa(o, "CancelReplicationTaskAssessmentRunMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CancelReplicationTaskAssessmentRunResponse {
-  __type?: "CancelReplicationTaskAssessmentRunResponse";
   /**
    * <p>The <code>ReplicationTaskAssessmentRun</code> object for the canceled assessment
    *          run.</p>
@@ -219,8 +199,6 @@ export namespace CancelReplicationTaskAssessmentRunResponse {
   export const filterSensitiveLog = (obj: CancelReplicationTaskAssessmentRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelReplicationTaskAssessmentRunResponse =>
-    __isa(o, "CancelReplicationTaskAssessmentRunResponse");
 }
 
 /**
@@ -228,7 +206,6 @@ export namespace CancelReplicationTaskAssessmentRunResponse {
  *          the replication instance.</p>
  */
 export interface Certificate {
-  __type?: "Certificate";
   /**
    * <p>The contents of a <code>.pem</code> file, which contains an X.509 certificate.</p>
    */
@@ -286,7 +263,6 @@ export namespace Certificate {
   export const filterSensitiveLog = (obj: Certificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
 }
 
 export enum CompressionTypeValue {
@@ -299,7 +275,6 @@ export enum CompressionTypeValue {
  *          Amazon Resource Names (ARNs) and the last error message issued.</p>
  */
 export interface Connection {
-  __type?: "Connection";
   /**
    * <p>The ARN string that uniquely identifies the endpoint.</p>
    */
@@ -360,14 +335,12 @@ export namespace Connection {
   export const filterSensitiveLog = (obj: Connection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
 /**
  * <p></p>
  */
 export interface CreateEndpointMessage {
-  __type?: "CreateEndpointMessage";
   /**
    * <p>Provides information that defines an Amazon Redshift endpoint.</p>
    */
@@ -634,14 +607,12 @@ export namespace CreateEndpointMessage {
     ...(obj.OracleSettings && { OracleSettings: OracleSettings.filterSensitiveLog(obj.OracleSettings) }),
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
   });
-  export const isa = (o: any): o is CreateEndpointMessage => __isa(o, "CreateEndpointMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateEndpointResponse {
-  __type?: "CreateEndpointResponse";
   /**
    * <p>The endpoint that was created.</p>
    */
@@ -653,14 +624,12 @@ export namespace CreateEndpointResponse {
     ...obj,
     ...(obj.Endpoint && { Endpoint: Endpoint.filterSensitiveLog(obj.Endpoint) }),
   });
-  export const isa = (o: any): o is CreateEndpointResponse => __isa(o, "CreateEndpointResponse");
 }
 
 /**
  * <p></p>
  */
 export interface CreateEventSubscriptionMessage {
-  __type?: "CreateEventSubscriptionMessage";
   /**
    * <p>A list of identifiers for which AWS DMS provides notification events.</p>
    *          <p>If you don't specify a value, notifications are provided for all sources.</p>
@@ -716,14 +685,12 @@ export namespace CreateEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionMessage => __isa(o, "CreateEventSubscriptionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateEventSubscriptionResponse {
-  __type?: "CreateEventSubscriptionResponse";
   /**
    * <p>The event subscription that was created.</p>
    */
@@ -734,14 +701,12 @@ export namespace CreateEventSubscriptionResponse {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionResponse => __isa(o, "CreateEventSubscriptionResponse");
 }
 
 /**
  * <p></p>
  */
 export interface CreateReplicationInstanceMessage {
-  __type?: "CreateReplicationInstanceMessage";
   /**
    * <p>A subnet group to associate with the replication instance.</p>
    */
@@ -868,14 +833,12 @@ export namespace CreateReplicationInstanceMessage {
   export const filterSensitiveLog = (obj: CreateReplicationInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationInstanceMessage => __isa(o, "CreateReplicationInstanceMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateReplicationInstanceResponse {
-  __type?: "CreateReplicationInstanceResponse";
   /**
    * <p>The replication instance that was created.</p>
    */
@@ -886,14 +849,12 @@ export namespace CreateReplicationInstanceResponse {
   export const filterSensitiveLog = (obj: CreateReplicationInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationInstanceResponse => __isa(o, "CreateReplicationInstanceResponse");
 }
 
 /**
  * <p></p>
  */
 export interface CreateReplicationSubnetGroupMessage {
-  __type?: "CreateReplicationSubnetGroupMessage";
   /**
    * <p>The description for the subnet group.</p>
    */
@@ -924,15 +885,12 @@ export namespace CreateReplicationSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CreateReplicationSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationSubnetGroupMessage =>
-    __isa(o, "CreateReplicationSubnetGroupMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateReplicationSubnetGroupResponse {
-  __type?: "CreateReplicationSubnetGroupResponse";
   /**
    * <p>The replication subnet group that was created.</p>
    */
@@ -943,15 +901,12 @@ export namespace CreateReplicationSubnetGroupResponse {
   export const filterSensitiveLog = (obj: CreateReplicationSubnetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationSubnetGroupResponse =>
-    __isa(o, "CreateReplicationSubnetGroupResponse");
 }
 
 /**
  * <p></p>
  */
 export interface CreateReplicationTaskMessage {
-  __type?: "CreateReplicationTaskMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of a replication instance.</p>
    */
@@ -1059,14 +1014,12 @@ export namespace CreateReplicationTaskMessage {
   export const filterSensitiveLog = (obj: CreateReplicationTaskMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationTaskMessage => __isa(o, "CreateReplicationTaskMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateReplicationTaskResponse {
-  __type?: "CreateReplicationTaskResponse";
   /**
    * <p>The replication task that was created.</p>
    */
@@ -1077,7 +1030,6 @@ export namespace CreateReplicationTaskResponse {
   export const filterSensitiveLog = (obj: CreateReplicationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationTaskResponse => __isa(o, "CreateReplicationTaskResponse");
 }
 
 export enum DataFormatValue {
@@ -1086,7 +1038,6 @@ export enum DataFormatValue {
 }
 
 export interface DeleteCertificateMessage {
-  __type?: "DeleteCertificateMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted certificate.</p>
    */
@@ -1097,11 +1048,9 @@ export namespace DeleteCertificateMessage {
   export const filterSensitiveLog = (obj: DeleteCertificateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateMessage => __isa(o, "DeleteCertificateMessage");
 }
 
 export interface DeleteCertificateResponse {
-  __type?: "DeleteCertificateResponse";
   /**
    * <p>The Secure Sockets Layer (SSL) certificate.</p>
    */
@@ -1112,14 +1061,12 @@ export namespace DeleteCertificateResponse {
   export const filterSensitiveLog = (obj: DeleteCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateResponse => __isa(o, "DeleteCertificateResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteConnectionMessage {
-  __type?: "DeleteConnectionMessage";
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
    */
@@ -1135,14 +1082,12 @@ export namespace DeleteConnectionMessage {
   export const filterSensitiveLog = (obj: DeleteConnectionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionMessage => __isa(o, "DeleteConnectionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteConnectionResponse {
-  __type?: "DeleteConnectionResponse";
   /**
    * <p>The connection that is being deleted.</p>
    */
@@ -1153,14 +1098,12 @@ export namespace DeleteConnectionResponse {
   export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionResponse => __isa(o, "DeleteConnectionResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteEndpointMessage {
-  __type?: "DeleteEndpointMessage";
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
    */
@@ -1171,14 +1114,12 @@ export namespace DeleteEndpointMessage {
   export const filterSensitiveLog = (obj: DeleteEndpointMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointMessage => __isa(o, "DeleteEndpointMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteEndpointResponse {
-  __type?: "DeleteEndpointResponse";
   /**
    * <p>The endpoint that was deleted.</p>
    */
@@ -1190,14 +1131,12 @@ export namespace DeleteEndpointResponse {
     ...obj,
     ...(obj.Endpoint && { Endpoint: Endpoint.filterSensitiveLog(obj.Endpoint) }),
   });
-  export const isa = (o: any): o is DeleteEndpointResponse => __isa(o, "DeleteEndpointResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteEventSubscriptionMessage {
-  __type?: "DeleteEventSubscriptionMessage";
   /**
    * <p>The name of the DMS event notification subscription to be deleted.</p>
    */
@@ -1208,14 +1147,12 @@ export namespace DeleteEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSubscriptionMessage => __isa(o, "DeleteEventSubscriptionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteEventSubscriptionResponse {
-  __type?: "DeleteEventSubscriptionResponse";
   /**
    * <p>The event subscription that was deleted.</p>
    */
@@ -1226,14 +1163,12 @@ export namespace DeleteEventSubscriptionResponse {
   export const filterSensitiveLog = (obj: DeleteEventSubscriptionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSubscriptionResponse => __isa(o, "DeleteEventSubscriptionResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationInstanceMessage {
-  __type?: "DeleteReplicationInstanceMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance to be deleted.</p>
    */
@@ -1244,14 +1179,12 @@ export namespace DeleteReplicationInstanceMessage {
   export const filterSensitiveLog = (obj: DeleteReplicationInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationInstanceMessage => __isa(o, "DeleteReplicationInstanceMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationInstanceResponse {
-  __type?: "DeleteReplicationInstanceResponse";
   /**
    * <p>The replication instance that was deleted.</p>
    */
@@ -1262,14 +1195,12 @@ export namespace DeleteReplicationInstanceResponse {
   export const filterSensitiveLog = (obj: DeleteReplicationInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationInstanceResponse => __isa(o, "DeleteReplicationInstanceResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationSubnetGroupMessage {
-  __type?: "DeleteReplicationSubnetGroupMessage";
   /**
    * <p>The subnet group name of the replication instance.</p>
    */
@@ -1280,30 +1211,23 @@ export namespace DeleteReplicationSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DeleteReplicationSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationSubnetGroupMessage =>
-    __isa(o, "DeleteReplicationSubnetGroupMessage");
 }
 
 /**
  * <p></p>
  */
-export interface DeleteReplicationSubnetGroupResponse {
-  __type?: "DeleteReplicationSubnetGroupResponse";
-}
+export interface DeleteReplicationSubnetGroupResponse {}
 
 export namespace DeleteReplicationSubnetGroupResponse {
   export const filterSensitiveLog = (obj: DeleteReplicationSubnetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationSubnetGroupResponse =>
-    __isa(o, "DeleteReplicationSubnetGroupResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationTaskAssessmentRunMessage {
-  __type?: "DeleteReplicationTaskAssessmentRunMessage";
   /**
    * <p>Amazon Resource Name (ARN) of the premigration assessment run to be deleted.</p>
    */
@@ -1314,15 +1238,12 @@ export namespace DeleteReplicationTaskAssessmentRunMessage {
   export const filterSensitiveLog = (obj: DeleteReplicationTaskAssessmentRunMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationTaskAssessmentRunMessage =>
-    __isa(o, "DeleteReplicationTaskAssessmentRunMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationTaskAssessmentRunResponse {
-  __type?: "DeleteReplicationTaskAssessmentRunResponse";
   /**
    * <p>The <code>ReplicationTaskAssessmentRun</code> object for the deleted assessment
    *          run.</p>
@@ -1334,15 +1255,12 @@ export namespace DeleteReplicationTaskAssessmentRunResponse {
   export const filterSensitiveLog = (obj: DeleteReplicationTaskAssessmentRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationTaskAssessmentRunResponse =>
-    __isa(o, "DeleteReplicationTaskAssessmentRunResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationTaskMessage {
-  __type?: "DeleteReplicationTaskMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task to be deleted.</p>
    */
@@ -1353,14 +1271,12 @@ export namespace DeleteReplicationTaskMessage {
   export const filterSensitiveLog = (obj: DeleteReplicationTaskMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationTaskMessage => __isa(o, "DeleteReplicationTaskMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteReplicationTaskResponse {
-  __type?: "DeleteReplicationTaskResponse";
   /**
    * <p>The deleted replication task.</p>
    */
@@ -1371,28 +1287,23 @@ export namespace DeleteReplicationTaskResponse {
   export const filterSensitiveLog = (obj: DeleteReplicationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationTaskResponse => __isa(o, "DeleteReplicationTaskResponse");
 }
 
 /**
  * <p></p>
  */
-export interface DescribeAccountAttributesMessage {
-  __type?: "DescribeAccountAttributesMessage";
-}
+export interface DescribeAccountAttributesMessage {}
 
 export namespace DescribeAccountAttributesMessage {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesMessage => __isa(o, "DescribeAccountAttributesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeAccountAttributesResponse {
-  __type?: "DescribeAccountAttributesResponse";
   /**
    * <p>Account quota information.</p>
    */
@@ -1419,14 +1330,12 @@ export namespace DescribeAccountAttributesResponse {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesResponse => __isa(o, "DescribeAccountAttributesResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeApplicableIndividualAssessmentsMessage {
-  __type?: "DescribeApplicableIndividualAssessmentsMessage";
   /**
    * <p>Maximum number of records to include in the response. If more records exist than the
    *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
@@ -1473,15 +1382,12 @@ export namespace DescribeApplicableIndividualAssessmentsMessage {
   export const filterSensitiveLog = (obj: DescribeApplicableIndividualAssessmentsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicableIndividualAssessmentsMessage =>
-    __isa(o, "DescribeApplicableIndividualAssessmentsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeApplicableIndividualAssessmentsResponse {
-  __type?: "DescribeApplicableIndividualAssessmentsResponse";
   /**
    * <p>Pagination token returned for you to pass to a subsequent request. If you pass this
    *          token as the <code>Marker</code> value in a subsequent request, the response includes only
@@ -1505,12 +1411,9 @@ export namespace DescribeApplicableIndividualAssessmentsResponse {
   export const filterSensitiveLog = (obj: DescribeApplicableIndividualAssessmentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicableIndividualAssessmentsResponse =>
-    __isa(o, "DescribeApplicableIndividualAssessmentsResponse");
 }
 
 export interface DescribeCertificatesMessage {
-  __type?: "DescribeCertificatesMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -1536,11 +1439,9 @@ export namespace DescribeCertificatesMessage {
   export const filterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificatesMessage => __isa(o, "DescribeCertificatesMessage");
 }
 
 export interface DescribeCertificatesResponse {
-  __type?: "DescribeCertificatesResponse";
   /**
    * <p>The pagination token.</p>
    */
@@ -1557,14 +1458,12 @@ export namespace DescribeCertificatesResponse {
   export const filterSensitiveLog = (obj: DescribeCertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificatesResponse => __isa(o, "DescribeCertificatesResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeConnectionsMessage {
-  __type?: "DescribeConnectionsMessage";
   /**
    * <p>The filters applied to the connection.</p>
    *          <p>Valid filter names: endpoint-arn | replication-instance-arn</p>
@@ -1592,14 +1491,12 @@ export namespace DescribeConnectionsMessage {
   export const filterSensitiveLog = (obj: DescribeConnectionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConnectionsMessage => __isa(o, "DescribeConnectionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeConnectionsResponse {
-  __type?: "DescribeConnectionsResponse";
   /**
    * <p>A description of the connections.</p>
    */
@@ -1617,14 +1514,12 @@ export namespace DescribeConnectionsResponse {
   export const filterSensitiveLog = (obj: DescribeConnectionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConnectionsResponse => __isa(o, "DescribeConnectionsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEndpointsMessage {
-  __type?: "DescribeEndpointsMessage";
   /**
    * <p>Filters applied to the endpoints.</p>
    *          <p>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</p>
@@ -1652,14 +1547,12 @@ export namespace DescribeEndpointsMessage {
   export const filterSensitiveLog = (obj: DescribeEndpointsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointsMessage => __isa(o, "DescribeEndpointsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEndpointsResponse {
-  __type?: "DescribeEndpointsResponse";
   /**
    * <p>Endpoint description.</p>
    */
@@ -1678,14 +1571,12 @@ export namespace DescribeEndpointsResponse {
     ...obj,
     ...(obj.Endpoints && { Endpoints: obj.Endpoints.map((item) => Endpoint.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is DescribeEndpointsResponse => __isa(o, "DescribeEndpointsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEndpointTypesMessage {
-  __type?: "DescribeEndpointTypesMessage";
   /**
    * <p>Filters applied to the endpoint types.</p>
    *          <p>Valid filter names: engine-name | endpoint-type</p>
@@ -1713,14 +1604,12 @@ export namespace DescribeEndpointTypesMessage {
   export const filterSensitiveLog = (obj: DescribeEndpointTypesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointTypesMessage => __isa(o, "DescribeEndpointTypesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEndpointTypesResponse {
-  __type?: "DescribeEndpointTypesResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -1738,14 +1627,12 @@ export namespace DescribeEndpointTypesResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointTypesResponse => __isa(o, "DescribeEndpointTypesResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventCategoriesMessage {
-  __type?: "DescribeEventCategoriesMessage";
   /**
    * <p>Filters applied to the event categories.</p>
    */
@@ -1762,14 +1649,12 @@ export namespace DescribeEventCategoriesMessage {
   export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventCategoriesMessage => __isa(o, "DescribeEventCategoriesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventCategoriesResponse {
-  __type?: "DescribeEventCategoriesResponse";
   /**
    * <p>A list of event categories.</p>
    */
@@ -1780,14 +1665,12 @@ export namespace DescribeEventCategoriesResponse {
   export const filterSensitiveLog = (obj: DescribeEventCategoriesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventCategoriesResponse => __isa(o, "DescribeEventCategoriesResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventsMessage {
-  __type?: "DescribeEventsMessage";
   /**
    * <p>The end time for the events to be listed.</p>
    */
@@ -1845,14 +1728,12 @@ export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventsResponse {
-  __type?: "DescribeEventsResponse";
   /**
    * <p>The events described.</p>
    */
@@ -1870,14 +1751,12 @@ export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsResponse => __isa(o, "DescribeEventsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventSubscriptionsMessage {
-  __type?: "DescribeEventSubscriptionsMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
@@ -1909,14 +1788,12 @@ export namespace DescribeEventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSubscriptionsMessage => __isa(o, "DescribeEventSubscriptionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventSubscriptionsResponse {
-  __type?: "DescribeEventSubscriptionsResponse";
   /**
    * <p>A list of event subscriptions.</p>
    */
@@ -1934,15 +1811,12 @@ export namespace DescribeEventSubscriptionsResponse {
   export const filterSensitiveLog = (obj: DescribeEventSubscriptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSubscriptionsResponse =>
-    __isa(o, "DescribeEventSubscriptionsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeOrderableReplicationInstancesMessage {
-  __type?: "DescribeOrderableReplicationInstancesMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -1964,15 +1838,12 @@ export namespace DescribeOrderableReplicationInstancesMessage {
   export const filterSensitiveLog = (obj: DescribeOrderableReplicationInstancesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrderableReplicationInstancesMessage =>
-    __isa(o, "DescribeOrderableReplicationInstancesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeOrderableReplicationInstancesResponse {
-  __type?: "DescribeOrderableReplicationInstancesResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -1990,15 +1861,12 @@ export namespace DescribeOrderableReplicationInstancesResponse {
   export const filterSensitiveLog = (obj: DescribeOrderableReplicationInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrderableReplicationInstancesResponse =>
-    __isa(o, "DescribeOrderableReplicationInstancesResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribePendingMaintenanceActionsMessage {
-  __type?: "DescribePendingMaintenanceActionsMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
@@ -2030,15 +1898,12 @@ export namespace DescribePendingMaintenanceActionsMessage {
   export const filterSensitiveLog = (obj: DescribePendingMaintenanceActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePendingMaintenanceActionsMessage =>
-    __isa(o, "DescribePendingMaintenanceActionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribePendingMaintenanceActionsResponse {
-  __type?: "DescribePendingMaintenanceActionsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -2056,15 +1921,12 @@ export namespace DescribePendingMaintenanceActionsResponse {
   export const filterSensitiveLog = (obj: DescribePendingMaintenanceActionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePendingMaintenanceActionsResponse =>
-    __isa(o, "DescribePendingMaintenanceActionsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeRefreshSchemasStatusMessage {
-  __type?: "DescribeRefreshSchemasStatusMessage";
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
    */
@@ -2075,15 +1937,12 @@ export namespace DescribeRefreshSchemasStatusMessage {
   export const filterSensitiveLog = (obj: DescribeRefreshSchemasStatusMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRefreshSchemasStatusMessage =>
-    __isa(o, "DescribeRefreshSchemasStatusMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeRefreshSchemasStatusResponse {
-  __type?: "DescribeRefreshSchemasStatusResponse";
   /**
    * <p>The status of the schema.</p>
    */
@@ -2094,15 +1953,12 @@ export namespace DescribeRefreshSchemasStatusResponse {
   export const filterSensitiveLog = (obj: DescribeRefreshSchemasStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRefreshSchemasStatusResponse =>
-    __isa(o, "DescribeRefreshSchemasStatusResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationInstancesMessage {
-  __type?: "DescribeReplicationInstancesMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
@@ -2131,15 +1987,12 @@ export namespace DescribeReplicationInstancesMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationInstancesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationInstancesMessage =>
-    __isa(o, "DescribeReplicationInstancesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationInstancesResponse {
-  __type?: "DescribeReplicationInstancesResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -2157,12 +2010,9 @@ export namespace DescribeReplicationInstancesResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationInstancesResponse =>
-    __isa(o, "DescribeReplicationInstancesResponse");
 }
 
 export interface DescribeReplicationInstanceTaskLogsMessage {
-  __type?: "DescribeReplicationInstanceTaskLogsMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
@@ -2189,12 +2039,9 @@ export namespace DescribeReplicationInstanceTaskLogsMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationInstanceTaskLogsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationInstanceTaskLogsMessage =>
-    __isa(o, "DescribeReplicationInstanceTaskLogsMessage");
 }
 
 export interface DescribeReplicationInstanceTaskLogsResponse {
-  __type?: "DescribeReplicationInstanceTaskLogsResponse";
   /**
    * <p>An array of replication task log metadata. Each member of the array contains the
    *          replication task name, ARN, and task log size (in bytes). </p>
@@ -2218,15 +2065,12 @@ export namespace DescribeReplicationInstanceTaskLogsResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationInstanceTaskLogsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationInstanceTaskLogsResponse =>
-    __isa(o, "DescribeReplicationInstanceTaskLogsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationSubnetGroupsMessage {
-  __type?: "DescribeReplicationSubnetGroupsMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
@@ -2254,15 +2098,12 @@ export namespace DescribeReplicationSubnetGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationSubnetGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationSubnetGroupsMessage =>
-    __isa(o, "DescribeReplicationSubnetGroupsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationSubnetGroupsResponse {
-  __type?: "DescribeReplicationSubnetGroupsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -2280,15 +2121,12 @@ export namespace DescribeReplicationSubnetGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationSubnetGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationSubnetGroupsResponse =>
-    __isa(o, "DescribeReplicationSubnetGroupsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentResultsMessage {
-  __type?: "DescribeReplicationTaskAssessmentResultsMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -2317,15 +2155,12 @@ export namespace DescribeReplicationTaskAssessmentResultsMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationTaskAssessmentResultsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTaskAssessmentResultsMessage =>
-    __isa(o, "DescribeReplicationTaskAssessmentResultsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentResultsResponse {
-  __type?: "DescribeReplicationTaskAssessmentResultsResponse";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -2348,15 +2183,12 @@ export namespace DescribeReplicationTaskAssessmentResultsResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationTaskAssessmentResultsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTaskAssessmentResultsResponse =>
-    __isa(o, "DescribeReplicationTaskAssessmentResultsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentRunsMessage {
-  __type?: "DescribeReplicationTaskAssessmentRunsMessage";
   /**
    * <p>Filters applied to the premigration assessment runs described in the form of key-value pairs.</p>
    *          <p>Valid filter names: <code>replication-task-assessment-run-arn</code>, <code>replication-task-arn</code>,
@@ -2384,15 +2216,12 @@ export namespace DescribeReplicationTaskAssessmentRunsMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationTaskAssessmentRunsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTaskAssessmentRunsMessage =>
-    __isa(o, "DescribeReplicationTaskAssessmentRunsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTaskAssessmentRunsResponse {
-  __type?: "DescribeReplicationTaskAssessmentRunsResponse";
   /**
    * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
    *          token as the <code>Marker</code> value in a subsequent request, the response includes only
@@ -2411,15 +2240,12 @@ export namespace DescribeReplicationTaskAssessmentRunsResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationTaskAssessmentRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTaskAssessmentRunsResponse =>
-    __isa(o, "DescribeReplicationTaskAssessmentRunsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTaskIndividualAssessmentsMessage {
-  __type?: "DescribeReplicationTaskIndividualAssessmentsMessage";
   /**
    * <p>Filters applied to the individual assessments described in the form of key-value
    *          pairs.</p>
@@ -2448,15 +2274,12 @@ export namespace DescribeReplicationTaskIndividualAssessmentsMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationTaskIndividualAssessmentsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTaskIndividualAssessmentsMessage =>
-    __isa(o, "DescribeReplicationTaskIndividualAssessmentsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTaskIndividualAssessmentsResponse {
-  __type?: "DescribeReplicationTaskIndividualAssessmentsResponse";
   /**
    * <p>One or more individual assessments as specified by <code>Filters</code>.</p>
    */
@@ -2475,15 +2298,12 @@ export namespace DescribeReplicationTaskIndividualAssessmentsResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationTaskIndividualAssessmentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTaskIndividualAssessmentsResponse =>
-    __isa(o, "DescribeReplicationTaskIndividualAssessmentsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTasksMessage {
-  __type?: "DescribeReplicationTasksMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
@@ -2519,14 +2339,12 @@ export namespace DescribeReplicationTasksMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationTasksMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTasksMessage => __isa(o, "DescribeReplicationTasksMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReplicationTasksResponse {
-  __type?: "DescribeReplicationTasksResponse";
   /**
    * <p>A description of the replication tasks.</p>
    */
@@ -2544,14 +2362,12 @@ export namespace DescribeReplicationTasksResponse {
   export const filterSensitiveLog = (obj: DescribeReplicationTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationTasksResponse => __isa(o, "DescribeReplicationTasksResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeSchemasMessage {
-  __type?: "DescribeSchemasMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *          specified, the response includes only records beyond the marker, up to the value specified
@@ -2578,14 +2394,12 @@ export namespace DescribeSchemasMessage {
   export const filterSensitiveLog = (obj: DescribeSchemasMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSchemasMessage => __isa(o, "DescribeSchemasMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeSchemasResponse {
-  __type?: "DescribeSchemasResponse";
   /**
    * <p>The described schema.</p>
    */
@@ -2603,14 +2417,12 @@ export namespace DescribeSchemasResponse {
   export const filterSensitiveLog = (obj: DescribeSchemasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSchemasResponse => __isa(o, "DescribeSchemasResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTableStatisticsMessage {
-  __type?: "DescribeTableStatisticsMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task.</p>
    */
@@ -2645,14 +2457,12 @@ export namespace DescribeTableStatisticsMessage {
   export const filterSensitiveLog = (obj: DescribeTableStatisticsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableStatisticsMessage => __isa(o, "DescribeTableStatisticsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTableStatisticsResponse {
-  __type?: "DescribeTableStatisticsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task.</p>
    */
@@ -2675,7 +2485,6 @@ export namespace DescribeTableStatisticsResponse {
   export const filterSensitiveLog = (obj: DescribeTableStatisticsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableStatisticsResponse => __isa(o, "DescribeTableStatisticsResponse");
 }
 
 export enum DmsSslModeValue {
@@ -2689,7 +2498,6 @@ export enum DmsSslModeValue {
  * <p> The settings in JSON format for the DMS Transfer type source endpoint. </p>
  */
 export interface DmsTransferSettings {
-  __type?: "DmsTransferSettings";
   /**
    * <p> The IAM role that has permission to access the Amazon S3 bucket. </p>
    */
@@ -2705,7 +2513,6 @@ export namespace DmsTransferSettings {
   export const filterSensitiveLog = (obj: DmsTransferSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DmsTransferSettings => __isa(o, "DmsTransferSettings");
 }
 
 /**
@@ -2713,7 +2520,6 @@ export namespace DmsTransferSettings {
  *          role used to define an Amazon DynamoDB target endpoint.</p>
  */
 export interface DynamoDbSettings {
-  __type?: "DynamoDbSettings";
   /**
    * <p> The Amazon Resource Name (ARN) used by the service access IAM role. </p>
    */
@@ -2724,14 +2530,12 @@ export namespace DynamoDbSettings {
   export const filterSensitiveLog = (obj: DynamoDbSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamoDbSettings => __isa(o, "DynamoDbSettings");
 }
 
 /**
  * <p>Provides information that defines an Elasticsearch endpoint.</p>
  */
 export interface ElasticsearchSettings {
-  __type?: "ElasticsearchSettings";
   /**
    * <p>The maximum number of seconds for which DMS retries failed API requests to the
    *          Elasticsearch cluster.</p>
@@ -2759,7 +2563,6 @@ export namespace ElasticsearchSettings {
   export const filterSensitiveLog = (obj: ElasticsearchSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchSettings => __isa(o, "ElasticsearchSettings");
 }
 
 export enum EncodingTypeValue {
@@ -2800,7 +2603,6 @@ export enum EncryptionModeValue {
  *          </ul>
  */
 export interface Endpoint {
-  __type?: "Endpoint";
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
    *             <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
@@ -3031,7 +2833,6 @@ export namespace Endpoint {
     ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2Settings.filterSensitiveLog(obj.IBMDb2Settings) }),
     ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
   });
-  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
@@ -3040,7 +2841,6 @@ export namespace Endpoint {
  *          source of the event, and the AWS DMS resource type.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p> The identifier of an event source.</p>
    */
@@ -3072,7 +2872,6 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
@@ -3080,7 +2879,6 @@ export namespace Event {
  *          resource type.</p>
  */
 export interface EventCategoryGroup {
-  __type?: "EventCategoryGroup";
   /**
    * <p> The type of AWS DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | replication-server | security-group |
@@ -3098,7 +2896,6 @@ export namespace EventCategoryGroup {
   export const filterSensitiveLog = (obj: EventCategoryGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventCategoryGroup => __isa(o, "EventCategoryGroup");
 }
 
 /**
@@ -3106,7 +2903,6 @@ export namespace EventCategoryGroup {
  *          operation.</p>
  */
 export interface EventSubscription {
-  __type?: "EventSubscription";
   /**
    * <p>Boolean value that indicates if the event subscription is enabled.</p>
    */
@@ -3166,7 +2962,6 @@ export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -3175,7 +2970,6 @@ export namespace EventSubscription {
  *             <code>Describe*</code> or similar operation.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The filter value, which can specify one or more values used to narrow the returned results.</p>
    */
@@ -3192,14 +2986,12 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
  * <p>Provides information that defines an IBM Db2 LUW endpoint.</p>
  */
 export interface IBMDb2Settings {
-  __type?: "IBMDb2Settings";
   /**
    * <p>Endpoint TCP port.</p>
    */
@@ -3231,11 +3023,9 @@ export namespace IBMDb2Settings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is IBMDb2Settings => __isa(o, "IBMDb2Settings");
 }
 
 export interface ImportCertificateMessage {
-  __type?: "ImportCertificateMessage";
   /**
    * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
    */
@@ -3263,11 +3053,9 @@ export namespace ImportCertificateMessage {
   export const filterSensitiveLog = (obj: ImportCertificateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportCertificateMessage => __isa(o, "ImportCertificateMessage");
 }
 
 export interface ImportCertificateResponse {
-  __type?: "ImportCertificateResponse";
   /**
    * <p>The certificate to be uploaded.</p>
    */
@@ -3278,7 +3066,6 @@ export namespace ImportCertificateResponse {
   export const filterSensitiveLog = (obj: ImportCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportCertificateResponse => __isa(o, "ImportCertificateResponse");
 }
 
 /**
@@ -3297,7 +3084,6 @@ export namespace InsufficientResourceCapacityFault {
   export const filterSensitiveLog = (obj: InsufficientResourceCapacityFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientResourceCapacityFault => __isa(o, "InsufficientResourceCapacityFault");
 }
 
 /**
@@ -3313,7 +3099,6 @@ export namespace InvalidCertificateFault {
   export const filterSensitiveLog = (obj: InvalidCertificateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCertificateFault => __isa(o, "InvalidCertificateFault");
 }
 
 /**
@@ -3332,7 +3117,6 @@ export namespace InvalidResourceStateFault {
   export const filterSensitiveLog = (obj: InvalidResourceStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceStateFault => __isa(o, "InvalidResourceStateFault");
 }
 
 /**
@@ -3351,7 +3135,6 @@ export namespace InvalidSubnet {
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
 
 /**
@@ -3360,7 +3143,6 @@ export namespace InvalidSubnet {
  *          transaction and control table data information.</p>
  */
 export interface KafkaSettings {
-  __type?: "KafkaSettings";
   /**
    * <p>The output format for the records created on the endpoint. The message format is
    *             <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no
@@ -3425,7 +3207,6 @@ export namespace KafkaSettings {
   export const filterSensitiveLog = (obj: KafkaSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KafkaSettings => __isa(o, "KafkaSettings");
 }
 
 /**
@@ -3434,7 +3215,6 @@ export namespace KafkaSettings {
  *          transaction and control table data information.</p>
  */
 export interface KinesisSettings {
-  __type?: "KinesisSettings";
   /**
    * <p>Provides detailed transaction information from the source database. This information
    *          includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
@@ -3494,7 +3274,6 @@ export namespace KinesisSettings {
   export const filterSensitiveLog = (obj: KinesisSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisSettings => __isa(o, "KinesisSettings");
 }
 
 /**
@@ -3510,7 +3289,6 @@ export namespace KMSAccessDeniedFault {
   export const filterSensitiveLog = (obj: KMSAccessDeniedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSAccessDeniedFault => __isa(o, "KMSAccessDeniedFault");
 }
 
 /**
@@ -3526,7 +3304,6 @@ export namespace KMSDisabledFault {
   export const filterSensitiveLog = (obj: KMSDisabledFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSDisabledFault => __isa(o, "KMSDisabledFault");
 }
 
 /**
@@ -3542,7 +3319,6 @@ export namespace KMSFault {
   export const filterSensitiveLog = (obj: KMSFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSFault => __isa(o, "KMSFault");
 }
 
 /**
@@ -3558,7 +3334,6 @@ export namespace KMSInvalidStateFault {
   export const filterSensitiveLog = (obj: KMSInvalidStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidStateFault => __isa(o, "KMSInvalidStateFault");
 }
 
 /**
@@ -3577,7 +3352,6 @@ export namespace KMSKeyNotAccessibleFault {
   export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSKeyNotAccessibleFault => __isa(o, "KMSKeyNotAccessibleFault");
 }
 
 /**
@@ -3593,7 +3367,6 @@ export namespace KMSNotFoundFault {
   export const filterSensitiveLog = (obj: KMSNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSNotFoundFault => __isa(o, "KMSNotFoundFault");
 }
 
 /**
@@ -3609,14 +3382,12 @@ export namespace KMSThrottlingFault {
   export const filterSensitiveLog = (obj: KMSThrottlingFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSThrottlingFault => __isa(o, "KMSThrottlingFault");
 }
 
 /**
  * <p></p>
  */
 export interface ListTagsForResourceMessage {
-  __type?: "ListTagsForResourceMessage";
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS
    *          resource.</p>
@@ -3628,14 +3399,12 @@ export namespace ListTagsForResourceMessage {
   export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A list of tags for the resource.</p>
    */
@@ -3646,7 +3415,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum MessageFormatValue {
@@ -3658,7 +3426,6 @@ export enum MessageFormatValue {
  * <p>Provides information that defines a Microsoft SQL Server endpoint.</p>
  */
 export interface MicrosoftSQLServerSettings {
-  __type?: "MicrosoftSQLServerSettings";
   /**
    * <p>Endpoint connection user name.</p>
    */
@@ -3690,7 +3457,6 @@ export namespace MicrosoftSQLServerSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is MicrosoftSQLServerSettings => __isa(o, "MicrosoftSQLServerSettings");
 }
 
 export enum MigrationTypeValue {
@@ -3703,7 +3469,6 @@ export enum MigrationTypeValue {
  * <p></p>
  */
 export interface ModifyEndpointMessage {
-  __type?: "ModifyEndpointMessage";
   /**
    * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
    *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
@@ -3955,14 +3720,12 @@ export namespace ModifyEndpointMessage {
     ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ModifyEndpointMessage => __isa(o, "ModifyEndpointMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyEndpointResponse {
-  __type?: "ModifyEndpointResponse";
   /**
    * <p>The modified endpoint.</p>
    */
@@ -3974,14 +3737,12 @@ export namespace ModifyEndpointResponse {
     ...obj,
     ...(obj.Endpoint && { Endpoint: Endpoint.filterSensitiveLog(obj.Endpoint) }),
   });
-  export const isa = (o: any): o is ModifyEndpointResponse => __isa(o, "ModifyEndpointResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyEventSubscriptionMessage {
-  __type?: "ModifyEventSubscriptionMessage";
   /**
    * <p> A list of event categories for a source type that you want to subscribe to. Use the
    *             <code>DescribeEventCategories</code> action to see a list of event categories. </p>
@@ -4016,14 +3777,12 @@ export namespace ModifyEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionMessage => __isa(o, "ModifyEventSubscriptionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyEventSubscriptionResponse {
-  __type?: "ModifyEventSubscriptionResponse";
   /**
    * <p>The modified event subscription.</p>
    */
@@ -4034,14 +3793,12 @@ export namespace ModifyEventSubscriptionResponse {
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionResponse => __isa(o, "ModifyEventSubscriptionResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyReplicationInstanceMessage {
-  __type?: "ModifyReplicationInstanceMessage";
   /**
    * <p>The compute and memory capacity of the replication instance as defined for the specified
    *          replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
@@ -4140,14 +3897,12 @@ export namespace ModifyReplicationInstanceMessage {
   export const filterSensitiveLog = (obj: ModifyReplicationInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationInstanceMessage => __isa(o, "ModifyReplicationInstanceMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyReplicationInstanceResponse {
-  __type?: "ModifyReplicationInstanceResponse";
   /**
    * <p>The modified replication instance.</p>
    */
@@ -4158,14 +3913,12 @@ export namespace ModifyReplicationInstanceResponse {
   export const filterSensitiveLog = (obj: ModifyReplicationInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationInstanceResponse => __isa(o, "ModifyReplicationInstanceResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyReplicationSubnetGroupMessage {
-  __type?: "ModifyReplicationSubnetGroupMessage";
   /**
    * <p>A list of subnet IDs.</p>
    */
@@ -4186,15 +3939,12 @@ export namespace ModifyReplicationSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ModifyReplicationSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationSubnetGroupMessage =>
-    __isa(o, "ModifyReplicationSubnetGroupMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyReplicationSubnetGroupResponse {
-  __type?: "ModifyReplicationSubnetGroupResponse";
   /**
    * <p>The modified replication subnet group.</p>
    */
@@ -4205,15 +3955,12 @@ export namespace ModifyReplicationSubnetGroupResponse {
   export const filterSensitiveLog = (obj: ModifyReplicationSubnetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationSubnetGroupResponse =>
-    __isa(o, "ModifyReplicationSubnetGroupResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyReplicationTaskMessage {
-  __type?: "ModifyReplicationTaskMessage";
   /**
    * <p>When using the AWS CLI or boto3, provide the path of the JSON file that contains the
    *          table mappings. Precede the path with <code>file://</code>. When working with the DMS API,
@@ -4304,14 +4051,12 @@ export namespace ModifyReplicationTaskMessage {
   export const filterSensitiveLog = (obj: ModifyReplicationTaskMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationTaskMessage => __isa(o, "ModifyReplicationTaskMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyReplicationTaskResponse {
-  __type?: "ModifyReplicationTaskResponse";
   /**
    * <p>The replication task that was modified.</p>
    */
@@ -4322,14 +4067,12 @@ export namespace ModifyReplicationTaskResponse {
   export const filterSensitiveLog = (obj: ModifyReplicationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationTaskResponse => __isa(o, "ModifyReplicationTaskResponse");
 }
 
 /**
  * <p>Provides information that defines a MongoDB endpoint.</p>
  */
 export interface MongoDbSettings {
-  __type?: "MongoDbSettings";
   /**
    * <p>The AWS KMS key identifier that is used to encrypt the content on the replication
    *          instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
@@ -4416,14 +4159,12 @@ export namespace MongoDbSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is MongoDbSettings => __isa(o, "MongoDbSettings");
 }
 
 /**
  * <p>Provides information that defines a MySQL endpoint.</p>
  */
 export interface MySQLSettings {
-  __type?: "MySQLSettings";
   /**
    * <p>Endpoint TCP port.</p>
    */
@@ -4455,14 +4196,12 @@ export namespace MySQLSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is MySQLSettings => __isa(o, "MySQLSettings");
 }
 
 /**
  * <p>Provides information that defines an Amazon Neptune endpoint.</p>
  */
 export interface NeptuneSettings {
-  __type?: "NeptuneSettings";
   /**
    * <p>A folder path where you want AWS DMS to store migrated graph data in the S3 bucket
    *          specified by <code>S3BucketName</code>
@@ -4519,7 +4258,6 @@ export namespace NeptuneSettings {
   export const filterSensitiveLog = (obj: NeptuneSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NeptuneSettings => __isa(o, "NeptuneSettings");
 }
 
 export enum NestingLevelValue {
@@ -4531,7 +4269,6 @@ export enum NestingLevelValue {
  * <p>Provides information that defines an Oracle endpoint.</p>
  */
 export interface OracleSettings {
-  __type?: "OracleSettings";
   /**
    * <p>Database name for the endpoint.</p>
    */
@@ -4620,7 +4357,6 @@ export namespace OracleSettings {
     ...(obj.SecurityDbEncryption && { SecurityDbEncryption: SENSITIVE_STRING }),
     ...(obj.AsmPassword && { AsmPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is OracleSettings => __isa(o, "OracleSettings");
 }
 
 /**
@@ -4629,7 +4365,6 @@ export namespace OracleSettings {
  *          replication instance's type, engine version, and allocated storage.</p>
  */
 export interface OrderableReplicationInstance {
-  __type?: "OrderableReplicationInstance";
   /**
    * <p>The version of the replication engine.</p>
    */
@@ -4693,7 +4428,6 @@ export namespace OrderableReplicationInstance {
   export const filterSensitiveLog = (obj: OrderableReplicationInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrderableReplicationInstance => __isa(o, "OrderableReplicationInstance");
 }
 
 export enum ParquetVersionValue {
@@ -4707,7 +4441,6 @@ export enum ParquetVersionValue {
  *             <code>DescribePendingMaintenanceActions</code> operation.</p>
  */
 export interface PendingMaintenanceAction {
-  __type?: "PendingMaintenanceAction";
   /**
    * <p>The effective date when the pending maintenance action will be applied to the resource.
    *          This date takes into account opt-in requests received from the
@@ -4754,14 +4487,12 @@ export namespace PendingMaintenanceAction {
   export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingMaintenanceAction => __isa(o, "PendingMaintenanceAction");
 }
 
 /**
  * <p>Provides information that defines a PostgreSQL endpoint.</p>
  */
 export interface PostgreSQLSettings {
-  __type?: "PostgreSQLSettings";
   /**
    * <p>Endpoint connection user name.</p>
    */
@@ -4793,11 +4524,9 @@ export namespace PostgreSQLSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostgreSQLSettings => __isa(o, "PostgreSQLSettings");
 }
 
 export interface RebootReplicationInstanceMessage {
-  __type?: "RebootReplicationInstanceMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
    */
@@ -4815,11 +4544,9 @@ export namespace RebootReplicationInstanceMessage {
   export const filterSensitiveLog = (obj: RebootReplicationInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootReplicationInstanceMessage => __isa(o, "RebootReplicationInstanceMessage");
 }
 
 export interface RebootReplicationInstanceResponse {
-  __type?: "RebootReplicationInstanceResponse";
   /**
    * <p>The replication instance that is being rebooted. </p>
    */
@@ -4830,14 +4557,12 @@ export namespace RebootReplicationInstanceResponse {
   export const filterSensitiveLog = (obj: RebootReplicationInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootReplicationInstanceResponse => __isa(o, "RebootReplicationInstanceResponse");
 }
 
 /**
  * <p>Provides information that defines an Amazon Redshift endpoint.</p>
  */
 export interface RedshiftSettings {
-  __type?: "RedshiftSettings";
   /**
    * <p>A list of characters that you want to replace. Use with
    *          <code>ReplaceChars</code>.</p>
@@ -5015,14 +4740,12 @@ export namespace RedshiftSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RedshiftSettings => __isa(o, "RedshiftSettings");
 }
 
 /**
  * <p></p>
  */
 export interface RefreshSchemasMessage {
-  __type?: "RefreshSchemasMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
    */
@@ -5038,14 +4761,12 @@ export namespace RefreshSchemasMessage {
   export const filterSensitiveLog = (obj: RefreshSchemasMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshSchemasMessage => __isa(o, "RefreshSchemasMessage");
 }
 
 /**
  * <p></p>
  */
 export interface RefreshSchemasResponse {
-  __type?: "RefreshSchemasResponse";
   /**
    * <p>The status of the refreshed schema.</p>
    */
@@ -5056,7 +4777,6 @@ export namespace RefreshSchemasResponse {
   export const filterSensitiveLog = (obj: RefreshSchemasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshSchemasResponse => __isa(o, "RefreshSchemasResponse");
 }
 
 /**
@@ -5064,7 +4784,6 @@ export namespace RefreshSchemasResponse {
  *          <code>DescribeRefreshSchemaStatus</code> operation.</p>
  */
 export interface RefreshSchemasStatus {
-  __type?: "RefreshSchemasStatus";
   /**
    * <p>The date the schema was last refreshed.</p>
    */
@@ -5095,7 +4814,6 @@ export namespace RefreshSchemasStatus {
   export const filterSensitiveLog = (obj: RefreshSchemasStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshSchemasStatus => __isa(o, "RefreshSchemasStatus");
 }
 
 export enum RefreshSchemasStatusTypeValue {
@@ -5114,7 +4832,6 @@ export enum ReloadOptionValue {
 }
 
 export interface ReloadTablesMessage {
-  __type?: "ReloadTablesMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task. </p>
    */
@@ -5139,11 +4856,9 @@ export namespace ReloadTablesMessage {
   export const filterSensitiveLog = (obj: ReloadTablesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReloadTablesMessage => __isa(o, "ReloadTablesMessage");
 }
 
 export interface ReloadTablesResponse {
-  __type?: "ReloadTablesResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task. </p>
    */
@@ -5154,14 +4869,12 @@ export namespace ReloadTablesResponse {
   export const filterSensitiveLog = (obj: ReloadTablesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReloadTablesResponse => __isa(o, "ReloadTablesResponse");
 }
 
 /**
  * <p>Removes one or more tags from an AWS DMS resource.</p>
  */
 export interface RemoveTagsFromResourceMessage {
-  __type?: "RemoveTagsFromResourceMessage";
   /**
    * <p>The tag key (name) of the tag to be removed.</p>
    */
@@ -5177,21 +4890,17 @@ export namespace RemoveTagsFromResourceMessage {
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceMessage => __isa(o, "RemoveTagsFromResourceMessage");
 }
 
 /**
  * <p></p>
  */
-export interface RemoveTagsFromResourceResponse {
-  __type?: "RemoveTagsFromResourceResponse";
-}
+export interface RemoveTagsFromResourceResponse {}
 
 export namespace RemoveTagsFromResourceResponse {
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceResponse => __isa(o, "RemoveTagsFromResourceResponse");
 }
 
 export enum ReplicationEndpointTypeValue {
@@ -5203,7 +4912,6 @@ export enum ReplicationEndpointTypeValue {
  * <p>Provides information that defines a replication instance.</p>
  */
 export interface ReplicationInstance {
-  __type?: "ReplicationInstance";
   /**
    * <p>The VPC security group for the instance.</p>
    */
@@ -5426,14 +5134,12 @@ export namespace ReplicationInstance {
   export const filterSensitiveLog = (obj: ReplicationInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationInstance => __isa(o, "ReplicationInstance");
 }
 
 /**
  * <p>Contains metadata for a replication instance task log.</p>
  */
 export interface ReplicationInstanceTaskLog {
-  __type?: "ReplicationInstanceTaskLog";
   /**
    * <p>The name of the replication task.</p>
    */
@@ -5454,7 +5160,6 @@ export namespace ReplicationInstanceTaskLog {
   export const filterSensitiveLog = (obj: ReplicationInstanceTaskLog): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationInstanceTaskLog => __isa(o, "ReplicationInstanceTaskLog");
 }
 
 /**
@@ -5463,7 +5168,6 @@ export namespace ReplicationInstanceTaskLog {
  *          data type. </p>
  */
 export interface ReplicationPendingModifiedValues {
-  __type?: "ReplicationPendingModifiedValues";
   /**
    * <p>The engine version number of the replication instance.</p>
    */
@@ -5497,7 +5201,6 @@ export namespace ReplicationPendingModifiedValues {
   export const filterSensitiveLog = (obj: ReplicationPendingModifiedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationPendingModifiedValues => __isa(o, "ReplicationPendingModifiedValues");
 }
 
 /**
@@ -5505,7 +5208,6 @@ export namespace ReplicationPendingModifiedValues {
  *          operation.</p>
  */
 export interface ReplicationSubnetGroup {
-  __type?: "ReplicationSubnetGroup";
   /**
    * <p>The ID of the VPC.</p>
    */
@@ -5536,7 +5238,6 @@ export namespace ReplicationSubnetGroup {
   export const filterSensitiveLog = (obj: ReplicationSubnetGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationSubnetGroup => __isa(o, "ReplicationSubnetGroup");
 }
 
 /**
@@ -5555,8 +5256,6 @@ export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
   export const filterSensitiveLog = (obj: ReplicationSubnetGroupDoesNotCoverEnoughAZs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs =>
-    __isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
 }
 
 /**
@@ -5564,7 +5263,6 @@ export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
  *          <code>CreateReplicationTask</code> operation.</p>
  */
 export interface ReplicationTask {
-  __type?: "ReplicationTask";
   /**
    * <p>The date the replication task was created.</p>
    */
@@ -5712,14 +5410,12 @@ export namespace ReplicationTask {
   export const filterSensitiveLog = (obj: ReplicationTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTask => __isa(o, "ReplicationTask");
 }
 
 /**
  * <p> The task assessment report in JSON format. </p>
  */
 export interface ReplicationTaskAssessmentResult {
-  __type?: "ReplicationTaskAssessmentResult";
   /**
    * <p> The URL of the S3 object containing the task assessment results. </p>
    */
@@ -5761,7 +5457,6 @@ export namespace ReplicationTaskAssessmentResult {
   export const filterSensitiveLog = (obj: ReplicationTaskAssessmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTaskAssessmentResult => __isa(o, "ReplicationTaskAssessmentResult");
 }
 
 /**
@@ -5771,7 +5466,6 @@ export namespace ReplicationTaskAssessmentResult {
  *             <code>ReplicationTaskAssessmentRun</code> object.</p>
  */
 export interface ReplicationTaskAssessmentRun {
-  __type?: "ReplicationTaskAssessmentRun";
   /**
    * <p>Amazon Resource Name (ARN) of this assessment run.</p>
    */
@@ -5893,7 +5587,6 @@ export namespace ReplicationTaskAssessmentRun {
   export const filterSensitiveLog = (obj: ReplicationTaskAssessmentRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTaskAssessmentRun => __isa(o, "ReplicationTaskAssessmentRun");
 }
 
 /**
@@ -5901,7 +5594,6 @@ export namespace ReplicationTaskAssessmentRun {
  *          element.</p>
  */
 export interface ReplicationTaskAssessmentRunProgress {
-  __type?: "ReplicationTaskAssessmentRunProgress";
   /**
    * <p>The number of individual assessments that are specified to run.</p>
    */
@@ -5917,8 +5609,6 @@ export namespace ReplicationTaskAssessmentRunProgress {
   export const filterSensitiveLog = (obj: ReplicationTaskAssessmentRunProgress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTaskAssessmentRunProgress =>
-    __isa(o, "ReplicationTaskAssessmentRunProgress");
 }
 
 /**
@@ -5926,7 +5616,6 @@ export namespace ReplicationTaskAssessmentRunProgress {
  *          assessment run.</p>
  */
 export interface ReplicationTaskIndividualAssessment {
-  __type?: "ReplicationTaskIndividualAssessment";
   /**
    * <p>Name of this individual assessment.</p>
    */
@@ -5992,8 +5681,6 @@ export namespace ReplicationTaskIndividualAssessment {
   export const filterSensitiveLog = (obj: ReplicationTaskIndividualAssessment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTaskIndividualAssessment =>
-    __isa(o, "ReplicationTaskIndividualAssessment");
 }
 
 /**
@@ -6001,7 +5688,6 @@ export namespace ReplicationTaskIndividualAssessment {
  *          a collection of statistics about a replication task.</p>
  */
 export interface ReplicationTaskStats {
-  __type?: "ReplicationTaskStats";
   /**
    * <p>The date the replication task full load was completed.</p>
    */
@@ -6063,7 +5749,6 @@ export namespace ReplicationTaskStats {
   export const filterSensitiveLog = (obj: ReplicationTaskStats): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTaskStats => __isa(o, "ReplicationTaskStats");
 }
 
 /**
@@ -6084,7 +5769,6 @@ export namespace ResourceAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsFault => __isa(o, "ResourceAlreadyExistsFault");
 }
 
 /**
@@ -6103,14 +5787,12 @@ export namespace ResourceNotFoundFault {
   export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
  * <p>Identifies an AWS DMS resource and any pending actions for it.</p>
  */
 export interface ResourcePendingMaintenanceActions {
-  __type?: "ResourcePendingMaintenanceActions";
   /**
    * <p>Detailed information about the pending maintenance action.</p>
    */
@@ -6128,7 +5810,6 @@ export namespace ResourcePendingMaintenanceActions {
   export const filterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourcePendingMaintenanceActions => __isa(o, "ResourcePendingMaintenanceActions");
 }
 
 /**
@@ -6147,7 +5828,6 @@ export namespace ResourceQuotaExceededFault {
   export const filterSensitiveLog = (obj: ResourceQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceQuotaExceededFault => __isa(o, "ResourceQuotaExceededFault");
 }
 
 /**
@@ -6163,7 +5843,6 @@ export namespace S3AccessDeniedFault {
   export const filterSensitiveLog = (obj: S3AccessDeniedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3AccessDeniedFault => __isa(o, "S3AccessDeniedFault");
 }
 
 /**
@@ -6180,14 +5859,12 @@ export namespace S3ResourceNotFoundFault {
   export const filterSensitiveLog = (obj: S3ResourceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ResourceNotFoundFault => __isa(o, "S3ResourceNotFoundFault");
 }
 
 /**
  * <p>Settings for exporting data to Amazon S3. </p>
  */
 export interface S3Settings {
-  __type?: "S3Settings";
   /**
    * <p>A value that when nonblank causes AWS DMS to add a column with timestamp information to
    *          the endpoint data for an Amazon S3 target.</p>
@@ -6536,7 +6213,6 @@ export namespace S3Settings {
   export const filterSensitiveLog = (obj: S3Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Settings => __isa(o, "S3Settings");
 }
 
 /**
@@ -6555,7 +6231,6 @@ export namespace SNSInvalidTopicFault {
   export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSInvalidTopicFault => __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
@@ -6574,7 +6249,6 @@ export namespace SNSNoAuthorizationFault {
   export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSNoAuthorizationFault => __isa(o, "SNSNoAuthorizationFault");
 }
 
 export type SourceType = "replication-instance";
@@ -6583,7 +6257,6 @@ export type SourceType = "replication-instance";
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentMessage {
-  __type?: "StartReplicationTaskAssessmentMessage";
   /**
    * <p> The Amazon Resource Name (ARN) of the replication task. </p>
    */
@@ -6594,15 +6267,12 @@ export namespace StartReplicationTaskAssessmentMessage {
   export const filterSensitiveLog = (obj: StartReplicationTaskAssessmentMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReplicationTaskAssessmentMessage =>
-    __isa(o, "StartReplicationTaskAssessmentMessage");
 }
 
 /**
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentResponse {
-  __type?: "StartReplicationTaskAssessmentResponse";
   /**
    * <p> The assessed replication task. </p>
    */
@@ -6613,15 +6283,12 @@ export namespace StartReplicationTaskAssessmentResponse {
   export const filterSensitiveLog = (obj: StartReplicationTaskAssessmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReplicationTaskAssessmentResponse =>
-    __isa(o, "StartReplicationTaskAssessmentResponse");
 }
 
 /**
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentRunMessage {
-  __type?: "StartReplicationTaskAssessmentRunMessage";
   /**
    * <p>ARN of a service role needed to start the assessment run.</p>
    */
@@ -6713,15 +6380,12 @@ export namespace StartReplicationTaskAssessmentRunMessage {
   export const filterSensitiveLog = (obj: StartReplicationTaskAssessmentRunMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReplicationTaskAssessmentRunMessage =>
-    __isa(o, "StartReplicationTaskAssessmentRunMessage");
 }
 
 /**
  * <p></p>
  */
 export interface StartReplicationTaskAssessmentRunResponse {
-  __type?: "StartReplicationTaskAssessmentRunResponse";
   /**
    * <p>The premigration assessment run that was started.</p>
    */
@@ -6732,15 +6396,12 @@ export namespace StartReplicationTaskAssessmentRunResponse {
   export const filterSensitiveLog = (obj: StartReplicationTaskAssessmentRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReplicationTaskAssessmentRunResponse =>
-    __isa(o, "StartReplicationTaskAssessmentRunResponse");
 }
 
 /**
  * <p></p>
  */
 export interface StartReplicationTaskMessage {
-  __type?: "StartReplicationTaskMessage";
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to start. Use either
    *          CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start.
@@ -6791,14 +6452,12 @@ export namespace StartReplicationTaskMessage {
   export const filterSensitiveLog = (obj: StartReplicationTaskMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReplicationTaskMessage => __isa(o, "StartReplicationTaskMessage");
 }
 
 /**
  * <p></p>
  */
 export interface StartReplicationTaskResponse {
-  __type?: "StartReplicationTaskResponse";
   /**
    * <p>The replication task started.</p>
    */
@@ -6809,7 +6468,6 @@ export namespace StartReplicationTaskResponse {
   export const filterSensitiveLog = (obj: StartReplicationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReplicationTaskResponse => __isa(o, "StartReplicationTaskResponse");
 }
 
 export enum StartReplicationTaskTypeValue {
@@ -6822,7 +6480,6 @@ export enum StartReplicationTaskTypeValue {
  * <p></p>
  */
 export interface StopReplicationTaskMessage {
-  __type?: "StopReplicationTaskMessage";
   /**
    * <p>The Amazon Resource Name(ARN) of the replication task to be stopped.</p>
    */
@@ -6833,14 +6490,12 @@ export namespace StopReplicationTaskMessage {
   export const filterSensitiveLog = (obj: StopReplicationTaskMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopReplicationTaskMessage => __isa(o, "StopReplicationTaskMessage");
 }
 
 /**
  * <p></p>
  */
 export interface StopReplicationTaskResponse {
-  __type?: "StopReplicationTaskResponse";
   /**
    * <p>The replication task stopped.</p>
    */
@@ -6851,7 +6506,6 @@ export namespace StopReplicationTaskResponse {
   export const filterSensitiveLog = (obj: StopReplicationTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopReplicationTaskResponse => __isa(o, "StopReplicationTaskResponse");
 }
 
 /**
@@ -6870,7 +6524,6 @@ export namespace StorageQuotaExceededFault {
   export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageQuotaExceededFault => __isa(o, "StorageQuotaExceededFault");
 }
 
 /**
@@ -6878,7 +6531,6 @@ export namespace StorageQuotaExceededFault {
  *          identifies a subnet by its given Availability Zone, subnet identifier, and status.</p>
  */
 export interface Subnet {
-  __type?: "Subnet";
   /**
    * <p>The Availability Zone of the subnet.</p>
    */
@@ -6899,7 +6551,6 @@ export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
 
 /**
@@ -6918,7 +6569,6 @@ export namespace SubnetAlreadyInUse {
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
@@ -6928,7 +6578,6 @@ export namespace SubnetAlreadyInUse {
  *          supported.</p>
  */
 export interface SupportedEndpointType {
-  __type?: "SupportedEndpointType";
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType,  include
    *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
@@ -6966,14 +6615,12 @@ export namespace SupportedEndpointType {
   export const filterSensitiveLog = (obj: SupportedEndpointType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SupportedEndpointType => __isa(o, "SupportedEndpointType");
 }
 
 /**
  * <p>Provides information that defines a SAP ASE endpoint.</p>
  */
 export interface SybaseSettings {
-  __type?: "SybaseSettings";
   /**
    * <p>Endpoint TCP port.</p>
    */
@@ -7005,7 +6652,6 @@ export namespace SybaseSettings {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SybaseSettings => __isa(o, "SybaseSettings");
 }
 
 /**
@@ -7013,7 +6659,6 @@ export namespace SybaseSettings {
  *          <code>DescribeTableStatistics</code> operation.</p>
  */
 export interface TableStatistics {
-  __type?: "TableStatistics";
   /**
    * <p>The number of records that failed validation.</p>
    */
@@ -7152,14 +6797,12 @@ export namespace TableStatistics {
   export const filterSensitiveLog = (obj: TableStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableStatistics => __isa(o, "TableStatistics");
 }
 
 /**
  * <p>Provides the name of the schema and table to be reloaded.</p>
  */
 export interface TableToReload {
-  __type?: "TableToReload";
   /**
    * <p>The schema name of the table to be reloaded.</p>
    */
@@ -7175,7 +6818,6 @@ export namespace TableToReload {
   export const filterSensitiveLog = (obj: TableToReload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableToReload => __isa(o, "TableToReload");
 }
 
 /**
@@ -7200,7 +6842,6 @@ export namespace TableToReload {
  *          </ul>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A value is the optional value of the tag. The string value can be 1-256 Unicode
    *          characters in length and can't be prefixed with "aws:" or "dms:". The string can only
@@ -7222,14 +6863,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p></p>
  */
 export interface TestConnectionMessage {
-  __type?: "TestConnectionMessage";
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
    */
@@ -7245,14 +6884,12 @@ export namespace TestConnectionMessage {
   export const filterSensitiveLog = (obj: TestConnectionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestConnectionMessage => __isa(o, "TestConnectionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface TestConnectionResponse {
-  __type?: "TestConnectionResponse";
   /**
    * <p>The connection tested.</p>
    */
@@ -7263,7 +6900,6 @@ export namespace TestConnectionResponse {
   export const filterSensitiveLog = (obj: TestConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestConnectionResponse => __isa(o, "TestConnectionResponse");
 }
 
 /**
@@ -7282,7 +6918,6 @@ export namespace UpgradeDependencyFailureFault {
   export const filterSensitiveLog = (obj: UpgradeDependencyFailureFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpgradeDependencyFailureFault => __isa(o, "UpgradeDependencyFailureFault");
 }
 
 /**
@@ -7290,7 +6925,6 @@ export namespace UpgradeDependencyFailureFault {
  *          hosting your replication and DB instances.</p>
  */
 export interface VpcSecurityGroupMembership {
-  __type?: "VpcSecurityGroupMembership";
   /**
    * <p>The VPC security group ID.</p>
    */
@@ -7306,5 +6940,4 @@ export namespace VpcSecurityGroupMembership {
   export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcSecurityGroupMembership => __isa(o, "VpcSecurityGroupMembership");
 }

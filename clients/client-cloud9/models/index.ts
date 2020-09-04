@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -16,7 +16,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -34,11 +33,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateEnvironmentEC2Request {
-  __type?: "CreateEnvironmentEC2Request";
   /**
    * <p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p>
    *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>
@@ -87,11 +84,9 @@ export namespace CreateEnvironmentEC2Request {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateEnvironmentEC2Request => __isa(o, "CreateEnvironmentEC2Request");
 }
 
 export interface CreateEnvironmentEC2Result {
-  __type?: "CreateEnvironmentEC2Result";
   /**
    * <p>The ID of the environment that was created.</p>
    */
@@ -102,11 +97,9 @@ export namespace CreateEnvironmentEC2Result {
   export const filterSensitiveLog = (obj: CreateEnvironmentEC2Result): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEnvironmentEC2Result => __isa(o, "CreateEnvironmentEC2Result");
 }
 
 export interface CreateEnvironmentMembershipRequest {
-  __type?: "CreateEnvironmentMembershipRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
    */
@@ -137,12 +130,9 @@ export namespace CreateEnvironmentMembershipRequest {
   export const filterSensitiveLog = (obj: CreateEnvironmentMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEnvironmentMembershipRequest =>
-    __isa(o, "CreateEnvironmentMembershipRequest");
 }
 
 export interface CreateEnvironmentMembershipResult {
-  __type?: "CreateEnvironmentMembershipResult";
   /**
    * <p>Information about the environment member that was added.</p>
    */
@@ -153,11 +143,9 @@ export namespace CreateEnvironmentMembershipResult {
   export const filterSensitiveLog = (obj: CreateEnvironmentMembershipResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEnvironmentMembershipResult => __isa(o, "CreateEnvironmentMembershipResult");
 }
 
 export interface DeleteEnvironmentMembershipRequest {
-  __type?: "DeleteEnvironmentMembershipRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>
    */
@@ -173,23 +161,17 @@ export namespace DeleteEnvironmentMembershipRequest {
   export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentMembershipRequest =>
-    __isa(o, "DeleteEnvironmentMembershipRequest");
 }
 
-export interface DeleteEnvironmentMembershipResult {
-  __type?: "DeleteEnvironmentMembershipResult";
-}
+export interface DeleteEnvironmentMembershipResult {}
 
 export namespace DeleteEnvironmentMembershipResult {
   export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentMembershipResult => __isa(o, "DeleteEnvironmentMembershipResult");
 }
 
 export interface DeleteEnvironmentRequest {
-  __type?: "DeleteEnvironmentRequest";
   /**
    * <p>The ID of the environment to delete.</p>
    */
@@ -200,22 +182,17 @@ export namespace DeleteEnvironmentRequest {
   export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentRequest => __isa(o, "DeleteEnvironmentRequest");
 }
 
-export interface DeleteEnvironmentResult {
-  __type?: "DeleteEnvironmentResult";
-}
+export interface DeleteEnvironmentResult {}
 
 export namespace DeleteEnvironmentResult {
   export const filterSensitiveLog = (obj: DeleteEnvironmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentResult => __isa(o, "DeleteEnvironmentResult");
 }
 
 export interface DescribeEnvironmentMembershipsRequest {
-  __type?: "DescribeEnvironmentMembershipsRequest";
   /**
    * <p>The type of environment member permissions to get information about. Available values include:</p>
    *          <ul>
@@ -261,12 +238,9 @@ export namespace DescribeEnvironmentMembershipsRequest {
   export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentMembershipsRequest =>
-    __isa(o, "DescribeEnvironmentMembershipsRequest");
 }
 
 export interface DescribeEnvironmentMembershipsResult {
-  __type?: "DescribeEnvironmentMembershipsResult";
   /**
    * <p>Information about the environment members for the environment.</p>
    */
@@ -282,12 +256,9 @@ export namespace DescribeEnvironmentMembershipsResult {
   export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentMembershipsResult =>
-    __isa(o, "DescribeEnvironmentMembershipsResult");
 }
 
 export interface DescribeEnvironmentsRequest {
-  __type?: "DescribeEnvironmentsRequest";
   /**
    * <p>The IDs of individual environments to get information about.</p>
    */
@@ -298,11 +269,9 @@ export namespace DescribeEnvironmentsRequest {
   export const filterSensitiveLog = (obj: DescribeEnvironmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentsRequest => __isa(o, "DescribeEnvironmentsRequest");
 }
 
 export interface DescribeEnvironmentsResult {
-  __type?: "DescribeEnvironmentsResult";
   /**
    * <p>Information about the environments that are returned.</p>
    */
@@ -314,11 +283,9 @@ export namespace DescribeEnvironmentsResult {
     ...obj,
     ...(obj.environments && { environments: obj.environments.map((item) => Environment.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is DescribeEnvironmentsResult => __isa(o, "DescribeEnvironmentsResult");
 }
 
 export interface DescribeEnvironmentStatusRequest {
-  __type?: "DescribeEnvironmentStatusRequest";
   /**
    * <p>The ID of the environment to get status information about.</p>
    */
@@ -329,11 +296,9 @@ export namespace DescribeEnvironmentStatusRequest {
   export const filterSensitiveLog = (obj: DescribeEnvironmentStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentStatusRequest => __isa(o, "DescribeEnvironmentStatusRequest");
 }
 
 export interface DescribeEnvironmentStatusResult {
-  __type?: "DescribeEnvironmentStatusResult";
   /**
    * <p>Any informational message about the status of the environment.</p>
    */
@@ -379,14 +344,12 @@ export namespace DescribeEnvironmentStatusResult {
   export const filterSensitiveLog = (obj: DescribeEnvironmentStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentStatusResult => __isa(o, "DescribeEnvironmentStatusResult");
 }
 
 /**
  * <p>Information about an AWS Cloud9 development environment.</p>
  */
 export interface Environment {
-  __type?: "Environment";
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    */
@@ -438,14 +401,12 @@ export namespace Environment {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
 
 /**
  * <p>Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.</p>
  */
 export interface EnvironmentLifecycle {
-  __type?: "EnvironmentLifecycle";
   /**
    * <p>The current creation or deletion lifecycle state of the environment.</p>
    *          <ul>
@@ -488,7 +449,6 @@ export namespace EnvironmentLifecycle {
   export const filterSensitiveLog = (obj: EnvironmentLifecycle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentLifecycle => __isa(o, "EnvironmentLifecycle");
 }
 
 export enum EnvironmentLifecycleStatus {
@@ -503,7 +463,6 @@ export enum EnvironmentLifecycleStatus {
  * <p>Information about an environment member for an AWS Cloud9 development environment.</p>
  */
 export interface EnvironmentMember {
-  __type?: "EnvironmentMember";
   /**
    * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
    */
@@ -548,7 +507,6 @@ export namespace EnvironmentMember {
   export const filterSensitiveLog = (obj: EnvironmentMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentMember => __isa(o, "EnvironmentMember");
 }
 
 export enum EnvironmentStatus {
@@ -581,7 +539,6 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
@@ -599,7 +556,6 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -617,11 +573,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListEnvironmentsRequest {
-  __type?: "ListEnvironmentsRequest";
   /**
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
    */
@@ -637,11 +591,9 @@ export namespace ListEnvironmentsRequest {
   export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEnvironmentsRequest => __isa(o, "ListEnvironmentsRequest");
 }
 
 export interface ListEnvironmentsResult {
-  __type?: "ListEnvironmentsResult";
   /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
    */
@@ -657,11 +609,9 @@ export namespace ListEnvironmentsResult {
   export const filterSensitiveLog = (obj: ListEnvironmentsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEnvironmentsResult => __isa(o, "ListEnvironmentsResult");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to get the tags for.</p>
    */
@@ -672,11 +622,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tags associated with the AWS Cloud9 development environment.</p>
    */
@@ -687,7 +635,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum MemberPermissions {
@@ -710,7 +657,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Permissions {
@@ -723,7 +669,6 @@ export enum Permissions {
  * <p>Metadata that is associated with AWS resources. In particular, a name-value pair that can be associated with an AWS Cloud9 development environment. There are two types of tags: <i>user tags</i> and <i>system tags</i>. A user tag is created by the user. A system tag is automatically created by AWS services. A system tag is prefixed with "aws:" and cannot be modified by the user.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The <b>value</b> part of a tag.</p>
    */
@@ -739,11 +684,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The list of tags to add to the given AWS Cloud9 development environment.</p>
    */
@@ -759,18 +702,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -788,11 +727,9 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Cloud9 development environment to remove tags from.</p>
    */
@@ -808,22 +745,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateEnvironmentMembershipRequest {
-  __type?: "UpdateEnvironmentMembershipRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
    */
@@ -854,12 +786,9 @@ export namespace UpdateEnvironmentMembershipRequest {
   export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnvironmentMembershipRequest =>
-    __isa(o, "UpdateEnvironmentMembershipRequest");
 }
 
 export interface UpdateEnvironmentMembershipResult {
-  __type?: "UpdateEnvironmentMembershipResult";
   /**
    * <p>Information about the environment member whose settings were changed.</p>
    */
@@ -870,11 +799,9 @@ export namespace UpdateEnvironmentMembershipResult {
   export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnvironmentMembershipResult => __isa(o, "UpdateEnvironmentMembershipResult");
 }
 
 export interface UpdateEnvironmentRequest {
-  __type?: "UpdateEnvironmentRequest";
   /**
    * <p>The ID of the environment to change settings.</p>
    */
@@ -896,16 +823,12 @@ export namespace UpdateEnvironmentRequest {
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateEnvironmentRequest => __isa(o, "UpdateEnvironmentRequest");
 }
 
-export interface UpdateEnvironmentResult {
-  __type?: "UpdateEnvironmentResult";
-}
+export interface UpdateEnvironmentResult {}
 
 export namespace UpdateEnvironmentResult {
   export const filterSensitiveLog = (obj: UpdateEnvironmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnvironmentResult => __isa(o, "UpdateEnvironmentResult");
 }

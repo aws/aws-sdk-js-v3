@@ -545,7 +545,6 @@ export const deserializeAws_queryChangeMessageVisibilityBatchCommand = async (
   contents = deserializeAws_queryChangeMessageVisibilityBatchResult(data.ChangeMessageVisibilityBatchResult, context);
   const response: ChangeMessageVisibilityBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ChangeMessageVisibilityBatchResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -624,7 +623,6 @@ export const deserializeAws_queryCreateQueueCommand = async (
   contents = deserializeAws_queryCreateQueueResult(data.CreateQueueResult, context);
   const response: CreateQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateQueueResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -746,7 +744,6 @@ export const deserializeAws_queryDeleteMessageBatchCommand = async (
   contents = deserializeAws_queryDeleteMessageBatchResult(data.DeleteMessageBatchResult, context);
   const response: DeleteMessageBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMessageBatchResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -868,7 +865,6 @@ export const deserializeAws_queryGetQueueAttributesCommand = async (
   contents = deserializeAws_queryGetQueueAttributesResult(data.GetQueueAttributesResult, context);
   const response: GetQueueAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQueueAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -923,7 +919,6 @@ export const deserializeAws_queryGetQueueUrlCommand = async (
   contents = deserializeAws_queryGetQueueUrlResult(data.GetQueueUrlResult, context);
   const response: GetQueueUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQueueUrlResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -978,7 +973,6 @@ export const deserializeAws_queryListDeadLetterSourceQueuesCommand = async (
   contents = deserializeAws_queryListDeadLetterSourceQueuesResult(data.ListDeadLetterSourceQueuesResult, context);
   const response: ListDeadLetterSourceQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeadLetterSourceQueuesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1033,7 +1027,6 @@ export const deserializeAws_queryListQueuesCommand = async (
   contents = deserializeAws_queryListQueuesResult(data.ListQueuesResult, context);
   const response: ListQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueuesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1080,7 +1073,6 @@ export const deserializeAws_queryListQueueTagsCommand = async (
   contents = deserializeAws_queryListQueueTagsResult(data.ListQueueTagsResult, context);
   const response: ListQueueTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueueTagsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1186,7 +1178,6 @@ export const deserializeAws_queryReceiveMessageCommand = async (
   contents = deserializeAws_queryReceiveMessageResult(data.ReceiveMessageResult, context);
   const response: ReceiveMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReceiveMessageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1284,7 +1275,6 @@ export const deserializeAws_querySendMessageCommand = async (
   contents = deserializeAws_querySendMessageResult(data.SendMessageResult, context);
   const response: SendMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendMessageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1347,7 +1337,6 @@ export const deserializeAws_querySendMessageBatchCommand = async (
   contents = deserializeAws_querySendMessageBatchResult(data.SendMessageBatchResult, context);
   const response: SendMessageBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendMessageBatchResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2449,22 +2438,17 @@ const deserializeAws_queryBatchEntryIdsNotDistinct = (
   output: any,
   context: __SerdeContext
 ): BatchEntryIdsNotDistinct => {
-  let contents: any = {
-    __type: "BatchEntryIdsNotDistinct",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryBatchRequestTooLong = (output: any, context: __SerdeContext): BatchRequestTooLong => {
-  let contents: any = {
-    __type: "BatchRequestTooLong",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
   let contents: any = {
-    __type: "BatchResultErrorEntry",
     SenderFault: undefined,
     Code: undefined,
     Message: undefined,
@@ -2501,7 +2485,6 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
   context: __SerdeContext
 ): ChangeMessageVisibilityBatchResult => {
   let contents: any = {
-    __type: "ChangeMessageVisibilityBatchResult",
     Successful: undefined,
     Failed: undefined,
   };
@@ -2531,7 +2514,6 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntry = (
   context: __SerdeContext
 ): ChangeMessageVisibilityBatchResultEntry => {
   let contents: any = {
-    __type: "ChangeMessageVisibilityBatchResultEntry",
     Id: undefined,
   };
   if (output["Id"] !== undefined) {
@@ -2551,7 +2533,6 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntryList = (
 
 const deserializeAws_queryCreateQueueResult = (output: any, context: __SerdeContext): CreateQueueResult => {
   let contents: any = {
-    __type: "CreateQueueResult",
     QueueUrl: undefined,
   };
   if (output["QueueUrl"] !== undefined) {
@@ -2565,7 +2546,6 @@ const deserializeAws_queryDeleteMessageBatchResult = (
   context: __SerdeContext
 ): DeleteMessageBatchResult => {
   let contents: any = {
-    __type: "DeleteMessageBatchResult",
     Failed: undefined,
     Successful: undefined,
   };
@@ -2595,7 +2575,6 @@ const deserializeAws_queryDeleteMessageBatchResultEntry = (
   context: __SerdeContext
 ): DeleteMessageBatchResultEntry => {
   let contents: any = {
-    __type: "DeleteMessageBatchResultEntry",
     Id: undefined,
   };
   if (output["Id"] !== undefined) {
@@ -2612,9 +2591,7 @@ const deserializeAws_queryDeleteMessageBatchResultEntryList = (
 };
 
 const deserializeAws_queryEmptyBatchRequest = (output: any, context: __SerdeContext): EmptyBatchRequest => {
-  let contents: any = {
-    __type: "EmptyBatchRequest",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -2623,7 +2600,6 @@ const deserializeAws_queryGetQueueAttributesResult = (
   context: __SerdeContext
 ): GetQueueAttributesResult => {
   let contents: any = {
-    __type: "GetQueueAttributesResult",
     Attributes: undefined,
   };
   if (output.Attribute === "") {
@@ -2637,7 +2613,6 @@ const deserializeAws_queryGetQueueAttributesResult = (
 
 const deserializeAws_queryGetQueueUrlResult = (output: any, context: __SerdeContext): GetQueueUrlResult => {
   let contents: any = {
-    __type: "GetQueueUrlResult",
     QueueUrl: undefined,
   };
   if (output["QueueUrl"] !== undefined) {
@@ -2647,30 +2622,22 @@ const deserializeAws_queryGetQueueUrlResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryInvalidAttributeName = (output: any, context: __SerdeContext): InvalidAttributeName => {
-  let contents: any = {
-    __type: "InvalidAttributeName",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryInvalidBatchEntryId = (output: any, context: __SerdeContext): InvalidBatchEntryId => {
-  let contents: any = {
-    __type: "InvalidBatchEntryId",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryInvalidIdFormat = (output: any, context: __SerdeContext): InvalidIdFormat => {
-  let contents: any = {
-    __type: "InvalidIdFormat",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryInvalidMessageContents = (output: any, context: __SerdeContext): InvalidMessageContents => {
-  let contents: any = {
-    __type: "InvalidMessageContents",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -2679,7 +2646,6 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
   context: __SerdeContext
 ): ListDeadLetterSourceQueuesResult => {
   let contents: any = {
-    __type: "ListDeadLetterSourceQueuesResult",
     NextToken: undefined,
     queueUrls: undefined,
   };
@@ -2697,7 +2663,6 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
 
 const deserializeAws_queryListQueuesResult = (output: any, context: __SerdeContext): ListQueuesResult => {
   let contents: any = {
-    __type: "ListQueuesResult",
     NextToken: undefined,
     QueueUrls: undefined,
   };
@@ -2715,7 +2680,6 @@ const deserializeAws_queryListQueuesResult = (output: any, context: __SerdeConte
 
 const deserializeAws_queryListQueueTagsResult = (output: any, context: __SerdeContext): ListQueueTagsResult => {
   let contents: any = {
-    __type: "ListQueueTagsResult",
     Tags: undefined,
   };
   if (output.Tag === "") {
@@ -2729,7 +2693,6 @@ const deserializeAws_queryListQueueTagsResult = (output: any, context: __SerdeCo
 
 const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Message => {
   let contents: any = {
-    __type: "Message",
     MessageAttributes: undefined,
     MD5OfMessageAttributes: undefined,
     ReceiptHandle: undefined,
@@ -2776,7 +2739,6 @@ const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Mess
 
 const deserializeAws_queryMessageAttributeValue = (output: any, context: __SerdeContext): MessageAttributeValue => {
   let contents: any = {
-    __type: "MessageAttributeValue",
     StringValue: undefined,
     BinaryValue: undefined,
     BinaryListValues: undefined,
@@ -2831,9 +2793,7 @@ const deserializeAws_queryMessageList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryMessageNotInflight = (output: any, context: __SerdeContext): MessageNotInflight => {
-  let contents: any = {
-    __type: "MessageNotInflight",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -2851,16 +2811,12 @@ const deserializeAws_queryMessageSystemAttributeMap = (
 };
 
 const deserializeAws_queryOverLimit = (output: any, context: __SerdeContext): OverLimit => {
-  let contents: any = {
-    __type: "OverLimit",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryPurgeQueueInProgress = (output: any, context: __SerdeContext): PurgeQueueInProgress => {
-  let contents: any = {
-    __type: "PurgeQueueInProgress",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -2875,23 +2831,17 @@ const deserializeAws_queryQueueAttributeMap = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryQueueDeletedRecently = (output: any, context: __SerdeContext): QueueDeletedRecently => {
-  let contents: any = {
-    __type: "QueueDeletedRecently",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryQueueDoesNotExist = (output: any, context: __SerdeContext): QueueDoesNotExist => {
-  let contents: any = {
-    __type: "QueueDoesNotExist",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryQueueNameExists = (output: any, context: __SerdeContext): QueueNameExists => {
-  let contents: any = {
-    __type: "QueueNameExists",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -2900,15 +2850,12 @@ const deserializeAws_queryQueueUrlList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryReceiptHandleIsInvalid = (output: any, context: __SerdeContext): ReceiptHandleIsInvalid => {
-  let contents: any = {
-    __type: "ReceiptHandleIsInvalid",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryReceiveMessageResult = (output: any, context: __SerdeContext): ReceiveMessageResult => {
   let contents: any = {
-    __type: "ReceiveMessageResult",
     Messages: undefined,
   };
   if (output.Message === "") {
@@ -2922,7 +2869,6 @@ const deserializeAws_queryReceiveMessageResult = (output: any, context: __SerdeC
 
 const deserializeAws_querySendMessageBatchResult = (output: any, context: __SerdeContext): SendMessageBatchResult => {
   let contents: any = {
-    __type: "SendMessageBatchResult",
     Successful: undefined,
     Failed: undefined,
   };
@@ -2952,7 +2898,6 @@ const deserializeAws_querySendMessageBatchResultEntry = (
   context: __SerdeContext
 ): SendMessageBatchResultEntry => {
   let contents: any = {
-    __type: "SendMessageBatchResultEntry",
     Id: undefined,
     MD5OfMessageSystemAttributes: undefined,
     MD5OfMessageAttributes: undefined,
@@ -2990,7 +2935,6 @@ const deserializeAws_querySendMessageBatchResultEntryList = (
 
 const deserializeAws_querySendMessageResult = (output: any, context: __SerdeContext): SendMessageResult => {
   let contents: any = {
-    __type: "SendMessageResult",
     MD5OfMessageSystemAttributes: undefined,
     SequenceNumber: undefined,
     MD5OfMessageAttributes: undefined,
@@ -3033,16 +2977,12 @@ const deserializeAws_queryTooManyEntriesInBatchRequest = (
   output: any,
   context: __SerdeContext
 ): TooManyEntriesInBatchRequest => {
-  let contents: any = {
-    __type: "TooManyEntriesInBatchRequest",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryUnsupportedOperation = (output: any, context: __SerdeContext): UnsupportedOperation => {
-  let contents: any = {
-    __type: "UnsupportedOperation",
-  };
+  let contents: any = {};
   return contents;
 };
 

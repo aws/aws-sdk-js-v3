@@ -2010,7 +2010,6 @@ export const deserializeAws_restJson1AddLayerVersionPermissionCommand = async (
   }
   const contents: AddLayerVersionPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddLayerVersionPermissionResponse",
     RevisionId: undefined,
     Statement: undefined,
   };
@@ -2118,7 +2117,6 @@ export const deserializeAws_restJson1AddPermissionCommand = async (
   }
   const contents: AddPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddPermissionResponse",
     Statement: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2222,7 +2220,6 @@ export const deserializeAws_restJson1CreateAliasCommand = async (
   }
   const contents: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AliasConfiguration",
     AliasArn: undefined,
     Description: undefined,
     FunctionVersion: undefined,
@@ -2330,7 +2327,6 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   }
   const contents: CreateEventSourceMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSourceMappingConfiguration",
     BatchSize: undefined,
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
@@ -2470,7 +2466,6 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   const contents: CreateFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionConfiguration",
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -2745,7 +2740,6 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   }
   const contents: DeleteEventSourceMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSourceMappingConfiguration",
     BatchSize: undefined,
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
@@ -3268,7 +3262,6 @@ export const deserializeAws_restJson1GetAccountSettingsCommand = async (
   }
   const contents: GetAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountSettingsResponse",
     AccountLimit: undefined,
     AccountUsage: undefined,
   };
@@ -3336,7 +3329,6 @@ export const deserializeAws_restJson1GetAliasCommand = async (
   }
   const contents: GetAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AliasConfiguration",
     AliasArn: undefined,
     Description: undefined,
     FunctionVersion: undefined,
@@ -3436,7 +3428,6 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   }
   const contents: GetEventSourceMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSourceMappingConfiguration",
     BatchSize: undefined,
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
@@ -3568,7 +3559,6 @@ export const deserializeAws_restJson1GetFunctionCommand = async (
   }
   const contents: GetFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFunctionResponse",
     Code: undefined,
     Concurrency: undefined,
     Configuration: undefined,
@@ -3660,7 +3650,6 @@ export const deserializeAws_restJson1GetFunctionConcurrencyCommand = async (
   }
   const contents: GetFunctionConcurrencyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFunctionConcurrencyResponse",
     ReservedConcurrentExecutions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3740,7 +3729,6 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   }
   const contents: GetFunctionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionConfiguration",
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -3924,7 +3912,6 @@ export const deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = async
   }
   const contents: GetFunctionEventInvokeConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionEventInvokeConfig",
     DestinationConfig: undefined,
     FunctionArn: undefined,
     LastModified: undefined,
@@ -4020,7 +4007,6 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
   }
   const contents: GetLayerVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLayerVersionResponse",
     CompatibleRuntimes: undefined,
     Content: undefined,
     CreatedDate: undefined,
@@ -4128,7 +4114,6 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
   }
   const contents: GetLayerVersionByArnCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLayerVersionResponse",
     CompatibleRuntimes: undefined,
     Content: undefined,
     CreatedDate: undefined,
@@ -4236,7 +4221,6 @@ export const deserializeAws_restJson1GetLayerVersionPolicyCommand = async (
   }
   const contents: GetLayerVersionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLayerVersionPolicyResponse",
     Policy: undefined,
     RevisionId: undefined,
   };
@@ -4320,7 +4304,6 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   }
   const contents: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyResponse",
     Policy: undefined,
     RevisionId: undefined,
   };
@@ -4404,7 +4387,6 @@ export const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = as
   }
   const contents: GetProvisionedConcurrencyConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProvisionedConcurrencyConfigResponse",
     AllocatedProvisionedConcurrentExecutions: undefined,
     AvailableProvisionedConcurrentExecutions: undefined,
     LastModified: undefined,
@@ -4521,7 +4503,6 @@ export const deserializeAws_restJson1InvokeCommand = async (
   }
   const contents: InvokeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvocationResponse",
     ExecutedVersion: undefined,
     FunctionError: undefined,
     LogResult: undefined,
@@ -4787,7 +4768,6 @@ export const deserializeAws_restJson1InvokeAsyncCommand = async (
   }
   const contents: InvokeAsyncCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvokeAsyncResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4871,7 +4851,6 @@ export const deserializeAws_restJson1ListAliasesCommand = async (
   }
   const contents: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAliasesResponse",
     Aliases: undefined,
     NextMarker: undefined,
   };
@@ -4955,7 +4934,6 @@ export const deserializeAws_restJson1ListEventSourceMappingsCommand = async (
   }
   const contents: ListEventSourceMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEventSourceMappingsResponse",
     EventSourceMappings: undefined,
     NextMarker: undefined,
   };
@@ -5039,7 +5017,6 @@ export const deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand = asy
   }
   const contents: ListFunctionEventInvokeConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFunctionEventInvokeConfigsResponse",
     FunctionEventInvokeConfigs: undefined,
     NextMarker: undefined,
   };
@@ -5126,7 +5103,6 @@ export const deserializeAws_restJson1ListFunctionsCommand = async (
   }
   const contents: ListFunctionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFunctionsResponse",
     Functions: undefined,
     NextMarker: undefined,
   };
@@ -5202,7 +5178,6 @@ export const deserializeAws_restJson1ListLayersCommand = async (
   }
   const contents: ListLayersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLayersResponse",
     Layers: undefined,
     NextMarker: undefined,
   };
@@ -5278,7 +5253,6 @@ export const deserializeAws_restJson1ListLayerVersionsCommand = async (
   }
   const contents: ListLayerVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLayerVersionsResponse",
     LayerVersions: undefined,
     NextMarker: undefined,
   };
@@ -5362,7 +5336,6 @@ export const deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = 
   }
   const contents: ListProvisionedConcurrencyConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisionedConcurrencyConfigsResponse",
     NextMarker: undefined,
     ProvisionedConcurrencyConfigs: undefined,
   };
@@ -5449,7 +5422,6 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   }
   const contents: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5529,7 +5501,6 @@ export const deserializeAws_restJson1ListVersionsByFunctionCommand = async (
   }
   const contents: ListVersionsByFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVersionsByFunctionResponse",
     NextMarker: undefined,
     Versions: undefined,
   };
@@ -5613,7 +5584,6 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
   }
   const contents: PublishLayerVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PublishLayerVersionResponse",
     CompatibleRuntimes: undefined,
     Content: undefined,
     CreatedDate: undefined,
@@ -5729,7 +5699,6 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   }
   const contents: PublishVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionConfiguration",
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -5937,7 +5906,6 @@ export const deserializeAws_restJson1PutFunctionConcurrencyCommand = async (
   }
   const contents: PutFunctionConcurrencyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Concurrency",
     ReservedConcurrentExecutions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6025,7 +5993,6 @@ export const deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = async
   }
   const contents: PutFunctionEventInvokeConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionEventInvokeConfig",
     DestinationConfig: undefined,
     FunctionArn: undefined,
     LastModified: undefined,
@@ -6121,7 +6088,6 @@ export const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = as
   }
   const contents: PutProvisionedConcurrencyConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutProvisionedConcurrencyConfigResponse",
     AllocatedProvisionedConcurrentExecutions: undefined,
     AvailableProvisionedConcurrentExecutions: undefined,
     LastModified: undefined,
@@ -6570,7 +6536,6 @@ export const deserializeAws_restJson1UpdateAliasCommand = async (
   }
   const contents: UpdateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AliasConfiguration",
     AliasArn: undefined,
     Description: undefined,
     FunctionVersion: undefined,
@@ -6686,7 +6651,6 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   }
   const contents: UpdateEventSourceMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSourceMappingConfiguration",
     BatchSize: undefined,
     BisectBatchOnFunctionError: undefined,
     DestinationConfig: undefined,
@@ -6834,7 +6798,6 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   }
   const contents: UpdateFunctionCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionConfiguration",
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -7042,7 +7005,6 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   const contents: UpdateFunctionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionConfiguration",
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -7242,7 +7204,6 @@ export const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = as
   }
   const contents: UpdateFunctionEventInvokeConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FunctionEventInvokeConfig",
     DestinationConfig: undefined,
     FunctionArn: undefined,
     LastModified: undefined,
@@ -8134,7 +8095,6 @@ const serializeAws_restJson1VpcConfig = (input: VpcConfig, context: __SerdeConte
 
 const deserializeAws_restJson1AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   return {
-    __type: "AccountLimit",
     CodeSizeUnzipped:
       output.CodeSizeUnzipped !== undefined && output.CodeSizeUnzipped !== null ? output.CodeSizeUnzipped : undefined,
     CodeSizeZipped:
@@ -8154,7 +8114,6 @@ const deserializeAws_restJson1AccountLimit = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1AccountUsage = (output: any, context: __SerdeContext): AccountUsage => {
   return {
-    __type: "AccountUsage",
     FunctionCount:
       output.FunctionCount !== undefined && output.FunctionCount !== null ? output.FunctionCount : undefined,
     TotalCodeSize:
@@ -8177,7 +8136,6 @@ const deserializeAws_restJson1AdditionalVersionWeights = (
 
 const deserializeAws_restJson1AliasConfiguration = (output: any, context: __SerdeContext): AliasConfiguration => {
   return {
-    __type: "AliasConfiguration",
     AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     FunctionVersion:
@@ -8200,7 +8158,6 @@ const deserializeAws_restJson1AliasRoutingConfiguration = (
   context: __SerdeContext
 ): AliasRoutingConfiguration => {
   return {
-    __type: "AliasRoutingConfiguration",
     AdditionalVersionWeights:
       output.AdditionalVersionWeights !== undefined && output.AdditionalVersionWeights !== null
         ? deserializeAws_restJson1AdditionalVersionWeights(output.AdditionalVersionWeights, context)
@@ -8214,7 +8171,6 @@ const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __Serd
 
 const deserializeAws_restJson1Concurrency = (output: any, context: __SerdeContext): Concurrency => {
   return {
-    __type: "Concurrency",
     ReservedConcurrentExecutions:
       output.ReservedConcurrentExecutions !== undefined && output.ReservedConcurrentExecutions !== null
         ? output.ReservedConcurrentExecutions
@@ -8224,14 +8180,12 @@ const deserializeAws_restJson1Concurrency = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DeadLetterConfig = (output: any, context: __SerdeContext): DeadLetterConfig => {
   return {
-    __type: "DeadLetterConfig",
     TargetArn: output.TargetArn !== undefined && output.TargetArn !== null ? output.TargetArn : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1DestinationConfig = (output: any, context: __SerdeContext): DestinationConfig => {
   return {
-    __type: "DestinationConfig",
     OnFailure:
       output.OnFailure !== undefined && output.OnFailure !== null
         ? deserializeAws_restJson1OnFailure(output.OnFailure, context)
@@ -8245,7 +8199,6 @@ const deserializeAws_restJson1DestinationConfig = (output: any, context: __Serde
 
 const deserializeAws_restJson1EnvironmentError = (output: any, context: __SerdeContext): EnvironmentError => {
   return {
-    __type: "EnvironmentError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -8253,7 +8206,6 @@ const deserializeAws_restJson1EnvironmentError = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1EnvironmentResponse = (output: any, context: __SerdeContext): EnvironmentResponse => {
   return {
-    __type: "EnvironmentResponse",
     Error:
       output.Error !== undefined && output.Error !== null
         ? deserializeAws_restJson1EnvironmentError(output.Error, context)
@@ -8283,7 +8235,6 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
   context: __SerdeContext
 ): EventSourceMappingConfiguration => {
   return {
-    __type: "EventSourceMappingConfiguration",
     BatchSize: output.BatchSize !== undefined && output.BatchSize !== null ? output.BatchSize : undefined,
     BisectBatchOnFunctionError:
       output.BisectBatchOnFunctionError !== undefined && output.BisectBatchOnFunctionError !== null
@@ -8338,7 +8289,6 @@ const deserializeAws_restJson1EventSourceMappingsList = (
 
 const deserializeAws_restJson1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
   return {
-    __type: "FileSystemConfig",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     LocalMountPath:
       output.LocalMountPath !== undefined && output.LocalMountPath !== null ? output.LocalMountPath : undefined,
@@ -8351,7 +8301,6 @@ const deserializeAws_restJson1FileSystemConfigList = (output: any, context: __Se
 
 const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
   return {
-    __type: "FunctionCodeLocation",
     Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     RepositoryType:
       output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
@@ -8360,7 +8309,6 @@ const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __Se
 
 const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
-    __type: "FunctionConfiguration",
     CodeSha256: output.CodeSha256 !== undefined && output.CodeSha256 !== null ? output.CodeSha256 : undefined,
     CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
     DeadLetterConfig:
@@ -8422,7 +8370,6 @@ const deserializeAws_restJson1FunctionEventInvokeConfig = (
   context: __SerdeContext
 ): FunctionEventInvokeConfig => {
   return {
-    __type: "FunctionEventInvokeConfig",
     DestinationConfig:
       output.DestinationConfig !== undefined && output.DestinationConfig !== null
         ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
@@ -8456,7 +8403,6 @@ const deserializeAws_restJson1FunctionList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Layer = (output: any, context: __SerdeContext): Layer => {
   return {
-    __type: "Layer",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
   } as any;
@@ -8468,7 +8414,6 @@ const deserializeAws_restJson1LayersList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1LayersListItem = (output: any, context: __SerdeContext): LayersListItem => {
   return {
-    __type: "LayersListItem",
     LatestMatchingVersion:
       output.LatestMatchingVersion !== undefined && output.LatestMatchingVersion !== null
         ? deserializeAws_restJson1LayerVersionsListItem(output.LatestMatchingVersion, context)
@@ -8487,7 +8432,6 @@ const deserializeAws_restJson1LayerVersionContentOutput = (
   context: __SerdeContext
 ): LayerVersionContentOutput => {
   return {
-    __type: "LayerVersionContentOutput",
     CodeSha256: output.CodeSha256 !== undefined && output.CodeSha256 !== null ? output.CodeSha256 : undefined,
     CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
     Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
@@ -8500,7 +8444,6 @@ const deserializeAws_restJson1LayerVersionsList = (output: any, context: __Serde
 
 const deserializeAws_restJson1LayerVersionsListItem = (output: any, context: __SerdeContext): LayerVersionsListItem => {
   return {
-    __type: "LayerVersionsListItem",
     CompatibleRuntimes:
       output.CompatibleRuntimes !== undefined && output.CompatibleRuntimes !== null
         ? deserializeAws_restJson1CompatibleRuntimes(output.CompatibleRuntimes, context)
@@ -8516,14 +8459,12 @@ const deserializeAws_restJson1LayerVersionsListItem = (output: any, context: __S
 
 const deserializeAws_restJson1OnFailure = (output: any, context: __SerdeContext): OnFailure => {
   return {
-    __type: "OnFailure",
     Destination: output.Destination !== undefined && output.Destination !== null ? output.Destination : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1OnSuccess = (output: any, context: __SerdeContext): OnSuccess => {
   return {
-    __type: "OnSuccess",
     Destination: output.Destination !== undefined && output.Destination !== null ? output.Destination : undefined,
   } as any;
 };
@@ -8542,7 +8483,6 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = (
   context: __SerdeContext
 ): ProvisionedConcurrencyConfigListItem => {
   return {
-    __type: "ProvisionedConcurrencyConfigListItem",
     AllocatedProvisionedConcurrentExecutions:
       output.AllocatedProvisionedConcurrentExecutions !== undefined &&
       output.AllocatedProvisionedConcurrentExecutions !== null
@@ -8585,14 +8525,12 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
 
 const deserializeAws_restJson1TracingConfigResponse = (output: any, context: __SerdeContext): TracingConfigResponse => {
   return {
-    __type: "TracingConfigResponse",
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __SerdeContext): VpcConfigResponse => {
   return {
-    __type: "VpcConfigResponse",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_restJson1SecurityGroupIds(output.SecurityGroupIds, context)

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,7 +17,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -33,14 +32,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>Settings for content redaction within a transcription job.</p>
  */
 export interface ContentRedaction {
-  __type?: "ContentRedaction";
   /**
    * <p>The output transcript file stored in either the default S3 bucket or in a bucket you
    *             specify.</p>
@@ -62,11 +59,9 @@ export namespace ContentRedaction {
   export const filterSensitiveLog = (obj: ContentRedaction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContentRedaction => __isa(o, "ContentRedaction");
 }
 
 export interface CreateMedicalVocabularyRequest {
-  __type?: "CreateMedicalVocabularyRequest";
   /**
    * <p>The Amazon S3 location of the text file you use to define your custom vocabulary. The URI
    *             must be in the same AWS region as the API endpoint you're calling. Enter information
@@ -104,11 +99,9 @@ export namespace CreateMedicalVocabularyRequest {
   export const filterSensitiveLog = (obj: CreateMedicalVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMedicalVocabularyRequest => __isa(o, "CreateMedicalVocabularyRequest");
 }
 
 export interface CreateMedicalVocabularyResponse {
-  __type?: "CreateMedicalVocabularyResponse";
   /**
    * <p>The language code you chose to describe the entries in your custom vocabulary. US
    *             English (en-US) is the only valid language code for Amazon Transcribe Medical.</p>
@@ -144,11 +137,9 @@ export namespace CreateMedicalVocabularyResponse {
   export const filterSensitiveLog = (obj: CreateMedicalVocabularyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMedicalVocabularyResponse => __isa(o, "CreateMedicalVocabularyResponse");
 }
 
 export interface CreateVocabularyFilterRequest {
-  __type?: "CreateVocabularyFilterRequest";
   /**
    * <p>The Amazon S3 location of a text file used as input to create the vocabulary filter.
    *             Only use characters from the character set defined for custom vocabularies. For a list
@@ -188,11 +179,9 @@ export namespace CreateVocabularyFilterRequest {
   export const filterSensitiveLog = (obj: CreateVocabularyFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVocabularyFilterRequest => __isa(o, "CreateVocabularyFilterRequest");
 }
 
 export interface CreateVocabularyFilterResponse {
-  __type?: "CreateVocabularyFilterResponse";
   /**
    * <p>The name of the vocabulary filter.</p>
    */
@@ -213,11 +202,9 @@ export namespace CreateVocabularyFilterResponse {
   export const filterSensitiveLog = (obj: CreateVocabularyFilterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVocabularyFilterResponse => __isa(o, "CreateVocabularyFilterResponse");
 }
 
 export interface CreateVocabularyRequest {
-  __type?: "CreateVocabularyRequest";
   /**
    * <p>The name of the vocabulary. The name must be unique within an AWS account. The name is
    *             case-sensitive. If you try to create a vocabulary with the same name as a previous
@@ -252,11 +239,9 @@ export namespace CreateVocabularyRequest {
   export const filterSensitiveLog = (obj: CreateVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVocabularyRequest => __isa(o, "CreateVocabularyRequest");
 }
 
 export interface CreateVocabularyResponse {
-  __type?: "CreateVocabularyResponse";
   /**
    * <p>The date and time that the vocabulary was created.</p>
    */
@@ -290,11 +275,9 @@ export namespace CreateVocabularyResponse {
   export const filterSensitiveLog = (obj: CreateVocabularyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVocabularyResponse => __isa(o, "CreateVocabularyResponse");
 }
 
 export interface DeleteMedicalTranscriptionJobRequest {
-  __type?: "DeleteMedicalTranscriptionJobRequest";
   /**
    * <p>The name you provide to the <code>DeleteMedicalTranscriptionJob</code> object to
    *             delete a transcription job.</p>
@@ -306,12 +289,9 @@ export namespace DeleteMedicalTranscriptionJobRequest {
   export const filterSensitiveLog = (obj: DeleteMedicalTranscriptionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMedicalTranscriptionJobRequest =>
-    __isa(o, "DeleteMedicalTranscriptionJobRequest");
 }
 
 export interface DeleteMedicalVocabularyRequest {
-  __type?: "DeleteMedicalVocabularyRequest";
   /**
    * <p>The name of the vocabulary you are choosing to delete.</p>
    */
@@ -322,11 +302,9 @@ export namespace DeleteMedicalVocabularyRequest {
   export const filterSensitiveLog = (obj: DeleteMedicalVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMedicalVocabularyRequest => __isa(o, "DeleteMedicalVocabularyRequest");
 }
 
 export interface DeleteTranscriptionJobRequest {
-  __type?: "DeleteTranscriptionJobRequest";
   /**
    * <p>The name of the transcription job to be deleted.</p>
    */
@@ -337,11 +315,9 @@ export namespace DeleteTranscriptionJobRequest {
   export const filterSensitiveLog = (obj: DeleteTranscriptionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTranscriptionJobRequest => __isa(o, "DeleteTranscriptionJobRequest");
 }
 
 export interface DeleteVocabularyFilterRequest {
-  __type?: "DeleteVocabularyFilterRequest";
   /**
    * <p>The name of the vocabulary filter to remove.</p>
    */
@@ -352,11 +328,9 @@ export namespace DeleteVocabularyFilterRequest {
   export const filterSensitiveLog = (obj: DeleteVocabularyFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVocabularyFilterRequest => __isa(o, "DeleteVocabularyFilterRequest");
 }
 
 export interface DeleteVocabularyRequest {
-  __type?: "DeleteVocabularyRequest";
   /**
    * <p>The name of the vocabulary to delete. </p>
    */
@@ -367,11 +341,9 @@ export namespace DeleteVocabularyRequest {
   export const filterSensitiveLog = (obj: DeleteVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVocabularyRequest => __isa(o, "DeleteVocabularyRequest");
 }
 
 export interface GetMedicalTranscriptionJobRequest {
-  __type?: "GetMedicalTranscriptionJobRequest";
   /**
    * <p>The name of the medical transcription job.</p>
    */
@@ -382,11 +354,9 @@ export namespace GetMedicalTranscriptionJobRequest {
   export const filterSensitiveLog = (obj: GetMedicalTranscriptionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMedicalTranscriptionJobRequest => __isa(o, "GetMedicalTranscriptionJobRequest");
 }
 
 export interface GetMedicalTranscriptionJobResponse {
-  __type?: "GetMedicalTranscriptionJobResponse";
   /**
    * <p>An object that contains the results of the medical transcription job.</p>
    */
@@ -397,12 +367,9 @@ export namespace GetMedicalTranscriptionJobResponse {
   export const filterSensitiveLog = (obj: GetMedicalTranscriptionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMedicalTranscriptionJobResponse =>
-    __isa(o, "GetMedicalTranscriptionJobResponse");
 }
 
 export interface GetMedicalVocabularyRequest {
-  __type?: "GetMedicalVocabularyRequest";
   /**
    * <p>The name of the vocabulary you are trying to get information about. The value you
    *             enter for this request is case-sensitive. </p>
@@ -414,11 +381,9 @@ export namespace GetMedicalVocabularyRequest {
   export const filterSensitiveLog = (obj: GetMedicalVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMedicalVocabularyRequest => __isa(o, "GetMedicalVocabularyRequest");
 }
 
 export interface GetMedicalVocabularyResponse {
-  __type?: "GetMedicalVocabularyResponse";
   /**
    * <p>The Amazon S3 location where the vocabulary is stored. Use this URI to get the contents of
    *             the vocabulary. You can download your vocabulary from the URI for a limited time.</p>
@@ -457,11 +422,9 @@ export namespace GetMedicalVocabularyResponse {
   export const filterSensitiveLog = (obj: GetMedicalVocabularyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMedicalVocabularyResponse => __isa(o, "GetMedicalVocabularyResponse");
 }
 
 export interface GetTranscriptionJobRequest {
-  __type?: "GetTranscriptionJobRequest";
   /**
    * <p>The name of the job.</p>
    */
@@ -472,11 +435,9 @@ export namespace GetTranscriptionJobRequest {
   export const filterSensitiveLog = (obj: GetTranscriptionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTranscriptionJobRequest => __isa(o, "GetTranscriptionJobRequest");
 }
 
 export interface GetTranscriptionJobResponse {
-  __type?: "GetTranscriptionJobResponse";
   /**
    * <p>An object that contains the results of the transcription job.</p>
    */
@@ -487,11 +448,9 @@ export namespace GetTranscriptionJobResponse {
   export const filterSensitiveLog = (obj: GetTranscriptionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTranscriptionJobResponse => __isa(o, "GetTranscriptionJobResponse");
 }
 
 export interface GetVocabularyFilterRequest {
-  __type?: "GetVocabularyFilterRequest";
   /**
    * <p>The name of the vocabulary filter for which to return information.</p>
    */
@@ -502,11 +461,9 @@ export namespace GetVocabularyFilterRequest {
   export const filterSensitiveLog = (obj: GetVocabularyFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVocabularyFilterRequest => __isa(o, "GetVocabularyFilterRequest");
 }
 
 export interface GetVocabularyFilterResponse {
-  __type?: "GetVocabularyFilterResponse";
   /**
    * <p>The language code of the words in the vocabulary filter.</p>
    */
@@ -533,11 +490,9 @@ export namespace GetVocabularyFilterResponse {
   export const filterSensitiveLog = (obj: GetVocabularyFilterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVocabularyFilterResponse => __isa(o, "GetVocabularyFilterResponse");
 }
 
 export interface GetVocabularyRequest {
-  __type?: "GetVocabularyRequest";
   /**
    * <p>The name of the vocabulary to return information about. The name is
    *             case-sensitive.</p>
@@ -549,11 +504,9 @@ export namespace GetVocabularyRequest {
   export const filterSensitiveLog = (obj: GetVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVocabularyRequest => __isa(o, "GetVocabularyRequest");
 }
 
 export interface GetVocabularyResponse {
-  __type?: "GetVocabularyResponse";
   /**
    * <p>The date and time that the vocabulary was last modified.</p>
    */
@@ -591,7 +544,6 @@ export namespace GetVocabularyResponse {
   export const filterSensitiveLog = (obj: GetVocabularyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVocabularyResponse => __isa(o, "GetVocabularyResponse");
 }
 
 /**
@@ -608,14 +560,12 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p>Provides information about when a transcription job should be executed.</p>
  */
 export interface JobExecutionSettings {
-  __type?: "JobExecutionSettings";
   /**
    * <p>Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit
    *             is exceeded. When the <code>AllowDeferredExecution</code> field is true, jobs are queued
@@ -642,7 +592,6 @@ export namespace JobExecutionSettings {
   export const filterSensitiveLog = (obj: JobExecutionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSettings => __isa(o, "JobExecutionSettings");
 }
 
 export enum LanguageCode {
@@ -693,11 +642,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListMedicalTranscriptionJobsRequest {
-  __type?: "ListMedicalTranscriptionJobsRequest";
   /**
    * <p>When specified, the jobs returned in the list are limited to jobs whose name contains
    *             the specified string.</p>
@@ -729,12 +676,9 @@ export namespace ListMedicalTranscriptionJobsRequest {
   export const filterSensitiveLog = (obj: ListMedicalTranscriptionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMedicalTranscriptionJobsRequest =>
-    __isa(o, "ListMedicalTranscriptionJobsRequest");
 }
 
 export interface ListMedicalTranscriptionJobsResponse {
-  __type?: "ListMedicalTranscriptionJobsResponse";
   /**
    * <p>The <code>ListMedicalTranscriptionJobs</code> operation returns a page of jobs at a
    *             time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If
@@ -760,12 +704,9 @@ export namespace ListMedicalTranscriptionJobsResponse {
   export const filterSensitiveLog = (obj: ListMedicalTranscriptionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMedicalTranscriptionJobsResponse =>
-    __isa(o, "ListMedicalTranscriptionJobsResponse");
 }
 
 export interface ListMedicalVocabulariesRequest {
-  __type?: "ListMedicalVocabulariesRequest";
   /**
    * <p>The maximum number of vocabularies to return in the response.</p>
    */
@@ -795,11 +736,9 @@ export namespace ListMedicalVocabulariesRequest {
   export const filterSensitiveLog = (obj: ListMedicalVocabulariesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMedicalVocabulariesRequest => __isa(o, "ListMedicalVocabulariesRequest");
 }
 
 export interface ListMedicalVocabulariesResponse {
-  __type?: "ListMedicalVocabulariesResponse";
   /**
    * <p>The requested vocabulary state.</p>
    */
@@ -826,11 +765,9 @@ export namespace ListMedicalVocabulariesResponse {
   export const filterSensitiveLog = (obj: ListMedicalVocabulariesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMedicalVocabulariesResponse => __isa(o, "ListMedicalVocabulariesResponse");
 }
 
 export interface ListTranscriptionJobsRequest {
-  __type?: "ListTranscriptionJobsRequest";
   /**
    * <p>When specified, the jobs returned in the list are limited to jobs whose name contains
    *             the specified string.</p>
@@ -861,11 +798,9 @@ export namespace ListTranscriptionJobsRequest {
   export const filterSensitiveLog = (obj: ListTranscriptionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTranscriptionJobsRequest => __isa(o, "ListTranscriptionJobsRequest");
 }
 
 export interface ListTranscriptionJobsResponse {
-  __type?: "ListTranscriptionJobsResponse";
   /**
    * <p>The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The
    *             maximum size of the page is set by the <code>MaxResults</code> parameter. If there are
@@ -890,11 +825,9 @@ export namespace ListTranscriptionJobsResponse {
   export const filterSensitiveLog = (obj: ListTranscriptionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTranscriptionJobsResponse => __isa(o, "ListTranscriptionJobsResponse");
 }
 
 export interface ListVocabulariesRequest {
-  __type?: "ListVocabulariesRequest";
   /**
    * <p>When specified, only returns vocabularies with the <code>VocabularyState</code> field
    *             equal to the specified state.</p>
@@ -926,11 +859,9 @@ export namespace ListVocabulariesRequest {
   export const filterSensitiveLog = (obj: ListVocabulariesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVocabulariesRequest => __isa(o, "ListVocabulariesRequest");
 }
 
 export interface ListVocabulariesResponse {
-  __type?: "ListVocabulariesResponse";
   /**
    * <p>The requested vocabulary state.</p>
    */
@@ -956,11 +887,9 @@ export namespace ListVocabulariesResponse {
   export const filterSensitiveLog = (obj: ListVocabulariesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVocabulariesResponse => __isa(o, "ListVocabulariesResponse");
 }
 
 export interface ListVocabularyFiltersRequest {
-  __type?: "ListVocabularyFiltersRequest";
   /**
    * <p>If the result of the previous request to <code>ListVocabularyFilters</code> was
    *             truncated, include the <code>NextToken</code> to fetch the next set of
@@ -985,11 +914,9 @@ export namespace ListVocabularyFiltersRequest {
   export const filterSensitiveLog = (obj: ListVocabularyFiltersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVocabularyFiltersRequest => __isa(o, "ListVocabularyFiltersRequest");
 }
 
 export interface ListVocabularyFiltersResponse {
-  __type?: "ListVocabularyFiltersResponse";
   /**
    * <p>The <code>ListVocabularyFilters</code> operation returns a page of collections at a
    *             time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If
@@ -1013,14 +940,12 @@ export namespace ListVocabularyFiltersResponse {
   export const filterSensitiveLog = (obj: ListVocabularyFiltersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVocabularyFiltersResponse => __isa(o, "ListVocabularyFiltersResponse");
 }
 
 /**
  * <p>Describes the input media file in a transcription request.</p>
  */
 export interface Media {
-  __type?: "Media";
   /**
    * <p>The S3 object location of the input media file. The URI must be in the same region as
    *             the API endpoint that you are calling. The general form is:</p>
@@ -1037,7 +962,6 @@ export namespace Media {
   export const filterSensitiveLog = (obj: Media): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Media => __isa(o, "Media");
 }
 
 export enum MediaFormat {
@@ -1051,7 +975,6 @@ export enum MediaFormat {
  * <p>Identifies the location of a medical transcript.</p>
  */
 export interface MedicalTranscript {
-  __type?: "MedicalTranscript";
   /**
    * <p>The S3 object location of the medical transcript.</p>
    *         <p>Use this URI to access the medical transcript. This URI points to the S3 bucket you
@@ -1064,7 +987,6 @@ export namespace MedicalTranscript {
   export const filterSensitiveLog = (obj: MedicalTranscript): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MedicalTranscript => __isa(o, "MedicalTranscript");
 }
 
 /**
@@ -1072,7 +994,6 @@ export namespace MedicalTranscript {
  *             job.</p>
  */
 export interface MedicalTranscriptionJob {
-  __type?: "MedicalTranscriptionJob";
   /**
    * <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field
    *             contains information about why the job failed.</p>
@@ -1214,14 +1135,12 @@ export namespace MedicalTranscriptionJob {
   export const filterSensitiveLog = (obj: MedicalTranscriptionJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MedicalTranscriptionJob => __isa(o, "MedicalTranscriptionJob");
 }
 
 /**
  * <p>Provides summary information about a transcription job.</p>
  */
 export interface MedicalTranscriptionJobSummary {
-  __type?: "MedicalTranscriptionJobSummary";
   /**
    * <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description
    *             of the error.</p>
@@ -1281,7 +1200,6 @@ export namespace MedicalTranscriptionJobSummary {
   export const filterSensitiveLog = (obj: MedicalTranscriptionJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MedicalTranscriptionJobSummary => __isa(o, "MedicalTranscriptionJobSummary");
 }
 
 /**
@@ -1289,7 +1207,6 @@ export namespace MedicalTranscriptionJobSummary {
  *             operation.</p>
  */
 export interface MedicalTranscriptionSetting {
-  __type?: "MedicalTranscriptionSetting";
   /**
    * <p>Determines whether the transcription job uses speaker recognition to identify
    *             different speakers in the input audio. Speaker recongition labels individual speakers in
@@ -1349,7 +1266,6 @@ export namespace MedicalTranscriptionSetting {
   export const filterSensitiveLog = (obj: MedicalTranscriptionSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MedicalTranscriptionSetting => __isa(o, "MedicalTranscriptionSetting");
 }
 
 /**
@@ -1366,7 +1282,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum OutputLocationType {
@@ -1388,7 +1303,6 @@ export enum RedactionType {
  *             operation.</p>
  */
 export interface Settings {
-  __type?: "Settings";
   /**
    * <p>Instructs Amazon Transcribe to process each audio channel separately and then merge the
    *             transcription output of each channel into a single transcription. </p>
@@ -1458,7 +1372,6 @@ export namespace Settings {
   export const filterSensitiveLog = (obj: Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Settings => __isa(o, "Settings");
 }
 
 export enum Specialty {
@@ -1466,7 +1379,6 @@ export enum Specialty {
 }
 
 export interface StartMedicalTranscriptionJobRequest {
-  __type?: "StartMedicalTranscriptionJobRequest";
   /**
    * <p>The medical specialty of any clinician speaking in the input media.</p>
    */
@@ -1570,12 +1482,9 @@ export namespace StartMedicalTranscriptionJobRequest {
   export const filterSensitiveLog = (obj: StartMedicalTranscriptionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMedicalTranscriptionJobRequest =>
-    __isa(o, "StartMedicalTranscriptionJobRequest");
 }
 
 export interface StartMedicalTranscriptionJobResponse {
-  __type?: "StartMedicalTranscriptionJobResponse";
   /**
    * <p>A batch job submitted to transcribe medical speech to text.</p>
    */
@@ -1586,12 +1495,9 @@ export namespace StartMedicalTranscriptionJobResponse {
   export const filterSensitiveLog = (obj: StartMedicalTranscriptionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMedicalTranscriptionJobResponse =>
-    __isa(o, "StartMedicalTranscriptionJobResponse");
 }
 
 export interface StartTranscriptionJobRequest {
-  __type?: "StartTranscriptionJobRequest";
   /**
    * <p>Provides information about how a transcription job is executed. Use this field to
    *             indicate that the job can be queued for deferred execution if the concurrency limit is
@@ -1702,11 +1608,9 @@ export namespace StartTranscriptionJobRequest {
   export const filterSensitiveLog = (obj: StartTranscriptionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTranscriptionJobRequest => __isa(o, "StartTranscriptionJobRequest");
 }
 
 export interface StartTranscriptionJobResponse {
-  __type?: "StartTranscriptionJobResponse";
   /**
    * <p>An object containing details of the asynchronous transcription job.</p>
    */
@@ -1717,14 +1621,12 @@ export namespace StartTranscriptionJobResponse {
   export const filterSensitiveLog = (obj: StartTranscriptionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTranscriptionJobResponse => __isa(o, "StartTranscriptionJobResponse");
 }
 
 /**
  * <p>Identifies the location of a transcription.</p>
  */
 export interface Transcript {
-  __type?: "Transcript";
   /**
    * <p>The S3 object location of the the transcript.</p>
    *         <p>Use this URI to access the transcript. If you specified an S3 bucket in the
@@ -1749,7 +1651,6 @@ export namespace Transcript {
   export const filterSensitiveLog = (obj: Transcript): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Transcript => __isa(o, "Transcript");
 }
 
 /**
@@ -1757,7 +1658,6 @@ export namespace Transcript {
  *                 <code>StartTranscriptionJob</code> operation. </p>
  */
 export interface TranscriptionJob {
-  __type?: "TranscriptionJob";
   /**
    * <p>A timestamp that shows when the job was completed.</p>
    */
@@ -1878,7 +1778,6 @@ export namespace TranscriptionJob {
   export const filterSensitiveLog = (obj: TranscriptionJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TranscriptionJob => __isa(o, "TranscriptionJob");
 }
 
 export enum TranscriptionJobStatus {
@@ -1892,7 +1791,6 @@ export enum TranscriptionJobStatus {
  * <p>Provides a summary of information about a transcription job.</p>
  */
 export interface TranscriptionJobSummary {
-  __type?: "TranscriptionJobSummary";
   /**
    * <p>A timestamp that shows when the job was created.</p>
    */
@@ -1952,7 +1850,6 @@ export namespace TranscriptionJobSummary {
   export const filterSensitiveLog = (obj: TranscriptionJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TranscriptionJobSummary => __isa(o, "TranscriptionJobSummary");
 }
 
 export enum Type {
@@ -1961,7 +1858,6 @@ export enum Type {
 }
 
 export interface UpdateMedicalVocabularyRequest {
-  __type?: "UpdateMedicalVocabularyRequest";
   /**
    * <p>The Amazon S3 location of the text file containing the definition of the custom vocabulary.
    *             The URI must be in the same AWS region as the API endpoint you are calling. You can see
@@ -1998,11 +1894,9 @@ export namespace UpdateMedicalVocabularyRequest {
   export const filterSensitiveLog = (obj: UpdateMedicalVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMedicalVocabularyRequest => __isa(o, "UpdateMedicalVocabularyRequest");
 }
 
 export interface UpdateMedicalVocabularyResponse {
-  __type?: "UpdateMedicalVocabularyResponse";
   /**
    * <p>The language code for the text file used to update the custom vocabulary. US English
    *             (en-US) is the only language supported in Amazon Transcribe Medical.</p>
@@ -2031,11 +1925,9 @@ export namespace UpdateMedicalVocabularyResponse {
   export const filterSensitiveLog = (obj: UpdateMedicalVocabularyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMedicalVocabularyResponse => __isa(o, "UpdateMedicalVocabularyResponse");
 }
 
 export interface UpdateVocabularyFilterRequest {
-  __type?: "UpdateVocabularyFilterRequest";
   /**
    * <p>The name of the vocabulary filter to update. If you try to update a vocabulary filter
    *             with the same name as a previous vocabulary filter you will receive a
@@ -2068,11 +1960,9 @@ export namespace UpdateVocabularyFilterRequest {
   export const filterSensitiveLog = (obj: UpdateVocabularyFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVocabularyFilterRequest => __isa(o, "UpdateVocabularyFilterRequest");
 }
 
 export interface UpdateVocabularyFilterResponse {
-  __type?: "UpdateVocabularyFilterResponse";
   /**
    * <p>The name of the updated vocabulary filter.</p>
    */
@@ -2093,11 +1983,9 @@ export namespace UpdateVocabularyFilterResponse {
   export const filterSensitiveLog = (obj: UpdateVocabularyFilterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVocabularyFilterResponse => __isa(o, "UpdateVocabularyFilterResponse");
 }
 
 export interface UpdateVocabularyRequest {
-  __type?: "UpdateVocabularyRequest";
   /**
    * <p>An array of strings containing the vocabulary entries.</p>
    */
@@ -2132,11 +2020,9 @@ export namespace UpdateVocabularyRequest {
   export const filterSensitiveLog = (obj: UpdateVocabularyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVocabularyRequest => __isa(o, "UpdateVocabularyRequest");
 }
 
 export interface UpdateVocabularyResponse {
-  __type?: "UpdateVocabularyResponse";
   /**
    * <p>The language code of the vocabulary entries.</p>
    */
@@ -2164,14 +2050,12 @@ export namespace UpdateVocabularyResponse {
   export const filterSensitiveLog = (obj: UpdateVocabularyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVocabularyResponse => __isa(o, "UpdateVocabularyResponse");
 }
 
 /**
  * <p>Provides information about a vocabulary filter.</p>
  */
 export interface VocabularyFilterInfo {
-  __type?: "VocabularyFilterInfo";
   /**
    * <p>The language code of the words in the vocabulary filter.</p>
    */
@@ -2193,7 +2077,6 @@ export namespace VocabularyFilterInfo {
   export const filterSensitiveLog = (obj: VocabularyFilterInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VocabularyFilterInfo => __isa(o, "VocabularyFilterInfo");
 }
 
 export enum VocabularyFilterMethod {
@@ -2205,7 +2088,6 @@ export enum VocabularyFilterMethod {
  * <p>Provides information about a custom vocabulary. </p>
  */
 export interface VocabularyInfo {
-  __type?: "VocabularyInfo";
   /**
    * <p>The name of the vocabulary.</p>
    */
@@ -2232,7 +2114,6 @@ export namespace VocabularyInfo {
   export const filterSensitiveLog = (obj: VocabularyInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VocabularyInfo => __isa(o, "VocabularyInfo");
 }
 
 export enum VocabularyState {

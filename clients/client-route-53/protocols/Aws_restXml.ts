@@ -2299,7 +2299,6 @@ export const deserializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   }
   const contents: AssociateVPCWithHostedZoneCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateVPCWithHostedZoneResponse",
     ChangeInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2411,7 +2410,6 @@ export const deserializeAws_restXmlChangeResourceRecordSetsCommand = async (
   }
   const contents: ChangeResourceRecordSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ChangeResourceRecordSetsResponse",
     ChangeInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2499,7 +2497,6 @@ export const deserializeAws_restXmlChangeTagsForResourceCommand = async (
   }
   const contents: ChangeTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ChangeTagsForResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2583,7 +2580,6 @@ export const deserializeAws_restXmlCreateHealthCheckCommand = async (
   }
   const contents: CreateHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHealthCheckResponse",
     HealthCheck: undefined,
     Location: undefined,
   };
@@ -2659,7 +2655,6 @@ export const deserializeAws_restXmlCreateHostedZoneCommand = async (
   }
   const contents: CreateHostedZoneCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHostedZoneResponse",
     ChangeInfo: undefined,
     DelegationSet: undefined,
     HostedZone: undefined,
@@ -2795,7 +2790,6 @@ export const deserializeAws_restXmlCreateQueryLoggingConfigCommand = async (
   }
   const contents: CreateQueryLoggingConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateQueryLoggingConfigResponse",
     Location: undefined,
     QueryLoggingConfig: undefined,
   };
@@ -2895,7 +2889,6 @@ export const deserializeAws_restXmlCreateReusableDelegationSetCommand = async (
   }
   const contents: CreateReusableDelegationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReusableDelegationSetResponse",
     DelegationSet: undefined,
     Location: undefined,
   };
@@ -3003,7 +2996,6 @@ export const deserializeAws_restXmlCreateTrafficPolicyCommand = async (
   }
   const contents: CreateTrafficPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficPolicyResponse",
     Location: undefined,
     TrafficPolicy: undefined,
   };
@@ -3087,7 +3079,6 @@ export const deserializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
   }
   const contents: CreateTrafficPolicyInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficPolicyInstanceResponse",
     Location: undefined,
     TrafficPolicyInstance: undefined,
   };
@@ -3182,7 +3173,6 @@ export const deserializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
   }
   const contents: CreateTrafficPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficPolicyVersionResponse",
     Location: undefined,
     TrafficPolicy: undefined,
   };
@@ -3274,7 +3264,6 @@ export const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand = as
   }
   const contents: CreateVPCAssociationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVPCAssociationAuthorizationResponse",
     HostedZoneId: undefined,
     VPC: undefined,
   };
@@ -3366,7 +3355,6 @@ export const deserializeAws_restXmlDeleteHealthCheckCommand = async (
   }
   const contents: DeleteHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHealthCheckResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3434,7 +3422,6 @@ export const deserializeAws_restXmlDeleteHostedZoneCommand = async (
   }
   const contents: DeleteHostedZoneCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHostedZoneResponse",
     ChangeInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3522,7 +3509,6 @@ export const deserializeAws_restXmlDeleteQueryLoggingConfigCommand = async (
   }
   const contents: DeleteQueryLoggingConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteQueryLoggingConfigResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3590,7 +3576,6 @@ export const deserializeAws_restXmlDeleteReusableDelegationSetCommand = async (
   }
   const contents: DeleteReusableDelegationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReusableDelegationSetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3666,7 +3651,6 @@ export const deserializeAws_restXmlDeleteTrafficPolicyCommand = async (
   }
   const contents: DeleteTrafficPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrafficPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3742,7 +3726,6 @@ export const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand = async (
   }
   const contents: DeleteTrafficPolicyInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrafficPolicyInstanceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3810,7 +3793,6 @@ export const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = as
   }
   const contents: DeleteVPCAssociationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVPCAssociationAuthorizationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3894,7 +3876,6 @@ export const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async 
   }
   const contents: DisassociateVPCFromHostedZoneCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateVPCFromHostedZoneResponse",
     ChangeInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3982,7 +3963,6 @@ export const deserializeAws_restXmlGetAccountLimitCommand = async (
   }
   const contents: GetAccountLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountLimitResponse",
     Count: undefined,
     Limit: undefined,
   };
@@ -4042,7 +4022,6 @@ export const deserializeAws_restXmlGetChangeCommand = async (
   }
   const contents: GetChangeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetChangeResponse",
     ChangeInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4106,7 +4085,6 @@ export const deserializeAws_restXmlGetCheckerIpRangesCommand = async (
   }
   const contents: GetCheckerIpRangesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCheckerIpRangesResponse",
     CheckerIpRanges: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4160,7 +4138,6 @@ export const deserializeAws_restXmlGetGeoLocationCommand = async (
   }
   const contents: GetGeoLocationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGeoLocationResponse",
     GeoLocationDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4224,7 +4201,6 @@ export const deserializeAws_restXmlGetHealthCheckCommand = async (
   }
   const contents: GetHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHealthCheckResponse",
     HealthCheck: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4296,7 +4272,6 @@ export const deserializeAws_restXmlGetHealthCheckCountCommand = async (
   }
   const contents: GetHealthCheckCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHealthCheckCountResponse",
     HealthCheckCount: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4344,7 +4319,6 @@ export const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand = asyn
   }
   const contents: GetHealthCheckLastFailureReasonCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHealthCheckLastFailureReasonResponse",
     HealthCheckObservations: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4417,7 +4391,6 @@ export const deserializeAws_restXmlGetHealthCheckStatusCommand = async (
   }
   const contents: GetHealthCheckStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHealthCheckStatusResponse",
     HealthCheckObservations: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4490,7 +4463,6 @@ export const deserializeAws_restXmlGetHostedZoneCommand = async (
   }
   const contents: GetHostedZoneCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHostedZoneResponse",
     DelegationSet: undefined,
     HostedZone: undefined,
     VPCs: undefined,
@@ -4565,7 +4537,6 @@ export const deserializeAws_restXmlGetHostedZoneCountCommand = async (
   }
   const contents: GetHostedZoneCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHostedZoneCountResponse",
     HostedZoneCount: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4621,7 +4592,6 @@ export const deserializeAws_restXmlGetHostedZoneLimitCommand = async (
   }
   const contents: GetHostedZoneLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHostedZoneLimitResponse",
     Count: undefined,
     Limit: undefined,
   };
@@ -4697,7 +4667,6 @@ export const deserializeAws_restXmlGetQueryLoggingConfigCommand = async (
   }
   const contents: GetQueryLoggingConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQueryLoggingConfigResponse",
     QueryLoggingConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4761,7 +4730,6 @@ export const deserializeAws_restXmlGetReusableDelegationSetCommand = async (
   }
   const contents: GetReusableDelegationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReusableDelegationSetResponse",
     DelegationSet: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4833,7 +4801,6 @@ export const deserializeAws_restXmlGetReusableDelegationSetLimitCommand = async 
   }
   const contents: GetReusableDelegationSetLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReusableDelegationSetLimitResponse",
     Count: undefined,
     Limit: undefined,
   };
@@ -4901,7 +4868,6 @@ export const deserializeAws_restXmlGetTrafficPolicyCommand = async (
   }
   const contents: GetTrafficPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTrafficPolicyResponse",
     TrafficPolicy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4965,7 +4931,6 @@ export const deserializeAws_restXmlGetTrafficPolicyInstanceCommand = async (
   }
   const contents: GetTrafficPolicyInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTrafficPolicyInstanceResponse",
     TrafficPolicyInstance: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5032,7 +4997,6 @@ export const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async 
   }
   const contents: GetTrafficPolicyInstanceCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTrafficPolicyInstanceCountResponse",
     TrafficPolicyInstanceCount: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5080,7 +5044,6 @@ export const deserializeAws_restXmlListGeoLocationsCommand = async (
   }
   const contents: ListGeoLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGeoLocationsResponse",
     GeoLocationDetailsList: undefined,
     IsTruncated: undefined,
     MaxItems: undefined,
@@ -5165,7 +5128,6 @@ export const deserializeAws_restXmlListHealthChecksCommand = async (
   }
   const contents: ListHealthChecksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHealthChecksResponse",
     HealthChecks: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -5251,7 +5213,6 @@ export const deserializeAws_restXmlListHostedZonesCommand = async (
   }
   const contents: ListHostedZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHostedZonesResponse",
     HostedZones: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -5345,7 +5306,6 @@ export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
   }
   const contents: ListHostedZonesByNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHostedZonesByNameResponse",
     DNSName: undefined,
     HostedZoneId: undefined,
     HostedZones: undefined,
@@ -5439,7 +5399,6 @@ export const deserializeAws_restXmlListHostedZonesByVPCCommand = async (
   }
   const contents: ListHostedZonesByVPCCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHostedZonesByVPCResponse",
     HostedZoneSummaries: undefined,
     MaxItems: undefined,
     NextToken: undefined,
@@ -5517,7 +5476,6 @@ export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
   }
   const contents: ListQueryLoggingConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueryLoggingConfigsResponse",
     NextToken: undefined,
     QueryLoggingConfigs: undefined,
   };
@@ -5599,7 +5557,6 @@ export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
   }
   const contents: ListResourceRecordSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceRecordSetsResponse",
     IsTruncated: undefined,
     MaxItems: undefined,
     NextRecordIdentifier: undefined,
@@ -5689,7 +5646,6 @@ export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
   }
   const contents: ListReusableDelegationSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReusableDelegationSetsResponse",
     DelegationSets: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -5767,7 +5723,6 @@ export const deserializeAws_restXmlListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ResourceTagSet: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5855,7 +5810,6 @@ export const deserializeAws_restXmlListTagsForResourcesCommand = async (
   }
   const contents: ListTagsForResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourcesResponse",
     ResourceTagSets: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5949,7 +5903,6 @@ export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
   }
   const contents: ListTrafficPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTrafficPoliciesResponse",
     IsTruncated: undefined,
     MaxItems: undefined,
     TrafficPolicyIdMarker: undefined,
@@ -6026,7 +5979,6 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   }
   const contents: ListTrafficPolicyInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTrafficPolicyInstancesResponse",
     HostedZoneIdMarker: undefined,
     IsTruncated: undefined,
     MaxItems: undefined,
@@ -6119,7 +6071,6 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
   }
   const contents: ListTrafficPolicyInstancesByHostedZoneCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTrafficPolicyInstancesByHostedZoneResponse",
     IsTruncated: undefined,
     MaxItems: undefined,
     TrafficPolicyInstanceNameMarker: undefined,
@@ -6216,7 +6167,6 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = a
   }
   const contents: ListTrafficPolicyInstancesByPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTrafficPolicyInstancesByPolicyResponse",
     HostedZoneIdMarker: undefined,
     IsTruncated: undefined,
     MaxItems: undefined,
@@ -6317,7 +6267,6 @@ export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   }
   const contents: ListTrafficPolicyVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTrafficPolicyVersionsResponse",
     IsTruncated: undefined,
     MaxItems: undefined,
     TrafficPolicies: undefined,
@@ -6399,7 +6348,6 @@ export const deserializeAws_restXmlListVPCAssociationAuthorizationsCommand = asy
   }
   const contents: ListVPCAssociationAuthorizationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVPCAssociationAuthorizationsResponse",
     HostedZoneId: undefined,
     NextToken: undefined,
     VPCs: undefined,
@@ -6482,7 +6430,6 @@ export const deserializeAws_restXmlTestDNSAnswerCommand = async (
   }
   const contents: TestDNSAnswerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestDNSAnswerResponse",
     Nameserver: undefined,
     Protocol: undefined,
     RecordData: undefined,
@@ -6572,7 +6519,6 @@ export const deserializeAws_restXmlUpdateHealthCheckCommand = async (
   }
   const contents: UpdateHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateHealthCheckResponse",
     HealthCheck: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6644,7 +6590,6 @@ export const deserializeAws_restXmlUpdateHostedZoneCommentCommand = async (
   }
   const contents: UpdateHostedZoneCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateHostedZoneCommentResponse",
     HostedZone: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6708,7 +6653,6 @@ export const deserializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
   }
   const contents: UpdateTrafficPolicyCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTrafficPolicyCommentResponse",
     TrafficPolicy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6780,7 +6724,6 @@ export const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   }
   const contents: UpdateTrafficPolicyInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTrafficPolicyInstanceResponse",
     TrafficPolicyInstance: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8104,7 +8047,6 @@ const serializeAws_restXmlVPC = (input: VPC, context: __SerdeContext): any => {
 
 const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   let contents: any = {
-    __type: "AccountLimit",
     Value: undefined,
     Type: undefined,
   };
@@ -8119,7 +8061,6 @@ const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeContext): AlarmIdentifier => {
   let contents: any = {
-    __type: "AlarmIdentifier",
     Region: undefined,
     Name: undefined,
   };
@@ -8134,7 +8075,6 @@ const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext): AliasTarget => {
   let contents: any = {
-    __type: "AliasTarget",
     EvaluateTargetHealth: undefined,
     DNSName: undefined,
     HostedZoneId: undefined,
@@ -8153,7 +8093,6 @@ const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlChangeInfo = (output: any, context: __SerdeContext): ChangeInfo => {
   let contents: any = {
-    __type: "ChangeInfo",
     Id: undefined,
     Comment: undefined,
     SubmittedAt: undefined,
@@ -8187,7 +8126,6 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   context: __SerdeContext
 ): CloudWatchAlarmConfiguration => {
   let contents: any = {
-    __type: "CloudWatchAlarmConfiguration",
     Threshold: undefined,
     Namespace: undefined,
     Period: undefined,
@@ -8232,7 +8170,6 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
 
 const deserializeAws_restXmlDelegationSet = (output: any, context: __SerdeContext): DelegationSet => {
   let contents: any = {
-    __type: "DelegationSet",
     NameServers: undefined,
     CallerReference: undefined,
     Id: undefined,
@@ -8265,7 +8202,6 @@ const deserializeAws_restXmlDelegationSets = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlDimension = (output: any, context: __SerdeContext): Dimension => {
   let contents: any = {
-    __type: "Dimension",
     Name: undefined,
     Value: undefined,
   };
@@ -8288,7 +8224,6 @@ const deserializeAws_restXmlErrorMessages = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   let contents: any = {
-    __type: "GeoLocation",
     CountryCode: undefined,
     ContinentCode: undefined,
     SubdivisionCode: undefined,
@@ -8307,7 +8242,6 @@ const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlGeoLocationDetails = (output: any, context: __SerdeContext): GeoLocationDetails => {
   let contents: any = {
-    __type: "GeoLocationDetails",
     CountryName: undefined,
     ContinentName: undefined,
     SubdivisionName: undefined,
@@ -8342,7 +8276,6 @@ const deserializeAws_restXmlGeoLocationDetailsList = (output: any, context: __Se
 
 const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
   let contents: any = {
-    __type: "HealthCheck",
     Id: undefined,
     HealthCheckConfig: undefined,
     CloudWatchAlarmConfiguration: undefined,
@@ -8376,7 +8309,6 @@ const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext)
 
 const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
   let contents: any = {
-    __type: "HealthCheckConfig",
     HealthThreshold: undefined,
     AlarmIdentifier: undefined,
     Type: undefined,
@@ -8463,7 +8395,6 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_restXmlHealthCheckObservation = (output: any, context: __SerdeContext): HealthCheckObservation => {
   let contents: any = {
-    __type: "HealthCheckObservation",
     Region: undefined,
     StatusReport: undefined,
     IPAddress: undefined,
@@ -8500,7 +8431,6 @@ const deserializeAws_restXmlHealthChecks = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext): HostedZone => {
   let contents: any = {
-    __type: "HostedZone",
     ResourceRecordSetCount: undefined,
     Name: undefined,
     Config: undefined,
@@ -8531,7 +8461,6 @@ const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext):
 
 const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeContext): HostedZoneConfig => {
   let contents: any = {
-    __type: "HostedZoneConfig",
     Comment: undefined,
     PrivateZone: undefined,
   };
@@ -8546,7 +8475,6 @@ const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeContext): HostedZoneLimit => {
   let contents: any = {
-    __type: "HostedZoneLimit",
     Value: undefined,
     Type: undefined,
   };
@@ -8561,7 +8489,6 @@ const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlHostedZoneOwner = (output: any, context: __SerdeContext): HostedZoneOwner => {
   let contents: any = {
-    __type: "HostedZoneOwner",
     OwningAccount: undefined,
     OwningService: undefined,
   };
@@ -8584,7 +8511,6 @@ const deserializeAws_restXmlHostedZoneSummaries = (output: any, context: __Serde
 
 const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeContext): HostedZoneSummary => {
   let contents: any = {
-    __type: "HostedZoneSummary",
     Owner: undefined,
     HostedZoneId: undefined,
     Name: undefined,
@@ -8603,7 +8529,6 @@ const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContext): LinkedService => {
   let contents: any = {
-    __type: "LinkedService",
     Description: undefined,
     ServicePrincipal: undefined,
   };
@@ -8618,7 +8543,6 @@ const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlQueryLoggingConfig = (output: any, context: __SerdeContext): QueryLoggingConfig => {
   let contents: any = {
-    __type: "QueryLoggingConfig",
     Id: undefined,
     HostedZoneId: undefined,
     CloudWatchLogsLogGroupArn: undefined,
@@ -8645,7 +8569,6 @@ const deserializeAws_restXmlRecordData = (output: any, context: __SerdeContext):
 
 const deserializeAws_restXmlResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
   let contents: any = {
-    __type: "ResourceRecord",
     Value: undefined,
   };
   if (output["Value"] !== undefined) {
@@ -8660,7 +8583,6 @@ const deserializeAws_restXmlResourceRecords = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeContext): ResourceRecordSet => {
   let contents: any = {
-    __type: "ResourceRecordSet",
     SetIdentifier: undefined,
     AliasTarget: undefined,
     Weight: undefined,
@@ -8729,7 +8651,6 @@ const deserializeAws_restXmlResourceRecordSets = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlResourceTagSet = (output: any, context: __SerdeContext): ResourceTagSet => {
   let contents: any = {
-    __type: "ResourceTagSet",
     Tags: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
@@ -8758,7 +8679,6 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
   context: __SerdeContext
 ): ReusableDelegationSetLimit => {
   let contents: any = {
-    __type: "ReusableDelegationSetLimit",
     Type: undefined,
     Value: undefined,
   };
@@ -8773,7 +8693,6 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
 
 const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext): StatusReport => {
   let contents: any = {
-    __type: "StatusReport",
     CheckedTime: undefined,
     Status: undefined,
   };
@@ -8788,7 +8707,6 @@ const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -8811,7 +8729,6 @@ const deserializeAws_restXmlTrafficPolicies = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContext): TrafficPolicy => {
   let contents: any = {
-    __type: "TrafficPolicy",
     Type: undefined,
     Comment: undefined,
     Name: undefined,
@@ -8842,7 +8759,6 @@ const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __SerdeContext): TrafficPolicyInstance => {
   let contents: any = {
-    __type: "TrafficPolicyInstance",
     TTL: undefined,
     Id: undefined,
     TrafficPolicyVersion: undefined,
@@ -8896,7 +8812,6 @@ const deserializeAws_restXmlTrafficPolicySummaries = (output: any, context: __Se
 
 const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __SerdeContext): TrafficPolicySummary => {
   let contents: any = {
-    __type: "TrafficPolicySummary",
     Name: undefined,
     Type: undefined,
     LatestVersion: undefined,
@@ -8923,7 +8838,6 @@ const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __Serd
 
 const deserializeAws_restXmlVPC = (output: any, context: __SerdeContext): VPC => {
   let contents: any = {
-    __type: "VPC",
     VPCRegion: undefined,
     VPCId: undefined,
   };

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,11 +14,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CancelChangeSetRequest {
-  __type?: "CancelChangeSetRequest";
   /**
    * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
    *             want to cancel.</p>
@@ -36,11 +34,9 @@ export namespace CancelChangeSetRequest {
   export const filterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelChangeSetRequest => __isa(o, "CancelChangeSetRequest");
 }
 
 export interface CancelChangeSetResponse {
-  __type?: "CancelChangeSetResponse";
   /**
    * <p>The unique identifier for the change set referenced in this request.</p>
    */
@@ -56,7 +52,6 @@ export namespace CancelChangeSetResponse {
   export const filterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelChangeSetResponse => __isa(o, "CancelChangeSetResponse");
 }
 
 /**
@@ -64,7 +59,6 @@ export namespace CancelChangeSetResponse {
  *                 <code>Entity</code>.</p>
  */
 export interface Change {
-  __type?: "Change";
   /**
    * <p>The entity to be changed.</p>
    */
@@ -88,7 +82,6 @@ export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Change => __isa(o, "Change");
 }
 
 /**
@@ -96,7 +89,6 @@ export namespace Change {
  *                 <code>ListChangeSets</code> action is called.</p>
  */
 export interface ChangeSetSummaryListItem {
-  __type?: "ChangeSetSummaryListItem";
   /**
    * <p>The unique identifier for a change set.</p>
    */
@@ -141,7 +133,6 @@ export namespace ChangeSetSummaryListItem {
   export const filterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeSetSummaryListItem => __isa(o, "ChangeSetSummaryListItem");
 }
 
 export enum ChangeStatus {
@@ -157,7 +148,6 @@ export enum ChangeStatus {
  *             summary doesn't contain the whole change structure.</p>
  */
 export interface ChangeSummary {
-  __type?: "ChangeSummary";
   /**
    * <p>This object contains details specific to the change type of the requested
    *             change.</p>
@@ -184,11 +174,9 @@ export namespace ChangeSummary {
   export const filterSensitiveLog = (obj: ChangeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeSummary => __isa(o, "ChangeSummary");
 }
 
 export interface DescribeChangeSetRequest {
-  __type?: "DescribeChangeSetRequest";
   /**
    * <p>Required. The catalog related to the request. Fixed value:
    *             <code>AWSMarketplace</code>
@@ -207,11 +195,9 @@ export namespace DescribeChangeSetRequest {
   export const filterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChangeSetRequest => __isa(o, "DescribeChangeSetRequest");
 }
 
 export interface DescribeChangeSetResponse {
-  __type?: "DescribeChangeSetResponse";
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
    *             to a terminal state. The change cannot transition to a different state. Null if the
@@ -263,11 +249,9 @@ export namespace DescribeChangeSetResponse {
   export const filterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChangeSetResponse => __isa(o, "DescribeChangeSetResponse");
 }
 
 export interface DescribeEntityRequest {
-  __type?: "DescribeEntityRequest";
   /**
    * <p>Required. The catalog related to the request. Fixed value:
    *             <code>AWSMarketplace</code>
@@ -285,11 +269,9 @@ export namespace DescribeEntityRequest {
   export const filterSensitiveLog = (obj: DescribeEntityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntityRequest => __isa(o, "DescribeEntityRequest");
 }
 
 export interface DescribeEntityResponse {
-  __type?: "DescribeEntityResponse";
   /**
    * <p>The last modified date of the entity, in ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
@@ -323,7 +305,6 @@ export namespace DescribeEntityResponse {
   export const filterSensitiveLog = (obj: DescribeEntityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntityResponse => __isa(o, "DescribeEntityResponse");
 }
 
 /**
@@ -331,7 +312,6 @@ export namespace DescribeEntityResponse {
  *             and how it can be used or launched by your customer. </p>
  */
 export interface Entity {
-  __type?: "Entity";
   /**
    * <p>The identifier for the entity.</p>
    */
@@ -347,7 +327,6 @@ export namespace Entity {
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
 /**
@@ -356,7 +335,6 @@ export namespace Entity {
  *             common across all entities.</p>
  */
 export interface EntitySummary {
-  __type?: "EntitySummary";
   /**
    * <p>The name for the entity. This value is not unique. It is defined by the
    *             seller.</p>
@@ -401,14 +379,12 @@ export namespace EntitySummary {
   export const filterSensitiveLog = (obj: EntitySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntitySummary => __isa(o, "EntitySummary");
 }
 
 /**
  * <p>Details about the error.</p>
  */
 export interface ErrorDetail {
-  __type?: "ErrorDetail";
   /**
    * <p>The error code that identifies the type of error.</p>
    */
@@ -424,7 +400,6 @@ export namespace ErrorDetail {
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
 /**
@@ -432,7 +407,6 @@ export namespace ErrorDetail {
  *                 <code>ListEntities</code> and <code>ListChangeSets</code> actions.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>
    *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
@@ -493,7 +467,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -509,11 +482,9 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 export interface ListChangeSetsRequest {
-  __type?: "ListChangeSetsRequest";
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *             results.</p>
@@ -549,11 +520,9 @@ export namespace ListChangeSetsRequest {
   export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChangeSetsRequest => __isa(o, "ListChangeSetsRequest");
 }
 
 export interface ListChangeSetsResponse {
-  __type?: "ListChangeSetsResponse";
   /**
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    */
@@ -569,11 +538,9 @@ export namespace ListChangeSetsResponse {
   export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChangeSetsResponse => __isa(o, "ListChangeSetsResponse");
 }
 
 export interface ListEntitiesRequest {
-  __type?: "ListEntitiesRequest";
   /**
    * <p>The type of entities to retrieve.</p>
    */
@@ -613,11 +580,9 @@ export namespace ListEntitiesRequest {
   export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesRequest => __isa(o, "ListEntitiesRequest");
 }
 
 export interface ListEntitiesResponse {
-  __type?: "ListEntitiesResponse";
   /**
    * <p> Array of <code>EntitySummary</code> object.</p>
    */
@@ -633,7 +598,6 @@ export namespace ListEntitiesResponse {
   export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesResponse => __isa(o, "ListEntitiesResponse");
 }
 
 /**
@@ -649,7 +613,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -665,7 +628,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -681,7 +643,6 @@ export namespace ResourceNotSupportedException {
   export const filterSensitiveLog = (obj: ResourceNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotSupportedException => __isa(o, "ResourceNotSupportedException");
 }
 
 /**
@@ -697,7 +658,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -705,7 +665,6 @@ export namespace ServiceQuotaExceededException {
  *             <code>SortOrder</code>.</p>
  */
 export interface Sort {
-  __type?: "Sort";
   /**
    * <p>For <code>ListEntities</code>, supported attributes include
    *                 <code>LastModifiedDate</code> (default), <code>Visibility</code>,
@@ -727,7 +686,6 @@ export namespace Sort {
   export const filterSensitiveLog = (obj: Sort): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Sort => __isa(o, "Sort");
 }
 
 export enum SortOrder {
@@ -736,7 +694,6 @@ export enum SortOrder {
 }
 
 export interface StartChangeSetRequest {
-  __type?: "StartChangeSetRequest";
   /**
    * <p>Array of <code>change</code> object.</p>
    */
@@ -764,11 +721,9 @@ export namespace StartChangeSetRequest {
   export const filterSensitiveLog = (obj: StartChangeSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChangeSetRequest => __isa(o, "StartChangeSetRequest");
 }
 
 export interface StartChangeSetResponse {
-  __type?: "StartChangeSetResponse";
   /**
    * <p>Unique identifier generated for the request.</p>
    */
@@ -784,7 +739,6 @@ export namespace StartChangeSetResponse {
   export const filterSensitiveLog = (obj: StartChangeSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChangeSetResponse => __isa(o, "StartChangeSetResponse");
 }
 
 /**
@@ -800,7 +754,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -816,5 +769,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

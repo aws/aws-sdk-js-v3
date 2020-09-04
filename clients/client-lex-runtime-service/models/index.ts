@@ -2,7 +2,6 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
@@ -21,7 +20,6 @@ export namespace BadGatewayException {
   export const filterSensitiveLog = (obj: BadGatewayException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadGatewayException => __isa(o, "BadGatewayException");
 }
 
 /**
@@ -38,14 +36,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
  */
 export interface Button {
-  __type?: "Button";
   /**
    * <p>The value sent to Amazon Lex when a user chooses the button. For example, consider button
    *       text "NYC." When the user chooses the button, the value sent can be "New York City."</p>
@@ -62,7 +58,6 @@ export namespace Button {
   export const filterSensitiveLog = (obj: Button): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Button => __isa(o, "Button");
 }
 
 export enum ConfirmationStatus {
@@ -84,7 +79,6 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ContentType {
@@ -92,7 +86,6 @@ export enum ContentType {
 }
 
 export interface DeleteSessionRequest {
-  __type?: "DeleteSessionRequest";
   /**
    * <p>The identifier of the user associated with the session data.</p>
    */
@@ -113,11 +106,9 @@ export namespace DeleteSessionRequest {
   export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSessionRequest => __isa(o, "DeleteSessionRequest");
 }
 
 export interface DeleteSessionResponse {
-  __type?: "DeleteSessionResponse";
   /**
    * <p>The alias in use for the bot associated with the session data.</p>
    */
@@ -143,7 +134,6 @@ export namespace DeleteSessionResponse {
   export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSessionResponse => __isa(o, "DeleteSessionResponse");
 }
 
 /**
@@ -171,7 +161,6 @@ export namespace DependencyFailedException {
   export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependencyFailedException => __isa(o, "DependencyFailedException");
 }
 
 /**
@@ -181,7 +170,6 @@ export namespace DependencyFailedException {
  *       the interaction to a previous state.</p>
  */
 export interface DialogAction {
-  __type?: "DialogAction";
   /**
    * <p>The name of the slot that should be elicited from the user.</p>
    */
@@ -290,7 +278,6 @@ export namespace DialogAction {
     ...(obj.message && { message: SENSITIVE_STRING }),
     ...(obj.slots && { slots: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DialogAction => __isa(o, "DialogAction");
 }
 
 export enum DialogActionType {
@@ -321,7 +308,6 @@ export enum FulfillmentState {
  *       button, a link, or text. </p>
  */
 export interface GenericAttachment {
-  __type?: "GenericAttachment";
   /**
    * <p>The title of the option.</p>
    */
@@ -352,11 +338,9 @@ export namespace GenericAttachment {
   export const filterSensitiveLog = (obj: GenericAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenericAttachment => __isa(o, "GenericAttachment");
 }
 
 export interface GetSessionRequest {
-  __type?: "GetSessionRequest";
   /**
    * <p>The name of the bot that contains the session data.</p>
    */
@@ -386,11 +370,9 @@ export namespace GetSessionRequest {
   export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSessionRequest => __isa(o, "GetSessionRequest");
 }
 
 export interface GetSessionResponse {
-  __type?: "GetSessionResponse";
   /**
    * <p>Describes the current state of the bot.</p>
    */
@@ -427,7 +409,6 @@ export namespace GetSessionResponse {
     }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetSessionResponse => __isa(o, "GetSessionResponse");
 }
 
 /**
@@ -436,7 +417,6 @@ export namespace GetSessionResponse {
  *       intent to its previous state.</p>
  */
 export interface IntentSummary {
-  __type?: "IntentSummary";
   /**
    * <p>The fulfillment state of the intent. The possible values are:</p>
    *          <ul>
@@ -543,7 +523,6 @@ export namespace IntentSummary {
     ...obj,
     ...(obj.slots && { slots: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is IntentSummary => __isa(o, "IntentSummary");
 }
 
 /**
@@ -559,7 +538,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -576,7 +554,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -592,7 +569,6 @@ export namespace LoopDetectedException {
   export const filterSensitiveLog = (obj: LoopDetectedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoopDetectedException => __isa(o, "LoopDetectedException");
 }
 
 export enum MessageFormatType {
@@ -615,7 +591,6 @@ export namespace NotAcceptableException {
   export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAcceptableException => __isa(o, "NotAcceptableException");
 }
 
 /**
@@ -632,11 +607,9 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export interface PostContentRequest {
-  __type?: "PostContentRequest";
   /**
    * <p> User input in PCM or Opus audio format or text format as described in the
    *         <code>Content-Type</code> HTTP header. </p>
@@ -801,11 +774,9 @@ export namespace PostContentRequest {
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
     ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostContentRequest => __isa(o, "PostContentRequest");
 }
 
 export interface PostContentResponse {
-  __type?: "PostContentResponse";
   /**
    * <p>The message to convey to the user. The message can come from the bot's configuration or
    *       from a Lambda function.</p>
@@ -972,11 +943,9 @@ export namespace PostContentResponse {
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostContentResponse => __isa(o, "PostContentResponse");
 }
 
 export interface PostTextRequest {
-  __type?: "PostTextRequest";
   /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
    *       with your bot. At runtime, each request must contain the <code>userID</code> field.</p>
@@ -1045,11 +1014,9 @@ export namespace PostTextRequest {
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
     ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostTextRequest => __isa(o, "PostTextRequest");
 }
 
 export interface PostTextResponse {
-  __type?: "PostTextResponse";
   /**
    * <p>The message to convey to the user. The message can come from the bot's configuration or
    *       from a Lambda function.</p>
@@ -1200,11 +1167,9 @@ export namespace PostTextResponse {
     ...(obj.slots && { slots: SENSITIVE_STRING }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PostTextResponse => __isa(o, "PostTextResponse");
 }
 
 export interface PutSessionRequest {
-  __type?: "PutSessionRequest";
   /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
    *       with your bot. </p>
@@ -1322,11 +1287,9 @@ export namespace PutSessionRequest {
     }),
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSessionRequest => __isa(o, "PutSessionRequest");
 }
 
 export interface PutSessionResponse {
-  __type?: "PutSessionResponse";
   /**
    * <p>Map of zero or more intent slots Amazon Lex detected from the user input during the
    *       conversation.</p>
@@ -1445,7 +1408,6 @@ export namespace PutSessionResponse {
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSessionResponse => __isa(o, "PutSessionResponse");
 }
 
 /**
@@ -1461,7 +1423,6 @@ export namespace RequestTimeoutException {
   export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestTimeoutException => __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -1471,7 +1432,6 @@ export namespace RequestTimeoutException {
  *       on an intent).</p>
  */
 export interface ResponseCard {
-  __type?: "ResponseCard";
   /**
    * <p>The version of the response card format.</p>
    */
@@ -1492,7 +1452,6 @@ export namespace ResponseCard {
   export const filterSensitiveLog = (obj: ResponseCard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResponseCard => __isa(o, "ResponseCard");
 }
 
 /**
@@ -1501,7 +1460,6 @@ export namespace ResponseCard {
  *       this field structure contains the result of the analysis.</p>
  */
 export interface SentimentResponse {
-  __type?: "SentimentResponse";
   /**
    * <p>The likelihood that the sentiment was correctly inferred.</p>
    */
@@ -1517,7 +1475,6 @@ export namespace SentimentResponse {
   export const filterSensitiveLog = (obj: SentimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SentimentResponse => __isa(o, "SentimentResponse");
 }
 
 /**
@@ -1533,5 +1490,4 @@ export namespace UnsupportedMediaTypeException {
   export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedMediaTypeException => __isa(o, "UnsupportedMediaTypeException");
 }

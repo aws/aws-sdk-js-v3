@@ -205,7 +205,6 @@ export const deserializeAws_restJson1GetClipCommand = async (
   }
   const contents: GetClipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetClipOutput",
     ContentType: undefined,
     Payload: undefined,
   };
@@ -327,7 +326,6 @@ export const deserializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   }
   const contents: GetDASHStreamingSessionURLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDASHStreamingSessionURLOutput",
     DASHStreamingSessionURL: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -439,7 +437,6 @@ export const deserializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   }
   const contents: GetHLSStreamingSessionURLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHLSStreamingSessionURLOutput",
     HLSStreamingSessionURL: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -551,7 +548,6 @@ export const deserializeAws_restJson1GetMediaForFragmentListCommand = async (
   }
   const contents: GetMediaForFragmentListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMediaForFragmentListOutput",
     ContentType: undefined,
     Payload: undefined,
   };
@@ -633,7 +629,6 @@ export const deserializeAws_restJson1ListFragmentsCommand = async (
   }
   const contents: ListFragmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFragmentsOutput",
     Fragments: undefined,
     NextToken: undefined,
   };
@@ -931,7 +926,6 @@ const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __
 
 const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext): Fragment => {
   return {
-    __type: "Fragment",
     FragmentLengthInMilliseconds:
       output.FragmentLengthInMilliseconds !== undefined && output.FragmentLengthInMilliseconds !== null
         ? output.FragmentLengthInMilliseconds

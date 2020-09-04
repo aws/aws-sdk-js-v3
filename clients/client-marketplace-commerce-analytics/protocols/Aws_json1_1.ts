@@ -58,7 +58,6 @@ export const deserializeAws_json1_1GenerateDataSetCommand = async (
   contents = deserializeAws_json1_1GenerateDataSetResult(data, context);
   const response: GenerateDataSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateDataSetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -114,7 +113,6 @@ export const deserializeAws_json1_1StartSupportDataExportCommand = async (
   contents = deserializeAws_json1_1StartSupportDataExportResult(data, context);
   const response: StartSupportDataExportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSupportDataExportResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -218,7 +216,6 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
 
 const deserializeAws_json1_1GenerateDataSetResult = (output: any, context: __SerdeContext): GenerateDataSetResult => {
   return {
-    __type: "GenerateDataSetResult",
     dataSetRequestId:
       output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined,
   } as any;
@@ -229,7 +226,6 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
   context: __SerdeContext
 ): MarketplaceCommerceAnalyticsException => {
   return {
-    __type: "MarketplaceCommerceAnalyticsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -239,7 +235,6 @@ const deserializeAws_json1_1StartSupportDataExportResult = (
   context: __SerdeContext
 ): StartSupportDataExportResult => {
   return {
-    __type: "StartSupportDataExportResult",
     dataSetRequestId:
       output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined,
   } as any;

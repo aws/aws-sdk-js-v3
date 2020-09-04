@@ -134,7 +134,6 @@ export const deserializeAws_restJson1SearchCommand = async (
   }
   const contents: SearchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchResponse",
     facets: undefined,
     hits: undefined,
     stats: undefined,
@@ -202,7 +201,6 @@ export const deserializeAws_restJson1SuggestCommand = async (
   }
   const contents: SuggestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SuggestResponse",
     status: undefined,
     suggest: undefined,
   };
@@ -262,7 +260,6 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
   }
   const contents: UploadDocumentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadDocumentsResponse",
     adds: undefined,
     deletes: undefined,
     status: undefined,
@@ -361,7 +358,6 @@ const deserializeAws_restJson1SearchExceptionResponse = async (
 
 const deserializeAws_restJson1Bucket = (output: any, context: __SerdeContext): Bucket => {
   return {
-    __type: "Bucket",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -369,7 +365,6 @@ const deserializeAws_restJson1Bucket = (output: any, context: __SerdeContext): B
 
 const deserializeAws_restJson1BucketInfo = (output: any, context: __SerdeContext): BucketInfo => {
   return {
-    __type: "BucketInfo",
     buckets:
       output.buckets !== undefined && output.buckets !== null
         ? deserializeAws_restJson1BucketList(output.buckets, context)
@@ -386,7 +381,6 @@ const deserializeAws_restJson1DocumentServiceWarning = (
   context: __SerdeContext
 ): DocumentServiceWarning => {
   return {
-    __type: "DocumentServiceWarning",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -430,7 +424,6 @@ const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext): FieldStats => {
   return {
-    __type: "FieldStats",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     max: output.max !== undefined && output.max !== null ? output.max : undefined,
     mean: output.mean !== undefined && output.mean !== null ? output.mean : undefined,
@@ -458,7 +451,6 @@ const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit => {
   return {
-    __type: "Hit",
     exprs:
       output.exprs !== undefined && output.exprs !== null
         ? deserializeAws_restJson1Exprs(output.exprs, context)
@@ -481,7 +473,6 @@ const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hits => {
   return {
-    __type: "Hits",
     cursor: output.cursor !== undefined && output.cursor !== null ? output.cursor : undefined,
     found: output.found !== undefined && output.found !== null ? output.found : undefined,
     hit:
@@ -494,7 +485,6 @@ const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hit
 
 const deserializeAws_restJson1SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
   return {
-    __type: "SearchStatus",
     rid: output.rid !== undefined && output.rid !== null ? output.rid : undefined,
     timems: output.timems !== undefined && output.timems !== null ? output.timems : undefined,
   } as any;
@@ -512,7 +502,6 @@ const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): { 
 
 const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
   return {
-    __type: "SuggestionMatch",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     score: output.score !== undefined && output.score !== null ? output.score : undefined,
     suggestion: output.suggestion !== undefined && output.suggestion !== null ? output.suggestion : undefined,
@@ -525,7 +514,6 @@ const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
   return {
-    __type: "SuggestModel",
     found: output.found !== undefined && output.found !== null ? output.found : undefined,
     query: output.query !== undefined && output.query !== null ? output.query : undefined,
     suggestions:
@@ -537,7 +525,6 @@ const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SuggestStatus = (output: any, context: __SerdeContext): SuggestStatus => {
   return {
-    __type: "SuggestStatus",
     rid: output.rid !== undefined && output.rid !== null ? output.rid : undefined,
     timems: output.timems !== undefined && output.timems !== null ? output.timems : undefined,
   } as any;

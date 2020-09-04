@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>This structure contains all information about one canary in your account.</p>
  */
 export interface Canary {
-  __type?: "Canary";
   /**
    * <p>The unique ID of this canary.</p>
    */
@@ -98,7 +97,6 @@ export namespace Canary {
   export const filterSensitiveLog = (obj: Canary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Canary => __isa(o, "Canary");
 }
 
 /**
@@ -109,7 +107,6 @@ export namespace Canary {
  *          of <code>Zipfile</code>. </p>
  */
 export interface CanaryCodeInput {
-  __type?: "CanaryCodeInput";
   /**
    * <p>The S3 version ID of your script.</p>
    */
@@ -145,7 +142,6 @@ export namespace CanaryCodeInput {
   export const filterSensitiveLog = (obj: CanaryCodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryCodeInput => __isa(o, "CanaryCodeInput");
 }
 
 /**
@@ -153,7 +149,6 @@ export namespace CanaryCodeInput {
  *       where its code is stored by CloudWatch Synthetics.</p>
  */
 export interface CanaryCodeOutput {
-  __type?: "CanaryCodeOutput";
   /**
    * <p>The ARN of the Lambda layer where Synthetics stores the canary script code.</p>
    */
@@ -169,14 +164,12 @@ export namespace CanaryCodeOutput {
   export const filterSensitiveLog = (obj: CanaryCodeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryCodeOutput => __isa(o, "CanaryCodeOutput");
 }
 
 /**
  * <p>This structure contains information about the most recent run of a single canary.</p>
  */
 export interface CanaryLastRun {
-  __type?: "CanaryLastRun";
   /**
    * <p>The name of the canary.</p>
    */
@@ -192,14 +185,12 @@ export namespace CanaryLastRun {
   export const filterSensitiveLog = (obj: CanaryLastRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryLastRun => __isa(o, "CanaryLastRun");
 }
 
 /**
  * <p>This structure contains the details about one run of one canary.</p>
  */
 export interface CanaryRun {
-  __type?: "CanaryRun";
   /**
    * <p>The name of the canary.</p>
    */
@@ -226,14 +217,12 @@ export namespace CanaryRun {
   export const filterSensitiveLog = (obj: CanaryRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryRun => __isa(o, "CanaryRun");
 }
 
 /**
  * <p>A structure that contains input information for a canary run.</p>
  */
 export interface CanaryRunConfigInput {
-  __type?: "CanaryRunConfigInput";
   /**
    * <p>The maximum amount of memory available to the canary while it is running, in MB. The value
    *       you specify must be a multiple of 64.</p>
@@ -251,14 +240,12 @@ export namespace CanaryRunConfigInput {
   export const filterSensitiveLog = (obj: CanaryRunConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryRunConfigInput => __isa(o, "CanaryRunConfigInput");
 }
 
 /**
  * <p>A structure that contains information for a canary run.</p>
  */
 export interface CanaryRunConfigOutput {
-  __type?: "CanaryRunConfigOutput";
   /**
    * <p>How long the canary is allowed to run before it must stop.</p>
    */
@@ -275,7 +262,6 @@ export namespace CanaryRunConfigOutput {
   export const filterSensitiveLog = (obj: CanaryRunConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryRunConfigOutput => __isa(o, "CanaryRunConfigOutput");
 }
 
 export enum CanaryRunState {
@@ -293,7 +279,6 @@ export enum CanaryRunStateReasonCode {
  * <p>This structure contains the status information about a canary run.</p>
  */
 export interface CanaryRunStatus {
-  __type?: "CanaryRunStatus";
   /**
    * <p>If this value is <code>CANARY_FAILURE</code>, an exception occurred in the
    *          canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in
@@ -316,14 +301,12 @@ export namespace CanaryRunStatus {
   export const filterSensitiveLog = (obj: CanaryRunStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryRunStatus => __isa(o, "CanaryRunStatus");
 }
 
 /**
  * <p>This structure contains the start and end times of a single canary run.</p>
  */
 export interface CanaryRunTimeline {
-  __type?: "CanaryRunTimeline";
   /**
    * <p>The start time of the run.</p>
    */
@@ -339,7 +322,6 @@ export namespace CanaryRunTimeline {
   export const filterSensitiveLog = (obj: CanaryRunTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryRunTimeline => __isa(o, "CanaryRunTimeline");
 }
 
 /**
@@ -347,7 +329,6 @@ export namespace CanaryRunTimeline {
  *          when it should stop making runs.</p>
  */
 export interface CanaryScheduleInput {
-  __type?: "CanaryScheduleInput";
   /**
    * <p>How long, in seconds, for the canary to continue making regular runs according to
    *          the schedule in the <code>Expression</code> value. If you specify 0, the canary continues
@@ -373,7 +354,6 @@ export namespace CanaryScheduleInput {
   export const filterSensitiveLog = (obj: CanaryScheduleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryScheduleInput => __isa(o, "CanaryScheduleInput");
 }
 
 /**
@@ -381,7 +361,6 @@ export namespace CanaryScheduleInput {
  *          <code>Expression</code> value.</p>
  */
 export interface CanaryScheduleOutput {
-  __type?: "CanaryScheduleOutput";
   /**
    * <p>A rate expression that defines how often the canary is to run. The syntax is
    *          <code>rate(<i>number unit</i>)</code>. <i>unit</i>
@@ -406,7 +385,6 @@ export namespace CanaryScheduleOutput {
   export const filterSensitiveLog = (obj: CanaryScheduleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryScheduleOutput => __isa(o, "CanaryScheduleOutput");
 }
 
 export enum CanaryState {
@@ -429,7 +407,6 @@ export enum CanaryStateReasonCode {
  * <p>A structure that contains the current state of the canary.</p>
  */
 export interface CanaryStatus {
-  __type?: "CanaryStatus";
   /**
    * <p>The current state of the canary.</p>
    */
@@ -450,14 +427,12 @@ export namespace CanaryStatus {
   export const filterSensitiveLog = (obj: CanaryStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryStatus => __isa(o, "CanaryStatus");
 }
 
 /**
  * <p>This structure contains information about when the canary was created and modified.</p>
  */
 export interface CanaryTimeline {
-  __type?: "CanaryTimeline";
   /**
    * <p>The date and time that the canary's most recent run started.</p>
    */
@@ -483,7 +458,6 @@ export namespace CanaryTimeline {
   export const filterSensitiveLog = (obj: CanaryTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CanaryTimeline => __isa(o, "CanaryTimeline");
 }
 
 /**
@@ -499,11 +473,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateCanaryRequest {
-  __type?: "CreateCanaryRequest";
   /**
    * <p>If this canary is to test an endpoint in a VPC, this structure contains
    *       information about the subnet and security groups of the VPC endpoint.
@@ -627,11 +599,9 @@ export namespace CreateCanaryRequest {
   export const filterSensitiveLog = (obj: CreateCanaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCanaryRequest => __isa(o, "CreateCanaryRequest");
 }
 
 export interface CreateCanaryResponse {
-  __type?: "CreateCanaryResponse";
   /**
    * <p>The full details about the canary you have created.</p>
    */
@@ -642,11 +612,9 @@ export namespace CreateCanaryResponse {
   export const filterSensitiveLog = (obj: CreateCanaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCanaryResponse => __isa(o, "CreateCanaryResponse");
 }
 
 export interface DeleteCanaryRequest {
-  __type?: "DeleteCanaryRequest";
   /**
    * <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
    */
@@ -657,22 +625,17 @@ export namespace DeleteCanaryRequest {
   export const filterSensitiveLog = (obj: DeleteCanaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCanaryRequest => __isa(o, "DeleteCanaryRequest");
 }
 
-export interface DeleteCanaryResponse {
-  __type?: "DeleteCanaryResponse";
-}
+export interface DeleteCanaryResponse {}
 
 export namespace DeleteCanaryResponse {
   export const filterSensitiveLog = (obj: DeleteCanaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCanaryResponse => __isa(o, "DeleteCanaryResponse");
 }
 
 export interface DescribeCanariesLastRunRequest {
-  __type?: "DescribeCanariesLastRunRequest";
   /**
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next
@@ -691,11 +654,9 @@ export namespace DescribeCanariesLastRunRequest {
   export const filterSensitiveLog = (obj: DescribeCanariesLastRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCanariesLastRunRequest => __isa(o, "DescribeCanariesLastRunRequest");
 }
 
 export interface DescribeCanariesLastRunResponse {
-  __type?: "DescribeCanariesLastRunResponse";
   /**
    * <p>An array that contains the information from the most recent run of each
    *          canary.</p>
@@ -714,11 +675,9 @@ export namespace DescribeCanariesLastRunResponse {
   export const filterSensitiveLog = (obj: DescribeCanariesLastRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCanariesLastRunResponse => __isa(o, "DescribeCanariesLastRunResponse");
 }
 
 export interface DescribeCanariesRequest {
-  __type?: "DescribeCanariesRequest";
   /**
    * <p>Specify this parameter to limit how many canaries are returned each time you use
    *       the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used.</p>
@@ -737,11 +696,9 @@ export namespace DescribeCanariesRequest {
   export const filterSensitiveLog = (obj: DescribeCanariesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCanariesRequest => __isa(o, "DescribeCanariesRequest");
 }
 
 export interface DescribeCanariesResponse {
-  __type?: "DescribeCanariesResponse";
   /**
    * <p>Returns an array. Each item in the array contains the full information about
    *          one canary.</p>
@@ -760,11 +717,9 @@ export namespace DescribeCanariesResponse {
   export const filterSensitiveLog = (obj: DescribeCanariesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCanariesResponse => __isa(o, "DescribeCanariesResponse");
 }
 
 export interface DescribeRuntimeVersionsRequest {
-  __type?: "DescribeRuntimeVersionsRequest";
   /**
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next
@@ -783,11 +738,9 @@ export namespace DescribeRuntimeVersionsRequest {
   export const filterSensitiveLog = (obj: DescribeRuntimeVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRuntimeVersionsRequest => __isa(o, "DescribeRuntimeVersionsRequest");
 }
 
 export interface DescribeRuntimeVersionsResponse {
-  __type?: "DescribeRuntimeVersionsResponse";
   /**
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next
@@ -806,11 +759,9 @@ export namespace DescribeRuntimeVersionsResponse {
   export const filterSensitiveLog = (obj: DescribeRuntimeVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRuntimeVersionsResponse => __isa(o, "DescribeRuntimeVersionsResponse");
 }
 
 export interface GetCanaryRequest {
-  __type?: "GetCanaryRequest";
   /**
    * <p>The name of the canary that you want details for.</p>
    */
@@ -821,11 +772,9 @@ export namespace GetCanaryRequest {
   export const filterSensitiveLog = (obj: GetCanaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCanaryRequest => __isa(o, "GetCanaryRequest");
 }
 
 export interface GetCanaryResponse {
-  __type?: "GetCanaryResponse";
   /**
    * <p>A strucure that contains the full information about the canary.</p>
    */
@@ -836,11 +785,9 @@ export namespace GetCanaryResponse {
   export const filterSensitiveLog = (obj: GetCanaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCanaryResponse => __isa(o, "GetCanaryResponse");
 }
 
 export interface GetCanaryRunsRequest {
-  __type?: "GetCanaryRunsRequest";
   /**
    * <p>The name of the canary that you want to see runs for.</p>
    */
@@ -864,11 +811,9 @@ export namespace GetCanaryRunsRequest {
   export const filterSensitiveLog = (obj: GetCanaryRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCanaryRunsRequest => __isa(o, "GetCanaryRunsRequest");
 }
 
 export interface GetCanaryRunsResponse {
-  __type?: "GetCanaryRunsResponse";
   /**
    * <p>An array of structures. Each structure contains the details of one of the
    *          retrieved canary runs.</p>
@@ -888,7 +833,6 @@ export namespace GetCanaryRunsResponse {
   export const filterSensitiveLog = (obj: GetCanaryRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCanaryRunsResponse => __isa(o, "GetCanaryRunsResponse");
 }
 
 /**
@@ -904,11 +848,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN of the canary that you want to view tags for.</p>
    *          <p>The ARN format of a canary is
@@ -922,11 +864,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tag keys and values associated with the canary that you specified.</p>
    */
@@ -937,7 +877,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -953,7 +892,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -962,7 +900,6 @@ export namespace ResourceNotFoundException {
  *             Canary Runtime Versions</a>.</p>
  */
 export interface RuntimeVersion {
-  __type?: "RuntimeVersion";
   /**
    * <p>The name of the runtime version. Currently, the only valid
    *          value is <code>syn-1.0</code>. </p>
@@ -991,11 +928,9 @@ export namespace RuntimeVersion {
   export const filterSensitiveLog = (obj: RuntimeVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuntimeVersion => __isa(o, "RuntimeVersion");
 }
 
 export interface StartCanaryRequest {
-  __type?: "StartCanaryRequest";
   /**
    * <p>The name of the canary that you want to run. To find
    *          canary names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -1007,22 +942,17 @@ export namespace StartCanaryRequest {
   export const filterSensitiveLog = (obj: StartCanaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCanaryRequest => __isa(o, "StartCanaryRequest");
 }
 
-export interface StartCanaryResponse {
-  __type?: "StartCanaryResponse";
-}
+export interface StartCanaryResponse {}
 
 export namespace StartCanaryResponse {
   export const filterSensitiveLog = (obj: StartCanaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCanaryResponse => __isa(o, "StartCanaryResponse");
 }
 
 export interface StopCanaryRequest {
-  __type?: "StopCanaryRequest";
   /**
    * <p>The name of the canary that you want to stop. To find the names of your
    *          canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -1034,22 +964,17 @@ export namespace StopCanaryRequest {
   export const filterSensitiveLog = (obj: StopCanaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCanaryRequest => __isa(o, "StopCanaryRequest");
 }
 
-export interface StopCanaryResponse {
-  __type?: "StopCanaryResponse";
-}
+export interface StopCanaryResponse {}
 
 export namespace StopCanaryResponse {
   export const filterSensitiveLog = (obj: StopCanaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCanaryResponse => __isa(o, "StopCanaryResponse");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The list of key-value pairs to associate with the canary.</p>
    */
@@ -1068,22 +993,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The ARN of the canary that you're removing tags from.</p>
    *          <p>The ARN format of a canary is
@@ -1102,22 +1022,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateCanaryRequest {
-  __type?: "UpdateCanaryRequest";
   /**
    * <p>The number of days to retain data about successful runs of this canary.</p>
    */
@@ -1220,18 +1135,14 @@ export namespace UpdateCanaryRequest {
   export const filterSensitiveLog = (obj: UpdateCanaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCanaryRequest => __isa(o, "UpdateCanaryRequest");
 }
 
-export interface UpdateCanaryResponse {
-  __type?: "UpdateCanaryResponse";
-}
+export interface UpdateCanaryResponse {}
 
 export namespace UpdateCanaryResponse {
   export const filterSensitiveLog = (obj: UpdateCanaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCanaryResponse => __isa(o, "UpdateCanaryResponse");
 }
 
 /**
@@ -1247,7 +1158,6 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
@@ -1257,7 +1167,6 @@ export namespace ValidationException {
  *             Running a Canary in a VPC</a>.</p>
  */
 export interface VpcConfigInput {
-  __type?: "VpcConfigInput";
   /**
    * <p>The IDs of the subnets where this canary is to run.</p>
    */
@@ -1273,7 +1182,6 @@ export namespace VpcConfigInput {
   export const filterSensitiveLog = (obj: VpcConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfigInput => __isa(o, "VpcConfigInput");
 }
 
 /**
@@ -1283,7 +1191,6 @@ export namespace VpcConfigInput {
  *             Running a Canary in a VPC</a>.</p>
  */
 export interface VpcConfigOutput {
-  __type?: "VpcConfigOutput";
   /**
    * <p>The IDs of the subnets where this canary is to run.</p>
    */
@@ -1304,5 +1211,4 @@ export namespace VpcConfigOutput {
   export const filterSensitiveLog = (obj: VpcConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfigOutput => __isa(o, "VpcConfigOutput");
 }

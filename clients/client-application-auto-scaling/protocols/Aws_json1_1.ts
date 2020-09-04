@@ -226,7 +226,6 @@ export const deserializeAws_json1_1DeleteScalingPolicyCommand = async (
   contents = deserializeAws_json1_1DeleteScalingPolicyResponse(data, context);
   const response: DeleteScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteScalingPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -306,7 +305,6 @@ export const deserializeAws_json1_1DeleteScheduledActionCommand = async (
   contents = deserializeAws_json1_1DeleteScheduledActionResponse(data, context);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteScheduledActionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -386,7 +384,6 @@ export const deserializeAws_json1_1DeregisterScalableTargetCommand = async (
   contents = deserializeAws_json1_1DeregisterScalableTargetResponse(data, context);
   const response: DeregisterScalableTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterScalableTargetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -466,7 +463,6 @@ export const deserializeAws_json1_1DescribeScalableTargetsCommand = async (
   contents = deserializeAws_json1_1DescribeScalableTargetsResponse(data, context);
   const response: DescribeScalableTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalableTargetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -546,7 +542,6 @@ export const deserializeAws_json1_1DescribeScalingActivitiesCommand = async (
   contents = deserializeAws_json1_1DescribeScalingActivitiesResponse(data, context);
   const response: DescribeScalingActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalingActivitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -626,7 +621,6 @@ export const deserializeAws_json1_1DescribeScalingPoliciesCommand = async (
   contents = deserializeAws_json1_1DescribeScalingPoliciesResponse(data, context);
   const response: DescribeScalingPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalingPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -714,7 +708,6 @@ export const deserializeAws_json1_1DescribeScheduledActionsCommand = async (
   contents = deserializeAws_json1_1DescribeScheduledActionsResponse(data, context);
   const response: DescribeScheduledActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScheduledActionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -794,7 +787,6 @@ export const deserializeAws_json1_1PutScalingPolicyCommand = async (
   contents = deserializeAws_json1_1PutScalingPolicyResponse(data, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutScalingPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -890,7 +882,6 @@ export const deserializeAws_json1_1PutScheduledActionCommand = async (
   contents = deserializeAws_json1_1PutScheduledActionResponse(data, context);
   const response: PutScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutScheduledActionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -978,7 +969,6 @@ export const deserializeAws_json1_1RegisterScalableTargetCommand = async (
   contents = deserializeAws_json1_1RegisterScalableTargetResponse(data, context);
   const response: RegisterScalableTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterScalableTargetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1417,7 +1407,6 @@ const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
 
 const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
   return {
-    __type: "Alarm",
     AlarmARN: output.AlarmARN !== undefined && output.AlarmARN !== null ? output.AlarmARN : undefined,
     AlarmName: output.AlarmName !== undefined && output.AlarmName !== null ? output.AlarmName : undefined,
   } as any;
@@ -1432,7 +1421,6 @@ const deserializeAws_json1_1ConcurrentUpdateException = (
   context: __SerdeContext
 ): ConcurrentUpdateException => {
   return {
-    __type: "ConcurrentUpdateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1442,7 +1430,6 @@ const deserializeAws_json1_1CustomizedMetricSpecification = (
   context: __SerdeContext
 ): CustomizedMetricSpecification => {
   return {
-    __type: "CustomizedMetricSpecification",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context)
@@ -1458,27 +1445,21 @@ const deserializeAws_json1_1DeleteScalingPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteScalingPolicyResponse => {
-  return {
-    __type: "DeleteScalingPolicyResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteScheduledActionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteScheduledActionResponse => {
-  return {
-    __type: "DeleteScheduledActionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeregisterScalableTargetResponse = (
   output: any,
   context: __SerdeContext
 ): DeregisterScalableTargetResponse => {
-  return {
-    __type: "DeregisterScalableTargetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeScalableTargetsResponse = (
@@ -1486,7 +1467,6 @@ const deserializeAws_json1_1DescribeScalableTargetsResponse = (
   context: __SerdeContext
 ): DescribeScalableTargetsResponse => {
   return {
-    __type: "DescribeScalableTargetsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalableTargets:
       output.ScalableTargets !== undefined && output.ScalableTargets !== null
@@ -1500,7 +1480,6 @@ const deserializeAws_json1_1DescribeScalingActivitiesResponse = (
   context: __SerdeContext
 ): DescribeScalingActivitiesResponse => {
   return {
-    __type: "DescribeScalingActivitiesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingActivities:
       output.ScalingActivities !== undefined && output.ScalingActivities !== null
@@ -1514,7 +1493,6 @@ const deserializeAws_json1_1DescribeScalingPoliciesResponse = (
   context: __SerdeContext
 ): DescribeScalingPoliciesResponse => {
   return {
-    __type: "DescribeScalingPoliciesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingPolicies:
       output.ScalingPolicies !== undefined && output.ScalingPolicies !== null
@@ -1528,7 +1506,6 @@ const deserializeAws_json1_1DescribeScheduledActionsResponse = (
   context: __SerdeContext
 ): DescribeScheduledActionsResponse => {
   return {
-    __type: "DescribeScheduledActionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScheduledActions:
       output.ScheduledActions !== undefined && output.ScheduledActions !== null
@@ -1542,7 +1519,6 @@ const deserializeAws_json1_1FailedResourceAccessException = (
   context: __SerdeContext
 ): FailedResourceAccessException => {
   return {
-    __type: "FailedResourceAccessException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1552,7 +1528,6 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    __type: "InternalServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1562,21 +1537,18 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
-    __type: "MetricDimension",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -1591,7 +1563,6 @@ const deserializeAws_json1_1ObjectNotFoundException = (
   context: __SerdeContext
 ): ObjectNotFoundException => {
   return {
-    __type: "ObjectNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1601,7 +1572,6 @@ const deserializeAws_json1_1PredefinedMetricSpecification = (
   context: __SerdeContext
 ): PredefinedMetricSpecification => {
   return {
-    __type: "PredefinedMetricSpecification",
     PredefinedMetricType:
       output.PredefinedMetricType !== undefined && output.PredefinedMetricType !== null
         ? output.PredefinedMetricType
@@ -1616,7 +1586,6 @@ const deserializeAws_json1_1PutScalingPolicyResponse = (
   context: __SerdeContext
 ): PutScalingPolicyResponse => {
   return {
-    __type: "PutScalingPolicyResponse",
     Alarms:
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1Alarms(output.Alarms, context)
@@ -1629,23 +1598,18 @@ const deserializeAws_json1_1PutScheduledActionResponse = (
   output: any,
   context: __SerdeContext
 ): PutScheduledActionResponse => {
-  return {
-    __type: "PutScheduledActionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RegisterScalableTargetResponse = (
   output: any,
   context: __SerdeContext
 ): RegisterScalableTargetResponse => {
-  return {
-    __type: "RegisterScalableTargetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ScalableTarget = (output: any, context: __SerdeContext): ScalableTarget => {
   return {
-    __type: "ScalableTarget",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -1669,7 +1633,6 @@ const deserializeAws_json1_1ScalableTarget = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ScalableTargetAction = (output: any, context: __SerdeContext): ScalableTargetAction => {
   return {
-    __type: "ScalableTargetAction",
     MaxCapacity: output.MaxCapacity !== undefined && output.MaxCapacity !== null ? output.MaxCapacity : undefined,
     MinCapacity: output.MinCapacity !== undefined && output.MinCapacity !== null ? output.MinCapacity : undefined,
   } as any;
@@ -1685,7 +1648,6 @@ const deserializeAws_json1_1ScalingActivities = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeContext): ScalingActivity => {
   return {
-    __type: "ScalingActivity",
     ActivityId: output.ActivityId !== undefined && output.ActivityId !== null ? output.ActivityId : undefined,
     Cause: output.Cause !== undefined && output.Cause !== null ? output.Cause : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -1715,7 +1677,6 @@ const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   return {
-    __type: "ScalingPolicy",
     Alarms:
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1Alarms(output.Alarms, context)
@@ -1751,7 +1712,6 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
   return {
-    __type: "ScheduledAction",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -1791,7 +1751,6 @@ const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
   return {
-    __type: "StepAdjustment",
     MetricIntervalLowerBound:
       output.MetricIntervalLowerBound !== undefined && output.MetricIntervalLowerBound !== null
         ? output.MetricIntervalLowerBound
@@ -1816,7 +1775,6 @@ const deserializeAws_json1_1StepScalingPolicyConfiguration = (
   context: __SerdeContext
 ): StepScalingPolicyConfiguration => {
   return {
-    __type: "StepScalingPolicyConfiguration",
     AdjustmentType:
       output.AdjustmentType !== undefined && output.AdjustmentType !== null ? output.AdjustmentType : undefined,
     Cooldown: output.Cooldown !== undefined && output.Cooldown !== null ? output.Cooldown : undefined,
@@ -1837,7 +1795,6 @@ const deserializeAws_json1_1StepScalingPolicyConfiguration = (
 
 const deserializeAws_json1_1SuspendedState = (output: any, context: __SerdeContext): SuspendedState => {
   return {
-    __type: "SuspendedState",
     DynamicScalingInSuspended:
       output.DynamicScalingInSuspended !== undefined && output.DynamicScalingInSuspended !== null
         ? output.DynamicScalingInSuspended
@@ -1858,7 +1815,6 @@ const deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
   context: __SerdeContext
 ): TargetTrackingScalingPolicyConfiguration => {
   return {
-    __type: "TargetTrackingScalingPolicyConfiguration",
     CustomizedMetricSpecification:
       output.CustomizedMetricSpecification !== undefined && output.CustomizedMetricSpecification !== null
         ? deserializeAws_json1_1CustomizedMetricSpecification(output.CustomizedMetricSpecification, context)
@@ -1879,7 +1835,6 @@ const deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

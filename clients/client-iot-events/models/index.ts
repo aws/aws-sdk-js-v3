@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An action to be performed when the <code>condition</code> is TRUE.</p>
  */
 export interface Action {
-  __type?: "Action";
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -91,7 +90,6 @@ export namespace Action {
   export const filterSensitiveLog = (obj: Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Action => __isa(o, "Action");
 }
 
 /**
@@ -111,7 +109,6 @@ export namespace Action {
  *          </ul>
  */
 export interface AssetPropertyTimestamp {
-  __type?: "AssetPropertyTimestamp";
   /**
    * <p>The nanosecond offset converted from <code>timeInSeconds</code>. The valid range is
    *       between 0-999999999. You can also specify an expression.</p>
@@ -129,7 +126,6 @@ export namespace AssetPropertyTimestamp {
   export const filterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyTimestamp => __isa(o, "AssetPropertyTimestamp");
 }
 
 /**
@@ -151,7 +147,6 @@ export namespace AssetPropertyTimestamp {
  *          </ul>
  */
 export interface AssetPropertyValue {
-  __type?: "AssetPropertyValue";
   /**
    * <p>The value to send to an asset property.</p>
    */
@@ -174,7 +169,6 @@ export namespace AssetPropertyValue {
   export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyValue => __isa(o, "AssetPropertyValue");
 }
 
 /**
@@ -199,7 +193,6 @@ export namespace AssetPropertyValue {
  *          </ul>
  */
 export interface AssetPropertyVariant {
-  __type?: "AssetPropertyVariant";
   /**
    * <p>The asset property value is a Boolean value that must be <code>TRUE</code> or
    *         <code>FALSE</code>. You can also specify an expression. If you use an expression, the
@@ -230,7 +223,6 @@ export namespace AssetPropertyVariant {
   export const filterSensitiveLog = (obj: AssetPropertyVariant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyVariant => __isa(o, "AssetPropertyVariant");
 }
 
 /**
@@ -240,7 +232,6 @@ export namespace AssetPropertyVariant {
  *       available for use in the <code>condition</code> expressions used by detectors. </p>
  */
 export interface Attribute {
-  __type?: "Attribute";
   /**
    * <p>An expression that specifies an attribute-value pair in a JSON structure. Use this to
    *       specify an attribute from the JSON payload that is made available by the input. Inputs are
@@ -257,14 +248,12 @@ export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 /**
  * <p>Information needed to clear the timer.</p>
  */
 export interface ClearTimerAction {
-  __type?: "ClearTimerAction";
   /**
    * <p>The name of the timer to clear.</p>
    */
@@ -275,11 +264,9 @@ export namespace ClearTimerAction {
   export const filterSensitiveLog = (obj: ClearTimerAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClearTimerAction => __isa(o, "ClearTimerAction");
 }
 
 export interface CreateDetectorModelRequest {
-  __type?: "CreateDetectorModelRequest";
   /**
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
@@ -325,11 +312,9 @@ export namespace CreateDetectorModelRequest {
   export const filterSensitiveLog = (obj: CreateDetectorModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDetectorModelRequest => __isa(o, "CreateDetectorModelRequest");
 }
 
 export interface CreateDetectorModelResponse {
-  __type?: "CreateDetectorModelResponse";
   /**
    * <p>Information about how the detector model is configured.</p>
    */
@@ -340,11 +325,9 @@ export namespace CreateDetectorModelResponse {
   export const filterSensitiveLog = (obj: CreateDetectorModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDetectorModelResponse => __isa(o, "CreateDetectorModelResponse");
 }
 
 export interface CreateInputRequest {
-  __type?: "CreateInputRequest";
   /**
    * <p>A brief description of the input.</p>
    */
@@ -370,11 +353,9 @@ export namespace CreateInputRequest {
   export const filterSensitiveLog = (obj: CreateInputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInputRequest => __isa(o, "CreateInputRequest");
 }
 
 export interface CreateInputResponse {
-  __type?: "CreateInputResponse";
   /**
    * <p>Information about the configuration of the input.</p>
    */
@@ -385,11 +366,9 @@ export namespace CreateInputResponse {
   export const filterSensitiveLog = (obj: CreateInputResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInputResponse => __isa(o, "CreateInputResponse");
 }
 
 export interface DeleteDetectorModelRequest {
-  __type?: "DeleteDetectorModelRequest";
   /**
    * <p>The name of the detector model to be deleted.</p>
    */
@@ -400,22 +379,17 @@ export namespace DeleteDetectorModelRequest {
   export const filterSensitiveLog = (obj: DeleteDetectorModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDetectorModelRequest => __isa(o, "DeleteDetectorModelRequest");
 }
 
-export interface DeleteDetectorModelResponse {
-  __type?: "DeleteDetectorModelResponse";
-}
+export interface DeleteDetectorModelResponse {}
 
 export namespace DeleteDetectorModelResponse {
   export const filterSensitiveLog = (obj: DeleteDetectorModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDetectorModelResponse => __isa(o, "DeleteDetectorModelResponse");
 }
 
 export interface DeleteInputRequest {
-  __type?: "DeleteInputRequest";
   /**
    * <p>The name of the input to delete.</p>
    */
@@ -426,22 +400,17 @@ export namespace DeleteInputRequest {
   export const filterSensitiveLog = (obj: DeleteInputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInputRequest => __isa(o, "DeleteInputRequest");
 }
 
-export interface DeleteInputResponse {
-  __type?: "DeleteInputResponse";
-}
+export interface DeleteInputResponse {}
 
 export namespace DeleteInputResponse {
   export const filterSensitiveLog = (obj: DeleteInputResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInputResponse => __isa(o, "DeleteInputResponse");
 }
 
 export interface DescribeDetectorModelRequest {
-  __type?: "DescribeDetectorModelRequest";
   /**
    * <p>The version of the detector model.</p>
    */
@@ -457,11 +426,9 @@ export namespace DescribeDetectorModelRequest {
   export const filterSensitiveLog = (obj: DescribeDetectorModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDetectorModelRequest => __isa(o, "DescribeDetectorModelRequest");
 }
 
 export interface DescribeDetectorModelResponse {
-  __type?: "DescribeDetectorModelResponse";
   /**
    * <p>Information about the detector model.</p>
    */
@@ -472,11 +439,9 @@ export namespace DescribeDetectorModelResponse {
   export const filterSensitiveLog = (obj: DescribeDetectorModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDetectorModelResponse => __isa(o, "DescribeDetectorModelResponse");
 }
 
 export interface DescribeInputRequest {
-  __type?: "DescribeInputRequest";
   /**
    * <p>The name of the input.</p>
    */
@@ -487,11 +452,9 @@ export namespace DescribeInputRequest {
   export const filterSensitiveLog = (obj: DescribeInputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInputRequest => __isa(o, "DescribeInputRequest");
 }
 
 export interface DescribeInputResponse {
-  __type?: "DescribeInputResponse";
   /**
    * <p>Information about the input.</p>
    */
@@ -502,22 +465,17 @@ export namespace DescribeInputResponse {
   export const filterSensitiveLog = (obj: DescribeInputResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInputResponse => __isa(o, "DescribeInputResponse");
 }
 
-export interface DescribeLoggingOptionsRequest {
-  __type?: "DescribeLoggingOptionsRequest";
-}
+export interface DescribeLoggingOptionsRequest {}
 
 export namespace DescribeLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingOptionsRequest => __isa(o, "DescribeLoggingOptionsRequest");
 }
 
 export interface DescribeLoggingOptionsResponse {
-  __type?: "DescribeLoggingOptionsResponse";
   /**
    * <p>The current settings of the AWS IoT Events logging options.</p>
    */
@@ -528,7 +486,6 @@ export namespace DescribeLoggingOptionsResponse {
   export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingOptionsResponse => __isa(o, "DescribeLoggingOptionsResponse");
 }
 
 /**
@@ -536,7 +493,6 @@ export namespace DescribeLoggingOptionsResponse {
  *       given.</p>
  */
 export interface DetectorDebugOption {
-  __type?: "DetectorDebugOption";
   /**
    * <p>The value of the input attribute key used to create the detector (the instance of the
    *       detector model).</p>
@@ -553,14 +509,12 @@ export namespace DetectorDebugOption {
   export const filterSensitiveLog = (obj: DetectorDebugOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorDebugOption => __isa(o, "DetectorDebugOption");
 }
 
 /**
  * <p>Information about the detector model.</p>
  */
 export interface DetectorModel {
-  __type?: "DetectorModel";
   /**
    * <p>Information about how the detector is configured.</p>
    */
@@ -576,14 +530,12 @@ export namespace DetectorModel {
   export const filterSensitiveLog = (obj: DetectorModel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorModel => __isa(o, "DetectorModel");
 }
 
 /**
  * <p>Information about how the detector model is configured.</p>
  */
 export interface DetectorModelConfiguration {
-  __type?: "DetectorModelConfiguration";
   /**
    * <p>The time the detector model was created.</p>
    */
@@ -646,14 +598,12 @@ export namespace DetectorModelConfiguration {
   export const filterSensitiveLog = (obj: DetectorModelConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorModelConfiguration => __isa(o, "DetectorModelConfiguration");
 }
 
 /**
  * <p>Information that defines how a detector operates.</p>
  */
 export interface DetectorModelDefinition {
-  __type?: "DetectorModelDefinition";
   /**
    * <p>The state that is entered at the creation of each detector (instance).</p>
    */
@@ -669,14 +619,12 @@ export namespace DetectorModelDefinition {
   export const filterSensitiveLog = (obj: DetectorModelDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorModelDefinition => __isa(o, "DetectorModelDefinition");
 }
 
 /**
  * <p>Information about the detector model.</p>
  */
 export interface DetectorModelSummary {
-  __type?: "DetectorModelSummary";
   /**
    * <p>The time the detector model was created.</p>
    */
@@ -697,7 +645,6 @@ export namespace DetectorModelSummary {
   export const filterSensitiveLog = (obj: DetectorModelSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorModelSummary => __isa(o, "DetectorModelSummary");
 }
 
 export enum DetectorModelVersionStatus {
@@ -714,7 +661,6 @@ export enum DetectorModelVersionStatus {
  * <p>Information about the detector model version.</p>
  */
 export interface DetectorModelVersionSummary {
-  __type?: "DetectorModelVersionSummary";
   /**
    * <p>The last time the detector model version was updated.</p>
    */
@@ -761,7 +707,6 @@ export namespace DetectorModelVersionSummary {
   export const filterSensitiveLog = (obj: DetectorModelVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorModelVersionSummary => __isa(o, "DetectorModelVersionSummary");
 }
 
 /**
@@ -789,7 +734,6 @@ export namespace DetectorModelVersionSummary {
  *          </note>
  */
 export interface DynamoDBAction {
-  __type?: "DynamoDBAction";
   /**
    * <p>The value of the range key (also called the sort key).</p>
    */
@@ -899,7 +843,6 @@ export namespace DynamoDBAction {
   export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamoDBAction => __isa(o, "DynamoDBAction");
 }
 
 /**
@@ -914,7 +857,6 @@ export namespace DynamoDBAction {
  *          <p>You can use expressions for parameters that are strings. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
  */
 export interface DynamoDBv2Action {
-  __type?: "DynamoDBv2Action";
   /**
    * <p>The name of the DynamoDB table.</p>
    */
@@ -934,7 +876,6 @@ export namespace DynamoDBv2Action {
   export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamoDBv2Action => __isa(o, "DynamoDBv2Action");
 }
 
 export enum EvaluationMethod {
@@ -947,7 +888,6 @@ export enum EvaluationMethod {
  *       evaluates to TRUE.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>The name of the event.</p>
    */
@@ -970,7 +910,6 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
@@ -978,7 +917,6 @@ export namespace Event {
  *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
  */
 export interface FirehoseAction {
-  __type?: "FirehoseAction";
   /**
    * <p>The name of the Kinesis Data Firehose delivery stream where the data is written.</p>
    */
@@ -1002,14 +940,12 @@ export namespace FirehoseAction {
   export const filterSensitiveLog = (obj: FirehoseAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FirehoseAction => __isa(o, "FirehoseAction");
 }
 
 /**
  * <p>Information about the input.</p>
  */
 export interface Input {
-  __type?: "Input";
   /**
    * <p>Information about the configuration of an input.</p>
    */
@@ -1025,14 +961,12 @@ export namespace Input {
   export const filterSensitiveLog = (obj: Input): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Input => __isa(o, "Input");
 }
 
 /**
  * <p>Information about the configuration of an input.</p>
  */
 export interface InputConfiguration {
-  __type?: "InputConfiguration";
   /**
    * <p>The ARN of the input.</p>
    */
@@ -1068,14 +1002,12 @@ export namespace InputConfiguration {
   export const filterSensitiveLog = (obj: InputConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputConfiguration => __isa(o, "InputConfiguration");
 }
 
 /**
  * <p>The definition of the input.</p>
  */
 export interface InputDefinition {
-  __type?: "InputDefinition";
   /**
    * <p>The attributes from the JSON payload that are made available by the input. Inputs are
    *       derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such
@@ -1090,7 +1022,6 @@ export namespace InputDefinition {
   export const filterSensitiveLog = (obj: InputDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputDefinition => __isa(o, "InputDefinition");
 }
 
 export enum InputStatus {
@@ -1104,7 +1035,6 @@ export enum InputStatus {
  * <p>Information about the input.</p>
  */
 export interface InputSummary {
-  __type?: "InputSummary";
   /**
    * <p>The ARN of the input.</p>
    */
@@ -1140,7 +1070,6 @@ export namespace InputSummary {
   export const filterSensitiveLog = (obj: InputSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputSummary => __isa(o, "InputSummary");
 }
 
 /**
@@ -1159,7 +1088,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -1178,7 +1106,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -1186,7 +1113,6 @@ export namespace InvalidRequestException {
  *       event that triggered the action.</p>
  */
 export interface IotEventsAction {
-  __type?: "IotEventsAction";
   /**
    * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
    */
@@ -1202,7 +1128,6 @@ export namespace IotEventsAction {
   export const filterSensitiveLog = (obj: IotEventsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotEventsAction => __isa(o, "IotEventsAction");
 }
 
 /**
@@ -1227,7 +1152,6 @@ export namespace IotEventsAction {
  *          </ul>
  */
 export interface IotSiteWiseAction {
-  __type?: "IotSiteWiseAction";
   /**
    * <p>The ID of the asset property. You can specify an expression.</p>
    */
@@ -1261,14 +1185,12 @@ export namespace IotSiteWiseAction {
   export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotSiteWiseAction => __isa(o, "IotSiteWiseAction");
 }
 
 /**
  * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
  */
 export interface IotTopicPublishAction {
-  __type?: "IotTopicPublishAction";
   /**
    * <p>You can configure the action payload when you publish a message to an AWS IoT Core
    *       topic.</p>
@@ -1287,7 +1209,6 @@ export namespace IotTopicPublishAction {
   export const filterSensitiveLog = (obj: IotTopicPublishAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotTopicPublishAction => __isa(o, "IotTopicPublishAction");
 }
 
 /**
@@ -1295,7 +1216,6 @@ export namespace IotTopicPublishAction {
  *       event that triggered the action.</p>
  */
 export interface LambdaAction {
-  __type?: "LambdaAction";
   /**
    * <p>You can configure the action payload when you send a message to a Lambda function.</p>
    */
@@ -1311,7 +1231,6 @@ export namespace LambdaAction {
   export const filterSensitiveLog = (obj: LambdaAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaAction => __isa(o, "LambdaAction");
 }
 
 /**
@@ -1330,11 +1249,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDetectorModelsRequest {
-  __type?: "ListDetectorModelsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -1350,11 +1267,9 @@ export namespace ListDetectorModelsRequest {
   export const filterSensitiveLog = (obj: ListDetectorModelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDetectorModelsRequest => __isa(o, "ListDetectorModelsRequest");
 }
 
 export interface ListDetectorModelsResponse {
-  __type?: "ListDetectorModelsResponse";
   /**
    * <p>Summary information about the detector models.</p>
    */
@@ -1371,11 +1286,9 @@ export namespace ListDetectorModelsResponse {
   export const filterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDetectorModelsResponse => __isa(o, "ListDetectorModelsResponse");
 }
 
 export interface ListDetectorModelVersionsRequest {
-  __type?: "ListDetectorModelVersionsRequest";
   /**
    * <p>The name of the detector model whose versions are returned.</p>
    */
@@ -1396,11 +1309,9 @@ export namespace ListDetectorModelVersionsRequest {
   export const filterSensitiveLog = (obj: ListDetectorModelVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDetectorModelVersionsRequest => __isa(o, "ListDetectorModelVersionsRequest");
 }
 
 export interface ListDetectorModelVersionsResponse {
-  __type?: "ListDetectorModelVersionsResponse";
   /**
    * <p>A token to retrieve the next set of results, or <code>null</code> if there are no
    *       additional results.</p>
@@ -1417,11 +1328,9 @@ export namespace ListDetectorModelVersionsResponse {
   export const filterSensitiveLog = (obj: ListDetectorModelVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDetectorModelVersionsResponse => __isa(o, "ListDetectorModelVersionsResponse");
 }
 
 export interface ListInputsRequest {
-  __type?: "ListInputsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -1437,11 +1346,9 @@ export namespace ListInputsRequest {
   export const filterSensitiveLog = (obj: ListInputsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInputsRequest => __isa(o, "ListInputsRequest");
 }
 
 export interface ListInputsResponse {
-  __type?: "ListInputsResponse";
   /**
    * <p>Summary information about the inputs.</p>
    */
@@ -1458,11 +1365,9 @@ export namespace ListInputsResponse {
   export const filterSensitiveLog = (obj: ListInputsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInputsResponse => __isa(o, "ListInputsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN of the resource.</p>
    */
@@ -1473,11 +1378,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tags assigned to the resource.</p>
    */
@@ -1488,7 +1391,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum LoggingLevel {
@@ -1501,7 +1403,6 @@ export enum LoggingLevel {
  * <p>The values of the AWS IoT Events logging options.</p>
  */
 export interface LoggingOptions {
-  __type?: "LoggingOptions";
   /**
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform logging.</p>
    */
@@ -1528,7 +1429,6 @@ export namespace LoggingOptions {
   export const filterSensitiveLog = (obj: LoggingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingOptions => __isa(o, "LoggingOptions");
 }
 
 /**
@@ -1536,7 +1436,6 @@ export namespace LoggingOptions {
  *       is TRUE.</p>
  */
 export interface OnEnterLifecycle {
-  __type?: "OnEnterLifecycle";
   /**
    * <p>Specifies the actions that are performed when the state is entered and the
    *         <code>condition</code> is <code>TRUE</code>.</p>
@@ -1548,7 +1447,6 @@ export namespace OnEnterLifecycle {
   export const filterSensitiveLog = (obj: OnEnterLifecycle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnEnterLifecycle => __isa(o, "OnEnterLifecycle");
 }
 
 /**
@@ -1556,7 +1454,6 @@ export namespace OnEnterLifecycle {
  *         <code>condition</code> is <code>TRUE</code>.</p>
  */
 export interface OnExitLifecycle {
-  __type?: "OnExitLifecycle";
   /**
    * <p>Specifies the <code>actions</code> that are performed when the state is exited and the
    *         <code>condition</code> is <code>TRUE</code>.</p>
@@ -1568,14 +1465,12 @@ export namespace OnExitLifecycle {
   export const filterSensitiveLog = (obj: OnExitLifecycle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnExitLifecycle => __isa(o, "OnExitLifecycle");
 }
 
 /**
  * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
  */
 export interface OnInputLifecycle {
-  __type?: "OnInputLifecycle";
   /**
    * <p>Specifies the actions performed, and the next state entered, when a <code>condition</code>
    *       evaluates to TRUE.</p>
@@ -1592,7 +1487,6 @@ export namespace OnInputLifecycle {
   export const filterSensitiveLog = (obj: OnInputLifecycle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnInputLifecycle => __isa(o, "OnInputLifecycle");
 }
 
 /**
@@ -1603,7 +1497,6 @@ export namespace OnInputLifecycle {
  *         <code>contentExpression</code>.</p>
  */
 export interface Payload {
-  __type?: "Payload";
   /**
    * <p>The content of the payload. You can use a string expression that includes quoted strings
    *         (<code>'<string>'</code>), variables (<code>$variable.<variable-name></code>),
@@ -1624,7 +1517,6 @@ export namespace Payload {
   export const filterSensitiveLog = (obj: Payload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Payload => __isa(o, "Payload");
 }
 
 export enum PayloadType {
@@ -1633,7 +1525,6 @@ export enum PayloadType {
 }
 
 export interface PutLoggingOptionsRequest {
-  __type?: "PutLoggingOptionsRequest";
   /**
    * <p>The new values of the AWS IoT Events logging options.</p>
    */
@@ -1644,7 +1535,6 @@ export namespace PutLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingOptionsRequest => __isa(o, "PutLoggingOptionsRequest");
 }
 
 /**
@@ -1653,7 +1543,6 @@ export namespace PutLoggingOptionsRequest {
  *       timer.</p>
  */
 export interface ResetTimerAction {
-  __type?: "ResetTimerAction";
   /**
    * <p>The name of the timer to reset.</p>
    */
@@ -1664,7 +1553,6 @@ export namespace ResetTimerAction {
   export const filterSensitiveLog = (obj: ResetTimerAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetTimerAction => __isa(o, "ResetTimerAction");
 }
 
 /**
@@ -1693,7 +1581,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1712,7 +1599,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1731,7 +1617,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1750,14 +1635,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * <p>Information needed to set the timer.</p>
  */
 export interface SetTimerAction {
-  __type?: "SetTimerAction";
   /**
    * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure
    *       accuracy. The maximum value is 31622400 seconds. </p>
@@ -1783,14 +1666,12 @@ export namespace SetTimerAction {
   export const filterSensitiveLog = (obj: SetTimerAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetTimerAction => __isa(o, "SetTimerAction");
 }
 
 /**
  * <p>Information about the variable and its new value.</p>
  */
 export interface SetVariableAction {
-  __type?: "SetVariableAction";
   /**
    * <p>The new value of the variable.</p>
    */
@@ -1806,14 +1687,12 @@ export namespace SetVariableAction {
   export const filterSensitiveLog = (obj: SetVariableAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetVariableAction => __isa(o, "SetVariableAction");
 }
 
 /**
  * <p>Information required to publish the Amazon SNS message.</p>
  */
 export interface SNSTopicPublishAction {
-  __type?: "SNSTopicPublishAction";
   /**
    * <p>You can configure the action payload when you send a message as an Amazon SNS push
    *       notification.</p>
@@ -1830,7 +1709,6 @@ export namespace SNSTopicPublishAction {
   export const filterSensitiveLog = (obj: SNSTopicPublishAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSTopicPublishAction => __isa(o, "SNSTopicPublishAction");
 }
 
 /**
@@ -1838,7 +1716,6 @@ export namespace SNSTopicPublishAction {
  *       action to an Amazon SQS queue.</p>
  */
 export interface SqsAction {
-  __type?: "SqsAction";
   /**
    * <p>You can configure the action payload when you send a message to an Amazon SQS
    *       queue.</p>
@@ -1861,14 +1738,12 @@ export namespace SqsAction {
   export const filterSensitiveLog = (obj: SqsAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqsAction => __isa(o, "SqsAction");
 }
 
 /**
  * <p>Information that defines a state of a detector.</p>
  */
 export interface State {
-  __type?: "State";
   /**
    * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
    *       is TRUE.</p>
@@ -1897,14 +1772,12 @@ export namespace State {
   export const filterSensitiveLog = (obj: State): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is State => __isa(o, "State");
 }
 
 /**
  * <p>Metadata that can be used to manage the resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's value.</p>
    */
@@ -1920,11 +1793,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The ARN of the resource.</p>
    */
@@ -1940,18 +1811,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1970,7 +1837,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1978,7 +1844,6 @@ export namespace ThrottlingException {
  *       evaluates to TRUE.</p>
  */
 export interface TransitionEvent {
-  __type?: "TransitionEvent";
   /**
    * <p>Required. A Boolean expression that when TRUE causes the actions to be performed and the
    *         <code>nextState</code> to be entered.</p>
@@ -2005,7 +1870,6 @@ export namespace TransitionEvent {
   export const filterSensitiveLog = (obj: TransitionEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitionEvent => __isa(o, "TransitionEvent");
 }
 
 /**
@@ -2024,11 +1888,9 @@ export namespace UnsupportedOperationException {
   export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperationException => __isa(o, "UnsupportedOperationException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
@@ -2044,22 +1906,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDetectorModelRequest {
-  __type?: "UpdateDetectorModelRequest";
   /**
    * <p>A brief description of the detector model.</p>
    */
@@ -2091,11 +1948,9 @@ export namespace UpdateDetectorModelRequest {
   export const filterSensitiveLog = (obj: UpdateDetectorModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorModelRequest => __isa(o, "UpdateDetectorModelRequest");
 }
 
 export interface UpdateDetectorModelResponse {
-  __type?: "UpdateDetectorModelResponse";
   /**
    * <p>Information about how the detector model is configured.</p>
    */
@@ -2106,11 +1961,9 @@ export namespace UpdateDetectorModelResponse {
   export const filterSensitiveLog = (obj: UpdateDetectorModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorModelResponse => __isa(o, "UpdateDetectorModelResponse");
 }
 
 export interface UpdateInputRequest {
-  __type?: "UpdateInputRequest";
   /**
    * <p>The name of the input you want to update.</p>
    */
@@ -2131,11 +1984,9 @@ export namespace UpdateInputRequest {
   export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInputRequest => __isa(o, "UpdateInputRequest");
 }
 
 export interface UpdateInputResponse {
-  __type?: "UpdateInputResponse";
   /**
    * <p>Information about the configuration of the input.</p>
    */
@@ -2146,5 +1997,4 @@ export namespace UpdateInputResponse {
   export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInputResponse => __isa(o, "UpdateInputResponse");
 }

@@ -1300,7 +1300,6 @@ export const deserializeAws_queryAttachLoadBalancersCommand = async (
   contents = deserializeAws_queryAttachLoadBalancersResultType(data.AttachLoadBalancersResult, context);
   const response: AttachLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachLoadBalancersResultType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1366,7 +1365,6 @@ export const deserializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
   );
   const response: AttachLoadBalancerTargetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachLoadBalancerTargetGroupsResultType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1429,7 +1427,6 @@ export const deserializeAws_queryBatchDeleteScheduledActionCommand = async (
   contents = deserializeAws_queryBatchDeleteScheduledActionAnswer(data.BatchDeleteScheduledActionResult, context);
   const response: BatchDeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDeleteScheduledActionAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1487,7 +1484,6 @@ export const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand = asy
   );
   const response: BatchPutScheduledUpdateGroupActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchPutScheduledUpdateGroupActionAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1558,7 +1554,6 @@ export const deserializeAws_queryCancelInstanceRefreshCommand = async (
   contents = deserializeAws_queryCancelInstanceRefreshAnswer(data.CancelInstanceRefreshResult, context);
   const response: CancelInstanceRefreshCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelInstanceRefreshAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1629,7 +1624,6 @@ export const deserializeAws_queryCompleteLifecycleActionCommand = async (
   contents = deserializeAws_queryCompleteLifecycleActionAnswer(data.CompleteLifecycleActionResult, context);
   const response: CompleteLifecycleActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CompleteLifecycleActionAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2027,7 +2021,6 @@ export const deserializeAws_queryDeleteLifecycleHookCommand = async (
   contents = deserializeAws_queryDeleteLifecycleHookAnswer(data.DeleteLifecycleHookResult, context);
   const response: DeleteLifecycleHookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLifecycleHookAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2302,7 +2295,6 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   contents = deserializeAws_queryDescribeAccountLimitsAnswer(data.DescribeAccountLimitsResult, context);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountLimitsAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2357,7 +2349,6 @@ export const deserializeAws_queryDescribeAdjustmentTypesCommand = async (
   contents = deserializeAws_queryDescribeAdjustmentTypesAnswer(data.DescribeAdjustmentTypesResult, context);
   const response: DescribeAdjustmentTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAdjustmentTypesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2412,7 +2403,6 @@ export const deserializeAws_queryDescribeAutoScalingGroupsCommand = async (
   contents = deserializeAws_queryAutoScalingGroupsType(data.DescribeAutoScalingGroupsResult, context);
   const response: DescribeAutoScalingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AutoScalingGroupsType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2475,7 +2465,6 @@ export const deserializeAws_queryDescribeAutoScalingInstancesCommand = async (
   contents = deserializeAws_queryAutoScalingInstancesType(data.DescribeAutoScalingInstancesResult, context);
   const response: DescribeAutoScalingInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AutoScalingInstancesType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2541,7 +2530,6 @@ export const deserializeAws_queryDescribeAutoScalingNotificationTypesCommand = a
   );
   const response: DescribeAutoScalingNotificationTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAutoScalingNotificationTypesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2596,7 +2584,6 @@ export const deserializeAws_queryDescribeInstanceRefreshesCommand = async (
   contents = deserializeAws_queryDescribeInstanceRefreshesAnswer(data.DescribeInstanceRefreshesResult, context);
   const response: DescribeInstanceRefreshesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstanceRefreshesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2659,7 +2646,6 @@ export const deserializeAws_queryDescribeLaunchConfigurationsCommand = async (
   contents = deserializeAws_queryLaunchConfigurationsType(data.DescribeLaunchConfigurationsResult, context);
   const response: DescribeLaunchConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LaunchConfigurationsType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2722,7 +2708,6 @@ export const deserializeAws_queryDescribeLifecycleHooksCommand = async (
   contents = deserializeAws_queryDescribeLifecycleHooksAnswer(data.DescribeLifecycleHooksResult, context);
   const response: DescribeLifecycleHooksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLifecycleHooksAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2777,7 +2762,6 @@ export const deserializeAws_queryDescribeLifecycleHookTypesCommand = async (
   contents = deserializeAws_queryDescribeLifecycleHookTypesAnswer(data.DescribeLifecycleHookTypesResult, context);
   const response: DescribeLifecycleHookTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLifecycleHookTypesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2832,7 +2816,6 @@ export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   contents = deserializeAws_queryDescribeLoadBalancersResponse(data.DescribeLoadBalancersResult, context);
   const response: DescribeLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoadBalancersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2890,7 +2873,6 @@ export const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async
   );
   const response: DescribeLoadBalancerTargetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoadBalancerTargetGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2945,7 +2927,6 @@ export const deserializeAws_queryDescribeMetricCollectionTypesCommand = async (
   contents = deserializeAws_queryDescribeMetricCollectionTypesAnswer(data.DescribeMetricCollectionTypesResult, context);
   const response: DescribeMetricCollectionTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMetricCollectionTypesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3003,7 +2984,6 @@ export const deserializeAws_queryDescribeNotificationConfigurationsCommand = asy
   );
   const response: DescribeNotificationConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNotificationConfigurationsAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3066,7 +3046,6 @@ export const deserializeAws_queryDescribePoliciesCommand = async (
   contents = deserializeAws_queryPoliciesType(data.DescribePoliciesResult, context);
   const response: DescribePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PoliciesType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3137,7 +3116,6 @@ export const deserializeAws_queryDescribeScalingActivitiesCommand = async (
   contents = deserializeAws_queryActivitiesType(data.DescribeScalingActivitiesResult, context);
   const response: DescribeScalingActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivitiesType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3200,7 +3178,6 @@ export const deserializeAws_queryDescribeScalingProcessTypesCommand = async (
   contents = deserializeAws_queryProcessesType(data.DescribeScalingProcessTypesResult, context);
   const response: DescribeScalingProcessTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ProcessesType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3255,7 +3232,6 @@ export const deserializeAws_queryDescribeScheduledActionsCommand = async (
   contents = deserializeAws_queryScheduledActionsType(data.DescribeScheduledActionsResult, context);
   const response: DescribeScheduledActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScheduledActionsType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3318,7 +3294,6 @@ export const deserializeAws_queryDescribeTagsCommand = async (
   contents = deserializeAws_queryTagsType(data.DescribeTagsResult, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagsType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3384,7 +3359,6 @@ export const deserializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   );
   const response: DescribeTerminationPolicyTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTerminationPolicyTypesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3439,7 +3413,6 @@ export const deserializeAws_queryDetachInstancesCommand = async (
   contents = deserializeAws_queryDetachInstancesAnswer(data.DetachInstancesResult, context);
   const response: DetachInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachInstancesAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3494,7 +3467,6 @@ export const deserializeAws_queryDetachLoadBalancersCommand = async (
   contents = deserializeAws_queryDetachLoadBalancersResultType(data.DetachLoadBalancersResult, context);
   const response: DetachLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachLoadBalancersResultType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3552,7 +3524,6 @@ export const deserializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
   );
   const response: DetachLoadBalancerTargetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachLoadBalancerTargetGroupsResultType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3709,7 +3680,6 @@ export const deserializeAws_queryEnterStandbyCommand = async (
   contents = deserializeAws_queryEnterStandbyAnswer(data.EnterStandbyResult, context);
   const response: EnterStandbyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnterStandbyAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3823,7 +3793,6 @@ export const deserializeAws_queryExitStandbyCommand = async (
   contents = deserializeAws_queryExitStandbyAnswer(data.ExitStandbyResult, context);
   const response: ExitStandbyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExitStandbyAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3878,7 +3847,6 @@ export const deserializeAws_queryPutLifecycleHookCommand = async (
   contents = deserializeAws_queryPutLifecycleHookAnswer(data.PutLifecycleHookResult, context);
   const response: PutLifecycleHookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLifecycleHookAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4008,7 +3976,6 @@ export const deserializeAws_queryPutScalingPolicyCommand = async (
   contents = deserializeAws_queryPolicyARNType(data.PutScalingPolicyResult, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PolicyARNType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4149,7 +4116,6 @@ export const deserializeAws_queryRecordLifecycleActionHeartbeatCommand = async (
   );
   const response: RecordLifecycleActionHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RecordLifecycleActionHeartbeatAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4373,7 +4339,6 @@ export const deserializeAws_querySetInstanceProtectionCommand = async (
   contents = deserializeAws_querySetInstanceProtectionAnswer(data.SetInstanceProtectionResult, context);
   const response: SetInstanceProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetInstanceProtectionAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4436,7 +4401,6 @@ export const deserializeAws_queryStartInstanceRefreshCommand = async (
   contents = deserializeAws_queryStartInstanceRefreshAnswer(data.StartInstanceRefreshResult, context);
   const response: StartInstanceRefreshCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartInstanceRefreshAnswer",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4566,7 +4530,6 @@ export const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand = as
   contents = deserializeAws_queryActivityType(data.TerminateInstanceInAutoScalingGroupResult, context);
   const response: TerminateInstanceInAutoScalingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivityType",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6619,7 +6582,6 @@ const deserializeAws_queryActiveInstanceRefreshNotFoundFault = (
   context: __SerdeContext
 ): ActiveInstanceRefreshNotFoundFault => {
   let contents: any = {
-    __type: "ActiveInstanceRefreshNotFoundFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6634,7 +6596,6 @@ const deserializeAws_queryActivities = (output: any, context: __SerdeContext): A
 
 const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext): ActivitiesType => {
   let contents: any = {
-    __type: "ActivitiesType",
     Activities: undefined,
     NextToken: undefined,
   };
@@ -6655,7 +6616,6 @@ const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext
 
 const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Activity => {
   let contents: any = {
-    __type: "Activity",
     StartTime: undefined,
     EndTime: undefined,
     StatusMessage: undefined,
@@ -6702,7 +6662,6 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
 
 const deserializeAws_queryActivityType = (output: any, context: __SerdeContext): ActivityType => {
   let contents: any = {
-    __type: "ActivityType",
     Activity: undefined,
   };
   if (output["Activity"] !== undefined) {
@@ -6713,7 +6672,6 @@ const deserializeAws_queryActivityType = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryAdjustmentType = (output: any, context: __SerdeContext): AdjustmentType => {
   let contents: any = {
-    __type: "AdjustmentType",
     AdjustmentType: undefined,
   };
   if (output["AdjustmentType"] !== undefined) {
@@ -6728,7 +6686,6 @@ const deserializeAws_queryAdjustmentTypes = (output: any, context: __SerdeContex
 
 const deserializeAws_queryAlarm = (output: any, context: __SerdeContext): Alarm => {
   let contents: any = {
-    __type: "Alarm",
     AlarmARN: undefined,
     AlarmName: undefined,
   };
@@ -6747,7 +6704,6 @@ const deserializeAws_queryAlarms = (output: any, context: __SerdeContext): Alarm
 
 const deserializeAws_queryAlreadyExistsFault = (output: any, context: __SerdeContext): AlreadyExistsFault => {
   let contents: any = {
-    __type: "AlreadyExistsFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6760,9 +6716,7 @@ const deserializeAws_queryAttachLoadBalancersResultType = (
   output: any,
   context: __SerdeContext
 ): AttachLoadBalancersResultType => {
-  let contents: any = {
-    __type: "AttachLoadBalancersResultType",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -6770,15 +6724,12 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsResultType = (
   output: any,
   context: __SerdeContext
 ): AttachLoadBalancerTargetGroupsResultType => {
-  let contents: any = {
-    __type: "AttachLoadBalancerTargetGroupsResultType",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   let contents: any = {
-    __type: "AutoScalingGroup",
     Tags: undefined,
     EnabledMetrics: undefined,
     VPCZoneIdentifier: undefined,
@@ -6935,7 +6886,6 @@ const deserializeAws_queryAutoScalingGroups = (output: any, context: __SerdeCont
 
 const deserializeAws_queryAutoScalingGroupsType = (output: any, context: __SerdeContext): AutoScalingGroupsType => {
   let contents: any = {
-    __type: "AutoScalingGroupsType",
     NextToken: undefined,
     AutoScalingGroups: undefined,
   };
@@ -6959,7 +6909,6 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
   context: __SerdeContext
 ): AutoScalingInstanceDetails => {
   let contents: any = {
-    __type: "AutoScalingInstanceDetails",
     ProtectedFromScaleIn: undefined,
     HealthStatus: undefined,
     InstanceId: undefined,
@@ -7016,7 +6965,6 @@ const deserializeAws_queryAutoScalingInstancesType = (
   context: __SerdeContext
 ): AutoScalingInstancesType => {
   let contents: any = {
-    __type: "AutoScalingInstancesType",
     AutoScalingInstances: undefined,
     NextToken: undefined,
   };
@@ -7048,7 +6996,6 @@ const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
   context: __SerdeContext
 ): BatchDeleteScheduledActionAnswer => {
   let contents: any = {
-    __type: "BatchDeleteScheduledActionAnswer",
     FailedScheduledActions: undefined,
   };
   if (output.FailedScheduledActions === "") {
@@ -7068,7 +7015,6 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
   context: __SerdeContext
 ): BatchPutScheduledUpdateGroupActionAnswer => {
   let contents: any = {
-    __type: "BatchPutScheduledUpdateGroupActionAnswer",
     FailedScheduledUpdateGroupActions: undefined,
   };
   if (output.FailedScheduledUpdateGroupActions === "") {
@@ -7088,7 +7034,6 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
 
 const deserializeAws_queryBlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
   let contents: any = {
-    __type: "BlockDeviceMapping",
     VirtualName: undefined,
     NoDevice: undefined,
     Ebs: undefined,
@@ -7118,7 +7063,6 @@ const deserializeAws_queryCancelInstanceRefreshAnswer = (
   context: __SerdeContext
 ): CancelInstanceRefreshAnswer => {
   let contents: any = {
-    __type: "CancelInstanceRefreshAnswer",
     InstanceRefreshId: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
@@ -7135,9 +7079,7 @@ const deserializeAws_queryCompleteLifecycleActionAnswer = (
   output: any,
   context: __SerdeContext
 ): CompleteLifecycleActionAnswer => {
-  let contents: any = {
-    __type: "CompleteLifecycleActionAnswer",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -7146,7 +7088,6 @@ const deserializeAws_queryCustomizedMetricSpecification = (
   context: __SerdeContext
 ): CustomizedMetricSpecification => {
   let contents: any = {
-    __type: "CustomizedMetricSpecification",
     Namespace: undefined,
     Dimensions: undefined,
     Unit: undefined,
@@ -7181,9 +7122,7 @@ const deserializeAws_queryDeleteLifecycleHookAnswer = (
   output: any,
   context: __SerdeContext
 ): DeleteLifecycleHookAnswer => {
-  let contents: any = {
-    __type: "DeleteLifecycleHookAnswer",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -7192,7 +7131,6 @@ const deserializeAws_queryDescribeAccountLimitsAnswer = (
   context: __SerdeContext
 ): DescribeAccountLimitsAnswer => {
   let contents: any = {
-    __type: "DescribeAccountLimitsAnswer",
     NumberOfAutoScalingGroups: undefined,
     NumberOfLaunchConfigurations: undefined,
     MaxNumberOfAutoScalingGroups: undefined,
@@ -7218,7 +7156,6 @@ const deserializeAws_queryDescribeAdjustmentTypesAnswer = (
   context: __SerdeContext
 ): DescribeAdjustmentTypesAnswer => {
   let contents: any = {
-    __type: "DescribeAdjustmentTypesAnswer",
     AdjustmentTypes: undefined,
   };
   if (output.AdjustmentTypes === "") {
@@ -7238,7 +7175,6 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesAnswer = (
   context: __SerdeContext
 ): DescribeAutoScalingNotificationTypesAnswer => {
   let contents: any = {
-    __type: "DescribeAutoScalingNotificationTypesAnswer",
     AutoScalingNotificationTypes: undefined,
   };
   if (output.AutoScalingNotificationTypes === "") {
@@ -7261,7 +7197,6 @@ const deserializeAws_queryDescribeInstanceRefreshesAnswer = (
   context: __SerdeContext
 ): DescribeInstanceRefreshesAnswer => {
   let contents: any = {
-    __type: "DescribeInstanceRefreshesAnswer",
     NextToken: undefined,
     InstanceRefreshes: undefined,
   };
@@ -7285,7 +7220,6 @@ const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   context: __SerdeContext
 ): DescribeLifecycleHooksAnswer => {
   let contents: any = {
-    __type: "DescribeLifecycleHooksAnswer",
     LifecycleHooks: undefined,
   };
   if (output.LifecycleHooks === "") {
@@ -7305,7 +7239,6 @@ const deserializeAws_queryDescribeLifecycleHookTypesAnswer = (
   context: __SerdeContext
 ): DescribeLifecycleHookTypesAnswer => {
   let contents: any = {
-    __type: "DescribeLifecycleHookTypesAnswer",
     LifecycleHookTypes: undefined,
   };
   if (output.LifecycleHookTypes === "") {
@@ -7325,7 +7258,6 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
   context: __SerdeContext
 ): DescribeLoadBalancersResponse => {
   let contents: any = {
-    __type: "DescribeLoadBalancersResponse",
     LoadBalancers: undefined,
     NextToken: undefined,
   };
@@ -7349,7 +7281,6 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
   context: __SerdeContext
 ): DescribeLoadBalancerTargetGroupsResponse => {
   let contents: any = {
-    __type: "DescribeLoadBalancerTargetGroupsResponse",
     LoadBalancerTargetGroups: undefined,
     NextToken: undefined,
   };
@@ -7373,7 +7304,6 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
   context: __SerdeContext
 ): DescribeMetricCollectionTypesAnswer => {
   let contents: any = {
-    __type: "DescribeMetricCollectionTypesAnswer",
     Metrics: undefined,
     Granularities: undefined,
   };
@@ -7403,7 +7333,6 @@ const deserializeAws_queryDescribeNotificationConfigurationsAnswer = (
   context: __SerdeContext
 ): DescribeNotificationConfigurationsAnswer => {
   let contents: any = {
-    __type: "DescribeNotificationConfigurationsAnswer",
     NextToken: undefined,
     NotificationConfigurations: undefined,
   };
@@ -7430,7 +7359,6 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
   context: __SerdeContext
 ): DescribeTerminationPolicyTypesAnswer => {
   let contents: any = {
-    __type: "DescribeTerminationPolicyTypesAnswer",
     TerminationPolicyTypes: undefined,
   };
   if (output.TerminationPolicyTypes === "") {
@@ -7447,7 +7375,6 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
 
 const deserializeAws_queryDetachInstancesAnswer = (output: any, context: __SerdeContext): DetachInstancesAnswer => {
   let contents: any = {
-    __type: "DetachInstancesAnswer",
     Activities: undefined,
   };
   if (output.Activities === "") {
@@ -7466,9 +7393,7 @@ const deserializeAws_queryDetachLoadBalancersResultType = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancersResultType => {
-  let contents: any = {
-    __type: "DetachLoadBalancersResultType",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -7476,15 +7401,12 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsResultType = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancerTargetGroupsResultType => {
-  let contents: any = {
-    __type: "DetachLoadBalancerTargetGroupsResultType",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
   let contents: any = {
-    __type: "Ebs",
     DeleteOnTermination: undefined,
     Encrypted: undefined,
     VolumeSize: undefined,
@@ -7515,7 +7437,6 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
 
 const deserializeAws_queryEnabledMetric = (output: any, context: __SerdeContext): EnabledMetric => {
   let contents: any = {
-    __type: "EnabledMetric",
     Granularity: undefined,
     Metric: undefined,
   };
@@ -7534,7 +7455,6 @@ const deserializeAws_queryEnabledMetrics = (output: any, context: __SerdeContext
 
 const deserializeAws_queryEnterStandbyAnswer = (output: any, context: __SerdeContext): EnterStandbyAnswer => {
   let contents: any = {
-    __type: "EnterStandbyAnswer",
     Activities: undefined,
   };
   if (output.Activities === "") {
@@ -7551,7 +7471,6 @@ const deserializeAws_queryEnterStandbyAnswer = (output: any, context: __SerdeCon
 
 const deserializeAws_queryExitStandbyAnswer = (output: any, context: __SerdeContext): ExitStandbyAnswer => {
   let contents: any = {
-    __type: "ExitStandbyAnswer",
     Activities: undefined,
   };
   if (output.Activities === "") {
@@ -7571,7 +7490,6 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequest = (
   context: __SerdeContext
 ): FailedScheduledUpdateGroupActionRequest => {
   let contents: any = {
-    __type: "FailedScheduledUpdateGroupActionRequest",
     ErrorCode: undefined,
     ScheduledActionName: undefined,
     ErrorMessage: undefined,
@@ -7599,7 +7517,6 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
 
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
   let contents: any = {
-    __type: "Instance",
     ProtectedFromScaleIn: undefined,
     HealthStatus: undefined,
     InstanceId: undefined,
@@ -7642,7 +7559,6 @@ const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Ins
 
 const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __SerdeContext): InstanceMetadataOptions => {
   let contents: any = {
-    __type: "InstanceMetadataOptions",
     HttpTokens: undefined,
     HttpPutResponseHopLimit: undefined,
     HttpEndpoint: undefined,
@@ -7661,7 +7577,6 @@ const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __Ser
 
 const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeContext): InstanceMonitoring => {
   let contents: any = {
-    __type: "InstanceMonitoring",
     Enabled: undefined,
   };
   if (output["Enabled"] !== undefined) {
@@ -7672,7 +7587,6 @@ const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeCon
 
 const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContext): InstanceRefresh => {
   let contents: any = {
-    __type: "InstanceRefresh",
     EndTime: undefined,
     PercentageComplete: undefined,
     InstancesToUpdate: undefined,
@@ -7718,7 +7632,6 @@ const deserializeAws_queryInstanceRefreshInProgressFault = (
   context: __SerdeContext
 ): InstanceRefreshInProgressFault => {
   let contents: any = {
-    __type: "InstanceRefreshInProgressFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7733,7 +7646,6 @@ const deserializeAws_queryInstances = (output: any, context: __SerdeContext): In
 
 const deserializeAws_queryInstancesDistribution = (output: any, context: __SerdeContext): InstancesDistribution => {
   let contents: any = {
-    __type: "InstancesDistribution",
     SpotAllocationStrategy: undefined,
     SpotMaxPrice: undefined,
     OnDemandBaseCapacity: undefined,
@@ -7764,7 +7676,6 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
 
 const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
   let contents: any = {
-    __type: "InvalidNextToken",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7775,7 +7686,6 @@ const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeConte
 
 const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
   let contents: any = {
-    __type: "LaunchConfiguration",
     InstanceType: undefined,
     ClassicLinkVPCSecurityGroups: undefined,
     SecurityGroups: undefined,
@@ -7890,7 +7800,6 @@ const deserializeAws_queryLaunchConfigurationsType = (
   context: __SerdeContext
 ): LaunchConfigurationsType => {
   let contents: any = {
-    __type: "LaunchConfigurationsType",
     LaunchConfigurations: undefined,
     NextToken: undefined,
   };
@@ -7911,7 +7820,6 @@ const deserializeAws_queryLaunchConfigurationsType = (
 
 const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
   let contents: any = {
-    __type: "LaunchTemplate",
     Overrides: undefined,
     LaunchTemplateSpecification: undefined,
   };
@@ -7932,7 +7840,6 @@ const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext
 
 const deserializeAws_queryLaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
   let contents: any = {
-    __type: "LaunchTemplateOverrides",
     WeightedCapacity: undefined,
     InstanceType: undefined,
   };
@@ -7950,7 +7857,6 @@ const deserializeAws_queryLaunchTemplateSpecification = (
   context: __SerdeContext
 ): LaunchTemplateSpecification => {
   let contents: any = {
-    __type: "LaunchTemplateSpecification",
     LaunchTemplateId: undefined,
     Version: undefined,
     LaunchTemplateName: undefined,
@@ -7969,7 +7875,6 @@ const deserializeAws_queryLaunchTemplateSpecification = (
 
 const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext): LifecycleHook => {
   let contents: any = {
-    __type: "LifecycleHook",
     NotificationTargetARN: undefined,
     RoleARN: undefined,
     LifecycleHookName: undefined,
@@ -8016,7 +7921,6 @@ const deserializeAws_queryLifecycleHooks = (output: any, context: __SerdeContext
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
   let contents: any = {
-    __type: "LimitExceededFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8031,7 +7935,6 @@ const deserializeAws_queryLoadBalancerNames = (output: any, context: __SerdeCont
 
 const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
   let contents: any = {
-    __type: "LoadBalancerState",
     State: undefined,
     LoadBalancerName: undefined,
   };
@@ -8053,7 +7956,6 @@ const deserializeAws_queryLoadBalancerTargetGroupState = (
   context: __SerdeContext
 ): LoadBalancerTargetGroupState => {
   let contents: any = {
-    __type: "LoadBalancerTargetGroupState",
     State: undefined,
     LoadBalancerTargetGroupARN: undefined,
   };
@@ -8075,7 +7977,6 @@ const deserializeAws_queryLoadBalancerTargetGroupStates = (
 
 const deserializeAws_queryMetricCollectionType = (output: any, context: __SerdeContext): MetricCollectionType => {
   let contents: any = {
-    __type: "MetricCollectionType",
     Metric: undefined,
   };
   if (output["Metric"] !== undefined) {
@@ -8090,7 +7991,6 @@ const deserializeAws_queryMetricCollectionTypes = (output: any, context: __Serde
 
 const deserializeAws_queryMetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   let contents: any = {
-    __type: "MetricDimension",
     Name: undefined,
     Value: undefined,
   };
@@ -8109,7 +8009,6 @@ const deserializeAws_queryMetricDimensions = (output: any, context: __SerdeConte
 
 const deserializeAws_queryMetricGranularityType = (output: any, context: __SerdeContext): MetricGranularityType => {
   let contents: any = {
-    __type: "MetricGranularityType",
     Granularity: undefined,
   };
   if (output["Granularity"] !== undefined) {
@@ -8124,7 +8023,6 @@ const deserializeAws_queryMetricGranularityTypes = (output: any, context: __Serd
 
 const deserializeAws_queryMixedInstancesPolicy = (output: any, context: __SerdeContext): MixedInstancesPolicy => {
   let contents: any = {
-    __type: "MixedInstancesPolicy",
     LaunchTemplate: undefined,
     InstancesDistribution: undefined,
   };
@@ -8145,7 +8043,6 @@ const deserializeAws_queryNotificationConfiguration = (
   context: __SerdeContext
 ): NotificationConfiguration => {
   let contents: any = {
-    __type: "NotificationConfiguration",
     AutoScalingGroupName: undefined,
     NotificationType: undefined,
     TopicARN: undefined,
@@ -8175,7 +8072,6 @@ const deserializeAws_queryOverrides = (output: any, context: __SerdeContext): La
 
 const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext): PoliciesType => {
   let contents: any = {
-    __type: "PoliciesType",
     NextToken: undefined,
     ScalingPolicies: undefined,
   };
@@ -8196,7 +8092,6 @@ const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryPolicyARNType = (output: any, context: __SerdeContext): PolicyARNType => {
   let contents: any = {
-    __type: "PolicyARNType",
     PolicyARN: undefined,
     Alarms: undefined,
   };
@@ -8217,7 +8112,6 @@ const deserializeAws_queryPredefinedMetricSpecification = (
   context: __SerdeContext
 ): PredefinedMetricSpecification => {
   let contents: any = {
-    __type: "PredefinedMetricSpecification",
     PredefinedMetricType: undefined,
     ResourceLabel: undefined,
   };
@@ -8236,7 +8130,6 @@ const deserializeAws_queryProcesses = (output: any, context: __SerdeContext): Pr
 
 const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
   let contents: any = {
-    __type: "ProcessesType",
     Processes: undefined,
   };
   if (output.Processes === "") {
@@ -8250,7 +8143,6 @@ const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryProcessType = (output: any, context: __SerdeContext): ProcessType => {
   let contents: any = {
-    __type: "ProcessType",
     ProcessName: undefined,
   };
   if (output["ProcessName"] !== undefined) {
@@ -8260,9 +8152,7 @@ const deserializeAws_queryProcessType = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryPutLifecycleHookAnswer = (output: any, context: __SerdeContext): PutLifecycleHookAnswer => {
-  let contents: any = {
-    __type: "PutLifecycleHookAnswer",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -8270,15 +8160,12 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatAnswer = (
   output: any,
   context: __SerdeContext
 ): RecordLifecycleActionHeartbeatAnswer => {
-  let contents: any = {
-    __type: "RecordLifecycleActionHeartbeatAnswer",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryResourceContentionFault = (output: any, context: __SerdeContext): ResourceContentionFault => {
   let contents: any = {
-    __type: "ResourceContentionFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8289,7 +8176,6 @@ const deserializeAws_queryResourceContentionFault = (output: any, context: __Ser
 
 const deserializeAws_queryResourceInUseFault = (output: any, context: __SerdeContext): ResourceInUseFault => {
   let contents: any = {
-    __type: "ResourceInUseFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8303,7 +8189,6 @@ const deserializeAws_queryScalingActivityInProgressFault = (
   context: __SerdeContext
 ): ScalingActivityInProgressFault => {
   let contents: any = {
-    __type: "ScalingActivityInProgressFault",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8318,7 +8203,6 @@ const deserializeAws_queryScalingPolicies = (output: any, context: __SerdeContex
 
 const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   let contents: any = {
-    __type: "ScalingPolicy",
     Alarms: undefined,
     PolicyType: undefined,
     StepAdjustments: undefined,
@@ -8397,7 +8281,6 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryScheduledActionsType = (output: any, context: __SerdeContext): ScheduledActionsType => {
   let contents: any = {
-    __type: "ScheduledActionsType",
     NextToken: undefined,
     ScheduledUpdateGroupActions: undefined,
   };
@@ -8424,7 +8307,6 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
   context: __SerdeContext
 ): ScheduledUpdateGroupAction => {
   let contents: any = {
-    __type: "ScheduledUpdateGroupAction",
     MaxSize: undefined,
     Recurrence: undefined,
     AutoScalingGroupName: undefined,
@@ -8485,7 +8367,6 @@ const deserializeAws_queryServiceLinkedRoleFailure = (
   context: __SerdeContext
 ): ServiceLinkedRoleFailure => {
   let contents: any = {
-    __type: "ServiceLinkedRoleFailure",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8498,9 +8379,7 @@ const deserializeAws_querySetInstanceProtectionAnswer = (
   output: any,
   context: __SerdeContext
 ): SetInstanceProtectionAnswer => {
-  let contents: any = {
-    __type: "SetInstanceProtectionAnswer",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -8509,7 +8388,6 @@ const deserializeAws_queryStartInstanceRefreshAnswer = (
   context: __SerdeContext
 ): StartInstanceRefreshAnswer => {
   let contents: any = {
-    __type: "StartInstanceRefreshAnswer",
     InstanceRefreshId: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
@@ -8520,7 +8398,6 @@ const deserializeAws_queryStartInstanceRefreshAnswer = (
 
 const deserializeAws_queryStepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
   let contents: any = {
-    __type: "StepAdjustment",
     MetricIntervalLowerBound: undefined,
     MetricIntervalUpperBound: undefined,
     ScalingAdjustment: undefined,
@@ -8543,7 +8420,6 @@ const deserializeAws_queryStepAdjustments = (output: any, context: __SerdeContex
 
 const deserializeAws_querySuspendedProcess = (output: any, context: __SerdeContext): SuspendedProcess => {
   let contents: any = {
-    __type: "SuspendedProcess",
     SuspensionReason: undefined,
     ProcessName: undefined,
   };
@@ -8562,7 +8438,6 @@ const deserializeAws_querySuspendedProcesses = (output: any, context: __SerdeCon
 
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
   let contents: any = {
-    __type: "TagDescription",
     PropagateAtLaunch: undefined,
     Key: undefined,
     ResourceId: undefined,
@@ -8593,7 +8468,6 @@ const deserializeAws_queryTagDescriptionList = (output: any, context: __SerdeCon
 
 const deserializeAws_queryTagsType = (output: any, context: __SerdeContext): TagsType => {
   let contents: any = {
-    __type: "TagsType",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -8618,7 +8492,6 @@ const deserializeAws_queryTargetTrackingConfiguration = (
   context: __SerdeContext
 ): TargetTrackingConfiguration => {
   let contents: any = {
-    __type: "TargetTrackingConfiguration",
     DisableScaleIn: undefined,
     PredefinedMetricSpecification: undefined,
     CustomizedMetricSpecification: undefined,

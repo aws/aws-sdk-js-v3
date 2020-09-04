@@ -1393,7 +1393,6 @@ export const deserializeAws_restJson1CancelImageCreationCommand = async (
   }
   const contents: CancelImageCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelImageCreationResponse",
     clientToken: undefined,
     imageBuildVersionArn: undefined,
     requestId: undefined,
@@ -1513,7 +1512,6 @@ export const deserializeAws_restJson1CreateComponentCommand = async (
   }
   const contents: CreateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateComponentResponse",
     clientToken: undefined,
     componentBuildVersionArn: undefined,
     requestId: undefined,
@@ -1657,7 +1655,6 @@ export const deserializeAws_restJson1CreateDistributionConfigurationCommand = as
   }
   const contents: CreateDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDistributionConfigurationResponse",
     clientToken: undefined,
     distributionConfigurationArn: undefined,
     requestId: undefined,
@@ -1801,7 +1798,6 @@ export const deserializeAws_restJson1CreateImageCommand = async (
   }
   const contents: CreateImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImageResponse",
     clientToken: undefined,
     imageBuildVersionArn: undefined,
     requestId: undefined,
@@ -1929,7 +1925,6 @@ export const deserializeAws_restJson1CreateImagePipelineCommand = async (
   }
   const contents: CreateImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImagePipelineResponse",
     clientToken: undefined,
     imagePipelineArn: undefined,
     requestId: undefined,
@@ -2065,7 +2060,6 @@ export const deserializeAws_restJson1CreateImageRecipeCommand = async (
   }
   const contents: CreateImageRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImageRecipeResponse",
     clientToken: undefined,
     imageRecipeArn: undefined,
     requestId: undefined,
@@ -2209,7 +2203,6 @@ export const deserializeAws_restJson1CreateInfrastructureConfigurationCommand = 
   }
   const contents: CreateInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInfrastructureConfigurationResponse",
     clientToken: undefined,
     infrastructureConfigurationArn: undefined,
     requestId: undefined,
@@ -2345,7 +2338,6 @@ export const deserializeAws_restJson1DeleteComponentCommand = async (
   }
   const contents: DeleteComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteComponentResponse",
     componentBuildVersionArn: undefined,
     requestId: undefined,
   };
@@ -2453,7 +2445,6 @@ export const deserializeAws_restJson1DeleteDistributionConfigurationCommand = as
   }
   const contents: DeleteDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDistributionConfigurationResponse",
     distributionConfigurationArn: undefined,
     requestId: undefined,
   };
@@ -2561,7 +2552,6 @@ export const deserializeAws_restJson1DeleteImageCommand = async (
   }
   const contents: DeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteImageResponse",
     imageBuildVersionArn: undefined,
     requestId: undefined,
   };
@@ -2669,7 +2659,6 @@ export const deserializeAws_restJson1DeleteImagePipelineCommand = async (
   }
   const contents: DeleteImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteImagePipelineResponse",
     imagePipelineArn: undefined,
     requestId: undefined,
   };
@@ -2777,7 +2766,6 @@ export const deserializeAws_restJson1DeleteImageRecipeCommand = async (
   }
   const contents: DeleteImageRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteImageRecipeResponse",
     imageRecipeArn: undefined,
     requestId: undefined,
   };
@@ -2885,7 +2873,6 @@ export const deserializeAws_restJson1DeleteInfrastructureConfigurationCommand = 
   }
   const contents: DeleteInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInfrastructureConfigurationResponse",
     infrastructureConfigurationArn: undefined,
     requestId: undefined,
   };
@@ -2993,7 +2980,6 @@ export const deserializeAws_restJson1GetComponentCommand = async (
   }
   const contents: GetComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComponentResponse",
     component: undefined,
     requestId: undefined,
   };
@@ -3093,7 +3079,6 @@ export const deserializeAws_restJson1GetComponentPolicyCommand = async (
   }
   const contents: GetComponentPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComponentPolicyResponse",
     policy: undefined,
     requestId: undefined,
   };
@@ -3193,7 +3178,6 @@ export const deserializeAws_restJson1GetDistributionConfigurationCommand = async
   }
   const contents: GetDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDistributionConfigurationResponse",
     distributionConfiguration: undefined,
     requestId: undefined,
   };
@@ -3296,7 +3280,6 @@ export const deserializeAws_restJson1GetImageCommand = async (
   }
   const contents: GetImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImageResponse",
     image: undefined,
     requestId: undefined,
   };
@@ -3396,7 +3379,6 @@ export const deserializeAws_restJson1GetImagePipelineCommand = async (
   }
   const contents: GetImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImagePipelineResponse",
     imagePipeline: undefined,
     requestId: undefined,
   };
@@ -3496,7 +3478,6 @@ export const deserializeAws_restJson1GetImagePolicyCommand = async (
   }
   const contents: GetImagePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImagePolicyResponse",
     policy: undefined,
     requestId: undefined,
   };
@@ -3596,7 +3577,6 @@ export const deserializeAws_restJson1GetImageRecipeCommand = async (
   }
   const contents: GetImageRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImageRecipeResponse",
     imageRecipe: undefined,
     requestId: undefined,
   };
@@ -3696,7 +3676,6 @@ export const deserializeAws_restJson1GetImageRecipePolicyCommand = async (
   }
   const contents: GetImageRecipePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImageRecipePolicyResponse",
     policy: undefined,
     requestId: undefined,
   };
@@ -3796,7 +3775,6 @@ export const deserializeAws_restJson1GetInfrastructureConfigurationCommand = asy
   }
   const contents: GetInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInfrastructureConfigurationResponse",
     infrastructureConfiguration: undefined,
     requestId: undefined,
   };
@@ -3899,7 +3877,6 @@ export const deserializeAws_restJson1ImportComponentCommand = async (
   }
   const contents: ImportComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportComponentResponse",
     clientToken: undefined,
     componentBuildVersionArn: undefined,
     requestId: undefined,
@@ -4035,7 +4012,6 @@ export const deserializeAws_restJson1ListComponentBuildVersionsCommand = async (
   }
   const contents: ListComponentBuildVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListComponentBuildVersionsResponse",
     componentSummaryList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4147,7 +4123,6 @@ export const deserializeAws_restJson1ListComponentsCommand = async (
   }
   const contents: ListComponentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListComponentsResponse",
     componentVersionList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4259,7 +4234,6 @@ export const deserializeAws_restJson1ListDistributionConfigurationsCommand = asy
   }
   const contents: ListDistributionConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDistributionConfigurationsResponse",
     distributionConfigurationSummaryList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4374,7 +4348,6 @@ export const deserializeAws_restJson1ListImageBuildVersionsCommand = async (
   }
   const contents: ListImageBuildVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListImageBuildVersionsResponse",
     imageSummaryList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4486,7 +4459,6 @@ export const deserializeAws_restJson1ListImagePipelineImagesCommand = async (
   }
   const contents: ListImagePipelineImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListImagePipelineImagesResponse",
     imageSummaryList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4606,7 +4578,6 @@ export const deserializeAws_restJson1ListImagePipelinesCommand = async (
   }
   const contents: ListImagePipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListImagePipelinesResponse",
     imagePipelineList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4718,7 +4689,6 @@ export const deserializeAws_restJson1ListImageRecipesCommand = async (
   }
   const contents: ListImageRecipesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListImageRecipesResponse",
     imageRecipeSummaryList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4833,7 +4803,6 @@ export const deserializeAws_restJson1ListImagesCommand = async (
   }
   const contents: ListImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListImagesResponse",
     imageVersionList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -4945,7 +4914,6 @@ export const deserializeAws_restJson1ListInfrastructureConfigurationsCommand = a
   }
   const contents: ListInfrastructureConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInfrastructureConfigurationsResponse",
     infrastructureConfigurationSummaryList: undefined,
     nextToken: undefined,
     requestId: undefined,
@@ -5063,7 +5031,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5135,7 +5102,6 @@ export const deserializeAws_restJson1PutComponentPolicyCommand = async (
   }
   const contents: PutComponentPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutComponentPolicyResponse",
     componentArn: undefined,
     requestId: undefined,
   };
@@ -5251,7 +5217,6 @@ export const deserializeAws_restJson1PutImagePolicyCommand = async (
   }
   const contents: PutImagePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutImagePolicyResponse",
     imageArn: undefined,
     requestId: undefined,
   };
@@ -5367,7 +5332,6 @@ export const deserializeAws_restJson1PutImageRecipePolicyCommand = async (
   }
   const contents: PutImageRecipePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutImageRecipePolicyResponse",
     imageRecipeArn: undefined,
     requestId: undefined,
   };
@@ -5483,7 +5447,6 @@ export const deserializeAws_restJson1StartImagePipelineExecutionCommand = async 
   }
   const contents: StartImagePipelineExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartImagePipelineExecutionResponse",
     clientToken: undefined,
     imageBuildVersionArn: undefined,
     requestId: undefined,
@@ -5611,7 +5574,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5679,7 +5641,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5747,7 +5708,6 @@ export const deserializeAws_restJson1UpdateDistributionConfigurationCommand = as
   }
   const contents: UpdateDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDistributionConfigurationResponse",
     clientToken: undefined,
     distributionConfigurationArn: undefined,
     requestId: undefined,
@@ -5875,7 +5835,6 @@ export const deserializeAws_restJson1UpdateImagePipelineCommand = async (
   }
   const contents: UpdateImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateImagePipelineResponse",
     clientToken: undefined,
     imagePipelineArn: undefined,
     requestId: undefined,
@@ -5995,7 +5954,6 @@ export const deserializeAws_restJson1UpdateInfrastructureConfigurationCommand = 
   }
   const contents: UpdateInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateInfrastructureConfigurationResponse",
     clientToken: undefined,
     infrastructureConfigurationArn: undefined,
     requestId: undefined,
@@ -6585,7 +6543,6 @@ const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Ami = (output: any, context: __SerdeContext): Ami => {
   return {
-    __type: "Ami",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     image: output.image !== undefined && output.image !== null ? output.image : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -6602,7 +6559,6 @@ const deserializeAws_restJson1AmiDistributionConfiguration = (
   context: __SerdeContext
 ): AmiDistributionConfiguration => {
   return {
-    __type: "AmiDistributionConfiguration",
     amiTags:
       output.amiTags !== undefined && output.amiTags !== null
         ? deserializeAws_restJson1TagMap(output.amiTags, context)
@@ -6627,7 +6583,6 @@ const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Component = (output: any, context: __SerdeContext): Component => {
   return {
-    __type: "Component",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     changeDescription:
       output.changeDescription !== undefined && output.changeDescription !== null
@@ -6659,7 +6614,6 @@ const deserializeAws_restJson1ComponentConfiguration = (
   context: __SerdeContext
 ): ComponentConfiguration => {
   return {
-    __type: "ComponentConfiguration",
     componentArn: output.componentArn !== undefined && output.componentArn !== null ? output.componentArn : undefined,
   } as any;
 };
@@ -6673,7 +6627,6 @@ const deserializeAws_restJson1ComponentConfigurationList = (
 
 const deserializeAws_restJson1ComponentSummary = (output: any, context: __SerdeContext): ComponentSummary => {
   return {
-    __type: "ComponentSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     changeDescription:
       output.changeDescription !== undefined && output.changeDescription !== null
@@ -6703,7 +6656,6 @@ const deserializeAws_restJson1ComponentSummaryList = (output: any, context: __Se
 
 const deserializeAws_restJson1ComponentVersion = (output: any, context: __SerdeContext): ComponentVersion => {
   return {
-    __type: "ComponentVersion",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -6725,7 +6677,6 @@ const deserializeAws_restJson1ComponentVersionList = (output: any, context: __Se
 
 const deserializeAws_restJson1Distribution = (output: any, context: __SerdeContext): Distribution => {
   return {
-    __type: "Distribution",
     amiDistributionConfiguration:
       output.amiDistributionConfiguration !== undefined && output.amiDistributionConfiguration !== null
         ? deserializeAws_restJson1AmiDistributionConfiguration(output.amiDistributionConfiguration, context)
@@ -6743,7 +6694,6 @@ const deserializeAws_restJson1DistributionConfiguration = (
   context: __SerdeContext
 ): DistributionConfiguration => {
   return {
-    __type: "DistributionConfiguration",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
@@ -6767,7 +6717,6 @@ const deserializeAws_restJson1DistributionConfigurationSummary = (
   context: __SerdeContext
 ): DistributionConfigurationSummary => {
   return {
-    __type: "DistributionConfigurationSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
@@ -6796,7 +6745,6 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
   context: __SerdeContext
 ): EbsInstanceBlockDeviceSpecification => {
   return {
-    __type: "EbsInstanceBlockDeviceSpecification",
     deleteOnTermination:
       output.deleteOnTermination !== undefined && output.deleteOnTermination !== null
         ? output.deleteOnTermination
@@ -6812,7 +6760,6 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
 
 const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Image => {
   return {
-    __type: "Image",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     distributionConfiguration:
@@ -6864,7 +6811,6 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
 
 const deserializeAws_restJson1ImagePipeline = (output: any, context: __SerdeContext): ImagePipeline => {
   return {
-    __type: "ImagePipeline",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateLastRun: output.dateLastRun !== undefined && output.dateLastRun !== null ? output.dateLastRun : undefined,
@@ -6909,7 +6855,6 @@ const deserializeAws_restJson1ImagePipelineList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ImageRecipe = (output: any, context: __SerdeContext): ImageRecipe => {
   return {
-    __type: "ImageRecipe",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     blockDeviceMappings:
       output.blockDeviceMappings !== undefined && output.blockDeviceMappings !== null
@@ -6937,7 +6882,6 @@ const deserializeAws_restJson1ImageRecipe = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ImageRecipeSummary = (output: any, context: __SerdeContext): ImageRecipeSummary => {
   return {
-    __type: "ImageRecipeSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -6957,7 +6901,6 @@ const deserializeAws_restJson1ImageRecipeSummaryList = (output: any, context: __
 
 const deserializeAws_restJson1ImageState = (output: any, context: __SerdeContext): ImageState => {
   return {
-    __type: "ImageState",
     reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
@@ -6965,7 +6908,6 @@ const deserializeAws_restJson1ImageState = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ImageSummary = (output: any, context: __SerdeContext): ImageSummary => {
   return {
-    __type: "ImageSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -6997,7 +6939,6 @@ const deserializeAws_restJson1ImageTestsConfiguration = (
   context: __SerdeContext
 ): ImageTestsConfiguration => {
   return {
-    __type: "ImageTestsConfiguration",
     imageTestsEnabled:
       output.imageTestsEnabled !== undefined && output.imageTestsEnabled !== null
         ? output.imageTestsEnabled
@@ -7009,7 +6950,6 @@ const deserializeAws_restJson1ImageTestsConfiguration = (
 
 const deserializeAws_restJson1ImageVersion = (output: any, context: __SerdeContext): ImageVersion => {
   return {
-    __type: "ImageVersion",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -7029,7 +6969,6 @@ const deserializeAws_restJson1InfrastructureConfiguration = (
   context: __SerdeContext
 ): InfrastructureConfiguration => {
   return {
-    __type: "InfrastructureConfiguration",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
@@ -7074,7 +7013,6 @@ const deserializeAws_restJson1InfrastructureConfigurationSummary = (
   context: __SerdeContext
 ): InfrastructureConfigurationSummary => {
   return {
-    __type: "InfrastructureConfigurationSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
@@ -7103,7 +7041,6 @@ const deserializeAws_restJson1InstanceBlockDeviceMapping = (
   context: __SerdeContext
 ): InstanceBlockDeviceMapping => {
   return {
-    __type: "InstanceBlockDeviceMapping",
     deviceName: output.deviceName !== undefined && output.deviceName !== null ? output.deviceName : undefined,
     ebs:
       output.ebs !== undefined && output.ebs !== null
@@ -7130,7 +7067,6 @@ const deserializeAws_restJson1LaunchPermissionConfiguration = (
   context: __SerdeContext
 ): LaunchPermissionConfiguration => {
   return {
-    __type: "LaunchPermissionConfiguration",
     userGroups:
       output.userGroups !== undefined && output.userGroups !== null
         ? deserializeAws_restJson1StringList(output.userGroups, context)
@@ -7144,7 +7080,6 @@ const deserializeAws_restJson1LaunchPermissionConfiguration = (
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
   return {
-    __type: "Logging",
     s3Logs:
       output.s3Logs !== undefined && output.s3Logs !== null
         ? deserializeAws_restJson1S3Logs(output.s3Logs, context)
@@ -7158,7 +7093,6 @@ const deserializeAws_restJson1OsVersionList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1OutputResources = (output: any, context: __SerdeContext): OutputResources => {
   return {
-    __type: "OutputResources",
     amis:
       output.amis !== undefined && output.amis !== null
         ? deserializeAws_restJson1AmiList(output.amis, context)
@@ -7178,7 +7112,6 @@ const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1S3Logs = (output: any, context: __SerdeContext): S3Logs => {
   return {
-    __type: "S3Logs",
     s3BucketName: output.s3BucketName !== undefined && output.s3BucketName !== null ? output.s3BucketName : undefined,
     s3KeyPrefix: output.s3KeyPrefix !== undefined && output.s3KeyPrefix !== null ? output.s3KeyPrefix : undefined,
   } as any;
@@ -7186,7 +7119,6 @@ const deserializeAws_restJson1S3Logs = (output: any, context: __SerdeContext): S
 
 const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
-    __type: "Schedule",
     pipelineExecutionStartCondition:
       output.pipelineExecutionStartCondition !== undefined && output.pipelineExecutionStartCondition !== null
         ? output.pipelineExecutionStartCondition

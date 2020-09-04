@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum AgentUpdateStatus {
@@ -35,7 +34,6 @@ export enum AssignPublicIp {
  * <p>An object representing a container instance or task attachment.</p>
  */
 export interface Attachment {
-  __type?: "Attachment";
   /**
    * <p>The unique identifier for the attachment.</p>
    */
@@ -64,14 +62,12 @@ export namespace Attachment {
   export const filterSensitiveLog = (obj: Attachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attachment => __isa(o, "Attachment");
 }
 
 /**
  * <p>An object representing a change in state for a task attachment.</p>
  */
 export interface AttachmentStateChange {
-  __type?: "AttachmentStateChange";
   /**
    * <p>The Amazon Resource Name (ARN) of the attachment.</p>
    */
@@ -87,7 +83,6 @@ export namespace AttachmentStateChange {
   export const filterSensitiveLog = (obj: AttachmentStateChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentStateChange => __isa(o, "AttachmentStateChange");
 }
 
 /**
@@ -96,7 +91,6 @@ export namespace AttachmentStateChange {
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface Attribute {
-  __type?: "Attribute";
   /**
    * <p>The value of the attribute. Up to 128 letters (uppercase and lowercase), numbers,
    *             hyphens, underscores, periods, at signs (@), forward slashes, colons, and spaces are
@@ -127,7 +121,6 @@ export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 /**
@@ -145,14 +138,12 @@ export namespace AttributeLimitExceededException {
   export const filterSensitiveLog = (obj: AttributeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeLimitExceededException => __isa(o, "AttributeLimitExceededException");
 }
 
 /**
  * <p>The details of the Auto Scaling group for the capacity provider.</p>
  */
 export interface AutoScalingGroupProvider {
-  __type?: "AutoScalingGroupProvider";
   /**
    * <p>The managed termination protection setting to use for the Auto Scaling group capacity
    *             provider. This determines whether the Auto Scaling group has managed termination
@@ -185,14 +176,12 @@ export namespace AutoScalingGroupProvider {
   export const filterSensitiveLog = (obj: AutoScalingGroupProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroupProvider => __isa(o, "AutoScalingGroupProvider");
 }
 
 /**
  * <p>An object representing the networking details for a task or service.</p>
  */
 export interface AwsVpcConfiguration {
-  __type?: "AwsVpcConfiguration";
   /**
    * <p>Whether the task's elastic network interface receives a public IP address. The default
    *             value is <code>DISABLED</code>.</p>
@@ -225,7 +214,6 @@ export namespace AwsVpcConfiguration {
   export const filterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsVpcConfiguration => __isa(o, "AwsVpcConfiguration");
 }
 
 /**
@@ -241,14 +229,12 @@ export namespace BlockedException {
   export const filterSensitiveLog = (obj: BlockedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockedException => __isa(o, "BlockedException");
 }
 
 /**
  * <p>The details of a capacity provider.</p>
  */
 export interface CapacityProvider {
-  __type?: "CapacityProvider";
   /**
    * <p>The Auto Scaling group settings for the capacity provider.</p>
    */
@@ -342,7 +328,6 @@ export namespace CapacityProvider {
   export const filterSensitiveLog = (obj: CapacityProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityProvider => __isa(o, "CapacityProvider");
 }
 
 export enum CapacityProviderField {
@@ -358,7 +343,6 @@ export enum CapacityProviderStatus {
  * <p>The details of a capacity provider strategy.</p>
  */
 export interface CapacityProviderStrategyItem {
-  __type?: "CapacityProviderStrategyItem";
   /**
    * <p>The <i>weight</i> value designates the relative percentage of the total
    *             number of tasks launched that should use the specified capacity provider.</p>
@@ -389,7 +373,6 @@ export namespace CapacityProviderStrategyItem {
   export const filterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityProviderStrategyItem => __isa(o, "CapacityProviderStrategyItem");
 }
 
 export enum CapacityProviderUpdateStatus {
@@ -413,7 +396,6 @@ export namespace ClientException {
   export const filterSensitiveLog = (obj: ClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientException => __isa(o, "ClientException");
 }
 
 /**
@@ -423,7 +405,6 @@ export namespace ClientException {
  *             instance type simultaneously.</p>
  */
 export interface Cluster {
-  __type?: "Cluster";
   /**
    * <p>The status of the capacity providers associated with the cluster. The following are
    *             the states that will be returned:</p>
@@ -610,7 +591,6 @@ export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
 
 /**
@@ -628,8 +608,6 @@ export namespace ClusterContainsContainerInstancesException {
   export const filterSensitiveLog = (obj: ClusterContainsContainerInstancesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterContainsContainerInstancesException =>
-    __isa(o, "ClusterContainsContainerInstancesException");
 }
 
 /**
@@ -647,7 +625,6 @@ export namespace ClusterContainsServicesException {
   export const filterSensitiveLog = (obj: ClusterContainsServicesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterContainsServicesException => __isa(o, "ClusterContainsServicesException");
 }
 
 /**
@@ -663,7 +640,6 @@ export namespace ClusterContainsTasksException {
   export const filterSensitiveLog = (obj: ClusterContainsTasksException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterContainsTasksException => __isa(o, "ClusterContainsTasksException");
 }
 
 export enum ClusterField {
@@ -687,7 +663,6 @@ export namespace ClusterNotFoundException {
   export const filterSensitiveLog = (obj: ClusterNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterNotFoundException => __isa(o, "ClusterNotFoundException");
 }
 
 /**
@@ -695,7 +670,6 @@ export namespace ClusterNotFoundException {
  *             Container Insights for a cluster.</p>
  */
 export interface ClusterSetting {
-  __type?: "ClusterSetting";
   /**
    * <p>The name of the cluster setting. The only supported value is
    *                 <code>containerInsights</code>.</p>
@@ -717,7 +691,6 @@ export namespace ClusterSetting {
   export const filterSensitiveLog = (obj: ClusterSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSetting => __isa(o, "ClusterSetting");
 }
 
 export enum ClusterSettingName {
@@ -738,7 +711,6 @@ export enum Connectivity {
  * <p>A Docker container that is part of a task.</p>
  */
 export interface Container {
-  __type?: "Container";
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details about
    *             a running or stopped container.</p>
@@ -833,7 +805,6 @@ export namespace Container {
   export const filterSensitiveLog = (obj: Container): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Container => __isa(o, "Container");
 }
 
 export enum ContainerCondition {
@@ -848,7 +819,6 @@ export enum ContainerCondition {
  *             containers that are launched as part of a task.</p>
  */
 export interface ContainerDefinition {
-  __type?: "ContainerDefinition";
   /**
    * <p>The image used to start a container. This string is passed directly to the Docker
    *             daemon. Images in the Docker Hub registry are available by default. Other repositories
@@ -1485,7 +1455,6 @@ export namespace ContainerDefinition {
   export const filterSensitiveLog = (obj: ContainerDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerDefinition => __isa(o, "ContainerDefinition");
 }
 
 /**
@@ -1507,7 +1476,6 @@ export namespace ContainerDefinition {
  *         </note>
  */
 export interface ContainerDependency {
-  __type?: "ContainerDependency";
   /**
    * <p>The dependency condition of the container. The following are the available conditions
    *             and their behavior:</p>
@@ -1552,7 +1520,6 @@ export namespace ContainerDependency {
   export const filterSensitiveLog = (obj: ContainerDependency): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerDependency => __isa(o, "ContainerDependency");
 }
 
 /**
@@ -1560,7 +1527,6 @@ export namespace ContainerDependency {
  *             cluster.</p>
  */
 export interface ContainerInstance {
-  __type?: "ContainerInstance";
   /**
    * <p>The status of the most recent agent update. If an update has never been requested,
    *             this value is <code>NULL</code>.</p>
@@ -1727,7 +1693,6 @@ export namespace ContainerInstance {
   export const filterSensitiveLog = (obj: ContainerInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerInstance => __isa(o, "ContainerInstance");
 }
 
 export enum ContainerInstanceField {
@@ -1749,7 +1714,6 @@ export enum ContainerInstanceStatus {
  *             specified, the <code>name</code> parameter must be included.</p>
  */
 export interface ContainerOverride {
-  __type?: "ContainerOverride";
   /**
    * <p>A list of files containing the environment variables to pass to a container, instead
    *             of the value from the container definition.</p>
@@ -1806,14 +1770,12 @@ export namespace ContainerOverride {
   export const filterSensitiveLog = (obj: ContainerOverride): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerOverride => __isa(o, "ContainerOverride");
 }
 
 /**
  * <p>An object representing a change in state for a container.</p>
  */
 export interface ContainerStateChange {
-  __type?: "ContainerStateChange";
   /**
    * <p>Any network bindings associated with the container.</p>
    */
@@ -1855,11 +1817,9 @@ export namespace ContainerStateChange {
   export const filterSensitiveLog = (obj: ContainerStateChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerStateChange => __isa(o, "ContainerStateChange");
 }
 
 export interface CreateCapacityProviderRequest {
-  __type?: "CreateCapacityProviderRequest";
   /**
    * <p>The details of the Auto Scaling group for the capacity provider.</p>
    */
@@ -1915,11 +1875,9 @@ export namespace CreateCapacityProviderRequest {
   export const filterSensitiveLog = (obj: CreateCapacityProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCapacityProviderRequest => __isa(o, "CreateCapacityProviderRequest");
 }
 
 export interface CreateCapacityProviderResponse {
-  __type?: "CreateCapacityProviderResponse";
   /**
    * <p>The full description of the new capacity provider.</p>
    */
@@ -1930,11 +1888,9 @@ export namespace CreateCapacityProviderResponse {
   export const filterSensitiveLog = (obj: CreateCapacityProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCapacityProviderResponse => __isa(o, "CreateCapacityProviderResponse");
 }
 
 export interface CreateClusterRequest {
-  __type?: "CreateClusterRequest";
   /**
    * <p>The short name of one or more capacity providers to associate
    *             with the cluster.</p>
@@ -2030,11 +1986,9 @@ export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResponse {
-  __type?: "CreateClusterResponse";
   /**
    * <p>The full description of your new cluster.</p>
    */
@@ -2045,11 +1999,9 @@ export namespace CreateClusterResponse {
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResponse => __isa(o, "CreateClusterResponse");
 }
 
 export interface CreateServiceRequest {
-  __type?: "CreateServiceRequest";
   /**
    * <p>Optional deployment parameters that control how many tasks run during the deployment
    *             and the ordering of stopping and starting tasks.</p>
@@ -2342,11 +2294,9 @@ export namespace CreateServiceRequest {
   export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceRequest => __isa(o, "CreateServiceRequest");
 }
 
 export interface CreateServiceResponse {
-  __type?: "CreateServiceResponse";
   /**
    * <p>The full description of your service following the create call.</p>
    *         <p>If a service is using the <code>ECS</code> deployment controller, the
@@ -2364,11 +2314,9 @@ export namespace CreateServiceResponse {
   export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceResponse => __isa(o, "CreateServiceResponse");
 }
 
 export interface CreateTaskSetRequest {
-  __type?: "CreateTaskSetRequest";
   /**
    * <p>The details of the service discovery registries to assign to this task set. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
@@ -2504,11 +2452,9 @@ export namespace CreateTaskSetRequest {
   export const filterSensitiveLog = (obj: CreateTaskSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTaskSetRequest => __isa(o, "CreateTaskSetRequest");
 }
 
 export interface CreateTaskSetResponse {
-  __type?: "CreateTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
    *             deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
@@ -2521,11 +2467,9 @@ export namespace CreateTaskSetResponse {
   export const filterSensitiveLog = (obj: CreateTaskSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTaskSetResponse => __isa(o, "CreateTaskSetResponse");
 }
 
 export interface DeleteAccountSettingRequest {
-  __type?: "DeleteAccountSettingRequest";
   /**
    * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you
    *             specify the root user, it disables the account setting for all IAM users, IAM roles, and
@@ -2551,11 +2495,9 @@ export namespace DeleteAccountSettingRequest {
   export const filterSensitiveLog = (obj: DeleteAccountSettingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountSettingRequest => __isa(o, "DeleteAccountSettingRequest");
 }
 
 export interface DeleteAccountSettingResponse {
-  __type?: "DeleteAccountSettingResponse";
   /**
    * <p>The account setting for the specified principal ARN.</p>
    */
@@ -2566,11 +2508,9 @@ export namespace DeleteAccountSettingResponse {
   export const filterSensitiveLog = (obj: DeleteAccountSettingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountSettingResponse => __isa(o, "DeleteAccountSettingResponse");
 }
 
 export interface DeleteAttributesRequest {
-  __type?: "DeleteAttributesRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete
    *             attributes. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -2590,11 +2530,9 @@ export namespace DeleteAttributesRequest {
   export const filterSensitiveLog = (obj: DeleteAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAttributesRequest => __isa(o, "DeleteAttributesRequest");
 }
 
 export interface DeleteAttributesResponse {
-  __type?: "DeleteAttributesResponse";
   /**
    * <p>A list of attribute objects that were successfully deleted from your resource.</p>
    */
@@ -2605,11 +2543,9 @@ export namespace DeleteAttributesResponse {
   export const filterSensitiveLog = (obj: DeleteAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAttributesResponse => __isa(o, "DeleteAttributesResponse");
 }
 
 export interface DeleteCapacityProviderRequest {
-  __type?: "DeleteCapacityProviderRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.</p>
    */
@@ -2620,11 +2556,9 @@ export namespace DeleteCapacityProviderRequest {
   export const filterSensitiveLog = (obj: DeleteCapacityProviderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCapacityProviderRequest => __isa(o, "DeleteCapacityProviderRequest");
 }
 
 export interface DeleteCapacityProviderResponse {
-  __type?: "DeleteCapacityProviderResponse";
   /**
    * <p>The details of a capacity provider.</p>
    */
@@ -2635,11 +2569,9 @@ export namespace DeleteCapacityProviderResponse {
   export const filterSensitiveLog = (obj: DeleteCapacityProviderResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCapacityProviderResponse => __isa(o, "DeleteCapacityProviderResponse");
 }
 
 export interface DeleteClusterRequest {
-  __type?: "DeleteClusterRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to delete.</p>
    */
@@ -2650,11 +2582,9 @@ export namespace DeleteClusterRequest {
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterRequest => __isa(o, "DeleteClusterRequest");
 }
 
 export interface DeleteClusterResponse {
-  __type?: "DeleteClusterResponse";
   /**
    * <p>The full description of the deleted cluster.</p>
    */
@@ -2665,11 +2595,9 @@ export namespace DeleteClusterResponse {
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResponse => __isa(o, "DeleteClusterResponse");
 }
 
 export interface DeleteServiceRequest {
-  __type?: "DeleteServiceRequest";
   /**
    * <p>If <code>true</code>, allows you to delete a service even if it has not been scaled
    *             down to zero tasks. It is only necessary to use this if the service is using the
@@ -2693,11 +2621,9 @@ export namespace DeleteServiceRequest {
   export const filterSensitiveLog = (obj: DeleteServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceRequest => __isa(o, "DeleteServiceRequest");
 }
 
 export interface DeleteServiceResponse {
-  __type?: "DeleteServiceResponse";
   /**
    * <p>The full description of the deleted service.</p>
    */
@@ -2708,11 +2634,9 @@ export namespace DeleteServiceResponse {
   export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceResponse => __isa(o, "DeleteServiceResponse");
 }
 
 export interface DeleteTaskSetRequest {
-  __type?: "DeleteTaskSetRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to
    *             delete.</p>
@@ -2741,11 +2665,9 @@ export namespace DeleteTaskSetRequest {
   export const filterSensitiveLog = (obj: DeleteTaskSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTaskSetRequest => __isa(o, "DeleteTaskSetRequest");
 }
 
 export interface DeleteTaskSetResponse {
-  __type?: "DeleteTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
    *             deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
@@ -2758,7 +2680,6 @@ export namespace DeleteTaskSetResponse {
   export const filterSensitiveLog = (obj: DeleteTaskSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTaskSetResponse => __isa(o, "DeleteTaskSetResponse");
 }
 
 /**
@@ -2766,7 +2687,6 @@ export namespace DeleteTaskSetResponse {
  *                 <code>ECS</code> deployment controller type.</p>
  */
 export interface Deployment {
-  __type?: "Deployment";
   /**
    * <p>The status of the deployment. The following describes each state:</p>
    *         <dl>
@@ -2857,7 +2777,6 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 /**
@@ -2865,7 +2784,6 @@ export namespace Deployment {
  *             the ordering of stopping and starting tasks.</p>
  */
 export interface DeploymentConfiguration {
-  __type?: "DeploymentConfiguration";
   /**
    * <p>If a service is using the rolling update (<code>ECS</code>) deployment type, the
    *                 <b>maximum percent</b> parameter represents an upper limit
@@ -2920,14 +2838,12 @@ export namespace DeploymentConfiguration {
   export const filterSensitiveLog = (obj: DeploymentConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfiguration => __isa(o, "DeploymentConfiguration");
 }
 
 /**
  * <p>The deployment controller to use for the service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface DeploymentController {
-  __type?: "DeploymentController";
   /**
    * <p>The deployment controller type to use.</p>
    *         <p>There are three deployment controller types available:</p>
@@ -2961,7 +2877,6 @@ export namespace DeploymentController {
   export const filterSensitiveLog = (obj: DeploymentController): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentController => __isa(o, "DeploymentController");
 }
 
 export enum DeploymentControllerType {
@@ -2971,7 +2886,6 @@ export enum DeploymentControllerType {
 }
 
 export interface DeregisterContainerInstanceRequest {
-  __type?: "DeregisterContainerInstanceRequest";
   /**
    * <p>The container instance ID or full ARN of the container instance to deregister.
    *             The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID</code>.</p>
@@ -3003,12 +2917,9 @@ export namespace DeregisterContainerInstanceRequest {
   export const filterSensitiveLog = (obj: DeregisterContainerInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterContainerInstanceRequest =>
-    __isa(o, "DeregisterContainerInstanceRequest");
 }
 
 export interface DeregisterContainerInstanceResponse {
-  __type?: "DeregisterContainerInstanceResponse";
   /**
    * <p>The container instance that was deregistered.</p>
    */
@@ -3019,12 +2930,9 @@ export namespace DeregisterContainerInstanceResponse {
   export const filterSensitiveLog = (obj: DeregisterContainerInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterContainerInstanceResponse =>
-    __isa(o, "DeregisterContainerInstanceResponse");
 }
 
 export interface DeregisterTaskDefinitionRequest {
-  __type?: "DeregisterTaskDefinitionRequest";
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    *             full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a
@@ -3037,11 +2945,9 @@ export namespace DeregisterTaskDefinitionRequest {
   export const filterSensitiveLog = (obj: DeregisterTaskDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTaskDefinitionRequest => __isa(o, "DeregisterTaskDefinitionRequest");
 }
 
 export interface DeregisterTaskDefinitionResponse {
-  __type?: "DeregisterTaskDefinitionResponse";
   /**
    * <p>The full description of the deregistered task.</p>
    */
@@ -3052,11 +2958,9 @@ export namespace DeregisterTaskDefinitionResponse {
   export const filterSensitiveLog = (obj: DeregisterTaskDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTaskDefinitionResponse => __isa(o, "DeregisterTaskDefinitionResponse");
 }
 
 export interface DescribeCapacityProvidersRequest {
-  __type?: "DescribeCapacityProvidersRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *                 <code>DescribeCapacityProviders</code> request where <code>maxResults</code> was
@@ -3102,11 +3006,9 @@ export namespace DescribeCapacityProvidersRequest {
   export const filterSensitiveLog = (obj: DescribeCapacityProvidersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCapacityProvidersRequest => __isa(o, "DescribeCapacityProvidersRequest");
 }
 
 export interface DescribeCapacityProvidersResponse {
-  __type?: "DescribeCapacityProvidersResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -3131,11 +3033,9 @@ export namespace DescribeCapacityProvidersResponse {
   export const filterSensitiveLog = (obj: DescribeCapacityProvidersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCapacityProvidersResponse => __isa(o, "DescribeCapacityProvidersResponse");
 }
 
 export interface DescribeClustersRequest {
-  __type?: "DescribeClustersRequest";
   /**
    * <p>Whether to include additional information about your clusters in the response. If this
    *             field is omitted, the attachments, statistics, and tags are not included.</p>
@@ -3187,11 +3087,9 @@ export namespace DescribeClustersRequest {
   export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersRequest => __isa(o, "DescribeClustersRequest");
 }
 
 export interface DescribeClustersResponse {
-  __type?: "DescribeClustersResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -3207,11 +3105,9 @@ export namespace DescribeClustersResponse {
   export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersResponse => __isa(o, "DescribeClustersResponse");
 }
 
 export interface DescribeContainerInstancesRequest {
-  __type?: "DescribeContainerInstancesRequest";
   /**
    * <p>Specifies whether you want to see the resource tags for the container instance. If
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
@@ -3237,11 +3133,9 @@ export namespace DescribeContainerInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeContainerInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContainerInstancesRequest => __isa(o, "DescribeContainerInstancesRequest");
 }
 
 export interface DescribeContainerInstancesResponse {
-  __type?: "DescribeContainerInstancesResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -3257,12 +3151,9 @@ export namespace DescribeContainerInstancesResponse {
   export const filterSensitiveLog = (obj: DescribeContainerInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContainerInstancesResponse =>
-    __isa(o, "DescribeContainerInstancesResponse");
 }
 
 export interface DescribeServicesRequest {
-  __type?: "DescribeServicesRequest";
   /**
    * <p>A list of services to describe. You may specify up to 10 services to describe in a
    *             single operation.</p>
@@ -3288,11 +3179,9 @@ export namespace DescribeServicesRequest {
   export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 export interface DescribeServicesResponse {
-  __type?: "DescribeServicesResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -3308,11 +3197,9 @@ export namespace DescribeServicesResponse {
   export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesResponse => __isa(o, "DescribeServicesResponse");
 }
 
 export interface DescribeTaskDefinitionRequest {
-  __type?: "DescribeTaskDefinitionRequest";
   /**
    * <p>The <code>family</code> for the latest <code>ACTIVE</code> revision,
    *                 <code>family</code> and <code>revision</code> (<code>family:revision</code>) for a
@@ -3333,11 +3220,9 @@ export namespace DescribeTaskDefinitionRequest {
   export const filterSensitiveLog = (obj: DescribeTaskDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskDefinitionRequest => __isa(o, "DescribeTaskDefinitionRequest");
 }
 
 export interface DescribeTaskDefinitionResponse {
-  __type?: "DescribeTaskDefinitionResponse";
   /**
    * <p>The full task definition description.</p>
    */
@@ -3386,11 +3271,9 @@ export namespace DescribeTaskDefinitionResponse {
   export const filterSensitiveLog = (obj: DescribeTaskDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskDefinitionResponse => __isa(o, "DescribeTaskDefinitionResponse");
 }
 
 export interface DescribeTaskSetsRequest {
-  __type?: "DescribeTaskSetsRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.</p>
    */
@@ -3420,11 +3303,9 @@ export namespace DescribeTaskSetsRequest {
   export const filterSensitiveLog = (obj: DescribeTaskSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskSetsRequest => __isa(o, "DescribeTaskSetsRequest");
 }
 
 export interface DescribeTaskSetsResponse {
-  __type?: "DescribeTaskSetsResponse";
   /**
    * <p>The list of task sets described.</p>
    */
@@ -3440,11 +3321,9 @@ export namespace DescribeTaskSetsResponse {
   export const filterSensitiveLog = (obj: DescribeTaskSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTaskSetsResponse => __isa(o, "DescribeTaskSetsResponse");
 }
 
 export interface DescribeTasksRequest {
-  __type?: "DescribeTasksRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to
    *             describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you
@@ -3469,11 +3348,9 @@ export namespace DescribeTasksRequest {
   export const filterSensitiveLog = (obj: DescribeTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTasksRequest => __isa(o, "DescribeTasksRequest");
 }
 
 export interface DescribeTasksResponse {
-  __type?: "DescribeTasksResponse";
   /**
    * <p>The list of tasks.</p>
    */
@@ -3489,7 +3366,6 @@ export namespace DescribeTasksResponse {
   export const filterSensitiveLog = (obj: DescribeTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTasksResponse => __isa(o, "DescribeTasksResponse");
 }
 
 export enum DesiredStatus {
@@ -3502,7 +3378,6 @@ export enum DesiredStatus {
  * <p>An object representing a container instance host device.</p>
  */
 export interface Device {
-  __type?: "Device";
   /**
    * <p>The path for the device on the host container instance.</p>
    */
@@ -3525,7 +3400,6 @@ export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
 export enum DeviceCgroupPermission {
@@ -3535,7 +3409,6 @@ export enum DeviceCgroupPermission {
 }
 
 export interface DiscoverPollEndpointRequest {
-  __type?: "DiscoverPollEndpointRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance
    *             belongs.</p>
@@ -3553,11 +3426,9 @@ export namespace DiscoverPollEndpointRequest {
   export const filterSensitiveLog = (obj: DiscoverPollEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiscoverPollEndpointRequest => __isa(o, "DiscoverPollEndpointRequest");
 }
 
 export interface DiscoverPollEndpointResponse {
-  __type?: "DiscoverPollEndpointResponse";
   /**
    * <p>The endpoint for the Amazon ECS agent to poll.</p>
    */
@@ -3573,7 +3444,6 @@ export namespace DiscoverPollEndpointResponse {
   export const filterSensitiveLog = (obj: DiscoverPollEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiscoverPollEndpointResponse => __isa(o, "DiscoverPollEndpointResponse");
 }
 
 /**
@@ -3583,7 +3453,6 @@ export namespace DiscoverPollEndpointResponse {
  *                 <code>host</code> instead.</p>
  */
 export interface DockerVolumeConfiguration {
-  __type?: "DockerVolumeConfiguration";
   /**
    * <p>The Docker volume driver to use. The driver value must match the driver name provided
    *             by Docker because it is used for task placement. If the driver was installed using the
@@ -3635,14 +3504,12 @@ export namespace DockerVolumeConfiguration {
   export const filterSensitiveLog = (obj: DockerVolumeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DockerVolumeConfiguration => __isa(o, "DockerVolumeConfiguration");
 }
 
 /**
  * <p>The authorization configuration details for the Amazon EFS file system.</p>
  */
 export interface EFSAuthorizationConfig {
-  __type?: "EFSAuthorizationConfig";
   /**
    * <p>Whether or not to use the Amazon ECS task IAM role defined in a task definition when
    *             mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the
@@ -3666,7 +3533,6 @@ export namespace EFSAuthorizationConfig {
   export const filterSensitiveLog = (obj: EFSAuthorizationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EFSAuthorizationConfig => __isa(o, "EFSAuthorizationConfig");
 }
 
 export enum EFSAuthorizationConfigIAM {
@@ -3685,7 +3551,6 @@ export enum EFSTransitEncryption {
  *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface EFSVolumeConfiguration {
-  __type?: "EFSVolumeConfiguration";
   /**
    * <p>Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host
    *             and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is
@@ -3725,7 +3590,6 @@ export namespace EFSVolumeConfiguration {
   export const filterSensitiveLog = (obj: EFSVolumeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EFSVolumeConfiguration => __isa(o, "EFSVolumeConfiguration");
 }
 
 /**
@@ -3746,7 +3610,6 @@ export namespace EFSVolumeConfiguration {
  *             type.</p>
  */
 export interface EnvironmentFile {
-  __type?: "EnvironmentFile";
   /**
    * <p>The file type to use. The only supported value is <code>s3</code>.</p>
    */
@@ -3763,7 +3626,6 @@ export namespace EnvironmentFile {
   export const filterSensitiveLog = (obj: EnvironmentFile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentFile => __isa(o, "EnvironmentFile");
 }
 
 export enum EnvironmentFileType {
@@ -3774,7 +3636,6 @@ export enum EnvironmentFileType {
  * <p>A failed resource.</p>
  */
 export interface Failure {
-  __type?: "Failure";
   /**
    * <p>The details of the failure.</p>
    */
@@ -3795,7 +3656,6 @@ export namespace Failure {
   export const filterSensitiveLog = (obj: Failure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Failure => __isa(o, "Failure");
 }
 
 /**
@@ -3804,7 +3664,6 @@ export namespace Failure {
  *             in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface FirelensConfiguration {
-  __type?: "FirelensConfiguration";
   /**
    * <p>The log router to use. The valid values are <code>fluentd</code> or
    *                 <code>fluentbit</code>.</p>
@@ -3828,7 +3687,6 @@ export namespace FirelensConfiguration {
   export const filterSensitiveLog = (obj: FirelensConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FirelensConfiguration => __isa(o, "FirelensConfiguration");
 }
 
 export enum FirelensConfigurationType {
@@ -3905,7 +3763,6 @@ export enum FirelensConfigurationType {
  *          </ul>
  */
 export interface HealthCheck {
-  __type?: "HealthCheck";
   /**
    * <p>A string array representing the command that the container runs to determine if it is
    *             healthy. The string array must start with <code>CMD</code> to execute the command
@@ -3956,7 +3813,6 @@ export namespace HealthCheck {
   export const filterSensitiveLog = (obj: HealthCheck): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheck => __isa(o, "HealthCheck");
 }
 
 export enum HealthStatus {
@@ -3970,7 +3826,6 @@ export enum HealthStatus {
  *             a container via the <code>extraHosts</code> parameter of its <a>ContainerDefinition</a>. </p>
  */
 export interface HostEntry {
-  __type?: "HostEntry";
   /**
    * <p>The hostname to use in the <code>/etc/hosts</code> entry.</p>
    */
@@ -3986,14 +3841,12 @@ export namespace HostEntry {
   export const filterSensitiveLog = (obj: HostEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostEntry => __isa(o, "HostEntry");
 }
 
 /**
  * <p>Details on a container instance bind mount host volume.</p>
  */
 export interface HostVolumeProperties {
-  __type?: "HostVolumeProperties";
   /**
    * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to
    *             declare the path on the host container instance that is presented to the container. If
@@ -4013,7 +3866,6 @@ export namespace HostVolumeProperties {
   export const filterSensitiveLog = (obj: HostVolumeProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostVolumeProperties => __isa(o, "HostVolumeProperties");
 }
 
 /**
@@ -4022,7 +3874,6 @@ export namespace HostVolumeProperties {
  *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface InferenceAccelerator {
-  __type?: "InferenceAccelerator";
   /**
    * <p>The Elastic Inference accelerator type to use.</p>
    */
@@ -4039,7 +3890,6 @@ export namespace InferenceAccelerator {
   export const filterSensitiveLog = (obj: InferenceAccelerator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferenceAccelerator => __isa(o, "InferenceAccelerator");
 }
 
 /**
@@ -4049,7 +3899,6 @@ export namespace InferenceAccelerator {
  *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface InferenceAcceleratorOverride {
-  __type?: "InferenceAcceleratorOverride";
   /**
    * <p>The Elastic Inference accelerator device name to override for the task. This parameter
    *             must match a <code>deviceName</code> specified in the task definition.</p>
@@ -4066,7 +3915,6 @@ export namespace InferenceAcceleratorOverride {
   export const filterSensitiveLog = (obj: InferenceAcceleratorOverride): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferenceAcceleratorOverride => __isa(o, "InferenceAcceleratorOverride");
 }
 
 /**
@@ -4083,7 +3931,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 export enum IpcMode {
@@ -4100,7 +3947,6 @@ export enum IpcMode {
  *             the <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
  */
 export interface KernelCapabilities {
-  __type?: "KernelCapabilities";
   /**
    * <p>The Linux capabilities for the container that have been removed from the default
    *             configuration provided by Docker. This parameter maps to <code>CapDrop</code> in the
@@ -4147,14 +3993,12 @@ export namespace KernelCapabilities {
   export const filterSensitiveLog = (obj: KernelCapabilities): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KernelCapabilities => __isa(o, "KernelCapabilities");
 }
 
 /**
  * <p>A key-value pair object.</p>
  */
 export interface KeyValuePair {
-  __type?: "KeyValuePair";
   /**
    * <p>The value of the key-value pair. For environment variables, this is the value of the
    *             environment variable.</p>
@@ -4172,7 +4016,6 @@ export namespace KeyValuePair {
   export const filterSensitiveLog = (obj: KeyValuePair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyValuePair => __isa(o, "KeyValuePair");
 }
 
 export enum LaunchType {
@@ -4193,14 +4036,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Linux-specific options that are applied to the container, such as Linux <a>KernelCapabilities</a>.</p>
  */
 export interface LinuxParameters {
-  __type?: "LinuxParameters";
   /**
    * <p>The value for the size (in MiB) of the <code>/dev/shm</code> volume. This parameter
    *             maps to the <code>--shm-size</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
@@ -4289,11 +4130,9 @@ export namespace LinuxParameters {
   export const filterSensitiveLog = (obj: LinuxParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LinuxParameters => __isa(o, "LinuxParameters");
 }
 
 export interface ListAccountSettingsRequest {
-  __type?: "ListAccountSettingsRequest";
   /**
    * <p>The maximum number of account setting results returned by
    *                 <code>ListAccountSettings</code> in paginated output. When this parameter is used,
@@ -4351,11 +4190,9 @@ export namespace ListAccountSettingsRequest {
   export const filterSensitiveLog = (obj: ListAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountSettingsRequest => __isa(o, "ListAccountSettingsRequest");
 }
 
 export interface ListAccountSettingsResponse {
-  __type?: "ListAccountSettingsResponse";
   /**
    * <p>The account settings for the resource.</p>
    */
@@ -4375,11 +4212,9 @@ export namespace ListAccountSettingsResponse {
   export const filterSensitiveLog = (obj: ListAccountSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountSettingsResponse => __isa(o, "ListAccountSettingsResponse");
 }
 
 export interface ListAttributesRequest {
-  __type?: "ListAttributesRequest";
   /**
    * <p>The maximum number of cluster results returned by <code>ListAttributes</code> in
    *             paginated output. When this parameter is used, <code>ListAttributes</code> only returns
@@ -4431,11 +4266,9 @@ export namespace ListAttributesRequest {
   export const filterSensitiveLog = (obj: ListAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttributesRequest => __isa(o, "ListAttributesRequest");
 }
 
 export interface ListAttributesResponse {
-  __type?: "ListAttributesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListAttributes</code>
    *             request. When the results of a <code>ListAttributes</code> request exceed
@@ -4455,11 +4288,9 @@ export namespace ListAttributesResponse {
   export const filterSensitiveLog = (obj: ListAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAttributesResponse => __isa(o, "ListAttributesResponse");
 }
 
 export interface ListClustersRequest {
-  __type?: "ListClustersRequest";
   /**
    * <p>The maximum number of cluster results returned by <code>ListClusters</code> in
    *             paginated output. When this parameter is used, <code>ListClusters</code> only returns
@@ -4489,11 +4320,9 @@ export namespace ListClustersRequest {
   export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersRequest => __isa(o, "ListClustersRequest");
 }
 
 export interface ListClustersResponse {
-  __type?: "ListClustersResponse";
   /**
    * <p>The list of full Amazon Resource Name (ARN) entries for each cluster associated with your
    *             account.</p>
@@ -4514,11 +4343,9 @@ export namespace ListClustersResponse {
   export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersResponse => __isa(o, "ListClustersResponse");
 }
 
 export interface ListContainerInstancesRequest {
-  __type?: "ListContainerInstancesRequest";
   /**
    * <p>Filters the container instances by status. For example, if you specify the
    *                 <code>DRAINING</code> status, the results include only container instances that have
@@ -4571,11 +4398,9 @@ export namespace ListContainerInstancesRequest {
   export const filterSensitiveLog = (obj: ListContainerInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListContainerInstancesRequest => __isa(o, "ListContainerInstancesRequest");
 }
 
 export interface ListContainerInstancesResponse {
-  __type?: "ListContainerInstancesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
    *                 <code>ListContainerInstances</code> request. When the results of a
@@ -4596,11 +4421,9 @@ export namespace ListContainerInstancesResponse {
   export const filterSensitiveLog = (obj: ListContainerInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListContainerInstancesResponse => __isa(o, "ListContainerInstancesResponse");
 }
 
 export interface ListServicesRequest {
-  __type?: "ListServicesRequest";
   /**
    * <p>The maximum number of service results returned by <code>ListServices</code> in
    *             paginated output. When this parameter is used, <code>ListServices</code> only returns
@@ -4647,11 +4470,9 @@ export namespace ListServicesRequest {
   export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServicesRequest => __isa(o, "ListServicesRequest");
 }
 
 export interface ListServicesResponse {
-  __type?: "ListServicesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListServices</code>
    *             request. When the results of a <code>ListServices</code> request exceed
@@ -4672,11 +4493,9 @@ export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServicesResponse => __isa(o, "ListServicesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
    *             supported resources are Amazon ECS tasks, services, task definitions, clusters, and container
@@ -4689,11 +4508,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
    */
@@ -4704,11 +4521,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTaskDefinitionFamiliesRequest {
-  __type?: "ListTaskDefinitionFamiliesRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a
    *                 <code>ListTaskDefinitionFamilies</code> request indicating that more results are
@@ -4762,11 +4577,9 @@ export namespace ListTaskDefinitionFamiliesRequest {
   export const filterSensitiveLog = (obj: ListTaskDefinitionFamiliesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTaskDefinitionFamiliesRequest => __isa(o, "ListTaskDefinitionFamiliesRequest");
 }
 
 export interface ListTaskDefinitionFamiliesResponse {
-  __type?: "ListTaskDefinitionFamiliesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
    *                 <code>ListTaskDefinitionFamilies</code> request. When the results of a
@@ -4787,12 +4600,9 @@ export namespace ListTaskDefinitionFamiliesResponse {
   export const filterSensitiveLog = (obj: ListTaskDefinitionFamiliesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTaskDefinitionFamiliesResponse =>
-    __isa(o, "ListTaskDefinitionFamiliesResponse");
 }
 
 export interface ListTaskDefinitionsRequest {
-  __type?: "ListTaskDefinitionsRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a <code>ListTaskDefinitions</code>
    *             request indicating that more results are available to fulfill the request and further
@@ -4850,11 +4660,9 @@ export namespace ListTaskDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListTaskDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTaskDefinitionsRequest => __isa(o, "ListTaskDefinitionsRequest");
 }
 
 export interface ListTaskDefinitionsResponse {
-  __type?: "ListTaskDefinitionsResponse";
   /**
    * <p>The list of task definition Amazon Resource Name (ARN) entries for the <code>ListTaskDefinitions</code>
    *             request.</p>
@@ -4875,11 +4683,9 @@ export namespace ListTaskDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListTaskDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTaskDefinitionsResponse => __isa(o, "ListTaskDefinitionsResponse");
 }
 
 export interface ListTasksRequest {
-  __type?: "ListTasksRequest";
   /**
    * <p>The <code>startedBy</code> value with which to filter the task results. Specifying a
    *                 <code>startedBy</code> value limits the results to tasks that were started with that
@@ -4964,11 +4770,9 @@ export namespace ListTasksRequest {
   export const filterSensitiveLog = (obj: ListTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTasksRequest => __isa(o, "ListTasksRequest");
 }
 
 export interface ListTasksResponse {
-  __type?: "ListTasksResponse";
   /**
    * <p>The list of task ARN entries for the <code>ListTasks</code> request.</p>
    */
@@ -4988,7 +4792,6 @@ export namespace ListTasksResponse {
   export const filterSensitiveLog = (obj: ListTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTasksResponse => __isa(o, "ListTasksResponse");
 }
 
 /**
@@ -4997,7 +4800,6 @@ export namespace ListTasksResponse {
  *             and task sets, see the CreateService and CreateTaskSet actions.</p>
  */
 export interface LoadBalancer {
-  __type?: "LoadBalancer";
   /**
    * <p>The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or
    *             task set.</p>
@@ -5047,7 +4849,6 @@ export namespace LoadBalancer {
   export const filterSensitiveLog = (obj: LoadBalancer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancer => __isa(o, "LoadBalancer");
 }
 
 /**
@@ -5094,7 +4895,6 @@ export namespace LoadBalancer {
  *          </ul>
  */
 export interface LogConfiguration {
-  __type?: "LogConfiguration";
   /**
    * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
    *                 Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -5136,7 +4936,6 @@ export namespace LogConfiguration {
   export const filterSensitiveLog = (obj: LogConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogConfiguration => __isa(o, "LogConfiguration");
 }
 
 export enum LogDriver {
@@ -5160,7 +4959,6 @@ export enum LogDriver {
  *             group.</p>
  */
 export interface ManagedScaling {
-  __type?: "ManagedScaling";
   /**
    * <p>Whether or not to enable managed scaling for the capacity provider.</p>
    */
@@ -5192,7 +4990,6 @@ export namespace ManagedScaling {
   export const filterSensitiveLog = (obj: ManagedScaling): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedScaling => __isa(o, "ManagedScaling");
 }
 
 export enum ManagedScalingStatus {
@@ -5221,14 +5018,12 @@ export namespace MissingVersionException {
   export const filterSensitiveLog = (obj: MissingVersionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingVersionException => __isa(o, "MissingVersionException");
 }
 
 /**
  * <p>Details on a volume mount point that is used in a container definition.</p>
  */
 export interface MountPoint {
-  __type?: "MountPoint";
   /**
    * <p>The path on the container to mount the host volume at.</p>
    */
@@ -5252,7 +5047,6 @@ export namespace MountPoint {
   export const filterSensitiveLog = (obj: MountPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MountPoint => __isa(o, "MountPoint");
 }
 
 /**
@@ -5262,7 +5056,6 @@ export namespace MountPoint {
  *                 <a>DescribeTasks</a> API responses.</p>
  */
 export interface NetworkBinding {
-  __type?: "NetworkBinding";
   /**
    * <p>The protocol used for the network binding.</p>
    */
@@ -5288,14 +5081,12 @@ export namespace NetworkBinding {
   export const filterSensitiveLog = (obj: NetworkBinding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkBinding => __isa(o, "NetworkBinding");
 }
 
 /**
  * <p>An object representing the network configuration for a task or service.</p>
  */
 export interface NetworkConfiguration {
-  __type?: "NetworkConfiguration";
   /**
    * <p>The VPC subnets and security groups associated with a task.</p>
    *         <note>
@@ -5309,7 +5100,6 @@ export namespace NetworkConfiguration {
   export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkConfiguration => __isa(o, "NetworkConfiguration");
 }
 
 /**
@@ -5317,7 +5107,6 @@ export namespace NetworkConfiguration {
  *                 <code>awsvpc</code> network mode.</p>
  */
 export interface NetworkInterface {
-  __type?: "NetworkInterface";
   /**
    * <p>The private IPv4 address for the network interface.</p>
    */
@@ -5338,7 +5127,6 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 export enum NetworkMode {
@@ -5363,7 +5151,6 @@ export namespace NoUpdateAvailableException {
   export const filterSensitiveLog = (obj: NoUpdateAvailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoUpdateAvailableException => __isa(o, "NoUpdateAvailableException");
 }
 
 export enum PidMode {
@@ -5381,7 +5168,6 @@ export enum PidMode {
  *         </note>
  */
 export interface PlacementConstraint {
-  __type?: "PlacementConstraint";
   /**
    * <p>The type of constraint. Use <code>distinctInstance</code> to ensure that each task in
    *             a particular group is running on a different container instance. Use
@@ -5403,7 +5189,6 @@ export namespace PlacementConstraint {
   export const filterSensitiveLog = (obj: PlacementConstraint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementConstraint => __isa(o, "PlacementConstraint");
 }
 
 export enum PlacementConstraintType {
@@ -5416,7 +5201,6 @@ export enum PlacementConstraintType {
  *                 <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface PlacementStrategy {
-  __type?: "PlacementStrategy";
   /**
    * <p>The type of placement strategy. The <code>random</code> placement strategy randomly
    *             places tasks on available candidates. The <code>spread</code> placement strategy spreads
@@ -5444,7 +5228,6 @@ export namespace PlacementStrategy {
   export const filterSensitiveLog = (obj: PlacementStrategy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementStrategy => __isa(o, "PlacementStrategy");
 }
 
 export enum PlacementStrategyType {
@@ -5458,7 +5241,6 @@ export enum PlacementStrategyType {
  *             type is a GPU.</p>
  */
 export interface PlatformDevice {
-  __type?: "PlatformDevice";
   /**
    * <p>The ID for the GPU(s) on the container instance. The available GPU IDs can also be
    *             obtained on the container instance in the
@@ -5477,7 +5259,6 @@ export namespace PlatformDevice {
   export const filterSensitiveLog = (obj: PlatformDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformDevice => __isa(o, "PlatformDevice");
 }
 
 export enum PlatformDeviceType {
@@ -5498,8 +5279,6 @@ export namespace PlatformTaskDefinitionIncompatibilityException {
   export const filterSensitiveLog = (obj: PlatformTaskDefinitionIncompatibilityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformTaskDefinitionIncompatibilityException =>
-    __isa(o, "PlatformTaskDefinitionIncompatibilityException");
 }
 
 /**
@@ -5515,7 +5294,6 @@ export namespace PlatformUnknownException {
   export const filterSensitiveLog = (obj: PlatformUnknownException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformUnknownException => __isa(o, "PlatformUnknownException");
 }
 
 /**
@@ -5531,7 +5309,6 @@ export namespace PlatformUnknownException {
  *                 <a>DescribeTasks</a> API responses.</p>
  */
 export interface PortMapping {
-  __type?: "PortMapping";
   /**
    * <p>The protocol used for the port mapping. Valid values are <code>tcp</code> and
    *                 <code>udp</code>. The default is <code>tcp</code>.</p>
@@ -5593,7 +5370,6 @@ export namespace PortMapping {
   export const filterSensitiveLog = (obj: PortMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortMapping => __isa(o, "PortMapping");
 }
 
 export enum PropagateTags {
@@ -5614,7 +5390,6 @@ export enum PropagateTags {
  *             platform version 1.3.0 or later.</p>
  */
 export interface ProxyConfiguration {
-  __type?: "ProxyConfiguration";
   /**
    * <p>The set of network configuration parameters to provide the Container Network Interface
    *             (CNI) plugin, specified as key-value pairs.</p>
@@ -5680,7 +5455,6 @@ export namespace ProxyConfiguration {
   export const filterSensitiveLog = (obj: ProxyConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProxyConfiguration => __isa(o, "ProxyConfiguration");
 }
 
 export enum ProxyConfigurationType {
@@ -5688,7 +5462,6 @@ export enum ProxyConfigurationType {
 }
 
 export interface PutAccountSettingDefaultRequest {
-  __type?: "PutAccountSettingDefaultRequest";
   /**
    * <p>The resource name for which to modify the account setting. If
    *                 <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS services is
@@ -5712,11 +5485,9 @@ export namespace PutAccountSettingDefaultRequest {
   export const filterSensitiveLog = (obj: PutAccountSettingDefaultRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSettingDefaultRequest => __isa(o, "PutAccountSettingDefaultRequest");
 }
 
 export interface PutAccountSettingDefaultResponse {
-  __type?: "PutAccountSettingDefaultResponse";
   /**
    * <p>The current account setting for a resource.</p>
    */
@@ -5727,11 +5498,9 @@ export namespace PutAccountSettingDefaultResponse {
   export const filterSensitiveLog = (obj: PutAccountSettingDefaultResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSettingDefaultResponse => __isa(o, "PutAccountSettingDefaultResponse");
 }
 
 export interface PutAccountSettingRequest {
-  __type?: "PutAccountSettingRequest";
   /**
    * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you
    *             specify the root user, it modifies the account setting for all IAM users, IAM roles, and
@@ -5765,11 +5534,9 @@ export namespace PutAccountSettingRequest {
   export const filterSensitiveLog = (obj: PutAccountSettingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSettingRequest => __isa(o, "PutAccountSettingRequest");
 }
 
 export interface PutAccountSettingResponse {
-  __type?: "PutAccountSettingResponse";
   /**
    * <p>The current account setting for a resource.</p>
    */
@@ -5780,11 +5547,9 @@ export namespace PutAccountSettingResponse {
   export const filterSensitiveLog = (obj: PutAccountSettingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSettingResponse => __isa(o, "PutAccountSettingResponse");
 }
 
 export interface PutAttributesRequest {
-  __type?: "PutAttributesRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply
    *             attributes. If you do not specify a cluster, the default cluster is assumed.</p>
@@ -5802,11 +5567,9 @@ export namespace PutAttributesRequest {
   export const filterSensitiveLog = (obj: PutAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAttributesRequest => __isa(o, "PutAttributesRequest");
 }
 
 export interface PutAttributesResponse {
-  __type?: "PutAttributesResponse";
   /**
    * <p>The attributes applied to your resource.</p>
    */
@@ -5817,11 +5580,9 @@ export namespace PutAttributesResponse {
   export const filterSensitiveLog = (obj: PutAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAttributesResponse => __isa(o, "PutAttributesResponse");
 }
 
 export interface PutClusterCapacityProvidersRequest {
-  __type?: "PutClusterCapacityProvidersRequest";
   /**
    * <p>The capacity provider strategy to use by default for the cluster.</p>
    *         <p>When creating a service or running a task on a cluster, if no capacity provider or
@@ -5864,12 +5625,9 @@ export namespace PutClusterCapacityProvidersRequest {
   export const filterSensitiveLog = (obj: PutClusterCapacityProvidersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutClusterCapacityProvidersRequest =>
-    __isa(o, "PutClusterCapacityProvidersRequest");
 }
 
 export interface PutClusterCapacityProvidersResponse {
-  __type?: "PutClusterCapacityProvidersResponse";
   /**
    * <p>A regional grouping of one or more container instances on which you can run task
    *             requests. Each account receives a default cluster the first time you use the Amazon ECS
@@ -5883,12 +5641,9 @@ export namespace PutClusterCapacityProvidersResponse {
   export const filterSensitiveLog = (obj: PutClusterCapacityProvidersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutClusterCapacityProvidersResponse =>
-    __isa(o, "PutClusterCapacityProvidersResponse");
 }
 
 export interface RegisterContainerInstanceRequest {
-  __type?: "RegisterContainerInstanceRequest";
   /**
    * <p>The ARN of the container instance (if it was previously registered).</p>
    */
@@ -5981,11 +5736,9 @@ export namespace RegisterContainerInstanceRequest {
   export const filterSensitiveLog = (obj: RegisterContainerInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterContainerInstanceRequest => __isa(o, "RegisterContainerInstanceRequest");
 }
 
 export interface RegisterContainerInstanceResponse {
-  __type?: "RegisterContainerInstanceResponse";
   /**
    * <p>The container instance that was registered.</p>
    */
@@ -5996,11 +5749,9 @@ export namespace RegisterContainerInstanceResponse {
   export const filterSensitiveLog = (obj: RegisterContainerInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterContainerInstanceResponse => __isa(o, "RegisterContainerInstanceResponse");
 }
 
 export interface RegisterTaskDefinitionRequest {
-  __type?: "RegisterTaskDefinitionRequest";
   /**
    * <p>The process namespace to use for the containers in the task. The valid
    *                             values are <code>host</code> or <code>task</code>. If <code>host</code>
@@ -6272,11 +6023,9 @@ export namespace RegisterTaskDefinitionRequest {
   export const filterSensitiveLog = (obj: RegisterTaskDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTaskDefinitionRequest => __isa(o, "RegisterTaskDefinitionRequest");
 }
 
 export interface RegisterTaskDefinitionResponse {
-  __type?: "RegisterTaskDefinitionResponse";
   /**
    * <p>The list of tags associated with the task definition.</p>
    */
@@ -6292,14 +6041,12 @@ export namespace RegisterTaskDefinitionResponse {
   export const filterSensitiveLog = (obj: RegisterTaskDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTaskDefinitionResponse => __isa(o, "RegisterTaskDefinitionResponse");
 }
 
 /**
  * <p>The repository credentials for private registry authentication.</p>
  */
 export interface RepositoryCredentials {
-  __type?: "RepositoryCredentials";
   /**
    * <p>The Amazon Resource Name (ARN) of the secret containing the private repository
    *             credentials.</p>
@@ -6317,14 +6064,12 @@ export namespace RepositoryCredentials {
   export const filterSensitiveLog = (obj: RepositoryCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryCredentials => __isa(o, "RepositoryCredentials");
 }
 
 /**
  * <p>Describes the resources available for a container instance.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>When the <code>stringSetValue</code> type is set, the value of the resource must be a
    *             string type.</p>
@@ -6366,7 +6111,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -6382,7 +6126,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -6398,7 +6141,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -6409,7 +6151,6 @@ export namespace ResourceNotFoundException {
  *          </p>
  */
 export interface ResourceRequirement {
-  __type?: "ResourceRequirement";
   /**
    * <p>The value for the specified resource type.</p>
    *         <p>If the <code>GPU</code> type is used, the value is the number of physical
@@ -6433,7 +6174,6 @@ export namespace ResourceRequirement {
   export const filterSensitiveLog = (obj: ResourceRequirement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRequirement => __isa(o, "ResourceRequirement");
 }
 
 export enum ResourceType {
@@ -6442,7 +6182,6 @@ export enum ResourceType {
 }
 
 export interface RunTaskRequest {
-  __type?: "RunTaskRequest";
   /**
    * <p>The placement strategy objects to use for the task. You can specify a maximum of five
    *             strategy rules per task.</p>
@@ -6621,11 +6360,9 @@ export namespace RunTaskRequest {
   export const filterSensitiveLog = (obj: RunTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunTaskRequest => __isa(o, "RunTaskRequest");
 }
 
 export interface RunTaskResponse {
-  __type?: "RunTaskResponse";
   /**
    * <p>A full description of the tasks that were run. The tasks that were successfully placed
    *             on your cluster are described here.</p>
@@ -6642,7 +6379,6 @@ export namespace RunTaskResponse {
   export const filterSensitiveLog = (obj: RunTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunTaskResponse => __isa(o, "RunTaskResponse");
 }
 
 /**
@@ -6650,7 +6386,6 @@ export namespace RunTaskResponse {
  *             in the task set.</p>
  */
 export interface Scale {
-  __type?: "Scale";
   /**
    * <p>The unit of measure for the scale value.</p>
    */
@@ -6667,7 +6402,6 @@ export namespace Scale {
   export const filterSensitiveLog = (obj: Scale): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Scale => __isa(o, "Scale");
 }
 
 export enum ScaleUnit {
@@ -6701,7 +6435,6 @@ export enum Scope {
  *                 Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface Secret {
-  __type?: "Secret";
   /**
    * <p>The name of the secret.</p>
    */
@@ -6723,7 +6456,6 @@ export namespace Secret {
   export const filterSensitiveLog = (obj: Secret): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Secret => __isa(o, "Secret");
 }
 
 /**
@@ -6739,14 +6471,12 @@ export namespace ServerException {
   export const filterSensitiveLog = (obj: ServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerException => __isa(o, "ServerException");
 }
 
 /**
  * <p>Details on a service within a cluster</p>
  */
 export interface Service {
-  __type?: "Service";
   /**
    * <p>The placement constraints for the tasks in the service.</p>
    */
@@ -6981,14 +6711,12 @@ export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Service => __isa(o, "Service");
 }
 
 /**
  * <p>Details on an event associated with a service.</p>
  */
 export interface ServiceEvent {
-  __type?: "ServiceEvent";
   /**
    * <p>The Unix timestamp for when the event was triggered.</p>
    */
@@ -7009,7 +6737,6 @@ export namespace ServiceEvent {
   export const filterSensitiveLog = (obj: ServiceEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceEvent => __isa(o, "ServiceEvent");
 }
 
 export enum ServiceField {
@@ -7030,7 +6757,6 @@ export namespace ServiceNotActiveException {
   export const filterSensitiveLog = (obj: ServiceNotActiveException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNotActiveException => __isa(o, "ServiceNotActiveException");
 }
 
 /**
@@ -7048,14 +6774,12 @@ export namespace ServiceNotFoundException {
   export const filterSensitiveLog = (obj: ServiceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNotFoundException => __isa(o, "ServiceNotFoundException");
 }
 
 /**
  * <p>Details of the service registry.</p>
  */
 export interface ServiceRegistry {
-  __type?: "ServiceRegistry";
   /**
    * <p>The container name value, already specified in the task definition, to be used for
    *             your service discovery service. If the task definition that your service task specifies
@@ -7098,14 +6822,12 @@ export namespace ServiceRegistry {
   export const filterSensitiveLog = (obj: ServiceRegistry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceRegistry => __isa(o, "ServiceRegistry");
 }
 
 /**
  * <p>The current account setting for a resource.</p>
  */
 export interface Setting {
-  __type?: "Setting";
   /**
    * <p>Whether the account setting is enabled or disabled for the specified resource.</p>
    */
@@ -7127,7 +6849,6 @@ export namespace Setting {
   export const filterSensitiveLog = (obj: Setting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Setting => __isa(o, "Setting");
 }
 
 export enum SettingName {
@@ -7149,7 +6870,6 @@ export enum StabilityStatus {
 }
 
 export interface StartTaskRequest {
-  __type?: "StartTaskRequest";
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    *             full ARN of the task definition to start. If a <code>revision</code> is not specified,
@@ -7267,11 +6987,9 @@ export namespace StartTaskRequest {
   export const filterSensitiveLog = (obj: StartTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTaskRequest => __isa(o, "StartTaskRequest");
 }
 
 export interface StartTaskResponse {
-  __type?: "StartTaskResponse";
   /**
    * <p>Any failures associated with the call.</p>
    */
@@ -7288,11 +7006,9 @@ export namespace StartTaskResponse {
   export const filterSensitiveLog = (obj: StartTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTaskResponse => __isa(o, "StartTaskResponse");
 }
 
 export interface StopTaskRequest {
-  __type?: "StopTaskRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop.
    *             If you do not specify a cluster, the default cluster is assumed.</p>
@@ -7317,11 +7033,9 @@ export namespace StopTaskRequest {
   export const filterSensitiveLog = (obj: StopTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTaskRequest => __isa(o, "StopTaskRequest");
 }
 
 export interface StopTaskResponse {
-  __type?: "StopTaskResponse";
   /**
    * <p>The task that was stopped.</p>
    */
@@ -7332,11 +7046,9 @@ export namespace StopTaskResponse {
   export const filterSensitiveLog = (obj: StopTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTaskResponse => __isa(o, "StopTaskResponse");
 }
 
 export interface SubmitAttachmentStateChangesRequest {
-  __type?: "SubmitAttachmentStateChangesRequest";
   /**
    * <p>Any attachments associated with the state change request.</p>
    */
@@ -7353,12 +7065,9 @@ export namespace SubmitAttachmentStateChangesRequest {
   export const filterSensitiveLog = (obj: SubmitAttachmentStateChangesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitAttachmentStateChangesRequest =>
-    __isa(o, "SubmitAttachmentStateChangesRequest");
 }
 
 export interface SubmitAttachmentStateChangesResponse {
-  __type?: "SubmitAttachmentStateChangesResponse";
   /**
    * <p>Acknowledgement of the state change.</p>
    */
@@ -7369,12 +7078,9 @@ export namespace SubmitAttachmentStateChangesResponse {
   export const filterSensitiveLog = (obj: SubmitAttachmentStateChangesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitAttachmentStateChangesResponse =>
-    __isa(o, "SubmitAttachmentStateChangesResponse");
 }
 
 export interface SubmitContainerStateChangeRequest {
-  __type?: "SubmitContainerStateChangeRequest";
   /**
    * <p>The network bindings of the container.</p>
    */
@@ -7420,11 +7126,9 @@ export namespace SubmitContainerStateChangeRequest {
   export const filterSensitiveLog = (obj: SubmitContainerStateChangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitContainerStateChangeRequest => __isa(o, "SubmitContainerStateChangeRequest");
 }
 
 export interface SubmitContainerStateChangeResponse {
-  __type?: "SubmitContainerStateChangeResponse";
   /**
    * <p>Acknowledgement of the state change.</p>
    */
@@ -7435,12 +7139,9 @@ export namespace SubmitContainerStateChangeResponse {
   export const filterSensitiveLog = (obj: SubmitContainerStateChangeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitContainerStateChangeResponse =>
-    __isa(o, "SubmitContainerStateChangeResponse");
 }
 
 export interface SubmitTaskStateChangeRequest {
-  __type?: "SubmitTaskStateChangeRequest";
   /**
    * <p>The status of the state change request.</p>
    */
@@ -7491,11 +7192,9 @@ export namespace SubmitTaskStateChangeRequest {
   export const filterSensitiveLog = (obj: SubmitTaskStateChangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitTaskStateChangeRequest => __isa(o, "SubmitTaskStateChangeRequest");
 }
 
 export interface SubmitTaskStateChangeResponse {
-  __type?: "SubmitTaskStateChangeResponse";
   /**
    * <p>Acknowledgement of the state change.</p>
    */
@@ -7506,7 +7205,6 @@ export namespace SubmitTaskStateChangeResponse {
   export const filterSensitiveLog = (obj: SubmitTaskStateChangeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitTaskStateChangeResponse => __isa(o, "SubmitTaskStateChangeResponse");
 }
 
 /**
@@ -7534,7 +7232,6 @@ export namespace SubmitTaskStateChangeResponse {
  *          </ul>
  */
 export interface SystemControl {
-  __type?: "SystemControl";
   /**
    * <p>The namespaced kernel parameter for which to set a <code>value</code>.</p>
    */
@@ -7551,7 +7248,6 @@ export namespace SystemControl {
   export const filterSensitiveLog = (obj: SystemControl): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SystemControl => __isa(o, "SystemControl");
 }
 
 /**
@@ -7590,7 +7286,6 @@ export namespace SystemControl {
  *          </ul>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as
    *             a descriptor within a tag category (key).</p>
@@ -7608,11 +7303,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
    *         <p>The following basic restrictions apply to tags:</p>
@@ -7661,18 +7354,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -7690,7 +7379,6 @@ export namespace TargetNotFoundException {
   export const filterSensitiveLog = (obj: TargetNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetNotFoundException => __isa(o, "TargetNotFoundException");
 }
 
 export enum TargetType {
@@ -7701,7 +7389,6 @@ export enum TargetType {
  * <p>Details on a task in a cluster.</p>
  */
 export interface Task {
-  __type?: "Task";
   /**
    * <p>The ARN of the task definition that creates the task.</p>
    */
@@ -7989,7 +7676,6 @@ export namespace Task {
   export const filterSensitiveLog = (obj: Task): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Task => __isa(o, "Task");
 }
 
 /**
@@ -7999,7 +7685,6 @@ export namespace Task {
  *             Amazon ECS service or task.</p>
  */
 export interface TaskDefinition {
-  __type?: "TaskDefinition";
   /**
    * <p>An array of placement constraint objects to use for tasks. This field is not valid if
    *             you are using the Fargate launch type for your task.</p>
@@ -8254,7 +7939,6 @@ export namespace TaskDefinition {
   export const filterSensitiveLog = (obj: TaskDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskDefinition => __isa(o, "TaskDefinition");
 }
 
 export enum TaskDefinitionFamilyStatus {
@@ -8277,7 +7961,6 @@ export enum TaskDefinitionField {
  *         </note>
  */
 export interface TaskDefinitionPlacementConstraint {
-  __type?: "TaskDefinitionPlacementConstraint";
   /**
    * <p>The type of constraint. The <code>MemberOf</code> constraint restricts selection to be
    *             from a group of valid candidates.</p>
@@ -8296,7 +7979,6 @@ export namespace TaskDefinitionPlacementConstraint {
   export const filterSensitiveLog = (obj: TaskDefinitionPlacementConstraint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskDefinitionPlacementConstraint => __isa(o, "TaskDefinitionPlacementConstraint");
 }
 
 export enum TaskDefinitionPlacementConstraintType {
@@ -8316,7 +7998,6 @@ export enum TaskField {
  * <p>The overrides associated with a task.</p>
  */
 export interface TaskOverride {
-  __type?: "TaskOverride";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers
    *             in this task are granted the permissions that are specified in this role.</p>
@@ -8353,7 +8034,6 @@ export namespace TaskOverride {
   export const filterSensitiveLog = (obj: TaskOverride): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskOverride => __isa(o, "TaskOverride");
 }
 
 /**
@@ -8362,7 +8042,6 @@ export namespace TaskOverride {
  *             many tasks are running, and whether the task set serves production traffic.</p>
  */
 export interface TaskSet {
-  __type?: "TaskSet";
   /**
    * <p>The Unix timestamp for when the task set stability status was retrieved.</p>
    */
@@ -8576,7 +8255,6 @@ export namespace TaskSet {
   export const filterSensitiveLog = (obj: TaskSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskSet => __isa(o, "TaskSet");
 }
 
 export enum TaskSetField {
@@ -8598,7 +8276,6 @@ export namespace TaskSetNotFoundException {
   export const filterSensitiveLog = (obj: TaskSetNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskSetNotFoundException => __isa(o, "TaskSetNotFoundException");
 }
 
 export enum TaskStopCode {
@@ -8611,7 +8288,6 @@ export enum TaskStopCode {
  * <p>The container path, mount options, and size of the tmpfs mount.</p>
  */
 export interface Tmpfs {
-  __type?: "Tmpfs";
   /**
    * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
    */
@@ -8639,7 +8315,6 @@ export namespace Tmpfs {
   export const filterSensitiveLog = (obj: Tmpfs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tmpfs => __isa(o, "Tmpfs");
 }
 
 export enum TransportProtocol {
@@ -8651,7 +8326,6 @@ export enum TransportProtocol {
  * <p>The <code>ulimit</code> settings to pass to the container.</p>
  */
 export interface Ulimit {
-  __type?: "Ulimit";
   /**
    * <p>The soft limit for the ulimit type.</p>
    */
@@ -8672,7 +8346,6 @@ export namespace Ulimit {
   export const filterSensitiveLog = (obj: Ulimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ulimit => __isa(o, "Ulimit");
 }
 
 export enum UlimitName {
@@ -8706,11 +8379,9 @@ export namespace UnsupportedFeatureException {
   export const filterSensitiveLog = (obj: UnsupportedFeatureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedFeatureException => __isa(o, "UnsupportedFeatureException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys of the tags to be removed.</p>
    */
@@ -8728,22 +8399,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateClusterSettingsRequest {
-  __type?: "UpdateClusterSettingsRequest";
   /**
    * <p>The name of the cluster to modify the settings for.</p>
    */
@@ -8762,11 +8428,9 @@ export namespace UpdateClusterSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateClusterSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterSettingsRequest => __isa(o, "UpdateClusterSettingsRequest");
 }
 
 export interface UpdateClusterSettingsResponse {
-  __type?: "UpdateClusterSettingsResponse";
   /**
    * <p>A regional grouping of one or more container instances on which you can run task
    *             requests. Each account receives a default cluster the first time you use the Amazon ECS
@@ -8780,11 +8444,9 @@ export namespace UpdateClusterSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateClusterSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterSettingsResponse => __isa(o, "UpdateClusterSettingsResponse");
 }
 
 export interface UpdateContainerAgentRequest {
-  __type?: "UpdateContainerAgentRequest";
   /**
    * <p>The container instance ID or full ARN entries for the container instance on which
    *             you would like to update the Amazon ECS container agent.</p>
@@ -8802,11 +8464,9 @@ export namespace UpdateContainerAgentRequest {
   export const filterSensitiveLog = (obj: UpdateContainerAgentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContainerAgentRequest => __isa(o, "UpdateContainerAgentRequest");
 }
 
 export interface UpdateContainerAgentResponse {
-  __type?: "UpdateContainerAgentResponse";
   /**
    * <p>The container instance for which the container agent was updated.</p>
    */
@@ -8817,11 +8477,9 @@ export namespace UpdateContainerAgentResponse {
   export const filterSensitiveLog = (obj: UpdateContainerAgentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContainerAgentResponse => __isa(o, "UpdateContainerAgentResponse");
 }
 
 export interface UpdateContainerInstancesStateRequest {
-  __type?: "UpdateContainerInstancesStateRequest";
   /**
    * <p>The container instance state with which to update the container instance. The only
    *             valid values for this action are <code>ACTIVE</code> and <code>DRAINING</code>. A
@@ -8849,12 +8507,9 @@ export namespace UpdateContainerInstancesStateRequest {
   export const filterSensitiveLog = (obj: UpdateContainerInstancesStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContainerInstancesStateRequest =>
-    __isa(o, "UpdateContainerInstancesStateRequest");
 }
 
 export interface UpdateContainerInstancesStateResponse {
-  __type?: "UpdateContainerInstancesStateResponse";
   /**
    * <p>The list of container instances.</p>
    */
@@ -8870,8 +8525,6 @@ export namespace UpdateContainerInstancesStateResponse {
   export const filterSensitiveLog = (obj: UpdateContainerInstancesStateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContainerInstancesStateResponse =>
-    __isa(o, "UpdateContainerInstancesStateResponse");
 }
 
 /**
@@ -8891,11 +8544,9 @@ export namespace UpdateInProgressException {
   export const filterSensitiveLog = (obj: UpdateInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInProgressException => __isa(o, "UpdateInProgressException");
 }
 
 export interface UpdateServicePrimaryTaskSetRequest {
-  __type?: "UpdateServicePrimaryTaskSetRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the
    *             deployment.</p>
@@ -8918,12 +8569,9 @@ export namespace UpdateServicePrimaryTaskSetRequest {
   export const filterSensitiveLog = (obj: UpdateServicePrimaryTaskSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServicePrimaryTaskSetRequest =>
-    __isa(o, "UpdateServicePrimaryTaskSetRequest");
 }
 
 export interface UpdateServicePrimaryTaskSetResponse {
-  __type?: "UpdateServicePrimaryTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
    *             deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
@@ -8936,12 +8584,9 @@ export namespace UpdateServicePrimaryTaskSetResponse {
   export const filterSensitiveLog = (obj: UpdateServicePrimaryTaskSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServicePrimaryTaskSetResponse =>
-    __isa(o, "UpdateServicePrimaryTaskSetResponse");
 }
 
 export interface UpdateServiceRequest {
-  __type?: "UpdateServiceRequest";
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    *             full ARN of the task definition to run in your service. If a <code>revision</code> is
@@ -9059,11 +8704,9 @@ export namespace UpdateServiceRequest {
   export const filterSensitiveLog = (obj: UpdateServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceRequest => __isa(o, "UpdateServiceRequest");
 }
 
 export interface UpdateServiceResponse {
-  __type?: "UpdateServiceResponse";
   /**
    * <p>The full description of your service following the update call.</p>
    */
@@ -9074,11 +8717,9 @@ export namespace UpdateServiceResponse {
   export const filterSensitiveLog = (obj: UpdateServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceResponse => __isa(o, "UpdateServiceResponse");
 }
 
 export interface UpdateTaskSetRequest {
-  __type?: "UpdateTaskSetRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the task set to update.</p>
    */
@@ -9106,11 +8747,9 @@ export namespace UpdateTaskSetRequest {
   export const filterSensitiveLog = (obj: UpdateTaskSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTaskSetRequest => __isa(o, "UpdateTaskSetRequest");
 }
 
 export interface UpdateTaskSetResponse {
-  __type?: "UpdateTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
    *             deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
@@ -9123,7 +8762,6 @@ export namespace UpdateTaskSetResponse {
   export const filterSensitiveLog = (obj: UpdateTaskSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTaskSetResponse => __isa(o, "UpdateTaskSetResponse");
 }
 
 /**
@@ -9131,7 +8769,6 @@ export namespace UpdateTaskSetResponse {
  *             instance.</p>
  */
 export interface VersionInfo {
-  __type?: "VersionInfo";
   /**
    * <p>The Git commit hash for the Amazon ECS container agent build on the <a href="https://github.com/aws/amazon-ecs-agent/commits/master">amazon-ecs-agent
    *             </a> GitHub repository.</p>
@@ -9153,7 +8790,6 @@ export namespace VersionInfo {
   export const filterSensitiveLog = (obj: VersionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionInfo => __isa(o, "VersionInfo");
 }
 
 /**
@@ -9165,7 +8801,6 @@ export namespace VersionInfo {
  *                 Tasks</a>.</p>
  */
 export interface Volume {
-  __type?: "Volume";
   /**
    * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the
    *                 <code>sourceVolume</code> parameter of container definition
@@ -9207,14 +8842,12 @@ export namespace Volume {
   export const filterSensitiveLog = (obj: Volume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Volume => __isa(o, "Volume");
 }
 
 /**
  * <p>Details on a data volume from another container in the same task definition.</p>
  */
 export interface VolumeFrom {
-  __type?: "VolumeFrom";
   /**
    * <p>The name of another container within the same task definition from which to mount
    *             volumes.</p>
@@ -9233,5 +8866,4 @@ export namespace VolumeFrom {
   export const filterSensitiveLog = (obj: VolumeFrom): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeFrom => __isa(o, "VolumeFrom");
 }

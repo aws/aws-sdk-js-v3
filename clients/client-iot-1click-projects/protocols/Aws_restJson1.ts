@@ -639,7 +639,6 @@ export const deserializeAws_restJson1AssociateDeviceWithPlacementCommand = async
   }
   const contents: AssociateDeviceWithPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDeviceWithPlacementResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -715,7 +714,6 @@ export const deserializeAws_restJson1CreatePlacementCommand = async (
   }
   const contents: CreatePlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePlacementResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -791,7 +789,6 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   }
   const contents: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -859,7 +856,6 @@ export const deserializeAws_restJson1DeletePlacementCommand = async (
   }
   const contents: DeletePlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePlacementResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -935,7 +931,6 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   }
   const contents: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1011,7 +1006,6 @@ export const deserializeAws_restJson1DescribePlacementCommand = async (
   }
   const contents: DescribePlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePlacementResponse",
     placement: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1083,7 +1077,6 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   }
   const contents: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectResponse",
     project: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1155,7 +1148,6 @@ export const deserializeAws_restJson1DisassociateDeviceFromPlacementCommand = as
   }
   const contents: DisassociateDeviceFromPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDeviceFromPlacementResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1231,7 +1223,6 @@ export const deserializeAws_restJson1GetDevicesInPlacementCommand = async (
   }
   const contents: GetDevicesInPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDevicesInPlacementResponse",
     devices: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1303,7 +1294,6 @@ export const deserializeAws_restJson1ListPlacementsCommand = async (
   }
   const contents: ListPlacementsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPlacementsResponse",
     nextToken: undefined,
     placements: undefined,
   };
@@ -1379,7 +1369,6 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   }
   const contents: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProjectsResponse",
     nextToken: undefined,
     projects: undefined,
   };
@@ -1447,7 +1436,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1519,7 +1507,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1587,7 +1574,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1655,7 +1641,6 @@ export const deserializeAws_restJson1UpdatePlacementCommand = async (
   }
   const contents: UpdatePlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePlacementResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1731,7 +1716,6 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   }
   const contents: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2023,7 +2007,6 @@ const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1DeviceTemplate = (output: any, context: __SerdeContext): DeviceTemplate => {
   return {
-    __type: "DeviceTemplate",
     callbackOverrides:
       output.callbackOverrides !== undefined && output.callbackOverrides !== null
         ? deserializeAws_restJson1DeviceCallbackOverrideMap(output.callbackOverrides, context)
@@ -2060,7 +2043,6 @@ const deserializeAws_restJson1PlacementAttributeMap = (
 
 const deserializeAws_restJson1PlacementDescription = (output: any, context: __SerdeContext): PlacementDescription => {
   return {
-    __type: "PlacementDescription",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1PlacementAttributeMap(output.attributes, context)
@@ -2081,7 +2063,6 @@ const deserializeAws_restJson1PlacementDescription = (output: any, context: __Se
 
 const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeContext): PlacementSummary => {
   return {
-    __type: "PlacementSummary",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -2102,7 +2083,6 @@ const deserializeAws_restJson1PlacementSummaryList = (output: any, context: __Se
 
 const deserializeAws_restJson1PlacementTemplate = (output: any, context: __SerdeContext): PlacementTemplate => {
   return {
-    __type: "PlacementTemplate",
     defaultAttributes:
       output.defaultAttributes !== undefined && output.defaultAttributes !== null
         ? deserializeAws_restJson1DefaultPlacementAttributeMap(output.defaultAttributes, context)
@@ -2116,7 +2096,6 @@ const deserializeAws_restJson1PlacementTemplate = (output: any, context: __Serde
 
 const deserializeAws_restJson1ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
   return {
-    __type: "ProjectDescription",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
@@ -2141,7 +2120,6 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    __type: "ProjectSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null

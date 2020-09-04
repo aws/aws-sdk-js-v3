@@ -2,7 +2,6 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -20,11 +19,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AnalyzeDocumentRequest {
-  __type?: "AnalyzeDocumentRequest";
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
    *          to call Amazon Textract operations, you can't pass image bytes. The document must be an image
@@ -53,11 +50,9 @@ export namespace AnalyzeDocumentRequest {
   export const filterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyzeDocumentRequest => __isa(o, "AnalyzeDocumentRequest");
 }
 
 export interface AnalyzeDocumentResponse {
-  __type?: "AnalyzeDocumentResponse";
   /**
    * <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
    */
@@ -83,7 +78,6 @@ export namespace AnalyzeDocumentResponse {
   export const filterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyzeDocumentResponse => __isa(o, "AnalyzeDocumentResponse");
 }
 
 /**
@@ -100,7 +94,6 @@ export namespace BadDocumentException {
   export const filterSensitiveLog = (obj: BadDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadDocumentException => __isa(o, "BadDocumentException");
 }
 
 /**
@@ -118,7 +111,6 @@ export namespace BadDocumentException {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html">How Amazon Textract Works</a>.</p>
  */
 export interface Block {
-  __type?: "Block";
   /**
    * <p>The word or line of text that's recognized by Amazon Textract. </p>
    */
@@ -291,7 +283,6 @@ export namespace Block {
   export const filterSensitiveLog = (obj: Block): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Block => __isa(o, "Block");
 }
 
 export enum BlockType {
@@ -319,7 +310,6 @@ export enum BlockType {
  *          returned is 0.1. </p>
  */
 export interface BoundingBox {
-  __type?: "BoundingBox";
   /**
    * <p>The top coordinate of the bounding box as a ratio of overall document page
    *          height.</p>
@@ -349,7 +339,6 @@ export namespace BoundingBox {
   export const filterSensitiveLog = (obj: BoundingBox): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BoundingBox => __isa(o, "BoundingBox");
 }
 
 export enum ContentClassifier {
@@ -358,7 +347,6 @@ export enum ContentClassifier {
 }
 
 export interface DetectDocumentTextRequest {
-  __type?: "DetectDocumentTextRequest";
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
    *          to call Amazon Textract operations, you can't pass image bytes. The document must be an image
@@ -373,11 +361,9 @@ export namespace DetectDocumentTextRequest {
   export const filterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectDocumentTextRequest => __isa(o, "DetectDocumentTextRequest");
 }
 
 export interface DetectDocumentTextResponse {
-  __type?: "DetectDocumentTextResponse";
   /**
    * <p></p>
    */
@@ -400,7 +386,6 @@ export namespace DetectDocumentTextResponse {
   export const filterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectDocumentTextResponse => __isa(o, "DetectDocumentTextResponse");
 }
 
 /**
@@ -423,7 +408,6 @@ export namespace DetectDocumentTextResponse {
  *          to access the S3 object. </p>
  */
 export interface Document {
-  __type?: "Document";
   /**
    * <p>Identifies an S3 object as the document source. The maximum size of a document that's
    *          stored in an S3 bucket is 5 MB.</p>
@@ -443,7 +427,6 @@ export namespace Document {
   export const filterSensitiveLog = (obj: Document): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Document => __isa(o, "Document");
 }
 
 /**
@@ -453,7 +436,6 @@ export namespace Document {
  *          PDF format.</p>
  */
 export interface DocumentLocation {
-  __type?: "DocumentLocation";
   /**
    * <p>The Amazon S3 bucket that contains the input document.</p>
    */
@@ -464,14 +446,12 @@ export namespace DocumentLocation {
   export const filterSensitiveLog = (obj: DocumentLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentLocation => __isa(o, "DocumentLocation");
 }
 
 /**
  * <p>Information about the input document.</p>
  */
 export interface DocumentMetadata {
-  __type?: "DocumentMetadata";
   /**
    * <p>The number of pages that are detected in the document.</p>
    */
@@ -482,7 +462,6 @@ export namespace DocumentMetadata {
   export const filterSensitiveLog = (obj: DocumentMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentMetadata => __isa(o, "DocumentMetadata");
 }
 
 /**
@@ -501,7 +480,6 @@ export namespace DocumentTooLargeException {
   export const filterSensitiveLog = (obj: DocumentTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentTooLargeException => __isa(o, "DocumentTooLargeException");
 }
 
 export enum EntityType {
@@ -519,7 +497,6 @@ export enum FeatureType {
  *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
  */
 export interface Geometry {
-  __type?: "Geometry";
   /**
    * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
    */
@@ -536,11 +513,9 @@ export namespace Geometry {
   export const filterSensitiveLog = (obj: Geometry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
 
 export interface GetDocumentAnalysisRequest {
-  __type?: "GetDocumentAnalysisRequest";
   /**
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
    *          <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
@@ -565,11 +540,9 @@ export namespace GetDocumentAnalysisRequest {
   export const filterSensitiveLog = (obj: GetDocumentAnalysisRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDocumentAnalysisRequest => __isa(o, "GetDocumentAnalysisRequest");
 }
 
 export interface GetDocumentAnalysisResponse {
-  __type?: "GetDocumentAnalysisResponse";
   /**
    * <p>The results of the text-analysis operation.</p>
    */
@@ -612,11 +585,9 @@ export namespace GetDocumentAnalysisResponse {
   export const filterSensitiveLog = (obj: GetDocumentAnalysisResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDocumentAnalysisResponse => __isa(o, "GetDocumentAnalysisResponse");
 }
 
 export interface GetDocumentTextDetectionRequest {
-  __type?: "GetDocumentTextDetectionRequest";
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
    *          <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
@@ -641,11 +612,9 @@ export namespace GetDocumentTextDetectionRequest {
   export const filterSensitiveLog = (obj: GetDocumentTextDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDocumentTextDetectionRequest => __isa(o, "GetDocumentTextDetectionRequest");
 }
 
 export interface GetDocumentTextDetectionResponse {
-  __type?: "GetDocumentTextDetectionResponse";
   /**
    * <p>A list of warnings that occurred during the text-detection operation for the
    *          document.</p>
@@ -689,7 +658,6 @@ export namespace GetDocumentTextDetectionResponse {
   export const filterSensitiveLog = (obj: GetDocumentTextDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDocumentTextDetectionResponse => __isa(o, "GetDocumentTextDetectionResponse");
 }
 
 /**
@@ -697,7 +665,6 @@ export namespace GetDocumentTextDetectionResponse {
  *          did not trigger human review.</p>
  */
 export interface HumanLoopActivationOutput {
-  __type?: "HumanLoopActivationOutput";
   /**
    * <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
    */
@@ -718,7 +685,6 @@ export namespace HumanLoopActivationOutput {
   export const filterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopActivationOutput => __isa(o, "HumanLoopActivationOutput");
 }
 
 /**
@@ -726,7 +692,6 @@ export namespace HumanLoopActivationOutput {
  *          of the image before review. </p>
  */
 export interface HumanLoopConfig {
-  __type?: "HumanLoopConfig";
   /**
    * <p>Sets attributes of the input data.</p>
    */
@@ -747,7 +712,6 @@ export namespace HumanLoopConfig {
   export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopConfig => __isa(o, "HumanLoopConfig");
 }
 
 /**
@@ -755,7 +719,6 @@ export namespace HumanLoopConfig {
  *          personally identifiable information and adult content. </p>
  */
 export interface HumanLoopDataAttributes {
-  __type?: "HumanLoopDataAttributes";
   /**
    * <p>Sets whether the input image is free of personally identifiable information or adult content.</p>
    */
@@ -766,7 +729,6 @@ export namespace HumanLoopDataAttributes {
   export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopDataAttributes => __isa(o, "HumanLoopDataAttributes");
 }
 
 /**
@@ -786,7 +748,6 @@ export namespace HumanLoopQuotaExceededException {
   export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopQuotaExceededException => __isa(o, "HumanLoopQuotaExceededException");
 }
 
 /**
@@ -805,8 +766,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -823,7 +782,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -841,7 +799,6 @@ export namespace InvalidJobIdException {
   export const filterSensitiveLog = (obj: InvalidJobIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidJobIdException => __isa(o, "InvalidJobIdException");
 }
 
 /**
@@ -862,7 +819,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -879,7 +835,6 @@ export namespace InvalidS3ObjectException {
   export const filterSensitiveLog = (obj: InvalidS3ObjectException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3ObjectException => __isa(o, "InvalidS3ObjectException");
 }
 
 export enum JobStatus {
@@ -907,7 +862,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -915,7 +869,6 @@ export namespace LimitExceededException {
  *          an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>
  */
 export interface NotificationChannel {
-  __type?: "NotificationChannel";
   /**
    * <p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>
    */
@@ -931,7 +884,6 @@ export namespace NotificationChannel {
   export const filterSensitiveLog = (obj: NotificationChannel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationChannel => __isa(o, "NotificationChannel");
 }
 
 /**
@@ -946,7 +898,6 @@ export namespace NotificationChannel {
  *          Developer Guide. </p>
  */
 export interface Point {
-  __type?: "Point";
   /**
    * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
    */
@@ -962,7 +913,6 @@ export namespace Point {
   export const filterSensitiveLog = (obj: Point): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Point => __isa(o, "Point");
 }
 
 /**
@@ -980,8 +930,6 @@ export namespace ProvisionedThroughputExceededException {
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedThroughputExceededException =>
-    __isa(o, "ProvisionedThroughputExceededException");
 }
 
 /**
@@ -992,7 +940,6 @@ export namespace ProvisionedThroughputExceededException {
  *          the <code>IDs</code> array. </p>
  */
 export interface Relationship {
-  __type?: "Relationship";
   /**
    * <p>The type of relationship that the blocks in the IDs array have with the current block.
    *          The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type
@@ -1013,7 +960,6 @@ export namespace Relationship {
   export const filterSensitiveLog = (obj: Relationship): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Relationship => __isa(o, "Relationship");
 }
 
 export enum RelationshipType {
@@ -1032,7 +978,6 @@ export enum RelationshipType {
  *       </p>
  */
 export interface S3Object {
-  __type?: "S3Object";
   /**
    * <p>The file name of the input document. Synchronous operations can use image files that are
    *          in JPEG or PNG format. Asynchronous operations also support PDF format files.</p>
@@ -1054,7 +999,6 @@ export namespace S3Object {
   export const filterSensitiveLog = (obj: S3Object): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Object => __isa(o, "S3Object");
 }
 
 export enum SelectionStatus {
@@ -1063,7 +1007,6 @@ export enum SelectionStatus {
 }
 
 export interface StartDocumentAnalysisRequest {
-  __type?: "StartDocumentAnalysisRequest";
   /**
    * <p>The idempotent token that you use to identify the start request. If you use the same
    *          token with multiple <code>StartDocumentAnalysis</code> requests, the same
@@ -1107,11 +1050,9 @@ export namespace StartDocumentAnalysisRequest {
   export const filterSensitiveLog = (obj: StartDocumentAnalysisRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDocumentAnalysisRequest => __isa(o, "StartDocumentAnalysisRequest");
 }
 
 export interface StartDocumentAnalysisResponse {
-  __type?: "StartDocumentAnalysisResponse";
   /**
    * <p>The identifier for the document text detection job. Use <code>JobId</code> to identify
    *          the job in a subsequent call to <code>GetDocumentAnalysis</code>. A <code>JobId</code> value
@@ -1124,11 +1065,9 @@ export namespace StartDocumentAnalysisResponse {
   export const filterSensitiveLog = (obj: StartDocumentAnalysisResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDocumentAnalysisResponse => __isa(o, "StartDocumentAnalysisResponse");
 }
 
 export interface StartDocumentTextDetectionRequest {
-  __type?: "StartDocumentTextDetectionRequest";
   /**
    * <p>The location of the document to be processed.</p>
    */
@@ -1162,11 +1101,9 @@ export namespace StartDocumentTextDetectionRequest {
   export const filterSensitiveLog = (obj: StartDocumentTextDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDocumentTextDetectionRequest => __isa(o, "StartDocumentTextDetectionRequest");
 }
 
 export interface StartDocumentTextDetectionResponse {
-  __type?: "StartDocumentTextDetectionResponse";
   /**
    * <p>The identifier of the text detection job for the document. Use <code>JobId</code> to
    *          identify the job in a subsequent call to <code>GetDocumentTextDetection</code>.
@@ -1179,8 +1116,6 @@ export namespace StartDocumentTextDetectionResponse {
   export const filterSensitiveLog = (obj: StartDocumentTextDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDocumentTextDetectionResponse =>
-    __isa(o, "StartDocumentTextDetectionResponse");
 }
 
 /**
@@ -1197,7 +1132,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1215,14 +1149,12 @@ export namespace UnsupportedDocumentException {
   export const filterSensitiveLog = (obj: UnsupportedDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedDocumentException => __isa(o, "UnsupportedDocumentException");
 }
 
 /**
  * <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document text detection (<a>StartDocumentTextDetection</a>). </p>
  */
 export interface Warning {
-  __type?: "Warning";
   /**
    * <p>The error code for the warning.</p>
    */
@@ -1238,5 +1170,4 @@ export namespace Warning {
   export const filterSensitiveLog = (obj: Warning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Warning => __isa(o, "Warning");
 }

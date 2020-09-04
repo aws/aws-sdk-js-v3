@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddAttachmentsToSetRequest {
-  __type?: "AddAttachmentsToSetRequest";
   /**
    * <p>One or more attachments to add to the set. You can add up to three attachments per
    *             set. The size limit is 5 MB per attachment.</p>
@@ -27,14 +26,12 @@ export namespace AddAttachmentsToSetRequest {
   export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAttachmentsToSetRequest => __isa(o, "AddAttachmentsToSetRequest");
 }
 
 /**
  * <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
  */
 export interface AddAttachmentsToSetResponse {
-  __type?: "AddAttachmentsToSetResponse";
   /**
    * <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified, a
    *             new attachment set is created, and the ID of the set is returned in the response. If an
@@ -53,11 +50,9 @@ export namespace AddAttachmentsToSetResponse {
   export const filterSensitiveLog = (obj: AddAttachmentsToSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAttachmentsToSetResponse => __isa(o, "AddAttachmentsToSetResponse");
 }
 
 export interface AddCommunicationToCaseRequest {
-  __type?: "AddCommunicationToCaseRequest";
   /**
    * <p>The email addresses in the CC line of an email to be added to the support case.</p>
    */
@@ -88,14 +83,12 @@ export namespace AddCommunicationToCaseRequest {
   export const filterSensitiveLog = (obj: AddCommunicationToCaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddCommunicationToCaseRequest => __isa(o, "AddCommunicationToCaseRequest");
 }
 
 /**
  * <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
  */
 export interface AddCommunicationToCaseResponse {
-  __type?: "AddCommunicationToCaseResponse";
   /**
    * <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
    *             error.</p>
@@ -107,7 +100,6 @@ export namespace AddCommunicationToCaseResponse {
   export const filterSensitiveLog = (obj: AddCommunicationToCaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddCommunicationToCaseResponse => __isa(o, "AddCommunicationToCaseResponse");
 }
 
 /**
@@ -115,7 +107,6 @@ export namespace AddCommunicationToCaseResponse {
  *             the content of the file.</p>
  */
 export interface Attachment {
-  __type?: "Attachment";
   /**
    * <p>The name of the attachment file.</p>
    */
@@ -131,7 +122,6 @@ export namespace Attachment {
   export const filterSensitiveLog = (obj: Attachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attachment => __isa(o, "Attachment");
 }
 
 /**
@@ -139,7 +129,6 @@ export namespace Attachment {
  *             retrieve the attachment with the <a>DescribeAttachment</a> operation.</p>
  */
 export interface AttachmentDetails {
-  __type?: "AttachmentDetails";
   /**
    * <p>The file name of the attachment.</p>
    */
@@ -155,7 +144,6 @@ export namespace AttachmentDetails {
   export const filterSensitiveLog = (obj: AttachmentDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentDetails => __isa(o, "AttachmentDetails");
 }
 
 /**
@@ -174,7 +162,6 @@ export namespace AttachmentIdNotFound {
   export const filterSensitiveLog = (obj: AttachmentIdNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentIdNotFound => __isa(o, "AttachmentIdNotFound");
 }
 
 /**
@@ -195,7 +182,6 @@ export namespace AttachmentLimitExceeded {
   export const filterSensitiveLog = (obj: AttachmentLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentLimitExceeded => __isa(o, "AttachmentLimitExceeded");
 }
 
 /**
@@ -216,7 +202,6 @@ export namespace AttachmentSetExpired {
   export const filterSensitiveLog = (obj: AttachmentSetExpired): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentSetExpired => __isa(o, "AttachmentSetExpired");
 }
 
 /**
@@ -235,7 +220,6 @@ export namespace AttachmentSetIdNotFound {
   export const filterSensitiveLog = (obj: AttachmentSetIdNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentSetIdNotFound => __isa(o, "AttachmentSetIdNotFound");
 }
 
 /**
@@ -256,7 +240,6 @@ export namespace AttachmentSetSizeLimitExceeded {
   export const filterSensitiveLog = (obj: AttachmentSetSizeLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachmentSetSizeLimitExceeded => __isa(o, "AttachmentSetSizeLimitExceeded");
 }
 
 /**
@@ -276,7 +259,6 @@ export namespace CaseCreationLimitExceeded {
   export const filterSensitiveLog = (obj: CaseCreationLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaseCreationLimitExceeded => __isa(o, "CaseCreationLimitExceeded");
 }
 
 /**
@@ -385,7 +367,6 @@ export namespace CaseCreationLimitExceeded {
  *          </ul>
  */
 export interface CaseDetails {
-  __type?: "CaseDetails";
   /**
    * <p>The email addresses that receive copies of communication about the case.</p>
    */
@@ -493,7 +474,6 @@ export namespace CaseDetails {
   export const filterSensitiveLog = (obj: CaseDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaseDetails => __isa(o, "CaseDetails");
 }
 
 /**
@@ -512,7 +492,6 @@ export namespace CaseIdNotFound {
   export const filterSensitiveLog = (obj: CaseIdNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaseIdNotFound => __isa(o, "CaseIdNotFound");
 }
 
 /**
@@ -521,7 +500,6 @@ export namespace CaseIdNotFound {
  *             AWS service.</p>
  */
 export interface Category {
-  __type?: "Category";
   /**
    * <p>The category name for the support case.</p>
    */
@@ -537,7 +515,6 @@ export namespace Category {
   export const filterSensitiveLog = (obj: Category): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Category => __isa(o, "Category");
 }
 
 /**
@@ -546,7 +523,6 @@ export namespace Category {
  *             and the date and time of the communication.</p>
  */
 export interface Communication {
-  __type?: "Communication";
   /**
    * <p>Information about the attachments to the case communication.</p>
    */
@@ -584,11 +560,9 @@ export namespace Communication {
   export const filterSensitiveLog = (obj: Communication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Communication => __isa(o, "Communication");
 }
 
 export interface CreateCaseRequest {
-  __type?: "CreateCaseRequest";
   /**
    * <p>A value that indicates the urgency of the case. This value determines the response
    *             time according to your service level agreement with AWS Support. You can use the <a>DescribeSeverityLevels</a> operation to get the possible values for
@@ -658,14 +632,12 @@ export namespace CreateCaseRequest {
   export const filterSensitiveLog = (obj: CreateCaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCaseRequest => __isa(o, "CreateCaseRequest");
 }
 
 /**
  * <p>The AWS Support case ID returned by a successful completion of the <a>CreateCase</a> operation.</p>
  */
 export interface CreateCaseResponse {
-  __type?: "CreateCaseResponse";
   /**
    * <p>The AWS Support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string in the following format:
@@ -679,7 +651,6 @@ export namespace CreateCaseResponse {
   export const filterSensitiveLog = (obj: CreateCaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCaseResponse => __isa(o, "CreateCaseResponse");
 }
 
 /**
@@ -700,11 +671,9 @@ export namespace DescribeAttachmentLimitExceeded {
   export const filterSensitiveLog = (obj: DescribeAttachmentLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAttachmentLimitExceeded => __isa(o, "DescribeAttachmentLimitExceeded");
 }
 
 export interface DescribeAttachmentRequest {
-  __type?: "DescribeAttachmentRequest";
   /**
    * <p>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a> operation.</p>
    */
@@ -715,14 +684,12 @@ export namespace DescribeAttachmentRequest {
   export const filterSensitiveLog = (obj: DescribeAttachmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAttachmentRequest => __isa(o, "DescribeAttachmentRequest");
 }
 
 /**
  * <p>The content and file name of the attachment returned by the <a>DescribeAttachment</a> operation.</p>
  */
 export interface DescribeAttachmentResponse {
-  __type?: "DescribeAttachmentResponse";
   /**
    * <p>This object includes the attachment content and file name.</p>
    *         <p>In the previous response syntax, the value for the <code>data</code> parameter appears
@@ -737,11 +704,9 @@ export namespace DescribeAttachmentResponse {
   export const filterSensitiveLog = (obj: DescribeAttachmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAttachmentResponse => __isa(o, "DescribeAttachmentResponse");
 }
 
 export interface DescribeCasesRequest {
-  __type?: "DescribeCasesRequest";
   /**
    * <p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>
    *             response. By default, resolved cases aren't included.</p>
@@ -799,7 +764,6 @@ export namespace DescribeCasesRequest {
   export const filterSensitiveLog = (obj: DescribeCasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCasesRequest => __isa(o, "DescribeCasesRequest");
 }
 
 /**
@@ -808,7 +772,6 @@ export namespace DescribeCasesRequest {
  *             set.</p>
  */
 export interface DescribeCasesResponse {
-  __type?: "DescribeCasesResponse";
   /**
    * <p>The details for the cases that match the request.</p>
    */
@@ -824,11 +787,9 @@ export namespace DescribeCasesResponse {
   export const filterSensitiveLog = (obj: DescribeCasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCasesResponse => __isa(o, "DescribeCasesResponse");
 }
 
 export interface DescribeCommunicationsRequest {
-  __type?: "DescribeCommunicationsRequest";
   /**
    * <p>The AWS Support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
@@ -864,7 +825,6 @@ export namespace DescribeCommunicationsRequest {
   export const filterSensitiveLog = (obj: DescribeCommunicationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCommunicationsRequest => __isa(o, "DescribeCommunicationsRequest");
 }
 
 /**
@@ -872,7 +832,6 @@ export namespace DescribeCommunicationsRequest {
  *             operation.</p>
  */
 export interface DescribeCommunicationsResponse {
-  __type?: "DescribeCommunicationsResponse";
   /**
    * <p>The communications for the case.</p>
    */
@@ -888,11 +847,9 @@ export namespace DescribeCommunicationsResponse {
   export const filterSensitiveLog = (obj: DescribeCommunicationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCommunicationsResponse => __isa(o, "DescribeCommunicationsResponse");
 }
 
 export interface DescribeServicesRequest {
-  __type?: "DescribeServicesRequest";
   /**
    * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
@@ -910,7 +867,6 @@ export namespace DescribeServicesRequest {
   export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 /**
@@ -918,7 +874,6 @@ export namespace DescribeServicesRequest {
  *             operation.</p>
  */
 export interface DescribeServicesResponse {
-  __type?: "DescribeServicesResponse";
   /**
    * <p>A JSON-formatted list of AWS services.</p>
    */
@@ -929,11 +884,9 @@ export namespace DescribeServicesResponse {
   export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesResponse => __isa(o, "DescribeServicesResponse");
 }
 
 export interface DescribeSeverityLevelsRequest {
-  __type?: "DescribeSeverityLevelsRequest";
   /**
    * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
@@ -946,7 +899,6 @@ export namespace DescribeSeverityLevelsRequest {
   export const filterSensitiveLog = (obj: DescribeSeverityLevelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSeverityLevelsRequest => __isa(o, "DescribeSeverityLevelsRequest");
 }
 
 /**
@@ -954,7 +906,6 @@ export namespace DescribeSeverityLevelsRequest {
  *             operation.</p>
  */
 export interface DescribeSeverityLevelsResponse {
-  __type?: "DescribeSeverityLevelsResponse";
   /**
    * <p>The available severity levels for the support case. Available severity levels are
    *             defined by your service level agreement with AWS.</p>
@@ -966,11 +917,9 @@ export namespace DescribeSeverityLevelsResponse {
   export const filterSensitiveLog = (obj: DescribeSeverityLevelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSeverityLevelsResponse => __isa(o, "DescribeSeverityLevelsResponse");
 }
 
 export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  __type?: "DescribeTrustedAdvisorCheckRefreshStatusesRequest";
   /**
    * <p>The IDs of the Trusted Advisor checks to get the status of.  </p>
    *         <note>
@@ -985,15 +934,12 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckRefreshStatusesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest =>
-    __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
 }
 
 /**
  * <p>The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  __type?: "DescribeTrustedAdvisorCheckRefreshStatusesResponse";
   /**
    * <p>The refresh status of the specified Trusted Advisor checks.</p>
    */
@@ -1004,15 +950,12 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckRefreshStatusesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse =>
-    __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTrustedAdvisorCheckResultRequest {
-  __type?: "DescribeTrustedAdvisorCheckResultRequest";
   /**
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
@@ -1030,15 +973,12 @@ export namespace DescribeTrustedAdvisorCheckResultRequest {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckResultRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorCheckResultRequest =>
-    __isa(o, "DescribeTrustedAdvisorCheckResultRequest");
 }
 
 /**
  * <p>The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorCheckResultResponse {
-  __type?: "DescribeTrustedAdvisorCheckResultResponse";
   /**
    * <p>The detailed results of the Trusted Advisor check.</p>
    */
@@ -1049,12 +989,9 @@ export namespace DescribeTrustedAdvisorCheckResultResponse {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckResultResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorCheckResultResponse =>
-    __isa(o, "DescribeTrustedAdvisorCheckResultResponse");
 }
 
 export interface DescribeTrustedAdvisorChecksRequest {
-  __type?: "DescribeTrustedAdvisorChecksRequest";
   /**
    * <p>The ISO 639-1 code for the language in which AWS provides support. AWS Support
    *             currently supports English ("en") and Japanese ("ja"). Language parameters must be
@@ -1067,15 +1004,12 @@ export namespace DescribeTrustedAdvisorChecksRequest {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorChecksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorChecksRequest =>
-    __isa(o, "DescribeTrustedAdvisorChecksRequest");
 }
 
 /**
  * <p>Information about the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorChecksResponse {
-  __type?: "DescribeTrustedAdvisorChecksResponse";
   /**
    * <p>Information about all available Trusted Advisor checks.</p>
    */
@@ -1086,12 +1020,9 @@ export namespace DescribeTrustedAdvisorChecksResponse {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorChecksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorChecksResponse =>
-    __isa(o, "DescribeTrustedAdvisorChecksResponse");
 }
 
 export interface DescribeTrustedAdvisorCheckSummariesRequest {
-  __type?: "DescribeTrustedAdvisorCheckSummariesRequest";
   /**
    * <p>The IDs of the Trusted Advisor checks.</p>
    */
@@ -1102,15 +1033,12 @@ export namespace DescribeTrustedAdvisorCheckSummariesRequest {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckSummariesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorCheckSummariesRequest =>
-    __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
 }
 
 /**
  * <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
  */
 export interface DescribeTrustedAdvisorCheckSummariesResponse {
-  __type?: "DescribeTrustedAdvisorCheckSummariesResponse";
   /**
    * <p>The summary information for the requested Trusted Advisor checks.</p>
    */
@@ -1121,8 +1049,6 @@ export namespace DescribeTrustedAdvisorCheckSummariesResponse {
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckSummariesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrustedAdvisorCheckSummariesResponse =>
-    __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
 }
 
 /**
@@ -1141,14 +1067,12 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>The five most recent communications associated with the case.</p>
  */
 export interface RecentCaseCommunications {
-  __type?: "RecentCaseCommunications";
   /**
    * <p>A resumption point for pagination.</p>
    */
@@ -1164,14 +1088,12 @@ export namespace RecentCaseCommunications {
   export const filterSensitiveLog = (obj: RecentCaseCommunications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecentCaseCommunications => __isa(o, "RecentCaseCommunications");
 }
 
 /**
  * <p></p>
  */
 export interface RefreshTrustedAdvisorCheckRequest {
-  __type?: "RefreshTrustedAdvisorCheckRequest";
   /**
    * <p>The unique identifier for the Trusted Advisor check to refresh. <b>Note:</b> Specifying the check ID of a check that is automatically refreshed
    *             causes an <code>InvalidParameterValue</code> error.</p>
@@ -1183,14 +1105,12 @@ export namespace RefreshTrustedAdvisorCheckRequest {
   export const filterSensitiveLog = (obj: RefreshTrustedAdvisorCheckRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshTrustedAdvisorCheckRequest => __isa(o, "RefreshTrustedAdvisorCheckRequest");
 }
 
 /**
  * <p>The current refresh status of a Trusted Advisor check.</p>
  */
 export interface RefreshTrustedAdvisorCheckResponse {
-  __type?: "RefreshTrustedAdvisorCheckResponse";
   /**
    * <p>The current refresh status for a check, including the amount of time until the check
    *             is eligible for refresh.</p>
@@ -1202,12 +1122,9 @@ export namespace RefreshTrustedAdvisorCheckResponse {
   export const filterSensitiveLog = (obj: RefreshTrustedAdvisorCheckResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshTrustedAdvisorCheckResponse =>
-    __isa(o, "RefreshTrustedAdvisorCheckResponse");
 }
 
 export interface ResolveCaseRequest {
-  __type?: "ResolveCaseRequest";
   /**
    * <p>The AWS Support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
@@ -1221,14 +1138,12 @@ export namespace ResolveCaseRequest {
   export const filterSensitiveLog = (obj: ResolveCaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveCaseRequest => __isa(o, "ResolveCaseRequest");
 }
 
 /**
  * <p>The status of the case returned by the <a>ResolveCase</a> operation.</p>
  */
 export interface ResolveCaseResponse {
-  __type?: "ResolveCaseResponse";
   /**
    * <p>The status of the case when the <a>ResolveCase</a> request was sent.</p>
    */
@@ -1245,7 +1160,6 @@ export namespace ResolveCaseResponse {
   export const filterSensitiveLog = (obj: ResolveCaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveCaseResponse => __isa(o, "ResolveCaseResponse");
 }
 
 /**
@@ -1253,7 +1167,6 @@ export namespace ResolveCaseResponse {
  *             operation.</p>
  */
 export interface Service {
-  __type?: "Service";
   /**
    * <p>A list of categories that describe the type of support issue a case describes.
    *             Categories consist of a category name and a category code. Category names and codes are
@@ -1278,7 +1191,6 @@ export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Service => __isa(o, "Service");
 }
 
 /**
@@ -1288,7 +1200,6 @@ export namespace Service {
  *                 severity</a> in the <i>AWS Support User Guide</i>.</p>
  */
 export interface SeverityLevel {
-  __type?: "SeverityLevel";
   /**
    * <p>The name of the severity level that corresponds to the severity level code.</p>
    *         <note>
@@ -1337,7 +1248,6 @@ export namespace SeverityLevel {
   export const filterSensitiveLog = (obj: SeverityLevel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SeverityLevel => __isa(o, "SeverityLevel");
 }
 
 /**
@@ -1345,7 +1255,6 @@ export namespace SeverityLevel {
  *             Advisor check.</p>
  */
 export interface TrustedAdvisorCategorySpecificSummary {
-  __type?: "TrustedAdvisorCategorySpecificSummary";
   /**
    * <p>The summary information about cost savings for a Trusted Advisor check that is in the
    *             Cost Optimizing category.</p>
@@ -1357,15 +1266,12 @@ export namespace TrustedAdvisorCategorySpecificSummary {
   export const filterSensitiveLog = (obj: TrustedAdvisorCategorySpecificSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorCategorySpecificSummary =>
-    __isa(o, "TrustedAdvisorCategorySpecificSummary");
 }
 
 /**
  * <p>The description and metadata for a Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorCheckDescription {
-  __type?: "TrustedAdvisorCheckDescription";
   /**
    * <p>The display name for the Trusted Advisor check.</p>
    */
@@ -1401,14 +1307,12 @@ export namespace TrustedAdvisorCheckDescription {
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorCheckDescription => __isa(o, "TrustedAdvisorCheckDescription");
 }
 
 /**
  * <p>The refresh status of a Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorCheckRefreshStatus {
-  __type?: "TrustedAdvisorCheckRefreshStatus";
   /**
    * <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for
    *             refresh.</p>
@@ -1456,14 +1360,12 @@ export namespace TrustedAdvisorCheckRefreshStatus {
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckRefreshStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorCheckRefreshStatus => __isa(o, "TrustedAdvisorCheckRefreshStatus");
 }
 
 /**
  * <p>The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.</p>
  */
 export interface TrustedAdvisorCheckResult {
-  __type?: "TrustedAdvisorCheckResult";
   /**
    * <p>The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or
    *             "not_available".</p>
@@ -1501,7 +1403,6 @@ export namespace TrustedAdvisorCheckResult {
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorCheckResult => __isa(o, "TrustedAdvisorCheckResult");
 }
 
 /**
@@ -1509,7 +1410,6 @@ export namespace TrustedAdvisorCheckResult {
  *             and number of resources examined.</p>
  */
 export interface TrustedAdvisorCheckSummary {
-  __type?: "TrustedAdvisorCheckSummary";
   /**
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
@@ -1547,7 +1447,6 @@ export namespace TrustedAdvisorCheckSummary {
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorCheckSummary => __isa(o, "TrustedAdvisorCheckSummary");
 }
 
 /**
@@ -1555,7 +1454,6 @@ export namespace TrustedAdvisorCheckSummary {
  *             taken.</p>
  */
 export interface TrustedAdvisorCostOptimizingSummary {
-  __type?: "TrustedAdvisorCostOptimizingSummary";
   /**
    * <p>The estimated monthly savings that might be realized if the recommended operations are
    *             taken.</p>
@@ -1573,15 +1471,12 @@ export namespace TrustedAdvisorCostOptimizingSummary {
   export const filterSensitiveLog = (obj: TrustedAdvisorCostOptimizingSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorCostOptimizingSummary =>
-    __isa(o, "TrustedAdvisorCostOptimizingSummary");
 }
 
 /**
  * <p>Contains information about a resource identified by a Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorResourceDetail {
-  __type?: "TrustedAdvisorResourceDetail";
   /**
    * <p>The AWS region in which the identified resource is located.</p>
    */
@@ -1616,14 +1511,12 @@ export namespace TrustedAdvisorResourceDetail {
   export const filterSensitiveLog = (obj: TrustedAdvisorResourceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorResourceDetail => __isa(o, "TrustedAdvisorResourceDetail");
 }
 
 /**
  * <p>Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
  */
 export interface TrustedAdvisorResourcesSummary {
-  __type?: "TrustedAdvisorResourcesSummary";
   /**
    * <p>The number of AWS resources ignored by Trusted Advisor because they were marked as
    *             suppressed by the user.</p>
@@ -1652,5 +1545,4 @@ export namespace TrustedAdvisorResourcesSummary {
   export const filterSensitiveLog = (obj: TrustedAdvisorResourcesSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedAdvisorResourcesSummary => __isa(o, "TrustedAdvisorResourcesSummary");
 }

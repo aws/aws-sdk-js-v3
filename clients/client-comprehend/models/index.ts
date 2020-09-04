@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       operation.</p>
  */
 export interface BatchDetectDominantLanguageItemResult {
-  __type?: "BatchDetectDominantLanguageItemResult";
   /**
    * <p>One or more <a>DominantLanguage</a> objects describing the dominant
    *       languages in the document.</p>
@@ -24,12 +23,9 @@ export namespace BatchDetectDominantLanguageItemResult {
   export const filterSensitiveLog = (obj: BatchDetectDominantLanguageItemResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectDominantLanguageItemResult =>
-    __isa(o, "BatchDetectDominantLanguageItemResult");
 }
 
 export interface BatchDetectDominantLanguageRequest {
-  __type?: "BatchDetectDominantLanguageRequest";
   /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
    *       documents. Each document should contain at least 20 characters and must contain fewer than
@@ -43,12 +39,9 @@ export namespace BatchDetectDominantLanguageRequest {
     ...obj,
     ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BatchDetectDominantLanguageRequest =>
-    __isa(o, "BatchDetectDominantLanguageRequest");
 }
 
 export interface BatchDetectDominantLanguageResponse {
-  __type?: "BatchDetectDominantLanguageResponse";
   /**
    * <p>A list containing one  object for each document
    *       that contained an error. The results are sorted in ascending order by the <code>Index</code>
@@ -70,8 +63,6 @@ export namespace BatchDetectDominantLanguageResponse {
   export const filterSensitiveLog = (obj: BatchDetectDominantLanguageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectDominantLanguageResponse =>
-    __isa(o, "BatchDetectDominantLanguageResponse");
 }
 
 /**
@@ -80,7 +71,6 @@ export namespace BatchDetectDominantLanguageResponse {
  *       operation.</p>
  */
 export interface BatchDetectEntitiesItemResult {
-  __type?: "BatchDetectEntitiesItemResult";
   /**
    * <p>One or more <a>Entity</a> objects, one for each entity detected in the
    *       document.</p>
@@ -97,11 +87,9 @@ export namespace BatchDetectEntitiesItemResult {
   export const filterSensitiveLog = (obj: BatchDetectEntitiesItemResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectEntitiesItemResult => __isa(o, "BatchDetectEntitiesItemResult");
 }
 
 export interface BatchDetectEntitiesRequest {
-  __type?: "BatchDetectEntitiesRequest";
   /**
    * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
    *       Comprehend.
@@ -122,11 +110,9 @@ export namespace BatchDetectEntitiesRequest {
     ...obj,
     ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BatchDetectEntitiesRequest => __isa(o, "BatchDetectEntitiesRequest");
 }
 
 export interface BatchDetectEntitiesResponse {
-  __type?: "BatchDetectEntitiesResponse";
   /**
    * <p>A list containing one  object for each document
    *       that contained an error. The results are sorted in ascending order by the <code>Index</code>
@@ -148,7 +134,6 @@ export namespace BatchDetectEntitiesResponse {
   export const filterSensitiveLog = (obj: BatchDetectEntitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectEntitiesResponse => __isa(o, "BatchDetectEntitiesResponse");
 }
 
 /**
@@ -157,7 +142,6 @@ export namespace BatchDetectEntitiesResponse {
  *       operation.</p>
  */
 export interface BatchDetectKeyPhrasesItemResult {
-  __type?: "BatchDetectKeyPhrasesItemResult";
   /**
    * <p>One or more <a>KeyPhrase</a> objects, one for each key phrase detected in
    *       the document.</p>
@@ -174,11 +158,9 @@ export namespace BatchDetectKeyPhrasesItemResult {
   export const filterSensitiveLog = (obj: BatchDetectKeyPhrasesItemResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectKeyPhrasesItemResult => __isa(o, "BatchDetectKeyPhrasesItemResult");
 }
 
 export interface BatchDetectKeyPhrasesRequest {
-  __type?: "BatchDetectKeyPhrasesRequest";
   /**
    * <p>The language of the input documents. You can specify any of the primary languages supported by Amazon
    *       Comprehend.
@@ -199,11 +181,9 @@ export namespace BatchDetectKeyPhrasesRequest {
     ...obj,
     ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BatchDetectKeyPhrasesRequest => __isa(o, "BatchDetectKeyPhrasesRequest");
 }
 
 export interface BatchDetectKeyPhrasesResponse {
-  __type?: "BatchDetectKeyPhrasesResponse";
   /**
    * <p>A list of  objects containing the
    *       results of the operation. The results are sorted in ascending order by the <code>Index</code>
@@ -225,7 +205,6 @@ export namespace BatchDetectKeyPhrasesResponse {
   export const filterSensitiveLog = (obj: BatchDetectKeyPhrasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectKeyPhrasesResponse => __isa(o, "BatchDetectKeyPhrasesResponse");
 }
 
 /**
@@ -234,7 +213,6 @@ export namespace BatchDetectKeyPhrasesResponse {
  *       operation.</p>
  */
 export interface BatchDetectSentimentItemResult {
-  __type?: "BatchDetectSentimentItemResult";
   /**
    * <p>The sentiment detected in the document.</p>
    */
@@ -256,11 +234,9 @@ export namespace BatchDetectSentimentItemResult {
   export const filterSensitiveLog = (obj: BatchDetectSentimentItemResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectSentimentItemResult => __isa(o, "BatchDetectSentimentItemResult");
 }
 
 export interface BatchDetectSentimentRequest {
-  __type?: "BatchDetectSentimentRequest";
   /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
@@ -281,11 +257,9 @@ export namespace BatchDetectSentimentRequest {
     ...obj,
     ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BatchDetectSentimentRequest => __isa(o, "BatchDetectSentimentRequest");
 }
 
 export interface BatchDetectSentimentResponse {
-  __type?: "BatchDetectSentimentResponse";
   /**
    * <p>A list containing one  object for each document
    *       that contained an error. The results are sorted in ascending order by the <code>Index</code>
@@ -307,7 +281,6 @@ export namespace BatchDetectSentimentResponse {
   export const filterSensitiveLog = (obj: BatchDetectSentimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectSentimentResponse => __isa(o, "BatchDetectSentimentResponse");
 }
 
 /**
@@ -315,7 +288,6 @@ export namespace BatchDetectSentimentResponse {
  *       returns one object that is successfully processed by the operation.</p>
  */
 export interface BatchDetectSyntaxItemResult {
-  __type?: "BatchDetectSyntaxItemResult";
   /**
    * <p>The zero-based index of the document in the input list.</p>
    */
@@ -331,11 +303,9 @@ export namespace BatchDetectSyntaxItemResult {
   export const filterSensitiveLog = (obj: BatchDetectSyntaxItemResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectSyntaxItemResult => __isa(o, "BatchDetectSyntaxItemResult");
 }
 
 export interface BatchDetectSyntaxRequest {
-  __type?: "BatchDetectSyntaxRequest";
   /**
    * <p>A list containing the text of the input documents. The list can contain a maximum of 25
    *       documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
@@ -356,11 +326,9 @@ export namespace BatchDetectSyntaxRequest {
     ...obj,
     ...(obj.TextList && { TextList: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is BatchDetectSyntaxRequest => __isa(o, "BatchDetectSyntaxRequest");
 }
 
 export interface BatchDetectSyntaxResponse {
-  __type?: "BatchDetectSyntaxResponse";
   /**
    * <p>A list containing one  object for each document that
    *       contained an error. The results are sorted in ascending order by the <code>Index</code> field
@@ -382,7 +350,6 @@ export namespace BatchDetectSyntaxResponse {
   export const filterSensitiveLog = (obj: BatchDetectSyntaxResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDetectSyntaxResponse => __isa(o, "BatchDetectSyntaxResponse");
 }
 
 /**
@@ -391,7 +358,6 @@ export namespace BatchDetectSyntaxResponse {
  *       error.</p>
  */
 export interface BatchItemError {
-  __type?: "BatchItemError";
   /**
    * <p>The zero-based index of the document in the input list.</p>
    */
@@ -412,7 +378,6 @@ export namespace BatchItemError {
   export const filterSensitiveLog = (obj: BatchItemError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchItemError => __isa(o, "BatchItemError");
 }
 
 /**
@@ -429,14 +394,12 @@ export namespace BatchSizeLimitExceededException {
   export const filterSensitiveLog = (obj: BatchSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchSizeLimitExceededException => __isa(o, "BatchSizeLimitExceededException");
 }
 
 /**
  * <p>Describes the result metrics for the test data associated with an documentation classifier.</p>
  */
 export interface ClassifierEvaluationMetrics {
-  __type?: "ClassifierEvaluationMetrics";
   /**
    * <p>The fraction of the labels that were correct recognized. It is computed by dividing
    *       the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.</p>
@@ -496,14 +459,12 @@ export namespace ClassifierEvaluationMetrics {
   export const filterSensitiveLog = (obj: ClassifierEvaluationMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassifierEvaluationMetrics => __isa(o, "ClassifierEvaluationMetrics");
 }
 
 /**
  * <p>Provides information about a document classifier.</p>
  */
 export interface ClassifierMetadata {
-  __type?: "ClassifierMetadata";
   /**
    * <p>The number of labels in the input data. </p>
    */
@@ -531,11 +492,9 @@ export namespace ClassifierMetadata {
   export const filterSensitiveLog = (obj: ClassifierMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassifierMetadata => __isa(o, "ClassifierMetadata");
 }
 
 export interface ClassifyDocumentRequest {
-  __type?: "ClassifyDocumentRequest";
   /**
    * <p>The document text to be analyzed.</p>
    */
@@ -552,11 +511,9 @@ export namespace ClassifyDocumentRequest {
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ClassifyDocumentRequest => __isa(o, "ClassifyDocumentRequest");
 }
 
 export interface ClassifyDocumentResponse {
-  __type?: "ClassifyDocumentResponse";
   /**
    * <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected
    *       to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
@@ -575,7 +532,6 @@ export namespace ClassifyDocumentResponse {
   export const filterSensitiveLog = (obj: ClassifyDocumentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClassifyDocumentResponse => __isa(o, "ClassifyDocumentResponse");
 }
 
 /**
@@ -591,11 +547,9 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export interface CreateDocumentClassifierRequest {
-  __type?: "CreateDocumentClassifierRequest";
   /**
    * <p>The name of the document classifier.</p>
    */
@@ -672,11 +626,9 @@ export namespace CreateDocumentClassifierRequest {
   export const filterSensitiveLog = (obj: CreateDocumentClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDocumentClassifierRequest => __isa(o, "CreateDocumentClassifierRequest");
 }
 
 export interface CreateDocumentClassifierResponse {
-  __type?: "CreateDocumentClassifierResponse";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
    */
@@ -687,11 +639,9 @@ export namespace CreateDocumentClassifierResponse {
   export const filterSensitiveLog = (obj: CreateDocumentClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDocumentClassifierResponse => __isa(o, "CreateDocumentClassifierResponse");
 }
 
 export interface CreateEndpointRequest {
-  __type?: "CreateEndpointRequest";
   /**
    * <p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource.  </p>
    */
@@ -726,11 +676,9 @@ export namespace CreateEndpointRequest {
   export const filterSensitiveLog = (obj: CreateEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointRequest => __isa(o, "CreateEndpointRequest");
 }
 
 export interface CreateEndpointResponse {
-  __type?: "CreateEndpointResponse";
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being created.</p>
    */
@@ -741,11 +689,9 @@ export namespace CreateEndpointResponse {
   export const filterSensitiveLog = (obj: CreateEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointResponse => __isa(o, "CreateEndpointResponse");
 }
 
 export interface CreateEntityRecognizerRequest {
-  __type?: "CreateEntityRecognizerRequest";
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that
    *       process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p>
@@ -808,11 +754,9 @@ export namespace CreateEntityRecognizerRequest {
   export const filterSensitiveLog = (obj: CreateEntityRecognizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEntityRecognizerRequest => __isa(o, "CreateEntityRecognizerRequest");
 }
 
 export interface CreateEntityRecognizerResponse {
-  __type?: "CreateEntityRecognizerResponse";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
    */
@@ -823,11 +767,9 @@ export namespace CreateEntityRecognizerResponse {
   export const filterSensitiveLog = (obj: CreateEntityRecognizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEntityRecognizerResponse => __isa(o, "CreateEntityRecognizerResponse");
 }
 
 export interface DeleteDocumentClassifierRequest {
-  __type?: "DeleteDocumentClassifierRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
    */
@@ -838,22 +780,17 @@ export namespace DeleteDocumentClassifierRequest {
   export const filterSensitiveLog = (obj: DeleteDocumentClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDocumentClassifierRequest => __isa(o, "DeleteDocumentClassifierRequest");
 }
 
-export interface DeleteDocumentClassifierResponse {
-  __type?: "DeleteDocumentClassifierResponse";
-}
+export interface DeleteDocumentClassifierResponse {}
 
 export namespace DeleteDocumentClassifierResponse {
   export const filterSensitiveLog = (obj: DeleteDocumentClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDocumentClassifierResponse => __isa(o, "DeleteDocumentClassifierResponse");
 }
 
 export interface DeleteEndpointRequest {
-  __type?: "DeleteEndpointRequest";
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>
    */
@@ -864,22 +801,17 @@ export namespace DeleteEndpointRequest {
   export const filterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointRequest => __isa(o, "DeleteEndpointRequest");
 }
 
-export interface DeleteEndpointResponse {
-  __type?: "DeleteEndpointResponse";
-}
+export interface DeleteEndpointResponse {}
 
 export namespace DeleteEndpointResponse {
   export const filterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointResponse => __isa(o, "DeleteEndpointResponse");
 }
 
 export interface DeleteEntityRecognizerRequest {
-  __type?: "DeleteEntityRecognizerRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
    */
@@ -890,22 +822,17 @@ export namespace DeleteEntityRecognizerRequest {
   export const filterSensitiveLog = (obj: DeleteEntityRecognizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEntityRecognizerRequest => __isa(o, "DeleteEntityRecognizerRequest");
 }
 
-export interface DeleteEntityRecognizerResponse {
-  __type?: "DeleteEntityRecognizerResponse";
-}
+export interface DeleteEntityRecognizerResponse {}
 
 export namespace DeleteEntityRecognizerResponse {
   export const filterSensitiveLog = (obj: DeleteEntityRecognizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEntityRecognizerResponse => __isa(o, "DeleteEntityRecognizerResponse");
 }
 
 export interface DescribeDocumentClassificationJobRequest {
-  __type?: "DescribeDocumentClassificationJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
    *       response.</p>
@@ -917,12 +844,9 @@ export namespace DescribeDocumentClassificationJobRequest {
   export const filterSensitiveLog = (obj: DescribeDocumentClassificationJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDocumentClassificationJobRequest =>
-    __isa(o, "DescribeDocumentClassificationJobRequest");
 }
 
 export interface DescribeDocumentClassificationJobResponse {
-  __type?: "DescribeDocumentClassificationJobResponse";
   /**
    * <p>An object that describes the properties associated with the document classification
    *       job.</p>
@@ -934,12 +858,9 @@ export namespace DescribeDocumentClassificationJobResponse {
   export const filterSensitiveLog = (obj: DescribeDocumentClassificationJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDocumentClassificationJobResponse =>
-    __isa(o, "DescribeDocumentClassificationJobResponse");
 }
 
 export interface DescribeDocumentClassifierRequest {
-  __type?: "DescribeDocumentClassifierRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier. The  operation returns this identifier in its
    *       response.</p>
@@ -951,11 +872,9 @@ export namespace DescribeDocumentClassifierRequest {
   export const filterSensitiveLog = (obj: DescribeDocumentClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDocumentClassifierRequest => __isa(o, "DescribeDocumentClassifierRequest");
 }
 
 export interface DescribeDocumentClassifierResponse {
-  __type?: "DescribeDocumentClassifierResponse";
   /**
    * <p>An object that contains the properties associated with a document classifier.</p>
    */
@@ -969,12 +888,9 @@ export namespace DescribeDocumentClassifierResponse {
       DocumentClassifierProperties: DocumentClassifierProperties.filterSensitiveLog(obj.DocumentClassifierProperties),
     }),
   });
-  export const isa = (o: any): o is DescribeDocumentClassifierResponse =>
-    __isa(o, "DescribeDocumentClassifierResponse");
 }
 
 export interface DescribeDominantLanguageDetectionJobRequest {
-  __type?: "DescribeDominantLanguageDetectionJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
    *       response.</p>
@@ -986,12 +902,9 @@ export namespace DescribeDominantLanguageDetectionJobRequest {
   export const filterSensitiveLog = (obj: DescribeDominantLanguageDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDominantLanguageDetectionJobRequest =>
-    __isa(o, "DescribeDominantLanguageDetectionJobRequest");
 }
 
 export interface DescribeDominantLanguageDetectionJobResponse {
-  __type?: "DescribeDominantLanguageDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a dominant language detection
    *       job.</p>
@@ -1003,12 +916,9 @@ export namespace DescribeDominantLanguageDetectionJobResponse {
   export const filterSensitiveLog = (obj: DescribeDominantLanguageDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDominantLanguageDetectionJobResponse =>
-    __isa(o, "DescribeDominantLanguageDetectionJobResponse");
 }
 
 export interface DescribeEndpointRequest {
-  __type?: "DescribeEndpointRequest";
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being described.</p>
    */
@@ -1019,11 +929,9 @@ export namespace DescribeEndpointRequest {
   export const filterSensitiveLog = (obj: DescribeEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointRequest => __isa(o, "DescribeEndpointRequest");
 }
 
 export interface DescribeEndpointResponse {
-  __type?: "DescribeEndpointResponse";
   /**
    * <p>Describes information associated with the specific endpoint.</p>
    */
@@ -1034,11 +942,9 @@ export namespace DescribeEndpointResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointResponse => __isa(o, "DescribeEndpointResponse");
 }
 
 export interface DescribeEntitiesDetectionJobRequest {
-  __type?: "DescribeEntitiesDetectionJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
    *       response.</p>
@@ -1050,12 +956,9 @@ export namespace DescribeEntitiesDetectionJobRequest {
   export const filterSensitiveLog = (obj: DescribeEntitiesDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntitiesDetectionJobRequest =>
-    __isa(o, "DescribeEntitiesDetectionJobRequest");
 }
 
 export interface DescribeEntitiesDetectionJobResponse {
-  __type?: "DescribeEntitiesDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with an entities detection job.</p>
    */
@@ -1066,12 +969,9 @@ export namespace DescribeEntitiesDetectionJobResponse {
   export const filterSensitiveLog = (obj: DescribeEntitiesDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntitiesDetectionJobResponse =>
-    __isa(o, "DescribeEntitiesDetectionJobResponse");
 }
 
 export interface DescribeEntityRecognizerRequest {
-  __type?: "DescribeEntityRecognizerRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
    */
@@ -1082,11 +982,9 @@ export namespace DescribeEntityRecognizerRequest {
   export const filterSensitiveLog = (obj: DescribeEntityRecognizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntityRecognizerRequest => __isa(o, "DescribeEntityRecognizerRequest");
 }
 
 export interface DescribeEntityRecognizerResponse {
-  __type?: "DescribeEntityRecognizerResponse";
   /**
    * <p>Describes information associated with an entity recognizer.</p>
    */
@@ -1100,11 +998,9 @@ export namespace DescribeEntityRecognizerResponse {
       EntityRecognizerProperties: EntityRecognizerProperties.filterSensitiveLog(obj.EntityRecognizerProperties),
     }),
   });
-  export const isa = (o: any): o is DescribeEntityRecognizerResponse => __isa(o, "DescribeEntityRecognizerResponse");
 }
 
 export interface DescribeKeyPhrasesDetectionJobRequest {
-  __type?: "DescribeKeyPhrasesDetectionJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
    *       response.</p>
@@ -1116,12 +1012,9 @@ export namespace DescribeKeyPhrasesDetectionJobRequest {
   export const filterSensitiveLog = (obj: DescribeKeyPhrasesDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyPhrasesDetectionJobRequest =>
-    __isa(o, "DescribeKeyPhrasesDetectionJobRequest");
 }
 
 export interface DescribeKeyPhrasesDetectionJobResponse {
-  __type?: "DescribeKeyPhrasesDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a key phrases detection job.
    *     </p>
@@ -1133,12 +1026,9 @@ export namespace DescribeKeyPhrasesDetectionJobResponse {
   export const filterSensitiveLog = (obj: DescribeKeyPhrasesDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyPhrasesDetectionJobResponse =>
-    __isa(o, "DescribeKeyPhrasesDetectionJobResponse");
 }
 
 export interface DescribeSentimentDetectionJobRequest {
-  __type?: "DescribeSentimentDetectionJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
    *       response.</p>
@@ -1150,12 +1040,9 @@ export namespace DescribeSentimentDetectionJobRequest {
   export const filterSensitiveLog = (obj: DescribeSentimentDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSentimentDetectionJobRequest =>
-    __isa(o, "DescribeSentimentDetectionJobRequest");
 }
 
 export interface DescribeSentimentDetectionJobResponse {
-  __type?: "DescribeSentimentDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a sentiment detection job.</p>
    */
@@ -1166,12 +1053,9 @@ export namespace DescribeSentimentDetectionJobResponse {
   export const filterSensitiveLog = (obj: DescribeSentimentDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSentimentDetectionJobResponse =>
-    __isa(o, "DescribeSentimentDetectionJobResponse");
 }
 
 export interface DescribeTopicsDetectionJobRequest {
-  __type?: "DescribeTopicsDetectionJobRequest";
   /**
    * <p>The identifier assigned by the user to the detection job.</p>
    */
@@ -1182,11 +1066,9 @@ export namespace DescribeTopicsDetectionJobRequest {
   export const filterSensitiveLog = (obj: DescribeTopicsDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTopicsDetectionJobRequest => __isa(o, "DescribeTopicsDetectionJobRequest");
 }
 
 export interface DescribeTopicsDetectionJobResponse {
-  __type?: "DescribeTopicsDetectionJobResponse";
   /**
    * <p>The list of properties for the requested job.</p>
    */
@@ -1197,12 +1079,9 @@ export namespace DescribeTopicsDetectionJobResponse {
   export const filterSensitiveLog = (obj: DescribeTopicsDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTopicsDetectionJobResponse =>
-    __isa(o, "DescribeTopicsDetectionJobResponse");
 }
 
 export interface DetectDominantLanguageRequest {
-  __type?: "DetectDominantLanguageRequest";
   /**
    * <p>A UTF-8 text string. Each string should contain at least 20 characters and must contain
    *       fewer that 5,000 bytes of UTF-8 encoded characters.</p>
@@ -1215,11 +1094,9 @@ export namespace DetectDominantLanguageRequest {
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DetectDominantLanguageRequest => __isa(o, "DetectDominantLanguageRequest");
 }
 
 export interface DetectDominantLanguageResponse {
-  __type?: "DetectDominantLanguageResponse";
   /**
    * <p>The languages that Amazon Comprehend detected in the input text. For each language, the response
    *       returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy
@@ -1233,11 +1110,9 @@ export namespace DetectDominantLanguageResponse {
   export const filterSensitiveLog = (obj: DetectDominantLanguageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectDominantLanguageResponse => __isa(o, "DetectDominantLanguageResponse");
 }
 
 export interface DetectEntitiesRequest {
-  __type?: "DetectEntitiesRequest";
   /**
    * <p>The Amazon Resource Name of an endpoint that is associated with a custom entity
    *       recognition model. Provide an endpoint if you want to detect entities by using your own custom
@@ -1268,11 +1143,9 @@ export namespace DetectEntitiesRequest {
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DetectEntitiesRequest => __isa(o, "DetectEntitiesRequest");
 }
 
 export interface DetectEntitiesResponse {
-  __type?: "DetectEntitiesResponse";
   /**
    * <p>A collection of entities identified in the input text. For each entity, the response
    *       provides the entity text, entity type, where the entity text begins and ends, and the level of
@@ -1288,11 +1161,9 @@ export namespace DetectEntitiesResponse {
   export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesResponse => __isa(o, "DetectEntitiesResponse");
 }
 
 export interface DetectKeyPhrasesRequest {
-  __type?: "DetectKeyPhrasesRequest";
   /**
    * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
@@ -1312,11 +1183,9 @@ export namespace DetectKeyPhrasesRequest {
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DetectKeyPhrasesRequest => __isa(o, "DetectKeyPhrasesRequest");
 }
 
 export interface DetectKeyPhrasesResponse {
-  __type?: "DetectKeyPhrasesResponse";
   /**
    * <p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key
    *       phrase, the response provides the text of the key phrase, where the key phrase begins and
@@ -1329,11 +1198,9 @@ export namespace DetectKeyPhrasesResponse {
   export const filterSensitiveLog = (obj: DetectKeyPhrasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectKeyPhrasesResponse => __isa(o, "DetectKeyPhrasesResponse");
 }
 
 export interface DetectSentimentRequest {
-  __type?: "DetectSentimentRequest";
   /**
    * <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
    *       characters.</p>
@@ -1353,11 +1220,9 @@ export namespace DetectSentimentRequest {
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DetectSentimentRequest => __isa(o, "DetectSentimentRequest");
 }
 
 export interface DetectSentimentResponse {
-  __type?: "DetectSentimentResponse";
   /**
    * <p>An object that lists the sentiments, and their corresponding confidence
    *       levels.</p>
@@ -1374,11 +1239,9 @@ export namespace DetectSentimentResponse {
   export const filterSensitiveLog = (obj: DetectSentimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectSentimentResponse => __isa(o, "DetectSentimentResponse");
 }
 
 export interface DetectSyntaxRequest {
-  __type?: "DetectSyntaxRequest";
   /**
    * <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded
    *       characters.</p>
@@ -1397,11 +1260,9 @@ export namespace DetectSyntaxRequest {
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DetectSyntaxRequest => __isa(o, "DetectSyntaxRequest");
 }
 
 export interface DetectSyntaxResponse {
-  __type?: "DetectSyntaxResponse";
   /**
    * <p>A collection of syntax tokens describing the text. For each token, the response provides
    *       the text, the token type, where the text begins and ends, and the level of confidence that
@@ -1414,14 +1275,12 @@ export namespace DetectSyntaxResponse {
   export const filterSensitiveLog = (obj: DetectSyntaxResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectSyntaxResponse => __isa(o, "DetectSyntaxResponse");
 }
 
 /**
  * <p>Specifies the class that categorizes the document being analyzed</p>
  */
 export interface DocumentClass {
-  __type?: "DocumentClass";
   /**
    * <p>The name of the class.</p>
    */
@@ -1437,7 +1296,6 @@ export namespace DocumentClass {
   export const filterSensitiveLog = (obj: DocumentClass): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentClass => __isa(o, "DocumentClass");
 }
 
 /**
@@ -1446,7 +1304,6 @@ export namespace DocumentClass {
  *       provide only one filter parameter in each request.</p>
  */
 export interface DocumentClassificationJobFilter {
-  __type?: "DocumentClassificationJobFilter";
   /**
    * <p>Filters on the name of the job.</p>
    */
@@ -1476,14 +1333,12 @@ export namespace DocumentClassificationJobFilter {
   export const filterSensitiveLog = (obj: DocumentClassificationJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentClassificationJobFilter => __isa(o, "DocumentClassificationJobFilter");
 }
 
 /**
  * <p>Provides information about a document classification job.</p>
  */
 export interface DocumentClassificationJobProperties {
-  __type?: "DocumentClassificationJobProperties";
   /**
    * <p>A description of the status of the job.</p>
    */
@@ -1565,8 +1420,6 @@ export namespace DocumentClassificationJobProperties {
   export const filterSensitiveLog = (obj: DocumentClassificationJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentClassificationJobProperties =>
-    __isa(o, "DocumentClassificationJobProperties");
 }
 
 /**
@@ -1575,7 +1428,6 @@ export namespace DocumentClassificationJobProperties {
  *       one filtering parameter in a request. For more information, see the  operation.</p>
  */
 export interface DocumentClassifierFilter {
-  __type?: "DocumentClassifierFilter";
   /**
    * <p>Filters the list of classifiers based on the time that the classifier was submitted for
    *       processing. Returns only classifiers submitted after the specified time. Classifiers are returned in
@@ -1600,7 +1452,6 @@ export namespace DocumentClassifierFilter {
   export const filterSensitiveLog = (obj: DocumentClassifierFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentClassifierFilter => __isa(o, "DocumentClassifierFilter");
 }
 
 /**
@@ -1609,7 +1460,6 @@ export namespace DocumentClassifierFilter {
  *       <a>how-document-classification-training-data</a>.  </p>
  */
 export interface DocumentClassifierInputDataConfig {
-  __type?: "DocumentClassifierInputDataConfig";
   /**
    * <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API
    *       endpoint that you are calling. The URI can point to a single input file or it can provide the
@@ -1633,7 +1483,6 @@ export namespace DocumentClassifierInputDataConfig {
   export const filterSensitiveLog = (obj: DocumentClassifierInputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentClassifierInputDataConfig => __isa(o, "DocumentClassifierInputDataConfig");
 }
 
 export enum DocumentClassifierMode {
@@ -1645,7 +1494,6 @@ export enum DocumentClassifierMode {
  * <p>Provides output results configuration parameters for custom classifier jobs. </p>
  */
 export interface DocumentClassifierOutputDataConfig {
-  __type?: "DocumentClassifierOutputDataConfig";
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an
    *       analysis job. The KmsKeyId can be one of the following formats:</p>
@@ -1687,15 +1535,12 @@ export namespace DocumentClassifierOutputDataConfig {
   export const filterSensitiveLog = (obj: DocumentClassifierOutputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentClassifierOutputDataConfig =>
-    __isa(o, "DocumentClassifierOutputDataConfig");
 }
 
 /**
  * <p>Provides information about a document classifier.</p>
  */
 export interface DocumentClassifierProperties {
-  __type?: "DocumentClassifierProperties";
   /**
    * <p>The status of the document classifier. If the status is <code>TRAINED</code> the
    *       classifier is ready to use. If the status is <code>FAILED</code> you can see additional
@@ -1800,14 +1645,12 @@ export namespace DocumentClassifierProperties {
     ...obj,
     ...(obj.ClassifierMetadata && { ClassifierMetadata: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DocumentClassifierProperties => __isa(o, "DocumentClassifierProperties");
 }
 
 /**
  * <p>Specifies one of the label or labels that categorize the document being analyzed.</p>
  */
 export interface DocumentLabel {
-  __type?: "DocumentLabel";
   /**
    * <p>The name of the label.</p>
    */
@@ -1823,7 +1666,6 @@ export namespace DocumentLabel {
   export const filterSensitiveLog = (obj: DocumentLabel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentLabel => __isa(o, "DocumentLabel");
 }
 
 /**
@@ -1831,7 +1673,6 @@ export namespace DocumentLabel {
  *       confidence that Amazon Comprehend has in the accuracy of the detection.</p>
  */
 export interface DominantLanguage {
-  __type?: "DominantLanguage";
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
    */
@@ -1849,7 +1690,6 @@ export namespace DominantLanguage {
   export const filterSensitiveLog = (obj: DominantLanguage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DominantLanguage => __isa(o, "DominantLanguage");
 }
 
 /**
@@ -1857,7 +1697,6 @@ export namespace DominantLanguage {
  *       information, see the  operation.</p>
  */
 export interface DominantLanguageDetectionJobFilter {
-  __type?: "DominantLanguageDetectionJobFilter";
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
    *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
@@ -1888,15 +1727,12 @@ export namespace DominantLanguageDetectionJobFilter {
   export const filterSensitiveLog = (obj: DominantLanguageDetectionJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DominantLanguageDetectionJobFilter =>
-    __isa(o, "DominantLanguageDetectionJobFilter");
 }
 
 /**
  * <p>Provides information about a dominant language detection job.</p>
  */
 export interface DominantLanguageDetectionJobProperties {
-  __type?: "DominantLanguageDetectionJobProperties";
   /**
    * <p>The current status of the dominant language detection job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
@@ -1972,8 +1808,6 @@ export namespace DominantLanguageDetectionJobProperties {
   export const filterSensitiveLog = (obj: DominantLanguageDetectionJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DominantLanguageDetectionJobProperties =>
-    __isa(o, "DominantLanguageDetectionJobProperties");
 }
 
 /**
@@ -1981,7 +1815,6 @@ export namespace DominantLanguageDetectionJobProperties {
  *       You can only set one filter at a time. </p>
  */
 export interface EndpointFilter {
-  __type?: "EndpointFilter";
   /**
    * <p>Specifies a date after which the returned endpoint or endpoints were created.</p>
    */
@@ -2007,14 +1840,12 @@ export namespace EndpointFilter {
   export const filterSensitiveLog = (obj: EndpointFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointFilter => __isa(o, "EndpointFilter");
 }
 
 /**
  * <p>Specifies information about the specified endpoint.</p>
  */
 export interface EndpointProperties {
-  __type?: "EndpointProperties";
   /**
    * <p>The desired number of inference units to be used by the model using this endpoint.  Each
    *       inference unit represents of a throughput of 100 characters per second.</p>
@@ -2062,7 +1893,6 @@ export namespace EndpointProperties {
   export const filterSensitiveLog = (obj: EndpointProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointProperties => __isa(o, "EndpointProperties");
 }
 
 export enum EndpointStatus {
@@ -2078,7 +1908,6 @@ export enum EndpointStatus {
  *       information, see the  operation.</p>
  */
 export interface EntitiesDetectionJobFilter {
-  __type?: "EntitiesDetectionJobFilter";
   /**
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
@@ -2109,14 +1938,12 @@ export namespace EntitiesDetectionJobFilter {
   export const filterSensitiveLog = (obj: EntitiesDetectionJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntitiesDetectionJobFilter => __isa(o, "EntitiesDetectionJobFilter");
 }
 
 /**
  * <p>Provides information about an entities detection job.</p>
  */
 export interface EntitiesDetectionJobProperties {
-  __type?: "EntitiesDetectionJobProperties";
   /**
    * <p>The current status of the entities detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
@@ -2202,7 +2029,6 @@ export namespace EntitiesDetectionJobProperties {
   export const filterSensitiveLog = (obj: EntitiesDetectionJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntitiesDetectionJobProperties => __isa(o, "EntitiesDetectionJobProperties");
 }
 
 /**
@@ -2210,7 +2036,6 @@ export namespace EntitiesDetectionJobProperties {
  *          <p> </p>
  */
 export interface Entity {
-  __type?: "Entity";
   /**
    * <p>The text of the entity.</p>
    */
@@ -2248,14 +2073,12 @@ export namespace Entity {
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
 /**
  * <p>Describes the annotations associated with a entity recognizer.</p>
  */
 export interface EntityRecognizerAnnotations {
-  __type?: "EntityRecognizerAnnotations";
   /**
    * <p> Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the
    *       same region as the API endpoint that you are calling.</p>
@@ -2267,14 +2090,12 @@ export namespace EntityRecognizerAnnotations {
   export const filterSensitiveLog = (obj: EntityRecognizerAnnotations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerAnnotations => __isa(o, "EntityRecognizerAnnotations");
 }
 
 /**
  * <p>Describes the training documents submitted with an entity recognizer.</p>
  */
 export interface EntityRecognizerDocuments {
-  __type?: "EntityRecognizerDocuments";
   /**
    * <p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The
    *       URI must be in the same region as the API endpoint that you are calling.</p>
@@ -2286,14 +2107,12 @@ export namespace EntityRecognizerDocuments {
   export const filterSensitiveLog = (obj: EntityRecognizerDocuments): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerDocuments => __isa(o, "EntityRecognizerDocuments");
 }
 
 /**
  * <p>Describes the entity recognizer submitted with an entity recognizer.</p>
  */
 export interface EntityRecognizerEntityList {
-  __type?: "EntityRecognizerEntityList";
   /**
    * <p>Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.</p>
    */
@@ -2304,7 +2123,6 @@ export namespace EntityRecognizerEntityList {
   export const filterSensitiveLog = (obj: EntityRecognizerEntityList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerEntityList => __isa(o, "EntityRecognizerEntityList");
 }
 
 /**
@@ -2312,7 +2130,6 @@ export namespace EntityRecognizerEntityList {
  *     </p>
  */
 export interface EntityRecognizerEvaluationMetrics {
-  __type?: "EntityRecognizerEvaluationMetrics";
   /**
    * <p>A measure of how accurate the recognizer results are for the test data. It is
    *       derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is
@@ -2338,7 +2155,6 @@ export namespace EntityRecognizerEvaluationMetrics {
   export const filterSensitiveLog = (obj: EntityRecognizerEvaluationMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerEvaluationMetrics => __isa(o, "EntityRecognizerEvaluationMetrics");
 }
 
 /**
@@ -2346,7 +2162,6 @@ export namespace EntityRecognizerEvaluationMetrics {
  *       one filtering parameter in a request. For more information, see the  operation./></p>
  */
 export interface EntityRecognizerFilter {
-  __type?: "EntityRecognizerFilter";
   /**
    * <p>The status of an entity recognizer.</p>
    */
@@ -2371,14 +2186,12 @@ export namespace EntityRecognizerFilter {
   export const filterSensitiveLog = (obj: EntityRecognizerFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerFilter => __isa(o, "EntityRecognizerFilter");
 }
 
 /**
  * <p>Specifies the format and location of the input data.</p>
  */
 export interface EntityRecognizerInputDataConfig {
-  __type?: "EntityRecognizerInputDataConfig";
   /**
    * <p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>
    */
@@ -2404,14 +2217,12 @@ export namespace EntityRecognizerInputDataConfig {
   export const filterSensitiveLog = (obj: EntityRecognizerInputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerInputDataConfig => __isa(o, "EntityRecognizerInputDataConfig");
 }
 
 /**
  * <p>Detailed information about an entity recognizer.</p>
  */
 export interface EntityRecognizerMetadata {
-  __type?: "EntityRecognizerMetadata";
   /**
    * <p>Entity types from the metadata of an entity recognizer.</p>
    */
@@ -2437,14 +2248,12 @@ export namespace EntityRecognizerMetadata {
   export const filterSensitiveLog = (obj: EntityRecognizerMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerMetadata => __isa(o, "EntityRecognizerMetadata");
 }
 
 /**
  * <p>Individual item from the list of entity types in the metadata of an entity recognizer.</p>
  */
 export interface EntityRecognizerMetadataEntityTypesListItem {
-  __type?: "EntityRecognizerMetadataEntityTypesListItem";
   /**
    * <p>Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types. </p>
    */
@@ -2465,15 +2274,12 @@ export namespace EntityRecognizerMetadataEntityTypesListItem {
   export const filterSensitiveLog = (obj: EntityRecognizerMetadataEntityTypesListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityRecognizerMetadataEntityTypesListItem =>
-    __isa(o, "EntityRecognizerMetadataEntityTypesListItem");
 }
 
 /**
  * <p>Describes information about an entity recognizer.</p>
  */
 export interface EntityRecognizerProperties {
-  __type?: "EntityRecognizerProperties";
   /**
    * <p>The time that the recognizer was submitted for processing.</p>
    */
@@ -2558,7 +2364,6 @@ export namespace EntityRecognizerProperties {
     ...obj,
     ...(obj.RecognizerMetadata && { RecognizerMetadata: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EntityRecognizerProperties => __isa(o, "EntityRecognizerProperties");
 }
 
 export enum EntityType {
@@ -2577,7 +2382,6 @@ export enum EntityType {
  * <p>Detailed information about the accuracy of an entity recognizer for a specific entity type. </p>
  */
 export interface EntityTypesEvaluationMetrics {
-  __type?: "EntityTypesEvaluationMetrics";
   /**
    * <p>A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision
    *       means that the recognizer returned substantially more relevant results than irrelevant ones.
@@ -2604,14 +2408,12 @@ export namespace EntityTypesEvaluationMetrics {
   export const filterSensitiveLog = (obj: EntityTypesEvaluationMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityTypesEvaluationMetrics => __isa(o, "EntityTypesEvaluationMetrics");
 }
 
 /**
  * <p>Information about an individual item on a list of entity types.</p>
  */
 export interface EntityTypesListItem {
-  __type?: "EntityTypesListItem";
   /**
    * <p>Entity type of an item on an entity type list.</p>
    */
@@ -2622,14 +2424,12 @@ export namespace EntityTypesListItem {
   export const filterSensitiveLog = (obj: EntityTypesListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityTypesListItem => __isa(o, "EntityTypesListItem");
 }
 
 /**
  * <p>The input properties for a topic detection job.</p>
  */
 export interface InputDataConfig {
-  __type?: "InputDataConfig";
   /**
    * <p>Specifies how the text in an input file should be processed:</p>
    *          <ul>
@@ -2664,7 +2464,6 @@ export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 export enum InputFormat {
@@ -2685,7 +2484,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -2702,7 +2500,6 @@ export namespace InvalidFilterException {
   export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFilterException => __isa(o, "InvalidFilterException");
 }
 
 /**
@@ -2719,7 +2516,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2735,7 +2531,6 @@ export namespace JobNotFoundException {
   export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobNotFoundException => __isa(o, "JobNotFoundException");
 }
 
 export enum JobStatus {
@@ -2751,7 +2546,6 @@ export enum JobStatus {
  * <p>Describes a key noun phrase.</p>
  */
 export interface KeyPhrase {
-  __type?: "KeyPhrase";
   /**
    * <p>The text of a key noun phrase.</p>
    */
@@ -2784,7 +2578,6 @@ export namespace KeyPhrase {
   export const filterSensitiveLog = (obj: KeyPhrase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPhrase => __isa(o, "KeyPhrase");
 }
 
 /**
@@ -2792,7 +2585,6 @@ export namespace KeyPhrase {
  *       information, see the  operation.</p>
  */
 export interface KeyPhrasesDetectionJobFilter {
-  __type?: "KeyPhrasesDetectionJobFilter";
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
    *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
@@ -2823,14 +2615,12 @@ export namespace KeyPhrasesDetectionJobFilter {
   export const filterSensitiveLog = (obj: KeyPhrasesDetectionJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPhrasesDetectionJobFilter => __isa(o, "KeyPhrasesDetectionJobFilter");
 }
 
 /**
  * <p>Provides information about a key phrases detection job.</p>
  */
 export interface KeyPhrasesDetectionJobProperties {
-  __type?: "KeyPhrasesDetectionJobProperties";
   /**
    * <p>The language code of the input documents.</p>
    */
@@ -2911,7 +2701,6 @@ export namespace KeyPhrasesDetectionJobProperties {
   export const filterSensitiveLog = (obj: KeyPhrasesDetectionJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPhrasesDetectionJobProperties => __isa(o, "KeyPhrasesDetectionJobProperties");
 }
 
 /**
@@ -2927,7 +2716,6 @@ export namespace KmsKeyValidationException {
   export const filterSensitiveLog = (obj: KmsKeyValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KmsKeyValidationException => __isa(o, "KmsKeyValidationException");
 }
 
 export enum LanguageCode {
@@ -2946,7 +2734,6 @@ export enum LanguageCode {
 }
 
 export interface ListDocumentClassificationJobsRequest {
-  __type?: "ListDocumentClassificationJobsRequest";
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their names, status, or the
    *       date and time that they were submitted. You can only set one filter at a time.</p>
@@ -2968,12 +2755,9 @@ export namespace ListDocumentClassificationJobsRequest {
   export const filterSensitiveLog = (obj: ListDocumentClassificationJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDocumentClassificationJobsRequest =>
-    __isa(o, "ListDocumentClassificationJobsRequest");
 }
 
 export interface ListDocumentClassificationJobsResponse {
-  __type?: "ListDocumentClassificationJobsResponse";
   /**
    * <p>A list containing the properties of each job returned.</p>
    */
@@ -2989,12 +2773,9 @@ export namespace ListDocumentClassificationJobsResponse {
   export const filterSensitiveLog = (obj: ListDocumentClassificationJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDocumentClassificationJobsResponse =>
-    __isa(o, "ListDocumentClassificationJobsResponse");
 }
 
 export interface ListDocumentClassifiersRequest {
-  __type?: "ListDocumentClassifiersRequest";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3016,11 +2797,9 @@ export namespace ListDocumentClassifiersRequest {
   export const filterSensitiveLog = (obj: ListDocumentClassifiersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDocumentClassifiersRequest => __isa(o, "ListDocumentClassifiersRequest");
 }
 
 export interface ListDocumentClassifiersResponse {
-  __type?: "ListDocumentClassifiersResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3041,11 +2820,9 @@ export namespace ListDocumentClassifiersResponse {
       ),
     }),
   });
-  export const isa = (o: any): o is ListDocumentClassifiersResponse => __isa(o, "ListDocumentClassifiersResponse");
 }
 
 export interface ListDominantLanguageDetectionJobsRequest {
-  __type?: "ListDominantLanguageDetectionJobsRequest";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3067,12 +2844,9 @@ export namespace ListDominantLanguageDetectionJobsRequest {
   export const filterSensitiveLog = (obj: ListDominantLanguageDetectionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDominantLanguageDetectionJobsRequest =>
-    __isa(o, "ListDominantLanguageDetectionJobsRequest");
 }
 
 export interface ListDominantLanguageDetectionJobsResponse {
-  __type?: "ListDominantLanguageDetectionJobsResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3088,12 +2862,9 @@ export namespace ListDominantLanguageDetectionJobsResponse {
   export const filterSensitiveLog = (obj: ListDominantLanguageDetectionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDominantLanguageDetectionJobsResponse =>
-    __isa(o, "ListDominantLanguageDetectionJobsResponse");
 }
 
 export interface ListEndpointsRequest {
-  __type?: "ListEndpointsRequest";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3115,11 +2886,9 @@ export namespace ListEndpointsRequest {
   export const filterSensitiveLog = (obj: ListEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEndpointsRequest => __isa(o, "ListEndpointsRequest");
 }
 
 export interface ListEndpointsResponse {
-  __type?: "ListEndpointsResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3135,11 +2904,9 @@ export namespace ListEndpointsResponse {
   export const filterSensitiveLog = (obj: ListEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEndpointsResponse => __isa(o, "ListEndpointsResponse");
 }
 
 export interface ListEntitiesDetectionJobsRequest {
-  __type?: "ListEntitiesDetectionJobsRequest";
   /**
    * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
    *       and time that they were submitted. You can only set one filter at a time.</p>
@@ -3161,11 +2928,9 @@ export namespace ListEntitiesDetectionJobsRequest {
   export const filterSensitiveLog = (obj: ListEntitiesDetectionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesDetectionJobsRequest => __isa(o, "ListEntitiesDetectionJobsRequest");
 }
 
 export interface ListEntitiesDetectionJobsResponse {
-  __type?: "ListEntitiesDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
@@ -3181,11 +2946,9 @@ export namespace ListEntitiesDetectionJobsResponse {
   export const filterSensitiveLog = (obj: ListEntitiesDetectionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesDetectionJobsResponse => __isa(o, "ListEntitiesDetectionJobsResponse");
 }
 
 export interface ListEntityRecognizersRequest {
-  __type?: "ListEntityRecognizersRequest";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3206,11 +2969,9 @@ export namespace ListEntityRecognizersRequest {
   export const filterSensitiveLog = (obj: ListEntityRecognizersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntityRecognizersRequest => __isa(o, "ListEntityRecognizersRequest");
 }
 
 export interface ListEntityRecognizersResponse {
-  __type?: "ListEntityRecognizersResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3231,11 +2992,9 @@ export namespace ListEntityRecognizersResponse {
       ),
     }),
   });
-  export const isa = (o: any): o is ListEntityRecognizersResponse => __isa(o, "ListEntityRecognizersResponse");
 }
 
 export interface ListKeyPhrasesDetectionJobsRequest {
-  __type?: "ListKeyPhrasesDetectionJobsRequest";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3257,12 +3016,9 @@ export namespace ListKeyPhrasesDetectionJobsRequest {
   export const filterSensitiveLog = (obj: ListKeyPhrasesDetectionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListKeyPhrasesDetectionJobsRequest =>
-    __isa(o, "ListKeyPhrasesDetectionJobsRequest");
 }
 
 export interface ListKeyPhrasesDetectionJobsResponse {
-  __type?: "ListKeyPhrasesDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
@@ -3278,12 +3034,9 @@ export namespace ListKeyPhrasesDetectionJobsResponse {
   export const filterSensitiveLog = (obj: ListKeyPhrasesDetectionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListKeyPhrasesDetectionJobsResponse =>
-    __isa(o, "ListKeyPhrasesDetectionJobsResponse");
 }
 
 export interface ListSentimentDetectionJobsRequest {
-  __type?: "ListSentimentDetectionJobsRequest";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -3305,11 +3058,9 @@ export namespace ListSentimentDetectionJobsRequest {
   export const filterSensitiveLog = (obj: ListSentimentDetectionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSentimentDetectionJobsRequest => __isa(o, "ListSentimentDetectionJobsRequest");
 }
 
 export interface ListSentimentDetectionJobsResponse {
-  __type?: "ListSentimentDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
@@ -3325,12 +3076,9 @@ export namespace ListSentimentDetectionJobsResponse {
   export const filterSensitiveLog = (obj: ListSentimentDetectionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSentimentDetectionJobsResponse =>
-    __isa(o, "ListSentimentDetectionJobsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. </p>
    */
@@ -3341,11 +3089,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.    </p>
@@ -3362,11 +3108,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTopicsDetectionJobsRequest {
-  __type?: "ListTopicsDetectionJobsRequest";
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    */
@@ -3388,11 +3132,9 @@ export namespace ListTopicsDetectionJobsRequest {
   export const filterSensitiveLog = (obj: ListTopicsDetectionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTopicsDetectionJobsRequest => __isa(o, "ListTopicsDetectionJobsRequest");
 }
 
 export interface ListTopicsDetectionJobsResponse {
-  __type?: "ListTopicsDetectionJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
@@ -3408,7 +3150,6 @@ export namespace ListTopicsDetectionJobsResponse {
   export const filterSensitiveLog = (obj: ListTopicsDetectionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTopicsDetectionJobsResponse => __isa(o, "ListTopicsDetectionJobsResponse");
 }
 
 export enum ModelStatus {
@@ -3426,7 +3167,6 @@ export enum ModelStatus {
  *          <p></p>
  */
 export interface OutputDataConfig {
-  __type?: "OutputDataConfig";
   /**
    * <p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you
    *       specify the Amazon S3 location where you want to write the output data. The URI must be in the
@@ -3467,7 +3207,6 @@ export namespace OutputDataConfig {
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -3476,7 +3215,6 @@ export namespace OutputDataConfig {
  *       speech that Amazon Comprehend can identify, see <a>how-syntax</a>.</p>
  */
 export interface PartOfSpeechTag {
-  __type?: "PartOfSpeechTag";
   /**
    * <p>Identifies the part of speech that the token represents.</p>
    */
@@ -3492,7 +3230,6 @@ export namespace PartOfSpeechTag {
   export const filterSensitiveLog = (obj: PartOfSpeechTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartOfSpeechTag => __isa(o, "PartOfSpeechTag");
 }
 
 export enum PartOfSpeechTagType {
@@ -3529,7 +3266,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3545,7 +3281,6 @@ export namespace ResourceLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -3561,7 +3296,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3577,7 +3311,6 @@ export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUnavailableException => __isa(o, "ResourceUnavailableException");
 }
 
 /**
@@ -3585,7 +3318,6 @@ export namespace ResourceUnavailableException {
  *       information, see the  operation.</p>
  */
 export interface SentimentDetectionJobFilter {
-  __type?: "SentimentDetectionJobFilter";
   /**
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
@@ -3616,14 +3348,12 @@ export namespace SentimentDetectionJobFilter {
   export const filterSensitiveLog = (obj: SentimentDetectionJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SentimentDetectionJobFilter => __isa(o, "SentimentDetectionJobFilter");
 }
 
 /**
  * <p>Provides information about a sentiment detection job.</p>
  */
 export interface SentimentDetectionJobProperties {
-  __type?: "SentimentDetectionJobProperties";
   /**
    * <p>The identifier assigned to the sentiment detection job.</p>
    */
@@ -3704,7 +3434,6 @@ export namespace SentimentDetectionJobProperties {
   export const filterSensitiveLog = (obj: SentimentDetectionJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SentimentDetectionJobProperties => __isa(o, "SentimentDetectionJobProperties");
 }
 
 /**
@@ -3712,7 +3441,6 @@ export namespace SentimentDetectionJobProperties {
  *       sentiments.</p>
  */
 export interface SentimentScore {
-  __type?: "SentimentScore";
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the
    *         <code>NEGATIVE</code> sentiment.</p>
@@ -3742,7 +3470,6 @@ export namespace SentimentScore {
   export const filterSensitiveLog = (obj: SentimentScore): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SentimentScore => __isa(o, "SentimentScore");
 }
 
 export enum SentimentType {
@@ -3753,7 +3480,6 @@ export enum SentimentType {
 }
 
 export interface StartDocumentClassificationJobRequest {
-  __type?: "StartDocumentClassificationJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the document classifier to use to process the
    *       job.</p>
@@ -3814,12 +3540,9 @@ export namespace StartDocumentClassificationJobRequest {
   export const filterSensitiveLog = (obj: StartDocumentClassificationJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDocumentClassificationJobRequest =>
-    __isa(o, "StartDocumentClassificationJobRequest");
 }
 
 export interface StartDocumentClassificationJobResponse {
-  __type?: "StartDocumentClassificationJobResponse";
   /**
    * <p>The status of the job:</p>
    *          <ul>
@@ -3856,12 +3579,9 @@ export namespace StartDocumentClassificationJobResponse {
   export const filterSensitiveLog = (obj: StartDocumentClassificationJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDocumentClassificationJobResponse =>
-    __isa(o, "StartDocumentClassificationJobResponse");
 }
 
 export interface StartDominantLanguageDetectionJobRequest {
-  __type?: "StartDominantLanguageDetectionJobRequest";
   /**
    * <p>An identifier for the job.</p>
    */
@@ -3916,12 +3636,9 @@ export namespace StartDominantLanguageDetectionJobRequest {
   export const filterSensitiveLog = (obj: StartDominantLanguageDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDominantLanguageDetectionJobRequest =>
-    __isa(o, "StartDominantLanguageDetectionJobRequest");
 }
 
 export interface StartDominantLanguageDetectionJobResponse {
-  __type?: "StartDominantLanguageDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the  operation.</p>
@@ -3952,12 +3669,9 @@ export namespace StartDominantLanguageDetectionJobResponse {
   export const filterSensitiveLog = (obj: StartDominantLanguageDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDominantLanguageDetectionJobResponse =>
-    __isa(o, "StartDominantLanguageDetectionJobResponse");
 }
 
 export interface StartEntitiesDetectionJobRequest {
-  __type?: "StartEntitiesDetectionJobRequest";
   /**
    * <p>Specifies where to send the output files.</p>
    */
@@ -4026,11 +3740,9 @@ export namespace StartEntitiesDetectionJobRequest {
   export const filterSensitiveLog = (obj: StartEntitiesDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartEntitiesDetectionJobRequest => __isa(o, "StartEntitiesDetectionJobRequest");
 }
 
 export interface StartEntitiesDetectionJobResponse {
-  __type?: "StartEntitiesDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with
    *       the  operation.</p>
@@ -4067,11 +3779,9 @@ export namespace StartEntitiesDetectionJobResponse {
   export const filterSensitiveLog = (obj: StartEntitiesDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartEntitiesDetectionJobResponse => __isa(o, "StartEntitiesDetectionJobResponse");
 }
 
 export interface StartKeyPhrasesDetectionJobRequest {
-  __type?: "StartKeyPhrasesDetectionJobRequest";
   /**
    * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job.
    *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
@@ -4133,12 +3843,9 @@ export namespace StartKeyPhrasesDetectionJobRequest {
   export const filterSensitiveLog = (obj: StartKeyPhrasesDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartKeyPhrasesDetectionJobRequest =>
-    __isa(o, "StartKeyPhrasesDetectionJobRequest");
 }
 
 export interface StartKeyPhrasesDetectionJobResponse {
-  __type?: "StartKeyPhrasesDetectionJobResponse";
   /**
    * <p>The status of the job. </p>
    *          <ul>
@@ -4169,12 +3876,9 @@ export namespace StartKeyPhrasesDetectionJobResponse {
   export const filterSensitiveLog = (obj: StartKeyPhrasesDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartKeyPhrasesDetectionJobResponse =>
-    __isa(o, "StartKeyPhrasesDetectionJobResponse");
 }
 
 export interface StartSentimentDetectionJobRequest {
-  __type?: "StartSentimentDetectionJobRequest";
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
    */
@@ -4236,11 +3940,9 @@ export namespace StartSentimentDetectionJobRequest {
   export const filterSensitiveLog = (obj: StartSentimentDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSentimentDetectionJobRequest => __isa(o, "StartSentimentDetectionJobRequest");
 }
 
 export interface StartSentimentDetectionJobResponse {
-  __type?: "StartSentimentDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the  operation.</p>
@@ -4271,12 +3973,9 @@ export namespace StartSentimentDetectionJobResponse {
   export const filterSensitiveLog = (obj: StartSentimentDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSentimentDetectionJobResponse =>
-    __isa(o, "StartSentimentDetectionJobResponse");
 }
 
 export interface StartTopicsDetectionJobRequest {
-  __type?: "StartTopicsDetectionJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
    *       that grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
@@ -4338,11 +4037,9 @@ export namespace StartTopicsDetectionJobRequest {
   export const filterSensitiveLog = (obj: StartTopicsDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTopicsDetectionJobRequest => __isa(o, "StartTopicsDetectionJobRequest");
 }
 
 export interface StartTopicsDetectionJobResponse {
-  __type?: "StartTopicsDetectionJobResponse";
   /**
    * <p>The status of the job: </p>
    *          <ul>
@@ -4375,11 +4072,9 @@ export namespace StartTopicsDetectionJobResponse {
   export const filterSensitiveLog = (obj: StartTopicsDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTopicsDetectionJobResponse => __isa(o, "StartTopicsDetectionJobResponse");
 }
 
 export interface StopDominantLanguageDetectionJobRequest {
-  __type?: "StopDominantLanguageDetectionJobRequest";
   /**
    * <p>The identifier of the dominant language detection job to stop.</p>
    */
@@ -4390,12 +4085,9 @@ export namespace StopDominantLanguageDetectionJobRequest {
   export const filterSensitiveLog = (obj: StopDominantLanguageDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDominantLanguageDetectionJobRequest =>
-    __isa(o, "StopDominantLanguageDetectionJobRequest");
 }
 
 export interface StopDominantLanguageDetectionJobResponse {
-  __type?: "StopDominantLanguageDetectionJobResponse";
   /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
@@ -4413,12 +4105,9 @@ export namespace StopDominantLanguageDetectionJobResponse {
   export const filterSensitiveLog = (obj: StopDominantLanguageDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDominantLanguageDetectionJobResponse =>
-    __isa(o, "StopDominantLanguageDetectionJobResponse");
 }
 
 export interface StopEntitiesDetectionJobRequest {
-  __type?: "StopEntitiesDetectionJobRequest";
   /**
    * <p>The identifier of the entities detection job to stop.</p>
    */
@@ -4429,11 +4118,9 @@ export namespace StopEntitiesDetectionJobRequest {
   export const filterSensitiveLog = (obj: StopEntitiesDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopEntitiesDetectionJobRequest => __isa(o, "StopEntitiesDetectionJobRequest");
 }
 
 export interface StopEntitiesDetectionJobResponse {
-  __type?: "StopEntitiesDetectionJobResponse";
   /**
    * <p>The identifier of the entities detection job to stop.</p>
    */
@@ -4451,11 +4138,9 @@ export namespace StopEntitiesDetectionJobResponse {
   export const filterSensitiveLog = (obj: StopEntitiesDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopEntitiesDetectionJobResponse => __isa(o, "StopEntitiesDetectionJobResponse");
 }
 
 export interface StopKeyPhrasesDetectionJobRequest {
-  __type?: "StopKeyPhrasesDetectionJobRequest";
   /**
    * <p>The identifier of the key phrases detection job to stop.</p>
    */
@@ -4466,11 +4151,9 @@ export namespace StopKeyPhrasesDetectionJobRequest {
   export const filterSensitiveLog = (obj: StopKeyPhrasesDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopKeyPhrasesDetectionJobRequest => __isa(o, "StopKeyPhrasesDetectionJobRequest");
 }
 
 export interface StopKeyPhrasesDetectionJobResponse {
-  __type?: "StopKeyPhrasesDetectionJobResponse";
   /**
    * <p>The identifier of the key phrases detection job to stop.</p>
    */
@@ -4488,12 +4171,9 @@ export namespace StopKeyPhrasesDetectionJobResponse {
   export const filterSensitiveLog = (obj: StopKeyPhrasesDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopKeyPhrasesDetectionJobResponse =>
-    __isa(o, "StopKeyPhrasesDetectionJobResponse");
 }
 
 export interface StopSentimentDetectionJobRequest {
-  __type?: "StopSentimentDetectionJobRequest";
   /**
    * <p>The identifier of the sentiment detection job to stop.</p>
    */
@@ -4504,11 +4184,9 @@ export namespace StopSentimentDetectionJobRequest {
   export const filterSensitiveLog = (obj: StopSentimentDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopSentimentDetectionJobRequest => __isa(o, "StopSentimentDetectionJobRequest");
 }
 
 export interface StopSentimentDetectionJobResponse {
-  __type?: "StopSentimentDetectionJobResponse";
   /**
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
@@ -4526,11 +4204,9 @@ export namespace StopSentimentDetectionJobResponse {
   export const filterSensitiveLog = (obj: StopSentimentDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopSentimentDetectionJobResponse => __isa(o, "StopSentimentDetectionJobResponse");
 }
 
 export interface StopTrainingDocumentClassifierRequest {
-  __type?: "StopTrainingDocumentClassifierRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.</p>
    */
@@ -4541,24 +4217,17 @@ export namespace StopTrainingDocumentClassifierRequest {
   export const filterSensitiveLog = (obj: StopTrainingDocumentClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTrainingDocumentClassifierRequest =>
-    __isa(o, "StopTrainingDocumentClassifierRequest");
 }
 
-export interface StopTrainingDocumentClassifierResponse {
-  __type?: "StopTrainingDocumentClassifierResponse";
-}
+export interface StopTrainingDocumentClassifierResponse {}
 
 export namespace StopTrainingDocumentClassifierResponse {
   export const filterSensitiveLog = (obj: StopTrainingDocumentClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTrainingDocumentClassifierResponse =>
-    __isa(o, "StopTrainingDocumentClassifierResponse");
 }
 
 export interface StopTrainingEntityRecognizerRequest {
-  __type?: "StopTrainingEntityRecognizerRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.</p>
    */
@@ -4569,20 +4238,14 @@ export namespace StopTrainingEntityRecognizerRequest {
   export const filterSensitiveLog = (obj: StopTrainingEntityRecognizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTrainingEntityRecognizerRequest =>
-    __isa(o, "StopTrainingEntityRecognizerRequest");
 }
 
-export interface StopTrainingEntityRecognizerResponse {
-  __type?: "StopTrainingEntityRecognizerResponse";
-}
+export interface StopTrainingEntityRecognizerResponse {}
 
 export namespace StopTrainingEntityRecognizerResponse {
   export const filterSensitiveLog = (obj: StopTrainingEntityRecognizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTrainingEntityRecognizerResponse =>
-    __isa(o, "StopTrainingEntityRecognizerResponse");
 }
 
 export enum SyntaxLanguageCode {
@@ -4599,7 +4262,6 @@ export enum SyntaxLanguageCode {
  *       There is one syntax token record for each word in the source text.</p>
  */
 export interface SyntaxToken {
-  __type?: "SyntaxToken";
   /**
    * <p>A unique identifier for a token.</p>
    */
@@ -4633,14 +4295,12 @@ export namespace SyntaxToken {
   export const filterSensitiveLog = (obj: SyntaxToken): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SyntaxToken => __isa(o, "SyntaxToken");
 }
 
 /**
  * <p>A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p> The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.  </p>
    */
@@ -4656,11 +4316,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
    */
@@ -4676,18 +4334,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -4703,7 +4357,6 @@ export namespace TextSizeLimitExceededException {
   export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextSizeLimitExceededException => __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -4719,7 +4372,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -4735,7 +4387,6 @@ export namespace TooManyTagKeysException {
   export const filterSensitiveLog = (obj: TooManyTagKeysException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagKeysException => __isa(o, "TooManyTagKeysException");
 }
 
 /**
@@ -4752,7 +4403,6 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -4760,7 +4410,6 @@ export namespace TooManyTagsException {
  *         .</p>
  */
 export interface TopicsDetectionJobFilter {
-  __type?: "TopicsDetectionJobFilter";
   /**
    * <p>Filters the list of topic detection jobs based on job status. Returns only jobs with
    *       the specified status.</p>
@@ -4791,14 +4440,12 @@ export namespace TopicsDetectionJobFilter {
   export const filterSensitiveLog = (obj: TopicsDetectionJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicsDetectionJobFilter => __isa(o, "TopicsDetectionJobFilter");
 }
 
 /**
  * <p>Provides information about a topic detection job.</p>
  */
 export interface TopicsDetectionJobProperties {
-  __type?: "TopicsDetectionJobProperties";
   /**
    * <p>A description for the status of a job.</p>
    */
@@ -4880,7 +4527,6 @@ export namespace TopicsDetectionJobProperties {
   export const filterSensitiveLog = (obj: TopicsDetectionJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicsDetectionJobProperties => __isa(o, "TopicsDetectionJobProperties");
 }
 
 /**
@@ -4898,11 +4544,9 @@ export namespace UnsupportedLanguageException {
   export const filterSensitiveLog = (obj: UnsupportedLanguageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedLanguageException => __isa(o, "UnsupportedLanguageException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags.  </p>
    */
@@ -4920,22 +4564,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateEndpointRequest {
-  __type?: "UpdateEndpointRequest";
   /**
    * <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
    */
@@ -4952,18 +4591,14 @@ export namespace UpdateEndpointRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointRequest => __isa(o, "UpdateEndpointRequest");
 }
 
-export interface UpdateEndpointResponse {
-  __type?: "UpdateEndpointResponse";
-}
+export interface UpdateEndpointResponse {}
 
 export namespace UpdateEndpointResponse {
   export const filterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointResponse => __isa(o, "UpdateEndpointResponse");
 }
 
 /**
@@ -4971,7 +4606,6 @@ export namespace UpdateEndpointResponse {
  *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 export interface VpcConfig {
-  __type?: "VpcConfig";
   /**
    * <p>The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the
    *       VPC and is specific to a given availability zone in the VPC’s region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
@@ -4991,5 +4625,4 @@ export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }

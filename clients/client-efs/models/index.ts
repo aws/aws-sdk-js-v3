@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace AccessPointAlreadyExists {
   export const filterSensitiveLog = (obj: AccessPointAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPointAlreadyExists => __isa(o, "AccessPointAlreadyExists");
 }
 
 /**
  * <p>Provides a description of an EFS file system access point.</p>
  */
 export interface AccessPointDescription {
-  __type?: "AccessPointDescription";
   /**
    * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
    */
@@ -81,7 +79,6 @@ export namespace AccessPointDescription {
   export const filterSensitiveLog = (obj: AccessPointDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPointDescription => __isa(o, "AccessPointDescription");
 }
 
 /**
@@ -99,7 +96,6 @@ export namespace AccessPointLimitExceeded {
   export const filterSensitiveLog = (obj: AccessPointLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPointLimitExceeded => __isa(o, "AccessPointLimitExceeded");
 }
 
 /**
@@ -117,7 +113,6 @@ export namespace AccessPointNotFound {
   export const filterSensitiveLog = (obj: AccessPointNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPointNotFound => __isa(o, "AccessPointNotFound");
 }
 
 /**
@@ -125,7 +120,6 @@ export namespace AccessPointNotFound {
  *       <code>ENABLED</code>, the file system is being backed up.</p>
  */
 export interface BackupPolicy {
-  __type?: "BackupPolicy";
   /**
    * <p>Describes the status of the file system's backup policy.</p>
    *          <ul>
@@ -162,11 +156,9 @@ export namespace BackupPolicy {
   export const filterSensitiveLog = (obj: BackupPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupPolicy => __isa(o, "BackupPolicy");
 }
 
 export interface BackupPolicyDescription {
-  __type?: "BackupPolicyDescription";
   /**
    * <p>Describes the file system's backup policy, indicating whether automatic backups are turned on or off..</p>
    */
@@ -177,7 +169,6 @@ export namespace BackupPolicyDescription {
   export const filterSensitiveLog = (obj: BackupPolicyDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupPolicyDescription => __isa(o, "BackupPolicyDescription");
 }
 
 /**
@@ -195,11 +186,9 @@ export namespace BadRequest {
   export const filterSensitiveLog = (obj: BadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequest => __isa(o, "BadRequest");
 }
 
 export interface CreateAccessPointRequest {
-  __type?: "CreateAccessPointRequest";
   /**
    * <p>Specifies the directory on the Amazon EFS file system that the access point exposes as
    *       the root directory of your file system to NFS clients using the access point.
@@ -237,11 +226,9 @@ export namespace CreateAccessPointRequest {
   export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessPointRequest => __isa(o, "CreateAccessPointRequest");
 }
 
 export interface CreateFileSystemRequest {
-  __type?: "CreateFileSystemRequest";
   /**
    * <p>The throughput, measured in MiB/s, that you want to provision for a file system that
    *       you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s.
@@ -330,14 +317,12 @@ export namespace CreateFileSystemRequest {
   export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFileSystemRequest => __isa(o, "CreateFileSystemRequest");
 }
 
 /**
  * <p></p>
  */
 export interface CreateMountTargetRequest {
-  __type?: "CreateMountTargetRequest";
   /**
    * <p>The ID of the subnet to add the mount target in.</p>
    */
@@ -364,14 +349,12 @@ export namespace CreateMountTargetRequest {
   export const filterSensitiveLog = (obj: CreateMountTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMountTargetRequest => __isa(o, "CreateMountTargetRequest");
 }
 
 /**
  * <p></p>
  */
 export interface CreateTagsRequest {
-  __type?: "CreateTagsRequest";
   /**
    * <p>The ID of the file system whose tags you want to modify (String). This operation modifies
    *       the tags only, not the file system.</p>
@@ -389,7 +372,6 @@ export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 /**
@@ -404,7 +386,6 @@ export namespace CreateTagsRequest {
  *          </important>
  */
 export interface CreationInfo {
-  __type?: "CreationInfo";
   /**
    * <p>Specifies the POSIX group ID to apply to the <code>RootDirectory</code>. Accepts values from 0 to 2^32 (4294967295).</p>
    */
@@ -425,11 +406,9 @@ export namespace CreationInfo {
   export const filterSensitiveLog = (obj: CreationInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreationInfo => __isa(o, "CreationInfo");
 }
 
 export interface DeleteAccessPointRequest {
-  __type?: "DeleteAccessPointRequest";
   /**
    * <p>The ID of the access point that you want to delete.</p>
    */
@@ -440,11 +419,9 @@ export namespace DeleteAccessPointRequest {
   export const filterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPointRequest => __isa(o, "DeleteAccessPointRequest");
 }
 
 export interface DeleteFileSystemPolicyRequest {
-  __type?: "DeleteFileSystemPolicyRequest";
   /**
    * <p>Specifies the EFS file system for which to delete the <code>FileSystemPolicy</code>.</p>
    */
@@ -455,14 +432,12 @@ export namespace DeleteFileSystemPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteFileSystemPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemPolicyRequest => __isa(o, "DeleteFileSystemPolicyRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteFileSystemRequest {
-  __type?: "DeleteFileSystemRequest";
   /**
    * <p>The ID of the file system you want to delete.</p>
    */
@@ -473,14 +448,12 @@ export namespace DeleteFileSystemRequest {
   export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemRequest => __isa(o, "DeleteFileSystemRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteMountTargetRequest {
-  __type?: "DeleteMountTargetRequest";
   /**
    * <p>The ID of the mount target to delete (String).</p>
    */
@@ -491,14 +464,12 @@ export namespace DeleteMountTargetRequest {
   export const filterSensitiveLog = (obj: DeleteMountTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMountTargetRequest => __isa(o, "DeleteMountTargetRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteTagsRequest {
-  __type?: "DeleteTagsRequest";
   /**
    * <p>A list of tag keys to delete.</p>
    */
@@ -514,7 +485,6 @@ export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 /**
@@ -532,11 +502,9 @@ export namespace DependencyTimeout {
   export const filterSensitiveLog = (obj: DependencyTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependencyTimeout => __isa(o, "DependencyTimeout");
 }
 
 export interface DescribeAccessPointsRequest {
-  __type?: "DescribeAccessPointsRequest";
   /**
    * <p>(Optional) When retrieving all access points for a file system,
    *       you can optionally specify the <code>MaxItems</code> parameter to limit the number of objects returned in a response.
@@ -565,11 +533,9 @@ export namespace DescribeAccessPointsRequest {
   export const filterSensitiveLog = (obj: DescribeAccessPointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccessPointsRequest => __isa(o, "DescribeAccessPointsRequest");
 }
 
 export interface DescribeAccessPointsResponse {
-  __type?: "DescribeAccessPointsResponse";
   /**
    * <p>An array of access point descriptions.</p>
    */
@@ -586,11 +552,9 @@ export namespace DescribeAccessPointsResponse {
   export const filterSensitiveLog = (obj: DescribeAccessPointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccessPointsResponse => __isa(o, "DescribeAccessPointsResponse");
 }
 
 export interface DescribeBackupPolicyRequest {
-  __type?: "DescribeBackupPolicyRequest";
   /**
    * <p>Specifies which EFS file system to retrieve the <code>BackupPolicy</code> for.</p>
    */
@@ -601,11 +565,9 @@ export namespace DescribeBackupPolicyRequest {
   export const filterSensitiveLog = (obj: DescribeBackupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupPolicyRequest => __isa(o, "DescribeBackupPolicyRequest");
 }
 
 export interface DescribeFileSystemPolicyRequest {
-  __type?: "DescribeFileSystemPolicyRequest";
   /**
    * <p>Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code> for.</p>
    */
@@ -616,14 +578,12 @@ export namespace DescribeFileSystemPolicyRequest {
   export const filterSensitiveLog = (obj: DescribeFileSystemPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFileSystemPolicyRequest => __isa(o, "DescribeFileSystemPolicyRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeFileSystemsRequest {
-  __type?: "DescribeFileSystemsRequest";
   /**
    * <p>(Optional) Restricts the list to the file system with this creation token (String). You
    *       specify a creation token when you create an Amazon EFS file system.</p>
@@ -655,11 +615,9 @@ export namespace DescribeFileSystemsRequest {
   export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFileSystemsRequest => __isa(o, "DescribeFileSystemsRequest");
 }
 
 export interface DescribeFileSystemsResponse {
-  __type?: "DescribeFileSystemsResponse";
   /**
    * <p>Present if there are more file systems than returned in the response (String). You can
    *       use the <code>NextMarker</code> in the subsequent request to fetch the descriptions.</p>
@@ -681,11 +639,9 @@ export namespace DescribeFileSystemsResponse {
   export const filterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFileSystemsResponse => __isa(o, "DescribeFileSystemsResponse");
 }
 
 export interface DescribeLifecycleConfigurationRequest {
-  __type?: "DescribeLifecycleConfigurationRequest";
   /**
    * <p>The ID of the file system whose <code>LifecycleConfiguration</code> object you want to
    *       retrieve (String).</p>
@@ -697,15 +653,12 @@ export namespace DescribeLifecycleConfigurationRequest {
   export const filterSensitiveLog = (obj: DescribeLifecycleConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLifecycleConfigurationRequest =>
-    __isa(o, "DescribeLifecycleConfigurationRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeMountTargetSecurityGroupsRequest {
-  __type?: "DescribeMountTargetSecurityGroupsRequest";
   /**
    * <p>The ID of the mount target whose security groups you want to retrieve.</p>
    */
@@ -716,12 +669,9 @@ export namespace DescribeMountTargetSecurityGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeMountTargetSecurityGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMountTargetSecurityGroupsRequest =>
-    __isa(o, "DescribeMountTargetSecurityGroupsRequest");
 }
 
 export interface DescribeMountTargetSecurityGroupsResponse {
-  __type?: "DescribeMountTargetSecurityGroupsResponse";
   /**
    * <p>An array of security groups.</p>
    */
@@ -732,15 +682,12 @@ export namespace DescribeMountTargetSecurityGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeMountTargetSecurityGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMountTargetSecurityGroupsResponse =>
-    __isa(o, "DescribeMountTargetSecurityGroupsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeMountTargetsRequest {
-  __type?: "DescribeMountTargetsRequest";
   /**
    * <p>(Optional) ID of the mount target that you want to have described (String). It must be
    *       included in your request if <code>FileSystemId</code> is not included. Accepts either a mount target ID or ARN as input.</p>
@@ -778,14 +725,12 @@ export namespace DescribeMountTargetsRequest {
   export const filterSensitiveLog = (obj: DescribeMountTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMountTargetsRequest => __isa(o, "DescribeMountTargetsRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeMountTargetsResponse {
-  __type?: "DescribeMountTargetsResponse";
   /**
    * <p>Returns the file system's mount targets as an array of
    *         <code>MountTargetDescription</code> objects.</p>
@@ -810,14 +755,12 @@ export namespace DescribeMountTargetsResponse {
   export const filterSensitiveLog = (obj: DescribeMountTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMountTargetsResponse => __isa(o, "DescribeMountTargetsResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTagsRequest {
-  __type?: "DescribeTagsRequest";
   /**
    * <p>(Optional) The maximum number of file system tags to return in the response. Currently,
    *       this number is automatically set to
@@ -842,14 +785,12 @@ export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTagsResponse {
-  __type?: "DescribeTagsResponse";
   /**
    * <p>If a value is present, there are more tags to return. In a subsequent request, you can
    *       provide the value of <code>NextMarker</code> as the value of the <code>Marker</code> parameter
@@ -874,7 +815,6 @@ export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 /**
@@ -893,14 +833,12 @@ export namespace FileSystemAlreadyExists {
   export const filterSensitiveLog = (obj: FileSystemAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemAlreadyExists => __isa(o, "FileSystemAlreadyExists");
 }
 
 /**
  * <p>A description of the file system.</p>
  */
 export interface FileSystemDescription {
-  __type?: "FileSystemDescription";
   /**
    * <p>The latest known metered size (in bytes) of data stored in the file system, in its
    *         <code>Value</code> field, and the time at which that size was determined in its
@@ -1009,7 +947,6 @@ export namespace FileSystemDescription {
   export const filterSensitiveLog = (obj: FileSystemDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemDescription => __isa(o, "FileSystemDescription");
 }
 
 /**
@@ -1026,7 +963,6 @@ export namespace FileSystemInUse {
   export const filterSensitiveLog = (obj: FileSystemInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemInUse => __isa(o, "FileSystemInUse");
 }
 
 /**
@@ -1044,7 +980,6 @@ export namespace FileSystemLimitExceeded {
   export const filterSensitiveLog = (obj: FileSystemLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemLimitExceeded => __isa(o, "FileSystemLimitExceeded");
 }
 
 /**
@@ -1062,11 +997,9 @@ export namespace FileSystemNotFound {
   export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemNotFound => __isa(o, "FileSystemNotFound");
 }
 
 export interface FileSystemPolicyDescription {
-  __type?: "FileSystemPolicyDescription";
   /**
    * <p>Specifies the EFS file system to which the <code>FileSystemPolicy</code> applies.</p>
    */
@@ -1082,7 +1015,6 @@ export namespace FileSystemPolicyDescription {
   export const filterSensitiveLog = (obj: FileSystemPolicyDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemPolicyDescription => __isa(o, "FileSystemPolicyDescription");
 }
 
 /**
@@ -1095,7 +1027,6 @@ export namespace FileSystemPolicyDescription {
  *       the exact size the file system was at any instant in time.</p>
  */
 export interface FileSystemSize {
-  __type?: "FileSystemSize";
   /**
    * <p>The latest known metered size (in bytes) of data stored in the file system.</p>
    */
@@ -1124,7 +1055,6 @@ export namespace FileSystemSize {
   export const filterSensitiveLog = (obj: FileSystemSize): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemSize => __isa(o, "FileSystemSize");
 }
 
 /**
@@ -1141,7 +1071,6 @@ export namespace IncorrectFileSystemLifeCycleState {
   export const filterSensitiveLog = (obj: IncorrectFileSystemLifeCycleState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncorrectFileSystemLifeCycleState => __isa(o, "IncorrectFileSystemLifeCycleState");
 }
 
 /**
@@ -1159,7 +1088,6 @@ export namespace IncorrectMountTargetState {
   export const filterSensitiveLog = (obj: IncorrectMountTargetState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncorrectMountTargetState => __isa(o, "IncorrectMountTargetState");
 }
 
 /**
@@ -1180,7 +1108,6 @@ export namespace InsufficientThroughputCapacity {
   export const filterSensitiveLog = (obj: InsufficientThroughputCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientThroughputCapacity => __isa(o, "InsufficientThroughputCapacity");
 }
 
 /**
@@ -1197,7 +1124,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -1215,7 +1141,6 @@ export namespace InvalidPolicyException {
   export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPolicyException => __isa(o, "InvalidPolicyException");
 }
 
 /**
@@ -1233,11 +1158,9 @@ export namespace IpAddressInUse {
   export const filterSensitiveLog = (obj: IpAddressInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpAddressInUse => __isa(o, "IpAddressInUse");
 }
 
 export interface LifecycleConfigurationDescription {
-  __type?: "LifecycleConfigurationDescription";
   /**
    * <p>An array of lifecycle management policies. Currently, EFS supports a maximum of one
    *       policy per file system.</p>
@@ -1249,7 +1172,6 @@ export namespace LifecycleConfigurationDescription {
   export const filterSensitiveLog = (obj: LifecycleConfigurationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleConfigurationDescription => __isa(o, "LifecycleConfigurationDescription");
 }
 
 /**
@@ -1257,7 +1179,6 @@ export namespace LifecycleConfigurationDescription {
  *       Access (IA) storage class.</p>
  */
 export interface LifecyclePolicy {
-  __type?: "LifecyclePolicy";
   /**
    * <p>
    *       A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata
@@ -1271,7 +1192,6 @@ export namespace LifecyclePolicy {
   export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicy => __isa(o, "LifecyclePolicy");
 }
 
 export enum LifeCycleState {
@@ -1283,7 +1203,6 @@ export enum LifeCycleState {
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
    */
@@ -1304,11 +1223,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>An array of the tags for the specified EFS resource.</p>
    */
@@ -1325,14 +1242,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyMountTargetSecurityGroupsRequest {
-  __type?: "ModifyMountTargetSecurityGroupsRequest";
   /**
    * <p>An array of up to five VPC security group IDs.</p>
    */
@@ -1348,8 +1263,6 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
   export const filterSensitiveLog = (obj: ModifyMountTargetSecurityGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyMountTargetSecurityGroupsRequest =>
-    __isa(o, "ModifyMountTargetSecurityGroupsRequest");
 }
 
 /**
@@ -1367,14 +1280,12 @@ export namespace MountTargetConflict {
   export const filterSensitiveLog = (obj: MountTargetConflict): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MountTargetConflict => __isa(o, "MountTargetConflict");
 }
 
 /**
  * <p>Provides a description of a mount target.</p>
  */
 export interface MountTargetDescription {
-  __type?: "MountTargetDescription";
   /**
    * <p>Address at which the file system can be mounted by using the mount target.</p>
    */
@@ -1434,7 +1345,6 @@ export namespace MountTargetDescription {
   export const filterSensitiveLog = (obj: MountTargetDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MountTargetDescription => __isa(o, "MountTargetDescription");
 }
 
 /**
@@ -1452,7 +1362,6 @@ export namespace MountTargetNotFound {
   export const filterSensitiveLog = (obj: MountTargetNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MountTargetNotFound => __isa(o, "MountTargetNotFound");
 }
 
 /**
@@ -1473,7 +1382,6 @@ export namespace NetworkInterfaceLimitExceeded {
   export const filterSensitiveLog = (obj: NetworkInterfaceLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterfaceLimitExceeded => __isa(o, "NetworkInterfaceLimitExceeded");
 }
 
 /**
@@ -1491,7 +1399,6 @@ export namespace NoFreeAddressesInSubnet {
   export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoFreeAddressesInSubnet => __isa(o, "NoFreeAddressesInSubnet");
 }
 
 export enum PerformanceMode {
@@ -1513,7 +1420,6 @@ export namespace PolicyNotFound {
   export const filterSensitiveLog = (obj: PolicyNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyNotFound => __isa(o, "PolicyNotFound");
 }
 
 /**
@@ -1521,7 +1427,6 @@ export namespace PolicyNotFound {
  *       NFS clients using the access point.</p>
  */
 export interface PosixUser {
-  __type?: "PosixUser";
   /**
    * <p>The POSIX group ID used for all file system operations using this access point.</p>
    */
@@ -1542,11 +1447,9 @@ export namespace PosixUser {
   export const filterSensitiveLog = (obj: PosixUser): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PosixUser => __isa(o, "PosixUser");
 }
 
 export interface PutBackupPolicyRequest {
-  __type?: "PutBackupPolicyRequest";
   /**
    * <p>The backup policy included in the <code>PutBackupPolicy</code> request.</p>
    */
@@ -1562,11 +1465,9 @@ export namespace PutBackupPolicyRequest {
   export const filterSensitiveLog = (obj: PutBackupPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBackupPolicyRequest => __isa(o, "PutBackupPolicyRequest");
 }
 
 export interface PutFileSystemPolicyRequest {
-  __type?: "PutFileSystemPolicyRequest";
   /**
    * <p>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code> for.</p>
    */
@@ -1595,11 +1496,9 @@ export namespace PutFileSystemPolicyRequest {
   export const filterSensitiveLog = (obj: PutFileSystemPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFileSystemPolicyRequest => __isa(o, "PutFileSystemPolicyRequest");
 }
 
 export interface PutLifecycleConfigurationRequest {
-  __type?: "PutLifecycleConfigurationRequest";
   /**
    * <p>The ID of the file system for which you are creating the
    *         <code>LifecycleConfiguration</code> object (String).</p>
@@ -1619,7 +1518,6 @@ export namespace PutLifecycleConfigurationRequest {
   export const filterSensitiveLog = (obj: PutLifecycleConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecycleConfigurationRequest => __isa(o, "PutLifecycleConfigurationRequest");
 }
 
 /**
@@ -1629,7 +1527,6 @@ export namespace PutLifecycleConfigurationRequest {
  *       NFS clients using the access point can only access data in the access point's <code>RootDirectory</code> and it's subdirectories.</p>
  */
 export interface RootDirectory {
-  __type?: "RootDirectory";
   /**
    * <p>(Optional) Specifies the POSIX IDs and permissions to apply to the access point's <code>RootDirectory</code>.
    *       If the <code>RootDirectory</code> > <code>Path</code> specified does not exist,
@@ -1655,7 +1552,6 @@ export namespace RootDirectory {
   export const filterSensitiveLog = (obj: RootDirectory): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RootDirectory => __isa(o, "RootDirectory");
 }
 
 /**
@@ -1673,7 +1569,6 @@ export namespace SecurityGroupLimitExceeded {
   export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupLimitExceeded => __isa(o, "SecurityGroupLimitExceeded");
 }
 
 /**
@@ -1691,7 +1586,6 @@ export namespace SecurityGroupNotFound {
   export const filterSensitiveLog = (obj: SecurityGroupNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupNotFound => __isa(o, "SecurityGroupNotFound");
 }
 
 export enum Status {
@@ -1716,7 +1610,6 @@ export namespace SubnetNotFound {
   export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetNotFound => __isa(o, "SubnetNotFound");
 }
 
 /**
@@ -1725,7 +1618,6 @@ export namespace SubnetNotFound {
  *          </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag key (String). The key can't start with <code>aws:</code>.</p>
    */
@@ -1741,11 +1633,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p></p>
    */
@@ -1761,7 +1651,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1779,7 +1668,6 @@ export namespace ThroughputLimitExceeded {
   export const filterSensitiveLog = (obj: ThroughputLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThroughputLimitExceeded => __isa(o, "ThroughputLimitExceeded");
 }
 
 export enum ThroughputMode {
@@ -1802,7 +1690,6 @@ export namespace TooManyRequests {
   export const filterSensitiveLog = (obj: TooManyRequests): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequests => __isa(o, "TooManyRequests");
 }
 
 export enum TransitionToIARules {
@@ -1827,11 +1714,9 @@ export namespace UnsupportedAvailabilityZone {
   export const filterSensitiveLog = (obj: UnsupportedAvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedAvailabilityZone => __isa(o, "UnsupportedAvailabilityZone");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>Specifies the EFS resource that you want to remove tags from.</p>
    */
@@ -1847,11 +1732,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateFileSystemRequest {
-  __type?: "UpdateFileSystemRequest";
   /**
    * <p>(Optional) The throughput mode that you want your file system to use. If you're not
    *       updating your throughput mode, you don't need to provide this value in your
@@ -1877,7 +1760,6 @@ export namespace UpdateFileSystemRequest {
   export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFileSystemRequest => __isa(o, "UpdateFileSystemRequest");
 }
 
 /**
@@ -1894,5 +1776,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

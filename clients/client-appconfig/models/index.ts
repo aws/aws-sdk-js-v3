@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface Application {
-  __type?: "Application";
   /**
    * <p>The application name.</p>
    */
@@ -23,11 +22,9 @@ export namespace Application {
   export const filterSensitiveLog = (obj: Application): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Application => __isa(o, "Application");
 }
 
 export interface Applications {
-  __type?: "Applications";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
@@ -44,7 +41,6 @@ export namespace Applications {
   export const filterSensitiveLog = (obj: Applications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Applications => __isa(o, "Applications");
 }
 
 /**
@@ -60,7 +56,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum BytesMeasure {
@@ -68,7 +63,6 @@ export enum BytesMeasure {
 }
 
 export interface Configuration {
-  __type?: "Configuration";
   /**
    * <p>The content of the configuration or the configuration data.</p>
    */
@@ -91,11 +85,9 @@ export namespace Configuration {
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
 
 export interface ConfigurationProfile {
-  __type?: "ConfigurationProfile";
   /**
    * <p>The application ID.</p>
    */
@@ -138,11 +130,9 @@ export namespace ConfigurationProfile {
     ...obj,
     ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ConfigurationProfile => __isa(o, "ConfigurationProfile");
 }
 
 export interface ConfigurationProfiles {
-  __type?: "ConfigurationProfiles";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
@@ -159,14 +149,12 @@ export namespace ConfigurationProfiles {
   export const filterSensitiveLog = (obj: ConfigurationProfiles): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationProfiles => __isa(o, "ConfigurationProfiles");
 }
 
 /**
  * <p>A summary of a configuration profile.</p>
  */
 export interface ConfigurationProfileSummary {
-  __type?: "ConfigurationProfileSummary";
   /**
    * <p>The application ID.</p>
    */
@@ -197,7 +185,6 @@ export namespace ConfigurationProfileSummary {
   export const filterSensitiveLog = (obj: ConfigurationProfileSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationProfileSummary => __isa(o, "ConfigurationProfileSummary");
 }
 
 /**
@@ -214,11 +201,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
-  __type?: "CreateApplicationRequest";
   /**
    * <p>A name for the application.</p>
    */
@@ -241,11 +226,9 @@ export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateConfigurationProfileRequest {
-  __type?: "CreateConfigurationProfileRequest";
   /**
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *          LocationUri.</p>
@@ -296,11 +279,9 @@ export namespace CreateConfigurationProfileRequest {
     ...obj,
     ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateConfigurationProfileRequest => __isa(o, "CreateConfigurationProfileRequest");
 }
 
 export interface CreateDeploymentStrategyRequest {
-  __type?: "CreateDeploymentStrategyRequest";
   /**
    * <p>The percentage of targets to receive a deployed configuration during each
    *          interval.</p>
@@ -379,11 +360,9 @@ export namespace CreateDeploymentStrategyRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentStrategyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentStrategyRequest => __isa(o, "CreateDeploymentStrategyRequest");
 }
 
 export interface CreateEnvironmentRequest {
-  __type?: "CreateEnvironmentRequest";
   /**
    * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig
    *          resources. Each tag consists of a key and an optional value, both of which you
@@ -416,11 +395,9 @@ export namespace CreateEnvironmentRequest {
   export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEnvironmentRequest => __isa(o, "CreateEnvironmentRequest");
 }
 
 export interface CreateHostedConfigurationVersionRequest {
-  __type?: "CreateHostedConfigurationVersionRequest";
   /**
    * <p>An optional locking token used to prevent race conditions from overwriting configuration
    *          updates when creating a new version. To ensure your data is not overwritten when creating
@@ -461,12 +438,9 @@ export namespace CreateHostedConfigurationVersionRequest {
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateHostedConfigurationVersionRequest =>
-    __isa(o, "CreateHostedConfigurationVersionRequest");
 }
 
 export interface DeleteApplicationRequest {
-  __type?: "DeleteApplicationRequest";
   /**
    * <p>The ID of the application to delete.</p>
    */
@@ -477,11 +451,9 @@ export namespace DeleteApplicationRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationRequest => __isa(o, "DeleteApplicationRequest");
 }
 
 export interface DeleteConfigurationProfileRequest {
-  __type?: "DeleteConfigurationProfileRequest";
   /**
    * <p>The application ID that includes the configuration profile you want to delete.</p>
    */
@@ -497,11 +469,9 @@ export namespace DeleteConfigurationProfileRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationProfileRequest => __isa(o, "DeleteConfigurationProfileRequest");
 }
 
 export interface DeleteDeploymentStrategyRequest {
-  __type?: "DeleteDeploymentStrategyRequest";
   /**
    * <p>The ID of the deployment strategy you want to delete.</p>
    */
@@ -512,11 +482,9 @@ export namespace DeleteDeploymentStrategyRequest {
   export const filterSensitiveLog = (obj: DeleteDeploymentStrategyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentStrategyRequest => __isa(o, "DeleteDeploymentStrategyRequest");
 }
 
 export interface DeleteEnvironmentRequest {
-  __type?: "DeleteEnvironmentRequest";
   /**
    * <p>The ID of the environment you want to delete.</p>
    */
@@ -532,11 +500,9 @@ export namespace DeleteEnvironmentRequest {
   export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentRequest => __isa(o, "DeleteEnvironmentRequest");
 }
 
 export interface DeleteHostedConfigurationVersionRequest {
-  __type?: "DeleteHostedConfigurationVersionRequest";
   /**
    * <p>The application ID.</p>
    */
@@ -557,12 +523,9 @@ export namespace DeleteHostedConfigurationVersionRequest {
   export const filterSensitiveLog = (obj: DeleteHostedConfigurationVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHostedConfigurationVersionRequest =>
-    __isa(o, "DeleteHostedConfigurationVersionRequest");
 }
 
 export interface Deployment {
-  __type?: "Deployment";
   /**
    * <p>The ID of the deployment strategy that was deployed.</p>
    */
@@ -661,14 +624,12 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 /**
  * <p>An object that describes a deployment event.</p>
  */
 export interface DeploymentEvent {
-  __type?: "DeploymentEvent";
   /**
    * <p>The date and time the event occurred.</p>
    */
@@ -700,7 +661,6 @@ export namespace DeploymentEvent {
   export const filterSensitiveLog = (obj: DeploymentEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentEvent => __isa(o, "DeploymentEvent");
 }
 
 export enum DeploymentEventType {
@@ -713,7 +673,6 @@ export enum DeploymentEventType {
 }
 
 export interface Deployments {
-  __type?: "Deployments";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
@@ -730,7 +689,6 @@ export namespace Deployments {
   export const filterSensitiveLog = (obj: Deployments): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
 }
 
 export enum DeploymentState {
@@ -743,7 +701,6 @@ export enum DeploymentState {
 }
 
 export interface DeploymentStrategies {
-  __type?: "DeploymentStrategies";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
@@ -760,11 +717,9 @@ export namespace DeploymentStrategies {
   export const filterSensitiveLog = (obj: DeploymentStrategies): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentStrategies => __isa(o, "DeploymentStrategies");
 }
 
 export interface DeploymentStrategy {
-  __type?: "DeploymentStrategy";
   /**
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
@@ -812,14 +767,12 @@ export namespace DeploymentStrategy {
   export const filterSensitiveLog = (obj: DeploymentStrategy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentStrategy => __isa(o, "DeploymentStrategy");
 }
 
 /**
  * <p>Information about the deployment.</p>
  */
 export interface DeploymentSummary {
-  __type?: "DeploymentSummary";
   /**
    * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
    *          complete and no longer eligible for automatic roll back.</p>
@@ -882,11 +835,9 @@ export namespace DeploymentSummary {
   export const filterSensitiveLog = (obj: DeploymentSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentSummary => __isa(o, "DeploymentSummary");
 }
 
 export interface Environment {
-  __type?: "Environment";
   /**
    * <p>The name of the environment.</p>
    */
@@ -925,11 +876,9 @@ export namespace Environment {
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
 
 export interface Environments {
-  __type?: "Environments";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -946,7 +895,6 @@ export namespace Environments {
   export const filterSensitiveLog = (obj: Environments): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Environments => __isa(o, "Environments");
 }
 
 export enum EnvironmentState {
@@ -957,7 +905,6 @@ export enum EnvironmentState {
 }
 
 export interface GetApplicationRequest {
-  __type?: "GetApplicationRequest";
   /**
    * <p>The ID of the application you want to get.</p>
    */
@@ -968,11 +915,9 @@ export namespace GetApplicationRequest {
   export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationRequest => __isa(o, "GetApplicationRequest");
 }
 
 export interface GetConfigurationProfileRequest {
-  __type?: "GetConfigurationProfileRequest";
   /**
    * <p>The ID of the configuration profile you want to get.</p>
    */
@@ -989,11 +934,9 @@ export namespace GetConfigurationProfileRequest {
   export const filterSensitiveLog = (obj: GetConfigurationProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationProfileRequest => __isa(o, "GetConfigurationProfileRequest");
 }
 
 export interface GetConfigurationRequest {
-  __type?: "GetConfigurationRequest";
   /**
    * <p>The environment to get. Specify either the environment name or the environment
    *          ID.</p>
@@ -1043,11 +986,9 @@ export namespace GetConfigurationRequest {
   export const filterSensitiveLog = (obj: GetConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationRequest => __isa(o, "GetConfigurationRequest");
 }
 
 export interface GetDeploymentRequest {
-  __type?: "GetDeploymentRequest";
   /**
    * <p>The ID of the environment that includes the deployment you want to get. </p>
    */
@@ -1068,11 +1009,9 @@ export namespace GetDeploymentRequest {
   export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentRequest => __isa(o, "GetDeploymentRequest");
 }
 
 export interface GetDeploymentStrategyRequest {
-  __type?: "GetDeploymentStrategyRequest";
   /**
    * <p>The ID of the deployment strategy to get.</p>
    */
@@ -1083,11 +1022,9 @@ export namespace GetDeploymentStrategyRequest {
   export const filterSensitiveLog = (obj: GetDeploymentStrategyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentStrategyRequest => __isa(o, "GetDeploymentStrategyRequest");
 }
 
 export interface GetEnvironmentRequest {
-  __type?: "GetEnvironmentRequest";
   /**
    * <p>The ID of the environment you wnat to get.</p>
    */
@@ -1103,11 +1040,9 @@ export namespace GetEnvironmentRequest {
   export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEnvironmentRequest => __isa(o, "GetEnvironmentRequest");
 }
 
 export interface GetHostedConfigurationVersionRequest {
-  __type?: "GetHostedConfigurationVersionRequest";
   /**
    * <p>The configuration profile ID.</p>
    */
@@ -1128,8 +1063,6 @@ export namespace GetHostedConfigurationVersionRequest {
   export const filterSensitiveLog = (obj: GetHostedConfigurationVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedConfigurationVersionRequest =>
-    __isa(o, "GetHostedConfigurationVersionRequest");
 }
 
 export enum GrowthType {
@@ -1138,7 +1071,6 @@ export enum GrowthType {
 }
 
 export interface HostedConfigurationVersion {
-  __type?: "HostedConfigurationVersion";
   /**
    * <p>A standard MIME type describing the format of the configuration content. For more
    *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
@@ -1176,11 +1108,9 @@ export namespace HostedConfigurationVersion {
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HostedConfigurationVersion => __isa(o, "HostedConfigurationVersion");
 }
 
 export interface HostedConfigurationVersions {
-  __type?: "HostedConfigurationVersions";
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
@@ -1197,14 +1127,12 @@ export namespace HostedConfigurationVersions {
   export const filterSensitiveLog = (obj: HostedConfigurationVersions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedConfigurationVersions => __isa(o, "HostedConfigurationVersions");
 }
 
 /**
  * <p>Information about the configuration.</p>
  */
 export interface HostedConfigurationVersionSummary {
-  __type?: "HostedConfigurationVersionSummary";
   /**
    * <p>A description of the configuration.</p>
    */
@@ -1236,7 +1164,6 @@ export namespace HostedConfigurationVersionSummary {
   export const filterSensitiveLog = (obj: HostedConfigurationVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedConfigurationVersionSummary => __isa(o, "HostedConfigurationVersionSummary");
 }
 
 /**
@@ -1252,11 +1179,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListApplicationsRequest {
-  __type?: "ListApplicationsRequest";
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
@@ -1273,11 +1198,9 @@ export namespace ListApplicationsRequest {
   export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListConfigurationProfilesRequest {
-  __type?: "ListConfigurationProfilesRequest";
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
@@ -1299,11 +1222,9 @@ export namespace ListConfigurationProfilesRequest {
   export const filterSensitiveLog = (obj: ListConfigurationProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationProfilesRequest => __isa(o, "ListConfigurationProfilesRequest");
 }
 
 export interface ListDeploymentsRequest {
-  __type?: "ListDeploymentsRequest";
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
@@ -1330,11 +1251,9 @@ export namespace ListDeploymentsRequest {
   export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentsRequest => __isa(o, "ListDeploymentsRequest");
 }
 
 export interface ListDeploymentStrategiesRequest {
-  __type?: "ListDeploymentStrategiesRequest";
   /**
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
@@ -1351,11 +1270,9 @@ export namespace ListDeploymentStrategiesRequest {
   export const filterSensitiveLog = (obj: ListDeploymentStrategiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentStrategiesRequest => __isa(o, "ListDeploymentStrategiesRequest");
 }
 
 export interface ListEnvironmentsRequest {
-  __type?: "ListEnvironmentsRequest";
   /**
    * <p>The application ID.</p>
    */
@@ -1377,11 +1294,9 @@ export namespace ListEnvironmentsRequest {
   export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEnvironmentsRequest => __isa(o, "ListEnvironmentsRequest");
 }
 
 export interface ListHostedConfigurationVersionsRequest {
-  __type?: "ListHostedConfigurationVersionsRequest";
   /**
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
@@ -1408,12 +1323,9 @@ export namespace ListHostedConfigurationVersionsRequest {
   export const filterSensitiveLog = (obj: ListHostedConfigurationVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedConfigurationVersionsRequest =>
-    __isa(o, "ListHostedConfigurationVersionsRequest");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The resource ARN.</p>
    */
@@ -1424,14 +1336,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
  */
 export interface Monitor {
-  __type?: "Monitor";
   /**
    * <p>ARN of the Amazon CloudWatch alarm.</p>
    */
@@ -1447,7 +1357,6 @@ export namespace Monitor {
   export const filterSensitiveLog = (obj: Monitor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Monitor => __isa(o, "Monitor");
 }
 
 /**
@@ -1466,7 +1375,6 @@ export namespace PayloadTooLargeException {
   export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PayloadTooLargeException => __isa(o, "PayloadTooLargeException");
 }
 
 export enum ReplicateTo {
@@ -1488,11 +1396,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface ResourceTags {
-  __type?: "ResourceTags";
   /**
    * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your
    *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
@@ -1505,7 +1411,6 @@ export namespace ResourceTags {
   export const filterSensitiveLog = (obj: ResourceTags): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
 }
 
 /**
@@ -1522,11 +1427,9 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface StartDeploymentRequest {
-  __type?: "StartDeploymentRequest";
   /**
    * <p>The application ID.</p>
    */
@@ -1569,11 +1472,9 @@ export namespace StartDeploymentRequest {
   export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeploymentRequest => __isa(o, "StartDeploymentRequest");
 }
 
 export interface StopDeploymentRequest {
-  __type?: "StopDeploymentRequest";
   /**
    * <p>The environment ID.</p>
    */
@@ -1594,11 +1495,9 @@ export namespace StopDeploymentRequest {
   export const filterSensitiveLog = (obj: StopDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDeploymentRequest => __isa(o, "StopDeploymentRequest");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The ARN of the resource for which to retrieve tags.</p>
    */
@@ -1616,7 +1515,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export enum TriggeredBy {
@@ -1627,7 +1525,6 @@ export enum TriggeredBy {
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys to delete.</p>
    */
@@ -1643,11 +1540,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateApplicationRequest {
-  __type?: "UpdateApplicationRequest";
   /**
    * <p>A description of the application.</p>
    */
@@ -1668,11 +1563,9 @@ export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateConfigurationProfileRequest {
-  __type?: "UpdateConfigurationProfileRequest";
   /**
    * <p>The name of the configuration profile.</p>
    */
@@ -1710,11 +1603,9 @@ export namespace UpdateConfigurationProfileRequest {
     ...obj,
     ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is UpdateConfigurationProfileRequest => __isa(o, "UpdateConfigurationProfileRequest");
 }
 
 export interface UpdateDeploymentStrategyRequest {
-  __type?: "UpdateDeploymentStrategyRequest";
   /**
    * <p>A description of the deployment strategy.</p>
    */
@@ -1780,11 +1671,9 @@ export namespace UpdateDeploymentStrategyRequest {
   export const filterSensitiveLog = (obj: UpdateDeploymentStrategyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentStrategyRequest => __isa(o, "UpdateDeploymentStrategyRequest");
 }
 
 export interface UpdateEnvironmentRequest {
-  __type?: "UpdateEnvironmentRequest";
   /**
    * <p>A description of the environment.</p>
    */
@@ -1815,11 +1704,9 @@ export namespace UpdateEnvironmentRequest {
   export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnvironmentRequest => __isa(o, "UpdateEnvironmentRequest");
 }
 
 export interface ValidateConfigurationRequest {
-  __type?: "ValidateConfigurationRequest";
   /**
    * <p>The application ID.</p>
    */
@@ -1840,7 +1727,6 @@ export namespace ValidateConfigurationRequest {
   export const filterSensitiveLog = (obj: ValidateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateConfigurationRequest => __isa(o, "ValidateConfigurationRequest");
 }
 
 /**
@@ -1851,7 +1737,6 @@ export namespace ValidateConfigurationRequest {
  *          valid.</p>
  */
 export interface Validator {
-  __type?: "Validator";
   /**
    * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda
    *          function.</p>
@@ -1871,7 +1756,6 @@ export namespace Validator {
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Validator => __isa(o, "Validator");
 }
 
 export enum ValidatorType {

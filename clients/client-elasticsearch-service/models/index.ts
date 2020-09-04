@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Container for the parameters to the <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface AcceptInboundCrossClusterSearchConnectionRequest {
-  __type?: "AcceptInboundCrossClusterSearchConnectionRequest";
   /**
    * <p>The id of the inbound connection that you want to accept.</p>
    */
@@ -16,15 +15,12 @@ export namespace AcceptInboundCrossClusterSearchConnectionRequest {
   export const filterSensitiveLog = (obj: AcceptInboundCrossClusterSearchConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptInboundCrossClusterSearchConnectionRequest =>
-    __isa(o, "AcceptInboundCrossClusterSearchConnectionRequest");
 }
 
 /**
  * <p>The result of a <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation. Contains details of accepted inbound connection.</p>
  */
 export interface AcceptInboundCrossClusterSearchConnectionResponse {
-  __type?: "AcceptInboundCrossClusterSearchConnectionResponse";
   /**
    * <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of accepted inbound connection. </p>
    */
@@ -35,8 +31,6 @@ export namespace AcceptInboundCrossClusterSearchConnectionResponse {
   export const filterSensitiveLog = (obj: AcceptInboundCrossClusterSearchConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptInboundCrossClusterSearchConnectionResponse =>
-    __isa(o, "AcceptInboundCrossClusterSearchConnectionResponse");
 }
 
 /**
@@ -55,14 +49,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
 export interface AccessPoliciesStatus {
-  __type?: "AccessPoliciesStatus";
   /**
    * <p>The status of the access policy for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
@@ -79,7 +71,6 @@ export namespace AccessPoliciesStatus {
   export const filterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPoliciesStatus => __isa(o, "AccessPoliciesStatus");
 }
 
 /**
@@ -92,7 +83,6 @@ export namespace AccessPoliciesStatus {
  *     </p>
  */
 export interface AdditionalLimit {
-  __type?: "AdditionalLimit";
   /**
    * <p>
    *       Name of Additional Limit is specific to a given InstanceType and for each of it's
@@ -139,14 +129,12 @@ export namespace AdditionalLimit {
   export const filterSensitiveLog = (obj: AdditionalLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdditionalLimit => __isa(o, "AdditionalLimit");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
  */
 export interface AddTagsRequest {
-  __type?: "AddTagsRequest";
   /**
    * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
    */
@@ -162,7 +150,6 @@ export namespace AddTagsRequest {
   export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsRequest => __isa(o, "AddTagsRequest");
 }
 
 /**
@@ -175,7 +162,6 @@ export namespace AddTagsRequest {
  *        <p>For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options">Configuring Advanced Options</a>.</p>
  */
 export interface AdvancedOptionsStatus {
-  __type?: "AdvancedOptionsStatus";
   /**
    * <p> Specifies the status of <code>OptionStatus</code> for advanced options for the specified Elasticsearch domain.</p>
    */
@@ -191,14 +177,12 @@ export namespace AdvancedOptionsStatus {
   export const filterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdvancedOptionsStatus => __isa(o, "AdvancedOptionsStatus");
 }
 
 /**
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled.</p>
  */
 export interface AdvancedSecurityOptions {
-  __type?: "AdvancedSecurityOptions";
   /**
    * <p>True if advanced security is enabled.</p>
    */
@@ -214,14 +198,12 @@ export namespace AdvancedSecurityOptions {
   export const filterSensitiveLog = (obj: AdvancedSecurityOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdvancedSecurityOptions => __isa(o, "AdvancedSecurityOptions");
 }
 
 /**
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled, master username and password (if internal database is enabled), and master user ARN (if IAM is enabled).</p>
  */
 export interface AdvancedSecurityOptionsInput {
-  __type?: "AdvancedSecurityOptionsInput";
   /**
    * <p>Credentials for the master user: username and password, ARN, or both.</p>
    */
@@ -243,14 +225,12 @@ export namespace AdvancedSecurityOptionsInput {
     ...obj,
     ...(obj.MasterUserOptions && { MasterUserOptions: MasterUserOptions.filterSensitiveLog(obj.MasterUserOptions) }),
   });
-  export const isa = (o: any): o is AdvancedSecurityOptionsInput => __isa(o, "AdvancedSecurityOptionsInput");
 }
 
 /**
  * <p> Specifies the status of advanced security options for the specified Elasticsearch domain.</p>
  */
 export interface AdvancedSecurityOptionsStatus {
-  __type?: "AdvancedSecurityOptionsStatus";
   /**
    * <p> Status of the advanced security options for the specified Elasticsearch domain.</p>
    */
@@ -266,7 +246,6 @@ export namespace AdvancedSecurityOptionsStatus {
   export const filterSensitiveLog = (obj: AdvancedSecurityOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdvancedSecurityOptionsStatus => __isa(o, "AdvancedSecurityOptionsStatus");
 }
 
 /**
@@ -279,7 +258,6 @@ export namespace AdvancedSecurityOptionsStatus {
  *     </p>
  */
 export interface AssociatePackageRequest {
-  __type?: "AssociatePackageRequest";
   /**
    * <p>Name of the domain that you want to associate the package with.</p>
    */
@@ -295,7 +273,6 @@ export namespace AssociatePackageRequest {
   export const filterSensitiveLog = (obj: AssociatePackageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatePackageRequest => __isa(o, "AssociatePackageRequest");
 }
 
 /**
@@ -308,7 +285,6 @@ export namespace AssociatePackageRequest {
  *     </p>
  */
 export interface AssociatePackageResponse {
-  __type?: "AssociatePackageResponse";
   /**
    * <p><code>DomainPackageDetails</code></p>
    */
@@ -319,7 +295,6 @@ export namespace AssociatePackageResponse {
   export const filterSensitiveLog = (obj: AssociatePackageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatePackageResponse => __isa(o, "AssociatePackageResponse");
 }
 
 /**
@@ -338,14 +313,12 @@ export namespace BaseException {
   export const filterSensitiveLog = (obj: BaseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BaseException => __isa(o, "BaseException");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateRequest {
-  __type?: "CancelElasticsearchServiceSoftwareUpdateRequest";
   /**
    * <p>The name of the domain that you want to stop the latest service software update on.</p>
    */
@@ -356,15 +329,12 @@ export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
   export const filterSensitiveLog = (obj: CancelElasticsearchServiceSoftwareUpdateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelElasticsearchServiceSoftwareUpdateRequest =>
-    __isa(o, "CancelElasticsearchServiceSoftwareUpdateRequest");
 }
 
 /**
  * <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateResponse {
-  __type?: "CancelElasticsearchServiceSoftwareUpdateResponse";
   /**
    * <p>The current status of the Elasticsearch service software update.</p>
    */
@@ -375,15 +345,12 @@ export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
   export const filterSensitiveLog = (obj: CancelElasticsearchServiceSoftwareUpdateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelElasticsearchServiceSoftwareUpdateResponse =>
-    __isa(o, "CancelElasticsearchServiceSoftwareUpdateResponse");
 }
 
 /**
  * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
  */
 export interface CognitoOptions {
-  __type?: "CognitoOptions";
   /**
    * <p>Specifies the Cognito identity pool ID for Kibana authentication.</p>
    */
@@ -409,14 +376,12 @@ export namespace CognitoOptions {
   export const filterSensitiveLog = (obj: CognitoOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoOptions => __isa(o, "CognitoOptions");
 }
 
 /**
  * <p>Status of the Cognito options for the specified Elasticsearch domain.</p>
  */
 export interface CognitoOptionsStatus {
-  __type?: "CognitoOptionsStatus";
   /**
    * <p>Specifies the Cognito options for the specified Elasticsearch domain.</p>
    */
@@ -432,7 +397,6 @@ export namespace CognitoOptionsStatus {
   export const filterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoOptionsStatus => __isa(o, "CognitoOptionsStatus");
 }
 
 /**
@@ -449,7 +413,6 @@ export namespace CognitoOptionsStatus {
  *     </p>
  */
 export interface CompatibleVersionsMap {
-  __type?: "CompatibleVersionsMap";
   /**
    * <p>List of supported elastic search versions.
    *     </p>
@@ -466,7 +429,6 @@ export namespace CompatibleVersionsMap {
   export const filterSensitiveLog = (obj: CompatibleVersionsMap): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompatibleVersionsMap => __isa(o, "CompatibleVersionsMap");
 }
 
 /**
@@ -485,11 +447,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateElasticsearchDomainRequest {
-  __type?: "CreateElasticsearchDomainRequest";
   /**
    * <p> IAM access policy as a JSON-formatted string.</p>
    */
@@ -570,14 +530,12 @@ export namespace CreateElasticsearchDomainRequest {
       AdvancedSecurityOptions: AdvancedSecurityOptionsInput.filterSensitiveLog(obj.AdvancedSecurityOptions),
     }),
   });
-  export const isa = (o: any): o is CreateElasticsearchDomainRequest => __isa(o, "CreateElasticsearchDomainRequest");
 }
 
 /**
  * <p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>
  */
 export interface CreateElasticsearchDomainResponse {
-  __type?: "CreateElasticsearchDomainResponse";
   /**
    * <p>The status of the newly created Elasticsearch domain. </p>
    */
@@ -588,14 +546,12 @@ export namespace CreateElasticsearchDomainResponse {
   export const filterSensitiveLog = (obj: CreateElasticsearchDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateElasticsearchDomainResponse => __isa(o, "CreateElasticsearchDomainResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>CreateOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface CreateOutboundCrossClusterSearchConnectionRequest {
-  __type?: "CreateOutboundCrossClusterSearchConnectionRequest";
   /**
    * <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
    */
@@ -616,15 +572,12 @@ export namespace CreateOutboundCrossClusterSearchConnectionRequest {
   export const filterSensitiveLog = (obj: CreateOutboundCrossClusterSearchConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOutboundCrossClusterSearchConnectionRequest =>
-    __isa(o, "CreateOutboundCrossClusterSearchConnectionRequest");
 }
 
 /**
  * <p>The result of a <code><a>CreateOutboundCrossClusterSearchConnection</a></code> request. Contains the details of the newly created cross-cluster search connection.</p>
  */
 export interface CreateOutboundCrossClusterSearchConnectionResponse {
-  __type?: "CreateOutboundCrossClusterSearchConnectionResponse";
   /**
    * <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
    */
@@ -655,8 +608,6 @@ export namespace CreateOutboundCrossClusterSearchConnectionResponse {
   export const filterSensitiveLog = (obj: CreateOutboundCrossClusterSearchConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOutboundCrossClusterSearchConnectionResponse =>
-    __isa(o, "CreateOutboundCrossClusterSearchConnectionResponse");
 }
 
 /**
@@ -669,7 +620,6 @@ export namespace CreateOutboundCrossClusterSearchConnectionResponse {
  *     </p>
  */
 export interface CreatePackageRequest {
-  __type?: "CreatePackageRequest";
   /**
    * <p>The customer S3 location <code>PackageSource</code> for importing the package.</p>
    */
@@ -695,7 +645,6 @@ export namespace CreatePackageRequest {
   export const filterSensitiveLog = (obj: CreatePackageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePackageRequest => __isa(o, "CreatePackageRequest");
 }
 
 /**
@@ -708,7 +657,6 @@ export namespace CreatePackageRequest {
  *     </p>
  */
 export interface CreatePackageResponse {
-  __type?: "CreatePackageResponse";
   /**
    * <p>Information about the package <code>PackageDetails</code>.</p>
    */
@@ -719,14 +667,12 @@ export namespace CreatePackageResponse {
   export const filterSensitiveLog = (obj: CreatePackageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePackageResponse => __isa(o, "CreatePackageResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>
  */
 export interface DeleteElasticsearchDomainRequest {
-  __type?: "DeleteElasticsearchDomainRequest";
   /**
    * <p>The name of the Elasticsearch domain that you want to permanently delete.</p>
    */
@@ -737,14 +683,12 @@ export namespace DeleteElasticsearchDomainRequest {
   export const filterSensitiveLog = (obj: DeleteElasticsearchDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteElasticsearchDomainRequest => __isa(o, "DeleteElasticsearchDomainRequest");
 }
 
 /**
  * <p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>
  */
 export interface DeleteElasticsearchDomainResponse {
-  __type?: "DeleteElasticsearchDomainResponse";
   /**
    * <p>The status of the Elasticsearch domain being deleted.</p>
    */
@@ -755,14 +699,12 @@ export namespace DeleteElasticsearchDomainResponse {
   export const filterSensitiveLog = (obj: DeleteElasticsearchDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteElasticsearchDomainResponse => __isa(o, "DeleteElasticsearchDomainResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface DeleteInboundCrossClusterSearchConnectionRequest {
-  __type?: "DeleteInboundCrossClusterSearchConnectionRequest";
   /**
    * <p>The id of the inbound connection that you want to permanently delete.</p>
    */
@@ -773,15 +715,12 @@ export namespace DeleteInboundCrossClusterSearchConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteInboundCrossClusterSearchConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInboundCrossClusterSearchConnectionRequest =>
-    __isa(o, "DeleteInboundCrossClusterSearchConnectionRequest");
 }
 
 /**
  * <p>The result of a <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted inbound connection.</p>
  */
 export interface DeleteInboundCrossClusterSearchConnectionResponse {
-  __type?: "DeleteInboundCrossClusterSearchConnectionResponse";
   /**
    * <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of deleted inbound connection. </p>
    */
@@ -792,15 +731,12 @@ export namespace DeleteInboundCrossClusterSearchConnectionResponse {
   export const filterSensitiveLog = (obj: DeleteInboundCrossClusterSearchConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInboundCrossClusterSearchConnectionResponse =>
-    __isa(o, "DeleteInboundCrossClusterSearchConnectionResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface DeleteOutboundCrossClusterSearchConnectionRequest {
-  __type?: "DeleteOutboundCrossClusterSearchConnectionRequest";
   /**
    * <p>The id of the outbound connection that you want to permanently delete.</p>
    */
@@ -811,15 +747,12 @@ export namespace DeleteOutboundCrossClusterSearchConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteOutboundCrossClusterSearchConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOutboundCrossClusterSearchConnectionRequest =>
-    __isa(o, "DeleteOutboundCrossClusterSearchConnectionRequest");
 }
 
 /**
  * <p>The result of a <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted outbound connection.</p>
  */
 export interface DeleteOutboundCrossClusterSearchConnectionResponse {
-  __type?: "DeleteOutboundCrossClusterSearchConnectionResponse";
   /**
    * <p>Specifies the <code><a>OutboundCrossClusterSearchConnection</a></code> of deleted outbound connection. </p>
    */
@@ -830,8 +763,6 @@ export namespace DeleteOutboundCrossClusterSearchConnectionResponse {
   export const filterSensitiveLog = (obj: DeleteOutboundCrossClusterSearchConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOutboundCrossClusterSearchConnectionResponse =>
-    __isa(o, "DeleteOutboundCrossClusterSearchConnectionResponse");
 }
 
 /**
@@ -844,7 +775,6 @@ export namespace DeleteOutboundCrossClusterSearchConnectionResponse {
  *     </p>
  */
 export interface DeletePackageRequest {
-  __type?: "DeletePackageRequest";
   /**
    * <p>Internal ID of the package that you want to delete. Use <code>DescribePackages</code> to find this value.</p>
    */
@@ -855,7 +785,6 @@ export namespace DeletePackageRequest {
   export const filterSensitiveLog = (obj: DeletePackageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackageRequest => __isa(o, "DeletePackageRequest");
 }
 
 /**
@@ -868,7 +797,6 @@ export namespace DeletePackageRequest {
  *     </p>
  */
 export interface DeletePackageResponse {
-  __type?: "DeletePackageResponse";
   /**
    * <p><code>PackageDetails</code></p>
    */
@@ -879,7 +807,6 @@ export namespace DeletePackageResponse {
   export const filterSensitiveLog = (obj: DeletePackageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackageResponse => __isa(o, "DeletePackageResponse");
 }
 
 export type DeploymentStatus = "COMPLETED" | "ELIGIBLE" | "IN_PROGRESS" | "NOT_ELIGIBLE" | "PENDING_UPDATE";
@@ -888,7 +815,6 @@ export type DeploymentStatus = "COMPLETED" | "ELIGIBLE" | "IN_PROGRESS" | "NOT_E
  * <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
  */
 export interface DescribeElasticsearchDomainConfigRequest {
-  __type?: "DescribeElasticsearchDomainConfigRequest";
   /**
    * <p>The Elasticsearch domain that you want to get information about.</p>
    */
@@ -899,15 +825,12 @@ export namespace DescribeElasticsearchDomainConfigRequest {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchDomainConfigRequest =>
-    __isa(o, "DescribeElasticsearchDomainConfigRequest");
 }
 
 /**
  * <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
  */
 export interface DescribeElasticsearchDomainConfigResponse {
-  __type?: "DescribeElasticsearchDomainConfigResponse";
   /**
    * <p>The configuration information of the domain requested in the <code>DescribeElasticsearchDomainConfig</code> request.</p>
    */
@@ -918,15 +841,12 @@ export namespace DescribeElasticsearchDomainConfigResponse {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchDomainConfigResponse =>
-    __isa(o, "DescribeElasticsearchDomainConfigResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
 export interface DescribeElasticsearchDomainRequest {
-  __type?: "DescribeElasticsearchDomainRequest";
   /**
    * <p>The name of the Elasticsearch domain for which you want information.</p>
    */
@@ -937,15 +857,12 @@ export namespace DescribeElasticsearchDomainRequest {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchDomainRequest =>
-    __isa(o, "DescribeElasticsearchDomainRequest");
 }
 
 /**
  * <p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>
  */
 export interface DescribeElasticsearchDomainResponse {
-  __type?: "DescribeElasticsearchDomainResponse";
   /**
    * <p>The current status of the Elasticsearch domain.</p>
    */
@@ -956,15 +873,12 @@ export namespace DescribeElasticsearchDomainResponse {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchDomainResponse =>
-    __isa(o, "DescribeElasticsearchDomainResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>
  */
 export interface DescribeElasticsearchDomainsRequest {
-  __type?: "DescribeElasticsearchDomainsRequest";
   /**
    * <p>The Elasticsearch domains for which you want information.</p>
    */
@@ -975,15 +889,12 @@ export namespace DescribeElasticsearchDomainsRequest {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchDomainsRequest =>
-    __isa(o, "DescribeElasticsearchDomainsRequest");
 }
 
 /**
  * <p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>
  */
 export interface DescribeElasticsearchDomainsResponse {
-  __type?: "DescribeElasticsearchDomainsResponse";
   /**
    * <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
    */
@@ -994,8 +905,6 @@ export namespace DescribeElasticsearchDomainsResponse {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchDomainsResponse =>
-    __isa(o, "DescribeElasticsearchDomainsResponse");
 }
 
 /**
@@ -1008,7 +917,6 @@ export namespace DescribeElasticsearchDomainsResponse {
  *     </p>
  */
 export interface DescribeElasticsearchInstanceTypeLimitsRequest {
-  __type?: "DescribeElasticsearchInstanceTypeLimitsRequest";
   /**
    * <p>
    *       The instance type for an Elasticsearch cluster for which Elasticsearch
@@ -1049,8 +957,6 @@ export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
   export const filterSensitiveLog = (obj: DescribeElasticsearchInstanceTypeLimitsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchInstanceTypeLimitsRequest =>
-    __isa(o, "DescribeElasticsearchInstanceTypeLimitsRequest");
 }
 
 /**
@@ -1063,7 +969,6 @@ export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
  *     </p>
  */
 export interface DescribeElasticsearchInstanceTypeLimitsResponse {
-  __type?: "DescribeElasticsearchInstanceTypeLimitsResponse";
   /**
    * <p>
    *       Map of Role of the Instance and Limits that are applicable.
@@ -1083,15 +988,12 @@ export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
   export const filterSensitiveLog = (obj: DescribeElasticsearchInstanceTypeLimitsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticsearchInstanceTypeLimitsResponse =>
-    __isa(o, "DescribeElasticsearchInstanceTypeLimitsResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DescribeInboundCrossClusterSearchConnections</a></code> operation.</p>
  */
 export interface DescribeInboundCrossClusterSearchConnectionsRequest {
-  __type?: "DescribeInboundCrossClusterSearchConnectionsRequest";
   /**
    * <p> NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
    */
@@ -1122,15 +1024,12 @@ export namespace DescribeInboundCrossClusterSearchConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeInboundCrossClusterSearchConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInboundCrossClusterSearchConnectionsRequest =>
-    __isa(o, "DescribeInboundCrossClusterSearchConnectionsRequest");
 }
 
 /**
  * <p>The result of a <code><a>DescribeInboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
  */
 export interface DescribeInboundCrossClusterSearchConnectionsResponse {
-  __type?: "DescribeInboundCrossClusterSearchConnectionsResponse";
   /**
    * <p>If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
    *     </p>
@@ -1147,15 +1046,12 @@ export namespace DescribeInboundCrossClusterSearchConnectionsResponse {
   export const filterSensitiveLog = (obj: DescribeInboundCrossClusterSearchConnectionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInboundCrossClusterSearchConnectionsResponse =>
-    __isa(o, "DescribeInboundCrossClusterSearchConnectionsResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> operation.</p>
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
-  __type?: "DescribeOutboundCrossClusterSearchConnectionsRequest";
   /**
    * <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
    */
@@ -1186,15 +1082,12 @@ export namespace DescribeOutboundCrossClusterSearchConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeOutboundCrossClusterSearchConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOutboundCrossClusterSearchConnectionsRequest =>
-    __isa(o, "DescribeOutboundCrossClusterSearchConnectionsRequest");
 }
 
 /**
  * <p>The result of a <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
-  __type?: "DescribeOutboundCrossClusterSearchConnectionsResponse";
   /**
    * <p>If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
    *     </p>
@@ -1211,15 +1104,12 @@ export namespace DescribeOutboundCrossClusterSearchConnectionsResponse {
   export const filterSensitiveLog = (obj: DescribeOutboundCrossClusterSearchConnectionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOutboundCrossClusterSearchConnectionsResponse =>
-    __isa(o, "DescribeOutboundCrossClusterSearchConnectionsResponse");
 }
 
 /**
  * <p>Filter to apply in <code>DescribePackage</code> response.</p>
  */
 export interface DescribePackagesFilter {
-  __type?: "DescribePackagesFilter";
   /**
    * <p>A list of values for the specified field.</p>
    */
@@ -1235,7 +1125,6 @@ export namespace DescribePackagesFilter {
   export const filterSensitiveLog = (obj: DescribePackagesFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagesFilter => __isa(o, "DescribePackagesFilter");
 }
 
 export enum DescribePackagesFilterName {
@@ -1254,7 +1143,6 @@ export enum DescribePackagesFilterName {
  *     </p>
  */
 export interface DescribePackagesRequest {
-  __type?: "DescribePackagesRequest";
   /**
    * <p>Limits results to a maximum number of packages.</p>
    */
@@ -1275,7 +1163,6 @@ export namespace DescribePackagesRequest {
   export const filterSensitiveLog = (obj: DescribePackagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagesRequest => __isa(o, "DescribePackagesRequest");
 }
 
 /**
@@ -1288,7 +1175,6 @@ export namespace DescribePackagesRequest {
  *     </p>
  */
 export interface DescribePackagesResponse {
-  __type?: "DescribePackagesResponse";
   /**
    * <p>List of <code>PackageDetails</code> objects.</p>
    */
@@ -1301,14 +1187,12 @@ export namespace DescribePackagesResponse {
   export const filterSensitiveLog = (obj: DescribePackagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagesResponse => __isa(o, "DescribePackagesResponse");
 }
 
 /**
  * <p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
-  __type?: "DescribeReservedElasticsearchInstanceOfferingsRequest";
   /**
    * <p>NextToken should be sent in case if earlier API call produced result
    * 		containing NextToken. It is used for pagination.</p>
@@ -1330,15 +1214,12 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
   export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstanceOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedElasticsearchInstanceOfferingsRequest =>
-    __isa(o, "DescribeReservedElasticsearchInstanceOfferingsRequest");
 }
 
 /**
  * <p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
-  __type?: "DescribeReservedElasticsearchInstanceOfferingsResponse";
   /**
    * <p>List of reserved Elasticsearch instance offerings</p>
    */
@@ -1354,15 +1235,12 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
   export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstanceOfferingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedElasticsearchInstanceOfferingsResponse =>
-    __isa(o, "DescribeReservedElasticsearchInstanceOfferingsResponse");
 }
 
 /**
  * <p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>
  */
 export interface DescribeReservedElasticsearchInstancesRequest {
-  __type?: "DescribeReservedElasticsearchInstancesRequest";
   /**
    * <p>NextToken should be sent in case if earlier API call produced result
    * 		containing NextToken. It is used for pagination.</p>
@@ -1384,15 +1262,12 @@ export namespace DescribeReservedElasticsearchInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedElasticsearchInstancesRequest =>
-    __isa(o, "DescribeReservedElasticsearchInstancesRequest");
 }
 
 /**
  * <p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
  */
 export interface DescribeReservedElasticsearchInstancesResponse {
-  __type?: "DescribeReservedElasticsearchInstancesResponse";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
@@ -1408,8 +1283,6 @@ export namespace DescribeReservedElasticsearchInstancesResponse {
   export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedElasticsearchInstancesResponse =>
-    __isa(o, "DescribeReservedElasticsearchInstancesResponse");
 }
 
 /**
@@ -1428,7 +1301,6 @@ export namespace DisabledOperationException {
   export const filterSensitiveLog = (obj: DisabledOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisabledOperationException => __isa(o, "DisabledOperationException");
 }
 
 /**
@@ -1441,7 +1313,6 @@ export namespace DisabledOperationException {
  *     </p>
  */
 export interface DissociatePackageRequest {
-  __type?: "DissociatePackageRequest";
   /**
    * <p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>
    */
@@ -1457,7 +1328,6 @@ export namespace DissociatePackageRequest {
   export const filterSensitiveLog = (obj: DissociatePackageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DissociatePackageRequest => __isa(o, "DissociatePackageRequest");
 }
 
 /**
@@ -1470,7 +1340,6 @@ export namespace DissociatePackageRequest {
  *     </p>
  */
 export interface DissociatePackageResponse {
-  __type?: "DissociatePackageResponse";
   /**
    * <p><code>DomainPackageDetails</code></p>
    */
@@ -1481,14 +1350,12 @@ export namespace DissociatePackageResponse {
   export const filterSensitiveLog = (obj: DissociatePackageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DissociatePackageResponse => __isa(o, "DissociatePackageResponse");
 }
 
 /**
  * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  */
 export interface DomainEndpointOptions {
-  __type?: "DomainEndpointOptions";
   /**
    * <p>Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
    *         <br></br> It can be one of the following values:
@@ -1510,14 +1377,12 @@ export namespace DomainEndpointOptions {
   export const filterSensitiveLog = (obj: DomainEndpointOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainEndpointOptions => __isa(o, "DomainEndpointOptions");
 }
 
 /**
  * <p>The configured endpoint options for the domain and their current status.</p>
  */
 export interface DomainEndpointOptionsStatus {
-  __type?: "DomainEndpointOptionsStatus";
   /**
    * <p>Options to configure endpoint for the Elasticsearch domain.</p>
    */
@@ -1533,11 +1398,9 @@ export namespace DomainEndpointOptionsStatus {
   export const filterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainEndpointOptionsStatus => __isa(o, "DomainEndpointOptionsStatus");
 }
 
 export interface DomainInfo {
-  __type?: "DomainInfo";
   /**
    * <p> Specifies the <code>DomainName</code>.</p>
    */
@@ -1548,11 +1411,9 @@ export namespace DomainInfo {
   export const filterSensitiveLog = (obj: DomainInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainInfo => __isa(o, "DomainInfo");
 }
 
 export interface DomainInformation {
-  __type?: "DomainInformation";
   /**
    * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
@@ -1566,14 +1427,12 @@ export namespace DomainInformation {
   export const filterSensitiveLog = (obj: DomainInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainInformation => __isa(o, "DomainInformation");
 }
 
 /**
  * <p>Information on a package that is associated with a domain.</p>
  */
 export interface DomainPackageDetails {
-  __type?: "DomainPackageDetails";
   /**
    * <p>User specified name of the package.</p>
    */
@@ -1619,7 +1478,6 @@ export namespace DomainPackageDetails {
   export const filterSensitiveLog = (obj: DomainPackageDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainPackageDetails => __isa(o, "DomainPackageDetails");
 }
 
 export type DomainPackageStatus =
@@ -1633,7 +1491,6 @@ export type DomainPackageStatus =
  * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
  */
 export interface EBSOptions {
-  __type?: "EBSOptions";
   /**
    * <p>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</p>
    */
@@ -1659,14 +1516,12 @@ export namespace EBSOptions {
   export const filterSensitiveLog = (obj: EBSOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EBSOptions => __isa(o, "EBSOptions");
 }
 
 /**
  * <p> Status of the EBS options for the specified Elasticsearch domain.</p>
  */
 export interface EBSOptionsStatus {
-  __type?: "EBSOptionsStatus";
   /**
    * <p> Specifies the EBS options for the specified Elasticsearch domain.</p>
    */
@@ -1682,14 +1537,12 @@ export namespace EBSOptionsStatus {
   export const filterSensitiveLog = (obj: EBSOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EBSOptionsStatus => __isa(o, "EBSOptionsStatus");
 }
 
 /**
  * <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
  */
 export interface ElasticsearchClusterConfig {
-  __type?: "ElasticsearchClusterConfig";
   /**
    * <p>A boolean value to indicate whether zone awareness is enabled.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness" target="_blank">About Zone Awareness</a> for more information.</p>
    */
@@ -1745,14 +1598,12 @@ export namespace ElasticsearchClusterConfig {
   export const filterSensitiveLog = (obj: ElasticsearchClusterConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchClusterConfig => __isa(o, "ElasticsearchClusterConfig");
 }
 
 /**
  * <p> Specifies the configuration status for the specified Elasticsearch domain.</p>
  */
 export interface ElasticsearchClusterConfigStatus {
-  __type?: "ElasticsearchClusterConfigStatus";
   /**
    * <p> Specifies the cluster configuration for the specified Elasticsearch domain.</p>
    */
@@ -1768,14 +1619,12 @@ export namespace ElasticsearchClusterConfigStatus {
   export const filterSensitiveLog = (obj: ElasticsearchClusterConfigStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchClusterConfigStatus => __isa(o, "ElasticsearchClusterConfigStatus");
 }
 
 /**
  * <p>The configuration of an Elasticsearch domain.</p>
  */
 export interface ElasticsearchDomainConfig {
-  __type?: "ElasticsearchDomainConfig";
   /**
    * <p>Specifies the <code>ElasticsearchClusterConfig</code> for the Elasticsearch domain.</p>
    */
@@ -1846,14 +1695,12 @@ export namespace ElasticsearchDomainConfig {
   export const filterSensitiveLog = (obj: ElasticsearchDomainConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDomainConfig => __isa(o, "ElasticsearchDomainConfig");
 }
 
 /**
  * <p>The current status of an Elasticsearch domain.</p>
  */
 export interface ElasticsearchDomainStatus {
-  __type?: "ElasticsearchDomainStatus";
   /**
    * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
    */
@@ -1970,14 +1817,12 @@ export namespace ElasticsearchDomainStatus {
   export const filterSensitiveLog = (obj: ElasticsearchDomainStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchDomainStatus => __isa(o, "ElasticsearchDomainStatus");
 }
 
 /**
  * <p> Status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
  */
 export interface ElasticsearchVersionStatus {
-  __type?: "ElasticsearchVersionStatus";
   /**
    * <p> Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
    */
@@ -1993,14 +1838,12 @@ export namespace ElasticsearchVersionStatus {
   export const filterSensitiveLog = (obj: ElasticsearchVersionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticsearchVersionStatus => __isa(o, "ElasticsearchVersionStatus");
 }
 
 /**
  * <p>Specifies the Encryption At Rest Options.</p>
  */
 export interface EncryptionAtRestOptions {
-  __type?: "EncryptionAtRestOptions";
   /**
    * <p>Specifies the option to enable Encryption At Rest.</p>
    */
@@ -2016,14 +1859,12 @@ export namespace EncryptionAtRestOptions {
   export const filterSensitiveLog = (obj: EncryptionAtRestOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionAtRestOptions => __isa(o, "EncryptionAtRestOptions");
 }
 
 /**
  * <p> Status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
  */
 export interface EncryptionAtRestOptionsStatus {
-  __type?: "EncryptionAtRestOptionsStatus";
   /**
    * <p> Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
    */
@@ -2039,11 +1880,9 @@ export namespace EncryptionAtRestOptionsStatus {
   export const filterSensitiveLog = (obj: EncryptionAtRestOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionAtRestOptionsStatus => __isa(o, "EncryptionAtRestOptionsStatus");
 }
 
 export interface ErrorDetails {
-  __type?: "ErrorDetails";
   ErrorType?: string;
   ErrorMessage?: string;
 }
@@ -2052,7 +1891,6 @@ export namespace ErrorDetails {
   export const filterSensitiveLog = (obj: ErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetails => __isa(o, "ErrorDetails");
 }
 
 export type ESPartitionInstanceType =
@@ -2126,7 +1964,6 @@ export type ESWarmPartitionInstanceType = "ultrawarm1.large.elasticsearch" | "ul
  *     </p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>
    *       Specifies the name of the filter.
@@ -2146,7 +1983,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -2159,7 +1995,6 @@ export namespace Filter {
  *     </p>
  */
 export interface GetCompatibleElasticsearchVersionsRequest {
-  __type?: "GetCompatibleElasticsearchVersionsRequest";
   /**
    * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
@@ -2170,8 +2005,6 @@ export namespace GetCompatibleElasticsearchVersionsRequest {
   export const filterSensitiveLog = (obj: GetCompatibleElasticsearchVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCompatibleElasticsearchVersionsRequest =>
-    __isa(o, "GetCompatibleElasticsearchVersionsRequest");
 }
 
 /**
@@ -2184,7 +2017,6 @@ export namespace GetCompatibleElasticsearchVersionsRequest {
  *     </p>
  */
 export interface GetCompatibleElasticsearchVersionsResponse {
-  __type?: "GetCompatibleElasticsearchVersionsResponse";
   /**
    * <p>
    *       A map of compatible Elasticsearch versions returned as part of the
@@ -2201,8 +2033,6 @@ export namespace GetCompatibleElasticsearchVersionsResponse {
   export const filterSensitiveLog = (obj: GetCompatibleElasticsearchVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCompatibleElasticsearchVersionsResponse =>
-    __isa(o, "GetCompatibleElasticsearchVersionsResponse");
 }
 
 /**
@@ -2215,7 +2045,6 @@ export namespace GetCompatibleElasticsearchVersionsResponse {
  *     </p>
  */
 export interface GetUpgradeHistoryRequest {
-  __type?: "GetUpgradeHistoryRequest";
   /**
    * <p>
    *       Set this value to limit the number of results returned.
@@ -2241,7 +2070,6 @@ export namespace GetUpgradeHistoryRequest {
   export const filterSensitiveLog = (obj: GetUpgradeHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeHistoryRequest => __isa(o, "GetUpgradeHistoryRequest");
 }
 
 /**
@@ -2254,7 +2082,6 @@ export namespace GetUpgradeHistoryRequest {
  *     </p>
  */
 export interface GetUpgradeHistoryResponse {
-  __type?: "GetUpgradeHistoryResponse";
   /**
    * <p>Pagination token that needs to be supplied to the next call to get the next page of results</p>
    */
@@ -2280,7 +2107,6 @@ export namespace GetUpgradeHistoryResponse {
   export const filterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeHistoryResponse => __isa(o, "GetUpgradeHistoryResponse");
 }
 
 /**
@@ -2293,7 +2119,6 @@ export namespace GetUpgradeHistoryResponse {
  *     </p>
  */
 export interface GetUpgradeStatusRequest {
-  __type?: "GetUpgradeStatusRequest";
   /**
    * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
@@ -2304,7 +2129,6 @@ export namespace GetUpgradeStatusRequest {
   export const filterSensitiveLog = (obj: GetUpgradeStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeStatusRequest => __isa(o, "GetUpgradeStatusRequest");
 }
 
 /**
@@ -2317,7 +2141,6 @@ export namespace GetUpgradeStatusRequest {
  *     </p>
  */
 export interface GetUpgradeStatusResponse {
-  __type?: "GetUpgradeStatusResponse";
   /**
    * <p>A string that describes the update briefly</p>
    */
@@ -2357,14 +2180,12 @@ export namespace GetUpgradeStatusResponse {
   export const filterSensitiveLog = (obj: GetUpgradeStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUpgradeStatusResponse => __isa(o, "GetUpgradeStatusResponse");
 }
 
 /**
  * <p>Specifies details of an inbound connection.</p>
  */
 export interface InboundCrossClusterSearchConnection {
-  __type?: "InboundCrossClusterSearchConnection";
   /**
    * <p>Specifies the <code><a>InboundCrossClusterSearchConnectionStatus</a></code> for the outbound connection.</p>
    */
@@ -2390,15 +2211,12 @@ export namespace InboundCrossClusterSearchConnection {
   export const filterSensitiveLog = (obj: InboundCrossClusterSearchConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InboundCrossClusterSearchConnection =>
-    __isa(o, "InboundCrossClusterSearchConnection");
 }
 
 /**
  * <p>Specifies the coonection status of an inbound cross-cluster search connection.</p>
  */
 export interface InboundCrossClusterSearchConnectionStatus {
-  __type?: "InboundCrossClusterSearchConnectionStatus";
   /**
    * <p>The state code for inbound connection. This can be one of the following:</p>
    *     <ul>
@@ -2422,8 +2240,6 @@ export namespace InboundCrossClusterSearchConnectionStatus {
   export const filterSensitiveLog = (obj: InboundCrossClusterSearchConnectionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InboundCrossClusterSearchConnectionStatus =>
-    __isa(o, "InboundCrossClusterSearchConnectionStatus");
 }
 
 export enum InboundCrossClusterSearchConnectionStatusCode {
@@ -2442,7 +2258,6 @@ export enum InboundCrossClusterSearchConnectionStatusCode {
  *     </p>
  */
 export interface InstanceCountLimits {
-  __type?: "InstanceCountLimits";
   /**
    * <p>
    *       Minimum number of Instances that can be instantiated for given InstanceType.
@@ -2462,7 +2277,6 @@ export namespace InstanceCountLimits {
   export const filterSensitiveLog = (obj: InstanceCountLimits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceCountLimits => __isa(o, "InstanceCountLimits");
 }
 
 /**
@@ -2470,7 +2284,6 @@ export namespace InstanceCountLimits {
  *     </p>
  */
 export interface InstanceLimits {
-  __type?: "InstanceLimits";
   /**
    * <p>
    *       InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for
@@ -2484,7 +2297,6 @@ export namespace InstanceLimits {
   export const filterSensitiveLog = (obj: InstanceLimits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceLimits => __isa(o, "InstanceLimits");
 }
 
 /**
@@ -2503,7 +2315,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
@@ -2522,7 +2333,6 @@ export namespace InvalidPaginationTokenException {
   export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationTokenException => __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
@@ -2541,7 +2351,6 @@ export namespace InvalidTypeException {
   export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTypeException => __isa(o, "InvalidTypeException");
 }
 
 /**
@@ -2560,7 +2369,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2581,7 +2389,6 @@ export namespace LimitExceededException {
  *     </p>
  */
 export interface Limits {
-  __type?: "Limits";
   /**
    * <p>StorageType represents the list of storage related types and attributes
    *       that are available for given InstanceType.
@@ -2611,14 +2418,12 @@ export namespace Limits {
   export const filterSensitiveLog = (obj: Limits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Limits => __isa(o, "Limits");
 }
 
 /**
  * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all Elasticsearch domains owned by this account.</p>
  */
 export interface ListDomainNamesResponse {
-  __type?: "ListDomainNamesResponse";
   /**
    * <p>List of Elasticsearch domain names.</p>
    */
@@ -2629,7 +2434,6 @@ export namespace ListDomainNamesResponse {
   export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainNamesResponse => __isa(o, "ListDomainNamesResponse");
 }
 
 /**
@@ -2642,7 +2446,6 @@ export namespace ListDomainNamesResponse {
  *     </p>
  */
 export interface ListDomainsForPackageRequest {
-  __type?: "ListDomainsForPackageRequest";
   /**
    * <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
    */
@@ -2663,7 +2466,6 @@ export namespace ListDomainsForPackageRequest {
   export const filterSensitiveLog = (obj: ListDomainsForPackageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsForPackageRequest => __isa(o, "ListDomainsForPackageRequest");
 }
 
 /**
@@ -2676,7 +2478,6 @@ export namespace ListDomainsForPackageRequest {
  *     </p>
  */
 export interface ListDomainsForPackageResponse {
-  __type?: "ListDomainsForPackageResponse";
   NextToken?: string;
   /**
    * <p>List of <code>DomainPackageDetails</code> objects.</p>
@@ -2688,7 +2489,6 @@ export namespace ListDomainsForPackageResponse {
   export const filterSensitiveLog = (obj: ListDomainsForPackageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsForPackageResponse => __isa(o, "ListDomainsForPackageResponse");
 }
 
 /**
@@ -2701,7 +2501,6 @@ export namespace ListDomainsForPackageResponse {
  *     </p>
  */
 export interface ListElasticsearchInstanceTypesRequest {
-  __type?: "ListElasticsearchInstanceTypesRequest";
   /**
    * <p>NextToken should be sent in case if earlier API call produced result
    *       containing NextToken. It is used for pagination.
@@ -2736,8 +2535,6 @@ export namespace ListElasticsearchInstanceTypesRequest {
   export const filterSensitiveLog = (obj: ListElasticsearchInstanceTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListElasticsearchInstanceTypesRequest =>
-    __isa(o, "ListElasticsearchInstanceTypesRequest");
 }
 
 /**
@@ -2750,7 +2547,6 @@ export namespace ListElasticsearchInstanceTypesRequest {
  *     </p>
  */
 export interface ListElasticsearchInstanceTypesResponse {
-  __type?: "ListElasticsearchInstanceTypesResponse";
   /**
    * <p>
    *       List of instance types supported by Amazon Elasticsearch service for
@@ -2775,8 +2571,6 @@ export namespace ListElasticsearchInstanceTypesResponse {
   export const filterSensitiveLog = (obj: ListElasticsearchInstanceTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListElasticsearchInstanceTypesResponse =>
-    __isa(o, "ListElasticsearchInstanceTypesResponse");
 }
 
 /**
@@ -2805,7 +2599,6 @@ export namespace ListElasticsearchInstanceTypesResponse {
  *     </p>
  */
 export interface ListElasticsearchVersionsRequest {
-  __type?: "ListElasticsearchVersionsRequest";
   /**
    * <p>
    *       Set this value to limit the number of results returned.
@@ -2827,7 +2620,6 @@ export namespace ListElasticsearchVersionsRequest {
   export const filterSensitiveLog = (obj: ListElasticsearchVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListElasticsearchVersionsRequest => __isa(o, "ListElasticsearchVersionsRequest");
 }
 
 /**
@@ -2840,7 +2632,6 @@ export namespace ListElasticsearchVersionsRequest {
  *     </p>
  */
 export interface ListElasticsearchVersionsResponse {
-  __type?: "ListElasticsearchVersionsResponse";
   /**
    * <p>
    *       Paginated APIs accepts NextToken input to returns next page results and provides
@@ -2860,7 +2651,6 @@ export namespace ListElasticsearchVersionsResponse {
   export const filterSensitiveLog = (obj: ListElasticsearchVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListElasticsearchVersionsResponse => __isa(o, "ListElasticsearchVersionsResponse");
 }
 
 /**
@@ -2873,7 +2663,6 @@ export namespace ListElasticsearchVersionsResponse {
  *     </p>
  */
 export interface ListPackagesForDomainRequest {
-  __type?: "ListPackagesForDomainRequest";
   /**
    * <p>The name of the domain for which you want to list associated packages.</p>
    */
@@ -2894,7 +2683,6 @@ export namespace ListPackagesForDomainRequest {
   export const filterSensitiveLog = (obj: ListPackagesForDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagesForDomainRequest => __isa(o, "ListPackagesForDomainRequest");
 }
 
 /**
@@ -2907,7 +2695,6 @@ export namespace ListPackagesForDomainRequest {
  *     </p>
  */
 export interface ListPackagesForDomainResponse {
-  __type?: "ListPackagesForDomainResponse";
   /**
    * <p>Pagination token that needs to be supplied to the next call to get the next page of results.</p>
    */
@@ -2923,14 +2710,12 @@ export namespace ListPackagesForDomainResponse {
   export const filterSensitiveLog = (obj: ListPackagesForDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagesForDomainResponse => __isa(o, "ListPackagesForDomainResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>
  */
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.</p>
    */
@@ -2941,14 +2726,12 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 /**
  * <p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>
  */
 export interface ListTagsResponse {
-  __type?: "ListTagsResponse";
   /**
    * <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
    */
@@ -2959,7 +2742,6 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 /**
@@ -2972,7 +2754,6 @@ export namespace ListTagsResponse {
  *    </p>
  */
 export interface LogPublishingOption {
-  __type?: "LogPublishingOption";
   /**
    * <p> Specifies whether given log publishing option is enabled or not.</p>
    */
@@ -2988,14 +2769,12 @@ export namespace LogPublishingOption {
   export const filterSensitiveLog = (obj: LogPublishingOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogPublishingOption => __isa(o, "LogPublishingOption");
 }
 
 /**
  * <p>The configured log publishing options for the domain and their current status.</p>
  */
 export interface LogPublishingOptionsStatus {
-  __type?: "LogPublishingOptionsStatus";
   /**
    * <p>The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
@@ -3011,7 +2790,6 @@ export namespace LogPublishingOptionsStatus {
   export const filterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogPublishingOptionsStatus => __isa(o, "LogPublishingOptionsStatus");
 }
 
 export type LogType = "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS";
@@ -3020,7 +2798,6 @@ export type LogType = "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_L
  * <p>Credentials for the master user: username and password, ARN, or both.</p>
  */
 export interface MasterUserOptions {
-  __type?: "MasterUserOptions";
   /**
    * <p>The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>
    */
@@ -3043,14 +2820,12 @@ export namespace MasterUserOptions {
     ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
     ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is MasterUserOptions => __isa(o, "MasterUserOptions");
 }
 
 /**
  * <p>Specifies the node-to-node encryption options.</p>
  */
 export interface NodeToNodeEncryptionOptions {
-  __type?: "NodeToNodeEncryptionOptions";
   /**
    * <p>Specify true to enable node-to-node encryption.</p>
    */
@@ -3061,14 +2836,12 @@ export namespace NodeToNodeEncryptionOptions {
   export const filterSensitiveLog = (obj: NodeToNodeEncryptionOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeToNodeEncryptionOptions => __isa(o, "NodeToNodeEncryptionOptions");
 }
 
 /**
  * <p>Status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
  */
 export interface NodeToNodeEncryptionOptionsStatus {
-  __type?: "NodeToNodeEncryptionOptionsStatus";
   /**
    * <p>Specifies the node-to-node encryption options for the specified Elasticsearch domain.</p>
    */
@@ -3084,7 +2857,6 @@ export namespace NodeToNodeEncryptionOptionsStatus {
   export const filterSensitiveLog = (obj: NodeToNodeEncryptionOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeToNodeEncryptionOptionsStatus => __isa(o, "NodeToNodeEncryptionOptionsStatus");
 }
 
 export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
@@ -3093,7 +2865,6 @@ export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
  * <p>Provides the current status of the entity.</p>
  */
 export interface OptionStatus {
-  __type?: "OptionStatus";
   /**
    * <p>Timestamp which tells the creation date for the entity.</p>
    */
@@ -3124,14 +2895,12 @@ export namespace OptionStatus {
   export const filterSensitiveLog = (obj: OptionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OptionStatus => __isa(o, "OptionStatus");
 }
 
 /**
  * <p>Specifies details of an outbound connection.</p>
  */
 export interface OutboundCrossClusterSearchConnection {
-  __type?: "OutboundCrossClusterSearchConnection";
   /**
    * <p>Specifies the connection id for the outbound cross-cluster search connection.</p>
    */
@@ -3162,15 +2931,12 @@ export namespace OutboundCrossClusterSearchConnection {
   export const filterSensitiveLog = (obj: OutboundCrossClusterSearchConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutboundCrossClusterSearchConnection =>
-    __isa(o, "OutboundCrossClusterSearchConnection");
 }
 
 /**
  * <p>Specifies the connection status of an outbound cross-cluster search connection.</p>
  */
 export interface OutboundCrossClusterSearchConnectionStatus {
-  __type?: "OutboundCrossClusterSearchConnectionStatus";
   /**
    * <p>Specifies verbose information for the outbound connection status.</p>
    */
@@ -3196,8 +2962,6 @@ export namespace OutboundCrossClusterSearchConnectionStatus {
   export const filterSensitiveLog = (obj: OutboundCrossClusterSearchConnectionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutboundCrossClusterSearchConnectionStatus =>
-    __isa(o, "OutboundCrossClusterSearchConnectionStatus");
 }
 
 export enum OutboundCrossClusterSearchConnectionStatusCode {
@@ -3215,7 +2979,6 @@ export enum OutboundCrossClusterSearchConnectionStatusCode {
  * <p>Basic information about a package.</p>
  */
 export interface PackageDetails {
-  __type?: "PackageDetails";
   /**
    * <p>Currently supports only TXT-DICTIONARY.</p>
    */
@@ -3256,14 +3019,12 @@ export namespace PackageDetails {
   export const filterSensitiveLog = (obj: PackageDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageDetails => __isa(o, "PackageDetails");
 }
 
 /**
  * <p>The S3 location for importing the package specified as <code>S3BucketName</code> and <code>S3Key</code></p>
  */
 export interface PackageSource {
-  __type?: "PackageSource";
   /**
    * <p>Name of the bucket containing the package.</p>
    */
@@ -3279,7 +3040,6 @@ export namespace PackageSource {
   export const filterSensitiveLog = (obj: PackageSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackageSource => __isa(o, "PackageSource");
 }
 
 export type PackageStatus =
@@ -3298,7 +3058,6 @@ export type PackageType = "TXT-DICTIONARY";
  * <p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
-  __type?: "PurchaseReservedElasticsearchInstanceOfferingRequest";
   /**
    * <p>The number of Elasticsearch instances to reserve.</p>
    */
@@ -3319,15 +3078,12 @@ export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
   export const filterSensitiveLog = (obj: PurchaseReservedElasticsearchInstanceOfferingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedElasticsearchInstanceOfferingRequest =>
-    __isa(o, "PurchaseReservedElasticsearchInstanceOfferingRequest");
 }
 
 /**
  * <p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
-  __type?: "PurchaseReservedElasticsearchInstanceOfferingResponse";
   /**
    * <p>Details of the reserved Elasticsearch instance which was purchased.</p>
    */
@@ -3343,15 +3099,12 @@ export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
   export const filterSensitiveLog = (obj: PurchaseReservedElasticsearchInstanceOfferingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedElasticsearchInstanceOfferingResponse =>
-    __isa(o, "PurchaseReservedElasticsearchInstanceOfferingResponse");
 }
 
 /**
  * <p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
  */
 export interface RecurringCharge {
-  __type?: "RecurringCharge";
   /**
    * <p>The frequency of the recurring charge.</p>
    */
@@ -3367,14 +3120,12 @@ export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface RejectInboundCrossClusterSearchConnectionRequest {
-  __type?: "RejectInboundCrossClusterSearchConnectionRequest";
   /**
    * <p>The id of the inbound connection that you want to reject.</p>
    */
@@ -3385,15 +3136,12 @@ export namespace RejectInboundCrossClusterSearchConnectionRequest {
   export const filterSensitiveLog = (obj: RejectInboundCrossClusterSearchConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectInboundCrossClusterSearchConnectionRequest =>
-    __isa(o, "RejectInboundCrossClusterSearchConnectionRequest");
 }
 
 /**
  * <p>The result of a <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation. Contains details of rejected inbound connection.</p>
  */
 export interface RejectInboundCrossClusterSearchConnectionResponse {
-  __type?: "RejectInboundCrossClusterSearchConnectionResponse";
   /**
    * <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of rejected inbound connection. </p>
    */
@@ -3404,15 +3152,12 @@ export namespace RejectInboundCrossClusterSearchConnectionResponse {
   export const filterSensitiveLog = (obj: RejectInboundCrossClusterSearchConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectInboundCrossClusterSearchConnectionResponse =>
-    __isa(o, "RejectInboundCrossClusterSearchConnectionResponse");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>
  */
 export interface RemoveTagsRequest {
-  __type?: "RemoveTagsRequest";
   /**
    * <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>
    */
@@ -3428,14 +3173,12 @@ export namespace RemoveTagsRequest {
   export const filterSensitiveLog = (obj: RemoveTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsRequest => __isa(o, "RemoveTagsRequest");
 }
 
 /**
  * <p>Details of a reserved Elasticsearch instance.</p>
  */
 export interface ReservedElasticsearchInstance {
-  __type?: "ReservedElasticsearchInstance";
   /**
    * <p>The state of the reserved Elasticsearch instance.</p>
    */
@@ -3506,14 +3249,12 @@ export namespace ReservedElasticsearchInstance {
   export const filterSensitiveLog = (obj: ReservedElasticsearchInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedElasticsearchInstance => __isa(o, "ReservedElasticsearchInstance");
 }
 
 /**
  * <p>Details of a reserved Elasticsearch instance offering.</p>
  */
 export interface ReservedElasticsearchInstanceOffering {
-  __type?: "ReservedElasticsearchInstanceOffering";
   /**
    * <p>Payment option for the reserved Elasticsearch instance offering</p>
    */
@@ -3559,8 +3300,6 @@ export namespace ReservedElasticsearchInstanceOffering {
   export const filterSensitiveLog = (obj: ReservedElasticsearchInstanceOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedElasticsearchInstanceOffering =>
-    __isa(o, "ReservedElasticsearchInstanceOffering");
 }
 
 export type ReservedElasticsearchInstancePaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT";
@@ -3581,7 +3320,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -3600,14 +3338,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The current options of an Elasticsearch domain service software options.</p>
  */
 export interface ServiceSoftwareOptions {
-  __type?: "ServiceSoftwareOptions";
   /**
    * <p><code>True</code> if you are able to update you service software version. <code>False</code> if you are not able to update your service software version. </p>
    */
@@ -3653,14 +3389,12 @@ export namespace ServiceSoftwareOptions {
   export const filterSensitiveLog = (obj: ServiceSoftwareOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceSoftwareOptions => __isa(o, "ServiceSoftwareOptions");
 }
 
 /**
  * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
  */
 export interface SnapshotOptions {
-  __type?: "SnapshotOptions";
   /**
    * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
    */
@@ -3671,14 +3405,12 @@ export namespace SnapshotOptions {
   export const filterSensitiveLog = (obj: SnapshotOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotOptions => __isa(o, "SnapshotOptions");
 }
 
 /**
  * <p>Status of a daily automated snapshot.</p>
  */
 export interface SnapshotOptionsStatus {
-  __type?: "SnapshotOptionsStatus";
   /**
    * <p>Specifies the status of a daily automated snapshot.</p>
    */
@@ -3694,14 +3426,12 @@ export namespace SnapshotOptionsStatus {
   export const filterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotOptionsStatus => __isa(o, "SnapshotOptionsStatus");
 }
 
 /**
  * <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
  */
 export interface StartElasticsearchServiceSoftwareUpdateRequest {
-  __type?: "StartElasticsearchServiceSoftwareUpdateRequest";
   /**
    * <p>The name of the domain that you want to update to the latest service software.</p>
    */
@@ -3712,15 +3442,12 @@ export namespace StartElasticsearchServiceSoftwareUpdateRequest {
   export const filterSensitiveLog = (obj: StartElasticsearchServiceSoftwareUpdateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartElasticsearchServiceSoftwareUpdateRequest =>
-    __isa(o, "StartElasticsearchServiceSoftwareUpdateRequest");
 }
 
 /**
  * <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
 export interface StartElasticsearchServiceSoftwareUpdateResponse {
-  __type?: "StartElasticsearchServiceSoftwareUpdateResponse";
   /**
    * <p>The current status of the Elasticsearch service software update.</p>
    */
@@ -3731,8 +3458,6 @@ export namespace StartElasticsearchServiceSoftwareUpdateResponse {
   export const filterSensitiveLog = (obj: StartElasticsearchServiceSoftwareUpdateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartElasticsearchServiceSoftwareUpdateResponse =>
-    __isa(o, "StartElasticsearchServiceSoftwareUpdateResponse");
 }
 
 /**
@@ -3741,7 +3466,6 @@ export namespace StartElasticsearchServiceSoftwareUpdateResponse {
  *     </p>
  */
 export interface StorageType {
-  __type?: "StorageType";
   /**
    * <p>
    *       SubType of the given storage type.
@@ -3781,7 +3505,6 @@ export namespace StorageType {
   export const filterSensitiveLog = (obj: StorageType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageType => __isa(o, "StorageType");
 }
 
 /**
@@ -3789,7 +3512,6 @@ export namespace StorageType {
  *     </p>
  */
 export interface StorageTypeLimit {
-  __type?: "StorageTypeLimit";
   /**
    * <p>
    *       Values for the
@@ -3828,14 +3550,12 @@ export namespace StorageTypeLimit {
   export const filterSensitiveLog = (obj: StorageTypeLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageTypeLimit => __isa(o, "StorageTypeLimit");
 }
 
 /**
  * <p>Specifies a key value pair for a resource tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Specifies the <code>TagKey</code>, the name of the tag.  Tag keys must be unique for the Elasticsearch domain to which they are attached.</p>
    */
@@ -3852,7 +3572,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export enum TLSSecurityPolicy {
@@ -3864,7 +3583,6 @@ export enum TLSSecurityPolicy {
  * <p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>
  */
 export interface UpdateElasticsearchDomainConfigRequest {
-  __type?: "UpdateElasticsearchDomainConfigRequest";
   /**
    * <p>Specifies advanced security options.</p>
    */
@@ -3929,15 +3647,12 @@ export namespace UpdateElasticsearchDomainConfigRequest {
       AdvancedSecurityOptions: AdvancedSecurityOptionsInput.filterSensitiveLog(obj.AdvancedSecurityOptions),
     }),
   });
-  export const isa = (o: any): o is UpdateElasticsearchDomainConfigRequest =>
-    __isa(o, "UpdateElasticsearchDomainConfigRequest");
 }
 
 /**
  * <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  */
 export interface UpdateElasticsearchDomainConfigResponse {
-  __type?: "UpdateElasticsearchDomainConfigResponse";
   /**
    * <p>The status of the updated Elasticsearch domain. </p>
    */
@@ -3948,8 +3663,6 @@ export namespace UpdateElasticsearchDomainConfigResponse {
   export const filterSensitiveLog = (obj: UpdateElasticsearchDomainConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateElasticsearchDomainConfigResponse =>
-    __isa(o, "UpdateElasticsearchDomainConfigResponse");
 }
 
 /**
@@ -3962,7 +3675,6 @@ export namespace UpdateElasticsearchDomainConfigResponse {
  *     </p>
  */
 export interface UpgradeElasticsearchDomainRequest {
-  __type?: "UpgradeElasticsearchDomainRequest";
   /**
    * <p>
    *       This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
@@ -3986,7 +3698,6 @@ export namespace UpgradeElasticsearchDomainRequest {
   export const filterSensitiveLog = (obj: UpgradeElasticsearchDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpgradeElasticsearchDomainRequest => __isa(o, "UpgradeElasticsearchDomainRequest");
 }
 
 /**
@@ -3999,7 +3710,6 @@ export namespace UpgradeElasticsearchDomainRequest {
  *     </p>
  */
 export interface UpgradeElasticsearchDomainResponse {
-  __type?: "UpgradeElasticsearchDomainResponse";
   /**
    * <p>
    *       This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
@@ -4023,15 +3733,12 @@ export namespace UpgradeElasticsearchDomainResponse {
   export const filterSensitiveLog = (obj: UpgradeElasticsearchDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpgradeElasticsearchDomainResponse =>
-    __isa(o, "UpgradeElasticsearchDomainResponse");
 }
 
 /**
  * <p>History of the last 10 Upgrades and Upgrade Eligibility Checks.</p>
  */
 export interface UpgradeHistory {
-  __type?: "UpgradeHistory";
   /**
    * <p>
    *       A list of
@@ -4071,7 +3778,6 @@ export namespace UpgradeHistory {
   export const filterSensitiveLog = (obj: UpgradeHistory): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpgradeHistory => __isa(o, "UpgradeHistory");
 }
 
 export type UpgradeStatus = "FAILED" | "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES";
@@ -4082,7 +3788,6 @@ export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
  * <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
  */
 export interface UpgradeStepItem {
-  __type?: "UpgradeStepItem";
   /**
    * <p>
    *       The status of a particular step during an upgrade. The status can take one of the following values:
@@ -4123,7 +3828,6 @@ export namespace UpgradeStepItem {
   export const filterSensitiveLog = (obj: UpgradeStepItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpgradeStepItem => __isa(o, "UpgradeStepItem");
 }
 
 /**
@@ -4142,7 +3846,6 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 export type VolumeType = "gp2" | "io1" | "standard";
@@ -4151,7 +3854,6 @@ export type VolumeType = "gp2" | "io1" | "standard";
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCDerivedInfo {
-  __type?: "VPCDerivedInfo";
   /**
    * <p>The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
    */
@@ -4177,14 +3879,12 @@ export namespace VPCDerivedInfo {
   export const filterSensitiveLog = (obj: VPCDerivedInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPCDerivedInfo => __isa(o, "VPCDerivedInfo");
 }
 
 /**
  * <p> Status of the VPC options for the specified Elasticsearch domain.</p>
  */
 export interface VPCDerivedInfoStatus {
-  __type?: "VPCDerivedInfoStatus";
   /**
    * <p> Specifies the VPC options for the specified Elasticsearch domain.</p>
    */
@@ -4200,14 +3900,12 @@ export namespace VPCDerivedInfoStatus {
   export const filterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPCDerivedInfoStatus => __isa(o, "VPCDerivedInfoStatus");
 }
 
 /**
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCOptions {
-  __type?: "VPCOptions";
   /**
    * <p>Specifies the security groups for VPC endpoint.</p>
    */
@@ -4223,14 +3921,12 @@ export namespace VPCOptions {
   export const filterSensitiveLog = (obj: VPCOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPCOptions => __isa(o, "VPCOptions");
 }
 
 /**
  * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
  */
 export interface ZoneAwarenessConfig {
-  __type?: "ZoneAwarenessConfig";
   /**
    * <p>An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled</p>
    */
@@ -4241,5 +3937,4 @@ export namespace ZoneAwarenessConfig {
   export const filterSensitiveLog = (obj: ZoneAwarenessConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ZoneAwarenessConfig => __isa(o, "ZoneAwarenessConfig");
 }

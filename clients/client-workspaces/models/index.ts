@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum AccessPropertyValue {
@@ -27,7 +26,6 @@ export enum AccessPropertyValue {
  *          specified account. </p>
  */
 export interface AccountModification {
-  __type?: "AccountModification";
   /**
    * <p>The text of the error message that is returned if the configuration of BYOL cannot be
    *          modified.</p>
@@ -65,11 +63,9 @@ export namespace AccountModification {
   export const filterSensitiveLog = (obj: AccountModification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountModification => __isa(o, "AccountModification");
 }
 
 export interface AssociateIpGroupsRequest {
-  __type?: "AssociateIpGroupsRequest";
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
    */
@@ -85,22 +81,17 @@ export namespace AssociateIpGroupsRequest {
   export const filterSensitiveLog = (obj: AssociateIpGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateIpGroupsRequest => __isa(o, "AssociateIpGroupsRequest");
 }
 
-export interface AssociateIpGroupsResult {
-  __type?: "AssociateIpGroupsResult";
-}
+export interface AssociateIpGroupsResult {}
 
 export namespace AssociateIpGroupsResult {
   export const filterSensitiveLog = (obj: AssociateIpGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateIpGroupsResult => __isa(o, "AssociateIpGroupsResult");
 }
 
 export interface AuthorizeIpRulesRequest {
-  __type?: "AuthorizeIpRulesRequest";
   /**
    * <p>The rules to add to the group.</p>
    */
@@ -116,25 +107,20 @@ export namespace AuthorizeIpRulesRequest {
   export const filterSensitiveLog = (obj: AuthorizeIpRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeIpRulesRequest => __isa(o, "AuthorizeIpRulesRequest");
 }
 
-export interface AuthorizeIpRulesResult {
-  __type?: "AuthorizeIpRulesResult";
-}
+export interface AuthorizeIpRulesResult {}
 
 export namespace AuthorizeIpRulesResult {
   export const filterSensitiveLog = (obj: AuthorizeIpRulesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeIpRulesResult => __isa(o, "AuthorizeIpRulesResult");
 }
 
 /**
  * <p>Describes an Amazon WorkSpaces client.</p>
  */
 export interface ClientProperties {
-  __type?: "ClientProperties";
   /**
    * <p>Specifies whether users can cache their credentials on the Amazon WorkSpaces client.
    *          When enabled, users can choose to reconnect to their WorkSpaces without re-entering their
@@ -147,14 +133,12 @@ export namespace ClientProperties {
   export const filterSensitiveLog = (obj: ClientProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientProperties => __isa(o, "ClientProperties");
 }
 
 /**
  * <p>Information about the Amazon WorkSpaces client.</p>
  */
 export interface ClientPropertiesResult {
-  __type?: "ClientPropertiesResult";
   /**
    * <p>The resource identifier, in the form of a directory ID.</p>
    */
@@ -170,7 +154,6 @@ export namespace ClientPropertiesResult {
   export const filterSensitiveLog = (obj: ClientPropertiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientPropertiesResult => __isa(o, "ClientPropertiesResult");
 }
 
 export enum Compute {
@@ -187,7 +170,6 @@ export enum Compute {
  * <p>Describes the compute type.</p>
  */
 export interface ComputeType {
-  __type?: "ComputeType";
   /**
    * <p>The compute type.</p>
    */
@@ -198,7 +180,6 @@ export namespace ComputeType {
   export const filterSensitiveLog = (obj: ComputeType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeType => __isa(o, "ComputeType");
 }
 
 export enum ConnectionState {
@@ -208,7 +189,6 @@ export enum ConnectionState {
 }
 
 export interface CopyWorkspaceImageRequest {
-  __type?: "CopyWorkspaceImageRequest";
   /**
    * <p>The name of the image.</p>
    */
@@ -239,11 +219,9 @@ export namespace CopyWorkspaceImageRequest {
   export const filterSensitiveLog = (obj: CopyWorkspaceImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyWorkspaceImageRequest => __isa(o, "CopyWorkspaceImageRequest");
 }
 
 export interface CopyWorkspaceImageResult {
-  __type?: "CopyWorkspaceImageResult";
   /**
    * <p>The identifier of the image.</p>
    */
@@ -254,11 +232,9 @@ export namespace CopyWorkspaceImageResult {
   export const filterSensitiveLog = (obj: CopyWorkspaceImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyWorkspaceImageResult => __isa(o, "CopyWorkspaceImageResult");
 }
 
 export interface CreateIpGroupRequest {
-  __type?: "CreateIpGroupRequest";
   /**
    * <p>The rules to add to the group.</p>
    */
@@ -284,11 +260,9 @@ export namespace CreateIpGroupRequest {
   export const filterSensitiveLog = (obj: CreateIpGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIpGroupRequest => __isa(o, "CreateIpGroupRequest");
 }
 
 export interface CreateIpGroupResult {
-  __type?: "CreateIpGroupResult";
   /**
    * <p>The identifier of the group.</p>
    */
@@ -299,11 +273,9 @@ export namespace CreateIpGroupResult {
   export const filterSensitiveLog = (obj: CreateIpGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIpGroupResult => __isa(o, "CreateIpGroupResult");
 }
 
 export interface CreateTagsRequest {
-  __type?: "CreateTagsRequest";
   /**
    * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags. If you want to add new tags
    *          to a set of existing tags, you must submit all of the existing tags along with the new ones.</p>
@@ -321,22 +293,17 @@ export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
-export interface CreateTagsResult {
-  __type?: "CreateTagsResult";
-}
+export interface CreateTagsResult {}
 
 export namespace CreateTagsResult {
   export const filterSensitiveLog = (obj: CreateTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsResult => __isa(o, "CreateTagsResult");
 }
 
 export interface CreateWorkspacesRequest {
-  __type?: "CreateWorkspacesRequest";
   /**
    * <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
    */
@@ -347,11 +314,9 @@ export namespace CreateWorkspacesRequest {
   export const filterSensitiveLog = (obj: CreateWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkspacesRequest => __isa(o, "CreateWorkspacesRequest");
 }
 
 export interface CreateWorkspacesResult {
-  __type?: "CreateWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that were created.</p>
    *          <p>Because this operation is asynchronous, the identifier returned is not immediately
@@ -370,7 +335,6 @@ export namespace CreateWorkspacesResult {
   export const filterSensitiveLog = (obj: CreateWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkspacesResult => __isa(o, "CreateWorkspacesResult");
 }
 
 export enum DedicatedTenancyModificationStateEnum {
@@ -392,7 +356,6 @@ export enum DedicatedTenancySupportResultEnum {
  * <p>Describes the default values that are used to create WorkSpaces. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html">Update Directory Details for Your WorkSpaces</a>.</p>
  */
 export interface DefaultWorkspaceCreationProperties {
-  __type?: "DefaultWorkspaceCreationProperties";
   /**
    * <p>The identifier of the default security group to apply to WorkSpaces when they are created.
    *          For more information, see
@@ -440,12 +403,9 @@ export namespace DefaultWorkspaceCreationProperties {
   export const filterSensitiveLog = (obj: DefaultWorkspaceCreationProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultWorkspaceCreationProperties =>
-    __isa(o, "DefaultWorkspaceCreationProperties");
 }
 
 export interface DeleteIpGroupRequest {
-  __type?: "DeleteIpGroupRequest";
   /**
    * <p>The identifier of the IP access control group.</p>
    */
@@ -456,22 +416,17 @@ export namespace DeleteIpGroupRequest {
   export const filterSensitiveLog = (obj: DeleteIpGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIpGroupRequest => __isa(o, "DeleteIpGroupRequest");
 }
 
-export interface DeleteIpGroupResult {
-  __type?: "DeleteIpGroupResult";
-}
+export interface DeleteIpGroupResult {}
 
 export namespace DeleteIpGroupResult {
   export const filterSensitiveLog = (obj: DeleteIpGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIpGroupResult => __isa(o, "DeleteIpGroupResult");
 }
 
 export interface DeleteTagsRequest {
-  __type?: "DeleteTagsRequest";
   /**
    * <p>The tag keys.</p>
    */
@@ -488,22 +443,17 @@ export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
-export interface DeleteTagsResult {
-  __type?: "DeleteTagsResult";
-}
+export interface DeleteTagsResult {}
 
 export namespace DeleteTagsResult {
   export const filterSensitiveLog = (obj: DeleteTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsResult => __isa(o, "DeleteTagsResult");
 }
 
 export interface DeleteWorkspaceImageRequest {
-  __type?: "DeleteWorkspaceImageRequest";
   /**
    * <p>The identifier of the image.</p>
    */
@@ -514,22 +464,17 @@ export namespace DeleteWorkspaceImageRequest {
   export const filterSensitiveLog = (obj: DeleteWorkspaceImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkspaceImageRequest => __isa(o, "DeleteWorkspaceImageRequest");
 }
 
-export interface DeleteWorkspaceImageResult {
-  __type?: "DeleteWorkspaceImageResult";
-}
+export interface DeleteWorkspaceImageResult {}
 
 export namespace DeleteWorkspaceImageResult {
   export const filterSensitiveLog = (obj: DeleteWorkspaceImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkspaceImageResult => __isa(o, "DeleteWorkspaceImageResult");
 }
 
 export interface DeregisterWorkspaceDirectoryRequest {
-  __type?: "DeregisterWorkspaceDirectoryRequest";
   /**
    * <p>The identifier of the directory. If any WorkSpaces are registered to this directory, you must
    *          remove them before you deregister the directory, or you will receive an OperationNotSupportedException
@@ -542,24 +487,17 @@ export namespace DeregisterWorkspaceDirectoryRequest {
   export const filterSensitiveLog = (obj: DeregisterWorkspaceDirectoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterWorkspaceDirectoryRequest =>
-    __isa(o, "DeregisterWorkspaceDirectoryRequest");
 }
 
-export interface DeregisterWorkspaceDirectoryResult {
-  __type?: "DeregisterWorkspaceDirectoryResult";
-}
+export interface DeregisterWorkspaceDirectoryResult {}
 
 export namespace DeregisterWorkspaceDirectoryResult {
   export const filterSensitiveLog = (obj: DeregisterWorkspaceDirectoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterWorkspaceDirectoryResult =>
-    __isa(o, "DeregisterWorkspaceDirectoryResult");
 }
 
 export interface DescribeAccountModificationsRequest {
-  __type?: "DescribeAccountModificationsRequest";
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
@@ -571,12 +509,9 @@ export namespace DescribeAccountModificationsRequest {
   export const filterSensitiveLog = (obj: DescribeAccountModificationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountModificationsRequest =>
-    __isa(o, "DescribeAccountModificationsRequest");
 }
 
 export interface DescribeAccountModificationsResult {
-  __type?: "DescribeAccountModificationsResult";
   /**
    * <p>The list of modifications to the configuration of BYOL.</p>
    */
@@ -593,23 +528,17 @@ export namespace DescribeAccountModificationsResult {
   export const filterSensitiveLog = (obj: DescribeAccountModificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountModificationsResult =>
-    __isa(o, "DescribeAccountModificationsResult");
 }
 
-export interface DescribeAccountRequest {
-  __type?: "DescribeAccountRequest";
-}
+export interface DescribeAccountRequest {}
 
 export namespace DescribeAccountRequest {
   export const filterSensitiveLog = (obj: DescribeAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountRequest => __isa(o, "DescribeAccountRequest");
 }
 
 export interface DescribeAccountResult {
-  __type?: "DescribeAccountResult";
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, used for the management network
    *          interface.</p>
@@ -629,11 +558,9 @@ export namespace DescribeAccountResult {
   export const filterSensitiveLog = (obj: DescribeAccountResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountResult => __isa(o, "DescribeAccountResult");
 }
 
 export interface DescribeClientPropertiesRequest {
-  __type?: "DescribeClientPropertiesRequest";
   /**
    * <p>The resource identifier, in the form of directory IDs.</p>
    */
@@ -644,11 +571,9 @@ export namespace DescribeClientPropertiesRequest {
   export const filterSensitiveLog = (obj: DescribeClientPropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientPropertiesRequest => __isa(o, "DescribeClientPropertiesRequest");
 }
 
 export interface DescribeClientPropertiesResult {
-  __type?: "DescribeClientPropertiesResult";
   /**
    * <p>Information about the specified Amazon WorkSpaces clients.</p>
    */
@@ -659,11 +584,9 @@ export namespace DescribeClientPropertiesResult {
   export const filterSensitiveLog = (obj: DescribeClientPropertiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClientPropertiesResult => __isa(o, "DescribeClientPropertiesResult");
 }
 
 export interface DescribeIpGroupsRequest {
-  __type?: "DescribeIpGroupsRequest";
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
    */
@@ -685,11 +608,9 @@ export namespace DescribeIpGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeIpGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIpGroupsRequest => __isa(o, "DescribeIpGroupsRequest");
 }
 
 export interface DescribeIpGroupsResult {
-  __type?: "DescribeIpGroupsResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
    *          available.</p>
@@ -706,11 +627,9 @@ export namespace DescribeIpGroupsResult {
   export const filterSensitiveLog = (obj: DescribeIpGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIpGroupsResult => __isa(o, "DescribeIpGroupsResult");
 }
 
 export interface DescribeTagsRequest {
-  __type?: "DescribeTagsRequest";
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
    *          registered directories, images, custom bundles, and IP access control groups.</p>
@@ -722,11 +641,9 @@ export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResult {
-  __type?: "DescribeTagsResult";
   /**
    * <p>The tags.</p>
    */
@@ -737,11 +654,9 @@ export namespace DescribeTagsResult {
   export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResult => __isa(o, "DescribeTagsResult");
 }
 
 export interface DescribeWorkspaceBundlesRequest {
-  __type?: "DescribeWorkspaceBundlesRequest";
   /**
    * <p>The token for the next set of results. (You received this token from a previous call.)</p>
    */
@@ -764,11 +679,9 @@ export namespace DescribeWorkspaceBundlesRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspaceBundlesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceBundlesRequest => __isa(o, "DescribeWorkspaceBundlesRequest");
 }
 
 export interface DescribeWorkspaceBundlesResult {
-  __type?: "DescribeWorkspaceBundlesResult";
   /**
    * <p>Information about the bundles.</p>
    */
@@ -785,11 +698,9 @@ export namespace DescribeWorkspaceBundlesResult {
   export const filterSensitiveLog = (obj: DescribeWorkspaceBundlesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceBundlesResult => __isa(o, "DescribeWorkspaceBundlesResult");
 }
 
 export interface DescribeWorkspaceDirectoriesRequest {
-  __type?: "DescribeWorkspaceDirectoriesRequest";
   /**
    * <p>The maximum number of directories to return.</p>
    */
@@ -812,12 +723,9 @@ export namespace DescribeWorkspaceDirectoriesRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspaceDirectoriesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceDirectoriesRequest =>
-    __isa(o, "DescribeWorkspaceDirectoriesRequest");
 }
 
 export interface DescribeWorkspaceDirectoriesResult {
-  __type?: "DescribeWorkspaceDirectoriesResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
    *          available.</p>
@@ -834,12 +742,9 @@ export namespace DescribeWorkspaceDirectoriesResult {
   export const filterSensitiveLog = (obj: DescribeWorkspaceDirectoriesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceDirectoriesResult =>
-    __isa(o, "DescribeWorkspaceDirectoriesResult");
 }
 
 export interface DescribeWorkspaceImagePermissionsRequest {
-  __type?: "DescribeWorkspaceImagePermissionsRequest";
   /**
    * <p>The maximum number of items to return.</p>
    */
@@ -861,12 +766,9 @@ export namespace DescribeWorkspaceImagePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspaceImagePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceImagePermissionsRequest =>
-    __isa(o, "DescribeWorkspaceImagePermissionsRequest");
 }
 
 export interface DescribeWorkspaceImagePermissionsResult {
-  __type?: "DescribeWorkspaceImagePermissionsResult";
   /**
    * <p>The identifiers of the AWS accounts that the image has been shared with.</p>
    */
@@ -888,12 +790,9 @@ export namespace DescribeWorkspaceImagePermissionsResult {
   export const filterSensitiveLog = (obj: DescribeWorkspaceImagePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceImagePermissionsResult =>
-    __isa(o, "DescribeWorkspaceImagePermissionsResult");
 }
 
 export interface DescribeWorkspaceImagesRequest {
-  __type?: "DescribeWorkspaceImagesRequest";
   /**
    * <p>The identifier of the image.</p>
    */
@@ -920,11 +819,9 @@ export namespace DescribeWorkspaceImagesRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspaceImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceImagesRequest => __isa(o, "DescribeWorkspaceImagesRequest");
 }
 
 export interface DescribeWorkspaceImagesResult {
-  __type?: "DescribeWorkspaceImagesResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
    *          available.</p>
@@ -941,11 +838,9 @@ export namespace DescribeWorkspaceImagesResult {
   export const filterSensitiveLog = (obj: DescribeWorkspaceImagesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceImagesResult => __isa(o, "DescribeWorkspaceImagesResult");
 }
 
 export interface DescribeWorkspacesConnectionStatusRequest {
-  __type?: "DescribeWorkspacesConnectionStatusRequest";
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
@@ -962,12 +857,9 @@ export namespace DescribeWorkspacesConnectionStatusRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspacesConnectionStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspacesConnectionStatusRequest =>
-    __isa(o, "DescribeWorkspacesConnectionStatusRequest");
 }
 
 export interface DescribeWorkspacesConnectionStatusResult {
-  __type?: "DescribeWorkspacesConnectionStatusResult";
   /**
    * <p>Information about the connection status of the WorkSpace.</p>
    */
@@ -984,12 +876,9 @@ export namespace DescribeWorkspacesConnectionStatusResult {
   export const filterSensitiveLog = (obj: DescribeWorkspacesConnectionStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspacesConnectionStatusResult =>
-    __isa(o, "DescribeWorkspacesConnectionStatusResult");
 }
 
 export interface DescribeWorkspaceSnapshotsRequest {
-  __type?: "DescribeWorkspaceSnapshotsRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -1000,11 +889,9 @@ export namespace DescribeWorkspaceSnapshotsRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspaceSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceSnapshotsRequest => __isa(o, "DescribeWorkspaceSnapshotsRequest");
 }
 
 export interface DescribeWorkspaceSnapshotsResult {
-  __type?: "DescribeWorkspaceSnapshotsResult";
   /**
    * <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include
    *          the user volume.</p>
@@ -1022,11 +909,9 @@ export namespace DescribeWorkspaceSnapshotsResult {
   export const filterSensitiveLog = (obj: DescribeWorkspaceSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspaceSnapshotsResult => __isa(o, "DescribeWorkspaceSnapshotsResult");
 }
 
 export interface DescribeWorkspacesRequest {
-  __type?: "DescribeWorkspacesRequest";
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
@@ -1070,11 +955,9 @@ export namespace DescribeWorkspacesRequest {
   export const filterSensitiveLog = (obj: DescribeWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspacesRequest => __isa(o, "DescribeWorkspacesRequest");
 }
 
 export interface DescribeWorkspacesResult {
-  __type?: "DescribeWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces.</p>
    *          <p>Because <a>CreateWorkspaces</a> is an asynchronous operation, some of the
@@ -1093,11 +976,9 @@ export namespace DescribeWorkspacesResult {
   export const filterSensitiveLog = (obj: DescribeWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkspacesResult => __isa(o, "DescribeWorkspacesResult");
 }
 
 export interface DisassociateIpGroupsRequest {
-  __type?: "DisassociateIpGroupsRequest";
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
    */
@@ -1113,25 +994,20 @@ export namespace DisassociateIpGroupsRequest {
   export const filterSensitiveLog = (obj: DisassociateIpGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateIpGroupsRequest => __isa(o, "DisassociateIpGroupsRequest");
 }
 
-export interface DisassociateIpGroupsResult {
-  __type?: "DisassociateIpGroupsResult";
-}
+export interface DisassociateIpGroupsResult {}
 
 export namespace DisassociateIpGroupsResult {
   export const filterSensitiveLog = (obj: DisassociateIpGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateIpGroupsResult => __isa(o, "DisassociateIpGroupsResult");
 }
 
 /**
  * <p>Describes a WorkSpace that cannot be created.</p>
  */
 export interface FailedCreateWorkspaceRequest {
-  __type?: "FailedCreateWorkspaceRequest";
   /**
    * <p>Information about the WorkSpace.</p>
    */
@@ -1153,7 +1029,6 @@ export namespace FailedCreateWorkspaceRequest {
   export const filterSensitiveLog = (obj: FailedCreateWorkspaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedCreateWorkspaceRequest => __isa(o, "FailedCreateWorkspaceRequest");
 }
 
 /**
@@ -1162,7 +1037,6 @@ export namespace FailedCreateWorkspaceRequest {
  *          (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).</p>
  */
 export interface FailedWorkspaceChangeRequest {
-  __type?: "FailedWorkspaceChangeRequest";
   /**
    * <p>The text of the error message that is returned if the WorkSpace cannot be
    *          rebooted.</p>
@@ -1184,14 +1058,12 @@ export namespace FailedWorkspaceChangeRequest {
   export const filterSensitiveLog = (obj: FailedWorkspaceChangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedWorkspaceChangeRequest => __isa(o, "FailedWorkspaceChangeRequest");
 }
 
 /**
  * <p>Describes the AWS accounts that have been granted permission to use a shared image.</p>
  */
 export interface ImagePermission {
-  __type?: "ImagePermission";
   /**
    * <p>The identifier of the AWS account that an image has been shared with.</p>
    */
@@ -1202,7 +1074,6 @@ export namespace ImagePermission {
   export const filterSensitiveLog = (obj: ImagePermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImagePermission => __isa(o, "ImagePermission");
 }
 
 export enum ImageType {
@@ -1211,7 +1082,6 @@ export enum ImageType {
 }
 
 export interface ImportWorkspaceImageRequest {
-  __type?: "ImportWorkspaceImageRequest";
   /**
    * <p>The identifier of the EC2 image.</p>
    */
@@ -1242,11 +1112,9 @@ export namespace ImportWorkspaceImageRequest {
   export const filterSensitiveLog = (obj: ImportWorkspaceImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportWorkspaceImageRequest => __isa(o, "ImportWorkspaceImageRequest");
 }
 
 export interface ImportWorkspaceImageResult {
-  __type?: "ImportWorkspaceImageResult";
   /**
    * <p>The identifier of the WorkSpace image.</p>
    */
@@ -1257,7 +1125,6 @@ export namespace ImportWorkspaceImageResult {
   export const filterSensitiveLog = (obj: ImportWorkspaceImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportWorkspaceImageResult => __isa(o, "ImportWorkspaceImageResult");
 }
 
 /**
@@ -1276,7 +1143,6 @@ export namespace InvalidParameterValuesException {
   export const filterSensitiveLog = (obj: InvalidParameterValuesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValuesException => __isa(o, "InvalidParameterValuesException");
 }
 
 /**
@@ -1292,14 +1158,12 @@ export namespace InvalidResourceStateException {
   export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceStateException => __isa(o, "InvalidResourceStateException");
 }
 
 /**
  * <p>Describes a rule for an IP access control group.</p>
  */
 export interface IpRuleItem {
-  __type?: "IpRuleItem";
   /**
    * <p>The IP address range, in CIDR notation.</p>
    */
@@ -1315,11 +1179,9 @@ export namespace IpRuleItem {
   export const filterSensitiveLog = (obj: IpRuleItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpRuleItem => __isa(o, "IpRuleItem");
 }
 
 export interface ListAvailableManagementCidrRangesRequest {
-  __type?: "ListAvailableManagementCidrRangesRequest";
   /**
    * <p>The IP address range to search. Specify an IP address range that is compatible with your
    *          network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).</p>
@@ -1342,12 +1204,9 @@ export namespace ListAvailableManagementCidrRangesRequest {
   export const filterSensitiveLog = (obj: ListAvailableManagementCidrRangesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAvailableManagementCidrRangesRequest =>
-    __isa(o, "ListAvailableManagementCidrRangesRequest");
 }
 
 export interface ListAvailableManagementCidrRangesResult {
-  __type?: "ListAvailableManagementCidrRangesResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
    *          available.</p>
@@ -1364,12 +1223,9 @@ export namespace ListAvailableManagementCidrRangesResult {
   export const filterSensitiveLog = (obj: ListAvailableManagementCidrRangesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAvailableManagementCidrRangesResult =>
-    __isa(o, "ListAvailableManagementCidrRangesResult");
 }
 
 export interface MigrateWorkspaceRequest {
-  __type?: "MigrateWorkspaceRequest";
   /**
    * <p>The identifier of the WorkSpace to migrate from.</p>
    */
@@ -1385,11 +1241,9 @@ export namespace MigrateWorkspaceRequest {
   export const filterSensitiveLog = (obj: MigrateWorkspaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MigrateWorkspaceRequest => __isa(o, "MigrateWorkspaceRequest");
 }
 
 export interface MigrateWorkspaceResult {
-  __type?: "MigrateWorkspaceResult";
   /**
    * <p>The new identifier of the WorkSpace that is being migrated. If the migration does not succeed,
    *          the target WorkSpace ID will not be used, and the WorkSpace will still have the original WorkSpace ID.</p>
@@ -1406,7 +1260,6 @@ export namespace MigrateWorkspaceResult {
   export const filterSensitiveLog = (obj: MigrateWorkspaceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MigrateWorkspaceResult => __isa(o, "MigrateWorkspaceResult");
 }
 
 export enum ModificationResourceEnum {
@@ -1419,7 +1272,6 @@ export enum ModificationResourceEnum {
  * <p>Describes a WorkSpace modification.</p>
  */
 export interface ModificationState {
-  __type?: "ModificationState";
   /**
    * <p>The resource.</p>
    */
@@ -1435,7 +1287,6 @@ export namespace ModificationState {
   export const filterSensitiveLog = (obj: ModificationState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModificationState => __isa(o, "ModificationState");
 }
 
 export enum ModificationStateEnum {
@@ -1444,7 +1295,6 @@ export enum ModificationStateEnum {
 }
 
 export interface ModifyAccountRequest {
-  __type?: "ModifyAccountRequest";
   /**
    * <p>The status of BYOL.</p>
    */
@@ -1464,22 +1314,17 @@ export namespace ModifyAccountRequest {
   export const filterSensitiveLog = (obj: ModifyAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyAccountRequest => __isa(o, "ModifyAccountRequest");
 }
 
-export interface ModifyAccountResult {
-  __type?: "ModifyAccountResult";
-}
+export interface ModifyAccountResult {}
 
 export namespace ModifyAccountResult {
   export const filterSensitiveLog = (obj: ModifyAccountResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyAccountResult => __isa(o, "ModifyAccountResult");
 }
 
 export interface ModifyClientPropertiesRequest {
-  __type?: "ModifyClientPropertiesRequest";
   /**
    * <p>Information about the Amazon WorkSpaces client.</p>
    */
@@ -1495,22 +1340,17 @@ export namespace ModifyClientPropertiesRequest {
   export const filterSensitiveLog = (obj: ModifyClientPropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClientPropertiesRequest => __isa(o, "ModifyClientPropertiesRequest");
 }
 
-export interface ModifyClientPropertiesResult {
-  __type?: "ModifyClientPropertiesResult";
-}
+export interface ModifyClientPropertiesResult {}
 
 export namespace ModifyClientPropertiesResult {
   export const filterSensitiveLog = (obj: ModifyClientPropertiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClientPropertiesResult => __isa(o, "ModifyClientPropertiesResult");
 }
 
 export interface ModifySelfservicePermissionsRequest {
-  __type?: "ModifySelfservicePermissionsRequest";
   /**
    * <p>The permissions to enable or disable self-service capabilities.</p>
    */
@@ -1526,24 +1366,17 @@ export namespace ModifySelfservicePermissionsRequest {
   export const filterSensitiveLog = (obj: ModifySelfservicePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySelfservicePermissionsRequest =>
-    __isa(o, "ModifySelfservicePermissionsRequest");
 }
 
-export interface ModifySelfservicePermissionsResult {
-  __type?: "ModifySelfservicePermissionsResult";
-}
+export interface ModifySelfservicePermissionsResult {}
 
 export namespace ModifySelfservicePermissionsResult {
   export const filterSensitiveLog = (obj: ModifySelfservicePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySelfservicePermissionsResult =>
-    __isa(o, "ModifySelfservicePermissionsResult");
 }
 
 export interface ModifyWorkspaceAccessPropertiesRequest {
-  __type?: "ModifyWorkspaceAccessPropertiesRequest";
   /**
    * <p>The identifier of the directory.</p>
    */
@@ -1559,24 +1392,17 @@ export namespace ModifyWorkspaceAccessPropertiesRequest {
   export const filterSensitiveLog = (obj: ModifyWorkspaceAccessPropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspaceAccessPropertiesRequest =>
-    __isa(o, "ModifyWorkspaceAccessPropertiesRequest");
 }
 
-export interface ModifyWorkspaceAccessPropertiesResult {
-  __type?: "ModifyWorkspaceAccessPropertiesResult";
-}
+export interface ModifyWorkspaceAccessPropertiesResult {}
 
 export namespace ModifyWorkspaceAccessPropertiesResult {
   export const filterSensitiveLog = (obj: ModifyWorkspaceAccessPropertiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspaceAccessPropertiesResult =>
-    __isa(o, "ModifyWorkspaceAccessPropertiesResult");
 }
 
 export interface ModifyWorkspaceCreationPropertiesRequest {
-  __type?: "ModifyWorkspaceCreationPropertiesRequest";
   /**
    * <p>The default properties for creating WorkSpaces.</p>
    */
@@ -1592,24 +1418,17 @@ export namespace ModifyWorkspaceCreationPropertiesRequest {
   export const filterSensitiveLog = (obj: ModifyWorkspaceCreationPropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspaceCreationPropertiesRequest =>
-    __isa(o, "ModifyWorkspaceCreationPropertiesRequest");
 }
 
-export interface ModifyWorkspaceCreationPropertiesResult {
-  __type?: "ModifyWorkspaceCreationPropertiesResult";
-}
+export interface ModifyWorkspaceCreationPropertiesResult {}
 
 export namespace ModifyWorkspaceCreationPropertiesResult {
   export const filterSensitiveLog = (obj: ModifyWorkspaceCreationPropertiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspaceCreationPropertiesResult =>
-    __isa(o, "ModifyWorkspaceCreationPropertiesResult");
 }
 
 export interface ModifyWorkspacePropertiesRequest {
-  __type?: "ModifyWorkspacePropertiesRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -1625,22 +1444,17 @@ export namespace ModifyWorkspacePropertiesRequest {
   export const filterSensitiveLog = (obj: ModifyWorkspacePropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspacePropertiesRequest => __isa(o, "ModifyWorkspacePropertiesRequest");
 }
 
-export interface ModifyWorkspacePropertiesResult {
-  __type?: "ModifyWorkspacePropertiesResult";
-}
+export interface ModifyWorkspacePropertiesResult {}
 
 export namespace ModifyWorkspacePropertiesResult {
   export const filterSensitiveLog = (obj: ModifyWorkspacePropertiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspacePropertiesResult => __isa(o, "ModifyWorkspacePropertiesResult");
 }
 
 export interface ModifyWorkspaceStateRequest {
-  __type?: "ModifyWorkspaceStateRequest";
   /**
    * <p>The WorkSpace state.</p>
    */
@@ -1656,25 +1470,20 @@ export namespace ModifyWorkspaceStateRequest {
   export const filterSensitiveLog = (obj: ModifyWorkspaceStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspaceStateRequest => __isa(o, "ModifyWorkspaceStateRequest");
 }
 
-export interface ModifyWorkspaceStateResult {
-  __type?: "ModifyWorkspaceStateResult";
-}
+export interface ModifyWorkspaceStateResult {}
 
 export namespace ModifyWorkspaceStateResult {
   export const filterSensitiveLog = (obj: ModifyWorkspaceStateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyWorkspaceStateResult => __isa(o, "ModifyWorkspaceStateResult");
 }
 
 /**
  * <p>The operating system that the image is running.</p>
  */
 export interface OperatingSystem {
-  __type?: "OperatingSystem";
   /**
    * <p>The operating system.</p>
    */
@@ -1685,7 +1494,6 @@ export namespace OperatingSystem {
   export const filterSensitiveLog = (obj: OperatingSystem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperatingSystem => __isa(o, "OperatingSystem");
 }
 
 export enum OperatingSystemType {
@@ -1706,7 +1514,6 @@ export namespace OperationInProgressException {
   export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationInProgressException => __isa(o, "OperationInProgressException");
 }
 
 /**
@@ -1722,14 +1529,12 @@ export namespace OperationNotSupportedException {
   export const filterSensitiveLog = (obj: OperationNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotSupportedException => __isa(o, "OperationNotSupportedException");
 }
 
 /**
  * <p>Describes the information used to reboot a WorkSpace.</p>
  */
 export interface RebootRequest {
-  __type?: "RebootRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -1740,11 +1545,9 @@ export namespace RebootRequest {
   export const filterSensitiveLog = (obj: RebootRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootRequest => __isa(o, "RebootRequest");
 }
 
 export interface RebootWorkspacesRequest {
-  __type?: "RebootWorkspacesRequest";
   /**
    * <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
    */
@@ -1755,11 +1558,9 @@ export namespace RebootWorkspacesRequest {
   export const filterSensitiveLog = (obj: RebootWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootWorkspacesRequest => __isa(o, "RebootWorkspacesRequest");
 }
 
 export interface RebootWorkspacesResult {
-  __type?: "RebootWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
    */
@@ -1770,14 +1571,12 @@ export namespace RebootWorkspacesResult {
   export const filterSensitiveLog = (obj: RebootWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootWorkspacesResult => __isa(o, "RebootWorkspacesResult");
 }
 
 /**
  * <p>Describes the information used to rebuild a WorkSpace.</p>
  */
 export interface RebuildRequest {
-  __type?: "RebuildRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -1788,11 +1587,9 @@ export namespace RebuildRequest {
   export const filterSensitiveLog = (obj: RebuildRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebuildRequest => __isa(o, "RebuildRequest");
 }
 
 export interface RebuildWorkspacesRequest {
-  __type?: "RebuildWorkspacesRequest";
   /**
    * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
    */
@@ -1803,11 +1600,9 @@ export namespace RebuildWorkspacesRequest {
   export const filterSensitiveLog = (obj: RebuildWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebuildWorkspacesRequest => __isa(o, "RebuildWorkspacesRequest");
 }
 
 export interface RebuildWorkspacesResult {
-  __type?: "RebuildWorkspacesResult";
   /**
    * <p>Information about the WorkSpace that could not be rebuilt.</p>
    */
@@ -1818,7 +1613,6 @@ export namespace RebuildWorkspacesResult {
   export const filterSensitiveLog = (obj: RebuildWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebuildWorkspacesResult => __isa(o, "RebuildWorkspacesResult");
 }
 
 export enum ReconnectEnum {
@@ -1827,7 +1621,6 @@ export enum ReconnectEnum {
 }
 
 export interface RegisterWorkspaceDirectoryRequest {
-  __type?: "RegisterWorkspaceDirectoryRequest";
   /**
    * <p>The tags associated with the directory.</p>
    */
@@ -1875,18 +1668,14 @@ export namespace RegisterWorkspaceDirectoryRequest {
   export const filterSensitiveLog = (obj: RegisterWorkspaceDirectoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterWorkspaceDirectoryRequest => __isa(o, "RegisterWorkspaceDirectoryRequest");
 }
 
-export interface RegisterWorkspaceDirectoryResult {
-  __type?: "RegisterWorkspaceDirectoryResult";
-}
+export interface RegisterWorkspaceDirectoryResult {}
 
 export namespace RegisterWorkspaceDirectoryResult {
   export const filterSensitiveLog = (obj: RegisterWorkspaceDirectoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterWorkspaceDirectoryResult => __isa(o, "RegisterWorkspaceDirectoryResult");
 }
 
 /**
@@ -1902,7 +1691,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1918,7 +1706,6 @@ export namespace ResourceAssociatedException {
   export const filterSensitiveLog = (obj: ResourceAssociatedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAssociatedException => __isa(o, "ResourceAssociatedException");
 }
 
 /**
@@ -1934,7 +1721,6 @@ export namespace ResourceCreationFailedException {
   export const filterSensitiveLog = (obj: ResourceCreationFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceCreationFailedException => __isa(o, "ResourceCreationFailedException");
 }
 
 /**
@@ -1953,7 +1739,6 @@ export namespace ResourceLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -1977,7 +1762,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2001,11 +1785,9 @@ export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUnavailableException => __isa(o, "ResourceUnavailableException");
 }
 
 export interface RestoreWorkspaceRequest {
-  __type?: "RestoreWorkspaceRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -2016,22 +1798,17 @@ export namespace RestoreWorkspaceRequest {
   export const filterSensitiveLog = (obj: RestoreWorkspaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreWorkspaceRequest => __isa(o, "RestoreWorkspaceRequest");
 }
 
-export interface RestoreWorkspaceResult {
-  __type?: "RestoreWorkspaceResult";
-}
+export interface RestoreWorkspaceResult {}
 
 export namespace RestoreWorkspaceResult {
   export const filterSensitiveLog = (obj: RestoreWorkspaceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreWorkspaceResult => __isa(o, "RestoreWorkspaceResult");
 }
 
 export interface RevokeIpRulesRequest {
-  __type?: "RevokeIpRulesRequest";
   /**
    * <p>The identifier of the group.</p>
    */
@@ -2047,25 +1824,20 @@ export namespace RevokeIpRulesRequest {
   export const filterSensitiveLog = (obj: RevokeIpRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeIpRulesRequest => __isa(o, "RevokeIpRulesRequest");
 }
 
-export interface RevokeIpRulesResult {
-  __type?: "RevokeIpRulesResult";
-}
+export interface RevokeIpRulesResult {}
 
 export namespace RevokeIpRulesResult {
   export const filterSensitiveLog = (obj: RevokeIpRulesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeIpRulesResult => __isa(o, "RevokeIpRulesResult");
 }
 
 /**
  * <p>Describes the root volume for a WorkSpace bundle.</p>
  */
 export interface RootStorage {
-  __type?: "RootStorage";
   /**
    * <p>The size of the root volume.</p>
    */
@@ -2076,7 +1848,6 @@ export namespace RootStorage {
   export const filterSensitiveLog = (obj: RootStorage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RootStorage => __isa(o, "RootStorage");
 }
 
 export enum RunningMode {
@@ -2088,7 +1859,6 @@ export enum RunningMode {
  * <p>Describes the self-service permissions for a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
  */
 export interface SelfservicePermissions {
-  __type?: "SelfservicePermissions";
   /**
    * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
    */
@@ -2121,14 +1891,12 @@ export namespace SelfservicePermissions {
   export const filterSensitiveLog = (obj: SelfservicePermissions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SelfservicePermissions => __isa(o, "SelfservicePermissions");
 }
 
 /**
  * <p>Describes a snapshot.</p>
  */
 export interface Snapshot {
-  __type?: "Snapshot";
   /**
    * <p>The time when the snapshot was created.</p>
    */
@@ -2139,14 +1907,12 @@ export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
 
 /**
  * <p>Information used to start a WorkSpace.</p>
  */
 export interface StartRequest {
-  __type?: "StartRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -2157,11 +1923,9 @@ export namespace StartRequest {
   export const filterSensitiveLog = (obj: StartRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartRequest => __isa(o, "StartRequest");
 }
 
 export interface StartWorkspacesRequest {
-  __type?: "StartWorkspacesRequest";
   /**
    * <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
    */
@@ -2172,11 +1936,9 @@ export namespace StartWorkspacesRequest {
   export const filterSensitiveLog = (obj: StartWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartWorkspacesRequest => __isa(o, "StartWorkspacesRequest");
 }
 
 export interface StartWorkspacesResult {
-  __type?: "StartWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be started.</p>
    */
@@ -2187,14 +1949,12 @@ export namespace StartWorkspacesResult {
   export const filterSensitiveLog = (obj: StartWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartWorkspacesResult => __isa(o, "StartWorkspacesResult");
 }
 
 /**
  * <p>Describes the information used to stop a WorkSpace.</p>
  */
 export interface StopRequest {
-  __type?: "StopRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -2205,11 +1965,9 @@ export namespace StopRequest {
   export const filterSensitiveLog = (obj: StopRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRequest => __isa(o, "StopRequest");
 }
 
 export interface StopWorkspacesRequest {
-  __type?: "StopWorkspacesRequest";
   /**
    * <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
    */
@@ -2220,11 +1978,9 @@ export namespace StopWorkspacesRequest {
   export const filterSensitiveLog = (obj: StopWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopWorkspacesRequest => __isa(o, "StopWorkspacesRequest");
 }
 
 export interface StopWorkspacesResult {
-  __type?: "StopWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be stopped.</p>
    */
@@ -2235,14 +1991,12 @@ export namespace StopWorkspacesResult {
   export const filterSensitiveLog = (obj: StopWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopWorkspacesResult => __isa(o, "StopWorkspacesResult");
 }
 
 /**
  * <p>Describes a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    */
@@ -2258,7 +2012,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export enum TargetWorkspaceState {
@@ -2275,7 +2028,6 @@ export enum Tenancy {
  * <p>Describes the information used to terminate a WorkSpace.</p>
  */
 export interface TerminateRequest {
-  __type?: "TerminateRequest";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -2286,11 +2038,9 @@ export namespace TerminateRequest {
   export const filterSensitiveLog = (obj: TerminateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateRequest => __isa(o, "TerminateRequest");
 }
 
 export interface TerminateWorkspacesRequest {
-  __type?: "TerminateWorkspacesRequest";
   /**
    * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
    */
@@ -2301,11 +2051,9 @@ export namespace TerminateWorkspacesRequest {
   export const filterSensitiveLog = (obj: TerminateWorkspacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateWorkspacesRequest => __isa(o, "TerminateWorkspacesRequest");
 }
 
 export interface TerminateWorkspacesResult {
-  __type?: "TerminateWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be terminated.</p>
    */
@@ -2316,7 +2064,6 @@ export namespace TerminateWorkspacesResult {
   export const filterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateWorkspacesResult => __isa(o, "TerminateWorkspacesResult");
 }
 
 /**
@@ -2335,8 +2082,6 @@ export namespace UnsupportedNetworkConfigurationException {
   export const filterSensitiveLog = (obj: UnsupportedNetworkConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedNetworkConfigurationException =>
-    __isa(o, "UnsupportedNetworkConfigurationException");
 }
 
 /**
@@ -2354,12 +2099,9 @@ export namespace UnsupportedWorkspaceConfigurationException {
   export const filterSensitiveLog = (obj: UnsupportedWorkspaceConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedWorkspaceConfigurationException =>
-    __isa(o, "UnsupportedWorkspaceConfigurationException");
 }
 
 export interface UpdateRulesOfIpGroupRequest {
-  __type?: "UpdateRulesOfIpGroupRequest";
   /**
    * <p>One or more rules.</p>
    */
@@ -2375,22 +2117,17 @@ export namespace UpdateRulesOfIpGroupRequest {
   export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRulesOfIpGroupRequest => __isa(o, "UpdateRulesOfIpGroupRequest");
 }
 
-export interface UpdateRulesOfIpGroupResult {
-  __type?: "UpdateRulesOfIpGroupResult";
-}
+export interface UpdateRulesOfIpGroupResult {}
 
 export namespace UpdateRulesOfIpGroupResult {
   export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRulesOfIpGroupResult => __isa(o, "UpdateRulesOfIpGroupResult");
 }
 
 export interface UpdateWorkspaceImagePermissionRequest {
-  __type?: "UpdateWorkspaceImagePermissionRequest";
   /**
    * <p>The permission to copy the image. This permission can be revoked only after an image
    *       has been shared.</p>
@@ -2412,27 +2149,20 @@ export namespace UpdateWorkspaceImagePermissionRequest {
   export const filterSensitiveLog = (obj: UpdateWorkspaceImagePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkspaceImagePermissionRequest =>
-    __isa(o, "UpdateWorkspaceImagePermissionRequest");
 }
 
-export interface UpdateWorkspaceImagePermissionResult {
-  __type?: "UpdateWorkspaceImagePermissionResult";
-}
+export interface UpdateWorkspaceImagePermissionResult {}
 
 export namespace UpdateWorkspaceImagePermissionResult {
   export const filterSensitiveLog = (obj: UpdateWorkspaceImagePermissionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkspaceImagePermissionResult =>
-    __isa(o, "UpdateWorkspaceImagePermissionResult");
 }
 
 /**
  * <p>Describes the user storage for a WorkSpace bundle.</p>
  */
 export interface UserStorage {
-  __type?: "UserStorage";
   /**
    * <p>The size of the user storage.</p>
    */
@@ -2443,14 +2173,12 @@ export namespace UserStorage {
   export const filterSensitiveLog = (obj: UserStorage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserStorage => __isa(o, "UserStorage");
 }
 
 /**
  * <p>Describes a WorkSpace.</p>
  */
 export interface Workspace {
-  __type?: "Workspace";
   /**
    * <p>The user for the WorkSpace.</p>
    */
@@ -2533,7 +2261,6 @@ export namespace Workspace {
   export const filterSensitiveLog = (obj: Workspace): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Workspace => __isa(o, "Workspace");
 }
 
 /**
@@ -2542,7 +2269,6 @@ export namespace Workspace {
  *             WorkSpaces Client Network Requirements</a>.</p>
  */
 export interface WorkspaceAccessProperties {
-  __type?: "WorkspaceAccessProperties";
   /**
    * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
    */
@@ -2589,14 +2315,12 @@ export namespace WorkspaceAccessProperties {
   export const filterSensitiveLog = (obj: WorkspaceAccessProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceAccessProperties => __isa(o, "WorkspaceAccessProperties");
 }
 
 /**
  * <p>Describes a WorkSpace bundle.</p>
  */
 export interface WorkspaceBundle {
-  __type?: "WorkspaceBundle";
   /**
    * <p>The image identifier of the bundle.</p>
    */
@@ -2648,14 +2372,12 @@ export namespace WorkspaceBundle {
   export const filterSensitiveLog = (obj: WorkspaceBundle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceBundle => __isa(o, "WorkspaceBundle");
 }
 
 /**
  * <p>Describes the connection status of a WorkSpace.</p>
  */
 export interface WorkspaceConnectionStatus {
-  __type?: "WorkspaceConnectionStatus";
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
@@ -2682,7 +2404,6 @@ export namespace WorkspaceConnectionStatus {
   export const filterSensitiveLog = (obj: WorkspaceConnectionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceConnectionStatus => __isa(o, "WorkspaceConnectionStatus");
 }
 
 /**
@@ -2691,7 +2412,6 @@ export namespace WorkspaceConnectionStatus {
  *             Details for Your WorkSpaces</a>. </p>
  */
 export interface WorkspaceCreationProperties {
-  __type?: "WorkspaceCreationProperties";
   /**
    * <p>The identifier of your custom security group.</p>
    */
@@ -2724,14 +2444,12 @@ export namespace WorkspaceCreationProperties {
   export const filterSensitiveLog = (obj: WorkspaceCreationProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceCreationProperties => __isa(o, "WorkspaceCreationProperties");
 }
 
 /**
  * <p>Describes a directory that is used with Amazon WorkSpaces.</p>
  */
 export interface WorkspaceDirectory {
-  __type?: "WorkspaceDirectory";
   /**
    * <p>The name of the directory.</p>
    */
@@ -2821,7 +2539,6 @@ export namespace WorkspaceDirectory {
   export const filterSensitiveLog = (obj: WorkspaceDirectory): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceDirectory => __isa(o, "WorkspaceDirectory");
 }
 
 export enum WorkspaceDirectoryState {
@@ -2841,7 +2558,6 @@ export enum WorkspaceDirectoryType {
  * <p>Describes a WorkSpace image.</p>
  */
 export interface WorkspaceImage {
-  __type?: "WorkspaceImage";
   /**
    * <p>The name of the image.</p>
    */
@@ -2901,7 +2617,6 @@ export namespace WorkspaceImage {
   export const filterSensitiveLog = (obj: WorkspaceImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceImage => __isa(o, "WorkspaceImage");
 }
 
 export enum WorkspaceImageIngestionProcess {
@@ -2925,7 +2640,6 @@ export enum WorkspaceImageState {
  * <p>Describes a WorkSpace.</p>
  */
 export interface WorkspaceProperties {
-  __type?: "WorkspaceProperties";
   /**
    * <p>The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.</p>
    */
@@ -2960,14 +2674,12 @@ export namespace WorkspaceProperties {
   export const filterSensitiveLog = (obj: WorkspaceProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceProperties => __isa(o, "WorkspaceProperties");
 }
 
 /**
  * <p>Describes the information used to create a WorkSpace.</p>
  */
 export interface WorkspaceRequest {
-  __type?: "WorkspaceRequest";
   /**
    * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace.
    *          Amazon WorkSpaces does not support asymmetric CMKs.</p>
@@ -3016,7 +2728,6 @@ export namespace WorkspaceRequest {
   export const filterSensitiveLog = (obj: WorkspaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspaceRequest => __isa(o, "WorkspaceRequest");
 }
 
 /**
@@ -3033,15 +2744,12 @@ export namespace WorkspacesDefaultRoleNotFoundException {
   export const filterSensitiveLog = (obj: WorkspacesDefaultRoleNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspacesDefaultRoleNotFoundException =>
-    __isa(o, "WorkspacesDefaultRoleNotFoundException");
 }
 
 /**
  * <p>Describes an IP access control group.</p>
  */
 export interface WorkspacesIpGroup {
-  __type?: "WorkspacesIpGroup";
   /**
    * <p>The identifier of the group.</p>
    */
@@ -3067,7 +2775,6 @@ export namespace WorkspacesIpGroup {
   export const filterSensitiveLog = (obj: WorkspacesIpGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkspacesIpGroup => __isa(o, "WorkspacesIpGroup");
 }
 
 export enum WorkspaceState {

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccountLimitExceededException {
   export const filterSensitiveLog = (obj: AccountLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountLimitExceededException => __isa(o, "AccountLimitExceededException");
 }
 
 export enum ArtifactNamespace {
@@ -40,7 +39,6 @@ export enum AuthType {
 }
 
 export interface BatchDeleteBuildsInput {
-  __type?: "BatchDeleteBuildsInput";
   /**
    * <p>The IDs of the builds to delete.</p>
    */
@@ -51,11 +49,9 @@ export namespace BatchDeleteBuildsInput {
   export const filterSensitiveLog = (obj: BatchDeleteBuildsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteBuildsInput => __isa(o, "BatchDeleteBuildsInput");
 }
 
 export interface BatchDeleteBuildsOutput {
-  __type?: "BatchDeleteBuildsOutput";
   /**
    * <p>The IDs of the builds that were successfully deleted.</p>
    */
@@ -71,11 +67,9 @@ export namespace BatchDeleteBuildsOutput {
   export const filterSensitiveLog = (obj: BatchDeleteBuildsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteBuildsOutput => __isa(o, "BatchDeleteBuildsOutput");
 }
 
 export interface BatchGetBuildBatchesInput {
-  __type?: "BatchGetBuildBatchesInput";
   /**
    * <p>An array that contains the batch build identifiers to retrieve.</p>
    */
@@ -86,11 +80,9 @@ export namespace BatchGetBuildBatchesInput {
   export const filterSensitiveLog = (obj: BatchGetBuildBatchesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetBuildBatchesInput => __isa(o, "BatchGetBuildBatchesInput");
 }
 
 export interface BatchGetBuildBatchesOutput {
-  __type?: "BatchGetBuildBatchesOutput";
   /**
    * <p>An array that contains the identifiers of any batch builds that are not found.</p>
    */
@@ -107,11 +99,9 @@ export namespace BatchGetBuildBatchesOutput {
   export const filterSensitiveLog = (obj: BatchGetBuildBatchesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetBuildBatchesOutput => __isa(o, "BatchGetBuildBatchesOutput");
 }
 
 export interface BatchGetBuildsInput {
-  __type?: "BatchGetBuildsInput";
   /**
    * <p>The IDs of the builds.</p>
    */
@@ -122,11 +112,9 @@ export namespace BatchGetBuildsInput {
   export const filterSensitiveLog = (obj: BatchGetBuildsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetBuildsInput => __isa(o, "BatchGetBuildsInput");
 }
 
 export interface BatchGetBuildsOutput {
-  __type?: "BatchGetBuildsOutput";
   /**
    * <p>Information about the requested builds.</p>
    */
@@ -142,11 +130,9 @@ export namespace BatchGetBuildsOutput {
   export const filterSensitiveLog = (obj: BatchGetBuildsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetBuildsOutput => __isa(o, "BatchGetBuildsOutput");
 }
 
 export interface BatchGetProjectsInput {
-  __type?: "BatchGetProjectsInput";
   /**
    * <p>The names or ARNs of the build projects. To get information about a project shared
    *             with your AWS account, its ARN must be specified. You cannot specify a shared project
@@ -159,11 +145,9 @@ export namespace BatchGetProjectsInput {
   export const filterSensitiveLog = (obj: BatchGetProjectsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetProjectsInput => __isa(o, "BatchGetProjectsInput");
 }
 
 export interface BatchGetProjectsOutput {
-  __type?: "BatchGetProjectsOutput";
   /**
    * <p>Information about the requested build projects.</p>
    */
@@ -179,11 +163,9 @@ export namespace BatchGetProjectsOutput {
   export const filterSensitiveLog = (obj: BatchGetProjectsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetProjectsOutput => __isa(o, "BatchGetProjectsOutput");
 }
 
 export interface BatchGetReportGroupsInput {
-  __type?: "BatchGetReportGroupsInput";
   /**
    * <p>
    *       An array of report group ARNs that identify the report groups to return.
@@ -196,11 +178,9 @@ export namespace BatchGetReportGroupsInput {
   export const filterSensitiveLog = (obj: BatchGetReportGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetReportGroupsInput => __isa(o, "BatchGetReportGroupsInput");
 }
 
 export interface BatchGetReportGroupsOutput {
-  __type?: "BatchGetReportGroupsOutput";
   /**
    * <p>
    *       An array of ARNs passed to <code>BatchGetReportGroups</code> that are not associated with a <code>ReportGroup</code>.
@@ -220,11 +200,9 @@ export namespace BatchGetReportGroupsOutput {
   export const filterSensitiveLog = (obj: BatchGetReportGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetReportGroupsOutput => __isa(o, "BatchGetReportGroupsOutput");
 }
 
 export interface BatchGetReportsInput {
-  __type?: "BatchGetReportsInput";
   /**
    * <p>
    *       An array of ARNs that identify the <code>Report</code> objects to return.
@@ -237,11 +215,9 @@ export namespace BatchGetReportsInput {
   export const filterSensitiveLog = (obj: BatchGetReportsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetReportsInput => __isa(o, "BatchGetReportsInput");
 }
 
 export interface BatchGetReportsOutput {
-  __type?: "BatchGetReportsOutput";
   /**
    * <p>
    *       An array of ARNs passed to <code>BatchGetReportGroups</code> that are not associated with a <code>Report</code>.
@@ -261,14 +237,12 @@ export namespace BatchGetReportsOutput {
   export const filterSensitiveLog = (obj: BatchGetReportsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetReportsOutput => __isa(o, "BatchGetReportsOutput");
 }
 
 /**
  * <p>Specifies restrictions for the batch build.</p>
  */
 export interface BatchRestrictions {
-  __type?: "BatchRestrictions";
   /**
    * <p>Specifies the maximum number of builds allowed.</p>
    */
@@ -287,14 +261,12 @@ export namespace BatchRestrictions {
   export const filterSensitiveLog = (obj: BatchRestrictions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchRestrictions => __isa(o, "BatchRestrictions");
 }
 
 /**
  * <p>Information about a build.</p>
  */
 export interface Build {
-  __type?: "Build";
   /**
    * <p>Information about the build's logs in Amazon CloudWatch Logs.</p>
    */
@@ -559,14 +531,12 @@ export namespace Build {
   export const filterSensitiveLog = (obj: Build): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Build => __isa(o, "Build");
 }
 
 /**
  * <p>Information about build output artifacts.</p>
  */
 export interface BuildArtifacts {
-  __type?: "BuildArtifacts";
   /**
    * <p>The SHA-256 hash of the build artifact.</p>
    *         <p>You can use this hash along with a checksum tool to confirm file integrity and
@@ -617,14 +587,12 @@ export namespace BuildArtifacts {
   export const filterSensitiveLog = (obj: BuildArtifacts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildArtifacts => __isa(o, "BuildArtifacts");
 }
 
 /**
  * <p>Contains information about a batch build.</p>
  */
 export interface BuildBatch {
-  __type?: "BuildBatch";
   /**
    * <p>Information about the build input source code for the build project.</p>
    */
@@ -845,14 +813,12 @@ export namespace BuildBatch {
   export const filterSensitiveLog = (obj: BuildBatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildBatch => __isa(o, "BuildBatch");
 }
 
 /**
  * <p>Specifies filters when retrieving batch builds.</p>
  */
 export interface BuildBatchFilter {
-  __type?: "BuildBatchFilter";
   /**
    * <p>The status of the batch builds to retrieve. Only batch builds that have this status will
    *             be retrieved.</p>
@@ -864,14 +830,12 @@ export namespace BuildBatchFilter {
   export const filterSensitiveLog = (obj: BuildBatchFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildBatchFilter => __isa(o, "BuildBatchFilter");
 }
 
 /**
  * <p>Contains information about a stage for a batch build.</p>
  */
 export interface BuildBatchPhase {
-  __type?: "BuildBatchPhase";
   /**
    * <p>The current status of the batch build phase. Valid values include:</p>
    *         <dl>
@@ -971,7 +935,6 @@ export namespace BuildBatchPhase {
   export const filterSensitiveLog = (obj: BuildBatchPhase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildBatchPhase => __isa(o, "BuildBatchPhase");
 }
 
 export enum BuildBatchPhaseType {
@@ -990,7 +953,6 @@ export enum BuildBatchPhaseType {
  *             build groups.</p>
  */
 export interface BuildGroup {
-  __type?: "BuildGroup";
   /**
    * <p>A <code>BuildSummary</code> object that contains a summary of the current build
    *             group.</p>
@@ -1024,14 +986,12 @@ export namespace BuildGroup {
   export const filterSensitiveLog = (obj: BuildGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildGroup => __isa(o, "BuildGroup");
 }
 
 /**
  * <p>Information about a build that could not be successfully deleted.</p>
  */
 export interface BuildNotDeleted {
-  __type?: "BuildNotDeleted";
   /**
    * <p>The ID of the build that could not be successfully deleted.</p>
    */
@@ -1047,14 +1007,12 @@ export namespace BuildNotDeleted {
   export const filterSensitiveLog = (obj: BuildNotDeleted): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildNotDeleted => __isa(o, "BuildNotDeleted");
 }
 
 /**
  * <p>Information about a stage for a build.</p>
  */
 export interface BuildPhase {
-  __type?: "BuildPhase";
   /**
    * <p>When the build phase ended, expressed in Unix time format.</p>
    */
@@ -1177,7 +1135,6 @@ export namespace BuildPhase {
   export const filterSensitiveLog = (obj: BuildPhase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildPhase => __isa(o, "BuildPhase");
 }
 
 export enum BuildPhaseType {
@@ -1199,7 +1156,6 @@ export enum BuildPhaseType {
  *             to the source provider. </p>
  */
 export interface BuildStatusConfig {
-  __type?: "BuildStatusConfig";
   /**
    * <p>Specifies the context of the build status CodeBuild sends to the source provider. The
    *             usage of this parameter depends on the source provider.</p>
@@ -1241,14 +1197,12 @@ export namespace BuildStatusConfig {
   export const filterSensitiveLog = (obj: BuildStatusConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildStatusConfig => __isa(o, "BuildStatusConfig");
 }
 
 /**
  * <p>Contains summary information about a batch build group.</p>
  */
 export interface BuildSummary {
-  __type?: "BuildSummary";
   /**
    * <p>A <code>ResolvedArtifact</code> object that represents the primary build artifacts for the
    *             build group.</p>
@@ -1307,7 +1261,6 @@ export namespace BuildSummary {
   export const filterSensitiveLog = (obj: BuildSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildSummary => __isa(o, "BuildSummary");
 }
 
 export enum CacheMode {
@@ -1326,7 +1279,6 @@ export enum CacheType {
  * <p> Information about Amazon CloudWatch Logs for a build project. </p>
  */
 export interface CloudWatchLogsConfig {
-  __type?: "CloudWatchLogsConfig";
   /**
    * <p> The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
    *                 with Log Groups and Log Streams</a>. </p>
@@ -1359,7 +1311,6 @@ export namespace CloudWatchLogsConfig {
   export const filterSensitiveLog = (obj: CloudWatchLogsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsConfig => __isa(o, "CloudWatchLogsConfig");
 }
 
 /**
@@ -1370,7 +1321,6 @@ export namespace CloudWatchLogsConfig {
  *         structure, such as an <code>if</code> or <code>case</code> statement.</p>
  */
 export interface CodeCoverage {
-  __type?: "CodeCoverage";
   /**
    * <p>The percentage of branches that are covered by your tests.</p>
    */
@@ -1426,7 +1376,6 @@ export namespace CodeCoverage {
   export const filterSensitiveLog = (obj: CodeCoverage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeCoverage => __isa(o, "CodeCoverage");
 }
 
 /**
@@ -1437,7 +1386,6 @@ export namespace CodeCoverage {
  *         structure, such as an <code>if</code> or <code>case</code> statement.</p>
  */
 export interface CodeCoverageReportSummary {
-  __type?: "CodeCoverageReportSummary";
   /**
    * <p>The number of lines that are covered by your tests.</p>
    */
@@ -1473,7 +1421,6 @@ export namespace CodeCoverageReportSummary {
   export const filterSensitiveLog = (obj: CodeCoverageReportSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeCoverageReportSummary => __isa(o, "CodeCoverageReportSummary");
 }
 
 export enum ComputeType {
@@ -1484,7 +1431,6 @@ export enum ComputeType {
 }
 
 export interface CreateProjectInput {
-  __type?: "CreateProjectInput";
   /**
    * <p>Stores recently used information so that it can be quickly accessed at a later
    *             time.</p>
@@ -1641,11 +1587,9 @@ export namespace CreateProjectInput {
   export const filterSensitiveLog = (obj: CreateProjectInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectInput => __isa(o, "CreateProjectInput");
 }
 
 export interface CreateProjectOutput {
-  __type?: "CreateProjectOutput";
   /**
    * <p>Information about the build project that was created.</p>
    */
@@ -1656,11 +1600,9 @@ export namespace CreateProjectOutput {
   export const filterSensitiveLog = (obj: CreateProjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectOutput => __isa(o, "CreateProjectOutput");
 }
 
 export interface CreateReportGroupInput {
-  __type?: "CreateReportGroupInput";
   /**
    * <p>
    *       The type of report group.
@@ -1696,11 +1638,9 @@ export namespace CreateReportGroupInput {
   export const filterSensitiveLog = (obj: CreateReportGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReportGroupInput => __isa(o, "CreateReportGroupInput");
 }
 
 export interface CreateReportGroupOutput {
-  __type?: "CreateReportGroupOutput";
   /**
    * <p>
    *       Information about the report group that was created.
@@ -1713,11 +1653,9 @@ export namespace CreateReportGroupOutput {
   export const filterSensitiveLog = (obj: CreateReportGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReportGroupOutput => __isa(o, "CreateReportGroupOutput");
 }
 
 export interface CreateWebhookInput {
-  __type?: "CreateWebhookInput";
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
@@ -1754,11 +1692,9 @@ export namespace CreateWebhookInput {
   export const filterSensitiveLog = (obj: CreateWebhookInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebhookInput => __isa(o, "CreateWebhookInput");
 }
 
 export interface CreateWebhookOutput {
-  __type?: "CreateWebhookOutput";
   /**
    * <p>Information about a webhook that connects repository events to a build project in
    *       AWS CodeBuild.</p>
@@ -1770,7 +1706,6 @@ export namespace CreateWebhookOutput {
   export const filterSensitiveLog = (obj: CreateWebhookOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebhookOutput => __isa(o, "CreateWebhookOutput");
 }
 
 export enum CredentialProviderType {
@@ -1782,7 +1717,6 @@ export enum CredentialProviderType {
  *                 running build in Session Manager</a>.</p>
  */
 export interface DebugSession {
-  __type?: "DebugSession";
   /**
    * <p>Specifies if session debugging is enabled for this build.</p>
    */
@@ -1800,11 +1734,9 @@ export namespace DebugSession {
   export const filterSensitiveLog = (obj: DebugSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DebugSession => __isa(o, "DebugSession");
 }
 
 export interface DeleteBuildBatchInput {
-  __type?: "DeleteBuildBatchInput";
   /**
    * <p>The identifier of the batch build to delete.</p>
    */
@@ -1815,11 +1747,9 @@ export namespace DeleteBuildBatchInput {
   export const filterSensitiveLog = (obj: DeleteBuildBatchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBuildBatchInput => __isa(o, "DeleteBuildBatchInput");
 }
 
 export interface DeleteBuildBatchOutput {
-  __type?: "DeleteBuildBatchOutput";
   /**
    * <p>The status code.</p>
    */
@@ -1841,11 +1771,9 @@ export namespace DeleteBuildBatchOutput {
   export const filterSensitiveLog = (obj: DeleteBuildBatchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBuildBatchOutput => __isa(o, "DeleteBuildBatchOutput");
 }
 
 export interface DeleteProjectInput {
-  __type?: "DeleteProjectInput";
   /**
    * <p>The name of the build project.</p>
    */
@@ -1856,22 +1784,17 @@ export namespace DeleteProjectInput {
   export const filterSensitiveLog = (obj: DeleteProjectInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectInput => __isa(o, "DeleteProjectInput");
 }
 
-export interface DeleteProjectOutput {
-  __type?: "DeleteProjectOutput";
-}
+export interface DeleteProjectOutput {}
 
 export namespace DeleteProjectOutput {
   export const filterSensitiveLog = (obj: DeleteProjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectOutput => __isa(o, "DeleteProjectOutput");
 }
 
 export interface DeleteReportGroupInput {
-  __type?: "DeleteReportGroupInput";
   /**
    * <p>
    *       The ARN of the report group to delete.
@@ -1884,22 +1807,17 @@ export namespace DeleteReportGroupInput {
   export const filterSensitiveLog = (obj: DeleteReportGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReportGroupInput => __isa(o, "DeleteReportGroupInput");
 }
 
-export interface DeleteReportGroupOutput {
-  __type?: "DeleteReportGroupOutput";
-}
+export interface DeleteReportGroupOutput {}
 
 export namespace DeleteReportGroupOutput {
   export const filterSensitiveLog = (obj: DeleteReportGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReportGroupOutput => __isa(o, "DeleteReportGroupOutput");
 }
 
 export interface DeleteReportInput {
-  __type?: "DeleteReportInput";
   /**
    * <p>
    *       The ARN of the report to delete.
@@ -1912,22 +1830,17 @@ export namespace DeleteReportInput {
   export const filterSensitiveLog = (obj: DeleteReportInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReportInput => __isa(o, "DeleteReportInput");
 }
 
-export interface DeleteReportOutput {
-  __type?: "DeleteReportOutput";
-}
+export interface DeleteReportOutput {}
 
 export namespace DeleteReportOutput {
   export const filterSensitiveLog = (obj: DeleteReportOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReportOutput => __isa(o, "DeleteReportOutput");
 }
 
 export interface DeleteResourcePolicyInput {
-  __type?: "DeleteResourcePolicyInput";
   /**
    * <p> The ARN of the resource that is associated with the resource policy. </p>
    */
@@ -1938,22 +1851,17 @@ export namespace DeleteResourcePolicyInput {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyInput => __isa(o, "DeleteResourcePolicyInput");
 }
 
-export interface DeleteResourcePolicyOutput {
-  __type?: "DeleteResourcePolicyOutput";
-}
+export interface DeleteResourcePolicyOutput {}
 
 export namespace DeleteResourcePolicyOutput {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyOutput => __isa(o, "DeleteResourcePolicyOutput");
 }
 
 export interface DeleteSourceCredentialsInput {
-  __type?: "DeleteSourceCredentialsInput";
   /**
    * <p> The Amazon Resource Name (ARN) of the token.</p>
    */
@@ -1964,11 +1872,9 @@ export namespace DeleteSourceCredentialsInput {
   export const filterSensitiveLog = (obj: DeleteSourceCredentialsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSourceCredentialsInput => __isa(o, "DeleteSourceCredentialsInput");
 }
 
 export interface DeleteSourceCredentialsOutput {
-  __type?: "DeleteSourceCredentialsOutput";
   /**
    * <p> The Amazon Resource Name (ARN) of the token. </p>
    */
@@ -1979,11 +1885,9 @@ export namespace DeleteSourceCredentialsOutput {
   export const filterSensitiveLog = (obj: DeleteSourceCredentialsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSourceCredentialsOutput => __isa(o, "DeleteSourceCredentialsOutput");
 }
 
 export interface DeleteWebhookInput {
-  __type?: "DeleteWebhookInput";
   /**
    * <p>The name of the AWS CodeBuild project.</p>
    */
@@ -1994,22 +1898,17 @@ export namespace DeleteWebhookInput {
   export const filterSensitiveLog = (obj: DeleteWebhookInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebhookInput => __isa(o, "DeleteWebhookInput");
 }
 
-export interface DeleteWebhookOutput {
-  __type?: "DeleteWebhookOutput";
-}
+export interface DeleteWebhookOutput {}
 
 export namespace DeleteWebhookOutput {
   export const filterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebhookOutput => __isa(o, "DeleteWebhookOutput");
 }
 
 export interface DescribeCodeCoveragesInput {
-  __type?: "DescribeCodeCoveragesInput";
   /**
    * <p>The minimum line coverage percentage to report.</p>
    */
@@ -2064,11 +1963,9 @@ export namespace DescribeCodeCoveragesInput {
   export const filterSensitiveLog = (obj: DescribeCodeCoveragesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCodeCoveragesInput => __isa(o, "DescribeCodeCoveragesInput");
 }
 
 export interface DescribeCodeCoveragesOutput {
-  __type?: "DescribeCodeCoveragesOutput";
   /**
    * <p>An array of <code>CodeCoverage</code> objects that contain the results.</p>
    */
@@ -2085,11 +1982,9 @@ export namespace DescribeCodeCoveragesOutput {
   export const filterSensitiveLog = (obj: DescribeCodeCoveragesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCodeCoveragesOutput => __isa(o, "DescribeCodeCoveragesOutput");
 }
 
 export interface DescribeTestCasesInput {
-  __type?: "DescribeTestCasesInput";
   /**
    * <p>
    *       The maximum number of paginated test cases returned per response. Use <code>nextToken</code> to iterate pages in
@@ -2128,11 +2023,9 @@ export namespace DescribeTestCasesInput {
   export const filterSensitiveLog = (obj: DescribeTestCasesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTestCasesInput => __isa(o, "DescribeTestCasesInput");
 }
 
 export interface DescribeTestCasesOutput {
-  __type?: "DescribeTestCasesOutput";
   /**
    * <p>
    *       During a previous call, the maximum number of items that can be returned is the value specified in
@@ -2156,14 +2049,12 @@ export namespace DescribeTestCasesOutput {
   export const filterSensitiveLog = (obj: DescribeTestCasesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTestCasesOutput => __isa(o, "DescribeTestCasesOutput");
 }
 
 /**
  * <p>Information about a Docker image that is managed by AWS CodeBuild.</p>
  */
 export interface EnvironmentImage {
-  __type?: "EnvironmentImage";
   /**
    * <p>The name of the Docker image.</p>
    */
@@ -2184,7 +2075,6 @@ export namespace EnvironmentImage {
   export const filterSensitiveLog = (obj: EnvironmentImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentImage => __isa(o, "EnvironmentImage");
 }
 
 /**
@@ -2192,7 +2082,6 @@ export namespace EnvironmentImage {
  *             AWS CodeBuild.</p>
  */
 export interface EnvironmentLanguage {
-  __type?: "EnvironmentLanguage";
   /**
    * <p>The programming language for the Docker images.</p>
    */
@@ -2209,14 +2098,12 @@ export namespace EnvironmentLanguage {
   export const filterSensitiveLog = (obj: EnvironmentLanguage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentLanguage => __isa(o, "EnvironmentLanguage");
 }
 
 /**
  * <p>A set of Docker images that are related by platform and are managed by AWS CodeBuild.</p>
  */
 export interface EnvironmentPlatform {
-  __type?: "EnvironmentPlatform";
   /**
    * <p>The list of programming languages that are available for the specified
    *             platform.</p>
@@ -2233,7 +2120,6 @@ export namespace EnvironmentPlatform {
   export const filterSensitiveLog = (obj: EnvironmentPlatform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentPlatform => __isa(o, "EnvironmentPlatform");
 }
 
 export enum EnvironmentType {
@@ -2248,7 +2134,6 @@ export enum EnvironmentType {
  * <p>Information about an environment variable for a build project or a build.</p>
  */
 export interface EnvironmentVariable {
-  __type?: "EnvironmentVariable";
   /**
    * <p>The value of the environment variable.</p>
    *         <important>
@@ -2296,7 +2181,6 @@ export namespace EnvironmentVariable {
   export const filterSensitiveLog = (obj: EnvironmentVariable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentVariable => __isa(o, "EnvironmentVariable");
 }
 
 export enum EnvironmentVariableType {
@@ -2309,7 +2193,6 @@ export enum EnvironmentVariableType {
  * <p> Information about an exported environment variable. </p>
  */
 export interface ExportedEnvironmentVariable {
-  __type?: "ExportedEnvironmentVariable";
   /**
    * <p> The name of this exported environment variable. </p>
    */
@@ -2332,7 +2215,6 @@ export namespace ExportedEnvironmentVariable {
   export const filterSensitiveLog = (obj: ExportedEnvironmentVariable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportedEnvironmentVariable => __isa(o, "ExportedEnvironmentVariable");
 }
 
 export enum FileSystemType {
@@ -2340,7 +2222,6 @@ export enum FileSystemType {
 }
 
 export interface GetResourcePolicyInput {
-  __type?: "GetResourcePolicyInput";
   /**
    * <p> The ARN of the resource that is associated with the resource policy. </p>
    */
@@ -2351,11 +2232,9 @@ export namespace GetResourcePolicyInput {
   export const filterSensitiveLog = (obj: GetResourcePolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyInput => __isa(o, "GetResourcePolicyInput");
 }
 
 export interface GetResourcePolicyOutput {
-  __type?: "GetResourcePolicyOutput";
   /**
    * <p> The resource policy for the resource identified by the input ARN parameter. </p>
    */
@@ -2366,7 +2245,6 @@ export namespace GetResourcePolicyOutput {
   export const filterSensitiveLog = (obj: GetResourcePolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyOutput => __isa(o, "GetResourcePolicyOutput");
 }
 
 /**
@@ -2374,7 +2252,6 @@ export namespace GetResourcePolicyOutput {
  *         </p>
  */
 export interface GitSubmodulesConfig {
-  __type?: "GitSubmodulesConfig";
   /**
    * <p> Set to true to fetch Git submodules for your AWS CodeBuild build project. </p>
    */
@@ -2385,7 +2262,6 @@ export namespace GitSubmodulesConfig {
   export const filterSensitiveLog = (obj: GitSubmodulesConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GitSubmodulesConfig => __isa(o, "GitSubmodulesConfig");
 }
 
 export enum ImagePullCredentialsType {
@@ -2394,7 +2270,6 @@ export enum ImagePullCredentialsType {
 }
 
 export interface ImportSourceCredentialsInput {
-  __type?: "ImportSourceCredentialsInput";
   /**
    * <p> The source provider used for this project. </p>
    */
@@ -2432,11 +2307,9 @@ export namespace ImportSourceCredentialsInput {
     ...obj,
     ...(obj.token && { token: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ImportSourceCredentialsInput => __isa(o, "ImportSourceCredentialsInput");
 }
 
 export interface ImportSourceCredentialsOutput {
-  __type?: "ImportSourceCredentialsOutput";
   /**
    * <p> The Amazon Resource Name (ARN) of the token. </p>
    */
@@ -2447,11 +2320,9 @@ export namespace ImportSourceCredentialsOutput {
   export const filterSensitiveLog = (obj: ImportSourceCredentialsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportSourceCredentialsOutput => __isa(o, "ImportSourceCredentialsOutput");
 }
 
 export interface InvalidateProjectCacheInput {
-  __type?: "InvalidateProjectCacheInput";
   /**
    * <p>The name of the AWS CodeBuild build project that the cache is reset for.</p>
    */
@@ -2462,18 +2333,14 @@ export namespace InvalidateProjectCacheInput {
   export const filterSensitiveLog = (obj: InvalidateProjectCacheInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidateProjectCacheInput => __isa(o, "InvalidateProjectCacheInput");
 }
 
-export interface InvalidateProjectCacheOutput {
-  __type?: "InvalidateProjectCacheOutput";
-}
+export interface InvalidateProjectCacheOutput {}
 
 export namespace InvalidateProjectCacheOutput {
   export const filterSensitiveLog = (obj: InvalidateProjectCacheOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidateProjectCacheOutput => __isa(o, "InvalidateProjectCacheOutput");
 }
 
 /**
@@ -2489,7 +2356,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export enum LanguageType {
@@ -2506,7 +2372,6 @@ export enum LanguageType {
 }
 
 export interface ListBuildBatchesForProjectInput {
-  __type?: "ListBuildBatchesForProjectInput";
   /**
    * <p>The <code>nextToken</code> value returned from a previous call to
    *                 <code>ListBuildBatchesForProject</code>. This specifies the next item to return. To return the
@@ -2551,11 +2416,9 @@ export namespace ListBuildBatchesForProjectInput {
   export const filterSensitiveLog = (obj: ListBuildBatchesForProjectInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildBatchesForProjectInput => __isa(o, "ListBuildBatchesForProjectInput");
 }
 
 export interface ListBuildBatchesForProjectOutput {
-  __type?: "ListBuildBatchesForProjectOutput";
   /**
    * <p>An array of strings that contains the batch build identifiers.</p>
    */
@@ -2573,11 +2436,9 @@ export namespace ListBuildBatchesForProjectOutput {
   export const filterSensitiveLog = (obj: ListBuildBatchesForProjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildBatchesForProjectOutput => __isa(o, "ListBuildBatchesForProjectOutput");
 }
 
 export interface ListBuildBatchesInput {
-  __type?: "ListBuildBatchesInput";
   /**
    * <p>Specifies the sort order of the returned items. Valid values include:</p>
    *          <ul>
@@ -2615,11 +2476,9 @@ export namespace ListBuildBatchesInput {
   export const filterSensitiveLog = (obj: ListBuildBatchesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildBatchesInput => __isa(o, "ListBuildBatchesInput");
 }
 
 export interface ListBuildBatchesOutput {
-  __type?: "ListBuildBatchesOutput";
   /**
    * <p>If there are more items to return, this contains a token that is passed to a subsequent
    *             call to <code>ListBuildBatches</code> to retrieve the next set of items.</p>
@@ -2636,11 +2495,9 @@ export namespace ListBuildBatchesOutput {
   export const filterSensitiveLog = (obj: ListBuildBatchesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildBatchesOutput => __isa(o, "ListBuildBatchesOutput");
 }
 
 export interface ListBuildsForProjectInput {
-  __type?: "ListBuildsForProjectInput";
   /**
    * <p>The order to list build IDs. Valid values include:</p>
    *         <ul>
@@ -2678,11 +2535,9 @@ export namespace ListBuildsForProjectInput {
   export const filterSensitiveLog = (obj: ListBuildsForProjectInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildsForProjectInput => __isa(o, "ListBuildsForProjectInput");
 }
 
 export interface ListBuildsForProjectOutput {
-  __type?: "ListBuildsForProjectOutput";
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
    *             along with a unique string called a <i>nextToken</i>. To get the next
@@ -2702,11 +2557,9 @@ export namespace ListBuildsForProjectOutput {
   export const filterSensitiveLog = (obj: ListBuildsForProjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildsForProjectOutput => __isa(o, "ListBuildsForProjectOutput");
 }
 
 export interface ListBuildsInput {
-  __type?: "ListBuildsInput";
   /**
    * <p>The order to list build IDs. Valid values include:</p>
    *         <ul>
@@ -2739,11 +2592,9 @@ export namespace ListBuildsInput {
   export const filterSensitiveLog = (obj: ListBuildsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildsInput => __isa(o, "ListBuildsInput");
 }
 
 export interface ListBuildsOutput {
-  __type?: "ListBuildsOutput";
   /**
    * <p>A list of build IDs, with each build ID representing a single build.</p>
    */
@@ -2762,22 +2613,17 @@ export namespace ListBuildsOutput {
   export const filterSensitiveLog = (obj: ListBuildsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildsOutput => __isa(o, "ListBuildsOutput");
 }
 
-export interface ListCuratedEnvironmentImagesInput {
-  __type?: "ListCuratedEnvironmentImagesInput";
-}
+export interface ListCuratedEnvironmentImagesInput {}
 
 export namespace ListCuratedEnvironmentImagesInput {
   export const filterSensitiveLog = (obj: ListCuratedEnvironmentImagesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCuratedEnvironmentImagesInput => __isa(o, "ListCuratedEnvironmentImagesInput");
 }
 
 export interface ListCuratedEnvironmentImagesOutput {
-  __type?: "ListCuratedEnvironmentImagesOutput";
   /**
    * <p>Information about supported platforms for Docker images that are managed by
    *             AWS CodeBuild.</p>
@@ -2789,12 +2635,9 @@ export namespace ListCuratedEnvironmentImagesOutput {
   export const filterSensitiveLog = (obj: ListCuratedEnvironmentImagesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCuratedEnvironmentImagesOutput =>
-    __isa(o, "ListCuratedEnvironmentImagesOutput");
 }
 
 export interface ListProjectsInput {
-  __type?: "ListProjectsInput";
   /**
    * <p>The criterion to be used to list build project names. Valid values include:</p>
    *         <ul>
@@ -2850,11 +2693,9 @@ export namespace ListProjectsInput {
   export const filterSensitiveLog = (obj: ListProjectsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsInput => __isa(o, "ListProjectsInput");
 }
 
 export interface ListProjectsOutput {
-  __type?: "ListProjectsOutput";
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
    *             along with a unique string called a <i>nextToken</i>. To get the next
@@ -2874,11 +2715,9 @@ export namespace ListProjectsOutput {
   export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsOutput => __isa(o, "ListProjectsOutput");
 }
 
 export interface ListReportGroupsInput {
-  __type?: "ListReportGroupsInput";
   /**
    * <p>
    *       During a previous call, the maximum number of items that can be returned is the value specified in
@@ -2933,11 +2772,9 @@ export namespace ListReportGroupsInput {
   export const filterSensitiveLog = (obj: ListReportGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReportGroupsInput => __isa(o, "ListReportGroupsInput");
 }
 
 export interface ListReportGroupsOutput {
-  __type?: "ListReportGroupsOutput";
   /**
    * <p>
    *       The list of ARNs for the report groups in the current AWS account.
@@ -2961,11 +2798,9 @@ export namespace ListReportGroupsOutput {
   export const filterSensitiveLog = (obj: ListReportGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReportGroupsOutput => __isa(o, "ListReportGroupsOutput");
 }
 
 export interface ListReportsForReportGroupInput {
-  __type?: "ListReportsForReportGroupInput";
   /**
    * <p>
    *       During a previous call, the maximum number of items that can be returned is the value specified in
@@ -3011,11 +2846,9 @@ export namespace ListReportsForReportGroupInput {
   export const filterSensitiveLog = (obj: ListReportsForReportGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReportsForReportGroupInput => __isa(o, "ListReportsForReportGroupInput");
 }
 
 export interface ListReportsForReportGroupOutput {
-  __type?: "ListReportsForReportGroupOutput";
   /**
    * <p>
    *       The list of report ARNs.
@@ -3039,11 +2872,9 @@ export namespace ListReportsForReportGroupOutput {
   export const filterSensitiveLog = (obj: ListReportsForReportGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReportsForReportGroupOutput => __isa(o, "ListReportsForReportGroupOutput");
 }
 
 export interface ListReportsInput {
-  __type?: "ListReportsInput";
   /**
    * <p>
    *       The maximum number of paginated reports returned per response. Use <code>nextToken</code> to iterate pages in
@@ -3094,11 +2925,9 @@ export namespace ListReportsInput {
   export const filterSensitiveLog = (obj: ListReportsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReportsInput => __isa(o, "ListReportsInput");
 }
 
 export interface ListReportsOutput {
-  __type?: "ListReportsOutput";
   /**
    * <p>
    *       The list of returned ARNs for the reports in the current AWS account.
@@ -3122,11 +2951,9 @@ export namespace ListReportsOutput {
   export const filterSensitiveLog = (obj: ListReportsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReportsOutput => __isa(o, "ListReportsOutput");
 }
 
 export interface ListSharedProjectsInput {
-  __type?: "ListSharedProjectsInput";
   /**
    * <p> The maximum number of paginated shared build projects returned per response. Use
    *                 <code>nextToken</code> to iterate pages in the list of returned <code>Project</code>
@@ -3181,11 +3008,9 @@ export namespace ListSharedProjectsInput {
   export const filterSensitiveLog = (obj: ListSharedProjectsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSharedProjectsInput => __isa(o, "ListSharedProjectsInput");
 }
 
 export interface ListSharedProjectsOutput {
-  __type?: "ListSharedProjectsOutput";
   /**
    * <p> The list of ARNs for the build projects shared with the current AWS account or user.
    *         </p>
@@ -3207,11 +3032,9 @@ export namespace ListSharedProjectsOutput {
   export const filterSensitiveLog = (obj: ListSharedProjectsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSharedProjectsOutput => __isa(o, "ListSharedProjectsOutput");
 }
 
 export interface ListSharedReportGroupsInput {
-  __type?: "ListSharedReportGroupsInput";
   /**
    * <p> The maximum number of paginated shared report groups per response. Use
    *                 <code>nextToken</code> to iterate pages in the list of returned
@@ -3266,11 +3089,9 @@ export namespace ListSharedReportGroupsInput {
   export const filterSensitiveLog = (obj: ListSharedReportGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSharedReportGroupsInput => __isa(o, "ListSharedReportGroupsInput");
 }
 
 export interface ListSharedReportGroupsOutput {
-  __type?: "ListSharedReportGroupsOutput";
   /**
    * <p> The list of ARNs for the report groups shared with the current AWS account or user.
    *         </p>
@@ -3292,22 +3113,17 @@ export namespace ListSharedReportGroupsOutput {
   export const filterSensitiveLog = (obj: ListSharedReportGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSharedReportGroupsOutput => __isa(o, "ListSharedReportGroupsOutput");
 }
 
-export interface ListSourceCredentialsInput {
-  __type?: "ListSourceCredentialsInput";
-}
+export interface ListSourceCredentialsInput {}
 
 export namespace ListSourceCredentialsInput {
   export const filterSensitiveLog = (obj: ListSourceCredentialsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSourceCredentialsInput => __isa(o, "ListSourceCredentialsInput");
 }
 
 export interface ListSourceCredentialsOutput {
-  __type?: "ListSourceCredentialsOutput";
   /**
    * <p> A list of <code>SourceCredentialsInfo</code> objects. Each
    *                 <code>SourceCredentialsInfo</code> object includes the authentication type, token
@@ -3320,7 +3136,6 @@ export namespace ListSourceCredentialsOutput {
   export const filterSensitiveLog = (obj: ListSourceCredentialsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSourceCredentialsOutput => __isa(o, "ListSourceCredentialsOutput");
 }
 
 /**
@@ -3328,7 +3143,6 @@ export namespace ListSourceCredentialsOutput {
  *             specified S3 bucket, or both. </p>
  */
 export interface LogsConfig {
-  __type?: "LogsConfig";
   /**
    * <p> Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default. </p>
    */
@@ -3345,7 +3159,6 @@ export namespace LogsConfig {
   export const filterSensitiveLog = (obj: LogsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogsConfig => __isa(o, "LogsConfig");
 }
 
 export enum LogsConfigStatusType {
@@ -3357,7 +3170,6 @@ export enum LogsConfigStatusType {
  * <p>Information about build logs in Amazon CloudWatch Logs.</p>
  */
 export interface LogsLocation {
-  __type?: "LogsLocation";
   /**
    * <p> The URL to a build log in an S3 bucket. </p>
    */
@@ -3407,14 +3219,12 @@ export namespace LogsLocation {
   export const filterSensitiveLog = (obj: LogsLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogsLocation => __isa(o, "LogsLocation");
 }
 
 /**
  * <p>Describes a network interface.</p>
  */
 export interface NetworkInterface {
-  __type?: "NetworkInterface";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -3430,7 +3240,6 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
@@ -3446,7 +3255,6 @@ export namespace OAuthProviderException {
   export const filterSensitiveLog = (obj: OAuthProviderException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OAuthProviderException => __isa(o, "OAuthProviderException");
 }
 
 /**
@@ -3454,7 +3262,6 @@ export namespace OAuthProviderException {
  *             information for troubleshooting.</p>
  */
 export interface PhaseContext {
-  __type?: "PhaseContext";
   /**
    * <p>An explanation of the build phase's context. This might include a command ID and an
    *             exit code.</p>
@@ -3471,7 +3278,6 @@ export namespace PhaseContext {
   export const filterSensitiveLog = (obj: PhaseContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhaseContext => __isa(o, "PhaseContext");
 }
 
 export enum PlatformType {
@@ -3485,7 +3291,6 @@ export enum PlatformType {
  * <p>Information about a build project.</p>
  */
 export interface Project {
-  __type?: "Project";
   /**
    * <p>Information about the build badge for the build project.</p>
    */
@@ -3661,14 +3466,12 @@ export namespace Project {
   export const filterSensitiveLog = (obj: Project): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Project => __isa(o, "Project");
 }
 
 /**
  * <p>Information about the build output artifacts for the build project.</p>
  */
 export interface ProjectArtifacts {
-  __type?: "ProjectArtifacts";
   /**
    * <p>The type of build output artifact. Valid values include:</p>
    *         <ul>
@@ -3878,14 +3681,12 @@ export namespace ProjectArtifacts {
   export const filterSensitiveLog = (obj: ProjectArtifacts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectArtifacts => __isa(o, "ProjectArtifacts");
 }
 
 /**
  * <p>Information about the build badge for the build project.</p>
  */
 export interface ProjectBadge {
-  __type?: "ProjectBadge";
   /**
    * <p>The publicly-accessible URL through which you can access the build badge for your
    *             project. </p>
@@ -3905,14 +3706,12 @@ export namespace ProjectBadge {
   export const filterSensitiveLog = (obj: ProjectBadge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectBadge => __isa(o, "ProjectBadge");
 }
 
 /**
  * <p>Contains configuration information about a batch build project.</p>
  */
 export interface ProjectBuildBatchConfig {
-  __type?: "ProjectBuildBatchConfig";
   /**
    * <p>A <code>BatchRestrictions</code> object that specifies the restrictions for the batch
    *             build.</p>
@@ -3940,14 +3739,12 @@ export namespace ProjectBuildBatchConfig {
   export const filterSensitiveLog = (obj: ProjectBuildBatchConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectBuildBatchConfig => __isa(o, "ProjectBuildBatchConfig");
 }
 
 /**
  * <p>Information about the cache for the build project.</p>
  */
 export interface ProjectCache {
-  __type?: "ProjectCache";
   /**
    * <p>The type of cache used by the build project. Valid values include:</p>
    *         <ul>
@@ -4051,14 +3848,12 @@ export namespace ProjectCache {
   export const filterSensitiveLog = (obj: ProjectCache): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectCache => __isa(o, "ProjectCache");
 }
 
 /**
  * <p>Information about the build environment of the build project.</p>
  */
 export interface ProjectEnvironment {
-  __type?: "ProjectEnvironment";
   /**
    * <p>Information about the compute resources the build project uses. Available values
    *             include:</p>
@@ -4223,7 +4018,6 @@ export namespace ProjectEnvironment {
   export const filterSensitiveLog = (obj: ProjectEnvironment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectEnvironment => __isa(o, "ProjectEnvironment");
 }
 
 /**
@@ -4233,7 +4027,6 @@ export namespace ProjectEnvironment {
  *         </p>
  */
 export interface ProjectFileSystemLocation {
-  __type?: "ProjectFileSystemLocation";
   /**
    * <p> A string that specifies the location of the file system created by Amazon EFS. Its
    *             format is <code>efs-dns-name:/directory-path</code>. You can find the DNS name of file
@@ -4282,7 +4075,6 @@ export namespace ProjectFileSystemLocation {
   export const filterSensitiveLog = (obj: ProjectFileSystemLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectFileSystemLocation => __isa(o, "ProjectFileSystemLocation");
 }
 
 export enum ProjectSortByType {
@@ -4295,7 +4087,6 @@ export enum ProjectSortByType {
  * <p>Information about the build input source code for the build project.</p>
  */
 export interface ProjectSource {
-  __type?: "ProjectSource";
   /**
    * <p> Set to true to report the status of a build's start and finish to your source
    *             provider. This option is valid only when your source provider is GitHub, GitHub
@@ -4466,14 +4257,12 @@ export namespace ProjectSource {
   export const filterSensitiveLog = (obj: ProjectSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectSource => __isa(o, "ProjectSource");
 }
 
 /**
  * <p> A source identifier and its corresponding version. </p>
  */
 export interface ProjectSourceVersion {
-  __type?: "ProjectSourceVersion";
   /**
    * <p>The source version for the corresponding source identifier. If specified, must be one
    *             of:</p>
@@ -4515,11 +4304,9 @@ export namespace ProjectSourceVersion {
   export const filterSensitiveLog = (obj: ProjectSourceVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectSourceVersion => __isa(o, "ProjectSourceVersion");
 }
 
 export interface PutResourcePolicyInput {
-  __type?: "PutResourcePolicyInput";
   /**
    * <p> The ARN of the <code>Project</code> or <code>ReportGroup</code> resource you want to
    *             associate with a resource policy. </p>
@@ -4538,11 +4325,9 @@ export namespace PutResourcePolicyInput {
   export const filterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyInput => __isa(o, "PutResourcePolicyInput");
 }
 
 export interface PutResourcePolicyOutput {
-  __type?: "PutResourcePolicyOutput";
   /**
    * <p> The ARN of the <code>Project</code> or <code>ReportGroup</code> resource that is
    *             associated with a resource policy. </p>
@@ -4554,7 +4339,6 @@ export namespace PutResourcePolicyOutput {
   export const filterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyOutput => __isa(o, "PutResourcePolicyOutput");
 }
 
 /**
@@ -4574,7 +4358,6 @@ export namespace PutResourcePolicyOutput {
  *                 AWS Secrets Manager Sample for AWS CodeBuild</a>. </p>
  */
 export interface RegistryCredential {
-  __type?: "RegistryCredential";
   /**
    * <p> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager. </p>
    *         <note>
@@ -4595,7 +4378,6 @@ export namespace RegistryCredential {
   export const filterSensitiveLog = (obj: RegistryCredential): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegistryCredential => __isa(o, "RegistryCredential");
 }
 
 /**
@@ -4605,7 +4387,6 @@ export namespace RegistryCredential {
  *             such as unit tests, integration tests, and functional tests. </p>
  */
 export interface Report {
-  __type?: "Report";
   /**
    * <p> A <code>TestReportSummary</code> object that contains information about this test
    *       report. </p>
@@ -4686,7 +4467,6 @@ export namespace Report {
   export const filterSensitiveLog = (obj: Report): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Report => __isa(o, "Report");
 }
 
 export enum ReportCodeCoverageSortByType {
@@ -4698,7 +4478,6 @@ export enum ReportCodeCoverageSortByType {
  * <p> Information about the location where the run of a report is exported. </p>
  */
 export interface ReportExportConfig {
-  __type?: "ReportExportConfig";
   /**
    * <p> The export configuration type. Valid values are: </p>
    *         <ul>
@@ -4725,7 +4504,6 @@ export namespace ReportExportConfig {
   export const filterSensitiveLog = (obj: ReportExportConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportExportConfig => __isa(o, "ReportExportConfig");
 }
 
 export enum ReportExportConfigType {
@@ -4738,7 +4516,6 @@ export enum ReportExportConfigType {
  *                 <code>status</code> parameter. </p>
  */
 export interface ReportFilter {
-  __type?: "ReportFilter";
   /**
    * <p> The status used to filter reports. You can filter using one status only. </p>
    */
@@ -4749,7 +4526,6 @@ export namespace ReportFilter {
   export const filterSensitiveLog = (obj: ReportFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportFilter => __isa(o, "ReportFilter");
 }
 
 /**
@@ -4758,7 +4534,6 @@ export namespace ReportFilter {
  *             for a build project using one or more paths to the test case files. </p>
  */
 export interface ReportGroup {
-  __type?: "ReportGroup";
   /**
    * <p> The type of the <code>ReportGroup</code>. The one valid value is <code>TEST</code>.
    *         </p>
@@ -4803,7 +4578,6 @@ export namespace ReportGroup {
   export const filterSensitiveLog = (obj: ReportGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportGroup => __isa(o, "ReportGroup");
 }
 
 export enum ReportGroupSortByType {
@@ -4835,7 +4609,6 @@ export enum ReportType {
  *             deployed to the destination, such as Amazon Simple Storage Service (Amazon S3).</p>
  */
 export interface ResolvedArtifact {
-  __type?: "ResolvedArtifact";
   /**
    * <p>The identifier of the artifact.</p>
    */
@@ -4856,7 +4629,6 @@ export namespace ResolvedArtifact {
   export const filterSensitiveLog = (obj: ResolvedArtifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolvedArtifact => __isa(o, "ResolvedArtifact");
 }
 
 /**
@@ -4873,7 +4645,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -4889,11 +4660,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface RetryBuildBatchInput {
-  __type?: "RetryBuildBatchInput";
   /**
    * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
    *                 <code>RetryBuildBatch</code> request. The token is included in the
@@ -4918,11 +4687,9 @@ export namespace RetryBuildBatchInput {
   export const filterSensitiveLog = (obj: RetryBuildBatchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryBuildBatchInput => __isa(o, "RetryBuildBatchInput");
 }
 
 export interface RetryBuildBatchOutput {
-  __type?: "RetryBuildBatchOutput";
   /**
    * <p>Contains information about a batch build.</p>
    */
@@ -4933,7 +4700,6 @@ export namespace RetryBuildBatchOutput {
   export const filterSensitiveLog = (obj: RetryBuildBatchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryBuildBatchOutput => __isa(o, "RetryBuildBatchOutput");
 }
 
 export enum RetryBuildBatchType {
@@ -4942,7 +4708,6 @@ export enum RetryBuildBatchType {
 }
 
 export interface RetryBuildInput {
-  __type?: "RetryBuildInput";
   /**
    * <p>Specifies the identifier of the build to restart.</p>
    */
@@ -4962,11 +4727,9 @@ export namespace RetryBuildInput {
   export const filterSensitiveLog = (obj: RetryBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryBuildInput => __isa(o, "RetryBuildInput");
 }
 
 export interface RetryBuildOutput {
-  __type?: "RetryBuildOutput";
   /**
    * <p>Information about a build.</p>
    */
@@ -4977,14 +4740,12 @@ export namespace RetryBuildOutput {
   export const filterSensitiveLog = (obj: RetryBuildOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryBuildOutput => __isa(o, "RetryBuildOutput");
 }
 
 /**
  * <p> Information about S3 logs for a build project. </p>
  */
 export interface S3LogsConfig {
-  __type?: "S3LogsConfig";
   /**
    * <p> Set to true if you do not want your S3 build log output encrypted. By default S3
    *             build logs are encrypted. </p>
@@ -5020,14 +4781,12 @@ export namespace S3LogsConfig {
   export const filterSensitiveLog = (obj: S3LogsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3LogsConfig => __isa(o, "S3LogsConfig");
 }
 
 /**
  * <p> Information about the S3 bucket where the raw data of a report are exported. </p>
  */
 export interface S3ReportExportConfig {
-  __type?: "S3ReportExportConfig";
   /**
    * <p> The type of build output artifact to create. Valid values include: </p>
    *         <ul>
@@ -5070,7 +4829,6 @@ export namespace S3ReportExportConfig {
   export const filterSensitiveLog = (obj: S3ReportExportConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ReportExportConfig => __isa(o, "S3ReportExportConfig");
 }
 
 export enum ServerType {
@@ -5096,7 +4854,6 @@ export enum SortOrderType {
  *             this information directly.</p>
  */
 export interface SourceAuth {
-  __type?: "SourceAuth";
   /**
    * <p>The resource value that applies to the specified authorization type.</p>
    */
@@ -5116,7 +4873,6 @@ export namespace SourceAuth {
   export const filterSensitiveLog = (obj: SourceAuth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceAuth => __isa(o, "SourceAuth");
 }
 
 export enum SourceAuthType {
@@ -5128,7 +4884,6 @@ export enum SourceAuthType {
  *             repository. </p>
  */
 export interface SourceCredentialsInfo {
-  __type?: "SourceCredentialsInfo";
   /**
    * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or
    *             BITBUCKET. </p>
@@ -5151,7 +4906,6 @@ export namespace SourceCredentialsInfo {
   export const filterSensitiveLog = (obj: SourceCredentialsInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceCredentialsInfo => __isa(o, "SourceCredentialsInfo");
 }
 
 export enum SourceType {
@@ -5165,7 +4919,6 @@ export enum SourceType {
 }
 
 export interface StartBuildBatchInput {
-  __type?: "StartBuildBatchInput";
   /**
    * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build
    *         project. The CMK key encrypts the build output artifacts.</p>
@@ -5418,11 +5171,9 @@ export namespace StartBuildBatchInput {
   export const filterSensitiveLog = (obj: StartBuildBatchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBuildBatchInput => __isa(o, "StartBuildBatchInput");
 }
 
 export interface StartBuildBatchOutput {
-  __type?: "StartBuildBatchOutput";
   /**
    * <p>A <code>BuildBatch</code> object that contains information about the batch build.</p>
    */
@@ -5433,11 +5184,9 @@ export namespace StartBuildBatchOutput {
   export const filterSensitiveLog = (obj: StartBuildBatchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBuildBatchOutput => __isa(o, "StartBuildBatchOutput");
 }
 
 export interface StartBuildInput {
-  __type?: "StartBuildInput";
   /**
    * <p> Log settings for this build that override the log settings defined in the build
    *             project. </p>
@@ -5696,11 +5445,9 @@ export namespace StartBuildInput {
   export const filterSensitiveLog = (obj: StartBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBuildInput => __isa(o, "StartBuildInput");
 }
 
 export interface StartBuildOutput {
-  __type?: "StartBuildOutput";
   /**
    * <p>Information about the build to be run.</p>
    */
@@ -5711,7 +5458,6 @@ export namespace StartBuildOutput {
   export const filterSensitiveLog = (obj: StartBuildOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartBuildOutput => __isa(o, "StartBuildOutput");
 }
 
 export enum StatusType {
@@ -5724,7 +5470,6 @@ export enum StatusType {
 }
 
 export interface StopBuildBatchInput {
-  __type?: "StopBuildBatchInput";
   /**
    * <p>The identifier of the batch build to stop.</p>
    */
@@ -5735,11 +5480,9 @@ export namespace StopBuildBatchInput {
   export const filterSensitiveLog = (obj: StopBuildBatchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBuildBatchInput => __isa(o, "StopBuildBatchInput");
 }
 
 export interface StopBuildBatchOutput {
-  __type?: "StopBuildBatchOutput";
   /**
    * <p>Contains information about a batch build.</p>
    */
@@ -5750,11 +5493,9 @@ export namespace StopBuildBatchOutput {
   export const filterSensitiveLog = (obj: StopBuildBatchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBuildBatchOutput => __isa(o, "StopBuildBatchOutput");
 }
 
 export interface StopBuildInput {
-  __type?: "StopBuildInput";
   /**
    * <p>The ID of the build.</p>
    */
@@ -5765,11 +5506,9 @@ export namespace StopBuildInput {
   export const filterSensitiveLog = (obj: StopBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBuildInput => __isa(o, "StopBuildInput");
 }
 
 export interface StopBuildOutput {
-  __type?: "StopBuildOutput";
   /**
    * <p>Information about the build.</p>
    */
@@ -5780,7 +5519,6 @@ export namespace StopBuildOutput {
   export const filterSensitiveLog = (obj: StopBuildOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopBuildOutput => __isa(o, "StopBuildOutput");
 }
 
 /**
@@ -5788,7 +5526,6 @@ export namespace StopBuildOutput {
  *         <p>This tag is available for use by AWS services that support tags in AWS CodeBuild.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's key.</p>
    */
@@ -5804,7 +5541,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -5812,7 +5548,6 @@ export namespace Tag {
  *             test case might be a unit test or a configuration test. </p>
  */
 export interface TestCase {
-  __type?: "TestCase";
   /**
    * <p> The ARN of the report to which the test case belongs. </p>
    */
@@ -5863,14 +5598,12 @@ export namespace TestCase {
   export const filterSensitiveLog = (obj: TestCase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestCase => __isa(o, "TestCase");
 }
 
 /**
  * <p> A filter used to return specific types of test cases. </p>
  */
 export interface TestCaseFilter {
-  __type?: "TestCaseFilter";
   /**
    * <p> The status used to filter test cases. Valid statuses are <code>SUCCEEDED</code>,
    *                 <code>FAILED</code>, <code>ERROR</code>, <code>SKIPPED</code>, and
@@ -5883,14 +5616,12 @@ export namespace TestCaseFilter {
   export const filterSensitiveLog = (obj: TestCaseFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestCaseFilter => __isa(o, "TestCaseFilter");
 }
 
 /**
  * <p> Information about a test report. </p>
  */
 export interface TestReportSummary {
-  __type?: "TestReportSummary";
   /**
    * <p> The number of nanoseconds it took to run all of the test cases in this report.
    *         </p>
@@ -5914,11 +5645,9 @@ export namespace TestReportSummary {
   export const filterSensitiveLog = (obj: TestReportSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestReportSummary => __isa(o, "TestReportSummary");
 }
 
 export interface UpdateProjectInput {
-  __type?: "UpdateProjectInput";
   /**
    * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
    *             artifacts.</p>
@@ -6078,11 +5807,9 @@ export namespace UpdateProjectInput {
   export const filterSensitiveLog = (obj: UpdateProjectInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectInput => __isa(o, "UpdateProjectInput");
 }
 
 export interface UpdateProjectOutput {
-  __type?: "UpdateProjectOutput";
   /**
    * <p>Information about the build project that was changed.</p>
    */
@@ -6093,11 +5820,9 @@ export namespace UpdateProjectOutput {
   export const filterSensitiveLog = (obj: UpdateProjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectOutput => __isa(o, "UpdateProjectOutput");
 }
 
 export interface UpdateReportGroupInput {
-  __type?: "UpdateReportGroupInput";
   /**
    * <p>
    *       Used to specify an updated export type. Valid values are:
@@ -6138,11 +5863,9 @@ export namespace UpdateReportGroupInput {
   export const filterSensitiveLog = (obj: UpdateReportGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateReportGroupInput => __isa(o, "UpdateReportGroupInput");
 }
 
 export interface UpdateReportGroupOutput {
-  __type?: "UpdateReportGroupOutput";
   /**
    * <p>
    *       Information about the updated report group.
@@ -6155,11 +5878,9 @@ export namespace UpdateReportGroupOutput {
   export const filterSensitiveLog = (obj: UpdateReportGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateReportGroupOutput => __isa(o, "UpdateReportGroupOutput");
 }
 
 export interface UpdateWebhookInput {
-  __type?: "UpdateWebhookInput";
   /**
    * <p> A boolean value that specifies whether the associated GitHub repository's secret
    *       token should be updated. If you use Bitbucket for your repository,
@@ -6201,11 +5922,9 @@ export namespace UpdateWebhookInput {
   export const filterSensitiveLog = (obj: UpdateWebhookInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebhookInput => __isa(o, "UpdateWebhookInput");
 }
 
 export interface UpdateWebhookOutput {
-  __type?: "UpdateWebhookOutput";
   /**
    * <p> Information about a repository's webhook that is associated with a project in AWS CodeBuild.
    *     </p>
@@ -6217,14 +5936,12 @@ export namespace UpdateWebhookOutput {
   export const filterSensitiveLog = (obj: UpdateWebhookOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebhookOutput => __isa(o, "UpdateWebhookOutput");
 }
 
 /**
  * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
  */
 export interface VpcConfig {
-  __type?: "VpcConfig";
   /**
    * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
    */
@@ -6245,7 +5962,6 @@ export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }
 
 /**
@@ -6253,7 +5969,6 @@ export namespace VpcConfig {
  *       AWS CodeBuild.</p>
  */
 export interface Webhook {
-  __type?: "Webhook";
   /**
    * <p>A timestamp that indicates the last time a repository's secret token was modified.
    *     </p>
@@ -6309,7 +6024,6 @@ export namespace Webhook {
   export const filterSensitiveLog = (obj: Webhook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Webhook => __isa(o, "Webhook");
 }
 
 export enum WebhookBuildType {
@@ -6321,7 +6035,6 @@ export enum WebhookBuildType {
  * <p> A filter used to determine which webhooks trigger a build. </p>
  */
 export interface WebhookFilter {
-  __type?: "WebhookFilter";
   /**
    * <p> For a <code>WebHookFilter</code> that uses <code>EVENT</code> type, a comma-separated
    *             string that specifies one or more events. For example, the webhook filter <code>PUSH,
@@ -6426,7 +6139,6 @@ export namespace WebhookFilter {
   export const filterSensitiveLog = (obj: WebhookFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebhookFilter => __isa(o, "WebhookFilter");
 }
 
 export enum WebhookFilterType {

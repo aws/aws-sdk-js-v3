@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Specifies the tags to add to a trail.</p>
  */
 export interface AddTagsRequest {
-  __type?: "AddTagsRequest";
   /**
    * <p>Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:</p>
    *          <p>
@@ -24,21 +23,17 @@ export namespace AddTagsRequest {
   export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsRequest => __isa(o, "AddTagsRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface AddTagsResponse {
-  __type?: "AddTagsResponse";
-}
+export interface AddTagsResponse {}
 
 export namespace AddTagsResponse {
   export const filterSensitiveLog = (obj: AddTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsResponse => __isa(o, "AddTagsResponse");
 }
 
 /**
@@ -59,8 +54,6 @@ export namespace CloudTrailAccessNotEnabledException {
   export const filterSensitiveLog = (obj: CloudTrailAccessNotEnabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudTrailAccessNotEnabledException =>
-    __isa(o, "CloudTrailAccessNotEnabledException");
 }
 
 /**
@@ -82,7 +75,6 @@ export namespace CloudTrailARNInvalidException {
   export const filterSensitiveLog = (obj: CloudTrailARNInvalidException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudTrailARNInvalidException => __isa(o, "CloudTrailARNInvalidException");
 }
 
 /**
@@ -101,15 +93,12 @@ export namespace CloudWatchLogsDeliveryUnavailableException {
   export const filterSensitiveLog = (obj: CloudWatchLogsDeliveryUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsDeliveryUnavailableException =>
-    __isa(o, "CloudWatchLogsDeliveryUnavailableException");
 }
 
 /**
  * <p>Specifies the settings for each trail.</p>
  */
 export interface CreateTrailRequest {
-  __type?: "CreateTrailRequest";
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
    */
@@ -218,14 +207,12 @@ export namespace CreateTrailRequest {
   export const filterSensitiveLog = (obj: CreateTrailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrailRequest => __isa(o, "CreateTrailRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface CreateTrailResponse {
-  __type?: "CreateTrailResponse";
   /**
    * <p>Specifies whether the trail exists in one region or in all regions.</p>
    */
@@ -307,7 +294,6 @@ export namespace CreateTrailResponse {
   export const filterSensitiveLog = (obj: CreateTrailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrailResponse => __isa(o, "CreateTrailResponse");
 }
 
 /**
@@ -361,7 +347,6 @@ export namespace CreateTrailResponse {
  *          </ol>
  */
 export interface DataResource {
-  __type?: "DataResource";
   /**
    * <p>An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.</p>
    *          <ul>
@@ -415,14 +400,12 @@ export namespace DataResource {
   export const filterSensitiveLog = (obj: DataResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataResource => __isa(o, "DataResource");
 }
 
 /**
  * <p>The request that specifies the name of a trail to delete.</p>
  */
 export interface DeleteTrailRequest {
-  __type?: "DeleteTrailRequest";
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a
    *          trail ARN is:
@@ -436,28 +419,23 @@ export namespace DeleteTrailRequest {
   export const filterSensitiveLog = (obj: DeleteTrailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrailRequest => __isa(o, "DeleteTrailRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface DeleteTrailResponse {
-  __type?: "DeleteTrailResponse";
-}
+export interface DeleteTrailResponse {}
 
 export namespace DeleteTrailResponse {
   export const filterSensitiveLog = (obj: DeleteTrailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrailResponse => __isa(o, "DeleteTrailResponse");
 }
 
 /**
  * <p>Returns information about the trail.</p>
  */
 export interface DescribeTrailsRequest {
-  __type?: "DescribeTrailsRequest";
   /**
    * <p>Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region,
    *          or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account
@@ -492,14 +470,12 @@ export namespace DescribeTrailsRequest {
   export const filterSensitiveLog = (obj: DescribeTrailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrailsRequest => __isa(o, "DescribeTrailsRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface DescribeTrailsResponse {
-  __type?: "DescribeTrailsResponse";
   /**
    * <p>The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration.
    *          For example, <code>SNSTopicName</code> and <code>SNSTopicARN</code> are only returned in results if a trail is configured to send SNS notifications. Similarly,
@@ -512,14 +488,12 @@ export namespace DescribeTrailsResponse {
   export const filterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrailsResponse => __isa(o, "DescribeTrailsResponse");
 }
 
 /**
  * <p>Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>A user name or role name of the requester that called the API in the event returned.</p>
    */
@@ -571,7 +545,6 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 export enum EventCategory {
@@ -588,7 +561,6 @@ export enum EventCategory {
  *          <p>You can configure up to five event selectors for a trail.</p>
  */
 export interface EventSelector {
-  __type?: "EventSelector";
   /**
    * <p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify
    *          up to 250 resources for an individual event selector, but the total number of data resources cannot exceed
@@ -626,11 +598,9 @@ export namespace EventSelector {
   export const filterSensitiveLog = (obj: EventSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSelector => __isa(o, "EventSelector");
 }
 
 export interface GetEventSelectorsRequest {
-  __type?: "GetEventSelectorsRequest";
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
    *          string must meet the following requirements:</p>
@@ -664,11 +634,9 @@ export namespace GetEventSelectorsRequest {
   export const filterSensitiveLog = (obj: GetEventSelectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventSelectorsRequest => __isa(o, "GetEventSelectorsRequest");
 }
 
 export interface GetEventSelectorsResponse {
-  __type?: "GetEventSelectorsResponse";
   /**
    * <p>The specified trail ARN that has the event selectors.</p>
    */
@@ -684,11 +652,9 @@ export namespace GetEventSelectorsResponse {
   export const filterSensitiveLog = (obj: GetEventSelectorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventSelectorsResponse => __isa(o, "GetEventSelectorsResponse");
 }
 
 export interface GetInsightSelectorsRequest {
-  __type?: "GetInsightSelectorsRequest";
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
    *          string must meet the following requirements:</p>
@@ -722,11 +688,9 @@ export namespace GetInsightSelectorsRequest {
   export const filterSensitiveLog = (obj: GetInsightSelectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightSelectorsRequest => __isa(o, "GetInsightSelectorsRequest");
 }
 
 export interface GetInsightSelectorsResponse {
-  __type?: "GetInsightSelectorsResponse";
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
    */
@@ -742,11 +706,9 @@ export namespace GetInsightSelectorsResponse {
   export const filterSensitiveLog = (obj: GetInsightSelectorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightSelectorsResponse => __isa(o, "GetInsightSelectorsResponse");
 }
 
 export interface GetTrailRequest {
-  __type?: "GetTrailRequest";
   /**
    * <p>The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve settings information.</p>
    */
@@ -757,11 +719,9 @@ export namespace GetTrailRequest {
   export const filterSensitiveLog = (obj: GetTrailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrailRequest => __isa(o, "GetTrailRequest");
 }
 
 export interface GetTrailResponse {
-  __type?: "GetTrailResponse";
   /**
    * <p>The settings for a trail.</p>
    */
@@ -772,14 +732,12 @@ export namespace GetTrailResponse {
   export const filterSensitiveLog = (obj: GetTrailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrailResponse => __isa(o, "GetTrailResponse");
 }
 
 /**
  * <p>The name of a trail about which you want the current status.</p>
  */
 export interface GetTrailStatusRequest {
-  __type?: "GetTrailStatusRequest";
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a shadow trail (a replication of the trail in another region), you must specify its ARN. The format of a trail ARN is:</p>
    *           <p>
@@ -793,14 +751,12 @@ export namespace GetTrailStatusRequest {
   export const filterSensitiveLog = (obj: GetTrailStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrailStatusRequest => __isa(o, "GetTrailStatusRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface GetTrailStatusResponse {
-  __type?: "GetTrailStatusResponse";
   /**
    * <p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.</p>
    */
@@ -909,7 +865,6 @@ export namespace GetTrailStatusResponse {
   export const filterSensitiveLog = (obj: GetTrailStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrailStatusResponse => __isa(o, "GetTrailStatusResponse");
 }
 
 /**
@@ -928,14 +883,12 @@ export namespace InsightNotEnabledException {
   export const filterSensitiveLog = (obj: InsightNotEnabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightNotEnabledException => __isa(o, "InsightNotEnabledException");
 }
 
 /**
  * <p>A JSON string that contains a list of insight types that are logged on a trail.</p>
  */
 export interface InsightSelector {
-  __type?: "InsightSelector";
   /**
    * <p>The type of insights to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
    */
@@ -946,7 +899,6 @@ export namespace InsightSelector {
   export const filterSensitiveLog = (obj: InsightSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightSelector => __isa(o, "InsightSelector");
 }
 
 export enum InsightType {
@@ -971,8 +923,6 @@ export namespace InsufficientDependencyServiceAccessPermissionException {
   export const filterSensitiveLog = (obj: InsufficientDependencyServiceAccessPermissionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientDependencyServiceAccessPermissionException =>
-    __isa(o, "InsufficientDependencyServiceAccessPermissionException");
 }
 
 /**
@@ -991,8 +941,6 @@ export namespace InsufficientEncryptionPolicyException {
   export const filterSensitiveLog = (obj: InsufficientEncryptionPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientEncryptionPolicyException =>
-    __isa(o, "InsufficientEncryptionPolicyException");
 }
 
 /**
@@ -1011,8 +959,6 @@ export namespace InsufficientS3BucketPolicyException {
   export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientS3BucketPolicyException =>
-    __isa(o, "InsufficientS3BucketPolicyException");
 }
 
 /**
@@ -1031,8 +977,6 @@ export namespace InsufficientSnsTopicPolicyException {
   export const filterSensitiveLog = (obj: InsufficientSnsTopicPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientSnsTopicPolicyException =>
-    __isa(o, "InsufficientSnsTopicPolicyException");
 }
 
 /**
@@ -1051,8 +995,6 @@ export namespace InvalidCloudWatchLogsLogGroupArnException {
   export const filterSensitiveLog = (obj: InvalidCloudWatchLogsLogGroupArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCloudWatchLogsLogGroupArnException =>
-    __isa(o, "InvalidCloudWatchLogsLogGroupArnException");
 }
 
 /**
@@ -1071,8 +1013,6 @@ export namespace InvalidCloudWatchLogsRoleArnException {
   export const filterSensitiveLog = (obj: InvalidCloudWatchLogsRoleArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCloudWatchLogsRoleArnException =>
-    __isa(o, "InvalidCloudWatchLogsRoleArnException");
 }
 
 /**
@@ -1091,7 +1031,6 @@ export namespace InvalidEventCategoryException {
   export const filterSensitiveLog = (obj: InvalidEventCategoryException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEventCategoryException => __isa(o, "InvalidEventCategoryException");
 }
 
 /**
@@ -1128,7 +1067,6 @@ export namespace InvalidEventSelectorsException {
   export const filterSensitiveLog = (obj: InvalidEventSelectorsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEventSelectorsException => __isa(o, "InvalidEventSelectorsException");
 }
 
 /**
@@ -1147,7 +1085,6 @@ export namespace InvalidHomeRegionException {
   export const filterSensitiveLog = (obj: InvalidHomeRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidHomeRegionException => __isa(o, "InvalidHomeRegionException");
 }
 
 /**
@@ -1167,7 +1104,6 @@ export namespace InvalidInsightSelectorsException {
   export const filterSensitiveLog = (obj: InvalidInsightSelectorsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInsightSelectorsException => __isa(o, "InvalidInsightSelectorsException");
 }
 
 /**
@@ -1186,7 +1122,6 @@ export namespace InvalidKmsKeyIdException {
   export const filterSensitiveLog = (obj: InvalidKmsKeyIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidKmsKeyIdException => __isa(o, "InvalidKmsKeyIdException");
 }
 
 /**
@@ -1205,7 +1140,6 @@ export namespace InvalidLookupAttributesException {
   export const filterSensitiveLog = (obj: InvalidLookupAttributesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLookupAttributesException => __isa(o, "InvalidLookupAttributesException");
 }
 
 /**
@@ -1224,7 +1158,6 @@ export namespace InvalidMaxResultsException {
   export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxResultsException => __isa(o, "InvalidMaxResultsException");
 }
 
 /**
@@ -1243,7 +1176,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -1262,8 +1194,6 @@ export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
 }
 
 /**
@@ -1282,7 +1212,6 @@ export namespace InvalidS3BucketNameException {
   export const filterSensitiveLog = (obj: InvalidS3BucketNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3BucketNameException => __isa(o, "InvalidS3BucketNameException");
 }
 
 /**
@@ -1301,7 +1230,6 @@ export namespace InvalidS3PrefixException {
   export const filterSensitiveLog = (obj: InvalidS3PrefixException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3PrefixException => __isa(o, "InvalidS3PrefixException");
 }
 
 /**
@@ -1320,7 +1248,6 @@ export namespace InvalidSnsTopicNameException {
   export const filterSensitiveLog = (obj: InvalidSnsTopicNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSnsTopicNameException => __isa(o, "InvalidSnsTopicNameException");
 }
 
 /**
@@ -1340,7 +1267,6 @@ export namespace InvalidTagParameterException {
   export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagParameterException => __isa(o, "InvalidTagParameterException");
 }
 
 /**
@@ -1359,7 +1285,6 @@ export namespace InvalidTimeRangeException {
   export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTimeRangeException => __isa(o, "InvalidTimeRangeException");
 }
 
 /**
@@ -1378,7 +1303,6 @@ export namespace InvalidTokenException {
   export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTokenException => __isa(o, "InvalidTokenException");
 }
 
 /**
@@ -1415,7 +1339,6 @@ export namespace InvalidTrailNameException {
   export const filterSensitiveLog = (obj: InvalidTrailNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTrailNameException => __isa(o, "InvalidTrailNameException");
 }
 
 /**
@@ -1434,7 +1357,6 @@ export namespace KmsException {
   export const filterSensitiveLog = (obj: KmsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KmsException => __isa(o, "KmsException");
 }
 
 /**
@@ -1453,7 +1375,6 @@ export namespace KmsKeyDisabledException {
   export const filterSensitiveLog = (obj: KmsKeyDisabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KmsKeyDisabledException => __isa(o, "KmsKeyDisabledException");
 }
 
 /**
@@ -1472,14 +1393,12 @@ export namespace KmsKeyNotFoundException {
   export const filterSensitiveLog = (obj: KmsKeyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KmsKeyNotFoundException => __isa(o, "KmsKeyNotFoundException");
 }
 
 /**
  * <p>Requests the public keys for a specified time range.</p>
  */
 export interface ListPublicKeysRequest {
-  __type?: "ListPublicKeysRequest";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -1500,14 +1419,12 @@ export namespace ListPublicKeysRequest {
   export const filterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPublicKeysRequest => __isa(o, "ListPublicKeysRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface ListPublicKeysResponse {
-  __type?: "ListPublicKeysResponse";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -1526,14 +1443,12 @@ export namespace ListPublicKeysResponse {
   export const filterSensitiveLog = (obj: ListPublicKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPublicKeysResponse => __isa(o, "ListPublicKeysResponse");
 }
 
 /**
  * <p>Specifies a list of trail tags to return.</p>
  */
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -1552,14 +1467,12 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface ListTagsResponse {
-  __type?: "ListTagsResponse";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -1575,11 +1488,9 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface ListTrailsRequest {
-  __type?: "ListTrailsRequest";
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token must be passed
    *          in with the same parameters that were specified in the the original call. For example, if the original
@@ -1593,11 +1504,9 @@ export namespace ListTrailsRequest {
   export const filterSensitiveLog = (obj: ListTrailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrailsRequest => __isa(o, "ListTrailsRequest");
 }
 
 export interface ListTrailsResponse {
-  __type?: "ListTrailsResponse";
   /**
    * <p>Returns the name, ARN, and home region of trails in the current account.</p>
    */
@@ -1616,14 +1525,12 @@ export namespace ListTrailsResponse {
   export const filterSensitiveLog = (obj: ListTrailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrailsResponse => __isa(o, "ListTrailsResponse");
 }
 
 /**
  * <p>Specifies an attribute and value that filter the events returned.</p>
  */
 export interface LookupAttribute {
-  __type?: "LookupAttribute";
   /**
    * <p>Specifies an attribute on which to filter the events returned.</p>
    */
@@ -1639,7 +1546,6 @@ export namespace LookupAttribute {
   export const filterSensitiveLog = (obj: LookupAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LookupAttribute => __isa(o, "LookupAttribute");
 }
 
 export enum LookupAttributeKey {
@@ -1657,7 +1563,6 @@ export enum LookupAttributeKey {
  * <p>Contains a request for LookupEvents.</p>
  */
 export interface LookupEventsRequest {
-  __type?: "LookupEventsRequest";
   /**
    * <p>Contains a list of lookup attributes. Currently the list can contain only one item.</p>
    */
@@ -1695,14 +1600,12 @@ export namespace LookupEventsRequest {
   export const filterSensitiveLog = (obj: LookupEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LookupEventsRequest => __isa(o, "LookupEventsRequest");
 }
 
 /**
  * <p>Contains a response to a LookupEvents action.</p>
  */
 export interface LookupEventsResponse {
-  __type?: "LookupEventsResponse";
   /**
    * <p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>
    */
@@ -1721,7 +1624,6 @@ export namespace LookupEventsResponse {
   export const filterSensitiveLog = (obj: LookupEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LookupEventsResponse => __isa(o, "LookupEventsResponse");
 }
 
 /**
@@ -1740,8 +1642,6 @@ export namespace MaximumNumberOfTrailsExceededException {
   export const filterSensitiveLog = (obj: MaximumNumberOfTrailsExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumNumberOfTrailsExceededException =>
-    __isa(o, "MaximumNumberOfTrailsExceededException");
 }
 
 /**
@@ -1762,8 +1662,6 @@ export namespace NotOrganizationMasterAccountException {
   export const filterSensitiveLog = (obj: NotOrganizationMasterAccountException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotOrganizationMasterAccountException =>
-    __isa(o, "NotOrganizationMasterAccountException");
 }
 
 /**
@@ -1782,7 +1680,6 @@ export namespace OperationNotPermittedException {
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
@@ -1803,8 +1700,6 @@ export namespace OrganizationNotInAllFeaturesModeException {
   export const filterSensitiveLog = (obj: OrganizationNotInAllFeaturesModeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationNotInAllFeaturesModeException =>
-    __isa(o, "OrganizationNotInAllFeaturesModeException");
 }
 
 /**
@@ -1824,14 +1719,12 @@ export namespace OrganizationsNotInUseException {
   export const filterSensitiveLog = (obj: OrganizationsNotInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationsNotInUseException => __isa(o, "OrganizationsNotInUseException");
 }
 
 /**
  * <p>Contains information about a returned public key.</p>
  */
 export interface PublicKey {
-  __type?: "PublicKey";
   /**
    * <p>The fingerprint of the public key.</p>
    */
@@ -1857,11 +1750,9 @@ export namespace PublicKey {
   export const filterSensitiveLog = (obj: PublicKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKey => __isa(o, "PublicKey");
 }
 
 export interface PutEventSelectorsRequest {
-  __type?: "PutEventSelectorsRequest";
   /**
    * <p>Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.</p>
    */
@@ -1900,11 +1791,9 @@ export namespace PutEventSelectorsRequest {
   export const filterSensitiveLog = (obj: PutEventSelectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventSelectorsRequest => __isa(o, "PutEventSelectorsRequest");
 }
 
 export interface PutEventSelectorsResponse {
-  __type?: "PutEventSelectorsResponse";
   /**
    * <p>Specifies the event selectors configured for your trail.</p>
    */
@@ -1924,11 +1813,9 @@ export namespace PutEventSelectorsResponse {
   export const filterSensitiveLog = (obj: PutEventSelectorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventSelectorsResponse => __isa(o, "PutEventSelectorsResponse");
 }
 
 export interface PutInsightSelectorsRequest {
-  __type?: "PutInsightSelectorsRequest";
   /**
    * <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p>
    */
@@ -1944,11 +1831,9 @@ export namespace PutInsightSelectorsRequest {
   export const filterSensitiveLog = (obj: PutInsightSelectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInsightSelectorsRequest => __isa(o, "PutInsightSelectorsRequest");
 }
 
 export interface PutInsightSelectorsResponse {
-  __type?: "PutInsightSelectorsResponse";
   /**
    * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
    */
@@ -1964,7 +1849,6 @@ export namespace PutInsightSelectorsResponse {
   export const filterSensitiveLog = (obj: PutInsightSelectorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInsightSelectorsResponse => __isa(o, "PutInsightSelectorsResponse");
 }
 
 export enum ReadWriteType {
@@ -1977,7 +1861,6 @@ export enum ReadWriteType {
  * <p>Specifies the tags to remove from a trail.</p>
  */
 export interface RemoveTagsRequest {
-  __type?: "RemoveTagsRequest";
   /**
    * <p>Specifies a list of tags to be removed.</p>
    */
@@ -1996,28 +1879,23 @@ export namespace RemoveTagsRequest {
   export const filterSensitiveLog = (obj: RemoveTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsRequest => __isa(o, "RemoveTagsRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface RemoveTagsResponse {
-  __type?: "RemoveTagsResponse";
-}
+export interface RemoveTagsResponse {}
 
 export namespace RemoveTagsResponse {
   export const filterSensitiveLog = (obj: RemoveTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsResponse => __isa(o, "RemoveTagsResponse");
 }
 
 /**
  * <p>Specifies the type and name of a resource referenced by an event.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.</p>
    */
@@ -2036,7 +1914,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -2055,14 +1932,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A resource tag.</p>
  */
 export interface ResourceTag {
-  __type?: "ResourceTag";
   /**
    * <p>Specifies the ARN of the resource.</p>
    */
@@ -2078,7 +1953,6 @@ export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
 
 /**
@@ -2097,7 +1971,6 @@ export namespace ResourceTypeNotSupportedException {
   export const filterSensitiveLog = (obj: ResourceTypeNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTypeNotSupportedException => __isa(o, "ResourceTypeNotSupportedException");
 }
 
 /**
@@ -2116,14 +1989,12 @@ export namespace S3BucketDoesNotExistException {
   export const filterSensitiveLog = (obj: S3BucketDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3BucketDoesNotExistException => __isa(o, "S3BucketDoesNotExistException");
 }
 
 /**
  * <p>The request to CloudTrail to start logging AWS API calls for an account.</p>
  */
 export interface StartLoggingRequest {
-  __type?: "StartLoggingRequest";
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:</p>
    *             <p>
@@ -2137,28 +2008,23 @@ export namespace StartLoggingRequest {
   export const filterSensitiveLog = (obj: StartLoggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLoggingRequest => __isa(o, "StartLoggingRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface StartLoggingResponse {
-  __type?: "StartLoggingResponse";
-}
+export interface StartLoggingResponse {}
 
 export namespace StartLoggingResponse {
   export const filterSensitiveLog = (obj: StartLoggingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLoggingResponse => __isa(o, "StartLoggingResponse");
 }
 
 /**
  * <p>Passes the request to CloudTrail to stop logging AWS API calls for the specified account.</p>
  */
 export interface StopLoggingRequest {
-  __type?: "StopLoggingRequest";
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is:</p>
    *             <p>
@@ -2172,28 +2038,23 @@ export namespace StopLoggingRequest {
   export const filterSensitiveLog = (obj: StopLoggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopLoggingRequest => __isa(o, "StopLoggingRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
-export interface StopLoggingResponse {
-  __type?: "StopLoggingResponse";
-}
+export interface StopLoggingResponse {}
 
 export namespace StopLoggingResponse {
   export const filterSensitiveLog = (obj: StopLoggingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopLoggingResponse => __isa(o, "StopLoggingResponse");
 }
 
 /**
  * <p>A custom key-value pair associated with a resource such as a CloudTrail trail.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.</p>
    */
@@ -2209,7 +2070,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -2228,14 +2088,12 @@ export namespace TagsLimitExceededException {
   export const filterSensitiveLog = (obj: TagsLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagsLimitExceededException => __isa(o, "TagsLimitExceededException");
 }
 
 /**
  * <p>The settings for a trail.</p>
  */
 export interface Trail {
-  __type?: "Trail";
   /**
    * <p>Specifies the ARN of the trail. The format of a trail ARN is:</p>
    *          <p>
@@ -2334,7 +2192,6 @@ export namespace Trail {
   export const filterSensitiveLog = (obj: Trail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Trail => __isa(o, "Trail");
 }
 
 /**
@@ -2353,14 +2210,12 @@ export namespace TrailAlreadyExistsException {
   export const filterSensitiveLog = (obj: TrailAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrailAlreadyExistsException => __isa(o, "TrailAlreadyExistsException");
 }
 
 /**
  * <p>Information about a CloudTrail trail, including the trail's name, home region, and Amazon Resource Name (ARN).</p>
  */
 export interface TrailInfo {
-  __type?: "TrailInfo";
   /**
    * <p>The ARN of a trail.</p>
    */
@@ -2381,7 +2236,6 @@ export namespace TrailInfo {
   export const filterSensitiveLog = (obj: TrailInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrailInfo => __isa(o, "TrailInfo");
 }
 
 /**
@@ -2400,7 +2254,6 @@ export namespace TrailNotFoundException {
   export const filterSensitiveLog = (obj: TrailNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrailNotFoundException => __isa(o, "TrailNotFoundException");
 }
 
 /**
@@ -2419,7 +2272,6 @@ export namespace TrailNotProvidedException {
   export const filterSensitiveLog = (obj: TrailNotProvidedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrailNotProvidedException => __isa(o, "TrailNotProvidedException");
 }
 
 /**
@@ -2438,14 +2290,12 @@ export namespace UnsupportedOperationException {
   export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperationException => __isa(o, "UnsupportedOperationException");
 }
 
 /**
  * <p>Specifies settings to update for the trail.</p>
  */
 export interface UpdateTrailRequest {
-  __type?: "UpdateTrailRequest";
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3 Bucket Naming Requirements</a>.</p>
    */
@@ -2557,14 +2407,12 @@ export namespace UpdateTrailRequest {
   export const filterSensitiveLog = (obj: UpdateTrailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrailRequest => __isa(o, "UpdateTrailRequest");
 }
 
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface UpdateTrailResponse {
-  __type?: "UpdateTrailResponse";
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.</p>
    */
@@ -2648,5 +2496,4 @@ export namespace UpdateTrailResponse {
   export const filterSensitiveLog = (obj: UpdateTrailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrailResponse => __isa(o, "UpdateTrailResponse");
 }

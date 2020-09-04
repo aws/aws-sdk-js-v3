@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace AddFlowOutputs420Exception {
   export const filterSensitiveLog = (obj: AddFlowOutputs420Exception): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowOutputs420Exception => __isa(o, "AddFlowOutputs420Exception");
 }
 
 /**
  * A request to add outputs to the specified flow.
  */
 export interface AddFlowOutputsRequest {
-  __type?: "AddFlowOutputsRequest";
   /**
    * The flow that you want to add outputs to.
    */
@@ -40,11 +38,9 @@ export namespace AddFlowOutputsRequest {
   export const filterSensitiveLog = (obj: AddFlowOutputsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowOutputsRequest => __isa(o, "AddFlowOutputsRequest");
 }
 
 export interface AddFlowOutputsResponse {
-  __type?: "AddFlowOutputsResponse";
   /**
    * The ARN of the flow that these outputs were added to.
    */
@@ -60,14 +56,12 @@ export namespace AddFlowOutputsResponse {
   export const filterSensitiveLog = (obj: AddFlowOutputsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowOutputsResponse => __isa(o, "AddFlowOutputsResponse");
 }
 
 /**
  * A request to add sources to the flow.
  */
 export interface AddFlowSourcesRequest {
-  __type?: "AddFlowSourcesRequest";
   /**
    * A list of sources that you want to add.
    */
@@ -83,11 +77,9 @@ export namespace AddFlowSourcesRequest {
   export const filterSensitiveLog = (obj: AddFlowSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowSourcesRequest => __isa(o, "AddFlowSourcesRequest");
 }
 
 export interface AddFlowSourcesResponse {
-  __type?: "AddFlowSourcesResponse";
   /**
    * The ARN of the flow that these sources were added to.
    */
@@ -103,14 +95,12 @@ export namespace AddFlowSourcesResponse {
   export const filterSensitiveLog = (obj: AddFlowSourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowSourcesResponse => __isa(o, "AddFlowSourcesResponse");
 }
 
 /**
  * A request to add VPC interfaces to the flow.
  */
 export interface AddFlowVpcInterfacesRequest {
-  __type?: "AddFlowVpcInterfacesRequest";
   /**
    * The flow that you want to mutate.
    */
@@ -126,11 +116,9 @@ export namespace AddFlowVpcInterfacesRequest {
   export const filterSensitiveLog = (obj: AddFlowVpcInterfacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowVpcInterfacesRequest => __isa(o, "AddFlowVpcInterfacesRequest");
 }
 
 export interface AddFlowVpcInterfacesResponse {
-  __type?: "AddFlowVpcInterfacesResponse";
   /**
    * The details of the newly added VPC interfaces.
    */
@@ -146,14 +134,12 @@ export namespace AddFlowVpcInterfacesResponse {
   export const filterSensitiveLog = (obj: AddFlowVpcInterfacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddFlowVpcInterfacesResponse => __isa(o, "AddFlowVpcInterfacesResponse");
 }
 
 /**
  * The output that you want to add to this flow.
  */
 export interface AddOutputRequest {
-  __type?: "AddOutputRequest";
   /**
    * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
    */
@@ -219,7 +205,6 @@ export namespace AddOutputRequest {
   export const filterSensitiveLog = (obj: AddOutputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddOutputRequest => __isa(o, "AddOutputRequest");
 }
 
 export enum Algorithm {
@@ -244,7 +229,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -263,14 +247,12 @@ export namespace CreateFlow420Exception {
   export const filterSensitiveLog = (obj: CreateFlow420Exception): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlow420Exception => __isa(o, "CreateFlow420Exception");
 }
 
 /**
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  */
 export interface CreateFlowRequest {
-  __type?: "CreateFlowRequest";
   /**
    * The VPC interfaces you want on the flow.
    */
@@ -312,11 +294,9 @@ export namespace CreateFlowRequest {
   export const filterSensitiveLog = (obj: CreateFlowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlowRequest => __isa(o, "CreateFlowRequest");
 }
 
 export interface CreateFlowResponse {
-  __type?: "CreateFlowResponse";
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
    */
@@ -327,11 +307,9 @@ export namespace CreateFlowResponse {
   export const filterSensitiveLog = (obj: CreateFlowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlowResponse => __isa(o, "CreateFlowResponse");
 }
 
 export interface DeleteFlowRequest {
-  __type?: "DeleteFlowRequest";
   /**
    * The ARN of the flow that you want to delete.
    */
@@ -342,11 +320,9 @@ export namespace DeleteFlowRequest {
   export const filterSensitiveLog = (obj: DeleteFlowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowRequest => __isa(o, "DeleteFlowRequest");
 }
 
 export interface DeleteFlowResponse {
-  __type?: "DeleteFlowResponse";
   /**
    * The ARN of the flow that was deleted.
    */
@@ -362,11 +338,9 @@ export namespace DeleteFlowResponse {
   export const filterSensitiveLog = (obj: DeleteFlowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowResponse => __isa(o, "DeleteFlowResponse");
 }
 
 export interface DescribeFlowRequest {
-  __type?: "DescribeFlowRequest";
   /**
    * The ARN of the flow that you want to describe.
    */
@@ -377,11 +351,9 @@ export namespace DescribeFlowRequest {
   export const filterSensitiveLog = (obj: DescribeFlowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowRequest => __isa(o, "DescribeFlowRequest");
 }
 
 export interface DescribeFlowResponse {
-  __type?: "DescribeFlowResponse";
   /**
    * Messages that provide the state of the flow.
    */
@@ -397,14 +369,12 @@ export namespace DescribeFlowResponse {
   export const filterSensitiveLog = (obj: DescribeFlowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowResponse => __isa(o, "DescribeFlowResponse");
 }
 
 /**
  * Information about the encryption of the flow.
  */
 export interface Encryption {
-  __type?: "Encryption";
   /**
    * The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
    */
@@ -455,14 +425,12 @@ export namespace Encryption {
   export const filterSensitiveLog = (obj: Encryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
 
 /**
  * The settings for a flow entitlement.
  */
 export interface Entitlement {
-  __type?: "Entitlement";
   /**
    * An indication of whether the entitlement is enabled.
    */
@@ -503,7 +471,6 @@ export namespace Entitlement {
   export const filterSensitiveLog = (obj: Entitlement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
 
 export enum EntitlementStatus {
@@ -515,7 +482,6 @@ export enum EntitlementStatus {
  * The settings for source failover
  */
 export interface FailoverConfig {
-  __type?: "FailoverConfig";
   State?: State | string;
   /**
    * Search window time to look for dash-7 packets
@@ -527,14 +493,12 @@ export namespace FailoverConfig {
   export const filterSensitiveLog = (obj: FailoverConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailoverConfig => __isa(o, "FailoverConfig");
 }
 
 /**
  * The settings for a flow, including its source, outputs, and entitlements.
  */
 export interface Flow {
-  __type?: "Flow";
   /**
    * The settings for the source of the flow.
    */
@@ -596,7 +560,6 @@ export namespace Flow {
   export const filterSensitiveLog = (obj: Flow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Flow => __isa(o, "Flow");
 }
 
 /**
@@ -615,14 +578,12 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * The entitlements that you want to grant on a flow.
  */
 export interface GrantEntitlementRequest {
-  __type?: "GrantEntitlementRequest";
   /**
    * The name of the entitlement. This value must be unique within the current flow.
    */
@@ -658,7 +619,6 @@ export namespace GrantEntitlementRequest {
   export const filterSensitiveLog = (obj: GrantEntitlementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantEntitlementRequest => __isa(o, "GrantEntitlementRequest");
 }
 
 /**
@@ -677,14 +637,12 @@ export namespace GrantFlowEntitlements420Exception {
   export const filterSensitiveLog = (obj: GrantFlowEntitlements420Exception): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantFlowEntitlements420Exception => __isa(o, "GrantFlowEntitlements420Exception");
 }
 
 /**
  * A request to grant entitlements on a flow.
  */
 export interface GrantFlowEntitlementsRequest {
-  __type?: "GrantFlowEntitlementsRequest";
   /**
    * The list of entitlements that you want to grant.
    */
@@ -700,11 +658,9 @@ export namespace GrantFlowEntitlementsRequest {
   export const filterSensitiveLog = (obj: GrantFlowEntitlementsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantFlowEntitlementsRequest => __isa(o, "GrantFlowEntitlementsRequest");
 }
 
 export interface GrantFlowEntitlementsResponse {
-  __type?: "GrantFlowEntitlementsResponse";
   /**
    * The entitlements that were just granted.
    */
@@ -720,7 +676,6 @@ export namespace GrantFlowEntitlementsResponse {
   export const filterSensitiveLog = (obj: GrantFlowEntitlementsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantFlowEntitlementsResponse => __isa(o, "GrantFlowEntitlementsResponse");
 }
 
 /**
@@ -739,7 +694,6 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export enum KeyType {
@@ -751,7 +705,6 @@ export enum KeyType {
  * An entitlement that has been granted to you from other AWS accounts.
  */
 export interface ListedEntitlement {
-  __type?: "ListedEntitlement";
   /**
    * The name of the entitlement.
    */
@@ -772,14 +725,12 @@ export namespace ListedEntitlement {
   export const filterSensitiveLog = (obj: ListedEntitlement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListedEntitlement => __isa(o, "ListedEntitlement");
 }
 
 /**
  * Provides a summary of a flow, including its ARN, Availability Zone, and source type.
  */
 export interface ListedFlow {
-  __type?: "ListedFlow";
   /**
    * The Availability Zone that the flow was created in.
    */
@@ -815,11 +766,9 @@ export namespace ListedFlow {
   export const filterSensitiveLog = (obj: ListedFlow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListedFlow => __isa(o, "ListedFlow");
 }
 
 export interface ListEntitlementsRequest {
-  __type?: "ListEntitlementsRequest";
   /**
    * The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.
    */
@@ -835,11 +784,9 @@ export namespace ListEntitlementsRequest {
   export const filterSensitiveLog = (obj: ListEntitlementsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitlementsRequest => __isa(o, "ListEntitlementsRequest");
 }
 
 export interface ListEntitlementsResponse {
-  __type?: "ListEntitlementsResponse";
   /**
    * A list of entitlements that have been granted to you from other AWS accounts.
    */
@@ -855,11 +802,9 @@ export namespace ListEntitlementsResponse {
   export const filterSensitiveLog = (obj: ListEntitlementsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitlementsResponse => __isa(o, "ListEntitlementsResponse");
 }
 
 export interface ListFlowsRequest {
-  __type?: "ListFlowsRequest";
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.
    */
@@ -875,11 +820,9 @@ export namespace ListFlowsRequest {
   export const filterSensitiveLog = (obj: ListFlowsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFlowsRequest => __isa(o, "ListFlowsRequest");
 }
 
 export interface ListFlowsResponse {
-  __type?: "ListFlowsResponse";
   /**
    * A list of flow summaries.
    */
@@ -895,11 +838,9 @@ export namespace ListFlowsResponse {
   export const filterSensitiveLog = (obj: ListFlowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFlowsResponse => __isa(o, "ListFlowsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.
    */
@@ -910,11 +851,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
    */
@@ -925,14 +864,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * Messages that provide the state of the flow.
  */
 export interface Messages {
-  __type?: "Messages";
   /**
    * A list of errors that might have been generated from processes on this flow.
    */
@@ -943,7 +880,6 @@ export namespace Messages {
   export const filterSensitiveLog = (obj: Messages): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Messages => __isa(o, "Messages");
 }
 
 /**
@@ -962,14 +898,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * The settings for an output.
  */
 export interface Output {
-  __type?: "Output";
   /**
    * The address where you want to send the output.
    */
@@ -1030,7 +964,6 @@ export namespace Output {
   export const filterSensitiveLog = (obj: Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Output => __isa(o, "Output");
 }
 
 export enum Protocol {
@@ -1042,7 +975,6 @@ export enum Protocol {
 }
 
 export interface RemoveFlowOutputRequest {
-  __type?: "RemoveFlowOutputRequest";
   /**
    * The flow that you want to remove an output from.
    */
@@ -1058,11 +990,9 @@ export namespace RemoveFlowOutputRequest {
   export const filterSensitiveLog = (obj: RemoveFlowOutputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveFlowOutputRequest => __isa(o, "RemoveFlowOutputRequest");
 }
 
 export interface RemoveFlowOutputResponse {
-  __type?: "RemoveFlowOutputResponse";
   /**
    * The ARN of the flow that is associated with the output you removed.
    */
@@ -1078,11 +1008,9 @@ export namespace RemoveFlowOutputResponse {
   export const filterSensitiveLog = (obj: RemoveFlowOutputResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveFlowOutputResponse => __isa(o, "RemoveFlowOutputResponse");
 }
 
 export interface RemoveFlowSourceRequest {
-  __type?: "RemoveFlowSourceRequest";
   /**
    * The flow that you want to remove a source from.
    */
@@ -1098,11 +1026,9 @@ export namespace RemoveFlowSourceRequest {
   export const filterSensitiveLog = (obj: RemoveFlowSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveFlowSourceRequest => __isa(o, "RemoveFlowSourceRequest");
 }
 
 export interface RemoveFlowSourceResponse {
-  __type?: "RemoveFlowSourceResponse";
   /**
    * The ARN of the flow that is associated with the source you removed.
    */
@@ -1118,11 +1044,9 @@ export namespace RemoveFlowSourceResponse {
   export const filterSensitiveLog = (obj: RemoveFlowSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveFlowSourceResponse => __isa(o, "RemoveFlowSourceResponse");
 }
 
 export interface RemoveFlowVpcInterfaceRequest {
-  __type?: "RemoveFlowVpcInterfaceRequest";
   /**
    * The flow that you want to remove a VPC interface from.
    */
@@ -1138,11 +1062,9 @@ export namespace RemoveFlowVpcInterfaceRequest {
   export const filterSensitiveLog = (obj: RemoveFlowVpcInterfaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveFlowVpcInterfaceRequest => __isa(o, "RemoveFlowVpcInterfaceRequest");
 }
 
 export interface RemoveFlowVpcInterfaceResponse {
-  __type?: "RemoveFlowVpcInterfaceResponse";
   /**
    * The ARN of the flow that is associated with the VPC interface you removed.
    */
@@ -1163,11 +1085,9 @@ export namespace RemoveFlowVpcInterfaceResponse {
   export const filterSensitiveLog = (obj: RemoveFlowVpcInterfaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveFlowVpcInterfaceResponse => __isa(o, "RemoveFlowVpcInterfaceResponse");
 }
 
 export interface RevokeFlowEntitlementRequest {
-  __type?: "RevokeFlowEntitlementRequest";
   /**
    * The ARN of the entitlement that you want to revoke.
    */
@@ -1183,11 +1103,9 @@ export namespace RevokeFlowEntitlementRequest {
   export const filterSensitiveLog = (obj: RevokeFlowEntitlementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeFlowEntitlementRequest => __isa(o, "RevokeFlowEntitlementRequest");
 }
 
 export interface RevokeFlowEntitlementResponse {
-  __type?: "RevokeFlowEntitlementResponse";
   /**
    * The ARN of the flow that the entitlement was revoked from.
    */
@@ -1203,7 +1121,6 @@ export namespace RevokeFlowEntitlementResponse {
   export const filterSensitiveLog = (obj: RevokeFlowEntitlementResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeFlowEntitlementResponse => __isa(o, "RevokeFlowEntitlementResponse");
 }
 
 /**
@@ -1222,14 +1139,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * The settings for the source of the flow.
  */
 export interface SetSourceRequest {
-  __type?: "SetSourceRequest";
   /**
    * The name of the VPC interface to use for this source.
    */
@@ -1290,14 +1205,12 @@ export namespace SetSourceRequest {
   export const filterSensitiveLog = (obj: SetSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetSourceRequest => __isa(o, "SetSourceRequest");
 }
 
 /**
  * The settings for the source of the flow.
  */
 export interface Source {
-  __type?: "Source";
   /**
    * The ARN of the source.
    */
@@ -1358,7 +1271,6 @@ export namespace Source {
   export const filterSensitiveLog = (obj: Source): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
 export enum SourceType {
@@ -1367,7 +1279,6 @@ export enum SourceType {
 }
 
 export interface StartFlowRequest {
-  __type?: "StartFlowRequest";
   /**
    * The ARN of the flow that you want to start.
    */
@@ -1378,11 +1289,9 @@ export namespace StartFlowRequest {
   export const filterSensitiveLog = (obj: StartFlowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFlowRequest => __isa(o, "StartFlowRequest");
 }
 
 export interface StartFlowResponse {
-  __type?: "StartFlowResponse";
   /**
    * The ARN of the flow that you started.
    */
@@ -1398,7 +1307,6 @@ export namespace StartFlowResponse {
   export const filterSensitiveLog = (obj: StartFlowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFlowResponse => __isa(o, "StartFlowResponse");
 }
 
 export enum State {
@@ -1417,7 +1325,6 @@ export enum Status {
 }
 
 export interface StopFlowRequest {
-  __type?: "StopFlowRequest";
   /**
    * The ARN of the flow that you want to stop.
    */
@@ -1428,11 +1335,9 @@ export namespace StopFlowRequest {
   export const filterSensitiveLog = (obj: StopFlowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopFlowRequest => __isa(o, "StopFlowRequest");
 }
 
 export interface StopFlowResponse {
-  __type?: "StopFlowResponse";
   /**
    * The ARN of the flow that you stopped.
    */
@@ -1448,14 +1353,12 @@ export namespace StopFlowResponse {
   export const filterSensitiveLog = (obj: StopFlowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopFlowResponse => __isa(o, "StopFlowResponse");
 }
 
 /**
  * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
    */
@@ -1471,7 +1374,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1490,14 +1392,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * Attributes related to the transport stream that are used in a source or output.
  */
 export interface Transport {
-  __type?: "Transport";
   /**
    * The remote ID for the Zixi-pull stream.
    */
@@ -1538,11 +1438,9 @@ export namespace Transport {
   export const filterSensitiveLog = (obj: Transport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Transport => __isa(o, "Transport");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.
    */
@@ -1558,14 +1456,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * Information about the encryption of the flow.
  */
 export interface UpdateEncryption {
-  __type?: "UpdateEncryption";
   /**
    * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
    */
@@ -1616,14 +1512,12 @@ export namespace UpdateEncryption {
   export const filterSensitiveLog = (obj: UpdateEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEncryption => __isa(o, "UpdateEncryption");
 }
 
 /**
  * The settings for source failover
  */
 export interface UpdateFailoverConfig {
-  __type?: "UpdateFailoverConfig";
   State?: State | string;
   /**
    * Recovery window time to look for dash-7 packets
@@ -1635,14 +1529,12 @@ export namespace UpdateFailoverConfig {
   export const filterSensitiveLog = (obj: UpdateFailoverConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFailoverConfig => __isa(o, "UpdateFailoverConfig");
 }
 
 /**
  * The entitlement fields that you want to update.
  */
 export interface UpdateFlowEntitlementRequest {
-  __type?: "UpdateFlowEntitlementRequest";
   /**
    * An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.
    */
@@ -1678,11 +1570,9 @@ export namespace UpdateFlowEntitlementRequest {
   export const filterSensitiveLog = (obj: UpdateFlowEntitlementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowEntitlementRequest => __isa(o, "UpdateFlowEntitlementRequest");
 }
 
 export interface UpdateFlowEntitlementResponse {
-  __type?: "UpdateFlowEntitlementResponse";
   /**
    * The settings for a flow entitlement.
    */
@@ -1698,14 +1588,12 @@ export namespace UpdateFlowEntitlementResponse {
   export const filterSensitiveLog = (obj: UpdateFlowEntitlementResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowEntitlementResponse => __isa(o, "UpdateFlowEntitlementResponse");
 }
 
 /**
  * The fields that you want to update in the output.
  */
 export interface UpdateFlowOutputRequest {
-  __type?: "UpdateFlowOutputRequest";
   /**
    * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
@@ -1776,11 +1664,9 @@ export namespace UpdateFlowOutputRequest {
   export const filterSensitiveLog = (obj: UpdateFlowOutputRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowOutputRequest => __isa(o, "UpdateFlowOutputRequest");
 }
 
 export interface UpdateFlowOutputResponse {
-  __type?: "UpdateFlowOutputResponse";
   /**
    * The settings for an output.
    */
@@ -1796,14 +1682,12 @@ export namespace UpdateFlowOutputResponse {
   export const filterSensitiveLog = (obj: UpdateFlowOutputResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowOutputResponse => __isa(o, "UpdateFlowOutputResponse");
 }
 
 /**
  * A request to update flow.
  */
 export interface UpdateFlowRequest {
-  __type?: "UpdateFlowRequest";
   /**
    * The settings for source failover
    */
@@ -1819,11 +1703,9 @@ export namespace UpdateFlowRequest {
   export const filterSensitiveLog = (obj: UpdateFlowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowRequest => __isa(o, "UpdateFlowRequest");
 }
 
 export interface UpdateFlowResponse {
-  __type?: "UpdateFlowResponse";
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
    */
@@ -1834,14 +1716,12 @@ export namespace UpdateFlowResponse {
   export const filterSensitiveLog = (obj: UpdateFlowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowResponse => __isa(o, "UpdateFlowResponse");
 }
 
 /**
  * A request to update the source of a flow.
  */
 export interface UpdateFlowSourceRequest {
-  __type?: "UpdateFlowSourceRequest";
   /**
    * The name of the VPC Interface to configure this Source with.
    */
@@ -1907,11 +1787,9 @@ export namespace UpdateFlowSourceRequest {
   export const filterSensitiveLog = (obj: UpdateFlowSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowSourceRequest => __isa(o, "UpdateFlowSourceRequest");
 }
 
 export interface UpdateFlowSourceResponse {
-  __type?: "UpdateFlowSourceResponse";
   /**
    * The ARN of the flow that you want to update.
    */
@@ -1927,14 +1805,12 @@ export namespace UpdateFlowSourceResponse {
   export const filterSensitiveLog = (obj: UpdateFlowSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowSourceResponse => __isa(o, "UpdateFlowSourceResponse");
 }
 
 /**
  * The settings for a VPC Source.
  */
 export interface VpcInterface {
-  __type?: "VpcInterface";
   /**
    * Immutable and has to be a unique against other VpcInterfaces in this Flow
    */
@@ -1965,14 +1841,12 @@ export namespace VpcInterface {
   export const filterSensitiveLog = (obj: VpcInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcInterface => __isa(o, "VpcInterface");
 }
 
 /**
  * The settings for attaching a VPC interface to an output.
  */
 export interface VpcInterfaceAttachment {
-  __type?: "VpcInterfaceAttachment";
   /**
    * The name of the VPC interface to use for this output.
    */
@@ -1983,14 +1857,12 @@ export namespace VpcInterfaceAttachment {
   export const filterSensitiveLog = (obj: VpcInterfaceAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcInterfaceAttachment => __isa(o, "VpcInterfaceAttachment");
 }
 
 /**
  * Desired VPC Interface for a Flow
  */
 export interface VpcInterfaceRequest {
-  __type?: "VpcInterfaceRequest";
   /**
    * Subnet must be in the AZ of the Flow
    */
@@ -2016,5 +1888,4 @@ export namespace VpcInterfaceRequest {
   export const filterSensitiveLog = (obj: VpcInterfaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcInterfaceRequest => __isa(o, "VpcInterfaceRequest");
 }

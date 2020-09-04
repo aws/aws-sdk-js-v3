@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,11 +14,9 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CreateGroupInput {
-  __type?: "CreateGroupInput";
   /**
    * <p>The tags to add to the group. A tag is key-value pair string.</p>
    */
@@ -65,11 +63,9 @@ export namespace CreateGroupInput {
   export const filterSensitiveLog = (obj: CreateGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupInput => __isa(o, "CreateGroupInput");
 }
 
 export interface CreateGroupOutput {
-  __type?: "CreateGroupOutput";
   /**
    * <p>The description of the resource group.</p>
    */
@@ -104,11 +100,9 @@ export namespace CreateGroupOutput {
   export const filterSensitiveLog = (obj: CreateGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupOutput => __isa(o, "CreateGroupOutput");
 }
 
 export interface DeleteGroupInput {
-  __type?: "DeleteGroupInput";
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
@@ -124,11 +118,9 @@ export namespace DeleteGroupInput {
   export const filterSensitiveLog = (obj: DeleteGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupInput => __isa(o, "DeleteGroupInput");
 }
 
 export interface DeleteGroupOutput {
-  __type?: "DeleteGroupOutput";
   /**
    * <p>A full description of the deleted resource group.</p>
    */
@@ -139,14 +131,12 @@ export namespace DeleteGroupOutput {
   export const filterSensitiveLog = (obj: DeleteGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupOutput => __isa(o, "DeleteGroupOutput");
 }
 
 /**
  * <p>A resource that failed to be added to or removed from a group.</p>
  */
 export interface FailedResource {
-  __type?: "FailedResource";
   /**
    * <p>The error code associated with the failure.</p>
    */
@@ -167,7 +157,6 @@ export namespace FailedResource {
   export const filterSensitiveLog = (obj: FailedResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedResource => __isa(o, "FailedResource");
 }
 
 /**
@@ -183,11 +172,9 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetGroupConfigurationInput {
-  __type?: "GetGroupConfigurationInput";
   /**
    * <p>The name or the ARN of the resource group.</p>
    */
@@ -198,11 +185,9 @@ export namespace GetGroupConfigurationInput {
   export const filterSensitiveLog = (obj: GetGroupConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupConfigurationInput => __isa(o, "GetGroupConfigurationInput");
 }
 
 export interface GetGroupConfigurationOutput {
-  __type?: "GetGroupConfigurationOutput";
   /**
    * <p>The configuration associated with the specified group.</p>
    */
@@ -213,11 +198,9 @@ export namespace GetGroupConfigurationOutput {
   export const filterSensitiveLog = (obj: GetGroupConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupConfigurationOutput => __isa(o, "GetGroupConfigurationOutput");
 }
 
 export interface GetGroupInput {
-  __type?: "GetGroupInput";
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
@@ -233,11 +216,9 @@ export namespace GetGroupInput {
   export const filterSensitiveLog = (obj: GetGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupInput => __isa(o, "GetGroupInput");
 }
 
 export interface GetGroupOutput {
-  __type?: "GetGroupOutput";
   /**
    * <p>A full description of the resource group.</p>
    */
@@ -248,11 +229,9 @@ export namespace GetGroupOutput {
   export const filterSensitiveLog = (obj: GetGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupOutput => __isa(o, "GetGroupOutput");
 }
 
 export interface GetGroupQueryInput {
-  __type?: "GetGroupQueryInput";
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
@@ -268,11 +247,9 @@ export namespace GetGroupQueryInput {
   export const filterSensitiveLog = (obj: GetGroupQueryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupQueryInput => __isa(o, "GetGroupQueryInput");
 }
 
 export interface GetGroupQueryOutput {
-  __type?: "GetGroupQueryOutput";
   /**
    * <p>The resource query associated with the specified group.</p>
    */
@@ -283,11 +260,9 @@ export namespace GetGroupQueryOutput {
   export const filterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGroupQueryOutput => __isa(o, "GetGroupQueryOutput");
 }
 
 export interface GetTagsInput {
-  __type?: "GetTagsInput";
   /**
    * <p>The ARN of the resource group whose tags you want to retrieve.</p>
    */
@@ -298,11 +273,9 @@ export namespace GetTagsInput {
   export const filterSensitiveLog = (obj: GetTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagsInput => __isa(o, "GetTagsInput");
 }
 
 export interface GetTagsOutput {
-  __type?: "GetTagsOutput";
   /**
    * <p>The ARN of the tagged resource group.</p>
    */
@@ -318,7 +291,6 @@ export namespace GetTagsOutput {
   export const filterSensitiveLog = (obj: GetTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagsOutput => __isa(o, "GetTagsOutput");
 }
 
 /**
@@ -342,7 +314,6 @@ export namespace GetTagsOutput {
  *          </ul>
  */
 export interface Group {
-  __type?: "Group";
   /**
    * <p>The name of the resource group.</p>
    */
@@ -363,7 +334,6 @@ export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
 /**
@@ -374,7 +344,6 @@ export namespace Group {
  *             group.</p>
  */
 export interface GroupConfiguration {
-  __type?: "GroupConfiguration";
   /**
    * <p>The current status of an attempt to update the group configuration.</p>
    */
@@ -401,7 +370,6 @@ export namespace GroupConfiguration {
   export const filterSensitiveLog = (obj: GroupConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupConfiguration => __isa(o, "GroupConfiguration");
 }
 
 /**
@@ -409,7 +377,6 @@ export namespace GroupConfiguration {
  *             items.</p>
  */
 export interface GroupConfigurationItem {
-  __type?: "GroupConfigurationItem";
   /**
    * <p>Specifies the type of group configuration item. Each item must have a unique value for
    *                 <code>type</code>.</p>
@@ -441,14 +408,12 @@ export namespace GroupConfigurationItem {
   export const filterSensitiveLog = (obj: GroupConfigurationItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupConfigurationItem => __isa(o, "GroupConfigurationItem");
 }
 
 /**
  * <p>A parameter for a group configuration item.</p>
  */
 export interface GroupConfigurationParameter {
-  __type?: "GroupConfigurationParameter";
   /**
    * <p>The name of the group configuration parameter.</p>
    *         <p>You can specify the following string values:</p>
@@ -498,7 +463,6 @@ export namespace GroupConfigurationParameter {
   export const filterSensitiveLog = (obj: GroupConfigurationParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupConfigurationParameter => __isa(o, "GroupConfigurationParameter");
 }
 
 export enum GroupConfigurationStatus {
@@ -512,7 +476,6 @@ export enum GroupConfigurationStatus {
  *             operation to only those you want to include.</p>
  */
 export interface GroupFilter {
-  __type?: "GroupFilter";
   /**
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
@@ -529,7 +492,6 @@ export namespace GroupFilter {
   export const filterSensitiveLog = (obj: GroupFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupFilter => __isa(o, "GroupFilter");
 }
 
 export enum GroupFilterName {
@@ -541,7 +503,6 @@ export enum GroupFilterName {
  * <p>The unique identifiers for a resource group.</p>
  */
 export interface GroupIdentifier {
-  __type?: "GroupIdentifier";
   /**
    * <p>The name of the resource group.</p>
    */
@@ -557,7 +518,6 @@ export namespace GroupIdentifier {
   export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupIdentifier => __isa(o, "GroupIdentifier");
 }
 
 /**
@@ -565,7 +525,6 @@ export namespace GroupIdentifier {
  *             that are members of the group.</p>
  */
 export interface GroupQuery {
-  __type?: "GroupQuery";
   /**
    * <p>The name of the resource group that is associated with the specified resource
    *             query.</p>
@@ -583,11 +542,9 @@ export namespace GroupQuery {
   export const filterSensitiveLog = (obj: GroupQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupQuery => __isa(o, "GroupQuery");
 }
 
 export interface GroupResourcesInput {
-  __type?: "GroupResourcesInput";
   /**
    * <p>The name or the ARN of the resource group to add resources to.</p>
    */
@@ -603,11 +560,9 @@ export namespace GroupResourcesInput {
   export const filterSensitiveLog = (obj: GroupResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupResourcesInput => __isa(o, "GroupResourcesInput");
 }
 
 export interface GroupResourcesOutput {
-  __type?: "GroupResourcesOutput";
   /**
    * <p>The ARNs of the resources that were successfully added to the group by this
    *             operation.</p>
@@ -625,7 +580,6 @@ export namespace GroupResourcesOutput {
   export const filterSensitiveLog = (obj: GroupResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupResourcesOutput => __isa(o, "GroupResourcesOutput");
 }
 
 /**
@@ -641,11 +595,9 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListGroupResourcesInput {
-  __type?: "ListGroupResourcesInput";
   /**
    * <p>The name or the ARN of the resource group</p>
    */
@@ -714,11 +666,9 @@ export namespace ListGroupResourcesInput {
   export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupResourcesInput => __isa(o, "ListGroupResourcesInput");
 }
 
 export interface ListGroupResourcesOutput {
-  __type?: "ListGroupResourcesOutput";
   /**
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
@@ -746,11 +696,9 @@ export namespace ListGroupResourcesOutput {
   export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupResourcesOutput => __isa(o, "ListGroupResourcesOutput");
 }
 
 export interface ListGroupsInput {
-  __type?: "ListGroupsInput";
   /**
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
@@ -804,11 +752,9 @@ export namespace ListGroupsInput {
   export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsInput => __isa(o, "ListGroupsInput");
 }
 
 export interface ListGroupsOutput {
-  __type?: "ListGroupsOutput";
   /**
    * <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that
    *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
@@ -834,7 +780,6 @@ export namespace ListGroupsOutput {
   export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsOutput => __isa(o, "ListGroupsOutput");
 }
 
 /**
@@ -850,7 +795,6 @@ export namespace MethodNotAllowedException {
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MethodNotAllowedException => __isa(o, "MethodNotAllowedException");
 }
 
 /**
@@ -866,7 +810,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -878,7 +821,6 @@ export namespace NotFoundException {
  *             operation, but the resulting group might have no member resources.</p>
  */
 export interface QueryError {
-  __type?: "QueryError";
   /**
    * <p>A message that explains the <code>ErrorCode</code> value. Messages might state that
    *             the specified CloudFormation stack does not exist (or no longer exists). For
@@ -899,7 +841,6 @@ export namespace QueryError {
   export const filterSensitiveLog = (obj: QueryError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryError => __isa(o, "QueryError");
 }
 
 export enum QueryErrorCode {
@@ -917,7 +858,6 @@ export enum QueryType {
  *             of resources.</p>
  */
 export interface ResourceFilter {
-  __type?: "ResourceFilter";
   /**
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
@@ -934,7 +874,6 @@ export namespace ResourceFilter {
   export const filterSensitiveLog = (obj: ResourceFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceFilter => __isa(o, "ResourceFilter");
 }
 
 export enum ResourceFilterName {
@@ -945,7 +884,6 @@ export enum ResourceFilterName {
  * <p>The ARN of a resource, and its resource type.</p>
  */
 export interface ResourceIdentifier {
-  __type?: "ResourceIdentifier";
   /**
    * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
    */
@@ -961,14 +899,12 @@ export namespace ResourceIdentifier {
   export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceIdentifier => __isa(o, "ResourceIdentifier");
 }
 
 /**
  * <p>The query that is used to define a resource group or a search for resources.</p>
  */
 export interface ResourceQuery {
-  __type?: "ResourceQuery";
   /**
    * <p>The query that defines a group or a search.</p>
    */
@@ -1047,11 +983,9 @@ export namespace ResourceQuery {
   export const filterSensitiveLog = (obj: ResourceQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceQuery => __isa(o, "ResourceQuery");
 }
 
 export interface SearchResourcesInput {
-  __type?: "SearchResourcesInput";
   /**
    * <p>The search query, using the same formats that are supported for resource group
    *             definition. For more information, see <a>CreateGroup</a>.</p>
@@ -1083,11 +1017,9 @@ export namespace SearchResourcesInput {
   export const filterSensitiveLog = (obj: SearchResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchResourcesInput => __isa(o, "SearchResourcesInput");
 }
 
 export interface SearchResourcesOutput {
-  __type?: "SearchResourcesOutput";
   /**
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
    *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
@@ -1115,11 +1047,9 @@ export namespace SearchResourcesOutput {
   export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchResourcesOutput => __isa(o, "SearchResourcesOutput");
 }
 
 export interface TagInput {
-  __type?: "TagInput";
   /**
    * <p>The ARN of the resource group to which to add tags.</p>
    */
@@ -1136,11 +1066,9 @@ export namespace TagInput {
   export const filterSensitiveLog = (obj: TagInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagInput => __isa(o, "TagInput");
 }
 
 export interface TagOutput {
-  __type?: "TagOutput";
   /**
    * <p>The ARN of the tagged resource.</p>
    */
@@ -1156,7 +1084,6 @@ export namespace TagOutput {
   export const filterSensitiveLog = (obj: TagOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagOutput => __isa(o, "TagOutput");
 }
 
 /**
@@ -1173,7 +1100,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1190,11 +1116,9 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UngroupResourcesInput {
-  __type?: "UngroupResourcesInput";
   /**
    * <p>The ARNs of the resources to be removed from the group.</p>
    */
@@ -1210,11 +1134,9 @@ export namespace UngroupResourcesInput {
   export const filterSensitiveLog = (obj: UngroupResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UngroupResourcesInput => __isa(o, "UngroupResourcesInput");
 }
 
 export interface UngroupResourcesOutput {
-  __type?: "UngroupResourcesOutput";
   /**
    * <p>The resources that failed to be removed from the group.</p>
    */
@@ -1230,11 +1152,9 @@ export namespace UngroupResourcesOutput {
   export const filterSensitiveLog = (obj: UngroupResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UngroupResourcesOutput => __isa(o, "UngroupResourcesOutput");
 }
 
 export interface UntagInput {
-  __type?: "UntagInput";
   /**
    * <p>The keys of the tags to be removed.</p>
    */
@@ -1251,11 +1171,9 @@ export namespace UntagInput {
   export const filterSensitiveLog = (obj: UntagInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagInput => __isa(o, "UntagInput");
 }
 
 export interface UntagOutput {
-  __type?: "UntagOutput";
   /**
    * <p>The keys of the tags that were removed.</p>
    */
@@ -1271,11 +1189,9 @@ export namespace UntagOutput {
   export const filterSensitiveLog = (obj: UntagOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagOutput => __isa(o, "UntagOutput");
 }
 
 export interface UpdateGroupInput {
-  __type?: "UpdateGroupInput";
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
@@ -1297,11 +1213,9 @@ export namespace UpdateGroupInput {
   export const filterSensitiveLog = (obj: UpdateGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupInput => __isa(o, "UpdateGroupInput");
 }
 
 export interface UpdateGroupOutput {
-  __type?: "UpdateGroupOutput";
   /**
    * <p>The update description of the resource group.</p>
    */
@@ -1312,11 +1226,9 @@ export namespace UpdateGroupOutput {
   export const filterSensitiveLog = (obj: UpdateGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupOutput => __isa(o, "UpdateGroupOutput");
 }
 
 export interface UpdateGroupQueryInput {
-  __type?: "UpdateGroupQueryInput";
   /**
    * <p>The resource query to determine which AWS resources are members of this resource
    *             group.</p>
@@ -1338,11 +1250,9 @@ export namespace UpdateGroupQueryInput {
   export const filterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupQueryInput => __isa(o, "UpdateGroupQueryInput");
 }
 
 export interface UpdateGroupQueryOutput {
-  __type?: "UpdateGroupQueryOutput";
   /**
    * <p>The updated resource query associated with the resource group after the update.</p>
    */
@@ -1353,5 +1263,4 @@ export namespace UpdateGroupQueryOutput {
   export const filterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupQueryOutput => __isa(o, "UpdateGroupQueryOutput");
 }

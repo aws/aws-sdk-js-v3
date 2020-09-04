@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateDelegateToResourceRequest {
-  __type?: "AssociateDelegateToResourceRequest";
   /**
    * <p>The organization under which the resource exists.</p>
    */
@@ -23,24 +22,17 @@ export namespace AssociateDelegateToResourceRequest {
   export const filterSensitiveLog = (obj: AssociateDelegateToResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDelegateToResourceRequest =>
-    __isa(o, "AssociateDelegateToResourceRequest");
 }
 
-export interface AssociateDelegateToResourceResponse {
-  __type?: "AssociateDelegateToResourceResponse";
-}
+export interface AssociateDelegateToResourceResponse {}
 
 export namespace AssociateDelegateToResourceResponse {
   export const filterSensitiveLog = (obj: AssociateDelegateToResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDelegateToResourceResponse =>
-    __isa(o, "AssociateDelegateToResourceResponse");
 }
 
 export interface AssociateMemberToGroupRequest {
-  __type?: "AssociateMemberToGroupRequest";
   /**
    * <p>The member (user or group) to associate to the group.</p>
    */
@@ -61,18 +53,14 @@ export namespace AssociateMemberToGroupRequest {
   export const filterSensitiveLog = (obj: AssociateMemberToGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateMemberToGroupRequest => __isa(o, "AssociateMemberToGroupRequest");
 }
 
-export interface AssociateMemberToGroupResponse {
-  __type?: "AssociateMemberToGroupResponse";
-}
+export interface AssociateMemberToGroupResponse {}
 
 export namespace AssociateMemberToGroupResponse {
   export const filterSensitiveLog = (obj: AssociateMemberToGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateMemberToGroupResponse => __isa(o, "AssociateMemberToGroupResponse");
 }
 
 /**
@@ -80,7 +68,6 @@ export namespace AssociateMemberToGroupResponse {
  *          from the resource.</p>
  */
 export interface BookingOptions {
-  __type?: "BookingOptions";
   /**
    * <p>The resource's ability to automatically decline any recurring requests.</p>
    */
@@ -101,11 +88,9 @@ export namespace BookingOptions {
   export const filterSensitiveLog = (obj: BookingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BookingOptions => __isa(o, "BookingOptions");
 }
 
 export interface CreateAliasRequest {
-  __type?: "CreateAliasRequest";
   /**
    * <p>The organization under which the member (user or group) exists.</p>
    */
@@ -126,22 +111,17 @@ export namespace CreateAliasRequest {
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAliasRequest => __isa(o, "CreateAliasRequest");
 }
 
-export interface CreateAliasResponse {
-  __type?: "CreateAliasResponse";
-}
+export interface CreateAliasResponse {}
 
 export namespace CreateAliasResponse {
   export const filterSensitiveLog = (obj: CreateAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAliasResponse => __isa(o, "CreateAliasResponse");
 }
 
 export interface CreateGroupRequest {
-  __type?: "CreateGroupRequest";
   /**
    * <p>The name of the group.</p>
    */
@@ -157,11 +137,9 @@ export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 export interface CreateGroupResponse {
-  __type?: "CreateGroupResponse";
   /**
    * <p>The identifier of the group.</p>
    */
@@ -172,11 +150,9 @@ export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResponse => __isa(o, "CreateGroupResponse");
 }
 
 export interface CreateResourceRequest {
-  __type?: "CreateResourceRequest";
   /**
    * <p>The type of the new resource. The available types are <code>equipment</code> and
    *             <code>room</code>.</p>
@@ -199,11 +175,9 @@ export namespace CreateResourceRequest {
   export const filterSensitiveLog = (obj: CreateResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceRequest => __isa(o, "CreateResourceRequest");
 }
 
 export interface CreateResourceResponse {
-  __type?: "CreateResourceResponse";
   /**
    * <p>The identifier of the new resource.</p>
    */
@@ -214,11 +188,9 @@ export namespace CreateResourceResponse {
   export const filterSensitiveLog = (obj: CreateResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceResponse => __isa(o, "CreateResourceResponse");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p>The password for the new user.</p>
    */
@@ -245,11 +217,9 @@ export namespace CreateUserRequest {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
   /**
    * <p>The identifier for the new user.</p>
    */
@@ -260,7 +230,6 @@ export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 /**
@@ -268,7 +237,6 @@ export namespace CreateUserResponse {
  *          enumeration.</p>
  */
 export interface Delegate {
-  __type?: "Delegate";
   /**
    * <p>The type of the delegate: user or group.</p>
    */
@@ -284,11 +252,9 @@ export namespace Delegate {
   export const filterSensitiveLog = (obj: Delegate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Delegate => __isa(o, "Delegate");
 }
 
 export interface DeleteAliasRequest {
-  __type?: "DeleteAliasRequest";
   /**
    * <p>The identifier for the organization under which the user exists.</p>
    */
@@ -311,22 +277,17 @@ export namespace DeleteAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAliasRequest => __isa(o, "DeleteAliasRequest");
 }
 
-export interface DeleteAliasResponse {
-  __type?: "DeleteAliasResponse";
-}
+export interface DeleteAliasResponse {}
 
 export namespace DeleteAliasResponse {
   export const filterSensitiveLog = (obj: DeleteAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAliasResponse => __isa(o, "DeleteAliasResponse");
 }
 
 export interface DeleteGroupRequest {
-  __type?: "DeleteGroupRequest";
   /**
    * <p>The organization that contains the group.</p>
    */
@@ -342,22 +303,17 @@ export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
-export interface DeleteGroupResponse {
-  __type?: "DeleteGroupResponse";
-}
+export interface DeleteGroupResponse {}
 
 export namespace DeleteGroupResponse {
   export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupResponse => __isa(o, "DeleteGroupResponse");
 }
 
 export interface DeleteMailboxPermissionsRequest {
-  __type?: "DeleteMailboxPermissionsRequest";
   /**
    * <p>The identifier of the member (user or group)that owns the mailbox.</p>
    */
@@ -380,22 +336,17 @@ export namespace DeleteMailboxPermissionsRequest {
   export const filterSensitiveLog = (obj: DeleteMailboxPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMailboxPermissionsRequest => __isa(o, "DeleteMailboxPermissionsRequest");
 }
 
-export interface DeleteMailboxPermissionsResponse {
-  __type?: "DeleteMailboxPermissionsResponse";
-}
+export interface DeleteMailboxPermissionsResponse {}
 
 export namespace DeleteMailboxPermissionsResponse {
   export const filterSensitiveLog = (obj: DeleteMailboxPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMailboxPermissionsResponse => __isa(o, "DeleteMailboxPermissionsResponse");
 }
 
 export interface DeleteResourceRequest {
-  __type?: "DeleteResourceRequest";
   /**
    * <p>The identifier of the resource to be deleted.</p>
    */
@@ -412,22 +363,17 @@ export namespace DeleteResourceRequest {
   export const filterSensitiveLog = (obj: DeleteResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceRequest => __isa(o, "DeleteResourceRequest");
 }
 
-export interface DeleteResourceResponse {
-  __type?: "DeleteResourceResponse";
-}
+export interface DeleteResourceResponse {}
 
 export namespace DeleteResourceResponse {
   export const filterSensitiveLog = (obj: DeleteResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceResponse => __isa(o, "DeleteResourceResponse");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The identifier of the user to be deleted.</p>
    */
@@ -443,22 +389,17 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
-export interface DeleteUserResponse {
-  __type?: "DeleteUserResponse";
-}
+export interface DeleteUserResponse {}
 
 export namespace DeleteUserResponse {
   export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserResponse => __isa(o, "DeleteUserResponse");
 }
 
 export interface DeregisterFromWorkMailRequest {
-  __type?: "DeregisterFromWorkMailRequest";
   /**
    * <p>The identifier for the organization under which the Amazon WorkMail entity
    *          exists.</p>
@@ -475,22 +416,17 @@ export namespace DeregisterFromWorkMailRequest {
   export const filterSensitiveLog = (obj: DeregisterFromWorkMailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterFromWorkMailRequest => __isa(o, "DeregisterFromWorkMailRequest");
 }
 
-export interface DeregisterFromWorkMailResponse {
-  __type?: "DeregisterFromWorkMailResponse";
-}
+export interface DeregisterFromWorkMailResponse {}
 
 export namespace DeregisterFromWorkMailResponse {
   export const filterSensitiveLog = (obj: DeregisterFromWorkMailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterFromWorkMailResponse => __isa(o, "DeregisterFromWorkMailResponse");
 }
 
 export interface DescribeGroupRequest {
-  __type?: "DescribeGroupRequest";
   /**
    * <p>The identifier for the group to be described.</p>
    */
@@ -506,11 +442,9 @@ export namespace DescribeGroupRequest {
   export const filterSensitiveLog = (obj: DescribeGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGroupRequest => __isa(o, "DescribeGroupRequest");
 }
 
 export interface DescribeGroupResponse {
-  __type?: "DescribeGroupResponse";
   /**
    * <p>The identifier of the described group.</p>
    */
@@ -549,11 +483,9 @@ export namespace DescribeGroupResponse {
   export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGroupResponse => __isa(o, "DescribeGroupResponse");
 }
 
 export interface DescribeOrganizationRequest {
-  __type?: "DescribeOrganizationRequest";
   /**
    * <p>The identifier for the organization to be described.</p>
    */
@@ -564,11 +496,9 @@ export namespace DescribeOrganizationRequest {
   export const filterSensitiveLog = (obj: DescribeOrganizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrganizationRequest => __isa(o, "DescribeOrganizationRequest");
 }
 
 export interface DescribeOrganizationResponse {
-  __type?: "DescribeOrganizationResponse";
   /**
    * <p>The identifier for the directory associated with an Amazon WorkMail
    *          organization.</p>
@@ -617,11 +547,9 @@ export namespace DescribeOrganizationResponse {
   export const filterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrganizationResponse => __isa(o, "DescribeOrganizationResponse");
 }
 
 export interface DescribeResourceRequest {
-  __type?: "DescribeResourceRequest";
   /**
    * <p>The identifier associated with the organization for which the resource is
    *          described.</p>
@@ -638,11 +566,9 @@ export namespace DescribeResourceRequest {
   export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceRequest => __isa(o, "DescribeResourceRequest");
 }
 
 export interface DescribeResourceResponse {
-  __type?: "DescribeResourceResponse";
   /**
    * <p>The type of the described resource.</p>
    */
@@ -691,11 +617,9 @@ export namespace DescribeResourceResponse {
   export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceResponse => __isa(o, "DescribeResourceResponse");
 }
 
 export interface DescribeUserRequest {
-  __type?: "DescribeUserRequest";
   /**
    * <p>The identifier for the organization under which the user exists.</p>
    */
@@ -711,11 +635,9 @@ export namespace DescribeUserRequest {
   export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
-  __type?: "DescribeUserResponse";
   /**
    * <p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
    */
@@ -766,7 +688,6 @@ export namespace DescribeUserResponse {
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
@@ -783,8 +704,6 @@ export namespace DirectoryServiceAuthenticationFailedException {
   export const filterSensitiveLog = (obj: DirectoryServiceAuthenticationFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DirectoryServiceAuthenticationFailedException =>
-    __isa(o, "DirectoryServiceAuthenticationFailedException");
 }
 
 /**
@@ -801,11 +720,9 @@ export namespace DirectoryUnavailableException {
   export const filterSensitiveLog = (obj: DirectoryUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DirectoryUnavailableException => __isa(o, "DirectoryUnavailableException");
 }
 
 export interface DisassociateDelegateFromResourceRequest {
-  __type?: "DisassociateDelegateFromResourceRequest";
   /**
    * <p>The identifier for the organization under which the resource exists.</p>
    */
@@ -826,24 +743,17 @@ export namespace DisassociateDelegateFromResourceRequest {
   export const filterSensitiveLog = (obj: DisassociateDelegateFromResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateDelegateFromResourceRequest =>
-    __isa(o, "DisassociateDelegateFromResourceRequest");
 }
 
-export interface DisassociateDelegateFromResourceResponse {
-  __type?: "DisassociateDelegateFromResourceResponse";
-}
+export interface DisassociateDelegateFromResourceResponse {}
 
 export namespace DisassociateDelegateFromResourceResponse {
   export const filterSensitiveLog = (obj: DisassociateDelegateFromResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateDelegateFromResourceResponse =>
-    __isa(o, "DisassociateDelegateFromResourceResponse");
 }
 
 export interface DisassociateMemberFromGroupRequest {
-  __type?: "DisassociateMemberFromGroupRequest";
   /**
    * <p>The identifier for the member to be removed to the group.</p>
    */
@@ -864,20 +774,14 @@ export namespace DisassociateMemberFromGroupRequest {
   export const filterSensitiveLog = (obj: DisassociateMemberFromGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateMemberFromGroupRequest =>
-    __isa(o, "DisassociateMemberFromGroupRequest");
 }
 
-export interface DisassociateMemberFromGroupResponse {
-  __type?: "DisassociateMemberFromGroupResponse";
-}
+export interface DisassociateMemberFromGroupResponse {}
 
 export namespace DisassociateMemberFromGroupResponse {
   export const filterSensitiveLog = (obj: DisassociateMemberFromGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateMemberFromGroupResponse =>
-    __isa(o, "DisassociateMemberFromGroupResponse");
 }
 
 /**
@@ -894,7 +798,6 @@ export namespace EmailAddressInUseException {
   export const filterSensitiveLog = (obj: EmailAddressInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailAddressInUseException => __isa(o, "EmailAddressInUseException");
 }
 
 /**
@@ -910,7 +813,6 @@ export namespace EntityAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: EntityAlreadyRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityAlreadyRegisteredException => __isa(o, "EntityAlreadyRegisteredException");
 }
 
 /**
@@ -927,7 +829,6 @@ export namespace EntityNotFoundException {
   export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityNotFoundException => __isa(o, "EntityNotFoundException");
 }
 
 export enum EntityState {
@@ -950,11 +851,9 @@ export namespace EntityStateException {
   export const filterSensitiveLog = (obj: EntityStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityStateException => __isa(o, "EntityStateException");
 }
 
 export interface GetMailboxDetailsRequest {
-  __type?: "GetMailboxDetailsRequest";
   /**
    * <p>The identifier for the user whose mailbox details are being requested.</p>
    */
@@ -971,11 +870,9 @@ export namespace GetMailboxDetailsRequest {
   export const filterSensitiveLog = (obj: GetMailboxDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMailboxDetailsRequest => __isa(o, "GetMailboxDetailsRequest");
 }
 
 export interface GetMailboxDetailsResponse {
-  __type?: "GetMailboxDetailsResponse";
   /**
    * <p>The current mailbox size, in MB, for the specified user.</p>
    */
@@ -991,14 +888,12 @@ export namespace GetMailboxDetailsResponse {
   export const filterSensitiveLog = (obj: GetMailboxDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMailboxDetailsResponse => __isa(o, "GetMailboxDetailsResponse");
 }
 
 /**
  * <p>The representation of an Amazon WorkMail group.</p>
  */
 export interface Group {
-  __type?: "Group";
   /**
    * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
    */
@@ -1034,7 +929,6 @@ export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
 /**
@@ -1052,7 +946,6 @@ export namespace InvalidConfigurationException {
   export const filterSensitiveLog = (obj: InvalidConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConfigurationException => __isa(o, "InvalidConfigurationException");
 }
 
 /**
@@ -1068,7 +961,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1085,11 +977,9 @@ export namespace InvalidPasswordException {
   export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPasswordException => __isa(o, "InvalidPasswordException");
 }
 
 export interface ListAliasesRequest {
-  __type?: "ListAliasesRequest";
   /**
    * <p>The identifier for the organization under which the entity exists.</p>
    */
@@ -1116,11 +1006,9 @@ export namespace ListAliasesRequest {
   export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesRequest => __isa(o, "ListAliasesRequest");
 }
 
 export interface ListAliasesResponse {
-  __type?: "ListAliasesResponse";
   /**
    * <p>The entity's paginated aliases.</p>
    */
@@ -1137,11 +1025,9 @@ export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesResponse => __isa(o, "ListAliasesResponse");
 }
 
 export interface ListGroupMembersRequest {
-  __type?: "ListGroupMembersRequest";
   /**
    * <p>The identifier for the group to which the members (users or groups) are associated.</p>
    */
@@ -1168,11 +1054,9 @@ export namespace ListGroupMembersRequest {
   export const filterSensitiveLog = (obj: ListGroupMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupMembersRequest => __isa(o, "ListGroupMembersRequest");
 }
 
 export interface ListGroupMembersResponse {
-  __type?: "ListGroupMembersResponse";
   /**
    * <p>The members associated to the group.</p>
    */
@@ -1189,11 +1073,9 @@ export namespace ListGroupMembersResponse {
   export const filterSensitiveLog = (obj: ListGroupMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupMembersResponse => __isa(o, "ListGroupMembersResponse");
 }
 
 export interface ListGroupsRequest {
-  __type?: "ListGroupsRequest";
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not
    *          contain any tokens.</p>
@@ -1215,11 +1097,9 @@ export namespace ListGroupsRequest {
   export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsRequest => __isa(o, "ListGroupsRequest");
 }
 
 export interface ListGroupsResponse {
-  __type?: "ListGroupsResponse";
   /**
    * <p>The overview of groups for an organization.</p>
    */
@@ -1236,11 +1116,9 @@ export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsResponse => __isa(o, "ListGroupsResponse");
 }
 
 export interface ListMailboxPermissionsRequest {
-  __type?: "ListMailboxPermissionsRequest";
   /**
    * <p>The identifier of the organization under which the user, group, or resource
    *          exists.</p>
@@ -1268,11 +1146,9 @@ export namespace ListMailboxPermissionsRequest {
   export const filterSensitiveLog = (obj: ListMailboxPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMailboxPermissionsRequest => __isa(o, "ListMailboxPermissionsRequest");
 }
 
 export interface ListMailboxPermissionsResponse {
-  __type?: "ListMailboxPermissionsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
    */
@@ -1288,11 +1164,9 @@ export namespace ListMailboxPermissionsResponse {
   export const filterSensitiveLog = (obj: ListMailboxPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMailboxPermissionsResponse => __isa(o, "ListMailboxPermissionsResponse");
 }
 
 export interface ListOrganizationsRequest {
-  __type?: "ListOrganizationsRequest";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -1309,11 +1183,9 @@ export namespace ListOrganizationsRequest {
   export const filterSensitiveLog = (obj: ListOrganizationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOrganizationsRequest => __isa(o, "ListOrganizationsRequest");
 }
 
 export interface ListOrganizationsResponse {
-  __type?: "ListOrganizationsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there
    *          are no more results to return.</p>
@@ -1330,11 +1202,9 @@ export namespace ListOrganizationsResponse {
   export const filterSensitiveLog = (obj: ListOrganizationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOrganizationsResponse => __isa(o, "ListOrganizationsResponse");
 }
 
 export interface ListResourceDelegatesRequest {
-  __type?: "ListResourceDelegatesRequest";
   /**
    * <p>The number of maximum results in a page.</p>
    */
@@ -1361,11 +1231,9 @@ export namespace ListResourceDelegatesRequest {
   export const filterSensitiveLog = (obj: ListResourceDelegatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceDelegatesRequest => __isa(o, "ListResourceDelegatesRequest");
 }
 
 export interface ListResourceDelegatesResponse {
-  __type?: "ListResourceDelegatesResponse";
   /**
    * <p>The token used to paginate through the delegates associated with a resource. While
    *          results are still available, it has an associated value. When the last page is reached, the
@@ -1383,11 +1251,9 @@ export namespace ListResourceDelegatesResponse {
   export const filterSensitiveLog = (obj: ListResourceDelegatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceDelegatesResponse => __isa(o, "ListResourceDelegatesResponse");
 }
 
 export interface ListResourcesRequest {
-  __type?: "ListResourcesRequest";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -1409,11 +1275,9 @@ export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
-  __type?: "ListResourcesResponse";
   /**
    * <p>One page of the organization's resource representation.</p>
    */
@@ -1431,11 +1295,9 @@ export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
    */
@@ -1456,11 +1318,9 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p> The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>
    */
@@ -1476,7 +1336,6 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 /**
@@ -1493,7 +1352,6 @@ export namespace MailDomainNotFoundException {
   export const filterSensitiveLog = (obj: MailDomainNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MailDomainNotFoundException => __isa(o, "MailDomainNotFoundException");
 }
 
 /**
@@ -1510,14 +1368,12 @@ export namespace MailDomainStateException {
   export const filterSensitiveLog = (obj: MailDomainStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MailDomainStateException => __isa(o, "MailDomainStateException");
 }
 
 /**
  * <p>The representation of a user or group.</p>
  */
 export interface Member {
-  __type?: "Member";
   /**
    * <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
    */
@@ -1555,7 +1411,6 @@ export namespace Member {
   export const filterSensitiveLog = (obj: Member): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Member => __isa(o, "Member");
 }
 
 export enum MemberType {
@@ -1576,7 +1431,6 @@ export namespace NameAvailabilityException {
   export const filterSensitiveLog = (obj: NameAvailabilityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NameAvailabilityException => __isa(o, "NameAvailabilityException");
 }
 
 /**
@@ -1593,7 +1447,6 @@ export namespace OrganizationNotFoundException {
   export const filterSensitiveLog = (obj: OrganizationNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationNotFoundException => __isa(o, "OrganizationNotFoundException");
 }
 
 /**
@@ -1610,14 +1463,12 @@ export namespace OrganizationStateException {
   export const filterSensitiveLog = (obj: OrganizationStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationStateException => __isa(o, "OrganizationStateException");
 }
 
 /**
  * <p>The representation of an organization.</p>
  */
 export interface OrganizationSummary {
-  __type?: "OrganizationSummary";
   /**
    * <p>The error message associated with the organization. It is only  present if unexpected
    *          behavior has occurred with regards to the organization. It provides insight or solutions
@@ -1645,7 +1496,6 @@ export namespace OrganizationSummary {
   export const filterSensitiveLog = (obj: OrganizationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationSummary => __isa(o, "OrganizationSummary");
 }
 
 /**
@@ -1653,7 +1503,6 @@ export namespace OrganizationSummary {
  *          another user, group, or resource mailbox.</p>
  */
 export interface Permission {
-  __type?: "Permission";
   /**
    * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
    */
@@ -1675,7 +1524,6 @@ export namespace Permission {
   export const filterSensitiveLog = (obj: Permission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Permission => __isa(o, "Permission");
 }
 
 export enum PermissionType {
@@ -1685,7 +1533,6 @@ export enum PermissionType {
 }
 
 export interface PutMailboxPermissionsRequest {
-  __type?: "PutMailboxPermissionsRequest";
   /**
    * <p>The identifier of the user, group, or resource to which to grant the
    *          permissions.</p>
@@ -1714,22 +1561,17 @@ export namespace PutMailboxPermissionsRequest {
   export const filterSensitiveLog = (obj: PutMailboxPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutMailboxPermissionsRequest => __isa(o, "PutMailboxPermissionsRequest");
 }
 
-export interface PutMailboxPermissionsResponse {
-  __type?: "PutMailboxPermissionsResponse";
-}
+export interface PutMailboxPermissionsResponse {}
 
 export namespace PutMailboxPermissionsResponse {
   export const filterSensitiveLog = (obj: PutMailboxPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutMailboxPermissionsResponse => __isa(o, "PutMailboxPermissionsResponse");
 }
 
 export interface RegisterToWorkMailRequest {
-  __type?: "RegisterToWorkMailRequest";
   /**
    * <p>The email for the user, group, or resource to be updated.</p>
    */
@@ -1751,18 +1593,14 @@ export namespace RegisterToWorkMailRequest {
   export const filterSensitiveLog = (obj: RegisterToWorkMailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterToWorkMailRequest => __isa(o, "RegisterToWorkMailRequest");
 }
 
-export interface RegisterToWorkMailResponse {
-  __type?: "RegisterToWorkMailResponse";
-}
+export interface RegisterToWorkMailResponse {}
 
 export namespace RegisterToWorkMailResponse {
   export const filterSensitiveLog = (obj: RegisterToWorkMailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterToWorkMailResponse => __isa(o, "RegisterToWorkMailResponse");
 }
 
 /**
@@ -1778,11 +1616,9 @@ export namespace ReservedNameException {
   export const filterSensitiveLog = (obj: ReservedNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNameException => __isa(o, "ReservedNameException");
 }
 
 export interface ResetPasswordRequest {
-  __type?: "ResetPasswordRequest";
   /**
    * <p>The identifier of the organization that contains the user for which the password is
    *          reset.</p>
@@ -1805,25 +1641,20 @@ export namespace ResetPasswordRequest {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ResetPasswordRequest => __isa(o, "ResetPasswordRequest");
 }
 
-export interface ResetPasswordResponse {
-  __type?: "ResetPasswordResponse";
-}
+export interface ResetPasswordResponse {}
 
 export namespace ResetPasswordResponse {
   export const filterSensitiveLog = (obj: ResetPasswordResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetPasswordResponse => __isa(o, "ResetPasswordResponse");
 }
 
 /**
  * <p>The representation of a resource.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>The date indicating when the resource was enabled for Amazon WorkMail use.</p>
    */
@@ -1865,7 +1696,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 export enum ResourceType {
@@ -1886,11 +1716,9 @@ export namespace UnsupportedOperationException {
   export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperationException => __isa(o, "UnsupportedOperationException");
 }
 
 export interface UpdateMailboxQuotaRequest {
-  __type?: "UpdateMailboxQuotaRequest";
   /**
    * <p>The identifer for the user for whom to update the mailbox quota.</p>
    */
@@ -1911,22 +1739,17 @@ export namespace UpdateMailboxQuotaRequest {
   export const filterSensitiveLog = (obj: UpdateMailboxQuotaRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMailboxQuotaRequest => __isa(o, "UpdateMailboxQuotaRequest");
 }
 
-export interface UpdateMailboxQuotaResponse {
-  __type?: "UpdateMailboxQuotaResponse";
-}
+export interface UpdateMailboxQuotaResponse {}
 
 export namespace UpdateMailboxQuotaResponse {
   export const filterSensitiveLog = (obj: UpdateMailboxQuotaResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMailboxQuotaResponse => __isa(o, "UpdateMailboxQuotaResponse");
 }
 
 export interface UpdatePrimaryEmailAddressRequest {
-  __type?: "UpdatePrimaryEmailAddressRequest";
   /**
    * <p>The organization that contains the user, group, or resource to update.</p>
    */
@@ -1947,22 +1770,17 @@ export namespace UpdatePrimaryEmailAddressRequest {
   export const filterSensitiveLog = (obj: UpdatePrimaryEmailAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePrimaryEmailAddressRequest => __isa(o, "UpdatePrimaryEmailAddressRequest");
 }
 
-export interface UpdatePrimaryEmailAddressResponse {
-  __type?: "UpdatePrimaryEmailAddressResponse";
-}
+export interface UpdatePrimaryEmailAddressResponse {}
 
 export namespace UpdatePrimaryEmailAddressResponse {
   export const filterSensitiveLog = (obj: UpdatePrimaryEmailAddressResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePrimaryEmailAddressResponse => __isa(o, "UpdatePrimaryEmailAddressResponse");
 }
 
 export interface UpdateResourceRequest {
-  __type?: "UpdateResourceRequest";
   /**
    * <p>The identifier of the resource to be updated.</p>
    */
@@ -1989,25 +1807,20 @@ export namespace UpdateResourceRequest {
   export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceRequest => __isa(o, "UpdateResourceRequest");
 }
 
-export interface UpdateResourceResponse {
-  __type?: "UpdateResourceResponse";
-}
+export interface UpdateResourceResponse {}
 
 export namespace UpdateResourceResponse {
   export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceResponse => __isa(o, "UpdateResourceResponse");
 }
 
 /**
  * <p>The representation of an Amazon WorkMail user.</p>
  */
 export interface User {
-  __type?: "User";
   /**
    * <p>The display name of the user.</p>
    */
@@ -2053,7 +1866,6 @@ export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 export enum UserRole {

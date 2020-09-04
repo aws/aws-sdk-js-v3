@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptResourceShareInvitationRequest {
-  __type?: "AcceptResourceShareInvitationRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -18,12 +17,9 @@ export namespace AcceptResourceShareInvitationRequest {
   export const filterSensitiveLog = (obj: AcceptResourceShareInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptResourceShareInvitationRequest =>
-    __isa(o, "AcceptResourceShareInvitationRequest");
 }
 
 export interface AcceptResourceShareInvitationResponse {
-  __type?: "AcceptResourceShareInvitationResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -39,12 +35,9 @@ export namespace AcceptResourceShareInvitationResponse {
   export const filterSensitiveLog = (obj: AcceptResourceShareInvitationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptResourceShareInvitationResponse =>
-    __isa(o, "AcceptResourceShareInvitationResponse");
 }
 
 export interface AssociateResourceSharePermissionRequest {
-  __type?: "AssociateResourceSharePermissionRequest";
   /**
    * <p>The ARN of the AWS RAM permission to associate with the resource share.</p>
    */
@@ -72,12 +65,9 @@ export namespace AssociateResourceSharePermissionRequest {
   export const filterSensitiveLog = (obj: AssociateResourceSharePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResourceSharePermissionRequest =>
-    __isa(o, "AssociateResourceSharePermissionRequest");
 }
 
 export interface AssociateResourceSharePermissionResponse {
-  __type?: "AssociateResourceSharePermissionResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
    */
@@ -93,12 +83,9 @@ export namespace AssociateResourceSharePermissionResponse {
   export const filterSensitiveLog = (obj: AssociateResourceSharePermissionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResourceSharePermissionResponse =>
-    __isa(o, "AssociateResourceSharePermissionResponse");
 }
 
 export interface AssociateResourceShareRequest {
-  __type?: "AssociateResourceShareRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -124,11 +111,9 @@ export namespace AssociateResourceShareRequest {
   export const filterSensitiveLog = (obj: AssociateResourceShareRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResourceShareRequest => __isa(o, "AssociateResourceShareRequest");
 }
 
 export interface AssociateResourceShareResponse {
-  __type?: "AssociateResourceShareResponse";
   /**
    * <p>Information about the associations.</p>
    */
@@ -144,11 +129,9 @@ export namespace AssociateResourceShareResponse {
   export const filterSensitiveLog = (obj: AssociateResourceShareResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateResourceShareResponse => __isa(o, "AssociateResourceShareResponse");
 }
 
 export interface CreateResourceShareRequest {
-  __type?: "CreateResourceShareRequest";
   /**
    * <p>One or more tags.</p>
    */
@@ -192,11 +175,9 @@ export namespace CreateResourceShareRequest {
   export const filterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceShareRequest => __isa(o, "CreateResourceShareRequest");
 }
 
 export interface CreateResourceShareResponse {
-  __type?: "CreateResourceShareResponse";
   /**
    * <p>Information about the resource share.</p>
    */
@@ -212,11 +193,9 @@ export namespace CreateResourceShareResponse {
   export const filterSensitiveLog = (obj: CreateResourceShareResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceShareResponse => __isa(o, "CreateResourceShareResponse");
 }
 
 export interface DeleteResourceShareRequest {
-  __type?: "DeleteResourceShareRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -232,11 +211,9 @@ export namespace DeleteResourceShareRequest {
   export const filterSensitiveLog = (obj: DeleteResourceShareRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceShareRequest => __isa(o, "DeleteResourceShareRequest");
 }
 
 export interface DeleteResourceShareResponse {
-  __type?: "DeleteResourceShareResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
    */
@@ -252,11 +229,9 @@ export namespace DeleteResourceShareResponse {
   export const filterSensitiveLog = (obj: DeleteResourceShareResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceShareResponse => __isa(o, "DeleteResourceShareResponse");
 }
 
 export interface DisassociateResourceSharePermissionRequest {
-  __type?: "DisassociateResourceSharePermissionRequest";
   /**
    * <p>The ARN of the permission to disassociate from the resource share.</p>
    */
@@ -277,12 +252,9 @@ export namespace DisassociateResourceSharePermissionRequest {
   export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResourceSharePermissionRequest =>
-    __isa(o, "DisassociateResourceSharePermissionRequest");
 }
 
 export interface DisassociateResourceSharePermissionResponse {
-  __type?: "DisassociateResourceSharePermissionResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
    */
@@ -298,12 +270,9 @@ export namespace DisassociateResourceSharePermissionResponse {
   export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResourceSharePermissionResponse =>
-    __isa(o, "DisassociateResourceSharePermissionResponse");
 }
 
 export interface DisassociateResourceShareRequest {
-  __type?: "DisassociateResourceShareRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -329,11 +298,9 @@ export namespace DisassociateResourceShareRequest {
   export const filterSensitiveLog = (obj: DisassociateResourceShareRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResourceShareRequest => __isa(o, "DisassociateResourceShareRequest");
 }
 
 export interface DisassociateResourceShareResponse {
-  __type?: "DisassociateResourceShareResponse";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -349,23 +316,17 @@ export namespace DisassociateResourceShareResponse {
   export const filterSensitiveLog = (obj: DisassociateResourceShareResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateResourceShareResponse => __isa(o, "DisassociateResourceShareResponse");
 }
 
-export interface EnableSharingWithAwsOrganizationRequest {
-  __type?: "EnableSharingWithAwsOrganizationRequest";
-}
+export interface EnableSharingWithAwsOrganizationRequest {}
 
 export namespace EnableSharingWithAwsOrganizationRequest {
   export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSharingWithAwsOrganizationRequest =>
-    __isa(o, "EnableSharingWithAwsOrganizationRequest");
 }
 
 export interface EnableSharingWithAwsOrganizationResponse {
-  __type?: "EnableSharingWithAwsOrganizationResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
    */
@@ -376,12 +337,9 @@ export namespace EnableSharingWithAwsOrganizationResponse {
   export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSharingWithAwsOrganizationResponse =>
-    __isa(o, "EnableSharingWithAwsOrganizationResponse");
 }
 
 export interface GetPermissionRequest {
-  __type?: "GetPermissionRequest";
   /**
    * <p>The ARN of the permission.</p>
    */
@@ -397,11 +355,9 @@ export namespace GetPermissionRequest {
   export const filterSensitiveLog = (obj: GetPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPermissionRequest => __isa(o, "GetPermissionRequest");
 }
 
 export interface GetPermissionResponse {
-  __type?: "GetPermissionResponse";
   /**
    * <p>Information about the permission.</p>
    */
@@ -412,11 +368,9 @@ export namespace GetPermissionResponse {
   export const filterSensitiveLog = (obj: GetPermissionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPermissionResponse => __isa(o, "GetPermissionResponse");
 }
 
 export interface GetResourcePoliciesRequest {
-  __type?: "GetResourcePoliciesRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -443,11 +397,9 @@ export namespace GetResourcePoliciesRequest {
   export const filterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePoliciesRequest => __isa(o, "GetResourcePoliciesRequest");
 }
 
 export interface GetResourcePoliciesResponse {
-  __type?: "GetResourcePoliciesResponse";
   /**
    * <p>A key policy document, in JSON format.</p>
    */
@@ -463,11 +415,9 @@ export namespace GetResourcePoliciesResponse {
   export const filterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePoliciesResponse => __isa(o, "GetResourcePoliciesResponse");
 }
 
 export interface GetResourceShareAssociationsRequest {
-  __type?: "GetResourceShareAssociationsRequest";
   /**
    * <p>The association status.</p>
    */
@@ -513,12 +463,9 @@ export namespace GetResourceShareAssociationsRequest {
   export const filterSensitiveLog = (obj: GetResourceShareAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceShareAssociationsRequest =>
-    __isa(o, "GetResourceShareAssociationsRequest");
 }
 
 export interface GetResourceShareAssociationsResponse {
-  __type?: "GetResourceShareAssociationsResponse";
   /**
    * <p>Information about the associations.</p>
    */
@@ -534,12 +481,9 @@ export namespace GetResourceShareAssociationsResponse {
   export const filterSensitiveLog = (obj: GetResourceShareAssociationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceShareAssociationsResponse =>
-    __isa(o, "GetResourceShareAssociationsResponse");
 }
 
 export interface GetResourceShareInvitationsRequest {
-  __type?: "GetResourceShareInvitationsRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -566,12 +510,9 @@ export namespace GetResourceShareInvitationsRequest {
   export const filterSensitiveLog = (obj: GetResourceShareInvitationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceShareInvitationsRequest =>
-    __isa(o, "GetResourceShareInvitationsRequest");
 }
 
 export interface GetResourceShareInvitationsResponse {
-  __type?: "GetResourceShareInvitationsResponse";
   /**
    * <p>Information about the invitations.</p>
    */
@@ -587,12 +528,9 @@ export namespace GetResourceShareInvitationsResponse {
   export const filterSensitiveLog = (obj: GetResourceShareInvitationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceShareInvitationsResponse =>
-    __isa(o, "GetResourceShareInvitationsResponse");
 }
 
 export interface GetResourceSharesRequest {
-  __type?: "GetResourceSharesRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -634,11 +572,9 @@ export namespace GetResourceSharesRequest {
   export const filterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceSharesRequest => __isa(o, "GetResourceSharesRequest");
 }
 
 export interface GetResourceSharesResponse {
-  __type?: "GetResourceSharesResponse";
   /**
    * <p>Information about the resource shares.</p>
    */
@@ -654,7 +590,6 @@ export namespace GetResourceSharesResponse {
   export const filterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceSharesResponse => __isa(o, "GetResourceSharesResponse");
 }
 
 /**
@@ -671,8 +606,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -688,7 +621,6 @@ export namespace InvalidClientTokenException {
   export const filterSensitiveLog = (obj: InvalidClientTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClientTokenException => __isa(o, "InvalidClientTokenException");
 }
 
 /**
@@ -704,7 +636,6 @@ export namespace InvalidMaxResultsException {
   export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxResultsException => __isa(o, "InvalidMaxResultsException");
 }
 
 /**
@@ -720,7 +651,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -736,7 +666,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -752,7 +681,6 @@ export namespace InvalidResourceTypeException {
   export const filterSensitiveLog = (obj: InvalidResourceTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceTypeException => __isa(o, "InvalidResourceTypeException");
 }
 
 /**
@@ -768,11 +696,9 @@ export namespace InvalidStateTransitionException {
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 export interface ListPendingInvitationResourcesRequest {
-  __type?: "ListPendingInvitationResourcesRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -794,12 +720,9 @@ export namespace ListPendingInvitationResourcesRequest {
   export const filterSensitiveLog = (obj: ListPendingInvitationResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPendingInvitationResourcesRequest =>
-    __isa(o, "ListPendingInvitationResourcesRequest");
 }
 
 export interface ListPendingInvitationResourcesResponse {
-  __type?: "ListPendingInvitationResourcesResponse";
   /**
    * <p>Information about the resources included the resource share.</p>
    */
@@ -815,12 +738,9 @@ export namespace ListPendingInvitationResourcesResponse {
   export const filterSensitiveLog = (obj: ListPendingInvitationResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPendingInvitationResourcesResponse =>
-    __isa(o, "ListPendingInvitationResourcesResponse");
 }
 
 export interface ListPermissionsRequest {
-  __type?: "ListPermissionsRequest";
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -843,11 +763,9 @@ export namespace ListPermissionsRequest {
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
-  __type?: "ListPermissionsResponse";
   /**
    * <p>Information about the permissions.</p>
    */
@@ -863,11 +781,9 @@ export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListPrincipalsRequest {
-  __type?: "ListPrincipalsRequest";
   /**
    * <p>The principals.</p>
    */
@@ -912,11 +828,9 @@ export namespace ListPrincipalsRequest {
   export const filterSensitiveLog = (obj: ListPrincipalsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalsRequest => __isa(o, "ListPrincipalsRequest");
 }
 
 export interface ListPrincipalsResponse {
-  __type?: "ListPrincipalsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -932,11 +846,9 @@ export namespace ListPrincipalsResponse {
   export const filterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalsResponse => __isa(o, "ListPrincipalsResponse");
 }
 
 export interface ListResourceSharePermissionsRequest {
-  __type?: "ListResourceSharePermissionsRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -958,12 +870,9 @@ export namespace ListResourceSharePermissionsRequest {
   export const filterSensitiveLog = (obj: ListResourceSharePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceSharePermissionsRequest =>
-    __isa(o, "ListResourceSharePermissionsRequest");
 }
 
 export interface ListResourceSharePermissionsResponse {
-  __type?: "ListResourceSharePermissionsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
@@ -979,12 +888,9 @@ export namespace ListResourceSharePermissionsResponse {
   export const filterSensitiveLog = (obj: ListResourceSharePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceSharePermissionsResponse =>
-    __isa(o, "ListResourceSharePermissionsResponse");
 }
 
 export interface ListResourcesRequest {
-  __type?: "ListResourcesRequest";
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
@@ -1029,11 +935,9 @@ export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
-  __type?: "ListResourcesResponse";
   /**
    * <p>Information about the resources.</p>
    */
@@ -1049,11 +953,9 @@ export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
 }
 
 export interface ListResourceTypesRequest {
-  __type?: "ListResourceTypesRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -1070,11 +972,9 @@ export namespace ListResourceTypesRequest {
   export const filterSensitiveLog = (obj: ListResourceTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceTypesRequest => __isa(o, "ListResourceTypesRequest");
 }
 
 export interface ListResourceTypesResponse {
-  __type?: "ListResourceTypesResponse";
   /**
    * <p>The shareable resource types supported by AWS RAM.</p>
    */
@@ -1090,7 +990,6 @@ export namespace ListResourceTypesResponse {
   export const filterSensitiveLog = (obj: ListResourceTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceTypesResponse => __isa(o, "ListResourceTypesResponse");
 }
 
 /**
@@ -1106,7 +1005,6 @@ export namespace MalformedArnException {
   export const filterSensitiveLog = (obj: MalformedArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedArnException => __isa(o, "MalformedArnException");
 }
 
 /**
@@ -1122,7 +1020,6 @@ export namespace MissingRequiredParameterException {
   export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingRequiredParameterException => __isa(o, "MissingRequiredParameterException");
 }
 
 /**
@@ -1138,14 +1035,12 @@ export namespace OperationNotPermittedException {
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
  * <p>Describes a principal for use with AWS Resource Access Manager.</p>
  */
 export interface Principal {
-  __type?: "Principal";
   /**
    * <p>The time when the association was last updated.</p>
    */
@@ -1176,11 +1071,9 @@ export namespace Principal {
   export const filterSensitiveLog = (obj: Principal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Principal => __isa(o, "Principal");
 }
 
 export interface PromoteResourceShareCreatedFromPolicyRequest {
-  __type?: "PromoteResourceShareCreatedFromPolicyRequest";
   /**
    * <p>The ARN of the resource share to promote.</p>
    */
@@ -1191,12 +1084,9 @@ export namespace PromoteResourceShareCreatedFromPolicyRequest {
   export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PromoteResourceShareCreatedFromPolicyRequest =>
-    __isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
 }
 
 export interface PromoteResourceShareCreatedFromPolicyResponse {
-  __type?: "PromoteResourceShareCreatedFromPolicyResponse";
   /**
    * <p>Indicates whether the request succeeded.</p>
    */
@@ -1207,12 +1097,9 @@ export namespace PromoteResourceShareCreatedFromPolicyResponse {
   export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PromoteResourceShareCreatedFromPolicyResponse =>
-    __isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
 }
 
 export interface RejectResourceShareInvitationRequest {
-  __type?: "RejectResourceShareInvitationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
@@ -1228,12 +1115,9 @@ export namespace RejectResourceShareInvitationRequest {
   export const filterSensitiveLog = (obj: RejectResourceShareInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectResourceShareInvitationRequest =>
-    __isa(o, "RejectResourceShareInvitationRequest");
 }
 
 export interface RejectResourceShareInvitationResponse {
-  __type?: "RejectResourceShareInvitationResponse";
   /**
    * <p>Information about the invitation.</p>
    */
@@ -1249,15 +1133,12 @@ export namespace RejectResourceShareInvitationResponse {
   export const filterSensitiveLog = (obj: RejectResourceShareInvitationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectResourceShareInvitationResponse =>
-    __isa(o, "RejectResourceShareInvitationResponse");
 }
 
 /**
  * <p>Describes a resource associated with a resource share.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>The time when the association was last updated.</p>
    */
@@ -1304,7 +1185,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -1320,7 +1200,6 @@ export namespace ResourceArnNotFoundException {
   export const filterSensitiveLog = (obj: ResourceArnNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceArnNotFoundException => __isa(o, "ResourceArnNotFoundException");
 }
 
 export enum ResourceOwner {
@@ -1332,7 +1211,6 @@ export enum ResourceOwner {
  * <p>Describes a resource share.</p>
  */
 export interface ResourceShare {
-  __type?: "ResourceShare";
   /**
    * <p>The tags for the resource share.</p>
    */
@@ -1409,14 +1287,12 @@ export namespace ResourceShare {
   export const filterSensitiveLog = (obj: ResourceShare): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShare => __isa(o, "ResourceShare");
 }
 
 /**
  * <p>Describes an association with a resource share.</p>
  */
 export interface ResourceShareAssociation {
-  __type?: "ResourceShareAssociation";
   /**
    * <p>The name of the resource share.</p>
    */
@@ -1469,7 +1345,6 @@ export namespace ResourceShareAssociation {
   export const filterSensitiveLog = (obj: ResourceShareAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareAssociation => __isa(o, "ResourceShareAssociation");
 }
 
 export type ResourceShareAssociationStatus =
@@ -1487,7 +1362,6 @@ export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STAN
  * <p>Describes an invitation to join a resource share.</p>
  */
 export interface ResourceShareInvitation {
-  __type?: "ResourceShareInvitation";
   /**
    * <p>To view the resources associated with a pending resource share invitation, use
    *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
@@ -1535,7 +1409,6 @@ export namespace ResourceShareInvitation {
   export const filterSensitiveLog = (obj: ResourceShareInvitation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareInvitation => __isa(o, "ResourceShareInvitation");
 }
 
 /**
@@ -1551,8 +1424,6 @@ export namespace ResourceShareInvitationAlreadyAcceptedException {
   export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyAcceptedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareInvitationAlreadyAcceptedException =>
-    __isa(o, "ResourceShareInvitationAlreadyAcceptedException");
 }
 
 /**
@@ -1568,8 +1439,6 @@ export namespace ResourceShareInvitationAlreadyRejectedException {
   export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyRejectedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareInvitationAlreadyRejectedException =>
-    __isa(o, "ResourceShareInvitationAlreadyRejectedException");
 }
 
 /**
@@ -1585,8 +1454,6 @@ export namespace ResourceShareInvitationArnNotFoundException {
   export const filterSensitiveLog = (obj: ResourceShareInvitationArnNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareInvitationArnNotFoundException =>
-    __isa(o, "ResourceShareInvitationArnNotFoundException");
 }
 
 /**
@@ -1602,8 +1469,6 @@ export namespace ResourceShareInvitationExpiredException {
   export const filterSensitiveLog = (obj: ResourceShareInvitationExpiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareInvitationExpiredException =>
-    __isa(o, "ResourceShareInvitationExpiredException");
 }
 
 export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" | "REJECTED";
@@ -1621,15 +1486,12 @@ export namespace ResourceShareLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceShareLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceShareLimitExceededException =>
-    __isa(o, "ResourceShareLimitExceededException");
 }
 
 /**
  * <p>Information about an AWS RAM permission.</p>
  */
 export interface ResourceSharePermissionDetail {
-  __type?: "ResourceSharePermissionDetail";
   /**
    * <p>The identifier for the version of the permission that is set as the
    *     		default version.</p>
@@ -1678,14 +1540,12 @@ export namespace ResourceSharePermissionDetail {
   export const filterSensitiveLog = (obj: ResourceSharePermissionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceSharePermissionDetail => __isa(o, "ResourceSharePermissionDetail");
 }
 
 /**
  * <p>Information about a permission that is associated with a resource share.</p>
  */
 export interface ResourceSharePermissionSummary {
-  __type?: "ResourceSharePermissionSummary";
   /**
    * <p>The current status of the permission.</p>
    */
@@ -1731,7 +1591,6 @@ export namespace ResourceSharePermissionSummary {
   export const filterSensitiveLog = (obj: ResourceSharePermissionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceSharePermissionSummary => __isa(o, "ResourceSharePermissionSummary");
 }
 
 export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" | "PENDING";
@@ -1751,14 +1610,12 @@ export namespace ServerInternalException {
   export const filterSensitiveLog = (obj: ServerInternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerInternalException => __isa(o, "ServerInternalException");
 }
 
 /**
  * <p>Information about the shareable resource types and the AWS services to which they belong.</p>
  */
 export interface ServiceNameAndResourceType {
-  __type?: "ServiceNameAndResourceType";
   /**
    * <p>The name of the AWS services to which the resources belong.</p>
    */
@@ -1774,7 +1631,6 @@ export namespace ServiceNameAndResourceType {
   export const filterSensitiveLog = (obj: ServiceNameAndResourceType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNameAndResourceType => __isa(o, "ServiceNameAndResourceType");
 }
 
 /**
@@ -1790,14 +1646,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * <p>Information about a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key of the tag.</p>
    */
@@ -1813,14 +1667,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Used to filter information based on tags.</p>
  */
 export interface TagFilter {
-  __type?: "TagFilter";
   /**
    * <p>The tag key.</p>
    */
@@ -1836,7 +1688,6 @@ export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 /**
@@ -1852,7 +1703,6 @@ export namespace TagLimitExceededException {
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
@@ -1868,11 +1718,9 @@ export namespace TagPolicyViolationException {
   export const filterSensitiveLog = (obj: TagPolicyViolationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagPolicyViolationException => __isa(o, "TagPolicyViolationException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
@@ -1888,18 +1736,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1915,11 +1759,9 @@ export namespace UnknownResourceException {
   export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnknownResourceException => __isa(o, "UnknownResourceException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
@@ -1935,22 +1777,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateResourceShareRequest {
-  __type?: "UpdateResourceShareRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -1976,11 +1813,9 @@ export namespace UpdateResourceShareRequest {
   export const filterSensitiveLog = (obj: UpdateResourceShareRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceShareRequest => __isa(o, "UpdateResourceShareRequest");
 }
 
 export interface UpdateResourceShareResponse {
-  __type?: "UpdateResourceShareResponse";
   /**
    * <p>Information about the resource share.</p>
    */
@@ -1996,5 +1831,4 @@ export namespace UpdateResourceShareResponse {
   export const filterSensitiveLog = (obj: UpdateResourceShareResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceShareResponse => __isa(o, "UpdateResourceShareResponse");
 }

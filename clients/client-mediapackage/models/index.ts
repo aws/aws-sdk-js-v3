@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum __AdTriggersElement {
@@ -34,7 +34,6 @@ export enum AdsOnDeliveryRestrictions {
  * CDN Authorization credentials
  */
 export interface Authorization {
-  __type?: "Authorization";
   /**
    * The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
    */
@@ -50,14 +49,12 @@ export namespace Authorization {
   export const filterSensitiveLog = (obj: Authorization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Authorization => __isa(o, "Authorization");
 }
 
 /**
  * A Channel resource configuration.
  */
 export interface Channel {
-  __type?: "Channel";
   /**
    * A collection of tags associated with a resource
    */
@@ -88,14 +85,12 @@ export namespace Channel {
   export const filterSensitiveLog = (obj: Channel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
 
 /**
  * A Common Media Application Format (CMAF) encryption configuration.
  */
 export interface CmafEncryption {
-  __type?: "CmafEncryption";
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
@@ -111,14 +106,12 @@ export namespace CmafEncryption {
   export const filterSensitiveLog = (obj: CmafEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafEncryption => __isa(o, "CmafEncryption");
 }
 
 /**
  * A Common Media Application Format (CMAF) packaging configuration.
  */
 export interface CmafPackage {
-  __type?: "CmafPackage";
   /**
    * A list of HLS manifest configurations
    */
@@ -150,14 +143,12 @@ export namespace CmafPackage {
   export const filterSensitiveLog = (obj: CmafPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
 }
 
 /**
  * A Common Media Application Format (CMAF) packaging configuration.
  */
 export interface CmafPackageCreateOrUpdateParameters {
-  __type?: "CmafPackageCreateOrUpdateParameters";
   /**
    * A StreamSelection configuration.
    */
@@ -189,15 +180,12 @@ export namespace CmafPackageCreateOrUpdateParameters {
   export const filterSensitiveLog = (obj: CmafPackageCreateOrUpdateParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafPackageCreateOrUpdateParameters =>
-    __isa(o, "CmafPackageCreateOrUpdateParameters");
 }
 
 /**
  * A new Channel configuration.
  */
 export interface CreateChannelRequest {
-  __type?: "CreateChannelRequest";
   /**
    * The ID of the Channel. The ID must be unique within the region and it
    * cannot be changed after a Channel is created.
@@ -219,11 +207,9 @@ export namespace CreateChannelRequest {
   export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChannelRequest => __isa(o, "CreateChannelRequest");
 }
 
 export interface CreateChannelResponse {
-  __type?: "CreateChannelResponse";
   /**
    * A collection of tags associated with a resource
    */
@@ -254,14 +240,12 @@ export namespace CreateChannelResponse {
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChannelResponse => __isa(o, "CreateChannelResponse");
 }
 
 /**
  * Configuration parameters used to create a new HarvestJob.
  */
 export interface CreateHarvestJobRequest {
-  __type?: "CreateHarvestJobRequest";
   /**
    * The end of the time-window which will be harvested
    */
@@ -294,11 +278,9 @@ export namespace CreateHarvestJobRequest {
   export const filterSensitiveLog = (obj: CreateHarvestJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHarvestJobRequest => __isa(o, "CreateHarvestJobRequest");
 }
 
 export interface CreateHarvestJobResponse {
-  __type?: "CreateHarvestJobResponse";
   /**
    * The ID of the HarvestJob. The ID must be unique within the region
    * and it cannot be changed after the HarvestJob is submitted.
@@ -353,14 +335,12 @@ export namespace CreateHarvestJobResponse {
   export const filterSensitiveLog = (obj: CreateHarvestJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHarvestJobResponse => __isa(o, "CreateHarvestJobResponse");
 }
 
 /**
  * Configuration parameters used to create a new OriginEndpoint.
  */
 export interface CreateOriginEndpointRequest {
-  __type?: "CreateOriginEndpointRequest";
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
@@ -442,11 +422,9 @@ export namespace CreateOriginEndpointRequest {
   export const filterSensitiveLog = (obj: CreateOriginEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOriginEndpointRequest => __isa(o, "CreateOriginEndpointRequest");
 }
 
 export interface CreateOriginEndpointResponse {
-  __type?: "CreateOriginEndpointResponse";
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -536,14 +514,12 @@ export namespace CreateOriginEndpointResponse {
   export const filterSensitiveLog = (obj: CreateOriginEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOriginEndpointResponse => __isa(o, "CreateOriginEndpointResponse");
 }
 
 /**
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
 export interface DashEncryption {
-  __type?: "DashEncryption";
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
@@ -559,14 +535,12 @@ export namespace DashEncryption {
   export const filterSensitiveLog = (obj: DashEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashEncryption => __isa(o, "DashEncryption");
 }
 
 /**
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  */
 export interface DashPackage {
-  __type?: "DashPackage";
   /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
@@ -650,11 +624,9 @@ export namespace DashPackage {
   export const filterSensitiveLog = (obj: DashPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashPackage => __isa(o, "DashPackage");
 }
 
 export interface DeleteChannelRequest {
-  __type?: "DeleteChannelRequest";
   /**
    * The ID of the Channel to delete.
    */
@@ -665,22 +637,17 @@ export namespace DeleteChannelRequest {
   export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChannelRequest => __isa(o, "DeleteChannelRequest");
 }
 
-export interface DeleteChannelResponse {
-  __type?: "DeleteChannelResponse";
-}
+export interface DeleteChannelResponse {}
 
 export namespace DeleteChannelResponse {
   export const filterSensitiveLog = (obj: DeleteChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChannelResponse => __isa(o, "DeleteChannelResponse");
 }
 
 export interface DeleteOriginEndpointRequest {
-  __type?: "DeleteOriginEndpointRequest";
   /**
    * The ID of the OriginEndpoint to delete.
    */
@@ -691,22 +658,17 @@ export namespace DeleteOriginEndpointRequest {
   export const filterSensitiveLog = (obj: DeleteOriginEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOriginEndpointRequest => __isa(o, "DeleteOriginEndpointRequest");
 }
 
-export interface DeleteOriginEndpointResponse {
-  __type?: "DeleteOriginEndpointResponse";
-}
+export interface DeleteOriginEndpointResponse {}
 
 export namespace DeleteOriginEndpointResponse {
   export const filterSensitiveLog = (obj: DeleteOriginEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOriginEndpointResponse => __isa(o, "DeleteOriginEndpointResponse");
 }
 
 export interface DescribeChannelRequest {
-  __type?: "DescribeChannelRequest";
   /**
    * The ID of a Channel.
    */
@@ -717,11 +679,9 @@ export namespace DescribeChannelRequest {
   export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChannelRequest => __isa(o, "DescribeChannelRequest");
 }
 
 export interface DescribeChannelResponse {
-  __type?: "DescribeChannelResponse";
   /**
    * A short text description of the Channel.
    */
@@ -752,11 +712,9 @@ export namespace DescribeChannelResponse {
   export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChannelResponse => __isa(o, "DescribeChannelResponse");
 }
 
 export interface DescribeHarvestJobRequest {
-  __type?: "DescribeHarvestJobRequest";
   /**
    * The ID of the HarvestJob.
    */
@@ -767,11 +725,9 @@ export namespace DescribeHarvestJobRequest {
   export const filterSensitiveLog = (obj: DescribeHarvestJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHarvestJobRequest => __isa(o, "DescribeHarvestJobRequest");
 }
 
 export interface DescribeHarvestJobResponse {
-  __type?: "DescribeHarvestJobResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
    */
@@ -826,11 +782,9 @@ export namespace DescribeHarvestJobResponse {
   export const filterSensitiveLog = (obj: DescribeHarvestJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHarvestJobResponse => __isa(o, "DescribeHarvestJobResponse");
 }
 
 export interface DescribeOriginEndpointRequest {
-  __type?: "DescribeOriginEndpointRequest";
   /**
    * The ID of the OriginEndpoint.
    */
@@ -841,11 +795,9 @@ export namespace DescribeOriginEndpointRequest {
   export const filterSensitiveLog = (obj: DescribeOriginEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOriginEndpointRequest => __isa(o, "DescribeOriginEndpointRequest");
 }
 
 export interface DescribeOriginEndpointResponse {
-  __type?: "DescribeOriginEndpointResponse";
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -935,7 +887,6 @@ export namespace DescribeOriginEndpointResponse {
   export const filterSensitiveLog = (obj: DescribeOriginEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOriginEndpointResponse => __isa(o, "DescribeOriginEndpointResponse");
 }
 
 export enum EncryptionMethod {
@@ -956,14 +907,12 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * A HarvestJob resource configuration
  */
 export interface HarvestJob {
-  __type?: "HarvestJob";
   /**
    * The ID of the Channel that the HarvestJob will harvest from.
    */
@@ -1018,14 +967,12 @@ export namespace HarvestJob {
   export const filterSensitiveLog = (obj: HarvestJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HarvestJob => __isa(o, "HarvestJob");
 }
 
 /**
  * An HTTP Live Streaming (HLS) encryption configuration.
  */
 export interface HlsEncryption {
-  __type?: "HlsEncryption";
   /**
    * A constant initialization vector for encryption (optional).
    * When not specified the initialization vector will be periodically rotated.
@@ -1057,14 +1004,12 @@ export namespace HlsEncryption {
   export const filterSensitiveLog = (obj: HlsEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsEncryption => __isa(o, "HlsEncryption");
 }
 
 /**
  * An HTTP Live Streaming (HLS) ingest resource configuration.
  */
 export interface HlsIngest {
-  __type?: "HlsIngest";
   /**
    * A list of endpoints to which the source stream should be sent.
    */
@@ -1075,14 +1020,12 @@ export namespace HlsIngest {
   export const filterSensitiveLog = (obj: HlsIngest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsIngest => __isa(o, "HlsIngest");
 }
 
 /**
  * A HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifest {
-  __type?: "HlsManifest";
   /**
    * When enabled, an I-Frame only stream will be included in the output.
    */
@@ -1146,14 +1089,12 @@ export namespace HlsManifest {
   export const filterSensitiveLog = (obj: HlsManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsManifest => __isa(o, "HlsManifest");
 }
 
 /**
  * A HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifestCreateOrUpdateParameters {
-  __type?: "HlsManifestCreateOrUpdateParameters";
   /**
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
@@ -1231,15 +1172,12 @@ export namespace HlsManifestCreateOrUpdateParameters {
   export const filterSensitiveLog = (obj: HlsManifestCreateOrUpdateParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsManifestCreateOrUpdateParameters =>
-    __isa(o, "HlsManifestCreateOrUpdateParameters");
 }
 
 /**
  * An HTTP Live Streaming (HLS) packaging configuration.
  */
 export interface HlsPackage {
-  __type?: "HlsPackage";
   /**
    * The HTTP Live Streaming (HLS) playlist type.
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
@@ -1328,14 +1266,12 @@ export namespace HlsPackage {
   export const filterSensitiveLog = (obj: HlsPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
 }
 
 /**
  * An endpoint for ingesting source content for a Channel.
  */
 export interface IngestEndpoint {
-  __type?: "IngestEndpoint";
   /**
    * The system generated password for ingest authentication.
    */
@@ -1361,7 +1297,6 @@ export namespace IngestEndpoint {
   export const filterSensitiveLog = (obj: IngestEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IngestEndpoint => __isa(o, "IngestEndpoint");
 }
 
 /**
@@ -1377,11 +1312,9 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListChannelsRequest {
-  __type?: "ListChannelsRequest";
   /**
    * Upper bound on number of records to return.
    */
@@ -1397,11 +1330,9 @@ export namespace ListChannelsRequest {
   export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChannelsRequest => __isa(o, "ListChannelsRequest");
 }
 
 export interface ListChannelsResponse {
-  __type?: "ListChannelsResponse";
   /**
    * A token that can be used to resume pagination from the end of the collection.
    */
@@ -1417,11 +1348,9 @@ export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChannelsResponse => __isa(o, "ListChannelsResponse");
 }
 
 export interface ListHarvestJobsRequest {
-  __type?: "ListHarvestJobsRequest";
   /**
    * The upper bound on the number of records to return.
    */
@@ -1447,11 +1376,9 @@ export namespace ListHarvestJobsRequest {
   export const filterSensitiveLog = (obj: ListHarvestJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHarvestJobsRequest => __isa(o, "ListHarvestJobsRequest");
 }
 
 export interface ListHarvestJobsResponse {
-  __type?: "ListHarvestJobsResponse";
   /**
    * A list of HarvestJob records.
    */
@@ -1467,11 +1394,9 @@ export namespace ListHarvestJobsResponse {
   export const filterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHarvestJobsResponse => __isa(o, "ListHarvestJobsResponse");
 }
 
 export interface ListOriginEndpointsRequest {
-  __type?: "ListOriginEndpointsRequest";
   /**
    * When specified, the request will return only OriginEndpoints associated with the given Channel ID.
    */
@@ -1492,11 +1417,9 @@ export namespace ListOriginEndpointsRequest {
   export const filterSensitiveLog = (obj: ListOriginEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOriginEndpointsRequest => __isa(o, "ListOriginEndpointsRequest");
 }
 
 export interface ListOriginEndpointsResponse {
-  __type?: "ListOriginEndpointsResponse";
   /**
    * A list of OriginEndpoint records.
    */
@@ -1512,11 +1435,9 @@ export namespace ListOriginEndpointsResponse {
   export const filterSensitiveLog = (obj: ListOriginEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOriginEndpointsResponse => __isa(o, "ListOriginEndpointsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   ResourceArn: string | undefined;
 }
 
@@ -1524,11 +1445,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   Tags?: { [key: string]: string };
 }
 
@@ -1536,7 +1455,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum ManifestLayout {
@@ -1548,7 +1466,6 @@ export enum ManifestLayout {
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
 export interface MssEncryption {
-  __type?: "MssEncryption";
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
@@ -1559,14 +1476,12 @@ export namespace MssEncryption {
   export const filterSensitiveLog = (obj: MssEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MssEncryption => __isa(o, "MssEncryption");
 }
 
 /**
  * A Microsoft Smooth Streaming (MSS) packaging configuration.
  */
 export interface MssPackage {
-  __type?: "MssPackage";
   /**
    * The time window (in seconds) contained in each manifest.
    */
@@ -1592,7 +1507,6 @@ export namespace MssPackage {
   export const filterSensitiveLog = (obj: MssPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");
 }
 
 /**
@@ -1608,7 +1522,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Origination {
@@ -1620,7 +1533,6 @@ export enum Origination {
  * An OriginEndpoint resource configuration.
  */
 export interface OriginEndpoint {
-  __type?: "OriginEndpoint";
   /**
    * The URL of the packaged OriginEndpoint for consumption.
    */
@@ -1710,7 +1622,6 @@ export namespace OriginEndpoint {
   export const filterSensitiveLog = (obj: OriginEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginEndpoint => __isa(o, "OriginEndpoint");
 }
 
 export enum PlaylistType {
@@ -1725,7 +1636,6 @@ export enum Profile {
 }
 
 export interface RotateChannelCredentialsRequest {
-  __type?: "RotateChannelCredentialsRequest";
   /**
    * The ID of the channel to update.
    */
@@ -1736,11 +1646,9 @@ export namespace RotateChannelCredentialsRequest {
   export const filterSensitiveLog = (obj: RotateChannelCredentialsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateChannelCredentialsRequest => __isa(o, "RotateChannelCredentialsRequest");
 }
 
 export interface RotateChannelCredentialsResponse {
-  __type?: "RotateChannelCredentialsResponse";
   /**
    * A short text description of the Channel.
    */
@@ -1771,11 +1679,9 @@ export namespace RotateChannelCredentialsResponse {
   export const filterSensitiveLog = (obj: RotateChannelCredentialsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateChannelCredentialsResponse => __isa(o, "RotateChannelCredentialsResponse");
 }
 
 export interface RotateIngestEndpointCredentialsRequest {
-  __type?: "RotateIngestEndpointCredentialsRequest";
   /**
    * The ID of the channel the IngestEndpoint is on.
    */
@@ -1791,12 +1697,9 @@ export namespace RotateIngestEndpointCredentialsRequest {
   export const filterSensitiveLog = (obj: RotateIngestEndpointCredentialsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateIngestEndpointCredentialsRequest =>
-    __isa(o, "RotateIngestEndpointCredentialsRequest");
 }
 
 export interface RotateIngestEndpointCredentialsResponse {
-  __type?: "RotateIngestEndpointCredentialsResponse";
   /**
    * An HTTP Live Streaming (HLS) ingest resource configuration.
    */
@@ -1827,15 +1730,12 @@ export namespace RotateIngestEndpointCredentialsResponse {
   export const filterSensitiveLog = (obj: RotateIngestEndpointCredentialsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateIngestEndpointCredentialsResponse =>
-    __isa(o, "RotateIngestEndpointCredentialsResponse");
 }
 
 /**
  * Configuration parameters for where in an S3 bucket to place the harvested content
  */
 export interface S3Destination {
-  __type?: "S3Destination";
   /**
    * The name of an S3 bucket within which harvested content will be exported
    */
@@ -1856,7 +1756,6 @@ export namespace S3Destination {
   export const filterSensitiveLog = (obj: S3Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
 export enum SegmentTemplateFormat {
@@ -1878,14 +1777,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
-  __type?: "SpekeKeyProvider";
   /**
    * The resource ID to include in key requests.
    */
@@ -1919,7 +1816,6 @@ export namespace SpekeKeyProvider {
   export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpekeKeyProvider => __isa(o, "SpekeKeyProvider");
 }
 
 export enum Status {
@@ -1938,7 +1834,6 @@ export enum StreamOrder {
  * A StreamSelection configuration.
  */
 export interface StreamSelection {
-  __type?: "StreamSelection";
   /**
    * The minimum video bitrate (bps) to include in output.
    */
@@ -1959,11 +1854,9 @@ export namespace StreamSelection {
   export const filterSensitiveLog = (obj: StreamSelection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamSelection => __isa(o, "StreamSelection");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   ResourceArn: string | undefined;
   Tags: { [key: string]: string } | undefined;
 }
@@ -1972,7 +1865,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1988,7 +1880,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -2004,11 +1895,9 @@ export namespace UnprocessableEntityException {
   export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnprocessableEntityException => __isa(o, "UnprocessableEntityException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * The key(s) of tag to be deleted
    */
@@ -2021,14 +1910,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * Configuration parameters used to update the Channel.
  */
 export interface UpdateChannelRequest {
-  __type?: "UpdateChannelRequest";
   /**
    * The ID of the Channel to update.
    */
@@ -2044,11 +1931,9 @@ export namespace UpdateChannelRequest {
   export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateChannelRequest => __isa(o, "UpdateChannelRequest");
 }
 
 export interface UpdateChannelResponse {
-  __type?: "UpdateChannelResponse";
   /**
    * The ID of the Channel.
    */
@@ -2079,14 +1964,12 @@ export namespace UpdateChannelResponse {
   export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateChannelResponse => __isa(o, "UpdateChannelResponse");
 }
 
 /**
  * Configuration parameters used to update an existing OriginEndpoint.
  */
 export interface UpdateOriginEndpointRequest {
-  __type?: "UpdateOriginEndpointRequest";
   /**
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
@@ -2156,11 +2039,9 @@ export namespace UpdateOriginEndpointRequest {
   export const filterSensitiveLog = (obj: UpdateOriginEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOriginEndpointRequest => __isa(o, "UpdateOriginEndpointRequest");
 }
 
 export interface UpdateOriginEndpointResponse {
-  __type?: "UpdateOriginEndpointResponse";
   /**
    * A short text description of the OriginEndpoint.
    */
@@ -2250,5 +2131,4 @@ export namespace UpdateOriginEndpointResponse {
   export const filterSensitiveLog = (obj: UpdateOriginEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOriginEndpointResponse => __isa(o, "UpdateOriginEndpointResponse");
 }

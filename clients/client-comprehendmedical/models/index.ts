@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       text. </p>
  */
 export interface Attribute {
-  __type?: "Attribute";
   /**
    * <p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
    *       as an attribute. </p>
@@ -70,7 +69,6 @@ export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 export enum AttributeName {
@@ -84,7 +82,6 @@ export enum AttributeName {
  * <p>Provides information for filtering a list of detection jobs.</p>
  */
 export interface ComprehendMedicalAsyncJobFilter {
-  __type?: "ComprehendMedicalAsyncJobFilter";
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
    *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
@@ -115,14 +112,12 @@ export namespace ComprehendMedicalAsyncJobFilter {
   export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComprehendMedicalAsyncJobFilter => __isa(o, "ComprehendMedicalAsyncJobFilter");
 }
 
 /**
  * <p>Provides information about a detection job.</p>
  */
 export interface ComprehendMedicalAsyncJobProperties {
-  __type?: "ComprehendMedicalAsyncJobProperties";
   /**
    * <p>The path to the file that describes the results of a batch job.</p>
    */
@@ -204,12 +199,9 @@ export namespace ComprehendMedicalAsyncJobProperties {
   export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComprehendMedicalAsyncJobProperties =>
-    __isa(o, "ComprehendMedicalAsyncJobProperties");
 }
 
 export interface DescribeEntitiesDetectionV2JobRequest {
-  __type?: "DescribeEntitiesDetectionV2JobRequest";
   /**
    * <p>The identifier that Amazon Comprehend Medical generated for the job. The
    *         <code>StartEntitiesDetectionV2Job</code> operation returns this identifier in its
@@ -222,12 +214,9 @@ export namespace DescribeEntitiesDetectionV2JobRequest {
   export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntitiesDetectionV2JobRequest =>
-    __isa(o, "DescribeEntitiesDetectionV2JobRequest");
 }
 
 export interface DescribeEntitiesDetectionV2JobResponse {
-  __type?: "DescribeEntitiesDetectionV2JobResponse";
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
@@ -238,12 +227,9 @@ export namespace DescribeEntitiesDetectionV2JobResponse {
   export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEntitiesDetectionV2JobResponse =>
-    __isa(o, "DescribeEntitiesDetectionV2JobResponse");
 }
 
 export interface DescribeICD10CMInferenceJobRequest {
-  __type?: "DescribeICD10CMInferenceJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend Medical generated for the job. <code>The StartICD10CMInferenceJob</code> operation returns this identifier in its response.</p>
    */
@@ -254,12 +240,9 @@ export namespace DescribeICD10CMInferenceJobRequest {
   export const filterSensitiveLog = (obj: DescribeICD10CMInferenceJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeICD10CMInferenceJobRequest =>
-    __isa(o, "DescribeICD10CMInferenceJobRequest");
 }
 
 export interface DescribeICD10CMInferenceJobResponse {
-  __type?: "DescribeICD10CMInferenceJobResponse";
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
@@ -270,12 +253,9 @@ export namespace DescribeICD10CMInferenceJobResponse {
   export const filterSensitiveLog = (obj: DescribeICD10CMInferenceJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeICD10CMInferenceJobResponse =>
-    __isa(o, "DescribeICD10CMInferenceJobResponse");
 }
 
 export interface DescribePHIDetectionJobRequest {
-  __type?: "DescribePHIDetectionJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend Medical generated for the job. The <code>StartPHIDetectionJob</code>
    *       operation returns this identifier in its response.</p>
@@ -287,11 +267,9 @@ export namespace DescribePHIDetectionJobRequest {
   export const filterSensitiveLog = (obj: DescribePHIDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePHIDetectionJobRequest => __isa(o, "DescribePHIDetectionJobRequest");
 }
 
 export interface DescribePHIDetectionJobResponse {
-  __type?: "DescribePHIDetectionJobResponse";
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
@@ -302,11 +280,9 @@ export namespace DescribePHIDetectionJobResponse {
   export const filterSensitiveLog = (obj: DescribePHIDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePHIDetectionJobResponse => __isa(o, "DescribePHIDetectionJobResponse");
 }
 
 export interface DescribeRxNormInferenceJobRequest {
-  __type?: "DescribeRxNormInferenceJobRequest";
   /**
    * <p>The identifier that Amazon Comprehend Medical generated for the job. The StartRxNormInferenceJob operation returns this identifier in its response.</p>
    */
@@ -317,11 +293,9 @@ export namespace DescribeRxNormInferenceJobRequest {
   export const filterSensitiveLog = (obj: DescribeRxNormInferenceJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRxNormInferenceJobRequest => __isa(o, "DescribeRxNormInferenceJobRequest");
 }
 
 export interface DescribeRxNormInferenceJobResponse {
-  __type?: "DescribeRxNormInferenceJobResponse";
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
@@ -332,12 +306,9 @@ export namespace DescribeRxNormInferenceJobResponse {
   export const filterSensitiveLog = (obj: DescribeRxNormInferenceJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRxNormInferenceJobResponse =>
-    __isa(o, "DescribeRxNormInferenceJobResponse");
 }
 
 export interface DetectEntitiesRequest {
-  __type?: "DetectEntitiesRequest";
   /**
    * <p> A UTF-8 text string containing the clinical content being examined for entities. Each
    *       string must contain fewer than 20,000 bytes of characters.</p>
@@ -349,11 +320,9 @@ export namespace DetectEntitiesRequest {
   export const filterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesRequest => __isa(o, "DetectEntitiesRequest");
 }
 
 export interface DetectEntitiesResponse {
-  __type?: "DetectEntitiesResponse";
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
    *       X.X.X. You can use this information to track the model used for a particular batch of
@@ -386,11 +355,9 @@ export namespace DetectEntitiesResponse {
   export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesResponse => __isa(o, "DetectEntitiesResponse");
 }
 
 export interface DetectEntitiesV2Request {
-  __type?: "DetectEntitiesV2Request";
   /**
    * <p>A UTF-8 string containing the clinical content being examined for entities. Each string
    *       must contain fewer than 20,000 bytes of characters.</p>
@@ -402,11 +369,9 @@ export namespace DetectEntitiesV2Request {
   export const filterSensitiveLog = (obj: DetectEntitiesV2Request): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesV2Request => __isa(o, "DetectEntitiesV2Request");
 }
 
 export interface DetectEntitiesV2Response {
-  __type?: "DetectEntitiesV2Response";
   /**
    * <p>Attributes extracted from the input text that couldn't be related to an entity.</p>
    */
@@ -438,11 +403,9 @@ export namespace DetectEntitiesV2Response {
   export const filterSensitiveLog = (obj: DetectEntitiesV2Response): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectEntitiesV2Response => __isa(o, "DetectEntitiesV2Response");
 }
 
 export interface DetectPHIRequest {
-  __type?: "DetectPHIRequest";
   /**
    * <p> A UTF-8 text string containing the clinical content being examined for PHI entities. Each
    *       string must contain fewer than 20,000 bytes of characters.</p>
@@ -454,11 +417,9 @@ export namespace DetectPHIRequest {
   export const filterSensitiveLog = (obj: DetectPHIRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectPHIRequest => __isa(o, "DetectPHIRequest");
 }
 
 export interface DetectPHIResponse {
-  __type?: "DetectPHIResponse";
   /**
    * <p> The collection of PHI entities extracted from the input text and their associated
    *       information. For each entity, the response provides the entity text, the entity category,
@@ -485,14 +446,12 @@ export namespace DetectPHIResponse {
   export const filterSensitiveLog = (obj: DetectPHIResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectPHIResponse => __isa(o, "DetectPHIResponse");
 }
 
 /**
  * <p> Provides information about an extracted medical entity.</p>
  */
 export interface Entity {
-  __type?: "Entity";
   /**
    * <p> The segment of input text extracted as this entity.</p>
    */
@@ -546,7 +505,6 @@ export namespace Entity {
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
 export enum EntitySubType {
@@ -602,7 +560,6 @@ export enum EntityType {
  *       and <code>Acuity</code>.</p>
  */
 export interface ICD10CMAttribute {
-  __type?: "ICD10CMAttribute";
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that this attribute is
    *       correctly related to this entity.</p>
@@ -656,7 +613,6 @@ export namespace ICD10CMAttribute {
   export const filterSensitiveLog = (obj: ICD10CMAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ICD10CMAttribute => __isa(o, "ICD10CMAttribute");
 }
 
 export enum ICD10CMAttributeType {
@@ -672,7 +628,6 @@ export enum ICD10CMAttributeType {
  *       likelihood of the match.</p>
  */
 export interface ICD10CMConcept {
-  __type?: "ICD10CMConcept";
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the entity is accurately
    *       linked to an ICD-10-CM concept.</p>
@@ -695,7 +650,6 @@ export namespace ICD10CMConcept {
   export const filterSensitiveLog = (obj: ICD10CMConcept): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ICD10CMConcept => __isa(o, "ICD10CMConcept");
 }
 
 /**
@@ -706,7 +660,6 @@ export namespace ICD10CMConcept {
  *       returned. </p>
  */
 export interface ICD10CMEntity {
-  __type?: "ICD10CMEntity";
   /**
    * <p>The detected attributes that relate to the entity. An extracted segment of the text that
    *       is an attribute of an entity, or otherwise related to an entity, such as the nature of a
@@ -774,7 +727,6 @@ export namespace ICD10CMEntity {
   export const filterSensitiveLog = (obj: ICD10CMEntity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ICD10CMEntity => __isa(o, "ICD10CMEntity");
 }
 
 export enum ICD10CMEntityCategory {
@@ -791,7 +743,6 @@ export enum ICD10CMEntityType {
  *       <code>NEGATION</code>.</p>
  */
 export interface ICD10CMTrait {
-  __type?: "ICD10CMTrait";
   /**
    * <p>Provides a name or contextual description about the trait.</p>
    */
@@ -808,7 +759,6 @@ export namespace ICD10CMTrait {
   export const filterSensitiveLog = (obj: ICD10CMTrait): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ICD10CMTrait => __isa(o, "ICD10CMTrait");
 }
 
 export enum ICD10CMTraitName {
@@ -819,7 +769,6 @@ export enum ICD10CMTraitName {
 }
 
 export interface InferICD10CMRequest {
-  __type?: "InferICD10CMRequest";
   /**
    * <p>The input text used for analysis. The input for InferICD10CM is a string from 1 to 10000
    *       characters.</p>
@@ -831,11 +780,9 @@ export namespace InferICD10CMRequest {
   export const filterSensitiveLog = (obj: InferICD10CMRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferICD10CMRequest => __isa(o, "InferICD10CMRequest");
 }
 
 export interface InferICD10CMResponse {
-  __type?: "InferICD10CMResponse";
   /**
    * <p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is
    *       successful, the service sends back an HTTP 200 response, as well as the entities
@@ -861,11 +808,9 @@ export namespace InferICD10CMResponse {
   export const filterSensitiveLog = (obj: InferICD10CMResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferICD10CMResponse => __isa(o, "InferICD10CMResponse");
 }
 
 export interface InferRxNormRequest {
-  __type?: "InferRxNormRequest";
   /**
    * <p>The input text used for analysis. The input for InferRxNorm is a string from 1 to 10000
    *       characters.</p>
@@ -877,11 +822,9 @@ export namespace InferRxNormRequest {
   export const filterSensitiveLog = (obj: InferRxNormRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferRxNormRequest => __isa(o, "InferRxNormRequest");
 }
 
 export interface InferRxNormResponse {
-  __type?: "InferRxNormResponse";
   /**
    * <p>The medication entities detected in the text linked to RxNorm concepts. If the action is
    *       successful, the service sends back an HTTP 200 response, as well as the entities
@@ -907,14 +850,12 @@ export namespace InferRxNormResponse {
   export const filterSensitiveLog = (obj: InferRxNormResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferRxNormResponse => __isa(o, "InferRxNormResponse");
 }
 
 /**
  * <p>The input properties for an entities detection job. This includes the name of the S3 bucket and the path to the files to be analyzed. See <a>batch-manifest</a> for more information. </p>
  */
 export interface InputDataConfig {
-  __type?: "InputDataConfig";
   /**
    * <p>The URI of the S3 bucket that contains the input data. The bucket must be in the same
    *       region as the API endpoint that you are calling.</p>
@@ -933,7 +874,6 @@ export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
@@ -949,7 +889,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -966,7 +905,6 @@ export namespace InvalidEncodingException {
   export const filterSensitiveLog = (obj: InvalidEncodingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEncodingException => __isa(o, "InvalidEncodingException");
 }
 
 /**
@@ -983,7 +921,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export enum JobStatus {
@@ -1001,7 +938,6 @@ export enum LanguageCode {
 }
 
 export interface ListEntitiesDetectionV2JobsRequest {
-  __type?: "ListEntitiesDetectionV2JobsRequest";
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
    *       the date and time that they were submitted. You can only set one filter at a time.</p>
@@ -1023,12 +959,9 @@ export namespace ListEntitiesDetectionV2JobsRequest {
   export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesDetectionV2JobsRequest =>
-    __isa(o, "ListEntitiesDetectionV2JobsRequest");
 }
 
 export interface ListEntitiesDetectionV2JobsResponse {
-  __type?: "ListEntitiesDetectionV2JobsResponse";
   /**
    * <p>A list containing the properties of each job returned.</p>
    */
@@ -1044,12 +977,9 @@ export namespace ListEntitiesDetectionV2JobsResponse {
   export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesDetectionV2JobsResponse =>
-    __isa(o, "ListEntitiesDetectionV2JobsResponse");
 }
 
 export interface ListICD10CMInferenceJobsRequest {
-  __type?: "ListICD10CMInferenceJobsRequest";
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
    */
@@ -1070,11 +1000,9 @@ export namespace ListICD10CMInferenceJobsRequest {
   export const filterSensitiveLog = (obj: ListICD10CMInferenceJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListICD10CMInferenceJobsRequest => __isa(o, "ListICD10CMInferenceJobsRequest");
 }
 
 export interface ListICD10CMInferenceJobsResponse {
-  __type?: "ListICD10CMInferenceJobsResponse";
   /**
    * <p>A list containing the properties of each job that is returned.</p>
    */
@@ -1090,11 +1018,9 @@ export namespace ListICD10CMInferenceJobsResponse {
   export const filterSensitiveLog = (obj: ListICD10CMInferenceJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListICD10CMInferenceJobsResponse => __isa(o, "ListICD10CMInferenceJobsResponse");
 }
 
 export interface ListPHIDetectionJobsRequest {
-  __type?: "ListPHIDetectionJobsRequest";
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
    *       the date and time that they were submitted. You can only set one filter at a time.</p>
@@ -1116,11 +1042,9 @@ export namespace ListPHIDetectionJobsRequest {
   export const filterSensitiveLog = (obj: ListPHIDetectionJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPHIDetectionJobsRequest => __isa(o, "ListPHIDetectionJobsRequest");
 }
 
 export interface ListPHIDetectionJobsResponse {
-  __type?: "ListPHIDetectionJobsResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -1136,11 +1060,9 @@ export namespace ListPHIDetectionJobsResponse {
   export const filterSensitiveLog = (obj: ListPHIDetectionJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPHIDetectionJobsResponse => __isa(o, "ListPHIDetectionJobsResponse");
 }
 
 export interface ListRxNormInferenceJobsRequest {
-  __type?: "ListRxNormInferenceJobsRequest";
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
    */
@@ -1161,11 +1083,9 @@ export namespace ListRxNormInferenceJobsRequest {
   export const filterSensitiveLog = (obj: ListRxNormInferenceJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRxNormInferenceJobsRequest => __isa(o, "ListRxNormInferenceJobsRequest");
 }
 
 export interface ListRxNormInferenceJobsResponse {
-  __type?: "ListRxNormInferenceJobsResponse";
   /**
    * <p>Identifies the next page of results to return.</p>
    */
@@ -1181,14 +1101,12 @@ export namespace ListRxNormInferenceJobsResponse {
   export const filterSensitiveLog = (obj: ListRxNormInferenceJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRxNormInferenceJobsResponse => __isa(o, "ListRxNormInferenceJobsResponse");
 }
 
 /**
  * <p>The output properties for a detection job.</p>
  */
 export interface OutputDataConfig {
-  __type?: "OutputDataConfig";
   /**
    * <p>The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates an output directory
    *       using the job ID so that the output from one job does not overwrite the output of
@@ -1209,7 +1127,6 @@ export namespace OutputDataConfig {
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 export enum RelationshipType {
@@ -1247,7 +1164,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1256,7 +1172,6 @@ export namespace ResourceNotFoundException {
  *         <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>.</p>
  */
 export interface RxNormAttribute {
-  __type?: "RxNormAttribute";
   /**
    * <p>The level of confidence that Comprehend Medical has that the segment of text is correctly
    *       recognized as an attribute.</p>
@@ -1310,7 +1225,6 @@ export namespace RxNormAttribute {
   export const filterSensitiveLog = (obj: RxNormAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RxNormAttribute => __isa(o, "RxNormAttribute");
 }
 
 export enum RxNormAttributeType {
@@ -1328,7 +1242,6 @@ export enum RxNormAttributeType {
  *       likelihood of the match.</p>
  */
 export interface RxNormConcept {
-  __type?: "RxNormConcept";
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the entity is accurately
    *       linked to the reported RxNorm concept.</p>
@@ -1350,7 +1263,6 @@ export namespace RxNormConcept {
   export const filterSensitiveLog = (obj: RxNormConcept): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RxNormConcept => __isa(o, "RxNormConcept");
 }
 
 /**
@@ -1361,7 +1273,6 @@ export namespace RxNormConcept {
  *       returned. </p>
  */
 export interface RxNormEntity {
-  __type?: "RxNormEntity";
   /**
    * <p>The 0-based character offset in the input text that shows where the entity ends. The
    *       offset returns the UTF-8 code point in the string.</p>
@@ -1427,7 +1338,6 @@ export namespace RxNormEntity {
   export const filterSensitiveLog = (obj: RxNormEntity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RxNormEntity => __isa(o, "RxNormEntity");
 }
 
 export enum RxNormEntityCategory {
@@ -1445,7 +1355,6 @@ export enum RxNormEntityType {
  *     </p>
  */
 export interface RxNormTrait {
-  __type?: "RxNormTrait";
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected
    *       trait.</p>
@@ -1462,7 +1371,6 @@ export namespace RxNormTrait {
   export const filterSensitiveLog = (obj: RxNormTrait): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RxNormTrait => __isa(o, "RxNormTrait");
 }
 
 export enum RxNormTraitName {
@@ -1483,11 +1391,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartEntitiesDetectionV2JobRequest {
-  __type?: "StartEntitiesDetectionV2JobRequest";
   /**
    * <p>The identifier of the job.</p>
    */
@@ -1531,12 +1437,9 @@ export namespace StartEntitiesDetectionV2JobRequest {
   export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartEntitiesDetectionV2JobRequest =>
-    __isa(o, "StartEntitiesDetectionV2JobRequest");
 }
 
 export interface StartEntitiesDetectionV2JobResponse {
-  __type?: "StartEntitiesDetectionV2JobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the <code>DescribeEntitiesDetectionV2Job</code> operation.</p>
@@ -1548,12 +1451,9 @@ export namespace StartEntitiesDetectionV2JobResponse {
   export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartEntitiesDetectionV2JobResponse =>
-    __isa(o, "StartEntitiesDetectionV2JobResponse");
 }
 
 export interface StartICD10CMInferenceJobRequest {
-  __type?: "StartICD10CMInferenceJobRequest";
   /**
    * <p>Specifies where to send the output files.</p>
    */
@@ -1597,11 +1497,9 @@ export namespace StartICD10CMInferenceJobRequest {
   export const filterSensitiveLog = (obj: StartICD10CMInferenceJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartICD10CMInferenceJobRequest => __isa(o, "StartICD10CMInferenceJobRequest");
 }
 
 export interface StartICD10CMInferenceJobResponse {
-  __type?: "StartICD10CMInferenceJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the <code>StartICD10CMInferenceJob</code> operation.</p>
@@ -1613,11 +1511,9 @@ export namespace StartICD10CMInferenceJobResponse {
   export const filterSensitiveLog = (obj: StartICD10CMInferenceJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartICD10CMInferenceJobResponse => __isa(o, "StartICD10CMInferenceJobResponse");
 }
 
 export interface StartPHIDetectionJobRequest {
-  __type?: "StartPHIDetectionJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
    *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
@@ -1661,11 +1557,9 @@ export namespace StartPHIDetectionJobRequest {
   export const filterSensitiveLog = (obj: StartPHIDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPHIDetectionJobRequest => __isa(o, "StartPHIDetectionJobRequest");
 }
 
 export interface StartPHIDetectionJobResponse {
-  __type?: "StartPHIDetectionJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the <code>DescribePHIDetectionJob</code> operation.</p>
@@ -1677,11 +1571,9 @@ export namespace StartPHIDetectionJobResponse {
   export const filterSensitiveLog = (obj: StartPHIDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPHIDetectionJobResponse => __isa(o, "StartPHIDetectionJobResponse");
 }
 
 export interface StartRxNormInferenceJobRequest {
-  __type?: "StartRxNormInferenceJobRequest";
   /**
    * <p>Specifies where to send the output files.</p>
    */
@@ -1725,11 +1617,9 @@ export namespace StartRxNormInferenceJobRequest {
   export const filterSensitiveLog = (obj: StartRxNormInferenceJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartRxNormInferenceJobRequest => __isa(o, "StartRxNormInferenceJobRequest");
 }
 
 export interface StartRxNormInferenceJobResponse {
-  __type?: "StartRxNormInferenceJobResponse";
   /**
    * <p>The identifier of the job.</p>
    */
@@ -1740,11 +1630,9 @@ export namespace StartRxNormInferenceJobResponse {
   export const filterSensitiveLog = (obj: StartRxNormInferenceJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartRxNormInferenceJobResponse => __isa(o, "StartRxNormInferenceJobResponse");
 }
 
 export interface StopEntitiesDetectionV2JobRequest {
-  __type?: "StopEntitiesDetectionV2JobRequest";
   /**
    * <p>The identifier of the medical entities job to stop.</p>
    */
@@ -1755,11 +1643,9 @@ export namespace StopEntitiesDetectionV2JobRequest {
   export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopEntitiesDetectionV2JobRequest => __isa(o, "StopEntitiesDetectionV2JobRequest");
 }
 
 export interface StopEntitiesDetectionV2JobResponse {
-  __type?: "StopEntitiesDetectionV2JobResponse";
   /**
    * <p>The identifier of the medical entities detection job that was stopped.</p>
    */
@@ -1770,12 +1656,9 @@ export namespace StopEntitiesDetectionV2JobResponse {
   export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopEntitiesDetectionV2JobResponse =>
-    __isa(o, "StopEntitiesDetectionV2JobResponse");
 }
 
 export interface StopICD10CMInferenceJobRequest {
-  __type?: "StopICD10CMInferenceJobRequest";
   /**
    * <p>The identifier of the job.</p>
    */
@@ -1786,11 +1669,9 @@ export namespace StopICD10CMInferenceJobRequest {
   export const filterSensitiveLog = (obj: StopICD10CMInferenceJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopICD10CMInferenceJobRequest => __isa(o, "StopICD10CMInferenceJobRequest");
 }
 
 export interface StopICD10CMInferenceJobResponse {
-  __type?: "StopICD10CMInferenceJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with the <code>DescribeICD10CMInferenceJob</code> operation.</p>
    */
@@ -1801,11 +1682,9 @@ export namespace StopICD10CMInferenceJobResponse {
   export const filterSensitiveLog = (obj: StopICD10CMInferenceJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopICD10CMInferenceJobResponse => __isa(o, "StopICD10CMInferenceJobResponse");
 }
 
 export interface StopPHIDetectionJobRequest {
-  __type?: "StopPHIDetectionJobRequest";
   /**
    * <p>The identifier of the PHI detection job to stop.</p>
    */
@@ -1816,11 +1695,9 @@ export namespace StopPHIDetectionJobRequest {
   export const filterSensitiveLog = (obj: StopPHIDetectionJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopPHIDetectionJobRequest => __isa(o, "StopPHIDetectionJobRequest");
 }
 
 export interface StopPHIDetectionJobResponse {
-  __type?: "StopPHIDetectionJobResponse";
   /**
    * <p>The identifier of the PHI detection job that was stopped.</p>
    */
@@ -1831,11 +1708,9 @@ export namespace StopPHIDetectionJobResponse {
   export const filterSensitiveLog = (obj: StopPHIDetectionJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopPHIDetectionJobResponse => __isa(o, "StopPHIDetectionJobResponse");
 }
 
 export interface StopRxNormInferenceJobRequest {
-  __type?: "StopRxNormInferenceJobRequest";
   /**
    * <p>The identifier of the job.</p>
    */
@@ -1846,11 +1721,9 @@ export namespace StopRxNormInferenceJobRequest {
   export const filterSensitiveLog = (obj: StopRxNormInferenceJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRxNormInferenceJobRequest => __isa(o, "StopRxNormInferenceJobRequest");
 }
 
 export interface StopRxNormInferenceJobResponse {
-  __type?: "StopRxNormInferenceJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of job, use this identifier with the <code>DescribeRxNormInferenceJob</code> operation.</p>
    */
@@ -1861,7 +1734,6 @@ export namespace StopRxNormInferenceJobResponse {
   export const filterSensitiveLog = (obj: StopRxNormInferenceJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRxNormInferenceJobResponse => __isa(o, "StopRxNormInferenceJobResponse");
 }
 
 /**
@@ -1878,7 +1750,6 @@ export namespace TextSizeLimitExceededException {
   export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextSizeLimitExceededException => __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -1896,14 +1767,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p> Provides contextual information about the extracted entity. </p>
  */
 export interface Trait {
-  __type?: "Trait";
   /**
    * <p> Provides a name or contextual description about the trait. </p>
    */
@@ -1919,14 +1788,12 @@ export namespace Trait {
   export const filterSensitiveLog = (obj: Trait): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Trait => __isa(o, "Trait");
 }
 
 /**
  * <p> An attribute that we extracted, but were unable to relate to an entity. </p>
  */
 export interface UnmappedAttribute {
-  __type?: "UnmappedAttribute";
   /**
    * <p> The specific attribute that has been extracted but not mapped to an entity. </p>
    */
@@ -1944,7 +1811,6 @@ export namespace UnmappedAttribute {
   export const filterSensitiveLog = (obj: UnmappedAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnmappedAttribute => __isa(o, "UnmappedAttribute");
 }
 
 /**
@@ -1961,5 +1827,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

@@ -474,7 +474,6 @@ export const deserializeAws_json1_1AdvertiseByoipCidrCommand = async (
   contents = deserializeAws_json1_1AdvertiseByoipCidrResponse(data, context);
   const response: AdvertiseByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdvertiseByoipCidrResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -562,7 +561,6 @@ export const deserializeAws_json1_1CreateAcceleratorCommand = async (
   contents = deserializeAws_json1_1CreateAcceleratorResponse(data, context);
   const response: CreateAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAcceleratorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -634,7 +632,6 @@ export const deserializeAws_json1_1CreateEndpointGroupCommand = async (
   contents = deserializeAws_json1_1CreateEndpointGroupResponse(data, context);
   const response: CreateEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEndpointGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -738,7 +735,6 @@ export const deserializeAws_json1_1CreateListenerCommand = async (
   contents = deserializeAws_json1_1CreateListenerResponse(data, context);
   const response: CreateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateListenerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1054,7 +1050,6 @@ export const deserializeAws_json1_1DeprovisionByoipCidrCommand = async (
   contents = deserializeAws_json1_1DeprovisionByoipCidrResponse(data, context);
   const response: DeprovisionByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeprovisionByoipCidrResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1142,7 +1137,6 @@ export const deserializeAws_json1_1DescribeAcceleratorCommand = async (
   contents = deserializeAws_json1_1DescribeAcceleratorResponse(data, context);
   const response: DescribeAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAcceleratorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1214,7 +1208,6 @@ export const deserializeAws_json1_1DescribeAcceleratorAttributesCommand = async 
   contents = deserializeAws_json1_1DescribeAcceleratorAttributesResponse(data, context);
   const response: DescribeAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAcceleratorAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1286,7 +1279,6 @@ export const deserializeAws_json1_1DescribeEndpointGroupCommand = async (
   contents = deserializeAws_json1_1DescribeEndpointGroupResponse(data, context);
   const response: DescribeEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1358,7 +1350,6 @@ export const deserializeAws_json1_1DescribeListenerCommand = async (
   contents = deserializeAws_json1_1DescribeListenerResponse(data, context);
   const response: DescribeListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeListenerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1430,7 +1421,6 @@ export const deserializeAws_json1_1ListAcceleratorsCommand = async (
   contents = deserializeAws_json1_1ListAcceleratorsResponse(data, context);
   const response: ListAcceleratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAcceleratorsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1502,7 +1492,6 @@ export const deserializeAws_json1_1ListByoipCidrsCommand = async (
   contents = deserializeAws_json1_1ListByoipCidrsResponse(data, context);
   const response: ListByoipCidrsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListByoipCidrsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1582,7 +1571,6 @@ export const deserializeAws_json1_1ListEndpointGroupsCommand = async (
   contents = deserializeAws_json1_1ListEndpointGroupsResponse(data, context);
   const response: ListEndpointGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEndpointGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1662,7 +1650,6 @@ export const deserializeAws_json1_1ListListenersCommand = async (
   contents = deserializeAws_json1_1ListListenersResponse(data, context);
   const response: ListListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListListenersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1742,7 +1729,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1814,7 +1800,6 @@ export const deserializeAws_json1_1ProvisionByoipCidrCommand = async (
   contents = deserializeAws_json1_1ProvisionByoipCidrResponse(data, context);
   const response: ProvisionByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ProvisionByoipCidrResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1902,7 +1887,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1974,7 +1958,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2046,7 +2029,6 @@ export const deserializeAws_json1_1UpdateAcceleratorCommand = async (
   contents = deserializeAws_json1_1UpdateAcceleratorResponse(data, context);
   const response: UpdateAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAcceleratorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2118,7 +2100,6 @@ export const deserializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   contents = deserializeAws_json1_1UpdateAcceleratorAttributesResponse(data, context);
   const response: UpdateAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAcceleratorAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2198,7 +2179,6 @@ export const deserializeAws_json1_1UpdateEndpointGroupCommand = async (
   contents = deserializeAws_json1_1UpdateEndpointGroupResponse(data, context);
   const response: UpdateEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEndpointGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2286,7 +2266,6 @@ export const deserializeAws_json1_1UpdateListenerCommand = async (
   contents = deserializeAws_json1_1UpdateListenerResponse(data, context);
   const response: UpdateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateListenerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2374,7 +2353,6 @@ export const deserializeAws_json1_1WithdrawByoipCidrCommand = async (
   contents = deserializeAws_json1_1WithdrawByoipCidrResponse(data, context);
   const response: WithdrawByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WithdrawByoipCidrResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2984,7 +2962,6 @@ const serializeAws_json1_1WithdrawByoipCidrRequest = (
 
 const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext): Accelerator => {
   return {
-    __type: "Accelerator",
     AcceleratorArn:
       output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
     CreatedTime:
@@ -3010,7 +2987,6 @@ const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1AcceleratorAttributes = (output: any, context: __SerdeContext): AcceleratorAttributes => {
   return {
-    __type: "AcceleratorAttributes",
     FlowLogsEnabled:
       output.FlowLogsEnabled !== undefined && output.FlowLogsEnabled !== null ? output.FlowLogsEnabled : undefined,
     FlowLogsS3Bucket:
@@ -3025,7 +3001,6 @@ const deserializeAws_json1_1AcceleratorNotDisabledException = (
   context: __SerdeContext
 ): AcceleratorNotDisabledException => {
   return {
-    __type: "AcceleratorNotDisabledException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3035,7 +3010,6 @@ const deserializeAws_json1_1AcceleratorNotFoundException = (
   context: __SerdeContext
 ): AcceleratorNotFoundException => {
   return {
-    __type: "AcceleratorNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3046,7 +3020,6 @@ const deserializeAws_json1_1Accelerators = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3056,7 +3029,6 @@ const deserializeAws_json1_1AdvertiseByoipCidrResponse = (
   context: __SerdeContext
 ): AdvertiseByoipCidrResponse => {
   return {
-    __type: "AdvertiseByoipCidrResponse",
     ByoipCidr:
       output.ByoipCidr !== undefined && output.ByoipCidr !== null
         ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
@@ -3069,7 +3041,6 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundException = (
   context: __SerdeContext
 ): AssociatedEndpointGroupFoundException => {
   return {
-    __type: "AssociatedEndpointGroupFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3079,14 +3050,12 @@ const deserializeAws_json1_1AssociatedListenerFoundException = (
   context: __SerdeContext
 ): AssociatedListenerFoundException => {
   return {
-    __type: "AssociatedListenerFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   return {
-    __type: "ByoipCidr",
     Cidr: output.Cidr !== undefined && output.Cidr !== null ? output.Cidr : undefined,
     Events:
       output.Events !== undefined && output.Events !== null
@@ -3098,7 +3067,6 @@ const deserializeAws_json1_1ByoipCidr = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ByoipCidrEvent = (output: any, context: __SerdeContext): ByoipCidrEvent => {
   return {
-    __type: "ByoipCidrEvent",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
@@ -3116,7 +3084,6 @@ const deserializeAws_json1_1ByoipCidrNotFoundException = (
   context: __SerdeContext
 ): ByoipCidrNotFoundException => {
   return {
-    __type: "ByoipCidrNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3130,7 +3097,6 @@ const deserializeAws_json1_1CreateAcceleratorResponse = (
   context: __SerdeContext
 ): CreateAcceleratorResponse => {
   return {
-    __type: "CreateAcceleratorResponse",
     Accelerator:
       output.Accelerator !== undefined && output.Accelerator !== null
         ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
@@ -3143,7 +3109,6 @@ const deserializeAws_json1_1CreateEndpointGroupResponse = (
   context: __SerdeContext
 ): CreateEndpointGroupResponse => {
   return {
-    __type: "CreateEndpointGroupResponse",
     EndpointGroup:
       output.EndpointGroup !== undefined && output.EndpointGroup !== null
         ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context)
@@ -3153,7 +3118,6 @@ const deserializeAws_json1_1CreateEndpointGroupResponse = (
 
 const deserializeAws_json1_1CreateListenerResponse = (output: any, context: __SerdeContext): CreateListenerResponse => {
   return {
-    __type: "CreateListenerResponse",
     Listener:
       output.Listener !== undefined && output.Listener !== null
         ? deserializeAws_json1_1Listener(output.Listener, context)
@@ -3166,7 +3130,6 @@ const deserializeAws_json1_1DeprovisionByoipCidrResponse = (
   context: __SerdeContext
 ): DeprovisionByoipCidrResponse => {
   return {
-    __type: "DeprovisionByoipCidrResponse",
     ByoipCidr:
       output.ByoipCidr !== undefined && output.ByoipCidr !== null
         ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
@@ -3179,7 +3142,6 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesResponse = (
   context: __SerdeContext
 ): DescribeAcceleratorAttributesResponse => {
   return {
-    __type: "DescribeAcceleratorAttributesResponse",
     AcceleratorAttributes:
       output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
         ? deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context)
@@ -3192,7 +3154,6 @@ const deserializeAws_json1_1DescribeAcceleratorResponse = (
   context: __SerdeContext
 ): DescribeAcceleratorResponse => {
   return {
-    __type: "DescribeAcceleratorResponse",
     Accelerator:
       output.Accelerator !== undefined && output.Accelerator !== null
         ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
@@ -3205,7 +3166,6 @@ const deserializeAws_json1_1DescribeEndpointGroupResponse = (
   context: __SerdeContext
 ): DescribeEndpointGroupResponse => {
   return {
-    __type: "DescribeEndpointGroupResponse",
     EndpointGroup:
       output.EndpointGroup !== undefined && output.EndpointGroup !== null
         ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context)
@@ -3218,7 +3178,6 @@ const deserializeAws_json1_1DescribeListenerResponse = (
   context: __SerdeContext
 ): DescribeListenerResponse => {
   return {
-    __type: "DescribeListenerResponse",
     Listener:
       output.Listener !== undefined && output.Listener !== null
         ? deserializeAws_json1_1Listener(output.Listener, context)
@@ -3228,7 +3187,6 @@ const deserializeAws_json1_1DescribeListenerResponse = (
 
 const deserializeAws_json1_1EndpointDescription = (output: any, context: __SerdeContext): EndpointDescription => {
   return {
-    __type: "EndpointDescription",
     ClientIPPreservationEnabled:
       output.ClientIPPreservationEnabled !== undefined && output.ClientIPPreservationEnabled !== null
         ? output.ClientIPPreservationEnabled
@@ -3246,7 +3204,6 @@ const deserializeAws_json1_1EndpointDescriptions = (output: any, context: __Serd
 
 const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContext): EndpointGroup => {
   return {
-    __type: "EndpointGroup",
     EndpointDescriptions:
       output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
         ? deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context)
@@ -3283,7 +3240,6 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsException = (
   context: __SerdeContext
 ): EndpointGroupAlreadyExistsException => {
   return {
-    __type: "EndpointGroupAlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3293,7 +3249,6 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
   context: __SerdeContext
 ): EndpointGroupNotFoundException => {
   return {
-    __type: "EndpointGroupNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3307,7 +3262,6 @@ const deserializeAws_json1_1IncorrectCidrStateException = (
   context: __SerdeContext
 ): IncorrectCidrStateException => {
   return {
-    __type: "IncorrectCidrStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3317,7 +3271,6 @@ const deserializeAws_json1_1InternalServiceErrorException = (
   context: __SerdeContext
 ): InternalServiceErrorException => {
   return {
-    __type: "InternalServiceErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3327,7 +3280,6 @@ const deserializeAws_json1_1InvalidArgumentException = (
   context: __SerdeContext
 ): InvalidArgumentException => {
   return {
-    __type: "InvalidArgumentException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3337,7 +3289,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3347,7 +3298,6 @@ const deserializeAws_json1_1InvalidPortRangeException = (
   context: __SerdeContext
 ): InvalidPortRangeException => {
   return {
-    __type: "InvalidPortRangeException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3358,7 +3308,6 @@ const deserializeAws_json1_1IpAddresses = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSet => {
   return {
-    __type: "IpSet",
     IpAddresses:
       output.IpAddresses !== undefined && output.IpAddresses !== null
         ? deserializeAws_json1_1IpAddresses(output.IpAddresses, context)
@@ -3373,7 +3322,6 @@ const deserializeAws_json1_1IpSets = (output: any, context: __SerdeContext): IpS
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3383,7 +3331,6 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
   context: __SerdeContext
 ): ListAcceleratorsResponse => {
   return {
-    __type: "ListAcceleratorsResponse",
     Accelerators:
       output.Accelerators !== undefined && output.Accelerators !== null
         ? deserializeAws_json1_1Accelerators(output.Accelerators, context)
@@ -3394,7 +3341,6 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
 
 const deserializeAws_json1_1ListByoipCidrsResponse = (output: any, context: __SerdeContext): ListByoipCidrsResponse => {
   return {
-    __type: "ListByoipCidrsResponse",
     ByoipCidrs:
       output.ByoipCidrs !== undefined && output.ByoipCidrs !== null
         ? deserializeAws_json1_1ByoipCidrs(output.ByoipCidrs, context)
@@ -3408,7 +3354,6 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
   context: __SerdeContext
 ): ListEndpointGroupsResponse => {
   return {
-    __type: "ListEndpointGroupsResponse",
     EndpointGroups:
       output.EndpointGroups !== undefined && output.EndpointGroups !== null
         ? deserializeAws_json1_1EndpointGroups(output.EndpointGroups, context)
@@ -3419,7 +3364,6 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
 
 const deserializeAws_json1_1Listener = (output: any, context: __SerdeContext): Listener => {
   return {
-    __type: "Listener",
     ClientAffinity:
       output.ClientAffinity !== undefined && output.ClientAffinity !== null ? output.ClientAffinity : undefined,
     ListenerArn: output.ListenerArn !== undefined && output.ListenerArn !== null ? output.ListenerArn : undefined,
@@ -3436,7 +3380,6 @@ const deserializeAws_json1_1ListenerNotFoundException = (
   context: __SerdeContext
 ): ListenerNotFoundException => {
   return {
-    __type: "ListenerNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3447,7 +3390,6 @@ const deserializeAws_json1_1Listeners = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ListListenersResponse = (output: any, context: __SerdeContext): ListListenersResponse => {
   return {
-    __type: "ListListenersResponse",
     Listeners:
       output.Listeners !== undefined && output.Listeners !== null
         ? deserializeAws_json1_1Listeners(output.Listeners, context)
@@ -3461,7 +3403,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -3469,7 +3410,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    __type: "PortRange",
     FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
     ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined,
   } as any;
@@ -3484,7 +3424,6 @@ const deserializeAws_json1_1ProvisionByoipCidrResponse = (
   context: __SerdeContext
 ): ProvisionByoipCidrResponse => {
   return {
-    __type: "ProvisionByoipCidrResponse",
     ByoipCidr:
       output.ByoipCidr !== undefined && output.ByoipCidr !== null
         ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
@@ -3494,16 +3433,13 @@ const deserializeAws_json1_1ProvisionByoipCidrResponse = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
@@ -3511,9 +3447,7 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
@@ -3521,7 +3455,6 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
   context: __SerdeContext
 ): UpdateAcceleratorAttributesResponse => {
   return {
-    __type: "UpdateAcceleratorAttributesResponse",
     AcceleratorAttributes:
       output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
         ? deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context)
@@ -3534,7 +3467,6 @@ const deserializeAws_json1_1UpdateAcceleratorResponse = (
   context: __SerdeContext
 ): UpdateAcceleratorResponse => {
   return {
-    __type: "UpdateAcceleratorResponse",
     Accelerator:
       output.Accelerator !== undefined && output.Accelerator !== null
         ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
@@ -3547,7 +3479,6 @@ const deserializeAws_json1_1UpdateEndpointGroupResponse = (
   context: __SerdeContext
 ): UpdateEndpointGroupResponse => {
   return {
-    __type: "UpdateEndpointGroupResponse",
     EndpointGroup:
       output.EndpointGroup !== undefined && output.EndpointGroup !== null
         ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context)
@@ -3557,7 +3488,6 @@ const deserializeAws_json1_1UpdateEndpointGroupResponse = (
 
 const deserializeAws_json1_1UpdateListenerResponse = (output: any, context: __SerdeContext): UpdateListenerResponse => {
   return {
-    __type: "UpdateListenerResponse",
     Listener:
       output.Listener !== undefined && output.Listener !== null
         ? deserializeAws_json1_1Listener(output.Listener, context)
@@ -3570,7 +3500,6 @@ const deserializeAws_json1_1WithdrawByoipCidrResponse = (
   context: __SerdeContext
 ): WithdrawByoipCidrResponse => {
   return {
-    __type: "WithdrawByoipCidrResponse",
     ByoipCidr:
       output.ByoipCidr !== undefined && output.ByoipCidr !== null
         ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)

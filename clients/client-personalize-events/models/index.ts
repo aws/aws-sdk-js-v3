@@ -2,7 +2,6 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -11,7 +10,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       <code>PutEvents</code> API.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>The type of event. This property corresponds to the <code>EVENT_TYPE</code>
    *       field of the Interactions schema.</p>
@@ -59,7 +57,6 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
@@ -75,11 +72,9 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export interface PutEventsRequest {
-  __type?: "PutEventsRequest";
   /**
    * <p>A list of event data from the session.</p>
    */
@@ -107,5 +102,4 @@ export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventsRequest => __isa(o, "PutEventsRequest");
 }

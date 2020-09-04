@@ -1528,7 +1528,6 @@ export const deserializeAws_json1_1CloneStackCommand = async (
   contents = deserializeAws_json1_1CloneStackResult(data, context);
   const response: CloneStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CloneStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1592,7 +1591,6 @@ export const deserializeAws_json1_1CreateAppCommand = async (
   contents = deserializeAws_json1_1CreateAppResult(data, context);
   const response: CreateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAppResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1656,7 +1654,6 @@ export const deserializeAws_json1_1CreateDeploymentCommand = async (
   contents = deserializeAws_json1_1CreateDeploymentResult(data, context);
   const response: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeploymentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1720,7 +1717,6 @@ export const deserializeAws_json1_1CreateInstanceCommand = async (
   contents = deserializeAws_json1_1CreateInstanceResult(data, context);
   const response: CreateInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1784,7 +1780,6 @@ export const deserializeAws_json1_1CreateLayerCommand = async (
   contents = deserializeAws_json1_1CreateLayerResult(data, context);
   const response: CreateLayerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLayerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1848,7 +1843,6 @@ export const deserializeAws_json1_1CreateStackCommand = async (
   contents = deserializeAws_json1_1CreateStackResult(data, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1904,7 +1898,6 @@ export const deserializeAws_json1_1CreateUserProfileCommand = async (
   contents = deserializeAws_json1_1CreateUserProfileResult(data, context);
   const response: CreateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2560,7 +2553,6 @@ export const deserializeAws_json1_1DescribeAgentVersionsCommand = async (
   contents = deserializeAws_json1_1DescribeAgentVersionsResult(data, context);
   const response: DescribeAgentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAgentVersionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2624,7 +2616,6 @@ export const deserializeAws_json1_1DescribeAppsCommand = async (
   contents = deserializeAws_json1_1DescribeAppsResult(data, context);
   const response: DescribeAppsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAppsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2688,7 +2679,6 @@ export const deserializeAws_json1_1DescribeCommandsCommand = async (
   contents = deserializeAws_json1_1DescribeCommandsResult(data, context);
   const response: DescribeCommandsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCommandsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2752,7 +2742,6 @@ export const deserializeAws_json1_1DescribeDeploymentsCommand = async (
   contents = deserializeAws_json1_1DescribeDeploymentsResult(data, context);
   const response: DescribeDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDeploymentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2816,7 +2805,6 @@ export const deserializeAws_json1_1DescribeEcsClustersCommand = async (
   contents = deserializeAws_json1_1DescribeEcsClustersResult(data, context);
   const response: DescribeEcsClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEcsClustersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2880,7 +2868,6 @@ export const deserializeAws_json1_1DescribeElasticIpsCommand = async (
   contents = deserializeAws_json1_1DescribeElasticIpsResult(data, context);
   const response: DescribeElasticIpsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticIpsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2944,7 +2931,6 @@ export const deserializeAws_json1_1DescribeElasticLoadBalancersCommand = async (
   contents = deserializeAws_json1_1DescribeElasticLoadBalancersResult(data, context);
   const response: DescribeElasticLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticLoadBalancersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3008,7 +2994,6 @@ export const deserializeAws_json1_1DescribeInstancesCommand = async (
   contents = deserializeAws_json1_1DescribeInstancesResult(data, context);
   const response: DescribeInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3072,7 +3057,6 @@ export const deserializeAws_json1_1DescribeLayersCommand = async (
   contents = deserializeAws_json1_1DescribeLayersResult(data, context);
   const response: DescribeLayersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLayersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3136,7 +3120,6 @@ export const deserializeAws_json1_1DescribeLoadBasedAutoScalingCommand = async (
   contents = deserializeAws_json1_1DescribeLoadBasedAutoScalingResult(data, context);
   const response: DescribeLoadBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoadBasedAutoScalingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3200,7 +3183,6 @@ export const deserializeAws_json1_1DescribeMyUserProfileCommand = async (
   contents = deserializeAws_json1_1DescribeMyUserProfileResult(data, context);
   const response: DescribeMyUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMyUserProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3248,7 +3230,6 @@ export const deserializeAws_json1_1DescribeOperatingSystemsCommand = async (
   contents = deserializeAws_json1_1DescribeOperatingSystemsResponse(data, context);
   const response: DescribeOperatingSystemsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOperatingSystemsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3296,7 +3277,6 @@ export const deserializeAws_json1_1DescribePermissionsCommand = async (
   contents = deserializeAws_json1_1DescribePermissionsResult(data, context);
   const response: DescribePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3360,7 +3340,6 @@ export const deserializeAws_json1_1DescribeRaidArraysCommand = async (
   contents = deserializeAws_json1_1DescribeRaidArraysResult(data, context);
   const response: DescribeRaidArraysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRaidArraysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3424,7 +3403,6 @@ export const deserializeAws_json1_1DescribeRdsDbInstancesCommand = async (
   contents = deserializeAws_json1_1DescribeRdsDbInstancesResult(data, context);
   const response: DescribeRdsDbInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRdsDbInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3488,7 +3466,6 @@ export const deserializeAws_json1_1DescribeServiceErrorsCommand = async (
   contents = deserializeAws_json1_1DescribeServiceErrorsResult(data, context);
   const response: DescribeServiceErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServiceErrorsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3552,7 +3529,6 @@ export const deserializeAws_json1_1DescribeStackProvisioningParametersCommand = 
   contents = deserializeAws_json1_1DescribeStackProvisioningParametersResult(data, context);
   const response: DescribeStackProvisioningParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackProvisioningParametersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3616,7 +3592,6 @@ export const deserializeAws_json1_1DescribeStacksCommand = async (
   contents = deserializeAws_json1_1DescribeStacksResult(data, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStacksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3680,7 +3655,6 @@ export const deserializeAws_json1_1DescribeStackSummaryCommand = async (
   contents = deserializeAws_json1_1DescribeStackSummaryResult(data, context);
   const response: DescribeStackSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackSummaryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3744,7 +3718,6 @@ export const deserializeAws_json1_1DescribeTimeBasedAutoScalingCommand = async (
   contents = deserializeAws_json1_1DescribeTimeBasedAutoScalingResult(data, context);
   const response: DescribeTimeBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTimeBasedAutoScalingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3808,7 +3781,6 @@ export const deserializeAws_json1_1DescribeUserProfilesCommand = async (
   contents = deserializeAws_json1_1DescribeUserProfilesResult(data, context);
   const response: DescribeUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserProfilesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3872,7 +3844,6 @@ export const deserializeAws_json1_1DescribeVolumesCommand = async (
   contents = deserializeAws_json1_1DescribeVolumesResult(data, context);
   const response: DescribeVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVolumesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4048,7 +4019,6 @@ export const deserializeAws_json1_1GetHostnameSuggestionCommand = async (
   contents = deserializeAws_json1_1GetHostnameSuggestionResult(data, context);
   const response: GetHostnameSuggestionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHostnameSuggestionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4112,7 +4082,6 @@ export const deserializeAws_json1_1GrantAccessCommand = async (
   contents = deserializeAws_json1_1GrantAccessResult(data, context);
   const response: GrantAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GrantAccessResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4176,7 +4145,6 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   contents = deserializeAws_json1_1ListTagsResult(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4300,7 +4268,6 @@ export const deserializeAws_json1_1RegisterEcsClusterCommand = async (
   contents = deserializeAws_json1_1RegisterEcsClusterResult(data, context);
   const response: RegisterEcsClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterEcsClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4364,7 +4331,6 @@ export const deserializeAws_json1_1RegisterElasticIpCommand = async (
   contents = deserializeAws_json1_1RegisterElasticIpResult(data, context);
   const response: RegisterElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterElasticIpResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4428,7 +4394,6 @@ export const deserializeAws_json1_1RegisterInstanceCommand = async (
   contents = deserializeAws_json1_1RegisterInstanceResult(data, context);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4552,7 +4517,6 @@ export const deserializeAws_json1_1RegisterVolumeCommand = async (
   contents = deserializeAws_json1_1RegisterVolumeResult(data, context);
   const response: RegisterVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterVolumeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6968,7 +6932,6 @@ const serializeAws_json1_1WeeklyAutoScalingSchedule = (
 
 const deserializeAws_json1_1AgentVersion = (output: any, context: __SerdeContext): AgentVersion => {
   return {
-    __type: "AgentVersion",
     ConfigurationManager:
       output.ConfigurationManager !== undefined && output.ConfigurationManager !== null
         ? deserializeAws_json1_1StackConfigurationManager(output.ConfigurationManager, context)
@@ -6983,7 +6946,6 @@ const deserializeAws_json1_1AgentVersions = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App => {
   return {
-    __type: "App",
     AppId: output.AppId !== undefined && output.AppId !== null ? output.AppId : undefined,
     AppSource:
       output.AppSource !== undefined && output.AppSource !== null
@@ -7035,7 +6997,6 @@ const deserializeAws_json1_1Apps = (output: any, context: __SerdeContext): App[]
 
 const deserializeAws_json1_1AutoScalingThresholds = (output: any, context: __SerdeContext): AutoScalingThresholds => {
   return {
-    __type: "AutoScalingThresholds",
     Alarms:
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1Strings(output.Alarms, context)
@@ -7060,7 +7021,6 @@ const deserializeAws_json1_1AutoScalingThresholds = (output: any, context: __Ser
 
 const deserializeAws_json1_1BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
   return {
-    __type: "BlockDeviceMapping",
     DeviceName: output.DeviceName !== undefined && output.DeviceName !== null ? output.DeviceName : undefined,
     Ebs:
       output.Ebs !== undefined && output.Ebs !== null
@@ -7077,7 +7037,6 @@ const deserializeAws_json1_1BlockDeviceMappings = (output: any, context: __Serde
 
 const deserializeAws_json1_1ChefConfiguration = (output: any, context: __SerdeContext): ChefConfiguration => {
   return {
-    __type: "ChefConfiguration",
     BerkshelfVersion:
       output.BerkshelfVersion !== undefined && output.BerkshelfVersion !== null ? output.BerkshelfVersion : undefined,
     ManageBerkshelf:
@@ -7087,7 +7046,6 @@ const deserializeAws_json1_1ChefConfiguration = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CloneStackResult = (output: any, context: __SerdeContext): CloneStackResult => {
   return {
-    __type: "CloneStackResult",
     StackId: output.StackId !== undefined && output.StackId !== null ? output.StackId : undefined,
   } as any;
 };
@@ -7097,7 +7055,6 @@ const deserializeAws_json1_1CloudWatchLogsConfiguration = (
   context: __SerdeContext
 ): CloudWatchLogsConfiguration => {
   return {
-    __type: "CloudWatchLogsConfiguration",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     LogStreams:
       output.LogStreams !== undefined && output.LogStreams !== null
@@ -7111,7 +7068,6 @@ const deserializeAws_json1_1CloudWatchLogsLogStream = (
   context: __SerdeContext
 ): CloudWatchLogsLogStream => {
   return {
-    __type: "CloudWatchLogsLogStream",
     BatchCount: output.BatchCount !== undefined && output.BatchCount !== null ? output.BatchCount : undefined,
     BatchSize: output.BatchSize !== undefined && output.BatchSize !== null ? output.BatchSize : undefined,
     BufferDuration:
@@ -7144,7 +7100,6 @@ const deserializeAws_json1_1CloudWatchLogsLogStreams = (
 
 const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Command => {
   return {
-    __type: "Command",
     AcknowledgedAt:
       output.AcknowledgedAt !== undefined && output.AcknowledgedAt !== null ? output.AcknowledgedAt : undefined,
     CommandId: output.CommandId !== undefined && output.CommandId !== null ? output.CommandId : undefined,
@@ -7165,35 +7120,30 @@ const deserializeAws_json1_1Commands = (output: any, context: __SerdeContext): C
 
 const deserializeAws_json1_1CreateAppResult = (output: any, context: __SerdeContext): CreateAppResult => {
   return {
-    __type: "CreateAppResult",
     AppId: output.AppId !== undefined && output.AppId !== null ? output.AppId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateDeploymentResult = (output: any, context: __SerdeContext): CreateDeploymentResult => {
   return {
-    __type: "CreateDeploymentResult",
     DeploymentId: output.DeploymentId !== undefined && output.DeploymentId !== null ? output.DeploymentId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateInstanceResult = (output: any, context: __SerdeContext): CreateInstanceResult => {
   return {
-    __type: "CreateInstanceResult",
     InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateLayerResult = (output: any, context: __SerdeContext): CreateLayerResult => {
   return {
-    __type: "CreateLayerResult",
     LayerId: output.LayerId !== undefined && output.LayerId !== null ? output.LayerId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateStackResult = (output: any, context: __SerdeContext): CreateStackResult => {
   return {
-    __type: "CreateStackResult",
     StackId: output.StackId !== undefined && output.StackId !== null ? output.StackId : undefined,
   } as any;
 };
@@ -7203,7 +7153,6 @@ const deserializeAws_json1_1CreateUserProfileResult = (
   context: __SerdeContext
 ): CreateUserProfileResult => {
   return {
-    __type: "CreateUserProfileResult",
     IamUserArn: output.IamUserArn !== undefined && output.IamUserArn !== null ? output.IamUserArn : undefined,
   } as any;
 };
@@ -7223,7 +7172,6 @@ const deserializeAws_json1_1DailyAutoScalingSchedule = (
 
 const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
-    __type: "DataSource",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
@@ -7236,7 +7184,6 @@ const deserializeAws_json1_1DataSources = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
-    __type: "Deployment",
     AppId: output.AppId !== undefined && output.AppId !== null ? output.AppId : undefined,
     Command:
       output.Command !== undefined && output.Command !== null
@@ -7260,7 +7207,6 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1DeploymentCommand = (output: any, context: __SerdeContext): DeploymentCommand => {
   return {
-    __type: "DeploymentCommand",
     Args:
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1DeploymentCommandArgs(output.Args, context)
@@ -7291,7 +7237,6 @@ const deserializeAws_json1_1DescribeAgentVersionsResult = (
   context: __SerdeContext
 ): DescribeAgentVersionsResult => {
   return {
-    __type: "DescribeAgentVersionsResult",
     AgentVersions:
       output.AgentVersions !== undefined && output.AgentVersions !== null
         ? deserializeAws_json1_1AgentVersions(output.AgentVersions, context)
@@ -7301,7 +7246,6 @@ const deserializeAws_json1_1DescribeAgentVersionsResult = (
 
 const deserializeAws_json1_1DescribeAppsResult = (output: any, context: __SerdeContext): DescribeAppsResult => {
   return {
-    __type: "DescribeAppsResult",
     Apps:
       output.Apps !== undefined && output.Apps !== null ? deserializeAws_json1_1Apps(output.Apps, context) : undefined,
   } as any;
@@ -7309,7 +7253,6 @@ const deserializeAws_json1_1DescribeAppsResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DescribeCommandsResult = (output: any, context: __SerdeContext): DescribeCommandsResult => {
   return {
-    __type: "DescribeCommandsResult",
     Commands:
       output.Commands !== undefined && output.Commands !== null
         ? deserializeAws_json1_1Commands(output.Commands, context)
@@ -7322,7 +7265,6 @@ const deserializeAws_json1_1DescribeDeploymentsResult = (
   context: __SerdeContext
 ): DescribeDeploymentsResult => {
   return {
-    __type: "DescribeDeploymentsResult",
     Deployments:
       output.Deployments !== undefined && output.Deployments !== null
         ? deserializeAws_json1_1Deployments(output.Deployments, context)
@@ -7335,7 +7277,6 @@ const deserializeAws_json1_1DescribeEcsClustersResult = (
   context: __SerdeContext
 ): DescribeEcsClustersResult => {
   return {
-    __type: "DescribeEcsClustersResult",
     EcsClusters:
       output.EcsClusters !== undefined && output.EcsClusters !== null
         ? deserializeAws_json1_1EcsClusters(output.EcsClusters, context)
@@ -7349,7 +7290,6 @@ const deserializeAws_json1_1DescribeElasticIpsResult = (
   context: __SerdeContext
 ): DescribeElasticIpsResult => {
   return {
-    __type: "DescribeElasticIpsResult",
     ElasticIps:
       output.ElasticIps !== undefined && output.ElasticIps !== null
         ? deserializeAws_json1_1ElasticIps(output.ElasticIps, context)
@@ -7362,7 +7302,6 @@ const deserializeAws_json1_1DescribeElasticLoadBalancersResult = (
   context: __SerdeContext
 ): DescribeElasticLoadBalancersResult => {
   return {
-    __type: "DescribeElasticLoadBalancersResult",
     ElasticLoadBalancers:
       output.ElasticLoadBalancers !== undefined && output.ElasticLoadBalancers !== null
         ? deserializeAws_json1_1ElasticLoadBalancers(output.ElasticLoadBalancers, context)
@@ -7375,7 +7314,6 @@ const deserializeAws_json1_1DescribeInstancesResult = (
   context: __SerdeContext
 ): DescribeInstancesResult => {
   return {
-    __type: "DescribeInstancesResult",
     Instances:
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1Instances(output.Instances, context)
@@ -7385,7 +7323,6 @@ const deserializeAws_json1_1DescribeInstancesResult = (
 
 const deserializeAws_json1_1DescribeLayersResult = (output: any, context: __SerdeContext): DescribeLayersResult => {
   return {
-    __type: "DescribeLayersResult",
     Layers:
       output.Layers !== undefined && output.Layers !== null
         ? deserializeAws_json1_1Layers(output.Layers, context)
@@ -7398,7 +7335,6 @@ const deserializeAws_json1_1DescribeLoadBasedAutoScalingResult = (
   context: __SerdeContext
 ): DescribeLoadBasedAutoScalingResult => {
   return {
-    __type: "DescribeLoadBasedAutoScalingResult",
     LoadBasedAutoScalingConfigurations:
       output.LoadBasedAutoScalingConfigurations !== undefined && output.LoadBasedAutoScalingConfigurations !== null
         ? deserializeAws_json1_1LoadBasedAutoScalingConfigurations(output.LoadBasedAutoScalingConfigurations, context)
@@ -7411,7 +7347,6 @@ const deserializeAws_json1_1DescribeMyUserProfileResult = (
   context: __SerdeContext
 ): DescribeMyUserProfileResult => {
   return {
-    __type: "DescribeMyUserProfileResult",
     UserProfile:
       output.UserProfile !== undefined && output.UserProfile !== null
         ? deserializeAws_json1_1SelfUserProfile(output.UserProfile, context)
@@ -7424,7 +7359,6 @@ const deserializeAws_json1_1DescribeOperatingSystemsResponse = (
   context: __SerdeContext
 ): DescribeOperatingSystemsResponse => {
   return {
-    __type: "DescribeOperatingSystemsResponse",
     OperatingSystems:
       output.OperatingSystems !== undefined && output.OperatingSystems !== null
         ? deserializeAws_json1_1OperatingSystems(output.OperatingSystems, context)
@@ -7437,7 +7371,6 @@ const deserializeAws_json1_1DescribePermissionsResult = (
   context: __SerdeContext
 ): DescribePermissionsResult => {
   return {
-    __type: "DescribePermissionsResult",
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1Permissions(output.Permissions, context)
@@ -7450,7 +7383,6 @@ const deserializeAws_json1_1DescribeRaidArraysResult = (
   context: __SerdeContext
 ): DescribeRaidArraysResult => {
   return {
-    __type: "DescribeRaidArraysResult",
     RaidArrays:
       output.RaidArrays !== undefined && output.RaidArrays !== null
         ? deserializeAws_json1_1RaidArrays(output.RaidArrays, context)
@@ -7463,7 +7395,6 @@ const deserializeAws_json1_1DescribeRdsDbInstancesResult = (
   context: __SerdeContext
 ): DescribeRdsDbInstancesResult => {
   return {
-    __type: "DescribeRdsDbInstancesResult",
     RdsDbInstances:
       output.RdsDbInstances !== undefined && output.RdsDbInstances !== null
         ? deserializeAws_json1_1RdsDbInstances(output.RdsDbInstances, context)
@@ -7476,7 +7407,6 @@ const deserializeAws_json1_1DescribeServiceErrorsResult = (
   context: __SerdeContext
 ): DescribeServiceErrorsResult => {
   return {
-    __type: "DescribeServiceErrorsResult",
     ServiceErrors:
       output.ServiceErrors !== undefined && output.ServiceErrors !== null
         ? deserializeAws_json1_1ServiceErrors(output.ServiceErrors, context)
@@ -7489,7 +7419,6 @@ const deserializeAws_json1_1DescribeStackProvisioningParametersResult = (
   context: __SerdeContext
 ): DescribeStackProvisioningParametersResult => {
   return {
-    __type: "DescribeStackProvisioningParametersResult",
     AgentInstallerUrl:
       output.AgentInstallerUrl !== undefined && output.AgentInstallerUrl !== null
         ? output.AgentInstallerUrl
@@ -7503,7 +7432,6 @@ const deserializeAws_json1_1DescribeStackProvisioningParametersResult = (
 
 const deserializeAws_json1_1DescribeStacksResult = (output: any, context: __SerdeContext): DescribeStacksResult => {
   return {
-    __type: "DescribeStacksResult",
     Stacks:
       output.Stacks !== undefined && output.Stacks !== null
         ? deserializeAws_json1_1Stacks(output.Stacks, context)
@@ -7516,7 +7444,6 @@ const deserializeAws_json1_1DescribeStackSummaryResult = (
   context: __SerdeContext
 ): DescribeStackSummaryResult => {
   return {
-    __type: "DescribeStackSummaryResult",
     StackSummary:
       output.StackSummary !== undefined && output.StackSummary !== null
         ? deserializeAws_json1_1StackSummary(output.StackSummary, context)
@@ -7529,7 +7456,6 @@ const deserializeAws_json1_1DescribeTimeBasedAutoScalingResult = (
   context: __SerdeContext
 ): DescribeTimeBasedAutoScalingResult => {
   return {
-    __type: "DescribeTimeBasedAutoScalingResult",
     TimeBasedAutoScalingConfigurations:
       output.TimeBasedAutoScalingConfigurations !== undefined && output.TimeBasedAutoScalingConfigurations !== null
         ? deserializeAws_json1_1TimeBasedAutoScalingConfigurations(output.TimeBasedAutoScalingConfigurations, context)
@@ -7542,7 +7468,6 @@ const deserializeAws_json1_1DescribeUserProfilesResult = (
   context: __SerdeContext
 ): DescribeUserProfilesResult => {
   return {
-    __type: "DescribeUserProfilesResult",
     UserProfiles:
       output.UserProfiles !== undefined && output.UserProfiles !== null
         ? deserializeAws_json1_1UserProfiles(output.UserProfiles, context)
@@ -7552,7 +7477,6 @@ const deserializeAws_json1_1DescribeUserProfilesResult = (
 
 const deserializeAws_json1_1DescribeVolumesResult = (output: any, context: __SerdeContext): DescribeVolumesResult => {
   return {
-    __type: "DescribeVolumesResult",
     Volumes:
       output.Volumes !== undefined && output.Volumes !== null
         ? deserializeAws_json1_1Volumes(output.Volumes, context)
@@ -7562,7 +7486,6 @@ const deserializeAws_json1_1DescribeVolumesResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
   return {
-    __type: "EbsBlockDevice",
     DeleteOnTermination:
       output.DeleteOnTermination !== undefined && output.DeleteOnTermination !== null
         ? output.DeleteOnTermination
@@ -7576,7 +7499,6 @@ const deserializeAws_json1_1EbsBlockDevice = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1EcsCluster = (output: any, context: __SerdeContext): EcsCluster => {
   return {
-    __type: "EcsCluster",
     EcsClusterArn:
       output.EcsClusterArn !== undefined && output.EcsClusterArn !== null ? output.EcsClusterArn : undefined,
     EcsClusterName:
@@ -7592,7 +7514,6 @@ const deserializeAws_json1_1EcsClusters = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ElasticIp = (output: any, context: __SerdeContext): ElasticIp => {
   return {
-    __type: "ElasticIp",
     Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
     InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
     Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
@@ -7607,7 +7528,6 @@ const deserializeAws_json1_1ElasticIps = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ElasticLoadBalancer = (output: any, context: __SerdeContext): ElasticLoadBalancer => {
   return {
-    __type: "ElasticLoadBalancer",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_json1_1Strings(output.AvailabilityZones, context)
@@ -7638,7 +7558,6 @@ const deserializeAws_json1_1ElasticLoadBalancers = (output: any, context: __Serd
 
 const deserializeAws_json1_1EnvironmentVariable = (output: any, context: __SerdeContext): EnvironmentVariable => {
   return {
-    __type: "EnvironmentVariable",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Secure: output.Secure !== undefined && output.Secure !== null ? output.Secure : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
@@ -7654,7 +7573,6 @@ const deserializeAws_json1_1GetHostnameSuggestionResult = (
   context: __SerdeContext
 ): GetHostnameSuggestionResult => {
   return {
-    __type: "GetHostnameSuggestionResult",
     Hostname: output.Hostname !== undefined && output.Hostname !== null ? output.Hostname : undefined,
     LayerId: output.LayerId !== undefined && output.LayerId !== null ? output.LayerId : undefined,
   } as any;
@@ -7662,7 +7580,6 @@ const deserializeAws_json1_1GetHostnameSuggestionResult = (
 
 const deserializeAws_json1_1GrantAccessResult = (output: any, context: __SerdeContext): GrantAccessResult => {
   return {
-    __type: "GrantAccessResult",
     TemporaryCredential:
       output.TemporaryCredential !== undefined && output.TemporaryCredential !== null
         ? deserializeAws_json1_1TemporaryCredential(output.TemporaryCredential, context)
@@ -7672,7 +7589,6 @@ const deserializeAws_json1_1GrantAccessResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    __type: "Instance",
     AgentVersion: output.AgentVersion !== undefined && output.AgentVersion !== null ? output.AgentVersion : undefined,
     AmiId: output.AmiId !== undefined && output.AmiId !== null ? output.AmiId : undefined,
     Architecture: output.Architecture !== undefined && output.Architecture !== null ? output.Architecture : undefined,
@@ -7770,7 +7686,6 @@ const deserializeAws_json1_1Instances = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1InstancesCount = (output: any, context: __SerdeContext): InstancesCount => {
   return {
-    __type: "InstancesCount",
     Assigning: output.Assigning !== undefined && output.Assigning !== null ? output.Assigning : undefined,
     Booting: output.Booting !== undefined && output.Booting !== null ? output.Booting : undefined,
     ConnectionLost:
@@ -7798,7 +7713,6 @@ const deserializeAws_json1_1InstancesCount = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Layer => {
   return {
-    __type: "Layer",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
@@ -7889,7 +7803,6 @@ const deserializeAws_json1_1LifecycleEventConfiguration = (
   context: __SerdeContext
 ): LifecycleEventConfiguration => {
   return {
-    __type: "LifecycleEventConfiguration",
     Shutdown:
       output.Shutdown !== undefined && output.Shutdown !== null
         ? deserializeAws_json1_1ShutdownEventConfiguration(output.Shutdown, context)
@@ -7899,7 +7812,6 @@ const deserializeAws_json1_1LifecycleEventConfiguration = (
 
 const deserializeAws_json1_1ListTagsResult = (output: any, context: __SerdeContext): ListTagsResult => {
   return {
-    __type: "ListTagsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
@@ -7911,7 +7823,6 @@ const deserializeAws_json1_1LoadBasedAutoScalingConfiguration = (
   context: __SerdeContext
 ): LoadBasedAutoScalingConfiguration => {
   return {
-    __type: "LoadBasedAutoScalingConfiguration",
     DownScaling:
       output.DownScaling !== undefined && output.DownScaling !== null
         ? deserializeAws_json1_1AutoScalingThresholds(output.DownScaling, context)
@@ -7934,7 +7845,6 @@ const deserializeAws_json1_1LoadBasedAutoScalingConfigurations = (
 
 const deserializeAws_json1_1OperatingSystem = (output: any, context: __SerdeContext): OperatingSystem => {
   return {
-    __type: "OperatingSystem",
     ConfigurationManagers:
       output.ConfigurationManagers !== undefined && output.ConfigurationManagers !== null
         ? deserializeAws_json1_1OperatingSystemConfigurationManagers(output.ConfigurationManagers, context)
@@ -7954,7 +7864,6 @@ const deserializeAws_json1_1OperatingSystemConfigurationManager = (
   context: __SerdeContext
 ): OperatingSystemConfigurationManager => {
   return {
-    __type: "OperatingSystemConfigurationManager",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
@@ -7983,7 +7892,6 @@ const deserializeAws_json1_1Parameters = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    __type: "Permission",
     AllowSsh: output.AllowSsh !== undefined && output.AllowSsh !== null ? output.AllowSsh : undefined,
     AllowSudo: output.AllowSudo !== undefined && output.AllowSudo !== null ? output.AllowSudo : undefined,
     IamUserArn: output.IamUserArn !== undefined && output.IamUserArn !== null ? output.IamUserArn : undefined,
@@ -7998,7 +7906,6 @@ const deserializeAws_json1_1Permissions = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1RaidArray = (output: any, context: __SerdeContext): RaidArray => {
   return {
-    __type: "RaidArray",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
@@ -8023,7 +7930,6 @@ const deserializeAws_json1_1RaidArrays = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1RdsDbInstance = (output: any, context: __SerdeContext): RdsDbInstance => {
   return {
-    __type: "RdsDbInstance",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     DbInstanceIdentifier:
       output.DbInstanceIdentifier !== undefined && output.DbInstanceIdentifier !== null
@@ -8046,7 +7952,6 @@ const deserializeAws_json1_1RdsDbInstances = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Recipes = (output: any, context: __SerdeContext): Recipes => {
   return {
-    __type: "Recipes",
     Configure:
       output.Configure !== undefined && output.Configure !== null
         ? deserializeAws_json1_1Strings(output.Configure, context)
@@ -8075,7 +7980,6 @@ const deserializeAws_json1_1RegisterEcsClusterResult = (
   context: __SerdeContext
 ): RegisterEcsClusterResult => {
   return {
-    __type: "RegisterEcsClusterResult",
     EcsClusterArn:
       output.EcsClusterArn !== undefined && output.EcsClusterArn !== null ? output.EcsClusterArn : undefined,
   } as any;
@@ -8086,28 +7990,24 @@ const deserializeAws_json1_1RegisterElasticIpResult = (
   context: __SerdeContext
 ): RegisterElasticIpResult => {
   return {
-    __type: "RegisterElasticIpResult",
     ElasticIp: output.ElasticIp !== undefined && output.ElasticIp !== null ? output.ElasticIp : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RegisterInstanceResult = (output: any, context: __SerdeContext): RegisterInstanceResult => {
   return {
-    __type: "RegisterInstanceResult",
     InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RegisterVolumeResult = (output: any, context: __SerdeContext): RegisterVolumeResult => {
   return {
-    __type: "RegisterVolumeResult",
     VolumeId: output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ReportedOs = (output: any, context: __SerdeContext): ReportedOs => {
   return {
-    __type: "ReportedOs",
     Family: output.Family !== undefined && output.Family !== null ? output.Family : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
@@ -8119,14 +8019,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SelfUserProfile = (output: any, context: __SerdeContext): SelfUserProfile => {
   return {
-    __type: "SelfUserProfile",
     IamUserArn: output.IamUserArn !== undefined && output.IamUserArn !== null ? output.IamUserArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SshPublicKey: output.SshPublicKey !== undefined && output.SshPublicKey !== null ? output.SshPublicKey : undefined,
@@ -8136,7 +8034,6 @@ const deserializeAws_json1_1SelfUserProfile = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ServiceError = (output: any, context: __SerdeContext): ServiceError => {
   return {
-    __type: "ServiceError",
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -8156,7 +8053,6 @@ const deserializeAws_json1_1ShutdownEventConfiguration = (
   context: __SerdeContext
 ): ShutdownEventConfiguration => {
   return {
-    __type: "ShutdownEventConfiguration",
     DelayUntilElbConnectionsDrained:
       output.DelayUntilElbConnectionsDrained !== undefined && output.DelayUntilElbConnectionsDrained !== null
         ? output.DelayUntilElbConnectionsDrained
@@ -8168,7 +8064,6 @@ const deserializeAws_json1_1ShutdownEventConfiguration = (
 
 const deserializeAws_json1_1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    __type: "Source",
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Revision: output.Revision !== undefined && output.Revision !== null ? output.Revision : undefined,
     SshKey: output.SshKey !== undefined && output.SshKey !== null ? output.SshKey : undefined,
@@ -8180,7 +8075,6 @@ const deserializeAws_json1_1Source = (output: any, context: __SerdeContext): Sou
 
 const deserializeAws_json1_1SslConfiguration = (output: any, context: __SerdeContext): SslConfiguration => {
   return {
-    __type: "SslConfiguration",
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     Chain: output.Chain !== undefined && output.Chain !== null ? output.Chain : undefined,
     PrivateKey: output.PrivateKey !== undefined && output.PrivateKey !== null ? output.PrivateKey : undefined,
@@ -8189,7 +8083,6 @@ const deserializeAws_json1_1SslConfiguration = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stack => {
   return {
-    __type: "Stack",
     AgentVersion: output.AgentVersion !== undefined && output.AgentVersion !== null ? output.AgentVersion : undefined,
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Attributes:
@@ -8263,7 +8156,6 @@ const deserializeAws_json1_1StackConfigurationManager = (
   context: __SerdeContext
 ): StackConfigurationManager => {
   return {
-    __type: "StackConfigurationManager",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
@@ -8275,7 +8167,6 @@ const deserializeAws_json1_1Stacks = (output: any, context: __SerdeContext): Sta
 
 const deserializeAws_json1_1StackSummary = (output: any, context: __SerdeContext): StackSummary => {
   return {
-    __type: "StackSummary",
     AppsCount: output.AppsCount !== undefined && output.AppsCount !== null ? output.AppsCount : undefined,
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     InstancesCount:
@@ -8304,7 +8195,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [ke
 
 const deserializeAws_json1_1TemporaryCredential = (output: any, context: __SerdeContext): TemporaryCredential => {
   return {
-    __type: "TemporaryCredential",
     InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
@@ -8320,7 +8210,6 @@ const deserializeAws_json1_1TimeBasedAutoScalingConfiguration = (
   context: __SerdeContext
 ): TimeBasedAutoScalingConfiguration => {
   return {
-    __type: "TimeBasedAutoScalingConfiguration",
     AutoScalingSchedule:
       output.AutoScalingSchedule !== undefined && output.AutoScalingSchedule !== null
         ? deserializeAws_json1_1WeeklyAutoScalingSchedule(output.AutoScalingSchedule, context)
@@ -8338,7 +8227,6 @@ const deserializeAws_json1_1TimeBasedAutoScalingConfigurations = (
 
 const deserializeAws_json1_1UserProfile = (output: any, context: __SerdeContext): UserProfile => {
   return {
-    __type: "UserProfile",
     AllowSelfManagement:
       output.AllowSelfManagement !== undefined && output.AllowSelfManagement !== null
         ? output.AllowSelfManagement
@@ -8356,14 +8244,12 @@ const deserializeAws_json1_1UserProfiles = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Volume => {
   return {
-    __type: "Volume",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     Device: output.Device !== undefined && output.Device !== null ? output.Device : undefined,
@@ -8384,7 +8270,6 @@ const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Vol
 
 const deserializeAws_json1_1VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
   return {
-    __type: "VolumeConfiguration",
     Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
     Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
     MountPoint: output.MountPoint !== undefined && output.MountPoint !== null ? output.MountPoint : undefined,
@@ -8409,7 +8294,6 @@ const deserializeAws_json1_1WeeklyAutoScalingSchedule = (
   context: __SerdeContext
 ): WeeklyAutoScalingSchedule => {
   return {
-    __type: "WeeklyAutoScalingSchedule",
     Friday:
       output.Friday !== undefined && output.Friday !== null
         ? deserializeAws_json1_1DailyAutoScalingSchedule(output.Friday, context)

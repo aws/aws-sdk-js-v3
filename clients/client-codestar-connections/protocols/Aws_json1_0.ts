@@ -208,7 +208,6 @@ export const deserializeAws_json1_0CreateConnectionCommand = async (
   contents = deserializeAws_json1_0CreateConnectionOutput(data, context);
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConnectionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -280,7 +279,6 @@ export const deserializeAws_json1_0CreateHostCommand = async (
   contents = deserializeAws_json1_0CreateHostOutput(data, context);
   const response: CreateHostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHostOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -336,7 +334,6 @@ export const deserializeAws_json1_0DeleteConnectionCommand = async (
   contents = deserializeAws_json1_0DeleteConnectionOutput(data, context);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConnectionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -392,7 +389,6 @@ export const deserializeAws_json1_0DeleteHostCommand = async (
   contents = deserializeAws_json1_0DeleteHostOutput(data, context);
   const response: DeleteHostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHostOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -456,7 +452,6 @@ export const deserializeAws_json1_0GetConnectionCommand = async (
   contents = deserializeAws_json1_0GetConnectionOutput(data, context);
   const response: GetConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConnectionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -520,7 +515,6 @@ export const deserializeAws_json1_0GetHostCommand = async (
   contents = deserializeAws_json1_0GetHostOutput(data, context);
   const response: GetHostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHostOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -576,7 +570,6 @@ export const deserializeAws_json1_0ListConnectionsCommand = async (
   contents = deserializeAws_json1_0ListConnectionsOutput(data, context);
   const response: ListConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConnectionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -624,7 +617,6 @@ export const deserializeAws_json1_0ListHostsCommand = async (
   contents = deserializeAws_json1_0ListHostsOutput(data, context);
   const response: ListHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHostsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -672,7 +664,6 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -728,7 +719,6 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   contents = deserializeAws_json1_0TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -792,7 +782,6 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   contents = deserializeAws_json1_0UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1000,7 +989,6 @@ const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: 
 
 const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    __type: "Connection",
     ConnectionArn:
       output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
     ConnectionName:
@@ -1020,7 +1008,6 @@ const deserializeAws_json1_0ConnectionList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __SerdeContext): CreateConnectionOutput => {
   return {
-    __type: "CreateConnectionOutput",
     ConnectionArn:
       output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
     Tags:
@@ -1032,26 +1019,20 @@ const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __Se
 
 const deserializeAws_json1_0CreateHostOutput = (output: any, context: __SerdeContext): CreateHostOutput => {
   return {
-    __type: "CreateHostOutput",
     HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DeleteConnectionOutput = (output: any, context: __SerdeContext): DeleteConnectionOutput => {
-  return {
-    __type: "DeleteConnectionOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_0DeleteHostOutput = (output: any, context: __SerdeContext): DeleteHostOutput => {
-  return {
-    __type: "DeleteHostOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_0GetConnectionOutput = (output: any, context: __SerdeContext): GetConnectionOutput => {
   return {
-    __type: "GetConnectionOutput",
     Connection:
       output.Connection !== undefined && output.Connection !== null
         ? deserializeAws_json1_0Connection(output.Connection, context)
@@ -1061,7 +1042,6 @@ const deserializeAws_json1_0GetConnectionOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_0GetHostOutput = (output: any, context: __SerdeContext): GetHostOutput => {
   return {
-    __type: "GetHostOutput",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ProviderEndpoint:
       output.ProviderEndpoint !== undefined && output.ProviderEndpoint !== null ? output.ProviderEndpoint : undefined,
@@ -1076,7 +1056,6 @@ const deserializeAws_json1_0GetHostOutput = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0Host = (output: any, context: __SerdeContext): Host => {
   return {
-    __type: "Host",
     HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ProviderEndpoint:
@@ -1098,14 +1077,12 @@ const deserializeAws_json1_0HostList = (output: any, context: __SerdeContext): H
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0ListConnectionsOutput = (output: any, context: __SerdeContext): ListConnectionsOutput => {
   return {
-    __type: "ListConnectionsOutput",
     Connections:
       output.Connections !== undefined && output.Connections !== null
         ? deserializeAws_json1_0ConnectionList(output.Connections, context)
@@ -1116,7 +1093,6 @@ const deserializeAws_json1_0ListConnectionsOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_0ListHostsOutput = (output: any, context: __SerdeContext): ListHostsOutput => {
   return {
-    __type: "ListHostsOutput",
     Hosts:
       output.Hosts !== undefined && output.Hosts !== null
         ? deserializeAws_json1_0HostList(output.Hosts, context)
@@ -1130,7 +1106,6 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    __type: "ListTagsForResourceOutput",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -1143,7 +1118,6 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1153,7 +1127,6 @@ const deserializeAws_json1_0ResourceUnavailableException = (
   context: __SerdeContext
 ): ResourceUnavailableException => {
   return {
-    __type: "ResourceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1168,7 +1141,6 @@ const deserializeAws_json1_0SubnetIds = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -1179,20 +1151,15 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {
-    __type: "TagResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_0UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {
-    __type: "UntagResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_0VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
   return {
-    __type: "VpcConfiguration",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_json1_0SecurityGroupIds(output.SecurityGroupIds, context)

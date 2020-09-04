@@ -84,7 +84,6 @@ export const deserializeAws_json1_1CreateHomeRegionControlCommand = async (
   contents = deserializeAws_json1_1CreateHomeRegionControlResult(data, context);
   const response: CreateHomeRegionControlCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHomeRegionControlResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -180,7 +179,6 @@ export const deserializeAws_json1_1DescribeHomeRegionControlsCommand = async (
   contents = deserializeAws_json1_1DescribeHomeRegionControlsResult(data, context);
   const response: DescribeHomeRegionControlsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHomeRegionControlsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -268,7 +266,6 @@ export const deserializeAws_json1_1GetHomeRegionCommand = async (
   contents = deserializeAws_json1_1GetHomeRegionResult(data, context);
   const response: GetHomeRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHomeRegionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -471,7 +468,6 @@ const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -481,7 +477,6 @@ const deserializeAws_json1_1CreateHomeRegionControlResult = (
   context: __SerdeContext
 ): CreateHomeRegionControlResult => {
   return {
-    __type: "CreateHomeRegionControlResult",
     HomeRegionControl:
       output.HomeRegionControl !== undefined && output.HomeRegionControl !== null
         ? deserializeAws_json1_1HomeRegionControl(output.HomeRegionControl, context)
@@ -494,7 +489,6 @@ const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
   context: __SerdeContext
 ): DescribeHomeRegionControlsResult => {
   return {
-    __type: "DescribeHomeRegionControlsResult",
     HomeRegionControls:
       output.HomeRegionControls !== undefined && output.HomeRegionControls !== null
         ? deserializeAws_json1_1HomeRegionControls(output.HomeRegionControls, context)
@@ -505,21 +499,18 @@ const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
 
 const deserializeAws_json1_1DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
   return {
-    __type: "DryRunOperation",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetHomeRegionResult = (output: any, context: __SerdeContext): GetHomeRegionResult => {
   return {
-    __type: "GetHomeRegionResult",
     HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeContext): HomeRegionControl => {
   return {
-    __type: "HomeRegionControl",
     ControlId: output.ControlId !== undefined && output.ControlId !== null ? output.ControlId : undefined,
     HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
     RequestedTime:
@@ -539,14 +530,12 @@ const deserializeAws_json1_1HomeRegionControls = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -556,14 +545,12 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Target => {
   return {
-    __type: "Target",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -571,7 +558,6 @@ const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Tar
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RetryAfterSeconds:
       output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null

@@ -314,7 +314,6 @@ export const deserializeAws_restJson1CreateLifecyclePolicyCommand = async (
   }
   const contents: CreateLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLifecyclePolicyResponse",
     PolicyId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -386,7 +385,6 @@ export const deserializeAws_restJson1DeleteLifecyclePolicyCommand = async (
   }
   const contents: DeleteLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLifecyclePolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -454,7 +452,6 @@ export const deserializeAws_restJson1GetLifecyclePoliciesCommand = async (
   }
   const contents: GetLifecyclePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLifecyclePoliciesResponse",
     Policies: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -534,7 +531,6 @@ export const deserializeAws_restJson1GetLifecyclePolicyCommand = async (
   }
   const contents: GetLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLifecyclePolicyResponse",
     Policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -606,7 +602,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -678,7 +673,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -746,7 +740,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -814,7 +807,6 @@ export const deserializeAws_restJson1UpdateLifecyclePolicyCommand = async (
   }
   const contents: UpdateLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLifecyclePolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1135,7 +1127,6 @@ const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __Se
 
 const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
   return {
-    __type: "CreateRule",
     CronExpression:
       output.CronExpression !== undefined && output.CronExpression !== null ? output.CronExpression : undefined,
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
@@ -1152,7 +1143,6 @@ const deserializeAws_restJson1CrossRegionCopyRetainRule = (
   context: __SerdeContext
 ): CrossRegionCopyRetainRule => {
   return {
-    __type: "CrossRegionCopyRetainRule",
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit: output.IntervalUnit !== undefined && output.IntervalUnit !== null ? output.IntervalUnit : undefined,
   } as any;
@@ -1160,7 +1150,6 @@ const deserializeAws_restJson1CrossRegionCopyRetainRule = (
 
 const deserializeAws_restJson1CrossRegionCopyRule = (output: any, context: __SerdeContext): CrossRegionCopyRule => {
   return {
-    __type: "CrossRegionCopyRule",
     CmkArn: output.CmkArn !== undefined && output.CmkArn !== null ? output.CmkArn : undefined,
     CopyTags: output.CopyTags !== undefined && output.CopyTags !== null ? output.CopyTags : undefined,
     Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
@@ -1178,7 +1167,6 @@ const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __Se
 
 const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeContext): FastRestoreRule => {
   return {
-    __type: "FastRestoreRule",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1AvailabilityZoneList(output.AvailabilityZones, context)
@@ -1191,7 +1179,6 @@ const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
-    __type: "LifecyclePolicy",
     DateCreated:
       output.DateCreated !== undefined && output.DateCreated !== null ? new Date(output.DateCreated) : undefined,
     DateModified:
@@ -1220,7 +1207,6 @@ const deserializeAws_restJson1LifecyclePolicySummary = (
   context: __SerdeContext
 ): LifecyclePolicySummary => {
   return {
-    __type: "LifecyclePolicySummary",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
@@ -1244,7 +1230,6 @@ const deserializeAws_restJson1ParameterList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContext): _Parameters => {
   return {
-    __type: "Parameters",
     ExcludeBootVolume:
       output.ExcludeBootVolume !== undefined && output.ExcludeBootVolume !== null
         ? output.ExcludeBootVolume
@@ -1254,7 +1239,6 @@ const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeContext): PolicyDetails => {
   return {
-    __type: "PolicyDetails",
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_restJson1_Parameters(output.Parameters, context)
@@ -1288,7 +1272,6 @@ const deserializeAws_restJson1ResourceTypeValuesList = (
 
 const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext): RetainRule => {
   return {
-    __type: "RetainRule",
     Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit: output.IntervalUnit !== undefined && output.IntervalUnit !== null ? output.IntervalUnit : undefined,
@@ -1297,7 +1280,6 @@ const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
-    __type: "Schedule",
     CopyTags: output.CopyTags !== undefined && output.CopyTags !== null ? output.CopyTags : undefined,
     CreateRule:
       output.CreateRule !== undefined && output.CreateRule !== null
@@ -1333,7 +1315,6 @@ const deserializeAws_restJson1ScheduleList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;

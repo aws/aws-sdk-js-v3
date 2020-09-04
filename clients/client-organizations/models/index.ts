@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptHandshakeRequest {
-  __type?: "AcceptHandshakeRequest";
   /**
    * <p>The unique identifier (ID) of the handshake that you want to accept.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
@@ -15,11 +14,9 @@ export namespace AcceptHandshakeRequest {
   export const filterSensitiveLog = (obj: AcceptHandshakeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptHandshakeRequest => __isa(o, "AcceptHandshakeRequest");
 }
 
 export interface AcceptHandshakeResponse {
-  __type?: "AcceptHandshakeResponse";
   /**
    * <p>A structure that contains details about the accepted handshake.</p>
    */
@@ -31,7 +28,6 @@ export namespace AcceptHandshakeResponse {
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
-  export const isa = (o: any): o is AcceptHandshakeResponse => __isa(o, "AcceptHandshakeResponse");
 }
 
 /**
@@ -51,7 +47,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -71,8 +66,6 @@ export namespace AccessDeniedForDependencyException {
   export const filterSensitiveLog = (obj: AccessDeniedForDependencyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedForDependencyException =>
-    __isa(o, "AccessDeniedForDependencyException");
 }
 
 export enum AccessDeniedForDependencyExceptionReason {
@@ -84,7 +77,6 @@ export enum AccessDeniedForDependencyExceptionReason {
  *             organization.</p>
  */
 export interface Account {
-  __type?: "Account";
   /**
    * <p>The method by which the account joined the organization.</p>
    */
@@ -136,7 +128,6 @@ export namespace Account {
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Email && { Email: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Account => __isa(o, "Account");
 }
 
 /**
@@ -153,7 +144,6 @@ export namespace AccountAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: AccountAlreadyRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountAlreadyRegisteredException => __isa(o, "AccountAlreadyRegisteredException");
 }
 
 export enum AccountJoinedMethod {
@@ -176,7 +166,6 @@ export namespace AccountNotFoundException {
   export const filterSensitiveLog = (obj: AccountNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountNotFoundException => __isa(o, "AccountNotFoundException");
 }
 
 /**
@@ -192,7 +181,6 @@ export namespace AccountNotRegisteredException {
   export const filterSensitiveLog = (obj: AccountNotRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountNotRegisteredException => __isa(o, "AccountNotRegisteredException");
 }
 
 /**
@@ -212,7 +200,6 @@ export namespace AccountOwnerNotVerifiedException {
   export const filterSensitiveLog = (obj: AccountOwnerNotVerifiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountOwnerNotVerifiedException => __isa(o, "AccountOwnerNotVerifiedException");
 }
 
 export enum AccountStatus {
@@ -241,11 +228,9 @@ export namespace AlreadyInOrganizationException {
   export const filterSensitiveLog = (obj: AlreadyInOrganizationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyInOrganizationException => __isa(o, "AlreadyInOrganizationException");
 }
 
 export interface AttachPolicyRequest {
-  __type?: "AttachPolicyRequest";
   /**
    * <p>The unique identifier (ID) of the root, OU, or account that you want to attach the
    *             policy to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
@@ -286,7 +271,6 @@ export namespace AttachPolicyRequest {
   export const filterSensitiveLog = (obj: AttachPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachPolicyRequest => __isa(o, "AttachPolicyRequest");
 }
 
 /**
@@ -303,11 +287,9 @@ export namespace AWSOrganizationsNotInUseException {
   export const filterSensitiveLog = (obj: AWSOrganizationsNotInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AWSOrganizationsNotInUseException => __isa(o, "AWSOrganizationsNotInUseException");
 }
 
 export interface CancelHandshakeRequest {
-  __type?: "CancelHandshakeRequest";
   /**
    * <p>The unique identifier (ID) of the handshake that you want to cancel. You can get the
    *             ID from the <a>ListHandshakesForOrganization</a> operation.</p>
@@ -321,11 +303,9 @@ export namespace CancelHandshakeRequest {
   export const filterSensitiveLog = (obj: CancelHandshakeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelHandshakeRequest => __isa(o, "CancelHandshakeRequest");
 }
 
 export interface CancelHandshakeResponse {
-  __type?: "CancelHandshakeResponse";
   /**
    * <p>A structure that contains details about the handshake that you canceled.</p>
    */
@@ -337,14 +317,12 @@ export namespace CancelHandshakeResponse {
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
-  export const isa = (o: any): o is CancelHandshakeResponse => __isa(o, "CancelHandshakeResponse");
 }
 
 /**
  * <p>Contains a list of child entities, either OUs or accounts.</p>
  */
 export interface Child {
-  __type?: "Child";
   /**
    * <p>The type of this child entity.</p>
    */
@@ -372,7 +350,6 @@ export namespace Child {
   export const filterSensitiveLog = (obj: Child): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Child => __isa(o, "Child");
 }
 
 /**
@@ -389,7 +366,6 @@ export namespace ChildNotFoundException {
   export const filterSensitiveLog = (obj: ChildNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildNotFoundException => __isa(o, "ChildNotFoundException");
 }
 
 export enum ChildType {
@@ -411,7 +387,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -594,7 +569,6 @@ export namespace ConstraintViolationException {
   export const filterSensitiveLog = (obj: ConstraintViolationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConstraintViolationException => __isa(o, "ConstraintViolationException");
 }
 
 export enum ConstraintViolationExceptionReason {
@@ -639,7 +613,6 @@ export enum CreateAccountFailureReason {
 }
 
 export interface CreateAccountRequest {
-  __type?: "CreateAccountRequest";
   /**
    * <p>(Optional)</p>
    *         <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
@@ -703,11 +676,9 @@ export namespace CreateAccountRequest {
     ...(obj.Email && { Email: SENSITIVE_STRING }),
     ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateAccountRequest => __isa(o, "CreateAccountRequest");
 }
 
 export interface CreateAccountResponse {
-  __type?: "CreateAccountResponse";
   /**
    * <p>A structure that contains details about the request to create an account. This
    *             response structure might not be fully populated when you first receive it because
@@ -727,7 +698,6 @@ export namespace CreateAccountResponse {
       CreateAccountStatus: CreateAccountStatus.filterSensitiveLog(obj.CreateAccountStatus),
     }),
   });
-  export const isa = (o: any): o is CreateAccountResponse => __isa(o, "CreateAccountResponse");
 }
 
 export enum CreateAccountState {
@@ -741,7 +711,6 @@ export enum CreateAccountState {
  *             GovCloud (US) account in an organization.</p>
  */
 export interface CreateAccountStatus {
-  __type?: "CreateAccountStatus";
   /**
    * <p>The account name given to the account when it was created.</p>
    */
@@ -824,7 +793,6 @@ export namespace CreateAccountStatus {
     ...obj,
     ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateAccountStatus => __isa(o, "CreateAccountStatus");
 }
 
 /**
@@ -841,12 +809,9 @@ export namespace CreateAccountStatusNotFoundException {
   export const filterSensitiveLog = (obj: CreateAccountStatusNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccountStatusNotFoundException =>
-    __isa(o, "CreateAccountStatusNotFoundException");
 }
 
 export interface CreateGovCloudAccountRequest {
-  __type?: "CreateGovCloudAccountRequest";
   /**
    * <p>The email address of the owner to assign to the new member account in the commercial
    *             Region. This email address must not already be associated with another AWS account.
@@ -904,11 +869,9 @@ export namespace CreateGovCloudAccountRequest {
     ...(obj.Email && { Email: SENSITIVE_STRING }),
     ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateGovCloudAccountRequest => __isa(o, "CreateGovCloudAccountRequest");
 }
 
 export interface CreateGovCloudAccountResponse {
-  __type?: "CreateGovCloudAccountResponse";
   /**
    * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS
    *             GovCloud (US) account in an organization.</p>
@@ -923,11 +886,9 @@ export namespace CreateGovCloudAccountResponse {
       CreateAccountStatus: CreateAccountStatus.filterSensitiveLog(obj.CreateAccountStatus),
     }),
   });
-  export const isa = (o: any): o is CreateGovCloudAccountResponse => __isa(o, "CreateGovCloudAccountResponse");
 }
 
 export interface CreateOrganizationalUnitRequest {
-  __type?: "CreateOrganizationalUnitRequest";
   /**
    * <p>The friendly name to assign to the new OU.</p>
    */
@@ -959,11 +920,9 @@ export namespace CreateOrganizationalUnitRequest {
   export const filterSensitiveLog = (obj: CreateOrganizationalUnitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOrganizationalUnitRequest => __isa(o, "CreateOrganizationalUnitRequest");
 }
 
 export interface CreateOrganizationalUnitResponse {
-  __type?: "CreateOrganizationalUnitResponse";
   /**
    * <p>A structure that contains details about the newly created OU.</p>
    */
@@ -974,11 +933,9 @@ export namespace CreateOrganizationalUnitResponse {
   export const filterSensitiveLog = (obj: CreateOrganizationalUnitResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOrganizationalUnitResponse => __isa(o, "CreateOrganizationalUnitResponse");
 }
 
 export interface CreateOrganizationRequest {
-  __type?: "CreateOrganizationRequest";
   /**
    * <p>Specifies the feature set supported by the new organization. Each feature set supports
    *             different levels of functionality.</p>
@@ -1009,11 +966,9 @@ export namespace CreateOrganizationRequest {
   export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOrganizationRequest => __isa(o, "CreateOrganizationRequest");
 }
 
 export interface CreateOrganizationResponse {
-  __type?: "CreateOrganizationResponse";
   /**
    * <p>A structure that contains details about the newly created organization.</p>
    */
@@ -1025,11 +980,9 @@ export namespace CreateOrganizationResponse {
     ...obj,
     ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
   });
-  export const isa = (o: any): o is CreateOrganizationResponse => __isa(o, "CreateOrganizationResponse");
 }
 
 export interface CreatePolicyRequest {
-  __type?: "CreatePolicyRequest";
   /**
    * <p>The type of policy to create. You can specify one of the following values:</p>
    *         <ul>
@@ -1081,11 +1034,9 @@ export namespace CreatePolicyRequest {
   export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyRequest => __isa(o, "CreatePolicyRequest");
 }
 
 export interface CreatePolicyResponse {
-  __type?: "CreatePolicyResponse";
   /**
    * <p>A structure that contains details about the newly created policy.</p>
    */
@@ -1096,11 +1047,9 @@ export namespace CreatePolicyResponse {
   export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyResponse => __isa(o, "CreatePolicyResponse");
 }
 
 export interface DeclineHandshakeRequest {
-  __type?: "DeclineHandshakeRequest";
   /**
    * <p>The unique identifier (ID) of the handshake that you want to decline. You can get the
    *             ID from the <a>ListHandshakesForAccount</a> operation.</p>
@@ -1114,11 +1063,9 @@ export namespace DeclineHandshakeRequest {
   export const filterSensitiveLog = (obj: DeclineHandshakeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeclineHandshakeRequest => __isa(o, "DeclineHandshakeRequest");
 }
 
 export interface DeclineHandshakeResponse {
-  __type?: "DeclineHandshakeResponse";
   /**
    * <p>A structure that contains details about the declined handshake. The state is updated
    *             to show the value <code>DECLINED</code>.</p>
@@ -1131,14 +1078,12 @@ export namespace DeclineHandshakeResponse {
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
-  export const isa = (o: any): o is DeclineHandshakeResponse => __isa(o, "DeclineHandshakeResponse");
 }
 
 /**
  * <p>Contains information about the delegated administrator.</p>
  */
 export interface DelegatedAdministrator {
-  __type?: "DelegatedAdministrator";
   /**
    * <p>The friendly name of the delegated administrator's account.</p>
    */
@@ -1189,7 +1134,6 @@ export namespace DelegatedAdministrator {
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Email && { Email: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DelegatedAdministrator => __isa(o, "DelegatedAdministrator");
 }
 
 /**
@@ -1197,7 +1141,6 @@ export namespace DelegatedAdministrator {
  *             administrator.</p>
  */
 export interface DelegatedService {
-  __type?: "DelegatedService";
   /**
    * <p>The date that the account became a delegated administrator for this service. </p>
    */
@@ -1216,11 +1159,9 @@ export namespace DelegatedService {
   export const filterSensitiveLog = (obj: DelegatedService): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegatedService => __isa(o, "DelegatedService");
 }
 
 export interface DeleteOrganizationalUnitRequest {
-  __type?: "DeleteOrganizationalUnitRequest";
   /**
    * <p>The unique identifier (ID) of the organizational unit that you want to delete. You can
    *             get the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
@@ -1236,11 +1177,9 @@ export namespace DeleteOrganizationalUnitRequest {
   export const filterSensitiveLog = (obj: DeleteOrganizationalUnitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOrganizationalUnitRequest => __isa(o, "DeleteOrganizationalUnitRequest");
 }
 
 export interface DeletePolicyRequest {
-  __type?: "DeletePolicyRequest";
   /**
    * <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID
    *             from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
@@ -1255,11 +1194,9 @@ export namespace DeletePolicyRequest {
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export interface DeregisterDelegatedAdministratorRequest {
-  __type?: "DeregisterDelegatedAdministratorRequest";
   /**
    * <p>The account ID number of the member account in the organization that you want to
    *             deregister as a delegated administrator.</p>
@@ -1281,12 +1218,9 @@ export namespace DeregisterDelegatedAdministratorRequest {
   export const filterSensitiveLog = (obj: DeregisterDelegatedAdministratorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterDelegatedAdministratorRequest =>
-    __isa(o, "DeregisterDelegatedAdministratorRequest");
 }
 
 export interface DescribeAccountRequest {
-  __type?: "DescribeAccountRequest";
   /**
    * <p>The unique identifier (ID) of the AWS account that you want information about. You
    *             can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p>
@@ -1300,11 +1234,9 @@ export namespace DescribeAccountRequest {
   export const filterSensitiveLog = (obj: DescribeAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountRequest => __isa(o, "DescribeAccountRequest");
 }
 
 export interface DescribeAccountResponse {
-  __type?: "DescribeAccountResponse";
   /**
    * <p>A structure that contains information about the requested account.</p>
    */
@@ -1316,11 +1248,9 @@ export namespace DescribeAccountResponse {
     ...obj,
     ...(obj.Account && { Account: Account.filterSensitiveLog(obj.Account) }),
   });
-  export const isa = (o: any): o is DescribeAccountResponse => __isa(o, "DescribeAccountResponse");
 }
 
 export interface DescribeCreateAccountStatusRequest {
-  __type?: "DescribeCreateAccountStatusRequest";
   /**
    * <p>Specifies the <code>operationId</code> that uniquely identifies the request. You can
    *             get the ID from the response to an earlier <a>CreateAccount</a> request, or
@@ -1335,12 +1265,9 @@ export namespace DescribeCreateAccountStatusRequest {
   export const filterSensitiveLog = (obj: DescribeCreateAccountStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCreateAccountStatusRequest =>
-    __isa(o, "DescribeCreateAccountStatusRequest");
 }
 
 export interface DescribeCreateAccountStatusResponse {
-  __type?: "DescribeCreateAccountStatusResponse";
   /**
    * <p>A structure that contains the current status of an account creation request.</p>
    */
@@ -1354,12 +1281,9 @@ export namespace DescribeCreateAccountStatusResponse {
       CreateAccountStatus: CreateAccountStatus.filterSensitiveLog(obj.CreateAccountStatus),
     }),
   });
-  export const isa = (o: any): o is DescribeCreateAccountStatusResponse =>
-    __isa(o, "DescribeCreateAccountStatusResponse");
 }
 
 export interface DescribeEffectivePolicyRequest {
-  __type?: "DescribeEffectivePolicyRequest";
   /**
    * <p>The type of policy that you want information about. You can specify one of the
    *             following values:</p>
@@ -1395,11 +1319,9 @@ export namespace DescribeEffectivePolicyRequest {
   export const filterSensitiveLog = (obj: DescribeEffectivePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEffectivePolicyRequest => __isa(o, "DescribeEffectivePolicyRequest");
 }
 
 export interface DescribeEffectivePolicyResponse {
-  __type?: "DescribeEffectivePolicyResponse";
   /**
    * <p>The contents of the effective policy.</p>
    */
@@ -1410,11 +1332,9 @@ export namespace DescribeEffectivePolicyResponse {
   export const filterSensitiveLog = (obj: DescribeEffectivePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEffectivePolicyResponse => __isa(o, "DescribeEffectivePolicyResponse");
 }
 
 export interface DescribeHandshakeRequest {
-  __type?: "DescribeHandshakeRequest";
   /**
    * <p>The unique identifier (ID) of the handshake that you want information about. You can
    *             get the ID from the original call to <a>InviteAccountToOrganization</a>, or
@@ -1429,11 +1349,9 @@ export namespace DescribeHandshakeRequest {
   export const filterSensitiveLog = (obj: DescribeHandshakeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHandshakeRequest => __isa(o, "DescribeHandshakeRequest");
 }
 
 export interface DescribeHandshakeResponse {
-  __type?: "DescribeHandshakeResponse";
   /**
    * <p>A structure that contains information about the specified handshake.</p>
    */
@@ -1445,11 +1363,9 @@ export namespace DescribeHandshakeResponse {
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
-  export const isa = (o: any): o is DescribeHandshakeResponse => __isa(o, "DescribeHandshakeResponse");
 }
 
 export interface DescribeOrganizationalUnitRequest {
-  __type?: "DescribeOrganizationalUnitRequest";
   /**
    * <p>The unique identifier (ID) of the organizational unit that you want details about. You
    *             can get the ID from the <a>ListOrganizationalUnitsForParent</a>
@@ -1466,11 +1382,9 @@ export namespace DescribeOrganizationalUnitRequest {
   export const filterSensitiveLog = (obj: DescribeOrganizationalUnitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrganizationalUnitRequest => __isa(o, "DescribeOrganizationalUnitRequest");
 }
 
 export interface DescribeOrganizationalUnitResponse {
-  __type?: "DescribeOrganizationalUnitResponse";
   /**
    * <p>A structure that contains details about the specified OU.</p>
    */
@@ -1481,12 +1395,9 @@ export namespace DescribeOrganizationalUnitResponse {
   export const filterSensitiveLog = (obj: DescribeOrganizationalUnitResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrganizationalUnitResponse =>
-    __isa(o, "DescribeOrganizationalUnitResponse");
 }
 
 export interface DescribeOrganizationResponse {
-  __type?: "DescribeOrganizationResponse";
   /**
    * <p>A structure that contains information about the organization.</p>
    *         <important>
@@ -1506,11 +1417,9 @@ export namespace DescribeOrganizationResponse {
     ...obj,
     ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
   });
-  export const isa = (o: any): o is DescribeOrganizationResponse => __isa(o, "DescribeOrganizationResponse");
 }
 
 export interface DescribePolicyRequest {
-  __type?: "DescribePolicyRequest";
   /**
    * <p>The unique identifier (ID) of the policy that you want details about. You can get the
    *             ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
@@ -1525,11 +1434,9 @@ export namespace DescribePolicyRequest {
   export const filterSensitiveLog = (obj: DescribePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePolicyRequest => __isa(o, "DescribePolicyRequest");
 }
 
 export interface DescribePolicyResponse {
-  __type?: "DescribePolicyResponse";
   /**
    * <p>A structure that contains details about the specified policy.</p>
    */
@@ -1540,7 +1447,6 @@ export namespace DescribePolicyResponse {
   export const filterSensitiveLog = (obj: DescribePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePolicyResponse => __isa(o, "DescribePolicyResponse");
 }
 
 /**
@@ -1557,12 +1463,9 @@ export namespace DestinationParentNotFoundException {
   export const filterSensitiveLog = (obj: DestinationParentNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DestinationParentNotFoundException =>
-    __isa(o, "DestinationParentNotFoundException");
 }
 
 export interface DetachPolicyRequest {
-  __type?: "DetachPolicyRequest";
   /**
    * <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from
    *             the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
@@ -1603,11 +1506,9 @@ export namespace DetachPolicyRequest {
   export const filterSensitiveLog = (obj: DetachPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachPolicyRequest => __isa(o, "DetachPolicyRequest");
 }
 
 export interface DisableAWSServiceAccessRequest {
-  __type?: "DisableAWSServiceAccessRequest";
   /**
    * <p>The service principal name of the AWS service for which you want to disable
    *             integration with your organization. This is typically in the form of a URL, such as
@@ -1621,11 +1522,9 @@ export namespace DisableAWSServiceAccessRequest {
   export const filterSensitiveLog = (obj: DisableAWSServiceAccessRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableAWSServiceAccessRequest => __isa(o, "DisableAWSServiceAccessRequest");
 }
 
 export interface DisablePolicyTypeRequest {
-  __type?: "DisablePolicyTypeRequest";
   /**
    * <p>The unique identifier (ID) of the root in which you want to disable a policy type. You
    *             can get the ID from the <a>ListRoots</a> operation.</p>
@@ -1667,11 +1566,9 @@ export namespace DisablePolicyTypeRequest {
   export const filterSensitiveLog = (obj: DisablePolicyTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisablePolicyTypeRequest => __isa(o, "DisablePolicyTypeRequest");
 }
 
 export interface DisablePolicyTypeResponse {
-  __type?: "DisablePolicyTypeResponse";
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    */
@@ -1682,7 +1579,6 @@ export namespace DisablePolicyTypeResponse {
   export const filterSensitiveLog = (obj: DisablePolicyTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisablePolicyTypeResponse => __isa(o, "DisablePolicyTypeResponse");
 }
 
 /**
@@ -1698,7 +1594,6 @@ export namespace DuplicateAccountException {
   export const filterSensitiveLog = (obj: DuplicateAccountException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateAccountException => __isa(o, "DuplicateAccountException");
 }
 
 /**
@@ -1718,7 +1613,6 @@ export namespace DuplicateHandshakeException {
   export const filterSensitiveLog = (obj: DuplicateHandshakeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateHandshakeException => __isa(o, "DuplicateHandshakeException");
 }
 
 /**
@@ -1734,8 +1628,6 @@ export namespace DuplicateOrganizationalUnitException {
   export const filterSensitiveLog = (obj: DuplicateOrganizationalUnitException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateOrganizationalUnitException =>
-    __isa(o, "DuplicateOrganizationalUnitException");
 }
 
 /**
@@ -1751,8 +1643,6 @@ export namespace DuplicatePolicyAttachmentException {
   export const filterSensitiveLog = (obj: DuplicatePolicyAttachmentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicatePolicyAttachmentException =>
-    __isa(o, "DuplicatePolicyAttachmentException");
 }
 
 /**
@@ -1768,7 +1658,6 @@ export namespace DuplicatePolicyException {
   export const filterSensitiveLog = (obj: DuplicatePolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicatePolicyException => __isa(o, "DuplicatePolicyException");
 }
 
 /**
@@ -1777,7 +1666,6 @@ export namespace DuplicatePolicyException {
  *             the account.</p>
  */
 export interface EffectivePolicy {
-  __type?: "EffectivePolicy";
   /**
    * <p>The policy type.</p>
    */
@@ -1803,7 +1691,6 @@ export namespace EffectivePolicy {
   export const filterSensitiveLog = (obj: EffectivePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EffectivePolicy => __isa(o, "EffectivePolicy");
 }
 
 /**
@@ -1822,7 +1709,6 @@ export namespace EffectivePolicyNotFoundException {
   export const filterSensitiveLog = (obj: EffectivePolicyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EffectivePolicyNotFoundException => __isa(o, "EffectivePolicyNotFoundException");
 }
 
 export enum EffectivePolicyType {
@@ -1831,19 +1717,15 @@ export enum EffectivePolicyType {
   TAG_POLICY = "TAG_POLICY",
 }
 
-export interface EnableAllFeaturesRequest {
-  __type?: "EnableAllFeaturesRequest";
-}
+export interface EnableAllFeaturesRequest {}
 
 export namespace EnableAllFeaturesRequest {
   export const filterSensitiveLog = (obj: EnableAllFeaturesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableAllFeaturesRequest => __isa(o, "EnableAllFeaturesRequest");
 }
 
 export interface EnableAllFeaturesResponse {
-  __type?: "EnableAllFeaturesResponse";
   /**
    * <p>A structure that contains details about the handshake created to support this request
    *             to enable all features in the organization.</p>
@@ -1856,11 +1738,9 @@ export namespace EnableAllFeaturesResponse {
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
-  export const isa = (o: any): o is EnableAllFeaturesResponse => __isa(o, "EnableAllFeaturesResponse");
 }
 
 export interface EnableAWSServiceAccessRequest {
-  __type?: "EnableAWSServiceAccessRequest";
   /**
    * <p>The service principal name of the AWS service for which you want to enable
    *             integration with your organization. This is typically in the form of a URL, such as
@@ -1874,7 +1754,6 @@ export namespace EnableAWSServiceAccessRequest {
   export const filterSensitiveLog = (obj: EnableAWSServiceAccessRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableAWSServiceAccessRequest => __isa(o, "EnableAWSServiceAccessRequest");
 }
 
 /**
@@ -1882,7 +1761,6 @@ export namespace EnableAWSServiceAccessRequest {
  *             service that is enabled to integrate with AWS Organizations.</p>
  */
 export interface EnabledServicePrincipal {
-  __type?: "EnabledServicePrincipal";
   /**
    * <p>The date that the service principal was enabled for integration with AWS Organizations.</p>
    */
@@ -1900,11 +1778,9 @@ export namespace EnabledServicePrincipal {
   export const filterSensitiveLog = (obj: EnabledServicePrincipal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnabledServicePrincipal => __isa(o, "EnabledServicePrincipal");
 }
 
 export interface EnablePolicyTypeRequest {
-  __type?: "EnablePolicyTypeRequest";
   /**
    * <p>The policy type that you want to enable. You can specify one of the following
    *             values:</p>
@@ -1946,11 +1822,9 @@ export namespace EnablePolicyTypeRequest {
   export const filterSensitiveLog = (obj: EnablePolicyTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnablePolicyTypeRequest => __isa(o, "EnablePolicyTypeRequest");
 }
 
 export interface EnablePolicyTypeResponse {
-  __type?: "EnablePolicyTypeResponse";
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    */
@@ -1961,7 +1835,6 @@ export namespace EnablePolicyTypeResponse {
   export const filterSensitiveLog = (obj: EnablePolicyTypeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnablePolicyTypeResponse => __isa(o, "EnablePolicyTypeResponse");
 }
 
 /**
@@ -1980,7 +1853,6 @@ export namespace FinalizingOrganizationException {
   export const filterSensitiveLog = (obj: FinalizingOrganizationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FinalizingOrganizationException => __isa(o, "FinalizingOrganizationException");
 }
 
 /**
@@ -1995,7 +1867,6 @@ export namespace FinalizingOrganizationException {
  *             deleted.</p>
  */
 export interface Handshake {
-  __type?: "Handshake";
   /**
    * <p>The unique identifier (ID) of a handshake. The originating account creates the ID when
    *             it initiates the handshake.</p>
@@ -2113,7 +1984,6 @@ export namespace Handshake {
     ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)) }),
     ...(obj.Parties && { Parties: obj.Parties.map((item) => HandshakeParty.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is Handshake => __isa(o, "Handshake");
 }
 
 /**
@@ -2130,7 +2000,6 @@ export namespace HandshakeAlreadyInStateException {
   export const filterSensitiveLog = (obj: HandshakeAlreadyInStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HandshakeAlreadyInStateException => __isa(o, "HandshakeAlreadyInStateException");
 }
 
 /**
@@ -2199,8 +2068,6 @@ export namespace HandshakeConstraintViolationException {
   export const filterSensitiveLog = (obj: HandshakeConstraintViolationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HandshakeConstraintViolationException =>
-    __isa(o, "HandshakeConstraintViolationException");
 }
 
 export enum HandshakeConstraintViolationExceptionReason {
@@ -2219,7 +2086,6 @@ export enum HandshakeConstraintViolationExceptionReason {
  *             operation.</p>
  */
 export interface HandshakeFilter {
-  __type?: "HandshakeFilter";
   /**
    * <p>Specifies the type of handshake action.</p>
    *         <p>If you specify <code>ActionType</code>, you cannot also specify
@@ -2242,7 +2108,6 @@ export namespace HandshakeFilter {
   export const filterSensitiveLog = (obj: HandshakeFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HandshakeFilter => __isa(o, "HandshakeFilter");
 }
 
 /**
@@ -2258,14 +2123,12 @@ export namespace HandshakeNotFoundException {
   export const filterSensitiveLog = (obj: HandshakeNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HandshakeNotFoundException => __isa(o, "HandshakeNotFoundException");
 }
 
 /**
  * <p>Identifies a participant in a handshake.</p>
  */
 export interface HandshakeParty {
-  __type?: "HandshakeParty";
   /**
    * <p>The unique identifier (ID) for the party.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
@@ -2284,7 +2147,6 @@ export namespace HandshakeParty {
     ...obj,
     ...(obj.Id && { Id: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HandshakeParty => __isa(o, "HandshakeParty");
 }
 
 export enum HandshakePartyType {
@@ -2297,7 +2159,6 @@ export enum HandshakePartyType {
  * <p>Contains additional data that is needed to process a handshake.</p>
  */
 export interface HandshakeResource {
-  __type?: "HandshakeResource";
   /**
    * <p>The information that is passed to the other party in the handshake. The format of the
    *             value string must match the requirements of the specified type.</p>
@@ -2353,7 +2214,6 @@ export namespace HandshakeResource {
     ...(obj.Value && { Value: SENSITIVE_STRING }),
     ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is HandshakeResource => __isa(o, "HandshakeResource");
 }
 
 export enum HandshakeResourceType {
@@ -2396,8 +2256,6 @@ export namespace InvalidHandshakeTransitionException {
   export const filterSensitiveLog = (obj: InvalidHandshakeTransitionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidHandshakeTransitionException =>
-    __isa(o, "InvalidHandshakeTransitionException");
 }
 
 /**
@@ -2496,7 +2354,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export enum InvalidInputExceptionReason {
@@ -2525,7 +2382,6 @@ export enum InvalidInputExceptionReason {
 }
 
 export interface InviteAccountToOrganizationRequest {
-  __type?: "InviteAccountToOrganizationRequest";
   /**
    * <p>The identifier (ID) of the AWS account that you want to invite to join your
    *             organization. This is a JSON object that contains the following elements: </p>
@@ -2562,12 +2418,9 @@ export namespace InviteAccountToOrganizationRequest {
     ...(obj.Target && { Target: HandshakeParty.filterSensitiveLog(obj.Target) }),
     ...(obj.Notes && { Notes: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InviteAccountToOrganizationRequest =>
-    __isa(o, "InviteAccountToOrganizationRequest");
 }
 
 export interface InviteAccountToOrganizationResponse {
-  __type?: "InviteAccountToOrganizationResponse";
   /**
    * <p>A structure that contains details about the handshake that is created to support this
    *             invitation request.</p>
@@ -2580,12 +2433,9 @@ export namespace InviteAccountToOrganizationResponse {
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
-  export const isa = (o: any): o is InviteAccountToOrganizationResponse =>
-    __isa(o, "InviteAccountToOrganizationResponse");
 }
 
 export interface ListAccountsForParentRequest {
-  __type?: "ListAccountsForParentRequest";
   /**
    * <p>The unique identifier (ID) for the parent root or organization unit (OU) whose
    *             accounts you want to list.</p>
@@ -2617,11 +2467,9 @@ export namespace ListAccountsForParentRequest {
   export const filterSensitiveLog = (obj: ListAccountsForParentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountsForParentRequest => __isa(o, "ListAccountsForParentRequest");
 }
 
 export interface ListAccountsForParentResponse {
-  __type?: "ListAccountsForParentResponse";
   /**
    * <p>A list of the accounts in the specified root or OU.</p>
    */
@@ -2641,11 +2489,9 @@ export namespace ListAccountsForParentResponse {
     ...obj,
     ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListAccountsForParentResponse => __isa(o, "ListAccountsForParentResponse");
 }
 
 export interface ListAccountsRequest {
-  __type?: "ListAccountsRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -2671,11 +2517,9 @@ export namespace ListAccountsRequest {
   export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountsRequest => __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
-  __type?: "ListAccountsResponse";
   /**
    * <p>A list of objects in the organization.</p>
    */
@@ -2695,11 +2539,9 @@ export namespace ListAccountsResponse {
     ...obj,
     ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }
 
 export interface ListAWSServiceAccessForOrganizationRequest {
-  __type?: "ListAWSServiceAccessForOrganizationRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -2725,12 +2567,9 @@ export namespace ListAWSServiceAccessForOrganizationRequest {
   export const filterSensitiveLog = (obj: ListAWSServiceAccessForOrganizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAWSServiceAccessForOrganizationRequest =>
-    __isa(o, "ListAWSServiceAccessForOrganizationRequest");
 }
 
 export interface ListAWSServiceAccessForOrganizationResponse {
-  __type?: "ListAWSServiceAccessForOrganizationResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -2751,12 +2590,9 @@ export namespace ListAWSServiceAccessForOrganizationResponse {
   export const filterSensitiveLog = (obj: ListAWSServiceAccessForOrganizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAWSServiceAccessForOrganizationResponse =>
-    __isa(o, "ListAWSServiceAccessForOrganizationResponse");
 }
 
 export interface ListChildrenRequest {
-  __type?: "ListChildrenRequest";
   /**
    * <p>Filters the output to include only the specified child type.</p>
    */
@@ -2808,11 +2644,9 @@ export namespace ListChildrenRequest {
   export const filterSensitiveLog = (obj: ListChildrenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChildrenRequest => __isa(o, "ListChildrenRequest");
 }
 
 export interface ListChildrenResponse {
-  __type?: "ListChildrenResponse";
   /**
    * <p>The list of children of the specified parent container.</p>
    */
@@ -2831,11 +2665,9 @@ export namespace ListChildrenResponse {
   export const filterSensitiveLog = (obj: ListChildrenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChildrenResponse => __isa(o, "ListChildrenResponse");
 }
 
 export interface ListCreateAccountStatusRequest {
-  __type?: "ListCreateAccountStatusRequest";
   /**
    * <p>A list of one or more states that you want included in the response. If this parameter
    *             isn't present, all requests are included in the response.</p>
@@ -2867,11 +2699,9 @@ export namespace ListCreateAccountStatusRequest {
   export const filterSensitiveLog = (obj: ListCreateAccountStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCreateAccountStatusRequest => __isa(o, "ListCreateAccountStatusRequest");
 }
 
 export interface ListCreateAccountStatusResponse {
-  __type?: "ListCreateAccountStatusResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -2895,11 +2725,9 @@ export namespace ListCreateAccountStatusResponse {
       CreateAccountStatuses: obj.CreateAccountStatuses.map((item) => CreateAccountStatus.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is ListCreateAccountStatusResponse => __isa(o, "ListCreateAccountStatusResponse");
 }
 
 export interface ListDelegatedAdministratorsRequest {
-  __type?: "ListDelegatedAdministratorsRequest";
   /**
    * <p>The total number of results that you want included
    *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
@@ -2933,12 +2761,9 @@ export namespace ListDelegatedAdministratorsRequest {
   export const filterSensitiveLog = (obj: ListDelegatedAdministratorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDelegatedAdministratorsRequest =>
-    __isa(o, "ListDelegatedAdministratorsRequest");
 }
 
 export interface ListDelegatedAdministratorsResponse {
-  __type?: "ListDelegatedAdministratorsResponse";
   /**
    * <p>The list of delegated administrators in your organization.</p>
    */
@@ -2962,12 +2787,9 @@ export namespace ListDelegatedAdministratorsResponse {
       ),
     }),
   });
-  export const isa = (o: any): o is ListDelegatedAdministratorsResponse =>
-    __isa(o, "ListDelegatedAdministratorsResponse");
 }
 
 export interface ListDelegatedServicesForAccountRequest {
-  __type?: "ListDelegatedServicesForAccountRequest";
   /**
    * <p>The account ID number of a delegated administrator account in the organization.</p>
    */
@@ -2998,12 +2820,9 @@ export namespace ListDelegatedServicesForAccountRequest {
   export const filterSensitiveLog = (obj: ListDelegatedServicesForAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDelegatedServicesForAccountRequest =>
-    __isa(o, "ListDelegatedServicesForAccountRequest");
 }
 
 export interface ListDelegatedServicesForAccountResponse {
-  __type?: "ListDelegatedServicesForAccountResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3022,12 +2841,9 @@ export namespace ListDelegatedServicesForAccountResponse {
   export const filterSensitiveLog = (obj: ListDelegatedServicesForAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDelegatedServicesForAccountResponse =>
-    __isa(o, "ListDelegatedServicesForAccountResponse");
 }
 
 export interface ListHandshakesForAccountRequest {
-  __type?: "ListHandshakesForAccountRequest";
   /**
    * <p>Filters the handshakes that you want included in the response. The default is all
    *             types. Use the <code>ActionType</code> element to limit the output to only a specified
@@ -3064,11 +2880,9 @@ export namespace ListHandshakesForAccountRequest {
   export const filterSensitiveLog = (obj: ListHandshakesForAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHandshakesForAccountRequest => __isa(o, "ListHandshakesForAccountRequest");
 }
 
 export interface ListHandshakesForAccountResponse {
-  __type?: "ListHandshakesForAccountResponse";
   /**
    * <p>A list of <a>Handshake</a> objects with details about each of the
    *             handshakes that is associated with the specified account.</p>
@@ -3088,11 +2902,9 @@ export namespace ListHandshakesForAccountResponse {
   export const filterSensitiveLog = (obj: ListHandshakesForAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHandshakesForAccountResponse => __isa(o, "ListHandshakesForAccountResponse");
 }
 
 export interface ListHandshakesForOrganizationRequest {
-  __type?: "ListHandshakesForOrganizationRequest";
   /**
    * <p>A filter of the handshakes that you want included in the response. The default is all
    *             types. Use the <code>ActionType</code> element to limit the output to only a specified
@@ -3129,12 +2941,9 @@ export namespace ListHandshakesForOrganizationRequest {
   export const filterSensitiveLog = (obj: ListHandshakesForOrganizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHandshakesForOrganizationRequest =>
-    __isa(o, "ListHandshakesForOrganizationRequest");
 }
 
 export interface ListHandshakesForOrganizationResponse {
-  __type?: "ListHandshakesForOrganizationResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3154,12 +2963,9 @@ export namespace ListHandshakesForOrganizationResponse {
   export const filterSensitiveLog = (obj: ListHandshakesForOrganizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHandshakesForOrganizationResponse =>
-    __isa(o, "ListHandshakesForOrganizationResponse");
 }
 
 export interface ListOrganizationalUnitsForParentRequest {
-  __type?: "ListOrganizationalUnitsForParentRequest";
   /**
    * <p>The unique identifier (ID) of the root or OU whose child OUs you want to list.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
@@ -3205,12 +3011,9 @@ export namespace ListOrganizationalUnitsForParentRequest {
   export const filterSensitiveLog = (obj: ListOrganizationalUnitsForParentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOrganizationalUnitsForParentRequest =>
-    __isa(o, "ListOrganizationalUnitsForParentRequest");
 }
 
 export interface ListOrganizationalUnitsForParentResponse {
-  __type?: "ListOrganizationalUnitsForParentResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3229,12 +3032,9 @@ export namespace ListOrganizationalUnitsForParentResponse {
   export const filterSensitiveLog = (obj: ListOrganizationalUnitsForParentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOrganizationalUnitsForParentResponse =>
-    __isa(o, "ListOrganizationalUnitsForParentResponse");
 }
 
 export interface ListParentsRequest {
-  __type?: "ListParentsRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -3280,11 +3080,9 @@ export namespace ListParentsRequest {
   export const filterSensitiveLog = (obj: ListParentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListParentsRequest => __isa(o, "ListParentsRequest");
 }
 
 export interface ListParentsResponse {
-  __type?: "ListParentsResponse";
   /**
    * <p>A list of parents for the specified child account or OU.</p>
    */
@@ -3303,11 +3101,9 @@ export namespace ListParentsResponse {
   export const filterSensitiveLog = (obj: ListParentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListParentsResponse => __isa(o, "ListParentsResponse");
 }
 
 export interface ListPoliciesForTargetRequest {
-  __type?: "ListPoliciesForTargetRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -3386,11 +3182,9 @@ export namespace ListPoliciesForTargetRequest {
   export const filterSensitiveLog = (obj: ListPoliciesForTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesForTargetRequest => __isa(o, "ListPoliciesForTargetRequest");
 }
 
 export interface ListPoliciesForTargetResponse {
-  __type?: "ListPoliciesForTargetResponse";
   /**
    * <p>The list of policies that match the criteria in the request.</p>
    */
@@ -3409,11 +3203,9 @@ export namespace ListPoliciesForTargetResponse {
   export const filterSensitiveLog = (obj: ListPoliciesForTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesForTargetResponse => __isa(o, "ListPoliciesForTargetResponse");
 }
 
 export interface ListPoliciesRequest {
-  __type?: "ListPoliciesRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -3467,11 +3259,9 @@ export namespace ListPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 export interface ListPoliciesResponse {
-  __type?: "ListPoliciesResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3491,11 +3281,9 @@ export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListRootsRequest {
-  __type?: "ListRootsRequest";
   /**
    * <p>The total number of results that you want included
    *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
@@ -3521,11 +3309,9 @@ export namespace ListRootsRequest {
   export const filterSensitiveLog = (obj: ListRootsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRootsRequest => __isa(o, "ListRootsRequest");
 }
 
 export interface ListRootsResponse {
-  __type?: "ListRootsResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3544,11 +3330,9 @@ export namespace ListRootsResponse {
   export const filterSensitiveLog = (obj: ListRootsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRootsResponse => __isa(o, "ListRootsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -3567,11 +3351,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3590,11 +3372,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTargetsForPolicyRequest {
-  __type?: "ListTargetsForPolicyRequest";
   /**
    * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
    *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
@@ -3627,11 +3407,9 @@ export namespace ListTargetsForPolicyRequest {
   export const filterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsForPolicyRequest => __isa(o, "ListTargetsForPolicyRequest");
 }
 
 export interface ListTargetsForPolicyResponse {
-  __type?: "ListTargetsForPolicyResponse";
   /**
    * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
@@ -3651,7 +3429,6 @@ export namespace ListTargetsForPolicyResponse {
   export const filterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTargetsForPolicyResponse => __isa(o, "ListTargetsForPolicyResponse");
 }
 
 /**
@@ -3671,7 +3448,6 @@ export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -3689,12 +3465,9 @@ export namespace MasterCannotLeaveOrganizationException {
   export const filterSensitiveLog = (obj: MasterCannotLeaveOrganizationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MasterCannotLeaveOrganizationException =>
-    __isa(o, "MasterCannotLeaveOrganizationException");
 }
 
 export interface MoveAccountRequest {
-  __type?: "MoveAccountRequest";
   /**
    * <p>The unique identifier (ID) of the account that you want to move.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
@@ -3749,7 +3522,6 @@ export namespace MoveAccountRequest {
   export const filterSensitiveLog = (obj: MoveAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MoveAccountRequest => __isa(o, "MoveAccountRequest");
 }
 
 /**
@@ -3758,7 +3530,6 @@ export namespace MoveAccountRequest {
  *             with organizational units (OUs), and controlled with policies .</p>
  */
 export interface Organization {
-  __type?: "Organization";
   /**
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the master account
    *             for the organization.</p>
@@ -3819,7 +3590,6 @@ export namespace Organization {
     ...obj,
     ...(obj.MasterAccountEmail && { MasterAccountEmail: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Organization => __isa(o, "Organization");
 }
 
 /**
@@ -3828,7 +3598,6 @@ export namespace Organization {
  *             all accounts contained in that OU and in any child OUs.</p>
  */
 export interface OrganizationalUnit {
-  __type?: "OrganizationalUnit";
   /**
    * <p>The unique identifier (ID) associated with this OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
@@ -3858,7 +3627,6 @@ export namespace OrganizationalUnit {
   export const filterSensitiveLog = (obj: OrganizationalUnit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationalUnit => __isa(o, "OrganizationalUnit");
 }
 
 /**
@@ -3875,8 +3643,6 @@ export namespace OrganizationalUnitNotEmptyException {
   export const filterSensitiveLog = (obj: OrganizationalUnitNotEmptyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationalUnitNotEmptyException =>
-    __isa(o, "OrganizationalUnitNotEmptyException");
 }
 
 /**
@@ -3893,8 +3659,6 @@ export namespace OrganizationalUnitNotFoundException {
   export const filterSensitiveLog = (obj: OrganizationalUnitNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationalUnitNotFoundException =>
-    __isa(o, "OrganizationalUnitNotFoundException");
 }
 
 export enum OrganizationFeatureSet {
@@ -3916,7 +3680,6 @@ export namespace OrganizationNotEmptyException {
   export const filterSensitiveLog = (obj: OrganizationNotEmptyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationNotEmptyException => __isa(o, "OrganizationNotEmptyException");
 }
 
 /**
@@ -3924,7 +3687,6 @@ export namespace OrganizationNotEmptyException {
  *             contain OUs or accounts in an organization.</p>
  */
 export interface Parent {
-  __type?: "Parent";
   /**
    * <p>The type of the parent entity.</p>
    */
@@ -3953,7 +3715,6 @@ export namespace Parent {
   export const filterSensitiveLog = (obj: Parent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parent => __isa(o, "Parent");
 }
 
 /**
@@ -3969,7 +3730,6 @@ export namespace ParentNotFoundException {
   export const filterSensitiveLog = (obj: ParentNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParentNotFoundException => __isa(o, "ParentNotFoundException");
 }
 
 export enum ParentType {
@@ -3983,7 +3743,6 @@ export enum ParentType {
  *             hierarchies.</p>
  */
 export interface Policy {
-  __type?: "Policy";
   /**
    * <p>The text content of the policy.</p>
    */
@@ -3999,7 +3758,6 @@ export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Policy => __isa(o, "Policy");
 }
 
 /**
@@ -4016,7 +3774,6 @@ export namespace PolicyChangesInProgressException {
   export const filterSensitiveLog = (obj: PolicyChangesInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyChangesInProgressException => __isa(o, "PolicyChangesInProgressException");
 }
 
 /**
@@ -4033,7 +3790,6 @@ export namespace PolicyInUseException {
   export const filterSensitiveLog = (obj: PolicyInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyInUseException => __isa(o, "PolicyInUseException");
 }
 
 /**
@@ -4049,7 +3805,6 @@ export namespace PolicyNotAttachedException {
   export const filterSensitiveLog = (obj: PolicyNotAttachedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyNotAttachedException => __isa(o, "PolicyNotAttachedException");
 }
 
 /**
@@ -4065,7 +3820,6 @@ export namespace PolicyNotFoundException {
   export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyNotFoundException => __isa(o, "PolicyNotFoundException");
 }
 
 /**
@@ -4073,7 +3827,6 @@ export namespace PolicyNotFoundException {
  *             content of a policy, see <a>DescribePolicy</a>.</p>
  */
 export interface PolicySummary {
-  __type?: "PolicySummary";
   /**
    * <p>The type of policy.</p>
    */
@@ -4118,14 +3871,12 @@ export namespace PolicySummary {
   export const filterSensitiveLog = (obj: PolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicySummary => __isa(o, "PolicySummary");
 }
 
 /**
  * <p>Contains information about a root, OU, or account that a policy is attached to.</p>
  */
 export interface PolicyTargetSummary {
-  __type?: "PolicyTargetSummary";
   /**
    * <p>The type of the policy target.</p>
    */
@@ -4172,7 +3923,6 @@ export namespace PolicyTargetSummary {
   export const filterSensitiveLog = (obj: PolicyTargetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTargetSummary => __isa(o, "PolicyTargetSummary");
 }
 
 export enum PolicyType {
@@ -4195,7 +3945,6 @@ export namespace PolicyTypeAlreadyEnabledException {
   export const filterSensitiveLog = (obj: PolicyTypeAlreadyEnabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTypeAlreadyEnabledException => __isa(o, "PolicyTypeAlreadyEnabledException");
 }
 
 /**
@@ -4215,8 +3964,6 @@ export namespace PolicyTypeNotAvailableForOrganizationException {
   export const filterSensitiveLog = (obj: PolicyTypeNotAvailableForOrganizationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTypeNotAvailableForOrganizationException =>
-    __isa(o, "PolicyTypeNotAvailableForOrganizationException");
 }
 
 /**
@@ -4236,7 +3983,6 @@ export namespace PolicyTypeNotEnabledException {
   export const filterSensitiveLog = (obj: PolicyTypeNotEnabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTypeNotEnabledException => __isa(o, "PolicyTypeNotEnabledException");
 }
 
 export enum PolicyTypeStatus {
@@ -4249,7 +3995,6 @@ export enum PolicyTypeStatus {
  * <p>Contains information about a policy type and its status in the associated root.</p>
  */
 export interface PolicyTypeSummary {
-  __type?: "PolicyTypeSummary";
   /**
    * <p>The status of the policy type as it relates to the associated root. To attach a policy
    *             of the specified type to a root or to an OU or account in that root, it must be
@@ -4267,11 +4012,9 @@ export namespace PolicyTypeSummary {
   export const filterSensitiveLog = (obj: PolicyTypeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTypeSummary => __isa(o, "PolicyTypeSummary");
 }
 
 export interface RegisterDelegatedAdministratorRequest {
-  __type?: "RegisterDelegatedAdministratorRequest";
   /**
    * <p>The service principal of the AWS service for which you want to make the member
    *             account a delegated administrator.</p>
@@ -4289,12 +4032,9 @@ export namespace RegisterDelegatedAdministratorRequest {
   export const filterSensitiveLog = (obj: RegisterDelegatedAdministratorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterDelegatedAdministratorRequest =>
-    __isa(o, "RegisterDelegatedAdministratorRequest");
 }
 
 export interface RemoveAccountFromOrganizationRequest {
-  __type?: "RemoveAccountFromOrganizationRequest";
   /**
    * <p>The unique identifier (ID) of the member account that you want to remove from the
    *             organization.</p>
@@ -4308,8 +4048,6 @@ export namespace RemoveAccountFromOrganizationRequest {
   export const filterSensitiveLog = (obj: RemoveAccountFromOrganizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAccountFromOrganizationRequest =>
-    __isa(o, "RemoveAccountFromOrganizationRequest");
 }
 
 /**
@@ -4320,7 +4058,6 @@ export namespace RemoveAccountFromOrganizationRequest {
  *             root.</p>
  */
 export interface Root {
-  __type?: "Root";
   /**
    * <p>The friendly name of the root.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -4359,7 +4096,6 @@ export namespace Root {
   export const filterSensitiveLog = (obj: Root): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Root => __isa(o, "Root");
 }
 
 /**
@@ -4375,7 +4111,6 @@ export namespace RootNotFoundException {
   export const filterSensitiveLog = (obj: RootNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RootNotFoundException => __isa(o, "RootNotFoundException");
 }
 
 /**
@@ -4392,7 +4127,6 @@ export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
@@ -4409,7 +4143,6 @@ export namespace SourceParentNotFoundException {
   export const filterSensitiveLog = (obj: SourceParentNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceParentNotFoundException => __isa(o, "SourceParentNotFoundException");
 }
 
 /**
@@ -4417,7 +4150,6 @@ export namespace SourceParentNotFoundException {
  *             organization. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key identifier, or name, of the tag.</p>
    */
@@ -4434,11 +4166,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tag to add to the specified resource. You must specify both a tag key and value.
    *             You can set the value of a tag to an empty string, but you can't set it to null.</p>
@@ -4455,7 +4185,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -4472,7 +4201,6 @@ export namespace TargetNotFoundException {
   export const filterSensitiveLog = (obj: TargetNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetNotFoundException => __isa(o, "TargetNotFoundException");
 }
 
 export enum TargetType {
@@ -4499,7 +4227,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -4515,11 +4242,9 @@ export namespace UnsupportedAPIEndpointException {
   export const filterSensitiveLog = (obj: UnsupportedAPIEndpointException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedAPIEndpointException => __isa(o, "UnsupportedAPIEndpointException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The ID of the resource to remove the tag from.</p>
    */
@@ -4535,11 +4260,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateOrganizationalUnitRequest {
-  __type?: "UpdateOrganizationalUnitRequest";
   /**
    * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
    *             the <a>ListOrganizationalUnitsForParent</a> operation.</p>
@@ -4563,11 +4286,9 @@ export namespace UpdateOrganizationalUnitRequest {
   export const filterSensitiveLog = (obj: UpdateOrganizationalUnitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOrganizationalUnitRequest => __isa(o, "UpdateOrganizationalUnitRequest");
 }
 
 export interface UpdateOrganizationalUnitResponse {
-  __type?: "UpdateOrganizationalUnitResponse";
   /**
    * <p>A structure that contains the details about the specified OU, including its new
    *             name.</p>
@@ -4579,11 +4300,9 @@ export namespace UpdateOrganizationalUnitResponse {
   export const filterSensitiveLog = (obj: UpdateOrganizationalUnitResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOrganizationalUnitResponse => __isa(o, "UpdateOrganizationalUnitResponse");
 }
 
 export interface UpdatePolicyRequest {
-  __type?: "UpdatePolicyRequest";
   /**
    * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
    *             that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
@@ -4617,11 +4336,9 @@ export namespace UpdatePolicyRequest {
   export const filterSensitiveLog = (obj: UpdatePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePolicyRequest => __isa(o, "UpdatePolicyRequest");
 }
 
 export interface UpdatePolicyResponse {
-  __type?: "UpdatePolicyResponse";
   /**
    * <p>A structure that contains details about the updated policy, showing the requested
    *             changes.</p>
@@ -4633,5 +4350,4 @@ export namespace UpdatePolicyResponse {
   export const filterSensitiveLog = (obj: UpdatePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePolicyResponse => __isa(o, "UpdatePolicyResponse");
 }

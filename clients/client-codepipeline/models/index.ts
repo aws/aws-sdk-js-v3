@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Represents the input of an AcknowledgeJob action.</p>
  */
 export interface AcknowledgeJobInput {
-  __type?: "AcknowledgeJobInput";
   /**
    * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
    *             is being worked on by only one job worker. Get this number from the response of the
@@ -24,14 +23,12 @@ export namespace AcknowledgeJobInput {
   export const filterSensitiveLog = (obj: AcknowledgeJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcknowledgeJobInput => __isa(o, "AcknowledgeJobInput");
 }
 
 /**
  * <p>Represents the output of an AcknowledgeJob action.</p>
  */
 export interface AcknowledgeJobOutput {
-  __type?: "AcknowledgeJobOutput";
   /**
    * <p>Whether the job worker has received the specified job.</p>
    */
@@ -42,14 +39,12 @@ export namespace AcknowledgeJobOutput {
   export const filterSensitiveLog = (obj: AcknowledgeJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcknowledgeJobOutput => __isa(o, "AcknowledgeJobOutput");
 }
 
 /**
  * <p>Represents the input of an AcknowledgeThirdPartyJob action.</p>
  */
 export interface AcknowledgeThirdPartyJobInput {
-  __type?: "AcknowledgeThirdPartyJobInput";
   /**
    * <p>The clientToken portion of the clientId and clientToken pair used to verify that
    *             the calling entity is allowed access to the job and its details.</p>
@@ -72,14 +67,12 @@ export namespace AcknowledgeThirdPartyJobInput {
   export const filterSensitiveLog = (obj: AcknowledgeThirdPartyJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcknowledgeThirdPartyJobInput => __isa(o, "AcknowledgeThirdPartyJobInput");
 }
 
 /**
  * <p>Represents the output of an AcknowledgeThirdPartyJob action.</p>
  */
 export interface AcknowledgeThirdPartyJobOutput {
-  __type?: "AcknowledgeThirdPartyJobOutput";
   /**
    * <p>The status information for the third party job, if any.</p>
    */
@@ -90,7 +83,6 @@ export namespace AcknowledgeThirdPartyJobOutput {
   export const filterSensitiveLog = (obj: AcknowledgeThirdPartyJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcknowledgeThirdPartyJobOutput => __isa(o, "AcknowledgeThirdPartyJobOutput");
 }
 
 export enum ActionCategory {
@@ -106,7 +98,6 @@ export enum ActionCategory {
  * <p>Represents information about an action configuration.</p>
  */
 export interface ActionConfiguration {
-  __type?: "ActionConfiguration";
   /**
    * <p>The configuration data for the action.</p>
    */
@@ -117,14 +108,12 @@ export namespace ActionConfiguration {
   export const filterSensitiveLog = (obj: ActionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionConfiguration => __isa(o, "ActionConfiguration");
 }
 
 /**
  * <p>Represents information about an action configuration property.</p>
  */
 export interface ActionConfigurationProperty {
-  __type?: "ActionConfigurationProperty";
   /**
    * <p>Indicates that the property is used with <code>PollForJobs</code>. When creating a
    *             custom action, an action can have up to one queryable property. If it has one, that
@@ -176,7 +165,6 @@ export namespace ActionConfigurationProperty {
   export const filterSensitiveLog = (obj: ActionConfigurationProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionConfigurationProperty => __isa(o, "ActionConfigurationProperty");
 }
 
 export enum ActionConfigurationPropertyType {
@@ -190,7 +178,6 @@ export enum ActionConfigurationPropertyType {
  *             worker.</p>
  */
 export interface ActionContext {
-  __type?: "ActionContext";
   /**
    * <p>The system-generated unique ID that corresponds to an action's execution.</p>
    */
@@ -206,14 +193,12 @@ export namespace ActionContext {
   export const filterSensitiveLog = (obj: ActionContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionContext => __isa(o, "ActionContext");
 }
 
 /**
  * <p>Represents information about an action declaration.</p>
  */
 export interface ActionDeclaration {
-  __type?: "ActionDeclaration";
   /**
    * <p>The ARN of the IAM service role that performs the declared action. This is assumed
    *             through the roleArn for the pipeline.</p>
@@ -281,14 +266,12 @@ export namespace ActionDeclaration {
   export const filterSensitiveLog = (obj: ActionDeclaration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionDeclaration => __isa(o, "ActionDeclaration");
 }
 
 /**
  * <p>Represents information about the run of an action.</p>
  */
 export interface ActionExecution {
-  __type?: "ActionExecution";
   /**
    * <p>The URL of a resource external to AWS that is used when running the action (for
    *             example, an external repository URL).</p>
@@ -344,7 +327,6 @@ export namespace ActionExecution {
   export const filterSensitiveLog = (obj: ActionExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionExecution => __isa(o, "ActionExecution");
 }
 
 /**
@@ -352,7 +334,6 @@ export namespace ActionExecution {
  *             ID, and the name, version, and timing of the action. </p>
  */
 export interface ActionExecutionDetail {
-  __type?: "ActionExecutionDetail";
   /**
    * <p>The pipeline execution ID for the action execution.</p>
    */
@@ -410,14 +391,12 @@ export namespace ActionExecutionDetail {
   export const filterSensitiveLog = (obj: ActionExecutionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionExecutionDetail => __isa(o, "ActionExecutionDetail");
 }
 
 /**
  * <p>Filter values for the action execution.</p>
  */
 export interface ActionExecutionFilter {
-  __type?: "ActionExecutionFilter";
   /**
    * <p>The pipeline execution ID used to filter action execution history.</p>
    */
@@ -428,14 +407,12 @@ export namespace ActionExecutionFilter {
   export const filterSensitiveLog = (obj: ActionExecutionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionExecutionFilter => __isa(o, "ActionExecutionFilter");
 }
 
 /**
  * <p>Input information used for an action execution.</p>
  */
 export interface ActionExecutionInput {
-  __type?: "ActionExecutionInput";
   /**
    * <p>Configuration data for an action execution with all variable references replaced with
    *             their real values for the execution.</p>
@@ -480,7 +457,6 @@ export namespace ActionExecutionInput {
   export const filterSensitiveLog = (obj: ActionExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionExecutionInput => __isa(o, "ActionExecutionInput");
 }
 
 /**
@@ -488,7 +464,6 @@ export namespace ActionExecutionInput {
  *             result.</p>
  */
 export interface ActionExecutionOutput {
-  __type?: "ActionExecutionOutput";
   /**
    * <p>Execution result information listed in the output details for an action
    *             execution.</p>
@@ -512,14 +487,12 @@ export namespace ActionExecutionOutput {
   export const filterSensitiveLog = (obj: ActionExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionExecutionOutput => __isa(o, "ActionExecutionOutput");
 }
 
 /**
  * <p>Execution result information, such as the external execution ID.</p>
  */
 export interface ActionExecutionResult {
-  __type?: "ActionExecutionResult";
   /**
    * <p>The action provider's summary for the action execution.</p>
    */
@@ -541,7 +514,6 @@ export namespace ActionExecutionResult {
   export const filterSensitiveLog = (obj: ActionExecutionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionExecutionResult => __isa(o, "ActionExecutionResult");
 }
 
 export enum ActionExecutionStatus {
@@ -567,7 +539,6 @@ export namespace ActionNotFoundException {
   export const filterSensitiveLog = (obj: ActionNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionNotFoundException => __isa(o, "ActionNotFoundException");
 }
 
 export enum ActionOwner {
@@ -580,7 +551,6 @@ export enum ActionOwner {
  * <p>Represents information about the version (or revision) of an action.</p>
  */
 export interface ActionRevision {
-  __type?: "ActionRevision";
   /**
    * <p>The system-generated unique ID that identifies the revision number of the
    *             action.</p>
@@ -604,14 +574,12 @@ export namespace ActionRevision {
   export const filterSensitiveLog = (obj: ActionRevision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionRevision => __isa(o, "ActionRevision");
 }
 
 /**
  * <p>Represents information about the state of an action.</p>
  */
 export interface ActionState {
-  __type?: "ActionState";
   /**
    * <p>Represents information about the version (or revision) of an action.</p>
    */
@@ -644,14 +612,12 @@ export namespace ActionState {
   export const filterSensitiveLog = (obj: ActionState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionState => __isa(o, "ActionState");
 }
 
 /**
  * <p>Returns information about the details of an action type.</p>
  */
 export interface ActionType {
-  __type?: "ActionType";
   /**
    * <p>The settings for the action type.</p>
    */
@@ -682,14 +648,12 @@ export namespace ActionType {
   export const filterSensitiveLog = (obj: ActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionType => __isa(o, "ActionType");
 }
 
 /**
  * <p>Represents information about an action type.</p>
  */
 export interface ActionTypeId {
-  __type?: "ActionTypeId";
   /**
    * <p>A category defines what kind of action can be taken in the stage, and constrains
    *             the provider type for the action. Valid categories are limited to one of the following
@@ -720,7 +684,6 @@ export namespace ActionTypeId {
   export const filterSensitiveLog = (obj: ActionTypeId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionTypeId => __isa(o, "ActionTypeId");
 }
 
 /**
@@ -739,14 +702,12 @@ export namespace ActionTypeNotFoundException {
   export const filterSensitiveLog = (obj: ActionTypeNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionTypeNotFoundException => __isa(o, "ActionTypeNotFoundException");
 }
 
 /**
  * <p>Returns information about the settings for an action type.</p>
  */
 export interface ActionTypeSettings {
-  __type?: "ActionTypeSettings";
   /**
    * <p>The URL of a sign-up page where users can sign up for an external service and
    *             perform initial configuration of the action provided by that service.</p>
@@ -780,7 +741,6 @@ export namespace ActionTypeSettings {
   export const filterSensitiveLog = (obj: ActionTypeSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionTypeSettings => __isa(o, "ActionTypeSettings");
 }
 
 /**
@@ -799,14 +759,12 @@ export namespace ApprovalAlreadyCompletedException {
   export const filterSensitiveLog = (obj: ApprovalAlreadyCompletedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalAlreadyCompletedException => __isa(o, "ApprovalAlreadyCompletedException");
 }
 
 /**
  * <p>Represents information about the result of an approval request.</p>
  */
 export interface ApprovalResult {
-  __type?: "ApprovalResult";
   /**
    * <p>The summary of the current status of the approval request.</p>
    */
@@ -823,7 +781,6 @@ export namespace ApprovalResult {
   export const filterSensitiveLog = (obj: ApprovalResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalResult => __isa(o, "ApprovalResult");
 }
 
 export enum ApprovalStatus {
@@ -836,7 +793,6 @@ export enum ApprovalStatus {
  *             pipeline.</p>
  */
 export interface Artifact {
-  __type?: "Artifact";
   /**
    * <p>The artifact's revision ID. Depending on the type of object, this could be a commit
    *             ID (GitHub) or a revision ID (Amazon S3).</p>
@@ -858,14 +814,12 @@ export namespace Artifact {
   export const filterSensitiveLog = (obj: Artifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
 }
 
 /**
  * <p>Artifact details for the action execution, such as the artifact location.</p>
  */
 export interface ArtifactDetail {
-  __type?: "ArtifactDetail";
   /**
    * <p>The Amazon S3 artifact location for the action execution.</p>
    */
@@ -881,14 +835,12 @@ export namespace ArtifactDetail {
   export const filterSensitiveLog = (obj: ArtifactDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArtifactDetail => __isa(o, "ArtifactDetail");
 }
 
 /**
  * <p>Returns information about the details of an artifact.</p>
  */
 export interface ArtifactDetails {
-  __type?: "ArtifactDetails";
   /**
    * <p>The maximum number of artifacts allowed for the action type.</p>
    */
@@ -904,14 +856,12 @@ export namespace ArtifactDetails {
   export const filterSensitiveLog = (obj: ArtifactDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArtifactDetails => __isa(o, "ArtifactDetails");
 }
 
 /**
  * <p>Represents information about the location of an artifact.</p>
  */
 export interface ArtifactLocation {
-  __type?: "ArtifactLocation";
   /**
    * <p>The type of artifact in the location.</p>
    */
@@ -927,7 +877,6 @@ export namespace ArtifactLocation {
   export const filterSensitiveLog = (obj: ArtifactLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArtifactLocation => __isa(o, "ArtifactLocation");
 }
 
 export enum ArtifactLocationType {
@@ -938,7 +887,6 @@ export enum ArtifactLocationType {
  * <p>Represents revision details of an artifact. </p>
  */
 export interface ArtifactRevision {
-  __type?: "ArtifactRevision";
   /**
    * <p>An additional identifier for a revision, such as a commit date or, for artifacts
    *             stored in Amazon S3 buckets, the ETag value.</p>
@@ -981,7 +929,6 @@ export namespace ArtifactRevision {
   export const filterSensitiveLog = (obj: ArtifactRevision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArtifactRevision => __isa(o, "ArtifactRevision");
 }
 
 /**
@@ -994,7 +941,6 @@ export namespace ArtifactRevision {
  *         </note>
  */
 export interface ArtifactStore {
-  __type?: "ArtifactStore";
   /**
    * <p>The type of the artifact store, such as S3.</p>
    */
@@ -1021,7 +967,6 @@ export namespace ArtifactStore {
   export const filterSensitiveLog = (obj: ArtifactStore): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArtifactStore => __isa(o, "ArtifactStore");
 }
 
 export enum ArtifactStoreType {
@@ -1035,7 +980,6 @@ export enum ArtifactStoreType {
  *             pipeline in AWS CodePipeline.</p>
  */
 export interface AWSSessionCredentials {
-  __type?: "AWSSessionCredentials";
   /**
    * <p>The token for the session.</p>
    */
@@ -1056,14 +1000,12 @@ export namespace AWSSessionCredentials {
   export const filterSensitiveLog = (obj: AWSSessionCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AWSSessionCredentials => __isa(o, "AWSSessionCredentials");
 }
 
 /**
  * <p>Reserved for future use.</p>
  */
 export interface BlockerDeclaration {
-  __type?: "BlockerDeclaration";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -1079,7 +1021,6 @@ export namespace BlockerDeclaration {
   export const filterSensitiveLog = (obj: BlockerDeclaration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockerDeclaration => __isa(o, "BlockerDeclaration");
 }
 
 export enum BlockerType {
@@ -1099,14 +1040,12 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>Represents the input of a CreateCustomActionType operation.</p>
  */
 export interface CreateCustomActionTypeInput {
-  __type?: "CreateCustomActionTypeInput";
   /**
    * <p>The details of the input artifact for the action, such as its commit ID.</p>
    */
@@ -1166,14 +1105,12 @@ export namespace CreateCustomActionTypeInput {
   export const filterSensitiveLog = (obj: CreateCustomActionTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomActionTypeInput => __isa(o, "CreateCustomActionTypeInput");
 }
 
 /**
  * <p>Represents the output of a <code>CreateCustomActionType</code> operation.</p>
  */
 export interface CreateCustomActionTypeOutput {
-  __type?: "CreateCustomActionTypeOutput";
   /**
    * <p>Returns information about the details of an action type.</p>
    */
@@ -1189,14 +1126,12 @@ export namespace CreateCustomActionTypeOutput {
   export const filterSensitiveLog = (obj: CreateCustomActionTypeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomActionTypeOutput => __isa(o, "CreateCustomActionTypeOutput");
 }
 
 /**
  * <p>Represents the input of a <code>CreatePipeline</code> action.</p>
  */
 export interface CreatePipelineInput {
-  __type?: "CreatePipelineInput";
   /**
    * <p>Represents the structure of actions and stages to be performed in the pipeline.
    *         </p>
@@ -1213,14 +1148,12 @@ export namespace CreatePipelineInput {
   export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineInput => __isa(o, "CreatePipelineInput");
 }
 
 /**
  * <p>Represents the output of a <code>CreatePipeline</code> action.</p>
  */
 export interface CreatePipelineOutput {
-  __type?: "CreatePipelineOutput";
   /**
    * <p>Specifies the tags applied to the pipeline.</p>
    */
@@ -1237,14 +1170,12 @@ export namespace CreatePipelineOutput {
   export const filterSensitiveLog = (obj: CreatePipelineOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineOutput => __isa(o, "CreatePipelineOutput");
 }
 
 /**
  * <p>Represents information about a current revision.</p>
  */
 export interface CurrentRevision {
-  __type?: "CurrentRevision";
   /**
    * <p>The summary of the most recent revision of the artifact.</p>
    */
@@ -1271,7 +1202,6 @@ export namespace CurrentRevision {
   export const filterSensitiveLog = (obj: CurrentRevision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CurrentRevision => __isa(o, "CurrentRevision");
 }
 
 /**
@@ -1279,7 +1209,6 @@ export namespace CurrentRevision {
  *             action will be marked as deleted.</p>
  */
 export interface DeleteCustomActionTypeInput {
-  __type?: "DeleteCustomActionTypeInput";
   /**
    * <p>The category of the custom action that you want to delete, such as source or
    *             deploy.</p>
@@ -1302,14 +1231,12 @@ export namespace DeleteCustomActionTypeInput {
   export const filterSensitiveLog = (obj: DeleteCustomActionTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomActionTypeInput => __isa(o, "DeleteCustomActionTypeInput");
 }
 
 /**
  * <p>Represents the input of a <code>DeletePipeline</code> action.</p>
  */
 export interface DeletePipelineInput {
-  __type?: "DeletePipelineInput";
   /**
    * <p>The name of the pipeline to be deleted.</p>
    */
@@ -1320,11 +1247,9 @@ export namespace DeletePipelineInput {
   export const filterSensitiveLog = (obj: DeletePipelineInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineInput => __isa(o, "DeletePipelineInput");
 }
 
 export interface DeleteWebhookInput {
-  __type?: "DeleteWebhookInput";
   /**
    * <p>The name of the webhook you want to delete.</p>
    */
@@ -1335,22 +1260,17 @@ export namespace DeleteWebhookInput {
   export const filterSensitiveLog = (obj: DeleteWebhookInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebhookInput => __isa(o, "DeleteWebhookInput");
 }
 
-export interface DeleteWebhookOutput {
-  __type?: "DeleteWebhookOutput";
-}
+export interface DeleteWebhookOutput {}
 
 export namespace DeleteWebhookOutput {
   export const filterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebhookOutput => __isa(o, "DeleteWebhookOutput");
 }
 
 export interface DeregisterWebhookWithThirdPartyInput {
-  __type?: "DeregisterWebhookWithThirdPartyInput";
   /**
    * <p>The name of the webhook you want to deregister.</p>
    */
@@ -1361,27 +1281,20 @@ export namespace DeregisterWebhookWithThirdPartyInput {
   export const filterSensitiveLog = (obj: DeregisterWebhookWithThirdPartyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterWebhookWithThirdPartyInput =>
-    __isa(o, "DeregisterWebhookWithThirdPartyInput");
 }
 
-export interface DeregisterWebhookWithThirdPartyOutput {
-  __type?: "DeregisterWebhookWithThirdPartyOutput";
-}
+export interface DeregisterWebhookWithThirdPartyOutput {}
 
 export namespace DeregisterWebhookWithThirdPartyOutput {
   export const filterSensitiveLog = (obj: DeregisterWebhookWithThirdPartyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterWebhookWithThirdPartyOutput =>
-    __isa(o, "DeregisterWebhookWithThirdPartyOutput");
 }
 
 /**
  * <p>Represents the input of a <code>DisableStageTransition</code> action.</p>
  */
 export interface DisableStageTransitionInput {
-  __type?: "DisableStageTransitionInput";
   /**
    * <p>Specifies whether artifacts are prevented from transitioning into the stage and
    *             being processed by the actions in that stage (inbound), or prevented from transitioning
@@ -1414,7 +1327,6 @@ export namespace DisableStageTransitionInput {
   export const filterSensitiveLog = (obj: DisableStageTransitionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableStageTransitionInput => __isa(o, "DisableStageTransitionInput");
 }
 
 /**
@@ -1434,14 +1346,12 @@ export namespace DuplicatedStopRequestException {
   export const filterSensitiveLog = (obj: DuplicatedStopRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicatedStopRequestException => __isa(o, "DuplicatedStopRequestException");
 }
 
 /**
  * <p>Represents the input of an <code>EnableStageTransition</code> action.</p>
  */
 export interface EnableStageTransitionInput {
-  __type?: "EnableStageTransitionInput";
   /**
    * <p>Specifies whether artifacts are allowed to enter the stage and be processed by the
    *             actions in that stage (inbound) or whether already processed artifacts are allowed to
@@ -1466,7 +1376,6 @@ export namespace EnableStageTransitionInput {
   export const filterSensitiveLog = (obj: EnableStageTransitionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableStageTransitionInput => __isa(o, "EnableStageTransitionInput");
 }
 
 /**
@@ -1474,7 +1383,6 @@ export namespace EnableStageTransitionInput {
  *             such as an AWS Key Management Service (AWS KMS) key.</p>
  */
 export interface EncryptionKey {
-  __type?: "EncryptionKey";
   /**
    * <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
    *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
@@ -1497,7 +1405,6 @@ export namespace EncryptionKey {
   export const filterSensitiveLog = (obj: EncryptionKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
 }
 
 export enum EncryptionKeyType {
@@ -1508,7 +1415,6 @@ export enum EncryptionKeyType {
  * <p>Represents information about an error in AWS CodePipeline.</p>
  */
 export interface ErrorDetails {
-  __type?: "ErrorDetails";
   /**
    * <p>The text of the error message.</p>
    */
@@ -1524,7 +1430,6 @@ export namespace ErrorDetails {
   export const filterSensitiveLog = (obj: ErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetails => __isa(o, "ErrorDetails");
 }
 
 /**
@@ -1532,7 +1437,6 @@ export namespace ErrorDetails {
  *             through stages in the pipeline.</p>
  */
 export interface ExecutionDetails {
-  __type?: "ExecutionDetails";
   /**
    * <p>The summary of the current status of the actions.</p>
    */
@@ -1555,14 +1459,12 @@ export namespace ExecutionDetails {
   export const filterSensitiveLog = (obj: ExecutionDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionDetails => __isa(o, "ExecutionDetails");
 }
 
 /**
  * <p>The interaction or event that started a pipeline execution.</p>
  */
 export interface ExecutionTrigger {
-  __type?: "ExecutionTrigger";
   /**
    * <p>The type of change-detection method, command, or user interaction that started a
    *             pipeline execution.</p>
@@ -1581,14 +1483,12 @@ export namespace ExecutionTrigger {
   export const filterSensitiveLog = (obj: ExecutionTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionTrigger => __isa(o, "ExecutionTrigger");
 }
 
 /**
  * <p>Represents information about failure details.</p>
  */
 export interface FailureDetails {
-  __type?: "FailureDetails";
   /**
    * <p>The external ID of the run of the action that failed.</p>
    */
@@ -1609,7 +1509,6 @@ export namespace FailureDetails {
   export const filterSensitiveLog = (obj: FailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailureDetails => __isa(o, "FailureDetails");
 }
 
 export enum FailureType {
@@ -1625,7 +1524,6 @@ export enum FailureType {
  * <p>Represents the input of a <code>GetJobDetails</code> action.</p>
  */
 export interface GetJobDetailsInput {
-  __type?: "GetJobDetailsInput";
   /**
    * <p>The unique system-generated ID for the job.</p>
    */
@@ -1636,14 +1534,12 @@ export namespace GetJobDetailsInput {
   export const filterSensitiveLog = (obj: GetJobDetailsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobDetailsInput => __isa(o, "GetJobDetailsInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetJobDetails</code> action.</p>
  */
 export interface GetJobDetailsOutput {
-  __type?: "GetJobDetailsOutput";
   /**
    * <p>The details of the job.</p>
    *         <note>
@@ -1659,14 +1555,12 @@ export namespace GetJobDetailsOutput {
     ...obj,
     ...(obj.jobDetails && { jobDetails: JobDetails.filterSensitiveLog(obj.jobDetails) }),
   });
-  export const isa = (o: any): o is GetJobDetailsOutput => __isa(o, "GetJobDetailsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetPipelineExecution</code> action.</p>
  */
 export interface GetPipelineExecutionInput {
-  __type?: "GetPipelineExecutionInput";
   /**
    * <p>The name of the pipeline about which you want to get execution details.</p>
    */
@@ -1683,14 +1577,12 @@ export namespace GetPipelineExecutionInput {
   export const filterSensitiveLog = (obj: GetPipelineExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPipelineExecutionInput => __isa(o, "GetPipelineExecutionInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetPipelineExecution</code> action.</p>
  */
 export interface GetPipelineExecutionOutput {
-  __type?: "GetPipelineExecutionOutput";
   /**
    * <p>Represents information about the execution of a pipeline.</p>
    */
@@ -1701,14 +1593,12 @@ export namespace GetPipelineExecutionOutput {
   export const filterSensitiveLog = (obj: GetPipelineExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPipelineExecutionOutput => __isa(o, "GetPipelineExecutionOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetPipeline</code> action.</p>
  */
 export interface GetPipelineInput {
-  __type?: "GetPipelineInput";
   /**
    * <p>The version number of the pipeline. If you do not specify a version, defaults to
    *             the current version.</p>
@@ -1726,14 +1616,12 @@ export namespace GetPipelineInput {
   export const filterSensitiveLog = (obj: GetPipelineInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPipelineInput => __isa(o, "GetPipelineInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetPipeline</code> action.</p>
  */
 export interface GetPipelineOutput {
-  __type?: "GetPipelineOutput";
   /**
    * <p>Represents the pipeline metadata information returned as part of the output of a
    *                 <code>GetPipeline</code> action.</p>
@@ -1751,14 +1639,12 @@ export namespace GetPipelineOutput {
   export const filterSensitiveLog = (obj: GetPipelineOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPipelineOutput => __isa(o, "GetPipelineOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetPipelineState</code> action.</p>
  */
 export interface GetPipelineStateInput {
-  __type?: "GetPipelineStateInput";
   /**
    * <p>The name of the pipeline about which you want to get information.</p>
    */
@@ -1769,14 +1655,12 @@ export namespace GetPipelineStateInput {
   export const filterSensitiveLog = (obj: GetPipelineStateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPipelineStateInput => __isa(o, "GetPipelineStateInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetPipelineState</code> action.</p>
  */
 export interface GetPipelineStateOutput {
-  __type?: "GetPipelineStateOutput";
   /**
    * <p>The date and time the pipeline was last updated, in timestamp format.</p>
    */
@@ -1812,14 +1696,12 @@ export namespace GetPipelineStateOutput {
   export const filterSensitiveLog = (obj: GetPipelineStateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPipelineStateOutput => __isa(o, "GetPipelineStateOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
 export interface GetThirdPartyJobDetailsInput {
-  __type?: "GetThirdPartyJobDetailsInput";
   /**
    * <p>The unique system-generated ID used for identifying the job.</p>
    */
@@ -1836,14 +1718,12 @@ export namespace GetThirdPartyJobDetailsInput {
   export const filterSensitiveLog = (obj: GetThirdPartyJobDetailsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetThirdPartyJobDetailsInput => __isa(o, "GetThirdPartyJobDetailsInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
 export interface GetThirdPartyJobDetailsOutput {
-  __type?: "GetThirdPartyJobDetailsOutput";
   /**
    * <p>The details of the job, including any protected values defined for the
    *             job.</p>
@@ -1856,7 +1736,6 @@ export namespace GetThirdPartyJobDetailsOutput {
     ...obj,
     ...(obj.jobDetails && { jobDetails: ThirdPartyJobDetails.filterSensitiveLog(obj.jobDetails) }),
   });
-  export const isa = (o: any): o is GetThirdPartyJobDetailsOutput => __isa(o, "GetThirdPartyJobDetailsOutput");
 }
 
 /**
@@ -1864,7 +1743,6 @@ export namespace GetThirdPartyJobDetailsOutput {
  *             artifact.</p>
  */
 export interface InputArtifact {
-  __type?: "InputArtifact";
   /**
    * <p>The name of the artifact to be worked on (for example, "My App").</p>
    *         <p>The input artifact of an action must exactly match the output artifact declared in
@@ -1880,7 +1758,6 @@ export namespace InputArtifact {
   export const filterSensitiveLog = (obj: InputArtifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputArtifact => __isa(o, "InputArtifact");
 }
 
 /**
@@ -1899,7 +1776,6 @@ export namespace InvalidActionDeclarationException {
   export const filterSensitiveLog = (obj: InvalidActionDeclarationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidActionDeclarationException => __isa(o, "InvalidActionDeclarationException");
 }
 
 /**
@@ -1918,7 +1794,6 @@ export namespace InvalidApprovalTokenException {
   export const filterSensitiveLog = (obj: InvalidApprovalTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalTokenException => __isa(o, "InvalidApprovalTokenException");
 }
 
 /**
@@ -1934,7 +1809,6 @@ export namespace InvalidArnException {
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
@@ -1953,8 +1827,6 @@ export namespace InvalidBlockerDeclarationException {
   export const filterSensitiveLog = (obj: InvalidBlockerDeclarationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidBlockerDeclarationException =>
-    __isa(o, "InvalidBlockerDeclarationException");
 }
 
 /**
@@ -1973,7 +1845,6 @@ export namespace InvalidClientTokenException {
   export const filterSensitiveLog = (obj: InvalidClientTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClientTokenException => __isa(o, "InvalidClientTokenException");
 }
 
 /**
@@ -1992,7 +1863,6 @@ export namespace InvalidJobException {
   export const filterSensitiveLog = (obj: InvalidJobException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidJobException => __isa(o, "InvalidJobException");
 }
 
 /**
@@ -2011,7 +1881,6 @@ export namespace InvalidJobStateException {
   export const filterSensitiveLog = (obj: InvalidJobStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidJobStateException => __isa(o, "InvalidJobStateException");
 }
 
 /**
@@ -2031,7 +1900,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -2050,7 +1918,6 @@ export namespace InvalidNonceException {
   export const filterSensitiveLog = (obj: InvalidNonceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNonceException => __isa(o, "InvalidNonceException");
 }
 
 /**
@@ -2069,7 +1936,6 @@ export namespace InvalidStageDeclarationException {
   export const filterSensitiveLog = (obj: InvalidStageDeclarationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStageDeclarationException => __isa(o, "InvalidStageDeclarationException");
 }
 
 /**
@@ -2088,7 +1954,6 @@ export namespace InvalidStructureException {
   export const filterSensitiveLog = (obj: InvalidStructureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStructureException => __isa(o, "InvalidStructureException");
 }
 
 /**
@@ -2104,7 +1969,6 @@ export namespace InvalidTagsException {
   export const filterSensitiveLog = (obj: InvalidTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagsException => __isa(o, "InvalidTagsException");
 }
 
 /**
@@ -2123,8 +1987,6 @@ export namespace InvalidWebhookAuthenticationParametersException {
   export const filterSensitiveLog = (obj: InvalidWebhookAuthenticationParametersException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidWebhookAuthenticationParametersException =>
-    __isa(o, "InvalidWebhookAuthenticationParametersException");
 }
 
 /**
@@ -2143,15 +2005,12 @@ export namespace InvalidWebhookFilterPatternException {
   export const filterSensitiveLog = (obj: InvalidWebhookFilterPatternException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidWebhookFilterPatternException =>
-    __isa(o, "InvalidWebhookFilterPatternException");
 }
 
 /**
  * <p>Represents information about a job.</p>
  */
 export interface Job {
-  __type?: "Job";
   /**
    * <p>The ID of the AWS account to use when performing the job.</p>
    */
@@ -2179,7 +2038,6 @@ export namespace Job {
     ...obj,
     ...(obj.data && { data: JobData.filterSensitiveLog(obj.data) }),
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
@@ -2187,7 +2045,6 @@ export namespace Job {
  *             job.</p>
  */
 export interface JobData {
-  __type?: "JobData";
   /**
    * <p>Represents information about a pipeline to a job worker.</p>
    *         <note>
@@ -2243,14 +2100,12 @@ export namespace JobData {
     ...obj,
     ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is JobData => __isa(o, "JobData");
 }
 
 /**
  * <p>Represents information about the details of a job.</p>
  */
 export interface JobDetails {
-  __type?: "JobDetails";
   /**
    * <p>Represents other information about a job required for a job worker to complete the
    *             job. </p>
@@ -2273,7 +2128,6 @@ export namespace JobDetails {
     ...obj,
     ...(obj.data && { data: JobData.filterSensitiveLog(obj.data) }),
   });
-  export const isa = (o: any): o is JobDetails => __isa(o, "JobDetails");
 }
 
 /**
@@ -2292,7 +2146,6 @@ export namespace JobNotFoundException {
   export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobNotFoundException => __isa(o, "JobNotFoundException");
 }
 
 export enum JobStatus {
@@ -2322,11 +2175,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListActionExecutionsInput {
-  __type?: "ListActionExecutionsInput";
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *             results, make another call with the returned nextToken value. Action execution history
@@ -2360,11 +2211,9 @@ export namespace ListActionExecutionsInput {
   export const filterSensitiveLog = (obj: ListActionExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActionExecutionsInput => __isa(o, "ListActionExecutionsInput");
 }
 
 export interface ListActionExecutionsOutput {
-  __type?: "ListActionExecutionsOutput";
   /**
    * <p>The details for a list of recent executions, such as action execution ID.</p>
    */
@@ -2382,14 +2231,12 @@ export namespace ListActionExecutionsOutput {
   export const filterSensitiveLog = (obj: ListActionExecutionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActionExecutionsOutput => __isa(o, "ListActionExecutionsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListActionTypes</code> action.</p>
  */
 export interface ListActionTypesInput {
-  __type?: "ListActionTypesInput";
   /**
    * <p>Filters the list of action types to those created by a specified entity.</p>
    */
@@ -2406,14 +2253,12 @@ export namespace ListActionTypesInput {
   export const filterSensitiveLog = (obj: ListActionTypesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActionTypesInput => __isa(o, "ListActionTypesInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListActionTypes</code> action.</p>
  */
 export interface ListActionTypesOutput {
-  __type?: "ListActionTypesOutput";
   /**
    * <p>Provides details of the action types.</p>
    */
@@ -2431,14 +2276,12 @@ export namespace ListActionTypesOutput {
   export const filterSensitiveLog = (obj: ListActionTypesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActionTypesOutput => __isa(o, "ListActionTypesOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListPipelineExecutions</code> action.</p>
  */
 export interface ListPipelineExecutionsInput {
-  __type?: "ListPipelineExecutionsInput";
   /**
    * <p>The name of the pipeline for which you want to get execution summary
    *             information.</p>
@@ -2465,14 +2308,12 @@ export namespace ListPipelineExecutionsInput {
   export const filterSensitiveLog = (obj: ListPipelineExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelineExecutionsInput => __isa(o, "ListPipelineExecutionsInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListPipelineExecutions</code> action.</p>
  */
 export interface ListPipelineExecutionsOutput {
-  __type?: "ListPipelineExecutionsOutput";
   /**
    * <p>A list of executions in the history of a pipeline.</p>
    */
@@ -2490,14 +2331,12 @@ export namespace ListPipelineExecutionsOutput {
   export const filterSensitiveLog = (obj: ListPipelineExecutionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelineExecutionsOutput => __isa(o, "ListPipelineExecutionsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListPipelines</code> action.</p>
  */
 export interface ListPipelinesInput {
-  __type?: "ListPipelinesInput";
   /**
    * <p>An identifier that was returned from the previous list pipelines call. It can be
    *             used to return the next set of pipelines in the list.</p>
@@ -2509,14 +2348,12 @@ export namespace ListPipelinesInput {
   export const filterSensitiveLog = (obj: ListPipelinesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesInput => __isa(o, "ListPipelinesInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListPipelines</code> action.</p>
  */
 export interface ListPipelinesOutput {
-  __type?: "ListPipelinesOutput";
   /**
    * <p>The list of pipelines.</p>
    */
@@ -2534,11 +2371,9 @@ export namespace ListPipelinesOutput {
   export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesOutput => __isa(o, "ListPipelinesOutput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The maximum number of results to return in a single call.</p>
    */
@@ -2561,11 +2396,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
    *             returned and can be used in a subsequent API call to return the next page of the list.
@@ -2584,7 +2417,6 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -2592,7 +2424,6 @@ export namespace ListTagsForResourceOutput {
  *             URL, the webhook name, and the webhook ARN.</p>
  */
 export interface ListWebhookItem {
-  __type?: "ListWebhookItem";
   /**
    * <p>The date and time a webhook was last successfully triggered, in timestamp
    *             format.</p>
@@ -2638,11 +2469,9 @@ export namespace ListWebhookItem {
   export const filterSensitiveLog = (obj: ListWebhookItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebhookItem => __isa(o, "ListWebhookItem");
 }
 
 export interface ListWebhooksInput {
-  __type?: "ListWebhooksInput";
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *             results, make another call with the returned nextToken value.</p>
@@ -2660,11 +2489,9 @@ export namespace ListWebhooksInput {
   export const filterSensitiveLog = (obj: ListWebhooksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebhooksInput => __isa(o, "ListWebhooksInput");
 }
 
 export interface ListWebhooksOutput {
-  __type?: "ListWebhooksOutput";
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
    *             returned and can be used in a subsequent ListWebhooks call to return the next set of
@@ -2683,7 +2510,6 @@ export namespace ListWebhooksOutput {
   export const filterSensitiveLog = (obj: ListWebhooksOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebhooksOutput => __isa(o, "ListWebhooksOutput");
 }
 
 /**
@@ -2703,15 +2529,12 @@ export namespace NotLatestPipelineExecutionException {
   export const filterSensitiveLog = (obj: NotLatestPipelineExecutionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotLatestPipelineExecutionException =>
-    __isa(o, "NotLatestPipelineExecutionException");
 }
 
 /**
  * <p>Represents information about the output of an action.</p>
  */
 export interface OutputArtifact {
-  __type?: "OutputArtifact";
   /**
    * <p>The name of the output of an artifact, such as "My App".</p>
    *         <p>The input artifact of an action must exactly match the output artifact declared in
@@ -2728,7 +2551,6 @@ export namespace OutputArtifact {
   export const filterSensitiveLog = (obj: OutputArtifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputArtifact => __isa(o, "OutputArtifact");
 }
 
 /**
@@ -2744,8 +2566,6 @@ export namespace OutputVariablesSizeExceededException {
   export const filterSensitiveLog = (obj: OutputVariablesSizeExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputVariablesSizeExceededException =>
-    __isa(o, "OutputVariablesSizeExceededException");
 }
 
 /**
@@ -2758,7 +2578,6 @@ export namespace OutputVariablesSizeExceededException {
  *         </note>
  */
 export interface PipelineContext {
-  __type?: "PipelineContext";
   /**
    * <p>The context of an action to a job worker in the stage of a pipeline.</p>
    */
@@ -2790,7 +2609,6 @@ export namespace PipelineContext {
   export const filterSensitiveLog = (obj: PipelineContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineContext => __isa(o, "PipelineContext");
 }
 
 /**
@@ -2798,7 +2616,6 @@ export namespace PipelineContext {
  *             pipeline.</p>
  */
 export interface PipelineDeclaration {
-  __type?: "PipelineDeclaration";
   /**
    * <p>The name of the action to be performed.</p>
    */
@@ -2852,14 +2669,12 @@ export namespace PipelineDeclaration {
   export const filterSensitiveLog = (obj: PipelineDeclaration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineDeclaration => __isa(o, "PipelineDeclaration");
 }
 
 /**
  * <p>Represents information about an execution of a pipeline.</p>
  */
 export interface PipelineExecution {
-  __type?: "PipelineExecution";
   /**
    * <p>The version number of the pipeline with the specified pipeline execution.</p>
    */
@@ -2916,7 +2731,6 @@ export namespace PipelineExecution {
   export const filterSensitiveLog = (obj: PipelineExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineExecution => __isa(o, "PipelineExecution");
 }
 
 /**
@@ -2936,8 +2750,6 @@ export namespace PipelineExecutionNotFoundException {
   export const filterSensitiveLog = (obj: PipelineExecutionNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineExecutionNotFoundException =>
-    __isa(o, "PipelineExecutionNotFoundException");
 }
 
 /**
@@ -2954,8 +2766,6 @@ export namespace PipelineExecutionNotStoppableException {
   export const filterSensitiveLog = (obj: PipelineExecutionNotStoppableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineExecutionNotStoppableException =>
-    __isa(o, "PipelineExecutionNotStoppableException");
 }
 
 export enum PipelineExecutionStatus {
@@ -2971,7 +2781,6 @@ export enum PipelineExecutionStatus {
  * <p>Summary information about a pipeline execution.</p>
  */
 export interface PipelineExecutionSummary {
-  __type?: "PipelineExecutionSummary";
   /**
    * <p>The interaction or event that started a pipeline execution, such as automated change
    *             detection or a <code>StartPipelineExecution</code> API call.</p>
@@ -3040,14 +2849,12 @@ export namespace PipelineExecutionSummary {
   export const filterSensitiveLog = (obj: PipelineExecutionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineExecutionSummary => __isa(o, "PipelineExecutionSummary");
 }
 
 /**
  * <p>Information about a pipeline.</p>
  */
 export interface PipelineMetadata {
-  __type?: "PipelineMetadata";
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
    */
@@ -3068,7 +2875,6 @@ export namespace PipelineMetadata {
   export const filterSensitiveLog = (obj: PipelineMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineMetadata => __isa(o, "PipelineMetadata");
 }
 
 /**
@@ -3087,7 +2893,6 @@ export namespace PipelineNameInUseException {
   export const filterSensitiveLog = (obj: PipelineNameInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineNameInUseException => __isa(o, "PipelineNameInUseException");
 }
 
 /**
@@ -3106,14 +2911,12 @@ export namespace PipelineNotFoundException {
   export const filterSensitiveLog = (obj: PipelineNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineNotFoundException => __isa(o, "PipelineNotFoundException");
 }
 
 /**
  * <p>Returns a summary of a pipeline.</p>
  */
 export interface PipelineSummary {
-  __type?: "PipelineSummary";
   /**
    * <p>The date and time of the last update to the pipeline, in timestamp
    *             format.</p>
@@ -3140,7 +2943,6 @@ export namespace PipelineSummary {
   export const filterSensitiveLog = (obj: PipelineSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineSummary => __isa(o, "PipelineSummary");
 }
 
 /**
@@ -3160,14 +2962,12 @@ export namespace PipelineVersionNotFoundException {
   export const filterSensitiveLog = (obj: PipelineVersionNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineVersionNotFoundException => __isa(o, "PipelineVersionNotFoundException");
 }
 
 /**
  * <p>Represents the input of a <code>PollForJobs</code> action.</p>
  */
 export interface PollForJobsInput {
-  __type?: "PollForJobsInput";
   /**
    * <p>A map of property names and values. For an action type with no queryable
    *             properties, this value must be null or an empty map. For an action type with a queryable
@@ -3191,14 +2991,12 @@ export namespace PollForJobsInput {
   export const filterSensitiveLog = (obj: PollForJobsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PollForJobsInput => __isa(o, "PollForJobsInput");
 }
 
 /**
  * <p>Represents the output of a <code>PollForJobs</code> action.</p>
  */
 export interface PollForJobsOutput {
-  __type?: "PollForJobsOutput";
   /**
    * <p>Information about the jobs to take action on.</p>
    */
@@ -3210,14 +3008,12 @@ export namespace PollForJobsOutput {
     ...obj,
     ...(obj.jobs && { jobs: obj.jobs.map((item) => Job.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is PollForJobsOutput => __isa(o, "PollForJobsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>PollForThirdPartyJobs</code> action.</p>
  */
 export interface PollForThirdPartyJobsInput {
-  __type?: "PollForThirdPartyJobsInput";
   /**
    * <p>Represents information about an action type.</p>
    */
@@ -3233,14 +3029,12 @@ export namespace PollForThirdPartyJobsInput {
   export const filterSensitiveLog = (obj: PollForThirdPartyJobsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PollForThirdPartyJobsInput => __isa(o, "PollForThirdPartyJobsInput");
 }
 
 /**
  * <p>Represents the output of a <code>PollForThirdPartyJobs</code> action.</p>
  */
 export interface PollForThirdPartyJobsOutput {
-  __type?: "PollForThirdPartyJobsOutput";
   /**
    * <p>Information about the jobs to take action on.</p>
    */
@@ -3251,14 +3045,12 @@ export namespace PollForThirdPartyJobsOutput {
   export const filterSensitiveLog = (obj: PollForThirdPartyJobsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PollForThirdPartyJobsOutput => __isa(o, "PollForThirdPartyJobsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>PutActionRevision</code> action.</p>
  */
 export interface PutActionRevisionInput {
-  __type?: "PutActionRevisionInput";
   /**
    * <p>The name of the stage that contains the action that acts on the revision.</p>
    */
@@ -3285,14 +3077,12 @@ export namespace PutActionRevisionInput {
   export const filterSensitiveLog = (obj: PutActionRevisionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutActionRevisionInput => __isa(o, "PutActionRevisionInput");
 }
 
 /**
  * <p>Represents the output of a <code>PutActionRevision</code> action.</p>
  */
 export interface PutActionRevisionOutput {
-  __type?: "PutActionRevisionOutput";
   /**
    * <p>Indicates whether the artifact revision was previously used in an execution of the
    *             specified pipeline.</p>
@@ -3309,14 +3099,12 @@ export namespace PutActionRevisionOutput {
   export const filterSensitiveLog = (obj: PutActionRevisionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutActionRevisionOutput => __isa(o, "PutActionRevisionOutput");
 }
 
 /**
  * <p>Represents the input of a <code>PutApprovalResult</code> action.</p>
  */
 export interface PutApprovalResultInput {
-  __type?: "PutApprovalResultInput";
   /**
    * <p>The name of the pipeline that contains the action. </p>
    */
@@ -3349,14 +3137,12 @@ export namespace PutApprovalResultInput {
   export const filterSensitiveLog = (obj: PutApprovalResultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutApprovalResultInput => __isa(o, "PutApprovalResultInput");
 }
 
 /**
  * <p>Represents the output of a <code>PutApprovalResult</code> action.</p>
  */
 export interface PutApprovalResultOutput {
-  __type?: "PutApprovalResultOutput";
   /**
    * <p>The timestamp showing when the approval or rejection was submitted.</p>
    */
@@ -3367,14 +3153,12 @@ export namespace PutApprovalResultOutput {
   export const filterSensitiveLog = (obj: PutApprovalResultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutApprovalResultOutput => __isa(o, "PutApprovalResultOutput");
 }
 
 /**
  * <p>Represents the input of a <code>PutJobFailureResult</code> action.</p>
  */
 export interface PutJobFailureResultInput {
-  __type?: "PutJobFailureResultInput";
   /**
    * <p>The unique system-generated ID of the job that failed. This is the same ID returned
    *             from <code>PollForJobs</code>.</p>
@@ -3391,14 +3175,12 @@ export namespace PutJobFailureResultInput {
   export const filterSensitiveLog = (obj: PutJobFailureResultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutJobFailureResultInput => __isa(o, "PutJobFailureResultInput");
 }
 
 /**
  * <p>Represents the input of a <code>PutJobSuccessResult</code> action.</p>
  */
 export interface PutJobSuccessResultInput {
-  __type?: "PutJobSuccessResultInput";
   /**
    * <p>Key-value pairs produced as output by a job worker that can be made available to a
    *             downstream action configuration. <code>outputVariables</code> can be included only when
@@ -3438,7 +3220,6 @@ export namespace PutJobSuccessResultInput {
   export const filterSensitiveLog = (obj: PutJobSuccessResultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutJobSuccessResultInput => __isa(o, "PutJobSuccessResultInput");
 }
 
 /**
@@ -3446,7 +3227,6 @@ export namespace PutJobSuccessResultInput {
  *             action.</p>
  */
 export interface PutThirdPartyJobFailureResultInput {
-  __type?: "PutThirdPartyJobFailureResultInput";
   /**
    * <p>The clientToken portion of the clientId and clientToken pair used to verify that
    *             the calling entity is allowed access to the job and its details.</p>
@@ -3469,8 +3249,6 @@ export namespace PutThirdPartyJobFailureResultInput {
   export const filterSensitiveLog = (obj: PutThirdPartyJobFailureResultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutThirdPartyJobFailureResultInput =>
-    __isa(o, "PutThirdPartyJobFailureResultInput");
 }
 
 /**
@@ -3478,7 +3256,6 @@ export namespace PutThirdPartyJobFailureResultInput {
  *             action.</p>
  */
 export interface PutThirdPartyJobSuccessResultInput {
-  __type?: "PutThirdPartyJobSuccessResultInput";
   /**
    * <p>Represents information about a current revision.</p>
    */
@@ -3516,12 +3293,9 @@ export namespace PutThirdPartyJobSuccessResultInput {
   export const filterSensitiveLog = (obj: PutThirdPartyJobSuccessResultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutThirdPartyJobSuccessResultInput =>
-    __isa(o, "PutThirdPartyJobSuccessResultInput");
 }
 
 export interface PutWebhookInput {
-  __type?: "PutWebhookInput";
   /**
    * <p>The tags for the webhook.</p>
    */
@@ -3540,11 +3314,9 @@ export namespace PutWebhookInput {
   export const filterSensitiveLog = (obj: PutWebhookInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutWebhookInput => __isa(o, "PutWebhookInput");
 }
 
 export interface PutWebhookOutput {
-  __type?: "PutWebhookOutput";
   /**
    * <p>The detail returned from creating the webhook, such as the webhook name, webhook
    *             URL, and webhook ARN.</p>
@@ -3556,11 +3328,9 @@ export namespace PutWebhookOutput {
   export const filterSensitiveLog = (obj: PutWebhookOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutWebhookOutput => __isa(o, "PutWebhookOutput");
 }
 
 export interface RegisterWebhookWithThirdPartyInput {
-  __type?: "RegisterWebhookWithThirdPartyInput";
   /**
    * <p>The name of an existing webhook created with PutWebhook to register with a
    *             supported third party. </p>
@@ -3572,20 +3342,14 @@ export namespace RegisterWebhookWithThirdPartyInput {
   export const filterSensitiveLog = (obj: RegisterWebhookWithThirdPartyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterWebhookWithThirdPartyInput =>
-    __isa(o, "RegisterWebhookWithThirdPartyInput");
 }
 
-export interface RegisterWebhookWithThirdPartyOutput {
-  __type?: "RegisterWebhookWithThirdPartyOutput";
-}
+export interface RegisterWebhookWithThirdPartyOutput {}
 
 export namespace RegisterWebhookWithThirdPartyOutput {
   export const filterSensitiveLog = (obj: RegisterWebhookWithThirdPartyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterWebhookWithThirdPartyOutput =>
-    __isa(o, "RegisterWebhookWithThirdPartyOutput");
 }
 
 /**
@@ -3604,14 +3368,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Represents the input of a <code>RetryStageExecution</code> action.</p>
  */
 export interface RetryStageExecutionInput {
-  __type?: "RetryStageExecutionInput";
   /**
    * <p>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of
    *             the failed stage</p>
@@ -3639,14 +3401,12 @@ export namespace RetryStageExecutionInput {
   export const filterSensitiveLog = (obj: RetryStageExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryStageExecutionInput => __isa(o, "RetryStageExecutionInput");
 }
 
 /**
  * <p>Represents the output of a <code>RetryStageExecution</code> action.</p>
  */
 export interface RetryStageExecutionOutput {
-  __type?: "RetryStageExecutionOutput";
   /**
    * <p>The ID of the current workflow execution in the failed stage.</p>
    */
@@ -3657,14 +3417,12 @@ export namespace RetryStageExecutionOutput {
   export const filterSensitiveLog = (obj: RetryStageExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryStageExecutionOutput => __isa(o, "RetryStageExecutionOutput");
 }
 
 /**
  * <p>The location of the S3 bucket that contains a revision.</p>
  */
 export interface S3ArtifactLocation {
-  __type?: "S3ArtifactLocation";
   /**
    * <p>The key of the object in the S3 bucket, which uniquely identifies the object in the
    *             bucket.</p>
@@ -3681,14 +3439,12 @@ export namespace S3ArtifactLocation {
   export const filterSensitiveLog = (obj: S3ArtifactLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ArtifactLocation => __isa(o, "S3ArtifactLocation");
 }
 
 /**
  * <p>The Amazon S3 artifact location for an action's artifacts.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>The artifact name.</p>
    */
@@ -3704,7 +3460,6 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 /**
@@ -3712,7 +3467,6 @@ export namespace S3Location {
  *             pipeline execution.</p>
  */
 export interface SourceRevision {
-  __type?: "SourceRevision";
   /**
    * <p>Summary information about the most recent revision of the artifact. For GitHub and
    *             AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the
@@ -3744,14 +3498,12 @@ export namespace SourceRevision {
   export const filterSensitiveLog = (obj: SourceRevision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceRevision => __isa(o, "SourceRevision");
 }
 
 /**
  * <p>Represents information about a stage to a job worker.</p>
  */
 export interface StageContext {
-  __type?: "StageContext";
   /**
    * <p>The name of the stage.</p>
    */
@@ -3762,14 +3514,12 @@ export namespace StageContext {
   export const filterSensitiveLog = (obj: StageContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StageContext => __isa(o, "StageContext");
 }
 
 /**
  * <p>Represents information about a stage and its definition.</p>
  */
 export interface StageDeclaration {
-  __type?: "StageDeclaration";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -3790,14 +3540,12 @@ export namespace StageDeclaration {
   export const filterSensitiveLog = (obj: StageDeclaration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StageDeclaration => __isa(o, "StageDeclaration");
 }
 
 /**
  * <p>Represents information about the run of a stage.</p>
  */
 export interface StageExecution {
-  __type?: "StageExecution";
   /**
    * <p>The status of the stage, or for a completed stage, the last status of the
    *             stage.</p>
@@ -3814,7 +3562,6 @@ export namespace StageExecution {
   export const filterSensitiveLog = (obj: StageExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StageExecution => __isa(o, "StageExecution");
 }
 
 export enum StageExecutionStatus {
@@ -3841,7 +3588,6 @@ export namespace StageNotFoundException {
   export const filterSensitiveLog = (obj: StageNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StageNotFoundException => __isa(o, "StageNotFoundException");
 }
 
 /**
@@ -3862,7 +3608,6 @@ export namespace StageNotRetryableException {
   export const filterSensitiveLog = (obj: StageNotRetryableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StageNotRetryableException => __isa(o, "StageNotRetryableException");
 }
 
 export enum StageRetryMode {
@@ -3873,7 +3618,6 @@ export enum StageRetryMode {
  * <p>Represents information about the state of the stage.</p>
  */
 export interface StageState {
-  __type?: "StageState";
   /**
    * <p>The state of the stage.</p>
    */
@@ -3900,7 +3644,6 @@ export namespace StageState {
   export const filterSensitiveLog = (obj: StageState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StageState => __isa(o, "StageState");
 }
 
 export enum StageTransitionType {
@@ -3912,7 +3655,6 @@ export enum StageTransitionType {
  * <p>Represents the input of a <code>StartPipelineExecution</code> action.</p>
  */
 export interface StartPipelineExecutionInput {
-  __type?: "StartPipelineExecutionInput";
   /**
    * <p>The name of the pipeline to start.</p>
    */
@@ -3929,14 +3671,12 @@ export namespace StartPipelineExecutionInput {
   export const filterSensitiveLog = (obj: StartPipelineExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPipelineExecutionInput => __isa(o, "StartPipelineExecutionInput");
 }
 
 /**
  * <p>Represents the output of a <code>StartPipelineExecution</code> action.</p>
  */
 export interface StartPipelineExecutionOutput {
-  __type?: "StartPipelineExecutionOutput";
   /**
    * <p>The unique system-generated ID of the pipeline execution that was
    *             started.</p>
@@ -3948,14 +3688,12 @@ export namespace StartPipelineExecutionOutput {
   export const filterSensitiveLog = (obj: StartPipelineExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPipelineExecutionOutput => __isa(o, "StartPipelineExecutionOutput");
 }
 
 /**
  * <p>The interaction that stopped a pipeline execution.</p>
  */
 export interface StopExecutionTrigger {
-  __type?: "StopExecutionTrigger";
   /**
    * <p>The user-specified reason the pipeline was stopped.</p>
    */
@@ -3966,11 +3704,9 @@ export namespace StopExecutionTrigger {
   export const filterSensitiveLog = (obj: StopExecutionTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopExecutionTrigger => __isa(o, "StopExecutionTrigger");
 }
 
 export interface StopPipelineExecutionInput {
-  __type?: "StopPipelineExecutionInput";
   /**
    * <p>The ID of the pipeline execution to be stopped in the current stage. Use the
    *                 <code>GetPipelineState</code> action to retrieve the current
@@ -4002,11 +3738,9 @@ export namespace StopPipelineExecutionInput {
   export const filterSensitiveLog = (obj: StopPipelineExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopPipelineExecutionInput => __isa(o, "StopPipelineExecutionInput");
 }
 
 export interface StopPipelineExecutionOutput {
-  __type?: "StopPipelineExecutionOutput";
   /**
    * <p>The unique system-generated ID of the pipeline execution that was stopped.</p>
    */
@@ -4017,14 +3751,12 @@ export namespace StopPipelineExecutionOutput {
   export const filterSensitiveLog = (obj: StopPipelineExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopPipelineExecutionOutput => __isa(o, "StopPipelineExecutionOutput");
 }
 
 /**
  * <p>A tag is a key-value pair that is used to manage the resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's value.</p>
    */
@@ -4040,11 +3772,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The tags you want to modify or add to the resource.</p>
    */
@@ -4060,18 +3790,14 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 /**
@@ -4079,7 +3805,6 @@ export namespace TagResourceOutput {
  *             CodePipeline when there is a job to be worked on by a partner action.</p>
  */
 export interface ThirdPartyJob {
-  __type?: "ThirdPartyJob";
   /**
    * <p>The identifier used to identify the job in AWS CodePipeline.</p>
    */
@@ -4097,14 +3822,12 @@ export namespace ThirdPartyJob {
   export const filterSensitiveLog = (obj: ThirdPartyJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThirdPartyJob => __isa(o, "ThirdPartyJob");
 }
 
 /**
  * <p>Represents information about the job data for a partner action.</p>
  */
 export interface ThirdPartyJobData {
-  __type?: "ThirdPartyJobData";
   /**
    * <p>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job
    *             requires to continue the job asynchronously.</p>
@@ -4166,7 +3889,6 @@ export namespace ThirdPartyJobData {
     ...obj,
     ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ThirdPartyJobData => __isa(o, "ThirdPartyJobData");
 }
 
 /**
@@ -4174,7 +3896,6 @@ export namespace ThirdPartyJobData {
  *             request.</p>
  */
 export interface ThirdPartyJobDetails {
-  __type?: "ThirdPartyJobDetails";
   /**
    * <p>A system-generated random number that AWS CodePipeline uses to ensure that the job
    *             is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request.</p>
@@ -4197,7 +3918,6 @@ export namespace ThirdPartyJobDetails {
     ...obj,
     ...(obj.data && { data: ThirdPartyJobData.filterSensitiveLog(obj.data) }),
   });
-  export const isa = (o: any): o is ThirdPartyJobDetails => __isa(o, "ThirdPartyJobDetails");
 }
 
 /**
@@ -4213,7 +3933,6 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -4221,7 +3940,6 @@ export namespace TooManyTagsException {
  *             stage.</p>
  */
 export interface TransitionState {
-  __type?: "TransitionState";
   /**
    * <p>The timestamp when the transition state was last changed.</p>
    */
@@ -4249,7 +3967,6 @@ export namespace TransitionState {
   export const filterSensitiveLog = (obj: TransitionState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitionState => __isa(o, "TransitionState");
 }
 
 export enum TriggerType {
@@ -4262,7 +3979,6 @@ export enum TriggerType {
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The list of keys for the tags to be removed from the resource.</p>
    */
@@ -4278,25 +3994,20 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 /**
  * <p>Represents the input of an <code>UpdatePipeline</code> action.</p>
  */
 export interface UpdatePipelineInput {
-  __type?: "UpdatePipelineInput";
   /**
    * <p>The name of the pipeline to be updated.</p>
    */
@@ -4307,14 +4018,12 @@ export namespace UpdatePipelineInput {
   export const filterSensitiveLog = (obj: UpdatePipelineInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineInput => __isa(o, "UpdatePipelineInput");
 }
 
 /**
  * <p>Represents the output of an <code>UpdatePipeline</code> action.</p>
  */
 export interface UpdatePipelineOutput {
-  __type?: "UpdatePipelineOutput";
   /**
    * <p>The structure of the updated pipeline.</p>
    */
@@ -4325,7 +4034,6 @@ export namespace UpdatePipelineOutput {
   export const filterSensitiveLog = (obj: UpdatePipelineOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineOutput => __isa(o, "UpdatePipelineOutput");
 }
 
 /**
@@ -4344,14 +4052,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>The authentication applied to incoming webhook trigger requests.</p>
  */
 export interface WebhookAuthConfiguration {
-  __type?: "WebhookAuthConfiguration";
   /**
    * <p>The property used to configure GitHub authentication. For GITHUB_HMAC, only the
    *                 <code>SecretToken</code> property must be set.</p>
@@ -4370,7 +4076,6 @@ export namespace WebhookAuthConfiguration {
   export const filterSensitiveLog = (obj: WebhookAuthConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebhookAuthConfiguration => __isa(o, "WebhookAuthConfiguration");
 }
 
 export enum WebhookAuthenticationType {
@@ -4383,7 +4088,6 @@ export enum WebhookAuthenticationType {
  * <p>Represents information about a webhook and its definition.</p>
  */
 export interface WebhookDefinition {
-  __type?: "WebhookDefinition";
   /**
    * <p>The name of the action in a pipeline you want to connect to the webhook. The action
    *             must be from the source (first) stage of the pipeline.</p>
@@ -4442,7 +4146,6 @@ export namespace WebhookDefinition {
   export const filterSensitiveLog = (obj: WebhookDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebhookDefinition => __isa(o, "WebhookDefinition");
 }
 
 /**
@@ -4450,7 +4153,6 @@ export namespace WebhookDefinition {
  *             URL.</p>
  */
 export interface WebhookFilterRule {
-  __type?: "WebhookFilterRule";
   /**
    * <p>The value selected by the <code>JsonPath</code> expression must match what is
    *             supplied in the <code>MatchEquals</code> field. Otherwise, the request is ignored.
@@ -4477,7 +4179,6 @@ export namespace WebhookFilterRule {
   export const filterSensitiveLog = (obj: WebhookFilterRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebhookFilterRule => __isa(o, "WebhookFilterRule");
 }
 
 /**
@@ -4493,5 +4194,4 @@ export namespace WebhookNotFoundException {
   export const filterSensitiveLog = (obj: WebhookNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebhookNotFoundException => __isa(o, "WebhookNotFoundException");
 }

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,11 +15,9 @@ export namespace ClientLimitExceededException {
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 export interface GetIceServerConfigRequest {
-  __type?: "GetIceServerConfigRequest";
   /**
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
    *             value.</p>
@@ -47,11 +45,9 @@ export namespace GetIceServerConfigRequest {
   export const filterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIceServerConfigRequest => __isa(o, "GetIceServerConfigRequest");
 }
 
 export interface GetIceServerConfigResponse {
-  __type?: "GetIceServerConfigResponse";
   /**
    * <p>The list of ICE server information objects.</p>
    */
@@ -62,14 +58,12 @@ export namespace GetIceServerConfigResponse {
   export const filterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIceServerConfigResponse => __isa(o, "GetIceServerConfigResponse");
 }
 
 /**
  * <p>A structure for the ICE server connection data.</p>
  */
 export interface IceServer {
-  __type?: "IceServer";
   /**
    * <p>The period of time, in seconds, during which the username and password are
    *             valid.</p>
@@ -97,7 +91,6 @@ export namespace IceServer {
   export const filterSensitiveLog = (obj: IceServer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IceServer => __isa(o, "IceServer");
 }
 
 /**
@@ -113,7 +106,6 @@ export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -129,7 +121,6 @@ export namespace InvalidClientException {
   export const filterSensitiveLog = (obj: InvalidClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClientException => __isa(o, "InvalidClientException");
 }
 
 /**
@@ -145,7 +136,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -161,11 +151,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface SendAlexaOfferToMasterRequest {
-  __type?: "SendAlexaOfferToMasterRequest";
   /**
    * <p>The unique identifier for the sender client.</p>
    */
@@ -187,11 +175,9 @@ export namespace SendAlexaOfferToMasterRequest {
   export const filterSensitiveLog = (obj: SendAlexaOfferToMasterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendAlexaOfferToMasterRequest => __isa(o, "SendAlexaOfferToMasterRequest");
 }
 
 export interface SendAlexaOfferToMasterResponse {
-  __type?: "SendAlexaOfferToMasterResponse";
   /**
    * <p>The base64-encoded SDP answer content.</p>
    */
@@ -202,7 +188,6 @@ export namespace SendAlexaOfferToMasterResponse {
   export const filterSensitiveLog = (obj: SendAlexaOfferToMasterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendAlexaOfferToMasterResponse => __isa(o, "SendAlexaOfferToMasterResponse");
 }
 
 export enum Service {
@@ -224,5 +209,4 @@ export namespace SessionExpiredException {
   export const filterSensitiveLog = (obj: SessionExpiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SessionExpiredException => __isa(o, "SessionExpiredException");
 }

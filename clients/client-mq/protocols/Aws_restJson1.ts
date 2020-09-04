@@ -855,7 +855,6 @@ export const deserializeAws_restJson1CreateBrokerCommand = async (
   }
   const contents: CreateBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBrokerResponse",
     BrokerArn: undefined,
     BrokerId: undefined,
   };
@@ -947,7 +946,6 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
   }
   const contents: CreateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConfigurationResponse",
     Arn: undefined,
     AuthenticationStrategy: undefined,
     Created: undefined,
@@ -1122,7 +1120,6 @@ export const deserializeAws_restJson1CreateUserCommand = async (
   }
   const contents: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1206,7 +1203,6 @@ export const deserializeAws_restJson1DeleteBrokerCommand = async (
   }
   const contents: DeleteBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBrokerResponse",
     BrokerId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1361,7 +1357,6 @@ export const deserializeAws_restJson1DeleteUserCommand = async (
   }
   const contents: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1437,7 +1432,6 @@ export const deserializeAws_restJson1DescribeBrokerCommand = async (
   }
   const contents: DescribeBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBrokerResponse",
     AuthenticationStrategy: undefined,
     AutoMinorVersionUpgrade: undefined,
     BrokerArn: undefined,
@@ -1631,7 +1625,6 @@ export const deserializeAws_restJson1DescribeBrokerEngineTypesCommand = async (
   }
   const contents: DescribeBrokerEngineTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBrokerEngineTypesResponse",
     BrokerEngineTypes: undefined,
     MaxResults: undefined,
     NextToken: undefined,
@@ -1711,7 +1704,6 @@ export const deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand = asyn
   }
   const contents: DescribeBrokerInstanceOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBrokerInstanceOptionsResponse",
     BrokerInstanceOptions: undefined,
     MaxResults: undefined,
     NextToken: undefined,
@@ -1794,7 +1786,6 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
   }
   const contents: DescribeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationResponse",
     Arn: undefined,
     AuthenticationStrategy: undefined,
     Created: undefined,
@@ -1910,7 +1901,6 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
   }
   const contents: DescribeConfigurationRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationRevisionResponse",
     ConfigurationId: undefined,
     Created: undefined,
     Data: undefined,
@@ -2002,7 +1992,6 @@ export const deserializeAws_restJson1DescribeUserCommand = async (
   }
   const contents: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserResponse",
     BrokerId: undefined,
     ConsoleAccess: undefined,
     Groups: undefined,
@@ -2098,7 +2087,6 @@ export const deserializeAws_restJson1ListBrokersCommand = async (
   }
   const contents: ListBrokersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBrokersResponse",
     BrokerSummaries: undefined,
     NextToken: undefined,
   };
@@ -2174,7 +2162,6 @@ export const deserializeAws_restJson1ListConfigurationRevisionsCommand = async (
   }
   const contents: ListConfigurationRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationRevisionsResponse",
     ConfigurationId: undefined,
     MaxResults: undefined,
     NextToken: undefined,
@@ -2266,7 +2253,6 @@ export const deserializeAws_restJson1ListConfigurationsCommand = async (
   }
   const contents: ListConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationsResponse",
     Configurations: undefined,
     MaxResults: undefined,
     NextToken: undefined,
@@ -2346,7 +2332,6 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   }
   const contents: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2426,7 +2411,6 @@ export const deserializeAws_restJson1ListUsersCommand = async (
   }
   const contents: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     BrokerId: undefined,
     MaxResults: undefined,
     NextToken: undefined,
@@ -2518,7 +2502,6 @@ export const deserializeAws_restJson1RebootBrokerCommand = async (
   }
   const contents: RebootBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootBrokerResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2594,7 +2577,6 @@ export const deserializeAws_restJson1UpdateBrokerCommand = async (
   }
   const contents: UpdateBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBrokerResponse",
     AuthenticationStrategy: undefined,
     AutoMinorVersionUpgrade: undefined,
     BrokerId: undefined,
@@ -2714,7 +2696,6 @@ export const deserializeAws_restJson1UpdateConfigurationCommand = async (
   }
   const contents: UpdateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConfigurationResponse",
     Arn: undefined,
     Created: undefined,
     Id: undefined,
@@ -2822,7 +2803,6 @@ export const deserializeAws_restJson1UpdateUserCommand = async (
   }
   const contents: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3174,14 +3154,12 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   return {
-    __type: "AvailabilityZone",
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1BrokerEngineType = (output: any, context: __SerdeContext): BrokerEngineType => {
   return {
-    __type: "BrokerEngineType",
     EngineType: output.engineType !== undefined && output.engineType !== null ? output.engineType : undefined,
     EngineVersions:
       output.engineVersions !== undefined && output.engineVersions !== null
@@ -3192,7 +3170,6 @@ const deserializeAws_restJson1BrokerEngineType = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1BrokerInstance = (output: any, context: __SerdeContext): BrokerInstance => {
   return {
-    __type: "BrokerInstance",
     ConsoleURL: output.consoleURL !== undefined && output.consoleURL !== null ? output.consoleURL : undefined,
     Endpoints:
       output.endpoints !== undefined && output.endpoints !== null
@@ -3204,7 +3181,6 @@ const deserializeAws_restJson1BrokerInstance = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BrokerInstanceOption = (output: any, context: __SerdeContext): BrokerInstanceOption => {
   return {
-    __type: "BrokerInstanceOption",
     AvailabilityZones:
       output.availabilityZones !== undefined && output.availabilityZones !== null
         ? deserializeAws_restJson1__listOfAvailabilityZone(output.availabilityZones, context)
@@ -3226,7 +3202,6 @@ const deserializeAws_restJson1BrokerInstanceOption = (output: any, context: __Se
 
 const deserializeAws_restJson1BrokerSummary = (output: any, context: __SerdeContext): BrokerSummary => {
   return {
-    __type: "BrokerSummary",
     BrokerArn: output.brokerArn !== undefined && output.brokerArn !== null ? output.brokerArn : undefined,
     BrokerId: output.brokerId !== undefined && output.brokerId !== null ? output.brokerId : undefined,
     BrokerName: output.brokerName !== undefined && output.brokerName !== null ? output.brokerName : undefined,
@@ -3241,7 +3216,6 @@ const deserializeAws_restJson1BrokerSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    __type: "Configuration",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AuthenticationStrategy:
       output.authenticationStrategy !== undefined && output.authenticationStrategy !== null
@@ -3267,7 +3241,6 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeContext): ConfigurationId => {
   return {
-    __type: "ConfigurationId",
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
   } as any;
@@ -3275,7 +3248,6 @@ const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
-    __type: "ConfigurationRevision",
     Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
@@ -3284,7 +3256,6 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
 
 const deserializeAws_restJson1Configurations = (output: any, context: __SerdeContext): Configurations => {
   return {
-    __type: "Configurations",
     Current:
       output.current !== undefined && output.current !== null
         ? deserializeAws_restJson1ConfigurationId(output.current, context)
@@ -3302,7 +3273,6 @@ const deserializeAws_restJson1Configurations = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EncryptionOptions = (output: any, context: __SerdeContext): EncryptionOptions => {
   return {
-    __type: "EncryptionOptions",
     KmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     UseAwsOwnedKey:
       output.useAwsOwnedKey !== undefined && output.useAwsOwnedKey !== null ? output.useAwsOwnedKey : undefined,
@@ -3311,7 +3281,6 @@ const deserializeAws_restJson1EncryptionOptions = (output: any, context: __Serde
 
 const deserializeAws_restJson1EngineVersion = (output: any, context: __SerdeContext): EngineVersion => {
   return {
-    __type: "EngineVersion",
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -3321,7 +3290,6 @@ const deserializeAws_restJson1LdapServerMetadataOutput = (
   context: __SerdeContext
 ): LdapServerMetadataOutput => {
   return {
-    __type: "LdapServerMetadataOutput",
     Hosts:
       output.hosts !== undefined && output.hosts !== null
         ? deserializeAws_restJson1__listOf__string(output.hosts, context)
@@ -3355,7 +3323,6 @@ const deserializeAws_restJson1LdapServerMetadataOutput = (
 
 const deserializeAws_restJson1Logs = (output: any, context: __SerdeContext): Logs => {
   return {
-    __type: "Logs",
     Audit: output.audit !== undefined && output.audit !== null ? output.audit : undefined,
     General: output.general !== undefined && output.general !== null ? output.general : undefined,
   } as any;
@@ -3363,7 +3330,6 @@ const deserializeAws_restJson1Logs = (output: any, context: __SerdeContext): Log
 
 const deserializeAws_restJson1LogsSummary = (output: any, context: __SerdeContext): LogsSummary => {
   return {
-    __type: "LogsSummary",
     Audit: output.audit !== undefined && output.audit !== null ? output.audit : undefined,
     AuditLogGroup:
       output.auditLogGroup !== undefined && output.auditLogGroup !== null ? output.auditLogGroup : undefined,
@@ -3379,7 +3345,6 @@ const deserializeAws_restJson1LogsSummary = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PendingLogs = (output: any, context: __SerdeContext): PendingLogs => {
   return {
-    __type: "PendingLogs",
     Audit: output.audit !== undefined && output.audit !== null ? output.audit : undefined,
     General: output.general !== undefined && output.general !== null ? output.general : undefined,
   } as any;
@@ -3387,7 +3352,6 @@ const deserializeAws_restJson1PendingLogs = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1SanitizationWarning = (output: any, context: __SerdeContext): SanitizationWarning => {
   return {
-    __type: "SanitizationWarning",
     AttributeName:
       output.attributeName !== undefined && output.attributeName !== null ? output.attributeName : undefined,
     ElementName: output.elementName !== undefined && output.elementName !== null ? output.elementName : undefined,
@@ -3397,7 +3361,6 @@ const deserializeAws_restJson1SanitizationWarning = (output: any, context: __Ser
 
 const deserializeAws_restJson1UserPendingChanges = (output: any, context: __SerdeContext): UserPendingChanges => {
   return {
-    __type: "UserPendingChanges",
     ConsoleAccess:
       output.consoleAccess !== undefined && output.consoleAccess !== null ? output.consoleAccess : undefined,
     Groups:
@@ -3411,7 +3374,6 @@ const deserializeAws_restJson1UserPendingChanges = (output: any, context: __Serd
 
 const deserializeAws_restJson1UserSummary = (output: any, context: __SerdeContext): UserSummary => {
   return {
-    __type: "UserSummary",
     PendingChange:
       output.pendingChange !== undefined && output.pendingChange !== null ? output.pendingChange : undefined,
     Username: output.username !== undefined && output.username !== null ? output.username : undefined,
@@ -3420,7 +3382,6 @@ const deserializeAws_restJson1UserSummary = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1WeeklyStartTime = (output: any, context: __SerdeContext): WeeklyStartTime => {
   return {
-    __type: "WeeklyStartTime",
     DayOfWeek: output.dayOfWeek !== undefined && output.dayOfWeek !== null ? output.dayOfWeek : undefined,
     TimeOfDay: output.timeOfDay !== undefined && output.timeOfDay !== null ? output.timeOfDay : undefined,
     TimeZone: output.timeZone !== undefined && output.timeZone !== null ? output.timeZone : undefined,

@@ -2348,7 +2348,6 @@ export const deserializeAws_restJson1BatchAssociateProjectAssetsCommand = async 
   }
   const contents: BatchAssociateProjectAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchAssociateProjectAssetsResponse",
     errors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2436,7 +2435,6 @@ export const deserializeAws_restJson1BatchDisassociateProjectAssetsCommand = asy
   }
   const contents: BatchDisassociateProjectAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDisassociateProjectAssetsResponse",
     errors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2516,7 +2514,6 @@ export const deserializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
   }
   const contents: BatchPutAssetPropertyValueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchPutAssetPropertyValueResponse",
     errorEntries: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2620,7 +2617,6 @@ export const deserializeAws_restJson1CreateAccessPolicyCommand = async (
   }
   const contents: CreateAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAccessPolicyResponse",
     accessPolicyArn: undefined,
     accessPolicyId: undefined,
   };
@@ -2712,7 +2708,6 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   }
   const contents: CreateAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAssetResponse",
     assetArn: undefined,
     assetId: undefined,
     assetStatus: undefined,
@@ -2824,7 +2819,6 @@ export const deserializeAws_restJson1CreateAssetModelCommand = async (
   }
   const contents: CreateAssetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAssetModelResponse",
     assetModelArn: undefined,
     assetModelId: undefined,
     assetModelStatus: undefined,
@@ -2936,7 +2930,6 @@ export const deserializeAws_restJson1CreateDashboardCommand = async (
   }
   const contents: CreateDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDashboardResponse",
     dashboardArn: undefined,
     dashboardId: undefined,
   };
@@ -3028,7 +3021,6 @@ export const deserializeAws_restJson1CreateGatewayCommand = async (
   }
   const contents: CreateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGatewayResponse",
     gatewayArn: undefined,
     gatewayId: undefined,
   };
@@ -3120,7 +3112,6 @@ export const deserializeAws_restJson1CreatePortalCommand = async (
   }
   const contents: CreatePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePortalResponse",
     portalArn: undefined,
     portalId: undefined,
     portalStartUrl: undefined,
@@ -3224,7 +3215,6 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   }
   const contents: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectResponse",
     projectArn: undefined,
     projectId: undefined,
   };
@@ -3316,7 +3306,6 @@ export const deserializeAws_restJson1DeleteAccessPolicyCommand = async (
   }
   const contents: DeleteAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAccessPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3392,7 +3381,6 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
   }
   const contents: DeleteAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAssetResponse",
     assetStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3480,7 +3468,6 @@ export const deserializeAws_restJson1DeleteAssetModelCommand = async (
   }
   const contents: DeleteAssetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAssetModelResponse",
     assetModelStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3568,7 +3555,6 @@ export const deserializeAws_restJson1DeleteDashboardCommand = async (
   }
   const contents: DeleteDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDashboardResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3719,7 +3705,6 @@ export const deserializeAws_restJson1DeletePortalCommand = async (
   }
   const contents: DeletePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePortalResponse",
     portalStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3807,7 +3792,6 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   }
   const contents: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3883,7 +3867,6 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
   }
   const contents: DescribeAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccessPolicyResponse",
     accessPolicyArn: undefined,
     accessPolicyCreationDate: undefined,
     accessPolicyId: undefined,
@@ -3987,7 +3970,6 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   }
   const contents: DescribeAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssetResponse",
     assetArn: undefined,
     assetCreationDate: undefined,
     assetHierarchies: undefined,
@@ -4099,7 +4081,6 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
   }
   const contents: DescribeAssetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssetModelResponse",
     assetModelArn: undefined,
     assetModelCreationDate: undefined,
     assetModelDescription: undefined,
@@ -4211,7 +4192,6 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
   }
   const contents: DescribeAssetPropertyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssetPropertyResponse",
     assetId: undefined,
     assetModelId: undefined,
     assetName: undefined,
@@ -4303,7 +4283,6 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
   }
   const contents: DescribeDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDashboardResponse",
     dashboardArn: undefined,
     dashboardCreationDate: undefined,
     dashboardDefinition: undefined,
@@ -4411,7 +4390,6 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
   }
   const contents: DescribeGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGatewayResponse",
     creationDate: undefined,
     gatewayArn: undefined,
     gatewayCapabilitySummaries: undefined,
@@ -4518,7 +4496,6 @@ export const deserializeAws_restJson1DescribeGatewayCapabilityConfigurationComma
   }
   const contents: DescribeGatewayCapabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGatewayCapabilityConfigurationResponse",
     capabilityConfiguration: undefined,
     capabilityNamespace: undefined,
     capabilitySyncStatus: undefined,
@@ -4610,7 +4587,6 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoggingOptionsResponse",
     loggingOptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4690,7 +4666,6 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   }
   const contents: DescribePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePortalResponse",
     portalArn: undefined,
     portalClientId: undefined,
     portalContactEmail: undefined,
@@ -4814,7 +4789,6 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   }
   const contents: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectResponse",
     portalId: undefined,
     projectArn: undefined,
     projectCreationDate: undefined,
@@ -5001,7 +4975,6 @@ export const deserializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   }
   const contents: GetAssetPropertyAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssetPropertyAggregatesResponse",
     aggregatedValues: undefined,
     nextToken: undefined,
   };
@@ -5093,7 +5066,6 @@ export const deserializeAws_restJson1GetAssetPropertyValueCommand = async (
   }
   const contents: GetAssetPropertyValueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssetPropertyValueResponse",
     propertyValue: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5181,7 +5153,6 @@ export const deserializeAws_restJson1GetAssetPropertyValueHistoryCommand = async
   }
   const contents: GetAssetPropertyValueHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssetPropertyValueHistoryResponse",
     assetPropertyValueHistory: undefined,
     nextToken: undefined,
   };
@@ -5276,7 +5247,6 @@ export const deserializeAws_restJson1ListAccessPoliciesCommand = async (
   }
   const contents: ListAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccessPoliciesResponse",
     accessPolicySummaries: undefined,
     nextToken: undefined,
   };
@@ -5352,7 +5322,6 @@ export const deserializeAws_restJson1ListAssetModelsCommand = async (
   }
   const contents: ListAssetModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssetModelsResponse",
     assetModelSummaries: undefined,
     nextToken: undefined,
   };
@@ -5428,7 +5397,6 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
   }
   const contents: ListAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssetsResponse",
     assetSummaries: undefined,
     nextToken: undefined,
   };
@@ -5512,7 +5480,6 @@ export const deserializeAws_restJson1ListAssociatedAssetsCommand = async (
   }
   const contents: ListAssociatedAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssociatedAssetsResponse",
     assetSummaries: undefined,
     nextToken: undefined,
   };
@@ -5596,7 +5563,6 @@ export const deserializeAws_restJson1ListDashboardsCommand = async (
   }
   const contents: ListDashboardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDashboardsResponse",
     dashboardSummaries: undefined,
     nextToken: undefined,
   };
@@ -5672,7 +5638,6 @@ export const deserializeAws_restJson1ListGatewaysCommand = async (
   }
   const contents: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGatewaysResponse",
     gatewaySummaries: undefined,
     nextToken: undefined,
   };
@@ -5748,7 +5713,6 @@ export const deserializeAws_restJson1ListPortalsCommand = async (
   }
   const contents: ListPortalsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPortalsResponse",
     nextToken: undefined,
     portalSummaries: undefined,
   };
@@ -5824,7 +5788,6 @@ export const deserializeAws_restJson1ListProjectAssetsCommand = async (
   }
   const contents: ListProjectAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProjectAssetsResponse",
     assetIds: undefined,
     nextToken: undefined,
   };
@@ -5900,7 +5863,6 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   }
   const contents: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProjectsResponse",
     nextToken: undefined,
     projectSummaries: undefined,
   };
@@ -5976,7 +5938,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6056,7 +6017,6 @@ export const deserializeAws_restJson1PutLoggingOptionsCommand = async (
   }
   const contents: PutLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLoggingOptionsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6140,7 +6100,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6224,7 +6183,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6300,7 +6258,6 @@ export const deserializeAws_restJson1UpdateAccessPolicyCommand = async (
   }
   const contents: UpdateAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAccessPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6376,7 +6333,6 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
   }
   const contents: UpdateAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAssetResponse",
     assetStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6472,7 +6428,6 @@ export const deserializeAws_restJson1UpdateAssetModelCommand = async (
   }
   const contents: UpdateAssetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAssetModelResponse",
     assetModelStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6659,7 +6614,6 @@ export const deserializeAws_restJson1UpdateDashboardCommand = async (
   }
   const contents: UpdateDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDashboardResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6818,7 +6772,6 @@ export const deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
   }
   const contents: UpdateGatewayCapabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGatewayCapabilityConfigurationResponse",
     capabilityNamespace: undefined,
     capabilitySyncStatus: undefined,
   };
@@ -6918,7 +6871,6 @@ export const deserializeAws_restJson1UpdatePortalCommand = async (
   }
   const contents: UpdatePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePortalResponse",
     portalStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7006,7 +6958,6 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   }
   const contents: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7518,7 +7469,6 @@ const deserializeAws_restJson1AccessPolicySummaries = (output: any, context: __S
 
 const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
   return {
-    __type: "AccessPolicySummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -7542,7 +7492,6 @@ const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __Ser
 
 const deserializeAws_restJson1AggregatedValue = (output: any, context: __SerdeContext): AggregatedValue => {
   return {
-    __type: "AggregatedValue",
     quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
@@ -7561,7 +7510,6 @@ const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
   return {
-    __type: "Aggregates",
     average: output.average !== undefined && output.average !== null ? output.average : undefined,
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
@@ -7576,7 +7524,6 @@ const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __SerdeContext): AssetErrorDetails => {
   return {
-    __type: "AssetErrorDetails",
     assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -7589,7 +7536,6 @@ const deserializeAws_restJson1AssetHierarchies = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AssetHierarchy = (output: any, context: __SerdeContext): AssetHierarchy => {
   return {
-    __type: "AssetHierarchy",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -7605,7 +7551,6 @@ const deserializeAws_restJson1AssetModelHierarchies = (output: any, context: __S
 
 const deserializeAws_restJson1AssetModelHierarchy = (output: any, context: __SerdeContext): AssetModelHierarchy => {
   return {
-    __type: "AssetModelHierarchy",
     childAssetModelId:
       output.childAssetModelId !== undefined && output.childAssetModelId !== null
         ? output.childAssetModelId
@@ -7621,7 +7566,6 @@ const deserializeAws_restJson1AssetModelProperties = (output: any, context: __Se
 
 const deserializeAws_restJson1AssetModelProperty = (output: any, context: __SerdeContext): AssetModelProperty => {
   return {
-    __type: "AssetModelProperty",
     dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -7635,7 +7579,6 @@ const deserializeAws_restJson1AssetModelProperty = (output: any, context: __Serd
 
 const deserializeAws_restJson1AssetModelStatus = (output: any, context: __SerdeContext): AssetModelStatus => {
   return {
-    __type: "AssetModelStatus",
     error:
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1ErrorDetails(output.error, context)
@@ -7650,7 +7593,6 @@ const deserializeAws_restJson1AssetModelSummaries = (output: any, context: __Ser
 
 const deserializeAws_restJson1AssetModelSummary = (output: any, context: __SerdeContext): AssetModelSummary => {
   return {
-    __type: "AssetModelSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
@@ -7676,7 +7618,6 @@ const deserializeAws_restJson1AssetProperties = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeContext): AssetProperty => {
   return {
-    __type: "AssetProperty",
     alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
     dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
@@ -7691,7 +7632,6 @@ const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
   return {
-    __type: "AssetPropertyValue",
     quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
@@ -7713,7 +7653,6 @@ const deserializeAws_restJson1AssetPropertyValueHistory = (
 
 const deserializeAws_restJson1AssetStatus = (output: any, context: __SerdeContext): AssetStatus => {
   return {
-    __type: "AssetStatus",
     error:
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1ErrorDetails(output.error, context)
@@ -7728,7 +7667,6 @@ const deserializeAws_restJson1AssetSummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
   return {
-    __type: "AssetSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     assetModelId: output.assetModelId !== undefined && output.assetModelId !== null ? output.assetModelId : undefined,
     creationDate:
@@ -7764,7 +7702,6 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
   context: __SerdeContext
 ): AssociatedAssetsSummary => {
   return {
-    __type: "AssociatedAssetsSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     assetModelId: output.assetModelId !== undefined && output.assetModelId !== null ? output.assetModelId : undefined,
     creationDate:
@@ -7790,7 +7727,6 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
 
 const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    __type: "Attribute",
     defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
   } as any;
 };
@@ -7814,7 +7750,6 @@ const deserializeAws_restJson1BatchPutAssetPropertyError = (
   context: __SerdeContext
 ): BatchPutAssetPropertyError => {
   return {
-    __type: "BatchPutAssetPropertyError",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     timestamps:
@@ -7836,7 +7771,6 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrorEntry = (
   context: __SerdeContext
 ): BatchPutAssetPropertyErrorEntry => {
   return {
-    __type: "BatchPutAssetPropertyErrorEntry",
     entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
     errors:
       output.errors !== undefined && output.errors !== null
@@ -7858,7 +7792,6 @@ const deserializeAws_restJson1DashboardSummaries = (output: any, context: __Serd
 
 const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
   return {
-    __type: "DashboardSummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -7875,7 +7808,6 @@ const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   return {
-    __type: "ErrorDetails",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -7883,7 +7815,6 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ExpressionVariable = (output: any, context: __SerdeContext): ExpressionVariable => {
   return {
-    __type: "ExpressionVariable",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value:
       output.value !== undefined && output.value !== null
@@ -7908,7 +7839,6 @@ const deserializeAws_restJson1GatewayCapabilitySummary = (
   context: __SerdeContext
 ): GatewayCapabilitySummary => {
   return {
-    __type: "GatewayCapabilitySummary",
     capabilityNamespace:
       output.capabilityNamespace !== undefined && output.capabilityNamespace !== null
         ? output.capabilityNamespace
@@ -7922,7 +7852,6 @@ const deserializeAws_restJson1GatewayCapabilitySummary = (
 
 const deserializeAws_restJson1GatewayPlatform = (output: any, context: __SerdeContext): GatewayPlatform => {
   return {
-    __type: "GatewayPlatform",
     greengrass:
       output.greengrass !== undefined && output.greengrass !== null
         ? deserializeAws_restJson1Greengrass(output.greengrass, context)
@@ -7936,7 +7865,6 @@ const deserializeAws_restJson1GatewaySummaries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary => {
   return {
-    __type: "GatewaySummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -7956,21 +7884,18 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Greengrass = (output: any, context: __SerdeContext): Greengrass => {
   return {
-    __type: "Greengrass",
     groupArn: output.groupArn !== undefined && output.groupArn !== null ? output.groupArn : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1GroupIdentity = (output: any, context: __SerdeContext): GroupIdentity => {
   return {
-    __type: "GroupIdentity",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    __type: "Identity",
     group:
       output.group !== undefined && output.group !== null
         ? deserializeAws_restJson1GroupIdentity(output.group, context)
@@ -7984,7 +7909,6 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ImageLocation = (output: any, context: __SerdeContext): ImageLocation => {
   return {
-    __type: "ImageLocation",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     url: output.url !== undefined && output.url !== null ? output.url : undefined,
   } as any;
@@ -7992,20 +7916,16 @@ const deserializeAws_restJson1ImageLocation = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
   return {
-    __type: "LoggingOptions",
     level: output.level !== undefined && output.level !== null ? output.level : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Measurement = (output: any, context: __SerdeContext): Measurement => {
-  return {
-    __type: "Measurement",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): Metric => {
   return {
-    __type: "Metric",
     expression: output.expression !== undefined && output.expression !== null ? output.expression : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
@@ -8020,7 +7940,6 @@ const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): M
 
 const deserializeAws_restJson1MetricWindow = (output: any, context: __SerdeContext): MetricWindow => {
   return {
-    __type: "MetricWindow",
     tumbling:
       output.tumbling !== undefined && output.tumbling !== null
         ? deserializeAws_restJson1TumblingWindow(output.tumbling, context)
@@ -8030,7 +7949,6 @@ const deserializeAws_restJson1MetricWindow = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1MonitorErrorDetails = (output: any, context: __SerdeContext): MonitorErrorDetails => {
   return {
-    __type: "MonitorErrorDetails",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -8038,14 +7956,12 @@ const deserializeAws_restJson1MonitorErrorDetails = (output: any, context: __Ser
 
 const deserializeAws_restJson1PortalResource = (output: any, context: __SerdeContext): PortalResource => {
   return {
-    __type: "PortalResource",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1PortalStatus = (output: any, context: __SerdeContext): PortalStatus => {
   return {
-    __type: "PortalStatus",
     error:
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1MonitorErrorDetails(output.error, context)
@@ -8060,7 +7976,6 @@ const deserializeAws_restJson1PortalSummaries = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeContext): PortalSummary => {
   return {
-    __type: "PortalSummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -8079,7 +7994,6 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ProjectResource = (output: any, context: __SerdeContext): ProjectResource => {
   return {
-    __type: "ProjectResource",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
   } as any;
 };
@@ -8090,7 +8004,6 @@ const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    __type: "ProjectSummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -8107,7 +8020,6 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Property = (output: any, context: __SerdeContext): Property => {
   return {
-    __type: "Property",
     alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
     dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
@@ -8126,7 +8038,6 @@ const deserializeAws_restJson1Property = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PropertyNotification = (output: any, context: __SerdeContext): PropertyNotification => {
   return {
-    __type: "PropertyNotification",
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
     topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined,
   } as any;
@@ -8134,7 +8045,6 @@ const deserializeAws_restJson1PropertyNotification = (output: any, context: __Se
 
 const deserializeAws_restJson1PropertyType = (output: any, context: __SerdeContext): PropertyType => {
   return {
-    __type: "PropertyType",
     attribute:
       output.attribute !== undefined && output.attribute !== null
         ? deserializeAws_restJson1Attribute(output.attribute, context)
@@ -8156,7 +8066,6 @@ const deserializeAws_restJson1PropertyType = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     portal:
       output.portal !== undefined && output.portal !== null
         ? deserializeAws_restJson1PortalResource(output.portal, context)
@@ -8180,7 +8089,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContext): TimeInNanos => {
   return {
-    __type: "TimeInNanos",
     offsetInNanos:
       output.offsetInNanos !== undefined && output.offsetInNanos !== null ? output.offsetInNanos : undefined,
     timeInSeconds:
@@ -8194,7 +8102,6 @@ const deserializeAws_restJson1Timestamps = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext): Transform => {
   return {
-    __type: "Transform",
     expression: output.expression !== undefined && output.expression !== null ? output.expression : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
@@ -8205,21 +8112,18 @@ const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1TumblingWindow = (output: any, context: __SerdeContext): TumblingWindow => {
   return {
-    __type: "TumblingWindow",
     interval: output.interval !== undefined && output.interval !== null ? output.interval : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1UserIdentity = (output: any, context: __SerdeContext): UserIdentity => {
   return {
-    __type: "UserIdentity",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeContext): VariableValue => {
   return {
-    __type: "VariableValue",
     hierarchyId: output.hierarchyId !== undefined && output.hierarchyId !== null ? output.hierarchyId : undefined,
     propertyId: output.propertyId !== undefined && output.propertyId !== null ? output.propertyId : undefined,
   } as any;
@@ -8227,7 +8131,6 @@ const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Variant = (output: any, context: __SerdeContext): Variant => {
   return {
-    __type: "Variant",
     booleanValue: output.booleanValue !== undefined && output.booleanValue !== null ? output.booleanValue : undefined,
     doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
     integerValue: output.integerValue !== undefined && output.integerValue !== null ? output.integerValue : undefined,

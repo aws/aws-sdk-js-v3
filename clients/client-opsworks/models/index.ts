@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Describes an agent version.</p>
  */
 export interface AgentVersion {
-  __type?: "AgentVersion";
   /**
    * <p>The agent version.</p>
    */
@@ -21,14 +20,12 @@ export namespace AgentVersion {
   export const filterSensitiveLog = (obj: AgentVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentVersion => __isa(o, "AgentVersion");
 }
 
 /**
  * <p>A description of the app.</p>
  */
 export interface App {
-  __type?: "App";
   /**
    * <p>Whether to enable SSL for the app.</p>
    */
@@ -111,7 +108,6 @@ export namespace App {
   export const filterSensitiveLog = (obj: App): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is App => __isa(o, "App");
 }
 
 export type AppAttributesKeys = "AutoBundleOnDeploy" | "AwsFlowRubySettings" | "DocumentRoot" | "RailsEnv";
@@ -121,7 +117,6 @@ export type AppType = "aws-flow-ruby" | "java" | "nodejs" | "other" | "php" | "r
 export type Architecture = "i386" | "x86_64";
 
 export interface AssignInstanceRequest {
-  __type?: "AssignInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -137,11 +132,9 @@ export namespace AssignInstanceRequest {
   export const filterSensitiveLog = (obj: AssignInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignInstanceRequest => __isa(o, "AssignInstanceRequest");
 }
 
 export interface AssignVolumeRequest {
-  __type?: "AssignVolumeRequest";
   /**
    * <p>The volume ID.</p>
    */
@@ -157,11 +150,9 @@ export namespace AssignVolumeRequest {
   export const filterSensitiveLog = (obj: AssignVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignVolumeRequest => __isa(o, "AssignVolumeRequest");
 }
 
 export interface AssociateElasticIpRequest {
-  __type?: "AssociateElasticIpRequest";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -177,11 +168,9 @@ export namespace AssociateElasticIpRequest {
   export const filterSensitiveLog = (obj: AssociateElasticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateElasticIpRequest => __isa(o, "AssociateElasticIpRequest");
 }
 
 export interface AttachElasticLoadBalancerRequest {
-  __type?: "AttachElasticLoadBalancerRequest";
   /**
    * <p>The ID of the layer to which the Elastic Load Balancing instance is to be attached.</p>
    */
@@ -197,14 +186,12 @@ export namespace AttachElasticLoadBalancerRequest {
   export const filterSensitiveLog = (obj: AttachElasticLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachElasticLoadBalancerRequest => __isa(o, "AttachElasticLoadBalancerRequest");
 }
 
 /**
  * <p>Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks Stacks starts or stops load-based instances.</p>
  */
 export interface AutoScalingThresholds {
-  __type?: "AutoScalingThresholds";
   /**
    * <p>The number of instances to add or remove when the load exceeds a threshold.</p>
    */
@@ -257,7 +244,6 @@ export namespace AutoScalingThresholds {
   export const filterSensitiveLog = (obj: AutoScalingThresholds): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingThresholds => __isa(o, "AutoScalingThresholds");
 }
 
 export type AutoScalingType = "load" | "timer";
@@ -266,7 +252,6 @@ export type AutoScalingType = "load" | "timer";
  * <p>Describes a block device mapping. This data type maps directly to the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a> data type. </p>
  */
 export interface BlockDeviceMapping {
-  __type?: "BlockDeviceMapping";
   /**
    * <p>The virtual device name. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a>.</p>
    */
@@ -295,14 +280,12 @@ export namespace BlockDeviceMapping {
   export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockDeviceMapping => __isa(o, "BlockDeviceMapping");
 }
 
 /**
  * <p>Describes the Chef configuration.</p>
  */
 export interface ChefConfiguration {
-  __type?: "ChefConfiguration";
   /**
    * <p>The Berkshelf version.</p>
    */
@@ -318,11 +301,9 @@ export namespace ChefConfiguration {
   export const filterSensitiveLog = (obj: ChefConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChefConfiguration => __isa(o, "ChefConfiguration");
 }
 
 export interface CloneStackRequest {
-  __type?: "CloneStackRequest";
   /**
    * <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p>
    *          <ul>
@@ -628,14 +609,12 @@ export namespace CloneStackRequest {
   export const filterSensitiveLog = (obj: CloneStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloneStackRequest => __isa(o, "CloneStackRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CloneStack</code> request.</p>
  */
 export interface CloneStackResult {
-  __type?: "CloneStackResult";
   /**
    * <p>The cloned stack ID.</p>
    */
@@ -646,14 +625,12 @@ export namespace CloneStackResult {
   export const filterSensitiveLog = (obj: CloneStackResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloneStackResult => __isa(o, "CloneStackResult");
 }
 
 /**
  * <p>Describes the Amazon CloudWatch logs configuration for a layer.</p>
  */
 export interface CloudWatchLogsConfiguration {
-  __type?: "CloudWatchLogsConfiguration";
   /**
    * <p>A list of configuration options for CloudWatch Logs.</p>
    */
@@ -669,7 +646,6 @@ export namespace CloudWatchLogsConfiguration {
   export const filterSensitiveLog = (obj: CloudWatchLogsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsConfiguration => __isa(o, "CloudWatchLogsConfiguration");
 }
 
 export type CloudWatchLogsEncoding =
@@ -772,7 +748,6 @@ export type CloudWatchLogsInitialPosition = "end_of_file" | "start_of_file";
  * <p>Describes the Amazon CloudWatch logs configuration for a layer. For detailed information about members of this data type, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html">CloudWatch Logs Agent Reference</a>.</p>
  */
 export interface CloudWatchLogsLogStream {
-  __type?: "CloudWatchLogsLogStream";
   /**
    * <p>Specifies how the time stamp is extracted from logs. For more information, see the
    *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html">CloudWatch Logs Agent Reference</a>.</p>
@@ -850,7 +825,6 @@ export namespace CloudWatchLogsLogStream {
   export const filterSensitiveLog = (obj: CloudWatchLogsLogStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsLogStream => __isa(o, "CloudWatchLogsLogStream");
 }
 
 export type CloudWatchLogsTimeZone = "LOCAL" | "UTC";
@@ -859,7 +833,6 @@ export type CloudWatchLogsTimeZone = "LOCAL" | "UTC";
  * <p>Describes a command.</p>
  */
 export interface Command {
-  __type?: "Command";
   /**
    * <p>Date and time when the command was run.</p>
    */
@@ -991,11 +964,9 @@ export namespace Command {
   export const filterSensitiveLog = (obj: Command): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Command => __isa(o, "Command");
 }
 
 export interface CreateAppRequest {
-  __type?: "CreateAppRequest";
   /**
    * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
    */
@@ -1072,14 +1043,12 @@ export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CreateApp</code> request.</p>
  */
 export interface CreateAppResult {
-  __type?: "CreateAppResult";
   /**
    * <p>The app ID.</p>
    */
@@ -1090,11 +1059,9 @@ export namespace CreateAppResult {
   export const filterSensitiveLog = (obj: CreateAppResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppResult => __isa(o, "CreateAppResult");
 }
 
 export interface CreateDeploymentRequest {
-  __type?: "CreateDeploymentRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -1142,14 +1109,12 @@ export namespace CreateDeploymentRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentRequest => __isa(o, "CreateDeploymentRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CreateDeployment</code> request.</p>
  */
 export interface CreateDeploymentResult {
-  __type?: "CreateDeploymentResult";
   /**
    * <p>The deployment ID, which can be used with other requests to identify the deployment.</p>
    */
@@ -1160,11 +1125,9 @@ export namespace CreateDeploymentResult {
   export const filterSensitiveLog = (obj: CreateDeploymentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentResult => __isa(o, "CreateDeploymentResult");
 }
 
 export interface CreateInstanceRequest {
-  __type?: "CreateInstanceRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -1334,14 +1297,12 @@ export namespace CreateInstanceRequest {
   export const filterSensitiveLog = (obj: CreateInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceRequest => __isa(o, "CreateInstanceRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CreateInstance</code> request.</p>
  */
 export interface CreateInstanceResult {
-  __type?: "CreateInstanceResult";
   /**
    * <p>The instance ID.</p>
    */
@@ -1352,11 +1313,9 @@ export namespace CreateInstanceResult {
   export const filterSensitiveLog = (obj: CreateInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceResult => __isa(o, "CreateInstanceResult");
 }
 
 export interface CreateLayerRequest {
-  __type?: "CreateLayerRequest";
   /**
    * <p>Whether to use Amazon EBS-optimized instances.</p>
    */
@@ -1474,14 +1433,12 @@ export namespace CreateLayerRequest {
   export const filterSensitiveLog = (obj: CreateLayerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLayerRequest => __isa(o, "CreateLayerRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CreateLayer</code> request.</p>
  */
 export interface CreateLayerResult {
-  __type?: "CreateLayerResult";
   /**
    * <p>The layer ID.</p>
    */
@@ -1492,11 +1449,9 @@ export namespace CreateLayerResult {
   export const filterSensitiveLog = (obj: CreateLayerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLayerResult => __isa(o, "CreateLayerResult");
 }
 
 export interface CreateStackRequest {
-  __type?: "CreateStackRequest";
   /**
    * <p>Whether the stack uses custom cookbooks.</p>
    */
@@ -1799,14 +1754,12 @@ export namespace CreateStackRequest {
   export const filterSensitiveLog = (obj: CreateStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackRequest => __isa(o, "CreateStackRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CreateStack</code> request.</p>
  */
 export interface CreateStackResult {
-  __type?: "CreateStackResult";
   /**
    * <p>The stack ID, which is an opaque string that you use to identify the stack when performing
    *       actions such as <code>DescribeStacks</code>.</p>
@@ -1818,11 +1771,9 @@ export namespace CreateStackResult {
   export const filterSensitiveLog = (obj: CreateStackResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackResult => __isa(o, "CreateStackResult");
 }
 
 export interface CreateUserProfileRequest {
-  __type?: "CreateUserProfileRequest";
   /**
    * <p>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If
    *       the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example,
@@ -1853,14 +1804,12 @@ export namespace CreateUserProfileRequest {
   export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserProfileRequest => __isa(o, "CreateUserProfileRequest");
 }
 
 /**
  * <p>Contains the response to a <code>CreateUserProfile</code> request.</p>
  */
 export interface CreateUserProfileResult {
-  __type?: "CreateUserProfileResult";
   /**
    * <p>The user's IAM ARN.</p>
    */
@@ -1871,14 +1820,12 @@ export namespace CreateUserProfileResult {
   export const filterSensitiveLog = (obj: CreateUserProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserProfileResult => __isa(o, "CreateUserProfileResult");
 }
 
 /**
  * <p>Describes an app's data source.</p>
  */
 export interface DataSource {
-  __type?: "DataSource";
   /**
    * <p>The data source's ARN.</p>
    */
@@ -1900,11 +1847,9 @@ export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 export interface DeleteAppRequest {
-  __type?: "DeleteAppRequest";
   /**
    * <p>The app ID.</p>
    */
@@ -1915,11 +1860,9 @@ export namespace DeleteAppRequest {
   export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 export interface DeleteInstanceRequest {
-  __type?: "DeleteInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -1940,11 +1883,9 @@ export namespace DeleteInstanceRequest {
   export const filterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceRequest => __isa(o, "DeleteInstanceRequest");
 }
 
 export interface DeleteLayerRequest {
-  __type?: "DeleteLayerRequest";
   /**
    * <p>The layer ID.</p>
    */
@@ -1955,11 +1896,9 @@ export namespace DeleteLayerRequest {
   export const filterSensitiveLog = (obj: DeleteLayerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLayerRequest => __isa(o, "DeleteLayerRequest");
 }
 
 export interface DeleteStackRequest {
-  __type?: "DeleteStackRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -1970,11 +1909,9 @@ export namespace DeleteStackRequest {
   export const filterSensitiveLog = (obj: DeleteStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackRequest => __isa(o, "DeleteStackRequest");
 }
 
 export interface DeleteUserProfileRequest {
-  __type?: "DeleteUserProfileRequest";
   /**
    * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
    */
@@ -1985,14 +1922,12 @@ export namespace DeleteUserProfileRequest {
   export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserProfileRequest => __isa(o, "DeleteUserProfileRequest");
 }
 
 /**
  * <p>Describes a deployment of a stack or app.</p>
  */
 export interface Deployment {
-  __type?: "Deployment";
   /**
    * <p>Used to specify a stack or deployment command.</p>
    */
@@ -2074,14 +2009,12 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 /**
  * <p>Used to specify a stack or deployment command.</p>
  */
 export interface DeploymentCommand {
-  __type?: "DeploymentCommand";
   /**
    * <p>The arguments of those commands that take arguments. It should be set to a JSON object with the following format:</p>
    *          <p>
@@ -2177,7 +2110,6 @@ export namespace DeploymentCommand {
   export const filterSensitiveLog = (obj: DeploymentCommand): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentCommand => __isa(o, "DeploymentCommand");
 }
 
 export type DeploymentCommandName =
@@ -2195,7 +2127,6 @@ export type DeploymentCommandName =
   | "update_dependencies";
 
 export interface DeregisterEcsClusterRequest {
-  __type?: "DeregisterEcsClusterRequest";
   /**
    * <p>The cluster's Amazon Resource Number (ARN).</p>
    */
@@ -2206,11 +2137,9 @@ export namespace DeregisterEcsClusterRequest {
   export const filterSensitiveLog = (obj: DeregisterEcsClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterEcsClusterRequest => __isa(o, "DeregisterEcsClusterRequest");
 }
 
 export interface DeregisterElasticIpRequest {
-  __type?: "DeregisterElasticIpRequest";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -2221,11 +2150,9 @@ export namespace DeregisterElasticIpRequest {
   export const filterSensitiveLog = (obj: DeregisterElasticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterElasticIpRequest => __isa(o, "DeregisterElasticIpRequest");
 }
 
 export interface DeregisterInstanceRequest {
-  __type?: "DeregisterInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -2236,11 +2163,9 @@ export namespace DeregisterInstanceRequest {
   export const filterSensitiveLog = (obj: DeregisterInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterInstanceRequest => __isa(o, "DeregisterInstanceRequest");
 }
 
 export interface DeregisterRdsDbInstanceRequest {
-  __type?: "DeregisterRdsDbInstanceRequest";
   /**
    * <p>The Amazon RDS instance's ARN.</p>
    */
@@ -2251,11 +2176,9 @@ export namespace DeregisterRdsDbInstanceRequest {
   export const filterSensitiveLog = (obj: DeregisterRdsDbInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterRdsDbInstanceRequest => __isa(o, "DeregisterRdsDbInstanceRequest");
 }
 
 export interface DeregisterVolumeRequest {
-  __type?: "DeregisterVolumeRequest";
   /**
    * <p>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.</p>
    */
@@ -2266,11 +2189,9 @@ export namespace DeregisterVolumeRequest {
   export const filterSensitiveLog = (obj: DeregisterVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterVolumeRequest => __isa(o, "DeregisterVolumeRequest");
 }
 
 export interface DescribeAgentVersionsRequest {
-  __type?: "DescribeAgentVersionsRequest";
   /**
    * <p>The configuration manager.</p>
    */
@@ -2286,14 +2207,12 @@ export namespace DescribeAgentVersionsRequest {
   export const filterSensitiveLog = (obj: DescribeAgentVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentVersionsRequest => __isa(o, "DescribeAgentVersionsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeAgentVersions</code> request.</p>
  */
 export interface DescribeAgentVersionsResult {
-  __type?: "DescribeAgentVersionsResult";
   /**
    * <p>The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.</p>
    */
@@ -2304,11 +2223,9 @@ export namespace DescribeAgentVersionsResult {
   export const filterSensitiveLog = (obj: DescribeAgentVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentVersionsResult => __isa(o, "DescribeAgentVersionsResult");
 }
 
 export interface DescribeAppsRequest {
-  __type?: "DescribeAppsRequest";
   /**
    * <p>The app stack ID. If you use this parameter, <code>DescribeApps</code> returns a description
    *       of the apps in the specified stack.</p>
@@ -2327,14 +2244,12 @@ export namespace DescribeAppsRequest {
   export const filterSensitiveLog = (obj: DescribeAppsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAppsRequest => __isa(o, "DescribeAppsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeApps</code> request.</p>
  */
 export interface DescribeAppsResult {
-  __type?: "DescribeAppsResult";
   /**
    * <p>An array of <code>App</code> objects that describe the specified apps. </p>
    */
@@ -2345,11 +2260,9 @@ export namespace DescribeAppsResult {
   export const filterSensitiveLog = (obj: DescribeAppsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAppsResult => __isa(o, "DescribeAppsResult");
 }
 
 export interface DescribeCommandsRequest {
-  __type?: "DescribeCommandsRequest";
   /**
    * <p>The deployment ID. If you include this parameter, <code>DescribeCommands</code> returns a
    *       description of the commands associated with the specified deployment.</p>
@@ -2374,14 +2287,12 @@ export namespace DescribeCommandsRequest {
   export const filterSensitiveLog = (obj: DescribeCommandsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCommandsRequest => __isa(o, "DescribeCommandsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeCommands</code> request.</p>
  */
 export interface DescribeCommandsResult {
-  __type?: "DescribeCommandsResult";
   /**
    * <p>An array of <code>Command</code> objects that describe each of the specified commands.</p>
    */
@@ -2392,11 +2303,9 @@ export namespace DescribeCommandsResult {
   export const filterSensitiveLog = (obj: DescribeCommandsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCommandsResult => __isa(o, "DescribeCommandsResult");
 }
 
 export interface DescribeDeploymentsRequest {
-  __type?: "DescribeDeploymentsRequest";
   /**
    * <p>The app ID. If you include this parameter, the command returns a
    *       description of the commands associated with the specified app.</p>
@@ -2421,14 +2330,12 @@ export namespace DescribeDeploymentsRequest {
   export const filterSensitiveLog = (obj: DescribeDeploymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDeploymentsRequest => __isa(o, "DescribeDeploymentsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeDeployments</code> request.</p>
  */
 export interface DescribeDeploymentsResult {
-  __type?: "DescribeDeploymentsResult";
   /**
    * <p>An array of <code>Deployment</code> objects that describe the deployments.</p>
    */
@@ -2439,11 +2346,9 @@ export namespace DescribeDeploymentsResult {
   export const filterSensitiveLog = (obj: DescribeDeploymentsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDeploymentsResult => __isa(o, "DescribeDeploymentsResult");
 }
 
 export interface DescribeEcsClustersRequest {
-  __type?: "DescribeEcsClustersRequest";
   /**
    * <p>A list of ARNs, one for each cluster to be described.</p>
    */
@@ -2478,14 +2383,12 @@ export namespace DescribeEcsClustersRequest {
   export const filterSensitiveLog = (obj: DescribeEcsClustersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEcsClustersRequest => __isa(o, "DescribeEcsClustersRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeEcsClusters</code> request.</p>
  */
 export interface DescribeEcsClustersResult {
-  __type?: "DescribeEcsClustersResult";
   /**
    * <p>A list of <code>EcsCluster</code> objects containing the cluster descriptions.</p>
    */
@@ -2504,11 +2407,9 @@ export namespace DescribeEcsClustersResult {
   export const filterSensitiveLog = (obj: DescribeEcsClustersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEcsClustersResult => __isa(o, "DescribeEcsClustersResult");
 }
 
 export interface DescribeElasticIpsRequest {
-  __type?: "DescribeElasticIpsRequest";
   /**
    * <p>A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns a
    *       description of the Elastic IP addresses that are registered with the specified stack.</p>
@@ -2533,14 +2434,12 @@ export namespace DescribeElasticIpsRequest {
   export const filterSensitiveLog = (obj: DescribeElasticIpsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticIpsRequest => __isa(o, "DescribeElasticIpsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeElasticIps</code> request.</p>
  */
 export interface DescribeElasticIpsResult {
-  __type?: "DescribeElasticIpsResult";
   /**
    * <p>An <code>ElasticIps</code> object that describes the specified Elastic IP addresses.</p>
    */
@@ -2551,11 +2450,9 @@ export namespace DescribeElasticIpsResult {
   export const filterSensitiveLog = (obj: DescribeElasticIpsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticIpsResult => __isa(o, "DescribeElasticIpsResult");
 }
 
 export interface DescribeElasticLoadBalancersRequest {
-  __type?: "DescribeElasticLoadBalancersRequest";
   /**
    * <p>A stack ID. The action describes the stack's Elastic Load Balancing instances.</p>
    */
@@ -2571,15 +2468,12 @@ export namespace DescribeElasticLoadBalancersRequest {
   export const filterSensitiveLog = (obj: DescribeElasticLoadBalancersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticLoadBalancersRequest =>
-    __isa(o, "DescribeElasticLoadBalancersRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeElasticLoadBalancers</code> request.</p>
  */
 export interface DescribeElasticLoadBalancersResult {
-  __type?: "DescribeElasticLoadBalancersResult";
   /**
    * <p>A list of <code>ElasticLoadBalancer</code> objects that describe the specified Elastic Load Balancing
    *       instances.</p>
@@ -2591,12 +2485,9 @@ export namespace DescribeElasticLoadBalancersResult {
   export const filterSensitiveLog = (obj: DescribeElasticLoadBalancersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeElasticLoadBalancersResult =>
-    __isa(o, "DescribeElasticLoadBalancersResult");
 }
 
 export interface DescribeInstancesRequest {
-  __type?: "DescribeInstancesRequest";
   /**
    * <p>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of
    *       the instances associated with the specified layer.</p>
@@ -2621,14 +2512,12 @@ export namespace DescribeInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesRequest => __isa(o, "DescribeInstancesRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeInstances</code> request.</p>
  */
 export interface DescribeInstancesResult {
-  __type?: "DescribeInstancesResult";
   /**
    * <p>An array of <code>Instance</code> objects that describe the instances.</p>
    */
@@ -2639,11 +2528,9 @@ export namespace DescribeInstancesResult {
   export const filterSensitiveLog = (obj: DescribeInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesResult => __isa(o, "DescribeInstancesResult");
 }
 
 export interface DescribeLayersRequest {
-  __type?: "DescribeLayersRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -2660,14 +2547,12 @@ export namespace DescribeLayersRequest {
   export const filterSensitiveLog = (obj: DescribeLayersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLayersRequest => __isa(o, "DescribeLayersRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeLayers</code> request.</p>
  */
 export interface DescribeLayersResult {
-  __type?: "DescribeLayersResult";
   /**
    * <p>An array of <code>Layer</code> objects that describe the layers.</p>
    */
@@ -2678,11 +2563,9 @@ export namespace DescribeLayersResult {
   export const filterSensitiveLog = (obj: DescribeLayersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLayersResult => __isa(o, "DescribeLayersResult");
 }
 
 export interface DescribeLoadBasedAutoScalingRequest {
-  __type?: "DescribeLoadBasedAutoScalingRequest";
   /**
    * <p>An array of layer IDs.</p>
    */
@@ -2693,15 +2576,12 @@ export namespace DescribeLoadBasedAutoScalingRequest {
   export const filterSensitiveLog = (obj: DescribeLoadBasedAutoScalingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBasedAutoScalingRequest =>
-    __isa(o, "DescribeLoadBasedAutoScalingRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeLoadBasedAutoScaling</code> request.</p>
  */
 export interface DescribeLoadBasedAutoScalingResult {
-  __type?: "DescribeLoadBasedAutoScalingResult";
   /**
    * <p>An array of <code>LoadBasedAutoScalingConfiguration</code> objects that describe each layer's
    *       configuration.</p>
@@ -2713,15 +2593,12 @@ export namespace DescribeLoadBasedAutoScalingResult {
   export const filterSensitiveLog = (obj: DescribeLoadBasedAutoScalingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBasedAutoScalingResult =>
-    __isa(o, "DescribeLoadBasedAutoScalingResult");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeMyUserProfile</code> request.</p>
  */
 export interface DescribeMyUserProfileResult {
-  __type?: "DescribeMyUserProfileResult";
   /**
    * <p>A <code>UserProfile</code> object that describes the user's SSH information.</p>
    */
@@ -2732,14 +2609,12 @@ export namespace DescribeMyUserProfileResult {
   export const filterSensitiveLog = (obj: DescribeMyUserProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMyUserProfileResult => __isa(o, "DescribeMyUserProfileResult");
 }
 
 /**
  * <p>The response to a <code>DescribeOperatingSystems</code> request.</p>
  */
 export interface DescribeOperatingSystemsResponse {
-  __type?: "DescribeOperatingSystemsResponse";
   /**
    * <p>Contains information in response to a <code>DescribeOperatingSystems</code> request.</p>
    */
@@ -2750,11 +2625,9 @@ export namespace DescribeOperatingSystemsResponse {
   export const filterSensitiveLog = (obj: DescribeOperatingSystemsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOperatingSystemsResponse => __isa(o, "DescribeOperatingSystemsResponse");
 }
 
 export interface DescribePermissionsRequest {
-  __type?: "DescribePermissionsRequest";
   /**
    * <p>The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
    *       Identifiers</a>.</p>
@@ -2771,14 +2644,12 @@ export namespace DescribePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePermissionsRequest => __isa(o, "DescribePermissionsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribePermissions</code> request.</p>
  */
 export interface DescribePermissionsResult {
-  __type?: "DescribePermissionsResult";
   /**
    * <p>An array of <code>Permission</code> objects that describe the stack permissions.</p>
    *          <ul>
@@ -2803,11 +2674,9 @@ export namespace DescribePermissionsResult {
   export const filterSensitiveLog = (obj: DescribePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePermissionsResult => __isa(o, "DescribePermissionsResult");
 }
 
 export interface DescribeRaidArraysRequest {
-  __type?: "DescribeRaidArraysRequest";
   /**
    * <p>An array of RAID array IDs. If you use this parameter, <code>DescribeRaidArrays</code>
    *       returns descriptions of the specified arrays. Otherwise, it returns a description of every
@@ -2831,14 +2700,12 @@ export namespace DescribeRaidArraysRequest {
   export const filterSensitiveLog = (obj: DescribeRaidArraysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRaidArraysRequest => __isa(o, "DescribeRaidArraysRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeRaidArrays</code> request.</p>
  */
 export interface DescribeRaidArraysResult {
-  __type?: "DescribeRaidArraysResult";
   /**
    * <p>A <code>RaidArrays</code> object that describes the specified RAID arrays.</p>
    */
@@ -2849,11 +2716,9 @@ export namespace DescribeRaidArraysResult {
   export const filterSensitiveLog = (obj: DescribeRaidArraysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRaidArraysResult => __isa(o, "DescribeRaidArraysResult");
 }
 
 export interface DescribeRdsDbInstancesRequest {
-  __type?: "DescribeRdsDbInstancesRequest";
   /**
    * <p>The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.</p>
    */
@@ -2869,14 +2734,12 @@ export namespace DescribeRdsDbInstancesRequest {
   export const filterSensitiveLog = (obj: DescribeRdsDbInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRdsDbInstancesRequest => __isa(o, "DescribeRdsDbInstancesRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeRdsDbInstances</code> request.</p>
  */
 export interface DescribeRdsDbInstancesResult {
-  __type?: "DescribeRdsDbInstancesResult";
   /**
    * <p>An a array of <code>RdsDbInstance</code> objects that describe the instances.</p>
    */
@@ -2887,11 +2750,9 @@ export namespace DescribeRdsDbInstancesResult {
   export const filterSensitiveLog = (obj: DescribeRdsDbInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRdsDbInstancesResult => __isa(o, "DescribeRdsDbInstancesResult");
 }
 
 export interface DescribeServiceErrorsRequest {
-  __type?: "DescribeServiceErrorsRequest";
   /**
    * <p>An array of service error IDs. If you use this parameter, <code>DescribeServiceErrors</code>
    *       returns descriptions of the specified errors. Otherwise, it returns a description of every
@@ -2916,14 +2777,12 @@ export namespace DescribeServiceErrorsRequest {
   export const filterSensitiveLog = (obj: DescribeServiceErrorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServiceErrorsRequest => __isa(o, "DescribeServiceErrorsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeServiceErrors</code> request.</p>
  */
 export interface DescribeServiceErrorsResult {
-  __type?: "DescribeServiceErrorsResult";
   /**
    * <p>An array of <code>ServiceError</code> objects that describe the specified service errors.</p>
    */
@@ -2934,11 +2793,9 @@ export namespace DescribeServiceErrorsResult {
   export const filterSensitiveLog = (obj: DescribeServiceErrorsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServiceErrorsResult => __isa(o, "DescribeServiceErrorsResult");
 }
 
 export interface DescribeStackProvisioningParametersRequest {
-  __type?: "DescribeStackProvisioningParametersRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -2949,15 +2806,12 @@ export namespace DescribeStackProvisioningParametersRequest {
   export const filterSensitiveLog = (obj: DescribeStackProvisioningParametersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackProvisioningParametersRequest =>
-    __isa(o, "DescribeStackProvisioningParametersRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeStackProvisioningParameters</code> request.</p>
  */
 export interface DescribeStackProvisioningParametersResult {
-  __type?: "DescribeStackProvisioningParametersResult";
   /**
    * <p>The AWS OpsWorks Stacks agent installer's URL.</p>
    */
@@ -2973,12 +2827,9 @@ export namespace DescribeStackProvisioningParametersResult {
   export const filterSensitiveLog = (obj: DescribeStackProvisioningParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackProvisioningParametersResult =>
-    __isa(o, "DescribeStackProvisioningParametersResult");
 }
 
 export interface DescribeStacksRequest {
-  __type?: "DescribeStacksRequest";
   /**
    * <p>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
    *         <code>DescribeStacks</code> returns a description of every stack.</p>
@@ -2990,14 +2841,12 @@ export namespace DescribeStacksRequest {
   export const filterSensitiveLog = (obj: DescribeStacksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksRequest => __isa(o, "DescribeStacksRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeStacks</code> request.</p>
  */
 export interface DescribeStacksResult {
-  __type?: "DescribeStacksResult";
   /**
    * <p>An array of <code>Stack</code> objects that describe the stacks.</p>
    */
@@ -3008,11 +2857,9 @@ export namespace DescribeStacksResult {
   export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksResult => __isa(o, "DescribeStacksResult");
 }
 
 export interface DescribeStackSummaryRequest {
-  __type?: "DescribeStackSummaryRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -3023,14 +2870,12 @@ export namespace DescribeStackSummaryRequest {
   export const filterSensitiveLog = (obj: DescribeStackSummaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackSummaryRequest => __isa(o, "DescribeStackSummaryRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeStackSummary</code> request.</p>
  */
 export interface DescribeStackSummaryResult {
-  __type?: "DescribeStackSummaryResult";
   /**
    * <p>A <code>StackSummary</code> object that contains the results.</p>
    */
@@ -3041,11 +2886,9 @@ export namespace DescribeStackSummaryResult {
   export const filterSensitiveLog = (obj: DescribeStackSummaryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackSummaryResult => __isa(o, "DescribeStackSummaryResult");
 }
 
 export interface DescribeTimeBasedAutoScalingRequest {
-  __type?: "DescribeTimeBasedAutoScalingRequest";
   /**
    * <p>An array of instance IDs.</p>
    */
@@ -3056,15 +2899,12 @@ export namespace DescribeTimeBasedAutoScalingRequest {
   export const filterSensitiveLog = (obj: DescribeTimeBasedAutoScalingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTimeBasedAutoScalingRequest =>
-    __isa(o, "DescribeTimeBasedAutoScalingRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeTimeBasedAutoScaling</code> request.</p>
  */
 export interface DescribeTimeBasedAutoScalingResult {
-  __type?: "DescribeTimeBasedAutoScalingResult";
   /**
    * <p>An array of <code>TimeBasedAutoScalingConfiguration</code> objects that describe the
    *       configuration for the specified instances.</p>
@@ -3076,12 +2916,9 @@ export namespace DescribeTimeBasedAutoScalingResult {
   export const filterSensitiveLog = (obj: DescribeTimeBasedAutoScalingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTimeBasedAutoScalingResult =>
-    __isa(o, "DescribeTimeBasedAutoScalingResult");
 }
 
 export interface DescribeUserProfilesRequest {
-  __type?: "DescribeUserProfilesRequest";
   /**
    * <p>An array of IAM or federated user ARNs that identify the users to be described.</p>
    */
@@ -3092,14 +2929,12 @@ export namespace DescribeUserProfilesRequest {
   export const filterSensitiveLog = (obj: DescribeUserProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserProfilesRequest => __isa(o, "DescribeUserProfilesRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeUserProfiles</code> request.</p>
  */
 export interface DescribeUserProfilesResult {
-  __type?: "DescribeUserProfilesResult";
   /**
    * <p>A <code>Users</code> object that describes the specified users.</p>
    */
@@ -3110,11 +2945,9 @@ export namespace DescribeUserProfilesResult {
   export const filterSensitiveLog = (obj: DescribeUserProfilesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserProfilesResult => __isa(o, "DescribeUserProfilesResult");
 }
 
 export interface DescribeVolumesRequest {
-  __type?: "DescribeVolumesRequest";
   /**
    * <p>A stack ID. The action describes the stack's registered Amazon EBS volumes.</p>
    */
@@ -3144,14 +2977,12 @@ export namespace DescribeVolumesRequest {
   export const filterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesRequest => __isa(o, "DescribeVolumesRequest");
 }
 
 /**
  * <p>Contains the response to a <code>DescribeVolumes</code> request.</p>
  */
 export interface DescribeVolumesResult {
-  __type?: "DescribeVolumesResult";
   /**
    * <p>An array of volume IDs.</p>
    */
@@ -3162,11 +2993,9 @@ export namespace DescribeVolumesResult {
   export const filterSensitiveLog = (obj: DescribeVolumesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVolumesResult => __isa(o, "DescribeVolumesResult");
 }
 
 export interface DetachElasticLoadBalancerRequest {
-  __type?: "DetachElasticLoadBalancerRequest";
   /**
    * <p>The ID of the layer that the Elastic Load Balancing instance is attached to.</p>
    */
@@ -3182,11 +3011,9 @@ export namespace DetachElasticLoadBalancerRequest {
   export const filterSensitiveLog = (obj: DetachElasticLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachElasticLoadBalancerRequest => __isa(o, "DetachElasticLoadBalancerRequest");
 }
 
 export interface DisassociateElasticIpRequest {
-  __type?: "DisassociateElasticIpRequest";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -3197,7 +3024,6 @@ export namespace DisassociateElasticIpRequest {
   export const filterSensitiveLog = (obj: DisassociateElasticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateElasticIpRequest => __isa(o, "DisassociateElasticIpRequest");
 }
 
 /**
@@ -3205,7 +3031,6 @@ export namespace DisassociateElasticIpRequest {
  *       data type.</p>
  */
 export interface EbsBlockDevice {
-  __type?: "EbsBlockDevice";
   /**
    * <p>The volume type. <code>gp2</code> for General Purpose (SSD) volumes, <code>io1</code> for
    *           Provisioned IOPS (SSD) volumes, <code>st1</code> for Throughput Optimized hard disk drives (HDD), <code>sc1</code> for Cold HDD,and <code>standard</code> for Magnetic volumes.</p>
@@ -3241,14 +3066,12 @@ export namespace EbsBlockDevice {
   export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsBlockDevice => __isa(o, "EbsBlockDevice");
 }
 
 /**
  * <p>Describes a registered Amazon ECS cluster.</p>
  */
 export interface EcsCluster {
-  __type?: "EcsCluster";
   /**
    * <p>The cluster's ARN.</p>
    */
@@ -3274,14 +3097,12 @@ export namespace EcsCluster {
   export const filterSensitiveLog = (obj: EcsCluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EcsCluster => __isa(o, "EcsCluster");
 }
 
 /**
  * <p>Describes an Elastic IP address.</p>
  */
 export interface ElasticIp {
-  __type?: "ElasticIp";
   /**
    * <p>The name.</p>
    */
@@ -3312,14 +3133,12 @@ export namespace ElasticIp {
   export const filterSensitiveLog = (obj: ElasticIp): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticIp => __isa(o, "ElasticIp");
 }
 
 /**
  * <p>Describes an Elastic Load Balancing instance.</p>
  */
 export interface ElasticLoadBalancer {
-  __type?: "ElasticLoadBalancer";
   /**
    * <p>The ID of the layer that the instance is attached to.</p>
    */
@@ -3370,14 +3189,12 @@ export namespace ElasticLoadBalancer {
   export const filterSensitiveLog = (obj: ElasticLoadBalancer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticLoadBalancer => __isa(o, "ElasticLoadBalancer");
 }
 
 /**
  * <p>Represents an app's environment variable.</p>
  */
 export interface EnvironmentVariable {
-  __type?: "EnvironmentVariable";
   /**
    * <p>(Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.</p>
    */
@@ -3401,11 +3218,9 @@ export namespace EnvironmentVariable {
   export const filterSensitiveLog = (obj: EnvironmentVariable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentVariable => __isa(o, "EnvironmentVariable");
 }
 
 export interface GetHostnameSuggestionRequest {
-  __type?: "GetHostnameSuggestionRequest";
   /**
    * <p>The layer ID.</p>
    */
@@ -3416,14 +3231,12 @@ export namespace GetHostnameSuggestionRequest {
   export const filterSensitiveLog = (obj: GetHostnameSuggestionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostnameSuggestionRequest => __isa(o, "GetHostnameSuggestionRequest");
 }
 
 /**
  * <p>Contains the response to a <code>GetHostnameSuggestion</code> request.</p>
  */
 export interface GetHostnameSuggestionResult {
-  __type?: "GetHostnameSuggestionResult";
   /**
    * <p>The layer ID.</p>
    */
@@ -3439,11 +3252,9 @@ export namespace GetHostnameSuggestionResult {
   export const filterSensitiveLog = (obj: GetHostnameSuggestionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostnameSuggestionResult => __isa(o, "GetHostnameSuggestionResult");
 }
 
 export interface GrantAccessRequest {
-  __type?: "GrantAccessRequest";
   /**
    * <p>The instance's AWS OpsWorks Stacks ID.</p>
    */
@@ -3459,14 +3270,12 @@ export namespace GrantAccessRequest {
   export const filterSensitiveLog = (obj: GrantAccessRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantAccessRequest => __isa(o, "GrantAccessRequest");
 }
 
 /**
  * <p>Contains the response to a <code>GrantAccess</code> request.</p>
  */
 export interface GrantAccessResult {
-  __type?: "GrantAccessResult";
   /**
    * <p>A <code>TemporaryCredential</code> object that contains the data needed to log in to the
    *       instance by RDP clients, such as the Microsoft Remote Desktop Connection.</p>
@@ -3478,14 +3287,12 @@ export namespace GrantAccessResult {
   export const filterSensitiveLog = (obj: GrantAccessResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantAccessResult => __isa(o, "GrantAccessResult");
 }
 
 /**
  * <p>Describes an instance.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
    *       value is <code>true</code>. If this value is set to <code>false</code>, you must then update
@@ -3790,7 +3597,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -3798,7 +3604,6 @@ export namespace Instance {
  *       information, see <a href="https://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html">Instance Metadata and User Data</a>.</p>
  */
 export interface InstanceIdentity {
-  __type?: "InstanceIdentity";
   /**
    * <p>A signature that can be used to verify the document's accuracy and authenticity.</p>
    */
@@ -3814,14 +3619,12 @@ export namespace InstanceIdentity {
   export const filterSensitiveLog = (obj: InstanceIdentity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceIdentity => __isa(o, "InstanceIdentity");
 }
 
 /**
  * <p>Describes how many instances a stack has for each status.</p>
  */
 export interface InstancesCount {
-  __type?: "InstancesCount";
   /**
    * <p>The number of instances with <code>stopped</code> status.</p>
    */
@@ -3927,14 +3730,12 @@ export namespace InstancesCount {
   export const filterSensitiveLog = (obj: InstancesCount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstancesCount => __isa(o, "InstancesCount");
 }
 
 /**
  * <p>Describes a layer.</p>
  */
 export interface Layer {
-  __type?: "Layer";
   /**
    * <p>The layer name.</p>
    */
@@ -4082,7 +3883,6 @@ export namespace Layer {
   export const filterSensitiveLog = (obj: Layer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
 
 export type LayerAttributesKeys =
@@ -4130,7 +3930,6 @@ export type LayerType =
  * <p>Specifies the lifecycle event configuration</p>
  */
 export interface LifecycleEventConfiguration {
-  __type?: "LifecycleEventConfiguration";
   /**
    * <p>A <code>ShutdownEventConfiguration</code> object that specifies the Shutdown event
    *       configuration.</p>
@@ -4142,11 +3941,9 @@ export namespace LifecycleEventConfiguration {
   export const filterSensitiveLog = (obj: LifecycleEventConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleEventConfiguration => __isa(o, "LifecycleEventConfiguration");
 }
 
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * <p>The stack or layer's Amazon Resource Number (ARN).</p>
    */
@@ -4169,14 +3966,12 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 /**
  * <p>Contains the response to a <code>ListTags</code> request.</p>
  */
 export interface ListTagsResult {
-  __type?: "ListTagsResult";
   /**
    * <p>A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.</p>
    */
@@ -4196,14 +3991,12 @@ export namespace ListTagsResult {
   export const filterSensitiveLog = (obj: ListTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResult => __isa(o, "ListTagsResult");
 }
 
 /**
  * <p>Describes a layer's load-based auto scaling configuration.</p>
  */
 export interface LoadBasedAutoScalingConfiguration {
-  __type?: "LoadBasedAutoScalingConfiguration";
   /**
    * <p>The layer ID.</p>
    */
@@ -4231,14 +4024,12 @@ export namespace LoadBasedAutoScalingConfiguration {
   export const filterSensitiveLog = (obj: LoadBasedAutoScalingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBasedAutoScalingConfiguration => __isa(o, "LoadBasedAutoScalingConfiguration");
 }
 
 /**
  * <p>Describes supported operating systems in AWS OpsWorks Stacks.</p>
  */
 export interface OperatingSystem {
-  __type?: "OperatingSystem";
   /**
    * <p>The ID of a supported operating system, such as <code>Amazon Linux 2018.03</code>.</p>
    */
@@ -4279,14 +4070,12 @@ export namespace OperatingSystem {
   export const filterSensitiveLog = (obj: OperatingSystem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperatingSystem => __isa(o, "OperatingSystem");
 }
 
 /**
  * <p>A block that contains information about the configuration manager (Chef) and the versions of the configuration manager that are supported for an operating system.</p>
  */
 export interface OperatingSystemConfigurationManager {
-  __type?: "OperatingSystemConfigurationManager";
   /**
    * <p>The versions of the configuration manager that are supported by an operating system.</p>
    */
@@ -4302,15 +4091,12 @@ export namespace OperatingSystemConfigurationManager {
   export const filterSensitiveLog = (obj: OperatingSystemConfigurationManager): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperatingSystemConfigurationManager =>
-    __isa(o, "OperatingSystemConfigurationManager");
 }
 
 /**
  * <p>Describes stack or user permissions.</p>
  */
 export interface Permission {
-  __type?: "Permission";
   /**
    * <p>Whether the user can use SSH.</p>
    */
@@ -4372,14 +4158,12 @@ export namespace Permission {
   export const filterSensitiveLog = (obj: Permission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Permission => __isa(o, "Permission");
 }
 
 /**
  * <p>Describes an instance's RAID array.</p>
  */
 export interface RaidArray {
-  __type?: "RaidArray";
   /**
    * <p>The array's Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
    */
@@ -4450,14 +4234,12 @@ export namespace RaidArray {
   export const filterSensitiveLog = (obj: RaidArray): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RaidArray => __isa(o, "RaidArray");
 }
 
 /**
  * <p>Describes an Amazon RDS instance.</p>
  */
 export interface RdsDbInstance {
-  __type?: "RdsDbInstance";
   /**
    * <p>The master user name.</p>
    */
@@ -4510,11 +4292,9 @@ export namespace RdsDbInstance {
   export const filterSensitiveLog = (obj: RdsDbInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RdsDbInstance => __isa(o, "RdsDbInstance");
 }
 
 export interface RebootInstanceRequest {
-  __type?: "RebootInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -4525,7 +4305,6 @@ export namespace RebootInstanceRequest {
   export const filterSensitiveLog = (obj: RebootInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootInstanceRequest => __isa(o, "RebootInstanceRequest");
 }
 
 /**
@@ -4540,7 +4319,6 @@ export namespace RebootInstanceRequest {
  *          <p>To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository's phpapp2 folder.</p>
  */
 export interface Recipes {
-  __type?: "Recipes";
   /**
    * <p>An array of custom recipe names to be run following a <code>shutdown</code> event.</p>
    */
@@ -4571,11 +4349,9 @@ export namespace Recipes {
   export const filterSensitiveLog = (obj: Recipes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Recipes => __isa(o, "Recipes");
 }
 
 export interface RegisterEcsClusterRequest {
-  __type?: "RegisterEcsClusterRequest";
   /**
    * <p>The cluster's ARN.</p>
    */
@@ -4591,14 +4367,12 @@ export namespace RegisterEcsClusterRequest {
   export const filterSensitiveLog = (obj: RegisterEcsClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterEcsClusterRequest => __isa(o, "RegisterEcsClusterRequest");
 }
 
 /**
  * <p>Contains the response to a <code>RegisterEcsCluster</code> request.</p>
  */
 export interface RegisterEcsClusterResult {
-  __type?: "RegisterEcsClusterResult";
   /**
    * <p>The cluster's ARN.</p>
    */
@@ -4609,11 +4383,9 @@ export namespace RegisterEcsClusterResult {
   export const filterSensitiveLog = (obj: RegisterEcsClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterEcsClusterResult => __isa(o, "RegisterEcsClusterResult");
 }
 
 export interface RegisterElasticIpRequest {
-  __type?: "RegisterElasticIpRequest";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -4629,14 +4401,12 @@ export namespace RegisterElasticIpRequest {
   export const filterSensitiveLog = (obj: RegisterElasticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterElasticIpRequest => __isa(o, "RegisterElasticIpRequest");
 }
 
 /**
  * <p>Contains the response to a <code>RegisterElasticIp</code> request.</p>
  */
 export interface RegisterElasticIpResult {
-  __type?: "RegisterElasticIpResult";
   /**
    * <p>The Elastic IP address.</p>
    */
@@ -4647,11 +4417,9 @@ export namespace RegisterElasticIpResult {
   export const filterSensitiveLog = (obj: RegisterElasticIpResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterElasticIpResult => __isa(o, "RegisterElasticIpResult");
 }
 
 export interface RegisterInstanceRequest {
-  __type?: "RegisterInstanceRequest";
   /**
    * <p>The instances public RSA key. This key is used to encrypt communication between the instance and the service.</p>
    */
@@ -4692,14 +4460,12 @@ export namespace RegisterInstanceRequest {
   export const filterSensitiveLog = (obj: RegisterInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceRequest => __isa(o, "RegisterInstanceRequest");
 }
 
 /**
  * <p>Contains the response to a <code>RegisterInstanceResult</code> request.</p>
  */
 export interface RegisterInstanceResult {
-  __type?: "RegisterInstanceResult";
   /**
    * <p>The registered instance's AWS OpsWorks Stacks ID.</p>
    */
@@ -4710,11 +4476,9 @@ export namespace RegisterInstanceResult {
   export const filterSensitiveLog = (obj: RegisterInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceResult => __isa(o, "RegisterInstanceResult");
 }
 
 export interface RegisterRdsDbInstanceRequest {
-  __type?: "RegisterRdsDbInstanceRequest";
   /**
    * <p>The Amazon RDS instance's ARN.</p>
    */
@@ -4740,11 +4504,9 @@ export namespace RegisterRdsDbInstanceRequest {
   export const filterSensitiveLog = (obj: RegisterRdsDbInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterRdsDbInstanceRequest => __isa(o, "RegisterRdsDbInstanceRequest");
 }
 
 export interface RegisterVolumeRequest {
-  __type?: "RegisterVolumeRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -4760,14 +4522,12 @@ export namespace RegisterVolumeRequest {
   export const filterSensitiveLog = (obj: RegisterVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterVolumeRequest => __isa(o, "RegisterVolumeRequest");
 }
 
 /**
  * <p>Contains the response to a <code>RegisterVolume</code> request.</p>
  */
 export interface RegisterVolumeResult {
-  __type?: "RegisterVolumeResult";
   /**
    * <p>The volume ID.</p>
    */
@@ -4778,14 +4538,12 @@ export namespace RegisterVolumeResult {
   export const filterSensitiveLog = (obj: RegisterVolumeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterVolumeResult => __isa(o, "RegisterVolumeResult");
 }
 
 /**
  * <p>A registered instance's reported operating system.</p>
  */
 export interface ReportedOs {
-  __type?: "ReportedOs";
   /**
    * <p>The operating system version.</p>
    */
@@ -4806,7 +4564,6 @@ export namespace ReportedOs {
   export const filterSensitiveLog = (obj: ReportedOs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReportedOs => __isa(o, "ReportedOs");
 }
 
 /**
@@ -4825,7 +4582,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export type RootDeviceType = "ebs" | "instance-store";
@@ -4834,7 +4590,6 @@ export type RootDeviceType = "ebs" | "instance-store";
  * <p>Describes a user's SSH information.</p>
  */
 export interface SelfUserProfile {
-  __type?: "SelfUserProfile";
   /**
    * <p>The user's SSH public key.</p>
    */
@@ -4860,14 +4615,12 @@ export namespace SelfUserProfile {
   export const filterSensitiveLog = (obj: SelfUserProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SelfUserProfile => __isa(o, "SelfUserProfile");
 }
 
 /**
  * <p>Describes an AWS OpsWorks Stacks service error.</p>
  */
 export interface ServiceError {
-  __type?: "ServiceError";
   /**
    * <p>The error ID.</p>
    */
@@ -4903,11 +4656,9 @@ export namespace ServiceError {
   export const filterSensitiveLog = (obj: ServiceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceError => __isa(o, "ServiceError");
 }
 
 export interface SetLoadBasedAutoScalingRequest {
-  __type?: "SetLoadBasedAutoScalingRequest";
   /**
    * <p>An <code>AutoScalingThresholds</code> object with the upscaling threshold configuration. If
    *       the load exceeds these thresholds for a specified amount of time, AWS OpsWorks Stacks starts a specified
@@ -4937,11 +4688,9 @@ export namespace SetLoadBasedAutoScalingRequest {
   export const filterSensitiveLog = (obj: SetLoadBasedAutoScalingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBasedAutoScalingRequest => __isa(o, "SetLoadBasedAutoScalingRequest");
 }
 
 export interface SetPermissionRequest {
-  __type?: "SetPermissionRequest";
   /**
    * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
    */
@@ -5000,11 +4749,9 @@ export namespace SetPermissionRequest {
   export const filterSensitiveLog = (obj: SetPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetPermissionRequest => __isa(o, "SetPermissionRequest");
 }
 
 export interface SetTimeBasedAutoScalingRequest {
-  __type?: "SetTimeBasedAutoScalingRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -5020,14 +4767,12 @@ export namespace SetTimeBasedAutoScalingRequest {
   export const filterSensitiveLog = (obj: SetTimeBasedAutoScalingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetTimeBasedAutoScalingRequest => __isa(o, "SetTimeBasedAutoScalingRequest");
 }
 
 /**
  * <p>The Shutdown event configuration.</p>
  */
 export interface ShutdownEventConfiguration {
-  __type?: "ShutdownEventConfiguration";
   /**
    * <p>The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.</p>
    */
@@ -5044,7 +4789,6 @@ export namespace ShutdownEventConfiguration {
   export const filterSensitiveLog = (obj: ShutdownEventConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShutdownEventConfiguration => __isa(o, "ShutdownEventConfiguration");
 }
 
 /**
@@ -5053,7 +4797,6 @@ export namespace ShutdownEventConfiguration {
  *         Cookbooks</a>.</p>
  */
 export interface Source {
-  __type?: "Source";
   /**
    * <p>The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.</p>
    */
@@ -5112,7 +4855,6 @@ export namespace Source {
   export const filterSensitiveLog = (obj: Source): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
 export type SourceType = "archive" | "git" | "s3" | "svn";
@@ -5121,7 +4863,6 @@ export type SourceType = "archive" | "git" | "s3" | "svn";
  * <p>Describes an app's SSL configuration.</p>
  */
 export interface SslConfiguration {
-  __type?: "SslConfiguration";
   /**
    * <p>The contents of the certificate's domain.crt file.</p>
    */
@@ -5142,14 +4883,12 @@ export namespace SslConfiguration {
   export const filterSensitiveLog = (obj: SslConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SslConfiguration => __isa(o, "SslConfiguration");
 }
 
 /**
  * <p>Describes a stack.</p>
  */
 export interface Stack {
-  __type?: "Stack";
   /**
    * <p>The stack's attributes.</p>
    */
@@ -5277,7 +5016,6 @@ export namespace Stack {
   export const filterSensitiveLog = (obj: Stack): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Stack => __isa(o, "Stack");
 }
 
 export type StackAttributesKeys = "Color";
@@ -5286,7 +5024,6 @@ export type StackAttributesKeys = "Color";
  * <p>Describes the configuration manager.</p>
  */
 export interface StackConfigurationManager {
-  __type?: "StackConfigurationManager";
   /**
    * <p>The name. This parameter must be set to "Chef".</p>
    */
@@ -5302,14 +5039,12 @@ export namespace StackConfigurationManager {
   export const filterSensitiveLog = (obj: StackConfigurationManager): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackConfigurationManager => __isa(o, "StackConfigurationManager");
 }
 
 /**
  * <p>Summarizes the number of layers, instances, and apps in a stack.</p>
  */
 export interface StackSummary {
-  __type?: "StackSummary";
   /**
    * <p>The stack ID.</p>
    */
@@ -5345,11 +5080,9 @@ export namespace StackSummary {
   export const filterSensitiveLog = (obj: StackSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSummary => __isa(o, "StackSummary");
 }
 
 export interface StartInstanceRequest {
-  __type?: "StartInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -5360,11 +5093,9 @@ export namespace StartInstanceRequest {
   export const filterSensitiveLog = (obj: StartInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstanceRequest => __isa(o, "StartInstanceRequest");
 }
 
 export interface StartStackRequest {
-  __type?: "StartStackRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -5375,11 +5106,9 @@ export namespace StartStackRequest {
   export const filterSensitiveLog = (obj: StartStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartStackRequest => __isa(o, "StartStackRequest");
 }
 
 export interface StopInstanceRequest {
-  __type?: "StopInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -5397,11 +5126,9 @@ export namespace StopInstanceRequest {
   export const filterSensitiveLog = (obj: StopInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopInstanceRequest => __isa(o, "StopInstanceRequest");
 }
 
 export interface StopStackRequest {
-  __type?: "StopStackRequest";
   /**
    * <p>The stack ID.</p>
    */
@@ -5412,11 +5139,9 @@ export namespace StopStackRequest {
   export const filterSensitiveLog = (obj: StopStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStackRequest => __isa(o, "StopStackRequest");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The stack or layer's Amazon Resource Number (ARN).</p>
    */
@@ -5451,14 +5176,12 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.</p>
  */
 export interface TemporaryCredential {
-  __type?: "TemporaryCredential";
   /**
    * <p>The password.</p>
    */
@@ -5484,14 +5207,12 @@ export namespace TemporaryCredential {
   export const filterSensitiveLog = (obj: TemporaryCredential): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemporaryCredential => __isa(o, "TemporaryCredential");
 }
 
 /**
  * <p>Describes an instance's time-based auto scaling configuration.</p>
  */
 export interface TimeBasedAutoScalingConfiguration {
-  __type?: "TimeBasedAutoScalingConfiguration";
   /**
    * <p>A <code>WeeklyAutoScalingSchedule</code> object with the instance schedule.</p>
    */
@@ -5507,11 +5228,9 @@ export namespace TimeBasedAutoScalingConfiguration {
   export const filterSensitiveLog = (obj: TimeBasedAutoScalingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeBasedAutoScalingConfiguration => __isa(o, "TimeBasedAutoScalingConfiguration");
 }
 
 export interface UnassignInstanceRequest {
-  __type?: "UnassignInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -5522,11 +5241,9 @@ export namespace UnassignInstanceRequest {
   export const filterSensitiveLog = (obj: UnassignInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnassignInstanceRequest => __isa(o, "UnassignInstanceRequest");
 }
 
 export interface UnassignVolumeRequest {
-  __type?: "UnassignVolumeRequest";
   /**
    * <p>The volume ID.</p>
    */
@@ -5537,11 +5254,9 @@ export namespace UnassignVolumeRequest {
   export const filterSensitiveLog = (obj: UnassignVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnassignVolumeRequest => __isa(o, "UnassignVolumeRequest");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of the keys of tags to be removed from a stack or layer.</p>
    */
@@ -5557,11 +5272,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAppRequest {
-  __type?: "UpdateAppRequest";
   /**
    * <p>A <code>Source</code> object that specifies the app repository.</p>
    */
@@ -5630,11 +5343,9 @@ export namespace UpdateAppRequest {
   export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAppRequest => __isa(o, "UpdateAppRequest");
 }
 
 export interface UpdateElasticIpRequest {
-  __type?: "UpdateElasticIpRequest";
   /**
    * <p>The new name.</p>
    */
@@ -5650,11 +5361,9 @@ export namespace UpdateElasticIpRequest {
   export const filterSensitiveLog = (obj: UpdateElasticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateElasticIpRequest => __isa(o, "UpdateElasticIpRequest");
 }
 
 export interface UpdateInstanceRequest {
-  __type?: "UpdateInstanceRequest";
   /**
    * <p>The instance ID.</p>
    */
@@ -5788,11 +5497,9 @@ export namespace UpdateInstanceRequest {
   export const filterSensitiveLog = (obj: UpdateInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInstanceRequest => __isa(o, "UpdateInstanceRequest");
 }
 
 export interface UpdateLayerRequest {
-  __type?: "UpdateLayerRequest";
   /**
    * <p></p>
    */
@@ -5904,11 +5611,9 @@ export namespace UpdateLayerRequest {
   export const filterSensitiveLog = (obj: UpdateLayerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLayerRequest => __isa(o, "UpdateLayerRequest");
 }
 
 export interface UpdateMyUserProfileRequest {
-  __type?: "UpdateMyUserProfileRequest";
   /**
    * <p>The user's SSH public key.</p>
    */
@@ -5919,11 +5624,9 @@ export namespace UpdateMyUserProfileRequest {
   export const filterSensitiveLog = (obj: UpdateMyUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMyUserProfileRequest => __isa(o, "UpdateMyUserProfileRequest");
 }
 
 export interface UpdateRdsDbInstanceRequest {
-  __type?: "UpdateRdsDbInstanceRequest";
   /**
    * <p>The Amazon RDS instance's ARN.</p>
    */
@@ -5944,11 +5647,9 @@ export namespace UpdateRdsDbInstanceRequest {
   export const filterSensitiveLog = (obj: UpdateRdsDbInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRdsDbInstanceRequest => __isa(o, "UpdateRdsDbInstanceRequest");
 }
 
 export interface UpdateStackRequest {
-  __type?: "UpdateStackRequest";
   /**
    * <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p>
    *          <p>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are
@@ -6195,11 +5896,9 @@ export namespace UpdateStackRequest {
   export const filterSensitiveLog = (obj: UpdateStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackRequest => __isa(o, "UpdateStackRequest");
 }
 
 export interface UpdateUserProfileRequest {
-  __type?: "UpdateUserProfileRequest";
   /**
    * <p>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If
    *       the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example,
@@ -6230,11 +5929,9 @@ export namespace UpdateUserProfileRequest {
   export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserProfileRequest => __isa(o, "UpdateUserProfileRequest");
 }
 
 export interface UpdateVolumeRequest {
-  __type?: "UpdateVolumeRequest";
   /**
    * <p>The new mount point.</p>
    */
@@ -6255,14 +5952,12 @@ export namespace UpdateVolumeRequest {
   export const filterSensitiveLog = (obj: UpdateVolumeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVolumeRequest => __isa(o, "UpdateVolumeRequest");
 }
 
 /**
  * <p>Describes a user's SSH information.</p>
  */
 export interface UserProfile {
-  __type?: "UserProfile";
   /**
    * <p>The user's SSH user name.</p>
    */
@@ -6295,7 +5990,6 @@ export namespace UserProfile {
   export const filterSensitiveLog = (obj: UserProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserProfile => __isa(o, "UserProfile");
 }
 
 /**
@@ -6314,7 +6008,6 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 export type VirtualizationType = "hvm" | "paravirtual";
@@ -6323,7 +6016,6 @@ export type VirtualizationType = "hvm" | "paravirtual";
  * <p>Describes an instance's Amazon EBS volume.</p>
  */
 export interface Volume {
-  __type?: "Volume";
   /**
    * <p>The volume mount point. For example, "/mnt/disk1".</p>
    */
@@ -6423,14 +6115,12 @@ export namespace Volume {
   export const filterSensitiveLog = (obj: Volume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Volume => __isa(o, "Volume");
 }
 
 /**
  * <p>Describes an Amazon EBS volume configuration.</p>
  */
 export interface VolumeConfiguration {
-  __type?: "VolumeConfiguration";
   /**
    * <p>For PIOPS volumes, the IOPS per disk.</p>
    */
@@ -6495,7 +6185,6 @@ export namespace VolumeConfiguration {
   export const filterSensitiveLog = (obj: VolumeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeConfiguration => __isa(o, "VolumeConfiguration");
 }
 
 export type VolumeType = "gp2" | "io1" | "standard";
@@ -6517,7 +6206,6 @@ export type VolumeType = "gp2" | "io1" | "standard";
  *          </p>
  */
 export interface WeeklyAutoScalingSchedule {
-  __type?: "WeeklyAutoScalingSchedule";
   /**
    * <p>The schedule for Saturday.</p>
    */
@@ -6558,5 +6246,4 @@ export namespace WeeklyAutoScalingSchedule {
   export const filterSensitiveLog = (obj: WeeklyAutoScalingSchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WeeklyAutoScalingSchedule => __isa(o, "WeeklyAutoScalingSchedule");
 }

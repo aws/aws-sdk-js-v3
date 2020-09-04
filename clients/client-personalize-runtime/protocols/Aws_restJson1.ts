@@ -78,7 +78,6 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
   }
   const contents: GetPersonalizedRankingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPersonalizedRankingResponse",
     personalizedRanking: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -142,7 +141,6 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
   }
   const contents: GetRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecommendationsResponse",
     itemList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -251,7 +249,6 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
-    __type: "PredictedItem",
     itemId: output.itemId !== undefined && output.itemId !== null ? output.itemId : undefined,
     score: output.score !== undefined && output.score !== null ? output.score : undefined,
   } as any;

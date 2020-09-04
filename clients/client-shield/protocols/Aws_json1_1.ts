@@ -453,7 +453,6 @@ export const deserializeAws_json1_1AssociateDRTLogBucketCommand = async (
   contents = deserializeAws_json1_1AssociateDRTLogBucketResponse(data, context);
   const response: AssociateDRTLogBucketCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDRTLogBucketResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -565,7 +564,6 @@ export const deserializeAws_json1_1AssociateDRTRoleCommand = async (
   contents = deserializeAws_json1_1AssociateDRTRoleResponse(data, context);
   const response: AssociateDRTRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDRTRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -661,7 +659,6 @@ export const deserializeAws_json1_1AssociateHealthCheckCommand = async (
   contents = deserializeAws_json1_1AssociateHealthCheckResponse(data, context);
   const response: AssociateHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateHealthCheckResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -749,7 +746,6 @@ export const deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand = 
   contents = deserializeAws_json1_1AssociateProactiveEngagementDetailsResponse(data, context);
   const response: AssociateProactiveEngagementDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateProactiveEngagementDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -837,7 +833,6 @@ export const deserializeAws_json1_1CreateProtectionCommand = async (
   contents = deserializeAws_json1_1CreateProtectionResponse(data, context);
   const response: CreateProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProtectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -941,7 +936,6 @@ export const deserializeAws_json1_1CreateSubscriptionCommand = async (
   contents = deserializeAws_json1_1CreateSubscriptionResponse(data, context);
   const response: CreateSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1005,7 +999,6 @@ export const deserializeAws_json1_1DeleteProtectionCommand = async (
   contents = deserializeAws_json1_1DeleteProtectionResponse(data, context);
   const response: DeleteProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProtectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1077,7 +1070,6 @@ export const deserializeAws_json1_1DeleteSubscriptionCommand = async (
   contents = deserializeAws_json1_1DeleteSubscriptionResponse(data, context);
   const response: DeleteSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1149,7 +1141,6 @@ export const deserializeAws_json1_1DescribeAttackCommand = async (
   contents = deserializeAws_json1_1DescribeAttackResponse(data, context);
   const response: DescribeAttackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAttackResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1213,7 +1204,6 @@ export const deserializeAws_json1_1DescribeDRTAccessCommand = async (
   contents = deserializeAws_json1_1DescribeDRTAccessResponse(data, context);
   const response: DescribeDRTAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDRTAccessResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1277,7 +1267,6 @@ export const deserializeAws_json1_1DescribeEmergencyContactSettingsCommand = asy
   contents = deserializeAws_json1_1DescribeEmergencyContactSettingsResponse(data, context);
   const response: DescribeEmergencyContactSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEmergencyContactSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1341,7 +1330,6 @@ export const deserializeAws_json1_1DescribeProtectionCommand = async (
   contents = deserializeAws_json1_1DescribeProtectionResponse(data, context);
   const response: DescribeProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProtectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1413,7 +1401,6 @@ export const deserializeAws_json1_1DescribeSubscriptionCommand = async (
   contents = deserializeAws_json1_1DescribeSubscriptionResponse(data, context);
   const response: DescribeSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1477,7 +1464,6 @@ export const deserializeAws_json1_1DisableProactiveEngagementCommand = async (
   contents = deserializeAws_json1_1DisableProactiveEngagementResponse(data, context);
   const response: DisableProactiveEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableProactiveEngagementResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1565,7 +1551,6 @@ export const deserializeAws_json1_1DisassociateDRTLogBucketCommand = async (
   contents = deserializeAws_json1_1DisassociateDRTLogBucketResponse(data, context);
   const response: DisassociateDRTLogBucketCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDRTLogBucketResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1661,7 +1646,6 @@ export const deserializeAws_json1_1DisassociateDRTRoleCommand = async (
   contents = deserializeAws_json1_1DisassociateDRTRoleResponse(data, context);
   const response: DisassociateDRTRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDRTRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1741,7 +1725,6 @@ export const deserializeAws_json1_1DisassociateHealthCheckCommand = async (
   contents = deserializeAws_json1_1DisassociateHealthCheckResponse(data, context);
   const response: DisassociateHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateHealthCheckResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1821,7 +1804,6 @@ export const deserializeAws_json1_1EnableProactiveEngagementCommand = async (
   contents = deserializeAws_json1_1EnableProactiveEngagementResponse(data, context);
   const response: EnableProactiveEngagementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableProactiveEngagementResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1909,7 +1891,6 @@ export const deserializeAws_json1_1GetSubscriptionStateCommand = async (
   contents = deserializeAws_json1_1GetSubscriptionStateResponse(data, context);
   const response: GetSubscriptionStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSubscriptionStateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1965,7 +1946,6 @@ export const deserializeAws_json1_1ListAttacksCommand = async (
   contents = deserializeAws_json1_1ListAttacksResponse(data, context);
   const response: ListAttacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttacksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2037,7 +2017,6 @@ export const deserializeAws_json1_1ListProtectionsCommand = async (
   contents = deserializeAws_json1_1ListProtectionsResponse(data, context);
   const response: ListProtectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProtectionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2109,7 +2088,6 @@ export const deserializeAws_json1_1UpdateEmergencyContactSettingsCommand = async
   contents = deserializeAws_json1_1UpdateEmergencyContactSettingsResponse(data, context);
   const response: UpdateEmergencyContactSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEmergencyContactSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2189,7 +2167,6 @@ export const deserializeAws_json1_1UpdateSubscriptionCommand = async (
   contents = deserializeAws_json1_1UpdateSubscriptionResponse(data, context);
   const response: UpdateSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2671,7 +2648,6 @@ const serializeAws_json1_1UpdateSubscriptionRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2681,7 +2657,6 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
   context: __SerdeContext
 ): AccessDeniedForDependencyException => {
   return {
-    __type: "AccessDeniedForDependencyException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2690,41 +2665,32 @@ const deserializeAws_json1_1AssociateDRTLogBucketResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateDRTLogBucketResponse => {
-  return {
-    __type: "AssociateDRTLogBucketResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateDRTRoleResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateDRTRoleResponse => {
-  return {
-    __type: "AssociateDRTRoleResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateHealthCheckResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateHealthCheckResponse => {
-  return {
-    __type: "AssociateHealthCheckResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateProactiveEngagementDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateProactiveEngagementDetailsResponse => {
-  return {
-    __type: "AssociateProactiveEngagementDetailsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AttackDetail = (output: any, context: __SerdeContext): AttackDetail => {
   return {
-    __type: "AttackDetail",
     AttackCounters:
       output.AttackCounters !== undefined && output.AttackCounters !== null
         ? deserializeAws_json1_1SummarizedCounterList(output.AttackCounters, context)
@@ -2758,7 +2724,6 @@ const deserializeAws_json1_1AttackProperties = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1AttackProperty = (output: any, context: __SerdeContext): AttackProperty => {
   return {
-    __type: "AttackProperty",
     AttackLayer: output.AttackLayer !== undefined && output.AttackLayer !== null ? output.AttackLayer : undefined,
     AttackPropertyIdentifier:
       output.AttackPropertyIdentifier !== undefined && output.AttackPropertyIdentifier !== null
@@ -2779,7 +2744,6 @@ const deserializeAws_json1_1AttackSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1AttackSummary = (output: any, context: __SerdeContext): AttackSummary => {
   return {
-    __type: "AttackSummary",
     AttackId: output.AttackId !== undefined && output.AttackId !== null ? output.AttackId : undefined,
     AttackVectors:
       output.AttackVectors !== undefined && output.AttackVectors !== null
@@ -2800,7 +2764,6 @@ const deserializeAws_json1_1AttackVectorDescription = (
   context: __SerdeContext
 ): AttackVectorDescription => {
   return {
-    __type: "AttackVectorDescription",
     VectorType: output.VectorType !== undefined && output.VectorType !== null ? output.VectorType : undefined,
   } as any;
 };
@@ -2814,7 +2777,6 @@ const deserializeAws_json1_1AttackVectorDescriptionList = (
 
 const deserializeAws_json1_1Contributor = (output: any, context: __SerdeContext): Contributor => {
   return {
-    __type: "Contributor",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2825,7 +2787,6 @@ const deserializeAws_json1_1CreateProtectionResponse = (
   context: __SerdeContext
 ): CreateProtectionResponse => {
   return {
-    __type: "CreateProtectionResponse",
     ProtectionId: output.ProtectionId !== undefined && output.ProtectionId !== null ? output.ProtectionId : undefined,
   } as any;
 };
@@ -2834,32 +2795,25 @@ const deserializeAws_json1_1CreateSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSubscriptionResponse => {
-  return {
-    __type: "CreateSubscriptionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteProtectionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteProtectionResponse => {
-  return {
-    __type: "DeleteProtectionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSubscriptionResponse => {
-  return {
-    __type: "DeleteSubscriptionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeAttackResponse = (output: any, context: __SerdeContext): DescribeAttackResponse => {
   return {
-    __type: "DescribeAttackResponse",
     Attack:
       output.Attack !== undefined && output.Attack !== null
         ? deserializeAws_json1_1AttackDetail(output.Attack, context)
@@ -2872,7 +2826,6 @@ const deserializeAws_json1_1DescribeDRTAccessResponse = (
   context: __SerdeContext
 ): DescribeDRTAccessResponse => {
   return {
-    __type: "DescribeDRTAccessResponse",
     LogBucketList:
       output.LogBucketList !== undefined && output.LogBucketList !== null
         ? deserializeAws_json1_1LogBucketList(output.LogBucketList, context)
@@ -2886,7 +2839,6 @@ const deserializeAws_json1_1DescribeEmergencyContactSettingsResponse = (
   context: __SerdeContext
 ): DescribeEmergencyContactSettingsResponse => {
   return {
-    __type: "DescribeEmergencyContactSettingsResponse",
     EmergencyContactList:
       output.EmergencyContactList !== undefined && output.EmergencyContactList !== null
         ? deserializeAws_json1_1EmergencyContactList(output.EmergencyContactList, context)
@@ -2899,7 +2851,6 @@ const deserializeAws_json1_1DescribeProtectionResponse = (
   context: __SerdeContext
 ): DescribeProtectionResponse => {
   return {
-    __type: "DescribeProtectionResponse",
     Protection:
       output.Protection !== undefined && output.Protection !== null
         ? deserializeAws_json1_1Protection(output.Protection, context)
@@ -2912,7 +2863,6 @@ const deserializeAws_json1_1DescribeSubscriptionResponse = (
   context: __SerdeContext
 ): DescribeSubscriptionResponse => {
   return {
-    __type: "DescribeSubscriptionResponse",
     Subscription:
       output.Subscription !== undefined && output.Subscription !== null
         ? deserializeAws_json1_1Subscription(output.Subscription, context)
@@ -2924,41 +2874,32 @@ const deserializeAws_json1_1DisableProactiveEngagementResponse = (
   output: any,
   context: __SerdeContext
 ): DisableProactiveEngagementResponse => {
-  return {
-    __type: "DisableProactiveEngagementResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateDRTLogBucketResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateDRTLogBucketResponse => {
-  return {
-    __type: "DisassociateDRTLogBucketResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateDRTRoleResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateDRTRoleResponse => {
-  return {
-    __type: "DisassociateDRTRoleResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateHealthCheckResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateHealthCheckResponse => {
-  return {
-    __type: "DisassociateHealthCheckResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EmergencyContact = (output: any, context: __SerdeContext): EmergencyContact => {
   return {
-    __type: "EmergencyContact",
     ContactNotes: output.ContactNotes !== undefined && output.ContactNotes !== null ? output.ContactNotes : undefined,
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
     PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
@@ -2973,9 +2914,7 @@ const deserializeAws_json1_1EnableProactiveEngagementResponse = (
   output: any,
   context: __SerdeContext
 ): EnableProactiveEngagementResponse => {
-  return {
-    __type: "EnableProactiveEngagementResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1GetSubscriptionStateResponse = (
@@ -2983,7 +2922,6 @@ const deserializeAws_json1_1GetSubscriptionStateResponse = (
   context: __SerdeContext
 ): GetSubscriptionStateResponse => {
   return {
-    __type: "GetSubscriptionStateResponse",
     SubscriptionState:
       output.SubscriptionState !== undefined && output.SubscriptionState !== null
         ? output.SubscriptionState
@@ -2997,7 +2935,6 @@ const deserializeAws_json1_1HealthCheckIds = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    __type: "InternalErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3007,7 +2944,6 @@ const deserializeAws_json1_1InvalidOperationException = (
   context: __SerdeContext
 ): InvalidOperationException => {
   return {
-    __type: "InvalidOperationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3017,7 +2953,6 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
   return {
-    __type: "InvalidPaginationTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3027,7 +2962,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3037,14 +2971,12 @@ const deserializeAws_json1_1InvalidResourceException = (
   context: __SerdeContext
 ): InvalidResourceException => {
   return {
-    __type: "InvalidResourceException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Limit = (output: any, context: __SerdeContext): Limit => {
   return {
-    __type: "Limit",
     Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -3059,7 +2991,6 @@ const deserializeAws_json1_1LimitsExceededException = (
   context: __SerdeContext
 ): LimitsExceededException => {
   return {
-    __type: "LimitsExceededException",
     Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -3068,7 +2999,6 @@ const deserializeAws_json1_1LimitsExceededException = (
 
 const deserializeAws_json1_1ListAttacksResponse = (output: any, context: __SerdeContext): ListAttacksResponse => {
   return {
-    __type: "ListAttacksResponse",
     AttackSummaries:
       output.AttackSummaries !== undefined && output.AttackSummaries !== null
         ? deserializeAws_json1_1AttackSummaries(output.AttackSummaries, context)
@@ -3082,7 +3012,6 @@ const deserializeAws_json1_1ListProtectionsResponse = (
   context: __SerdeContext
 ): ListProtectionsResponse => {
   return {
-    __type: "ListProtectionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Protections:
       output.Protections !== undefined && output.Protections !== null
@@ -3096,7 +3025,6 @@ const deserializeAws_json1_1LockedSubscriptionException = (
   context: __SerdeContext
 ): LockedSubscriptionException => {
   return {
-    __type: "LockedSubscriptionException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3107,7 +3035,6 @@ const deserializeAws_json1_1LogBucketList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Mitigation = (output: any, context: __SerdeContext): Mitigation => {
   return {
-    __type: "Mitigation",
     MitigationName:
       output.MitigationName !== undefined && output.MitigationName !== null ? output.MitigationName : undefined,
   } as any;
@@ -3122,7 +3049,6 @@ const deserializeAws_json1_1NoAssociatedRoleException = (
   context: __SerdeContext
 ): NoAssociatedRoleException => {
   return {
-    __type: "NoAssociatedRoleException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3132,14 +3058,12 @@ const deserializeAws_json1_1OptimisticLockException = (
   context: __SerdeContext
 ): OptimisticLockException => {
   return {
-    __type: "OptimisticLockException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Protection = (output: any, context: __SerdeContext): Protection => {
   return {
-    __type: "Protection",
     HealthCheckIds:
       output.HealthCheckIds !== undefined && output.HealthCheckIds !== null
         ? deserializeAws_json1_1HealthCheckIds(output.HealthCheckIds, context)
@@ -3159,7 +3083,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3169,14 +3092,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SubResourceSummary = (output: any, context: __SerdeContext): SubResourceSummary => {
   return {
-    __type: "SubResourceSummary",
     AttackVectors:
       output.AttackVectors !== undefined && output.AttackVectors !== null
         ? deserializeAws_json1_1SummarizedAttackVectorList(output.AttackVectors, context)
@@ -3196,7 +3117,6 @@ const deserializeAws_json1_1SubResourceSummaryList = (output: any, context: __Se
 
 const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
-    __type: "Subscription",
     AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
@@ -3221,7 +3141,6 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1SummarizedAttackVector = (output: any, context: __SerdeContext): SummarizedAttackVector => {
   return {
-    __type: "SummarizedAttackVector",
     VectorCounters:
       output.VectorCounters !== undefined && output.VectorCounters !== null
         ? deserializeAws_json1_1SummarizedCounterList(output.VectorCounters, context)
@@ -3239,7 +3158,6 @@ const deserializeAws_json1_1SummarizedAttackVectorList = (
 
 const deserializeAws_json1_1SummarizedCounter = (output: any, context: __SerdeContext): SummarizedCounter => {
   return {
-    __type: "SummarizedCounter",
     Average: output.Average !== undefined && output.Average !== null ? output.Average : undefined,
     Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
     N: output.N !== undefined && output.N !== null ? output.N : undefined,
@@ -3261,18 +3179,14 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateEmergencyContactSettingsResponse => {
-  return {
-    __type: "UpdateEmergencyContactSettingsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSubscriptionResponse => {
-  return {
-    __type: "UpdateSubscriptionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

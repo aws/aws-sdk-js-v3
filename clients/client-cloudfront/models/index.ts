@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDenied {
   export const filterSensitiveLog = (obj: AccessDenied): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDenied => __isa(o, "AccessDenied");
 }
 
 /**
@@ -30,7 +29,6 @@ export namespace AccessDenied {
  * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface ActiveTrustedSigners {
-  __type?: "ActiveTrustedSigners";
   /**
    * <p>Enabled is <code>true</code> if any of the AWS accounts listed in the
    * 			<code>TrustedSigners</code> complex type for this distribution have active CloudFront key
@@ -54,7 +52,6 @@ export namespace ActiveTrustedSigners {
   export const filterSensitiveLog = (obj: ActiveTrustedSigners): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveTrustedSigners => __isa(o, "ActiveTrustedSigners");
 }
 
 /**
@@ -62,7 +59,6 @@ export namespace ActiveTrustedSigners {
  * 			for this distribution. </p>
  */
 export interface Aliases {
-  __type?: "Aliases";
   /**
    * <p>The number of CNAME aliases, if any, that you want to associate with this
    * 			distribution.</p>
@@ -80,7 +76,6 @@ export namespace Aliases {
   export const filterSensitiveLog = (obj: Aliases): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Aliases => __isa(o, "Aliases");
 }
 
 /**
@@ -92,7 +87,6 @@ export namespace Aliases {
  * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
  */
 export interface AliasICPRecordal {
-  __type?: "AliasICPRecordal";
   /**
    * <p>The Internet Content Provider (ICP) recordal status for a CNAME. The ICPRecordalStatus is set to
    * 			APPROVED for all CNAMEs (aliases) in regions outside of China. </p>
@@ -129,7 +123,6 @@ export namespace AliasICPRecordal {
   export const filterSensitiveLog = (obj: AliasICPRecordal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AliasICPRecordal => __isa(o, "AliasICPRecordal");
 }
 
 /**
@@ -154,7 +147,6 @@ export namespace AliasICPRecordal {
  * 			origin.</p>
  */
 export interface AllowedMethods {
-  __type?: "AllowedMethods";
   /**
    * <p>The number of HTTP methods that you want CloudFront to forward to your origin. Valid values
    * 			are 2 (for <code>GET</code> and <code>HEAD</code> requests), 3 (for <code>GET</code>,
@@ -192,7 +184,6 @@ export namespace AllowedMethods {
   export const filterSensitiveLog = (obj: AllowedMethods): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllowedMethods => __isa(o, "AllowedMethods");
 }
 
 /**
@@ -208,7 +199,6 @@ export namespace BatchTooLarge {
   export const filterSensitiveLog = (obj: BatchTooLarge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchTooLarge => __isa(o, "BatchTooLarge");
 }
 
 /**
@@ -231,7 +221,6 @@ export namespace BatchTooLarge {
  * 		       <p>For more information about cache behaviors, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior">Cache Behavior Settings</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface CacheBehavior {
-  __type?: "CacheBehavior";
   /**
    * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field in a
    * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
@@ -435,7 +424,6 @@ export namespace CacheBehavior {
   export const filterSensitiveLog = (obj: CacheBehavior): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheBehavior => __isa(o, "CacheBehavior");
 }
 
 /**
@@ -443,7 +431,6 @@ export namespace CacheBehavior {
  * 		</p>
  */
 export interface CacheBehaviors {
-  __type?: "CacheBehaviors";
   /**
    * <p>Optional: A complex type that contains cache behaviors for this distribution. If
    * 				<code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
@@ -460,7 +447,6 @@ export namespace CacheBehaviors {
   export const filterSensitiveLog = (obj: CacheBehaviors): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheBehaviors => __isa(o, "CacheBehaviors");
 }
 
 /**
@@ -480,7 +466,6 @@ export namespace CacheBehaviors {
  * 			responses to be cached correctly. </p>
  */
 export interface CachedMethods {
-  __type?: "CachedMethods";
   /**
    * <p>The number of HTTP methods for which you want CloudFront to cache responses. Valid values are
    * 				<code>2</code> (for caching responses to <code>GET</code> and <code>HEAD</code> requests)
@@ -500,7 +485,6 @@ export namespace CachedMethods {
   export const filterSensitiveLog = (obj: CachedMethods): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachedMethods => __isa(o, "CachedMethods");
 }
 
 /**
@@ -525,7 +509,6 @@ export namespace CachedMethods {
  * 			use <code>OriginRequestPolicy</code>.</p>
  */
 export interface CachePolicy {
-  __type?: "CachePolicy";
   /**
    * <p>The date and time when the cache policy was last modified.</p>
    */
@@ -546,7 +529,6 @@ export namespace CachePolicy {
   export const filterSensitiveLog = (obj: CachePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicy => __isa(o, "CachePolicy");
 }
 
 /**
@@ -563,7 +545,6 @@ export namespace CachePolicyAlreadyExists {
   export const filterSensitiveLog = (obj: CachePolicyAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyAlreadyExists => __isa(o, "CachePolicyAlreadyExists");
 }
 
 /**
@@ -587,7 +568,6 @@ export namespace CachePolicyAlreadyExists {
  * 			use <code>OriginRequestPolicy</code>.</p>
  */
 export interface CachePolicyConfig {
-  __type?: "CachePolicyConfig";
   /**
    * <p>The minimum amount of time, in seconds, that you want objects to stay in the CloudFront
    * 			cache before CloudFront sends another request to the origin to see if the object has been
@@ -643,7 +623,6 @@ export namespace CachePolicyConfig {
   export const filterSensitiveLog = (obj: CachePolicyConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyConfig => __isa(o, "CachePolicyConfig");
 }
 
 export type CachePolicyCookieBehavior = "all" | "allExcept" | "none" | "whitelist";
@@ -654,7 +633,6 @@ export type CachePolicyCookieBehavior = "all" | "allExcept" | "none" | "whitelis
  * 			the origin.</p>
  */
 export interface CachePolicyCookiesConfig {
-  __type?: "CachePolicyCookiesConfig";
   /**
    * <p>Determines whether any cookies in viewer requests are included in the cache key and
    * 			automatically included in requests that CloudFront sends to the origin. Valid values
@@ -702,7 +680,6 @@ export namespace CachePolicyCookiesConfig {
   export const filterSensitiveLog = (obj: CachePolicyCookiesConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyCookiesConfig => __isa(o, "CachePolicyCookiesConfig");
 }
 
 export type CachePolicyHeaderBehavior = "none" | "whitelist";
@@ -713,7 +690,6 @@ export type CachePolicyHeaderBehavior = "none" | "whitelist";
  * 			origin.</p>
  */
 export interface CachePolicyHeadersConfig {
-  __type?: "CachePolicyHeadersConfig";
   /**
    * <p>Determines whether any HTTP headers are included in the cache key and automatically
    * 			included in requests that CloudFront sends to the origin. Valid values are:</p>
@@ -747,7 +723,6 @@ export namespace CachePolicyHeadersConfig {
   export const filterSensitiveLog = (obj: CachePolicyHeadersConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyHeadersConfig => __isa(o, "CachePolicyHeadersConfig");
 }
 
 /**
@@ -764,14 +739,12 @@ export namespace CachePolicyInUse {
   export const filterSensitiveLog = (obj: CachePolicyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyInUse => __isa(o, "CachePolicyInUse");
 }
 
 /**
  * <p>A list of cache policies.</p>
  */
 export interface CachePolicyList {
-  __type?: "CachePolicyList";
   /**
    * <p>If there are more items in the list than are in this response, this element is
    * 			present. It contains the value that you should use in the <code>Marker</code> field of a
@@ -799,7 +772,6 @@ export namespace CachePolicyList {
   export const filterSensitiveLog = (obj: CachePolicyList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyList => __isa(o, "CachePolicyList");
 }
 
 export type CachePolicyQueryStringBehavior = "all" | "allExcept" | "none" | "whitelist";
@@ -810,7 +782,6 @@ export type CachePolicyQueryStringBehavior = "all" | "allExcept" | "none" | "whi
  * 			CloudFront sends to the origin.</p>
  */
 export interface CachePolicyQueryStringsConfig {
-  __type?: "CachePolicyQueryStringsConfig";
   /**
    * <p>Contains the specific query strings in viewer requests that either <i>
    *                <b>are</b>
@@ -872,14 +843,12 @@ export namespace CachePolicyQueryStringsConfig {
   export const filterSensitiveLog = (obj: CachePolicyQueryStringsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicyQueryStringsConfig => __isa(o, "CachePolicyQueryStringsConfig");
 }
 
 /**
  * <p>Contains a cache policy.</p>
  */
 export interface CachePolicySummary {
-  __type?: "CachePolicySummary";
   /**
    * <p>The type of cache policy, either <code>managed</code> (created by AWS) or
    * 			<code>custom</code> (created in this AWS account).</p>
@@ -896,7 +865,6 @@ export namespace CachePolicySummary {
   export const filterSensitiveLog = (obj: CachePolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachePolicySummary => __isa(o, "CachePolicySummary");
 }
 
 export type CachePolicyType = "custom" | "managed";
@@ -914,8 +882,6 @@ export namespace CannotChangeImmutablePublicKeyFields {
   export const filterSensitiveLog = (obj: CannotChangeImmutablePublicKeyFields): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CannotChangeImmutablePublicKeyFields =>
-    __isa(o, "CannotChangeImmutablePublicKeyFields");
 }
 
 export type CertificateSource = "acm" | "cloudfront" | "iam";
@@ -924,7 +890,6 @@ export type CertificateSource = "acm" | "cloudfront" | "iam";
  * <p>CloudFront origin access identity.</p>
  */
 export interface CloudFrontOriginAccessIdentity {
-  __type?: "CloudFrontOriginAccessIdentity";
   /**
    * <p>The ID for the origin access identity, for example, <code>E74FTE3AJFJ256A</code>.
    * 		</p>
@@ -947,7 +912,6 @@ export namespace CloudFrontOriginAccessIdentity {
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentity => __isa(o, "CloudFrontOriginAccessIdentity");
 }
 
 /**
@@ -965,8 +929,6 @@ export namespace CloudFrontOriginAccessIdentityAlreadyExists {
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentityAlreadyExists =>
-    __isa(o, "CloudFrontOriginAccessIdentityAlreadyExists");
 }
 
 /**
@@ -975,7 +937,6 @@ export namespace CloudFrontOriginAccessIdentityAlreadyExists {
  * 		</p>
  */
 export interface CloudFrontOriginAccessIdentityConfig {
-  __type?: "CloudFrontOriginAccessIdentityConfig";
   /**
    * <p>Any comments you want to include about the origin access identity. </p>
    */
@@ -1002,8 +963,6 @@ export namespace CloudFrontOriginAccessIdentityConfig {
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentityConfig =>
-    __isa(o, "CloudFrontOriginAccessIdentityConfig");
 }
 
 /**
@@ -1019,8 +978,6 @@ export namespace CloudFrontOriginAccessIdentityInUse {
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentityInUse =>
-    __isa(o, "CloudFrontOriginAccessIdentityInUse");
 }
 
 /**
@@ -1033,7 +990,6 @@ export namespace CloudFrontOriginAccessIdentityInUse {
  * 			parameters.</p>
  */
 export interface CloudFrontOriginAccessIdentityList {
-  __type?: "CloudFrontOriginAccessIdentityList";
   /**
    * <p>The maximum number of origin access identities you want in the response body.
    * 		</p>
@@ -1081,15 +1037,12 @@ export namespace CloudFrontOriginAccessIdentityList {
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentityList =>
-    __isa(o, "CloudFrontOriginAccessIdentityList");
 }
 
 /**
  * <p>Summary of the information about a CloudFront origin access identity.</p>
  */
 export interface CloudFrontOriginAccessIdentitySummary {
-  __type?: "CloudFrontOriginAccessIdentitySummary";
   /**
    * <p>The Amazon S3 canonical user ID for the origin access identity, which you use when giving
    * 			the origin access identity read permission to an object in Amazon S3.</p>
@@ -1113,8 +1066,6 @@ export namespace CloudFrontOriginAccessIdentitySummary {
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentitySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFrontOriginAccessIdentitySummary =>
-    __isa(o, "CloudFrontOriginAccessIdentitySummary");
 }
 
 /**
@@ -1130,14 +1081,12 @@ export namespace CNAMEAlreadyExists {
   export const filterSensitiveLog = (obj: CNAMEAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CNAMEAlreadyExists => __isa(o, "CNAMEAlreadyExists");
 }
 
 /**
  * <p>A field-level encryption content type profile. </p>
  */
 export interface ContentTypeProfile {
-  __type?: "ContentTypeProfile";
   /**
    * <p>The content type for a field-level encryption content type-profile mapping. </p>
    */
@@ -1158,14 +1107,12 @@ export namespace ContentTypeProfile {
   export const filterSensitiveLog = (obj: ContentTypeProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContentTypeProfile => __isa(o, "ContentTypeProfile");
 }
 
 /**
  * <p>The configuration for a field-level encryption content type-profile mapping. </p>
  */
 export interface ContentTypeProfileConfig {
-  __type?: "ContentTypeProfileConfig";
   /**
    * <p>The setting in a field-level encryption content type-profile mapping that specifies what to do
    * 			when an unknown content type is provided for the profile. If true, content is
@@ -1184,14 +1131,12 @@ export namespace ContentTypeProfileConfig {
   export const filterSensitiveLog = (obj: ContentTypeProfileConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContentTypeProfileConfig => __isa(o, "ContentTypeProfileConfig");
 }
 
 /**
  * <p>Field-level encryption content type-profile. </p>
  */
 export interface ContentTypeProfiles {
-  __type?: "ContentTypeProfiles";
   /**
    * <p>Items in a field-level encryption content type-profile mapping. </p>
    */
@@ -1207,14 +1152,12 @@ export namespace ContentTypeProfiles {
   export const filterSensitiveLog = (obj: ContentTypeProfiles): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContentTypeProfiles => __isa(o, "ContentTypeProfiles");
 }
 
 /**
  * <p>Contains a list of cookie names.</p>
  */
 export interface CookieNames {
-  __type?: "CookieNames";
   /**
    * <p>The number of cookie names in the <code>Items</code> list.</p>
    */
@@ -1230,7 +1173,6 @@ export namespace CookieNames {
   export const filterSensitiveLog = (obj: CookieNames): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CookieNames => __isa(o, "CookieNames");
 }
 
 /**
@@ -1247,7 +1189,6 @@ export namespace CookieNames {
  * 				Based on Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface CookiePreference {
-  __type?: "CookiePreference";
   /**
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
    * 			request policy instead of this field.</p>
@@ -1290,11 +1231,9 @@ export namespace CookiePreference {
   export const filterSensitiveLog = (obj: CookiePreference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CookiePreference => __isa(o, "CookiePreference");
 }
 
 export interface CreateCachePolicyRequest {
-  __type?: "CreateCachePolicyRequest";
   /**
    * <p>A cache policy configuration.</p>
    */
@@ -1305,11 +1244,9 @@ export namespace CreateCachePolicyRequest {
   export const filterSensitiveLog = (obj: CreateCachePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCachePolicyRequest => __isa(o, "CreateCachePolicyRequest");
 }
 
 export interface CreateCachePolicyResult {
-  __type?: "CreateCachePolicyResult";
   /**
    * <p>The current version of the cache policy.</p>
    */
@@ -1330,7 +1267,6 @@ export namespace CreateCachePolicyResult {
   export const filterSensitiveLog = (obj: CreateCachePolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCachePolicyResult => __isa(o, "CreateCachePolicyResult");
 }
 
 /**
@@ -1341,7 +1277,6 @@ export namespace CreateCachePolicyResult {
  * 			<i>Amazon CloudFront Developer Guide</i>. </p>
  */
 export interface CreateCloudFrontOriginAccessIdentityRequest {
-  __type?: "CreateCloudFrontOriginAccessIdentityRequest";
   /**
    * <p>The current configuration information for the identity.</p>
    */
@@ -1352,15 +1287,12 @@ export namespace CreateCloudFrontOriginAccessIdentityRequest {
   export const filterSensitiveLog = (obj: CreateCloudFrontOriginAccessIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFrontOriginAccessIdentityRequest =>
-    __isa(o, "CreateCloudFrontOriginAccessIdentityRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateCloudFrontOriginAccessIdentityResult {
-  __type?: "CreateCloudFrontOriginAccessIdentityResult";
   /**
    * <p>The current version of the origin access identity created.</p>
    */
@@ -1381,15 +1313,12 @@ export namespace CreateCloudFrontOriginAccessIdentityResult {
   export const filterSensitiveLog = (obj: CreateCloudFrontOriginAccessIdentityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFrontOriginAccessIdentityResult =>
-    __isa(o, "CreateCloudFrontOriginAccessIdentityResult");
 }
 
 /**
  * <p>The request to create a new distribution.</p>
  */
 export interface CreateDistributionRequest {
-  __type?: "CreateDistributionRequest";
   /**
    * <p>The distribution's configuration information.</p>
    */
@@ -1403,14 +1332,12 @@ export namespace CreateDistributionRequest {
       DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
     }),
   });
-  export const isa = (o: any): o is CreateDistributionRequest => __isa(o, "CreateDistributionRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateDistributionResult {
-  __type?: "CreateDistributionResult";
   /**
    * <p>The distribution's information.</p>
    */
@@ -1432,14 +1359,12 @@ export namespace CreateDistributionResult {
     ...obj,
     ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
-  export const isa = (o: any): o is CreateDistributionResult => __isa(o, "CreateDistributionResult");
 }
 
 /**
  * <p>The request to create a new distribution with tags. </p>
  */
 export interface CreateDistributionWithTagsRequest {
-  __type?: "CreateDistributionWithTagsRequest";
   /**
    * <p>The distribution's configuration information. </p>
    */
@@ -1453,14 +1378,12 @@ export namespace CreateDistributionWithTagsRequest {
       DistributionConfigWithTags: DistributionConfigWithTags.filterSensitiveLog(obj.DistributionConfigWithTags),
     }),
   });
-  export const isa = (o: any): o is CreateDistributionWithTagsRequest => __isa(o, "CreateDistributionWithTagsRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request. </p>
  */
 export interface CreateDistributionWithTagsResult {
-  __type?: "CreateDistributionWithTagsResult";
   /**
    * <p>The distribution's information. </p>
    */
@@ -1482,11 +1405,9 @@ export namespace CreateDistributionWithTagsResult {
     ...obj,
     ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
-  export const isa = (o: any): o is CreateDistributionWithTagsResult => __isa(o, "CreateDistributionWithTagsResult");
 }
 
 export interface CreateFieldLevelEncryptionConfigRequest {
-  __type?: "CreateFieldLevelEncryptionConfigRequest";
   /**
    * <p>The request to create a new field-level encryption configuration.</p>
    */
@@ -1497,12 +1418,9 @@ export namespace CreateFieldLevelEncryptionConfigRequest {
   export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFieldLevelEncryptionConfigRequest =>
-    __isa(o, "CreateFieldLevelEncryptionConfigRequest");
 }
 
 export interface CreateFieldLevelEncryptionConfigResult {
-  __type?: "CreateFieldLevelEncryptionConfigResult";
   /**
    * <p>The fully qualified URI of the new configuration resource just created.</p>
    */
@@ -1523,12 +1441,9 @@ export namespace CreateFieldLevelEncryptionConfigResult {
   export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFieldLevelEncryptionConfigResult =>
-    __isa(o, "CreateFieldLevelEncryptionConfigResult");
 }
 
 export interface CreateFieldLevelEncryptionProfileRequest {
-  __type?: "CreateFieldLevelEncryptionProfileRequest";
   /**
    * <p>The request to create a field-level encryption profile.</p>
    */
@@ -1539,12 +1454,9 @@ export namespace CreateFieldLevelEncryptionProfileRequest {
   export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFieldLevelEncryptionProfileRequest =>
-    __isa(o, "CreateFieldLevelEncryptionProfileRequest");
 }
 
 export interface CreateFieldLevelEncryptionProfileResult {
-  __type?: "CreateFieldLevelEncryptionProfileResult";
   /**
    * <p>Returned when you create a new field-level encryption profile.</p>
    */
@@ -1565,15 +1477,12 @@ export namespace CreateFieldLevelEncryptionProfileResult {
   export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFieldLevelEncryptionProfileResult =>
-    __isa(o, "CreateFieldLevelEncryptionProfileResult");
 }
 
 /**
  * <p>The request to create an invalidation.</p>
  */
 export interface CreateInvalidationRequest {
-  __type?: "CreateInvalidationRequest";
   /**
    * <p>The batch information for the invalidation.</p>
    */
@@ -1589,14 +1498,12 @@ export namespace CreateInvalidationRequest {
   export const filterSensitiveLog = (obj: CreateInvalidationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInvalidationRequest => __isa(o, "CreateInvalidationRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateInvalidationResult {
-  __type?: "CreateInvalidationResult";
   /**
    * <p>The invalidation's information.</p>
    */
@@ -1613,11 +1520,9 @@ export namespace CreateInvalidationResult {
   export const filterSensitiveLog = (obj: CreateInvalidationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInvalidationResult => __isa(o, "CreateInvalidationResult");
 }
 
 export interface CreateOriginRequestPolicyRequest {
-  __type?: "CreateOriginRequestPolicyRequest";
   /**
    * <p>An origin request policy configuration.</p>
    */
@@ -1628,11 +1533,9 @@ export namespace CreateOriginRequestPolicyRequest {
   export const filterSensitiveLog = (obj: CreateOriginRequestPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOriginRequestPolicyRequest => __isa(o, "CreateOriginRequestPolicyRequest");
 }
 
 export interface CreateOriginRequestPolicyResult {
-  __type?: "CreateOriginRequestPolicyResult";
   /**
    * <p>An origin request policy.</p>
    */
@@ -1653,11 +1556,9 @@ export namespace CreateOriginRequestPolicyResult {
   export const filterSensitiveLog = (obj: CreateOriginRequestPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOriginRequestPolicyResult => __isa(o, "CreateOriginRequestPolicyResult");
 }
 
 export interface CreatePublicKeyRequest {
-  __type?: "CreatePublicKeyRequest";
   /**
    * <p>The request to add a public key to CloudFront.</p>
    */
@@ -1668,11 +1569,9 @@ export namespace CreatePublicKeyRequest {
   export const filterSensitiveLog = (obj: CreatePublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePublicKeyRequest => __isa(o, "CreatePublicKeyRequest");
 }
 
 export interface CreatePublicKeyResult {
-  __type?: "CreatePublicKeyResult";
   /**
    * <p>The fully qualified URI of the new public key resource just created.</p>
    */
@@ -1693,14 +1592,12 @@ export namespace CreatePublicKeyResult {
   export const filterSensitiveLog = (obj: CreatePublicKeyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePublicKeyResult => __isa(o, "CreatePublicKeyResult");
 }
 
 /**
  * <p>The request to create a new streaming distribution.</p>
  */
 export interface CreateStreamingDistributionRequest {
-  __type?: "CreateStreamingDistributionRequest";
   /**
    * <p>The streaming distribution's configuration information.</p>
    */
@@ -1711,15 +1608,12 @@ export namespace CreateStreamingDistributionRequest {
   export const filterSensitiveLog = (obj: CreateStreamingDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingDistributionRequest =>
-    __isa(o, "CreateStreamingDistributionRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateStreamingDistributionResult {
-  __type?: "CreateStreamingDistributionResult";
   /**
    * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
    */
@@ -1740,14 +1634,12 @@ export namespace CreateStreamingDistributionResult {
   export const filterSensitiveLog = (obj: CreateStreamingDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingDistributionResult => __isa(o, "CreateStreamingDistributionResult");
 }
 
 /**
  * <p>The request to create a new streaming distribution with tags.</p>
  */
 export interface CreateStreamingDistributionWithTagsRequest {
-  __type?: "CreateStreamingDistributionWithTagsRequest";
   /**
    * <p> The streaming distribution's configuration information. </p>
    */
@@ -1758,15 +1650,12 @@ export namespace CreateStreamingDistributionWithTagsRequest {
   export const filterSensitiveLog = (obj: CreateStreamingDistributionWithTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingDistributionWithTagsRequest =>
-    __isa(o, "CreateStreamingDistributionWithTagsRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request. </p>
  */
 export interface CreateStreamingDistributionWithTagsResult {
-  __type?: "CreateStreamingDistributionWithTagsResult";
   /**
    * <p>The streaming distribution's information. </p>
    */
@@ -1787,8 +1676,6 @@ export namespace CreateStreamingDistributionWithTagsResult {
   export const filterSensitiveLog = (obj: CreateStreamingDistributionWithTagsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingDistributionWithTagsResult =>
-    __isa(o, "CreateStreamingDistributionWithTagsResult");
 }
 
 /**
@@ -1806,7 +1693,6 @@ export namespace CreateStreamingDistributionWithTagsResult {
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface CustomErrorResponse {
-  __type?: "CustomErrorResponse";
   /**
    * <p>The HTTP status code for which you want to specify a custom error page and/or a caching
    * 			duration.</p>
@@ -1880,7 +1766,6 @@ export namespace CustomErrorResponse {
   export const filterSensitiveLog = (obj: CustomErrorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomErrorResponse => __isa(o, "CustomErrorResponse");
 }
 
 /**
@@ -1898,7 +1783,6 @@ export namespace CustomErrorResponse {
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface CustomErrorResponses {
-  __type?: "CustomErrorResponses";
   /**
    * <p>The number of HTTP status codes for which you want to specify a custom error page
    * 			and/or a caching duration. If <code>Quantity</code> is <code>0</code>, you can omit
@@ -1918,14 +1802,12 @@ export namespace CustomErrorResponses {
   export const filterSensitiveLog = (obj: CustomErrorResponses): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomErrorResponses => __isa(o, "CustomErrorResponses");
 }
 
 /**
  * <p>A complex type that contains the list of Custom Headers for each origin. </p>
  */
 export interface CustomHeaders {
-  __type?: "CustomHeaders";
   /**
    * <p>The number of custom headers, if any, for this distribution.</p>
    */
@@ -1944,7 +1826,6 @@ export namespace CustomHeaders {
   export const filterSensitiveLog = (obj: CustomHeaders): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomHeaders => __isa(o, "CustomHeaders");
 }
 
 /**
@@ -1954,7 +1835,6 @@ export namespace CustomHeaders {
  *             <i>is</i> a custom origin.</p>
  */
 export interface CustomOriginConfig {
-  __type?: "CustomOriginConfig";
   /**
    * <p>Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values
    * 			are:</p>
@@ -2023,7 +1903,6 @@ export namespace CustomOriginConfig {
   export const filterSensitiveLog = (obj: CustomOriginConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomOriginConfig => __isa(o, "CustomOriginConfig");
 }
 
 /**
@@ -2033,7 +1912,6 @@ export namespace CustomOriginConfig {
  * 			one default cache behavior.</p>
  */
 export interface DefaultCacheBehavior {
-  __type?: "DefaultCacheBehavior";
   /**
    * <p>The unique identifier of the cache policy that is attached to the default cache behavior.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
@@ -2220,11 +2098,9 @@ export namespace DefaultCacheBehavior {
   export const filterSensitiveLog = (obj: DefaultCacheBehavior): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultCacheBehavior => __isa(o, "DefaultCacheBehavior");
 }
 
 export interface DeleteCachePolicyRequest {
-  __type?: "DeleteCachePolicyRequest";
   /**
    * <p>The version of the cache policy that you are deleting. The version is the cache
    * 			policy’s <code>ETag</code> value, which you can get using
@@ -2244,14 +2120,12 @@ export namespace DeleteCachePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteCachePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCachePolicyRequest => __isa(o, "DeleteCachePolicyRequest");
 }
 
 /**
  * <p>Deletes a origin access identity.</p>
  */
 export interface DeleteCloudFrontOriginAccessIdentityRequest {
-  __type?: "DeleteCloudFrontOriginAccessIdentityRequest";
   /**
    * <p>The value of the <code>ETag</code> header you received from a previous <code>GET</code>
    * 			or <code>PUT</code> request. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2268,8 +2142,6 @@ export namespace DeleteCloudFrontOriginAccessIdentityRequest {
   export const filterSensitiveLog = (obj: DeleteCloudFrontOriginAccessIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCloudFrontOriginAccessIdentityRequest =>
-    __isa(o, "DeleteCloudFrontOriginAccessIdentityRequest");
 }
 
 /**
@@ -2322,7 +2194,6 @@ export namespace DeleteCloudFrontOriginAccessIdentityRequest {
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface DeleteDistributionRequest {
-  __type?: "DeleteDistributionRequest";
   /**
    * <p>The value of the <code>ETag</code> header that you received when you disabled the
    * 			distribution. For example: <code>E2QWRUHAPOMQZL</code>. </p>
@@ -2339,11 +2210,9 @@ export namespace DeleteDistributionRequest {
   export const filterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDistributionRequest => __isa(o, "DeleteDistributionRequest");
 }
 
 export interface DeleteFieldLevelEncryptionConfigRequest {
-  __type?: "DeleteFieldLevelEncryptionConfigRequest";
   /**
    * <p>The ID of the configuration you want to delete from CloudFront.</p>
    */
@@ -2360,12 +2229,9 @@ export namespace DeleteFieldLevelEncryptionConfigRequest {
   export const filterSensitiveLog = (obj: DeleteFieldLevelEncryptionConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFieldLevelEncryptionConfigRequest =>
-    __isa(o, "DeleteFieldLevelEncryptionConfigRequest");
 }
 
 export interface DeleteFieldLevelEncryptionProfileRequest {
-  __type?: "DeleteFieldLevelEncryptionProfileRequest";
   /**
    * <p>The value of the <code>ETag</code> header that you received when retrieving the
    * 			profile to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2382,12 +2248,9 @@ export namespace DeleteFieldLevelEncryptionProfileRequest {
   export const filterSensitiveLog = (obj: DeleteFieldLevelEncryptionProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFieldLevelEncryptionProfileRequest =>
-    __isa(o, "DeleteFieldLevelEncryptionProfileRequest");
 }
 
 export interface DeleteOriginRequestPolicyRequest {
-  __type?: "DeleteOriginRequestPolicyRequest";
   /**
    * <p>The unique identifier for the origin request policy that you are deleting. To get the
    * 			identifier, you can use <code>ListOriginRequestPolicies</code>.</p>
@@ -2407,11 +2270,9 @@ export namespace DeleteOriginRequestPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteOriginRequestPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOriginRequestPolicyRequest => __isa(o, "DeleteOriginRequestPolicyRequest");
 }
 
 export interface DeletePublicKeyRequest {
-  __type?: "DeletePublicKeyRequest";
   /**
    * <p>The ID of the public key you want to remove from CloudFront.</p>
    */
@@ -2428,14 +2289,12 @@ export namespace DeletePublicKeyRequest {
   export const filterSensitiveLog = (obj: DeletePublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePublicKeyRequest => __isa(o, "DeletePublicKeyRequest");
 }
 
 /**
  * <p>The request to delete a streaming distribution.</p>
  */
 export interface DeleteStreamingDistributionRequest {
-  __type?: "DeleteStreamingDistributionRequest";
   /**
    * <p>The value of the <code>ETag</code> header that you received when you disabled the
    * 			streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -2452,8 +2311,6 @@ export namespace DeleteStreamingDistributionRequest {
   export const filterSensitiveLog = (obj: DeleteStreamingDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamingDistributionRequest =>
-    __isa(o, "DeleteStreamingDistributionRequest");
 }
 
 /**
@@ -2461,7 +2318,6 @@ export namespace DeleteStreamingDistributionRequest {
  * 			track and manage content delivery.</p>
  */
 export interface Distribution {
-  __type?: "Distribution";
   /**
    * <p>The domain name corresponding to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>. </p>
    */
@@ -2532,7 +2388,6 @@ export namespace Distribution {
       DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
     }),
   });
-  export const isa = (o: any): o is Distribution => __isa(o, "Distribution");
 }
 
 /**
@@ -2548,14 +2403,12 @@ export namespace DistributionAlreadyExists {
   export const filterSensitiveLog = (obj: DistributionAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionAlreadyExists => __isa(o, "DistributionAlreadyExists");
 }
 
 /**
  * <p>A distribution configuration.</p>
  */
 export interface DistributionConfig {
-  __type?: "DistributionConfig";
   /**
    * <p>A complex type that determines the distribution’s SSL/TLS configuration for
    * 			communicating with viewers.</p>
@@ -2755,7 +2608,6 @@ export namespace DistributionConfig {
     ...obj,
     ...(obj.Comment && { Comment: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DistributionConfig => __isa(o, "DistributionConfig");
 }
 
 /**
@@ -2763,7 +2615,6 @@ export namespace DistributionConfig {
  * 			distribution.</p>
  */
 export interface DistributionConfigWithTags {
-  __type?: "DistributionConfigWithTags";
   /**
    * <p>A distribution configuration.</p>
    */
@@ -2782,14 +2633,12 @@ export namespace DistributionConfigWithTags {
       DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
     }),
   });
-  export const isa = (o: any): o is DistributionConfigWithTags => __isa(o, "DistributionConfigWithTags");
 }
 
 /**
  * <p>A list of distribution IDs.</p>
  */
 export interface DistributionIdList {
-  __type?: "DistributionIdList";
   /**
    * <p>The total number of distribution IDs returned in the response.</p>
    */
@@ -2828,14 +2677,12 @@ export namespace DistributionIdList {
   export const filterSensitiveLog = (obj: DistributionIdList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionIdList => __isa(o, "DistributionIdList");
 }
 
 /**
  * <p>A distribution list.</p>
  */
 export interface DistributionList {
-  __type?: "DistributionList";
   /**
    * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
    */
@@ -2876,7 +2723,6 @@ export namespace DistributionList {
   export const filterSensitiveLog = (obj: DistributionList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionList => __isa(o, "DistributionList");
 }
 
 /**
@@ -2893,14 +2739,12 @@ export namespace DistributionNotDisabled {
   export const filterSensitiveLog = (obj: DistributionNotDisabled): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionNotDisabled => __isa(o, "DistributionNotDisabled");
 }
 
 /**
  * <p>A summary of the information about a CloudFront distribution.</p>
  */
 export interface DistributionSummary {
-  __type?: "DistributionSummary";
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
@@ -3027,14 +2871,12 @@ export namespace DistributionSummary {
   export const filterSensitiveLog = (obj: DistributionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionSummary => __isa(o, "DistributionSummary");
 }
 
 /**
  * <p>Complex data type for field-level encryption profiles that includes all of the encryption entities. </p>
  */
 export interface EncryptionEntities {
-  __type?: "EncryptionEntities";
   /**
    * <p>Number of field pattern items in a field-level encryption content type-profile mapping. </p>
    */
@@ -3050,14 +2892,12 @@ export namespace EncryptionEntities {
   export const filterSensitiveLog = (obj: EncryptionEntities): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionEntities => __isa(o, "EncryptionEntities");
 }
 
 /**
  * <p>Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications. </p>
  */
 export interface EncryptionEntity {
-  __type?: "EncryptionEntity";
   /**
    * <p>The provider associated with the public key being used for encryption. This value must also be provided with the private key
    * 		for applications to be able to decrypt data.</p>
@@ -3082,7 +2922,6 @@ export namespace EncryptionEntity {
   export const filterSensitiveLog = (obj: EncryptionEntity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionEntity => __isa(o, "EncryptionEntity");
 }
 
 export type EventType = "origin-request" | "origin-response" | "viewer-request" | "viewer-response";
@@ -3091,7 +2930,6 @@ export type EventType = "origin-request" | "origin-response" | "viewer-request" 
  * <p>A complex data type that includes the profile configurations and other options specified for field-level encryption. </p>
  */
 export interface FieldLevelEncryption {
-  __type?: "FieldLevelEncryption";
   /**
    * <p>The last time the field-level encryption configuration was changed. </p>
    */
@@ -3113,14 +2951,12 @@ export namespace FieldLevelEncryption {
   export const filterSensitiveLog = (obj: FieldLevelEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryption => __isa(o, "FieldLevelEncryption");
 }
 
 /**
  * <p>A complex data type that includes the profile configurations specified for field-level encryption. </p>
  */
 export interface FieldLevelEncryptionConfig {
-  __type?: "FieldLevelEncryptionConfig";
   /**
    * <p>A unique number that ensures the request can't be replayed.</p>
    */
@@ -3148,7 +2984,6 @@ export namespace FieldLevelEncryptionConfig {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionConfig => __isa(o, "FieldLevelEncryptionConfig");
 }
 
 /**
@@ -3164,8 +2999,6 @@ export namespace FieldLevelEncryptionConfigAlreadyExists {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionConfigAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionConfigAlreadyExists =>
-    __isa(o, "FieldLevelEncryptionConfigAlreadyExists");
 }
 
 /**
@@ -3181,14 +3014,12 @@ export namespace FieldLevelEncryptionConfigInUse {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionConfigInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionConfigInUse => __isa(o, "FieldLevelEncryptionConfigInUse");
 }
 
 /**
  * <p>List of field-level encrpytion configurations.</p>
  */
 export interface FieldLevelEncryptionList {
-  __type?: "FieldLevelEncryptionList";
   /**
    * <p>The maximum number of elements you want in the response body. </p>
    */
@@ -3216,14 +3047,12 @@ export namespace FieldLevelEncryptionList {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionList => __isa(o, "FieldLevelEncryptionList");
 }
 
 /**
  * <p>A complex data type for field-level encryption profiles.</p>
  */
 export interface FieldLevelEncryptionProfile {
-  __type?: "FieldLevelEncryptionProfile";
   /**
    * <p>A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.</p>
    */
@@ -3245,7 +3074,6 @@ export namespace FieldLevelEncryptionProfile {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfile => __isa(o, "FieldLevelEncryptionProfile");
 }
 
 /**
@@ -3261,15 +3089,12 @@ export namespace FieldLevelEncryptionProfileAlreadyExists {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileAlreadyExists =>
-    __isa(o, "FieldLevelEncryptionProfileAlreadyExists");
 }
 
 /**
  * <p>A complex data type of profiles for the field-level encryption.</p>
  */
 export interface FieldLevelEncryptionProfileConfig {
-  __type?: "FieldLevelEncryptionProfileConfig";
   /**
    * <p>A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and
    * 			field patterns for specifying which fields to encrypt with this key.</p>
@@ -3296,7 +3121,6 @@ export namespace FieldLevelEncryptionProfileConfig {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileConfig => __isa(o, "FieldLevelEncryptionProfileConfig");
 }
 
 /**
@@ -3312,14 +3136,12 @@ export namespace FieldLevelEncryptionProfileInUse {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileInUse => __isa(o, "FieldLevelEncryptionProfileInUse");
 }
 
 /**
  * <p>List of field-level encryption profiles.</p>
  */
 export interface FieldLevelEncryptionProfileList {
-  __type?: "FieldLevelEncryptionProfileList";
   /**
    * <p>If there are more elements to be listed, this element is present and contains
    * 			the value that you can use for the <code>Marker</code> request parameter to continue
@@ -3347,7 +3169,6 @@ export namespace FieldLevelEncryptionProfileList {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileList => __isa(o, "FieldLevelEncryptionProfileList");
 }
 
 /**
@@ -3363,15 +3184,12 @@ export namespace FieldLevelEncryptionProfileSizeExceeded {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileSizeExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileSizeExceeded =>
-    __isa(o, "FieldLevelEncryptionProfileSizeExceeded");
 }
 
 /**
  * <p>The field-level encryption profile summary.</p>
  */
 export interface FieldLevelEncryptionProfileSummary {
-  __type?: "FieldLevelEncryptionProfileSummary";
   /**
    * <p>ID for the field-level encryption profile summary.</p>
    */
@@ -3403,15 +3221,12 @@ export namespace FieldLevelEncryptionProfileSummary {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionProfileSummary =>
-    __isa(o, "FieldLevelEncryptionProfileSummary");
 }
 
 /**
  * <p>A summary of a field-level encryption item.</p>
  */
 export interface FieldLevelEncryptionSummary {
-  __type?: "FieldLevelEncryptionSummary";
   /**
    * <p>An optional comment about the field-level encryption item.</p>
    */
@@ -3446,14 +3261,12 @@ export namespace FieldLevelEncryptionSummary {
   export const filterSensitiveLog = (obj: FieldLevelEncryptionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldLevelEncryptionSummary => __isa(o, "FieldLevelEncryptionSummary");
 }
 
 /**
  * <p>A complex data type that includes the field patterns to match for field-level encryption.</p>
  */
 export interface FieldPatterns {
-  __type?: "FieldPatterns";
   /**
    * <p>The number of field-level encryption field patterns.</p>
    */
@@ -3469,7 +3282,6 @@ export namespace FieldPatterns {
   export const filterSensitiveLog = (obj: FieldPatterns): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldPatterns => __isa(o, "FieldPatterns");
 }
 
 export type Format = "URLEncoded";
@@ -3485,7 +3297,6 @@ export type Format = "URLEncoded";
  * 		       <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.</p>
  */
 export interface ForwardedValues {
-  __type?: "ForwardedValues";
   /**
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
    * 			request policy instead of this field.</p>
@@ -3562,7 +3373,6 @@ export namespace ForwardedValues {
   export const filterSensitiveLog = (obj: ForwardedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForwardedValues => __isa(o, "ForwardedValues");
 }
 
 /**
@@ -3570,7 +3380,6 @@ export namespace ForwardedValues {
  * 			determines the location of your users using <code>MaxMind</code> GeoIP databases. </p>
  */
 export interface GeoRestriction {
-  __type?: "GeoRestriction";
   /**
    * <p>When geo restriction is <code>enabled</code>, this is the number of countries in your
    * 				<code>whitelist</code> or <code>blacklist</code>. Otherwise, when it is not enabled,
@@ -3621,13 +3430,11 @@ export namespace GeoRestriction {
   export const filterSensitiveLog = (obj: GeoRestriction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoRestriction => __isa(o, "GeoRestriction");
 }
 
 export type GeoRestrictionType = "blacklist" | "none" | "whitelist";
 
 export interface GetCachePolicyConfigRequest {
-  __type?: "GetCachePolicyConfigRequest";
   /**
    * <p>The unique identifier for the cache policy. If the cache policy is attached to a
    * 			distribution’s cache behavior, you can get the policy’s identifier using
@@ -3642,11 +3449,9 @@ export namespace GetCachePolicyConfigRequest {
   export const filterSensitiveLog = (obj: GetCachePolicyConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCachePolicyConfigRequest => __isa(o, "GetCachePolicyConfigRequest");
 }
 
 export interface GetCachePolicyConfigResult {
-  __type?: "GetCachePolicyConfigResult";
   /**
    * <p>The current version of the cache policy.</p>
    */
@@ -3662,11 +3467,9 @@ export namespace GetCachePolicyConfigResult {
   export const filterSensitiveLog = (obj: GetCachePolicyConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCachePolicyConfigResult => __isa(o, "GetCachePolicyConfigResult");
 }
 
 export interface GetCachePolicyRequest {
-  __type?: "GetCachePolicyRequest";
   /**
    * <p>The unique identifier for the cache policy. If the cache policy is attached to a
    * 			distribution’s cache behavior, you can get the policy’s identifier using
@@ -3681,11 +3484,9 @@ export namespace GetCachePolicyRequest {
   export const filterSensitiveLog = (obj: GetCachePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCachePolicyRequest => __isa(o, "GetCachePolicyRequest");
 }
 
 export interface GetCachePolicyResult {
-  __type?: "GetCachePolicyResult";
   /**
    * <p>The current version of the cache policy.</p>
    */
@@ -3701,7 +3502,6 @@ export namespace GetCachePolicyResult {
   export const filterSensitiveLog = (obj: GetCachePolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCachePolicyResult => __isa(o, "GetCachePolicyResult");
 }
 
 /**
@@ -3709,7 +3509,6 @@ export namespace GetCachePolicyResult {
  * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CloudFrontOriginAccessIdentityConfig.html">CloudFrontOriginAccessIdentityConfig</a>.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityConfigRequest {
-  __type?: "GetCloudFrontOriginAccessIdentityConfigRequest";
   /**
    * <p>The identity's ID. </p>
    */
@@ -3720,15 +3519,12 @@ export namespace GetCloudFrontOriginAccessIdentityConfigRequest {
   export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFrontOriginAccessIdentityConfigRequest =>
-    __isa(o, "GetCloudFrontOriginAccessIdentityConfigRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityConfigResult {
-  __type?: "GetCloudFrontOriginAccessIdentityConfigResult";
   /**
    * <p>The origin access identity's configuration information. </p>
    */
@@ -3745,15 +3541,12 @@ export namespace GetCloudFrontOriginAccessIdentityConfigResult {
   export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFrontOriginAccessIdentityConfigResult =>
-    __isa(o, "GetCloudFrontOriginAccessIdentityConfigResult");
 }
 
 /**
  * <p>The request to get an origin access identity's information.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityRequest {
-  __type?: "GetCloudFrontOriginAccessIdentityRequest";
   /**
    * <p>The identity's ID.</p>
    */
@@ -3764,15 +3557,12 @@ export namespace GetCloudFrontOriginAccessIdentityRequest {
   export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFrontOriginAccessIdentityRequest =>
-    __isa(o, "GetCloudFrontOriginAccessIdentityRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetCloudFrontOriginAccessIdentityResult {
-  __type?: "GetCloudFrontOriginAccessIdentityResult";
   /**
    * <p>The origin access identity's information.</p>
    */
@@ -3789,15 +3579,12 @@ export namespace GetCloudFrontOriginAccessIdentityResult {
   export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFrontOriginAccessIdentityResult =>
-    __isa(o, "GetCloudFrontOriginAccessIdentityResult");
 }
 
 /**
  * <p>The request to get a distribution configuration.</p>
  */
 export interface GetDistributionConfigRequest {
-  __type?: "GetDistributionConfigRequest";
   /**
    * <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
    */
@@ -3808,14 +3595,12 @@ export namespace GetDistributionConfigRequest {
   export const filterSensitiveLog = (obj: GetDistributionConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionConfigRequest => __isa(o, "GetDistributionConfigRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetDistributionConfigResult {
-  __type?: "GetDistributionConfigResult";
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
@@ -3835,14 +3620,12 @@ export namespace GetDistributionConfigResult {
       DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
     }),
   });
-  export const isa = (o: any): o is GetDistributionConfigResult => __isa(o, "GetDistributionConfigResult");
 }
 
 /**
  * <p>The request to get a distribution's information.</p>
  */
 export interface GetDistributionRequest {
-  __type?: "GetDistributionRequest";
   /**
    * <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
    */
@@ -3853,14 +3636,12 @@ export namespace GetDistributionRequest {
   export const filterSensitiveLog = (obj: GetDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionRequest => __isa(o, "GetDistributionRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetDistributionResult {
-  __type?: "GetDistributionResult";
   /**
    * <p>The current version of the distribution's information. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
@@ -3878,11 +3659,9 @@ export namespace GetDistributionResult {
     ...obj,
     ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
-  export const isa = (o: any): o is GetDistributionResult => __isa(o, "GetDistributionResult");
 }
 
 export interface GetFieldLevelEncryptionConfigRequest {
-  __type?: "GetFieldLevelEncryptionConfigRequest";
   /**
    * <p>Request the ID for the field-level encryption configuration information.</p>
    */
@@ -3893,12 +3672,9 @@ export namespace GetFieldLevelEncryptionConfigRequest {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionConfigRequest =>
-    __isa(o, "GetFieldLevelEncryptionConfigRequest");
 }
 
 export interface GetFieldLevelEncryptionConfigResult {
-  __type?: "GetFieldLevelEncryptionConfigResult";
   /**
    * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
@@ -3914,12 +3690,9 @@ export namespace GetFieldLevelEncryptionConfigResult {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionConfigResult =>
-    __isa(o, "GetFieldLevelEncryptionConfigResult");
 }
 
 export interface GetFieldLevelEncryptionProfileConfigRequest {
-  __type?: "GetFieldLevelEncryptionProfileConfigRequest";
   /**
    * <p>Get the ID for the field-level encryption profile configuration information.</p>
    */
@@ -3930,12 +3703,9 @@ export namespace GetFieldLevelEncryptionProfileConfigRequest {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionProfileConfigRequest =>
-    __isa(o, "GetFieldLevelEncryptionProfileConfigRequest");
 }
 
 export interface GetFieldLevelEncryptionProfileConfigResult {
-  __type?: "GetFieldLevelEncryptionProfileConfigResult";
   /**
    * <p>Return the field-level encryption profile configuration information.</p>
    */
@@ -3951,12 +3721,9 @@ export namespace GetFieldLevelEncryptionProfileConfigResult {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionProfileConfigResult =>
-    __isa(o, "GetFieldLevelEncryptionProfileConfigResult");
 }
 
 export interface GetFieldLevelEncryptionProfileRequest {
-  __type?: "GetFieldLevelEncryptionProfileRequest";
   /**
    * <p>Get the ID for the field-level encryption profile information.</p>
    */
@@ -3967,12 +3734,9 @@ export namespace GetFieldLevelEncryptionProfileRequest {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionProfileRequest =>
-    __isa(o, "GetFieldLevelEncryptionProfileRequest");
 }
 
 export interface GetFieldLevelEncryptionProfileResult {
-  __type?: "GetFieldLevelEncryptionProfileResult";
   /**
    * <p>Return the field-level encryption profile information.</p>
    */
@@ -3988,12 +3752,9 @@ export namespace GetFieldLevelEncryptionProfileResult {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionProfileResult =>
-    __isa(o, "GetFieldLevelEncryptionProfileResult");
 }
 
 export interface GetFieldLevelEncryptionRequest {
-  __type?: "GetFieldLevelEncryptionRequest";
   /**
    * <p>Request the ID for the field-level encryption configuration information.</p>
    */
@@ -4004,11 +3765,9 @@ export namespace GetFieldLevelEncryptionRequest {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionRequest => __isa(o, "GetFieldLevelEncryptionRequest");
 }
 
 export interface GetFieldLevelEncryptionResult {
-  __type?: "GetFieldLevelEncryptionResult";
   /**
    * <p>Return the field-level encryption configuration information.</p>
    */
@@ -4024,14 +3783,12 @@ export namespace GetFieldLevelEncryptionResult {
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFieldLevelEncryptionResult => __isa(o, "GetFieldLevelEncryptionResult");
 }
 
 /**
  * <p>The request to get an invalidation's information. </p>
  */
 export interface GetInvalidationRequest {
-  __type?: "GetInvalidationRequest";
   /**
    * <p>The identifier for the invalidation request, for example,
    * 			<code>IDFDVBD632BHDS5</code>.</p>
@@ -4048,14 +3805,12 @@ export namespace GetInvalidationRequest {
   export const filterSensitiveLog = (obj: GetInvalidationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInvalidationRequest => __isa(o, "GetInvalidationRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetInvalidationResult {
-  __type?: "GetInvalidationResult";
   /**
    * <p>The invalidation's information. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html">Invalidation Complex Type</a>. </p>
    */
@@ -4066,11 +3821,9 @@ export namespace GetInvalidationResult {
   export const filterSensitiveLog = (obj: GetInvalidationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInvalidationResult => __isa(o, "GetInvalidationResult");
 }
 
 export interface GetOriginRequestPolicyConfigRequest {
-  __type?: "GetOriginRequestPolicyConfigRequest";
   /**
    * <p>The unique identifier for the origin request policy. If the origin request policy is
    * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
@@ -4085,12 +3838,9 @@ export namespace GetOriginRequestPolicyConfigRequest {
   export const filterSensitiveLog = (obj: GetOriginRequestPolicyConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOriginRequestPolicyConfigRequest =>
-    __isa(o, "GetOriginRequestPolicyConfigRequest");
 }
 
 export interface GetOriginRequestPolicyConfigResult {
-  __type?: "GetOriginRequestPolicyConfigResult";
   /**
    * <p>The origin request policy configuration.</p>
    */
@@ -4106,12 +3856,9 @@ export namespace GetOriginRequestPolicyConfigResult {
   export const filterSensitiveLog = (obj: GetOriginRequestPolicyConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOriginRequestPolicyConfigResult =>
-    __isa(o, "GetOriginRequestPolicyConfigResult");
 }
 
 export interface GetOriginRequestPolicyRequest {
-  __type?: "GetOriginRequestPolicyRequest";
   /**
    * <p>The unique identifier for the origin request policy. If the origin request policy is
    * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
@@ -4126,11 +3873,9 @@ export namespace GetOriginRequestPolicyRequest {
   export const filterSensitiveLog = (obj: GetOriginRequestPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOriginRequestPolicyRequest => __isa(o, "GetOriginRequestPolicyRequest");
 }
 
 export interface GetOriginRequestPolicyResult {
-  __type?: "GetOriginRequestPolicyResult";
   /**
    * <p>The origin request policy.</p>
    */
@@ -4146,11 +3891,9 @@ export namespace GetOriginRequestPolicyResult {
   export const filterSensitiveLog = (obj: GetOriginRequestPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOriginRequestPolicyResult => __isa(o, "GetOriginRequestPolicyResult");
 }
 
 export interface GetPublicKeyConfigRequest {
-  __type?: "GetPublicKeyConfigRequest";
   /**
    * <p>Request the ID for the public key configuration.</p>
    */
@@ -4161,11 +3904,9 @@ export namespace GetPublicKeyConfigRequest {
   export const filterSensitiveLog = (obj: GetPublicKeyConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicKeyConfigRequest => __isa(o, "GetPublicKeyConfigRequest");
 }
 
 export interface GetPublicKeyConfigResult {
-  __type?: "GetPublicKeyConfigResult";
   /**
    * <p>The current version of the public key configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
@@ -4181,11 +3922,9 @@ export namespace GetPublicKeyConfigResult {
   export const filterSensitiveLog = (obj: GetPublicKeyConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicKeyConfigResult => __isa(o, "GetPublicKeyConfigResult");
 }
 
 export interface GetPublicKeyRequest {
-  __type?: "GetPublicKeyRequest";
   /**
    * <p>Request the ID for the public key.</p>
    */
@@ -4196,11 +3935,9 @@ export namespace GetPublicKeyRequest {
   export const filterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicKeyRequest => __isa(o, "GetPublicKeyRequest");
 }
 
 export interface GetPublicKeyResult {
-  __type?: "GetPublicKeyResult";
   /**
    * <p>Return the public key.</p>
    */
@@ -4216,14 +3953,12 @@ export namespace GetPublicKeyResult {
   export const filterSensitiveLog = (obj: GetPublicKeyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicKeyResult => __isa(o, "GetPublicKeyResult");
 }
 
 /**
  * <p>To request to get a streaming distribution configuration.</p>
  */
 export interface GetStreamingDistributionConfigRequest {
-  __type?: "GetStreamingDistributionConfigRequest";
   /**
    * <p>The streaming distribution's ID.</p>
    */
@@ -4234,15 +3969,12 @@ export namespace GetStreamingDistributionConfigRequest {
   export const filterSensitiveLog = (obj: GetStreamingDistributionConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamingDistributionConfigRequest =>
-    __isa(o, "GetStreamingDistributionConfigRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetStreamingDistributionConfigResult {
-  __type?: "GetStreamingDistributionConfigResult";
   /**
    * <p>The streaming distribution's configuration information.</p>
    */
@@ -4259,15 +3991,12 @@ export namespace GetStreamingDistributionConfigResult {
   export const filterSensitiveLog = (obj: GetStreamingDistributionConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamingDistributionConfigResult =>
-    __isa(o, "GetStreamingDistributionConfigResult");
 }
 
 /**
  * <p>The request to get a streaming distribution's information.</p>
  */
 export interface GetStreamingDistributionRequest {
-  __type?: "GetStreamingDistributionRequest";
   /**
    * <p>The streaming distribution's ID.</p>
    */
@@ -4278,14 +4007,12 @@ export namespace GetStreamingDistributionRequest {
   export const filterSensitiveLog = (obj: GetStreamingDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamingDistributionRequest => __isa(o, "GetStreamingDistributionRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface GetStreamingDistributionResult {
-  __type?: "GetStreamingDistributionResult";
   /**
    * <p>The streaming distribution's information.</p>
    */
@@ -4302,14 +4029,12 @@ export namespace GetStreamingDistributionResult {
   export const filterSensitiveLog = (obj: GetStreamingDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStreamingDistributionResult => __isa(o, "GetStreamingDistributionResult");
 }
 
 /**
  * <p>Contains a list of HTTP header names.</p>
  */
 export interface Headers {
-  __type?: "Headers";
   /**
    * <p>A list of HTTP header names.</p>
    */
@@ -4325,7 +4050,6 @@ export namespace Headers {
   export const filterSensitiveLog = (obj: Headers): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Headers => __isa(o, "Headers");
 }
 
 export type HttpVersion = "http1.1" | "http2";
@@ -4345,7 +4069,6 @@ export namespace IllegalDelete {
   export const filterSensitiveLog = (obj: IllegalDelete): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IllegalDelete => __isa(o, "IllegalDelete");
 }
 
 /**
@@ -4363,8 +4086,6 @@ export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
   export const filterSensitiveLog = (obj: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =>
-    __isa(o, "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior");
 }
 
 /**
@@ -4380,7 +4101,6 @@ export namespace IllegalUpdate {
   export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IllegalUpdate => __isa(o, "IllegalUpdate");
 }
 
 /**
@@ -4396,7 +4116,6 @@ export namespace InconsistentQuantities {
   export const filterSensitiveLog = (obj: InconsistentQuantities): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InconsistentQuantities => __isa(o, "InconsistentQuantities");
 }
 
 /**
@@ -4412,14 +4131,12 @@ export namespace InvalidArgument {
   export const filterSensitiveLog = (obj: InvalidArgument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgument => __isa(o, "InvalidArgument");
 }
 
 /**
  * <p>An invalidation. </p>
  */
 export interface Invalidation {
-  __type?: "Invalidation";
   /**
    * <p>The identifier for the invalidation request. For example:
    * 			<code>IDFDVBD632BHDS5</code>.</p>
@@ -4447,14 +4164,12 @@ export namespace Invalidation {
   export const filterSensitiveLog = (obj: Invalidation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Invalidation => __isa(o, "Invalidation");
 }
 
 /**
  * <p>An invalidation batch.</p>
  */
 export interface InvalidationBatch {
-  __type?: "InvalidationBatch";
   /**
    * <p>A complex type that contains information about the objects that you want to invalidate.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects
@@ -4484,7 +4199,6 @@ export namespace InvalidationBatch {
   export const filterSensitiveLog = (obj: InvalidationBatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidationBatch => __isa(o, "InvalidationBatch");
 }
 
 /**
@@ -4493,7 +4207,6 @@ export namespace InvalidationBatch {
  * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface InvalidationList {
-  __type?: "InvalidationList";
   /**
    * <p>A flag that indicates whether more invalidation batch requests remain to be listed. If
    * 			your results were truncated, you can make a follow-up pagination request using the
@@ -4536,14 +4249,12 @@ export namespace InvalidationList {
   export const filterSensitiveLog = (obj: InvalidationList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidationList => __isa(o, "InvalidationList");
 }
 
 /**
  * <p>A summary of an invalidation request.</p>
  */
 export interface InvalidationSummary {
-  __type?: "InvalidationSummary";
   /**
    * <p>The status of an invalidation request.</p>
    */
@@ -4564,7 +4275,6 @@ export namespace InvalidationSummary {
   export const filterSensitiveLog = (obj: InvalidationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidationSummary => __isa(o, "InvalidationSummary");
 }
 
 /**
@@ -4580,7 +4290,6 @@ export namespace InvalidDefaultRootObject {
   export const filterSensitiveLog = (obj: InvalidDefaultRootObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDefaultRootObject => __isa(o, "InvalidDefaultRootObject");
 }
 
 /**
@@ -4596,7 +4305,6 @@ export namespace InvalidErrorCode {
   export const filterSensitiveLog = (obj: InvalidErrorCode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidErrorCode => __isa(o, "InvalidErrorCode");
 }
 
 /**
@@ -4613,7 +4321,6 @@ export namespace InvalidForwardCookies {
   export const filterSensitiveLog = (obj: InvalidForwardCookies): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidForwardCookies => __isa(o, "InvalidForwardCookies");
 }
 
 /**
@@ -4629,7 +4336,6 @@ export namespace InvalidGeoRestrictionParameter {
   export const filterSensitiveLog = (obj: InvalidGeoRestrictionParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGeoRestrictionParameter => __isa(o, "InvalidGeoRestrictionParameter");
 }
 
 /**
@@ -4645,7 +4351,6 @@ export namespace InvalidHeadersForS3Origin {
   export const filterSensitiveLog = (obj: InvalidHeadersForS3Origin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidHeadersForS3Origin => __isa(o, "InvalidHeadersForS3Origin");
 }
 
 /**
@@ -4661,7 +4366,6 @@ export namespace InvalidIfMatchVersion {
   export const filterSensitiveLog = (obj: InvalidIfMatchVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIfMatchVersion => __isa(o, "InvalidIfMatchVersion");
 }
 
 /**
@@ -4677,7 +4381,6 @@ export namespace InvalidLambdaFunctionAssociation {
   export const filterSensitiveLog = (obj: InvalidLambdaFunctionAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLambdaFunctionAssociation => __isa(o, "InvalidLambdaFunctionAssociation");
 }
 
 /**
@@ -4693,7 +4396,6 @@ export namespace InvalidLocationCode {
   export const filterSensitiveLog = (obj: InvalidLocationCode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLocationCode => __isa(o, "InvalidLocationCode");
 }
 
 /**
@@ -4709,7 +4411,6 @@ export namespace InvalidMinimumProtocolVersion {
   export const filterSensitiveLog = (obj: InvalidMinimumProtocolVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMinimumProtocolVersion => __isa(o, "InvalidMinimumProtocolVersion");
 }
 
 /**
@@ -4725,7 +4426,6 @@ export namespace InvalidOrigin {
   export const filterSensitiveLog = (obj: InvalidOrigin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOrigin => __isa(o, "InvalidOrigin");
 }
 
 /**
@@ -4741,7 +4441,6 @@ export namespace InvalidOriginAccessIdentity {
   export const filterSensitiveLog = (obj: InvalidOriginAccessIdentity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOriginAccessIdentity => __isa(o, "InvalidOriginAccessIdentity");
 }
 
 /**
@@ -4757,7 +4456,6 @@ export namespace InvalidOriginKeepaliveTimeout {
   export const filterSensitiveLog = (obj: InvalidOriginKeepaliveTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOriginKeepaliveTimeout => __isa(o, "InvalidOriginKeepaliveTimeout");
 }
 
 /**
@@ -4773,7 +4471,6 @@ export namespace InvalidOriginReadTimeout {
   export const filterSensitiveLog = (obj: InvalidOriginReadTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOriginReadTimeout => __isa(o, "InvalidOriginReadTimeout");
 }
 
 /**
@@ -4790,7 +4487,6 @@ export namespace InvalidProtocolSettings {
   export const filterSensitiveLog = (obj: InvalidProtocolSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidProtocolSettings => __isa(o, "InvalidProtocolSettings");
 }
 
 /**
@@ -4806,7 +4502,6 @@ export namespace InvalidQueryStringParameters {
   export const filterSensitiveLog = (obj: InvalidQueryStringParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidQueryStringParameters => __isa(o, "InvalidQueryStringParameters");
 }
 
 /**
@@ -4822,7 +4517,6 @@ export namespace InvalidRelativePath {
   export const filterSensitiveLog = (obj: InvalidRelativePath): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRelativePath => __isa(o, "InvalidRelativePath");
 }
 
 /**
@@ -4839,7 +4533,6 @@ export namespace InvalidRequiredProtocol {
   export const filterSensitiveLog = (obj: InvalidRequiredProtocol): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequiredProtocol => __isa(o, "InvalidRequiredProtocol");
 }
 
 /**
@@ -4855,7 +4548,6 @@ export namespace InvalidResponseCode {
   export const filterSensitiveLog = (obj: InvalidResponseCode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResponseCode => __isa(o, "InvalidResponseCode");
 }
 
 /**
@@ -4871,7 +4563,6 @@ export namespace InvalidTagging {
   export const filterSensitiveLog = (obj: InvalidTagging): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagging => __isa(o, "InvalidTagging");
 }
 
 /**
@@ -4887,7 +4578,6 @@ export namespace InvalidTTLOrder {
   export const filterSensitiveLog = (obj: InvalidTTLOrder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTTLOrder => __isa(o, "InvalidTTLOrder");
 }
 
 /**
@@ -4903,7 +4593,6 @@ export namespace InvalidViewerCertificate {
   export const filterSensitiveLog = (obj: InvalidViewerCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidViewerCertificate => __isa(o, "InvalidViewerCertificate");
 }
 
 /**
@@ -4923,7 +4612,6 @@ export namespace InvalidWebACLId {
   export const filterSensitiveLog = (obj: InvalidWebACLId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidWebACLId => __isa(o, "InvalidWebACLId");
 }
 
 export type ItemSelection = "all" | "none" | "whitelist";
@@ -4934,7 +4622,6 @@ export type ItemSelection = "all" | "none" | "whitelist";
  * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ActiveTrustedSigners.html">ActiveTrustedSigners</a>.</p>
  */
 export interface KeyPairIds {
-  __type?: "KeyPairIds";
   /**
    * <p>The number of active CloudFront key pairs for <code>AwsAccountNumber</code>.</p>
    * 		       <p>For more information, see
@@ -4954,14 +4641,12 @@ export namespace KeyPairIds {
   export const filterSensitiveLog = (obj: KeyPairIds): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPairIds => __isa(o, "KeyPairIds");
 }
 
 /**
  * <p>A complex type that contains a Lambda function association.</p>
  */
 export interface LambdaFunctionAssociation {
-  __type?: "LambdaFunctionAssociation";
   /**
    * <p>A flag that allows a Lambda function to have read access to the body content. For more information,
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html">Accessing the Request Body by Choosing the
@@ -5009,7 +4694,6 @@ export namespace LambdaFunctionAssociation {
   export const filterSensitiveLog = (obj: LambdaFunctionAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionAssociation => __isa(o, "LambdaFunctionAssociation");
 }
 
 /**
@@ -5028,7 +4712,6 @@ export namespace LambdaFunctionAssociation {
  * 				<code>Items</code>. </p>
  */
 export interface LambdaFunctionAssociations {
-  __type?: "LambdaFunctionAssociations";
   /**
    * <p>The number of Lambda function associations for this cache behavior.</p>
    */
@@ -5046,11 +4729,9 @@ export namespace LambdaFunctionAssociations {
   export const filterSensitiveLog = (obj: LambdaFunctionAssociations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionAssociations => __isa(o, "LambdaFunctionAssociations");
 }
 
 export interface ListCachePoliciesRequest {
-  __type?: "ListCachePoliciesRequest";
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			cache policies. The response includes cache policies in the list that occur after the
@@ -5086,11 +4767,9 @@ export namespace ListCachePoliciesRequest {
   export const filterSensitiveLog = (obj: ListCachePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCachePoliciesRequest => __isa(o, "ListCachePoliciesRequest");
 }
 
 export interface ListCachePoliciesResult {
-  __type?: "ListCachePoliciesResult";
   /**
    * <p>A list of cache policies.</p>
    */
@@ -5101,14 +4780,12 @@ export namespace ListCachePoliciesResult {
   export const filterSensitiveLog = (obj: ListCachePoliciesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCachePoliciesResult => __isa(o, "ListCachePoliciesResult");
 }
 
 /**
  * <p>The request to list origin access identities. </p>
  */
 export interface ListCloudFrontOriginAccessIdentitiesRequest {
-  __type?: "ListCloudFrontOriginAccessIdentitiesRequest";
   /**
    * <p>The maximum number of origin access identities you want in the response body.
    * 		</p>
@@ -5129,15 +4806,12 @@ export namespace ListCloudFrontOriginAccessIdentitiesRequest {
   export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCloudFrontOriginAccessIdentitiesRequest =>
-    __isa(o, "ListCloudFrontOriginAccessIdentitiesRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request. </p>
  */
 export interface ListCloudFrontOriginAccessIdentitiesResult {
-  __type?: "ListCloudFrontOriginAccessIdentitiesResult";
   /**
    * <p>The <code>CloudFrontOriginAccessIdentityList</code> type. </p>
    */
@@ -5148,12 +4822,9 @@ export namespace ListCloudFrontOriginAccessIdentitiesResult {
   export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCloudFrontOriginAccessIdentitiesResult =>
-    __isa(o, "ListCloudFrontOriginAccessIdentitiesResult");
 }
 
 export interface ListDistributionsByCachePolicyIdRequest {
-  __type?: "ListDistributionsByCachePolicyIdRequest";
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distribution IDs. The response includes distribution IDs in the list that occur after
@@ -5177,12 +4848,9 @@ export namespace ListDistributionsByCachePolicyIdRequest {
   export const filterSensitiveLog = (obj: ListDistributionsByCachePolicyIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsByCachePolicyIdRequest =>
-    __isa(o, "ListDistributionsByCachePolicyIdRequest");
 }
 
 export interface ListDistributionsByCachePolicyIdResult {
-  __type?: "ListDistributionsByCachePolicyIdResult";
   /**
    * <p>A list of distribution IDs.</p>
    */
@@ -5193,12 +4861,9 @@ export namespace ListDistributionsByCachePolicyIdResult {
   export const filterSensitiveLog = (obj: ListDistributionsByCachePolicyIdResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsByCachePolicyIdResult =>
-    __isa(o, "ListDistributionsByCachePolicyIdResult");
 }
 
 export interface ListDistributionsByOriginRequestPolicyIdRequest {
-  __type?: "ListDistributionsByOriginRequestPolicyIdRequest";
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distribution IDs. The response includes distribution IDs in the list that occur after
@@ -5223,12 +4888,9 @@ export namespace ListDistributionsByOriginRequestPolicyIdRequest {
   export const filterSensitiveLog = (obj: ListDistributionsByOriginRequestPolicyIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsByOriginRequestPolicyIdRequest =>
-    __isa(o, "ListDistributionsByOriginRequestPolicyIdRequest");
 }
 
 export interface ListDistributionsByOriginRequestPolicyIdResult {
-  __type?: "ListDistributionsByOriginRequestPolicyIdResult";
   /**
    * <p>A list of distribution IDs.</p>
    */
@@ -5239,8 +4901,6 @@ export namespace ListDistributionsByOriginRequestPolicyIdResult {
   export const filterSensitiveLog = (obj: ListDistributionsByOriginRequestPolicyIdResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsByOriginRequestPolicyIdResult =>
-    __isa(o, "ListDistributionsByOriginRequestPolicyIdResult");
 }
 
 /**
@@ -5248,7 +4908,6 @@ export namespace ListDistributionsByOriginRequestPolicyIdResult {
  * 			ACL. </p>
  */
 export interface ListDistributionsByWebACLIdRequest {
-  __type?: "ListDistributionsByWebACLIdRequest";
   /**
    * <p>Use <code>Marker</code> and <code>MaxItems</code> to control pagination of results. If
    * 			you have more than <code>MaxItems</code> distributions that satisfy the request, the response
@@ -5276,8 +4935,6 @@ export namespace ListDistributionsByWebACLIdRequest {
   export const filterSensitiveLog = (obj: ListDistributionsByWebACLIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsByWebACLIdRequest =>
-    __isa(o, "ListDistributionsByWebACLIdRequest");
 }
 
 /**
@@ -5285,7 +4942,6 @@ export namespace ListDistributionsByWebACLIdRequest {
  * 			specified AWS WAF web ACL. </p>
  */
 export interface ListDistributionsByWebACLIdResult {
-  __type?: "ListDistributionsByWebACLIdResult";
   /**
    * <p>The <code>DistributionList</code> type. </p>
    */
@@ -5296,14 +4952,12 @@ export namespace ListDistributionsByWebACLIdResult {
   export const filterSensitiveLog = (obj: ListDistributionsByWebACLIdResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsByWebACLIdResult => __isa(o, "ListDistributionsByWebACLIdResult");
 }
 
 /**
  * <p>The request to list your distributions. </p>
  */
 export interface ListDistributionsRequest {
-  __type?: "ListDistributionsRequest";
   /**
    * <p>The maximum number of distributions you want in the response body.</p>
    */
@@ -5323,14 +4977,12 @@ export namespace ListDistributionsRequest {
   export const filterSensitiveLog = (obj: ListDistributionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsRequest => __isa(o, "ListDistributionsRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request. </p>
  */
 export interface ListDistributionsResult {
-  __type?: "ListDistributionsResult";
   /**
    * <p>The <code>DistributionList</code> type. </p>
    */
@@ -5341,11 +4993,9 @@ export namespace ListDistributionsResult {
   export const filterSensitiveLog = (obj: ListDistributionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionsResult => __isa(o, "ListDistributionsResult");
 }
 
 export interface ListFieldLevelEncryptionConfigsRequest {
-  __type?: "ListFieldLevelEncryptionConfigsRequest";
   /**
    * <p>Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that
    * 			occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the
@@ -5363,12 +5013,9 @@ export namespace ListFieldLevelEncryptionConfigsRequest {
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionConfigsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFieldLevelEncryptionConfigsRequest =>
-    __isa(o, "ListFieldLevelEncryptionConfigsRequest");
 }
 
 export interface ListFieldLevelEncryptionConfigsResult {
-  __type?: "ListFieldLevelEncryptionConfigsResult";
   /**
    * <p>Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.</p>
    */
@@ -5379,12 +5026,9 @@ export namespace ListFieldLevelEncryptionConfigsResult {
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionConfigsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFieldLevelEncryptionConfigsResult =>
-    __isa(o, "ListFieldLevelEncryptionConfigsResult");
 }
 
 export interface ListFieldLevelEncryptionProfilesRequest {
-  __type?: "ListFieldLevelEncryptionProfilesRequest";
   /**
    * <p>Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that
    * 			occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the
@@ -5402,12 +5046,9 @@ export namespace ListFieldLevelEncryptionProfilesRequest {
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFieldLevelEncryptionProfilesRequest =>
-    __isa(o, "ListFieldLevelEncryptionProfilesRequest");
 }
 
 export interface ListFieldLevelEncryptionProfilesResult {
-  __type?: "ListFieldLevelEncryptionProfilesResult";
   /**
    * <p>Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.</p>
    */
@@ -5418,15 +5059,12 @@ export namespace ListFieldLevelEncryptionProfilesResult {
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFieldLevelEncryptionProfilesResult =>
-    __isa(o, "ListFieldLevelEncryptionProfilesResult");
 }
 
 /**
  * <p>The request to list invalidations. </p>
  */
 export interface ListInvalidationsRequest {
-  __type?: "ListInvalidationsRequest";
   /**
    * <p>The maximum number of invalidation batches that you want in the response
    * 			body.</p>
@@ -5453,14 +5091,12 @@ export namespace ListInvalidationsRequest {
   export const filterSensitiveLog = (obj: ListInvalidationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvalidationsRequest => __isa(o, "ListInvalidationsRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request. </p>
  */
 export interface ListInvalidationsResult {
-  __type?: "ListInvalidationsResult";
   /**
    * <p>Information about invalidation batches. </p>
    */
@@ -5471,11 +5107,9 @@ export namespace ListInvalidationsResult {
   export const filterSensitiveLog = (obj: ListInvalidationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvalidationsResult => __isa(o, "ListInvalidationsResult");
 }
 
 export interface ListOriginRequestPoliciesRequest {
-  __type?: "ListOriginRequestPoliciesRequest";
   /**
    * <p>The maximum number of origin request policies that you want in the response.</p>
    */
@@ -5511,11 +5145,9 @@ export namespace ListOriginRequestPoliciesRequest {
   export const filterSensitiveLog = (obj: ListOriginRequestPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOriginRequestPoliciesRequest => __isa(o, "ListOriginRequestPoliciesRequest");
 }
 
 export interface ListOriginRequestPoliciesResult {
-  __type?: "ListOriginRequestPoliciesResult";
   /**
    * <p>A list of origin request policies.</p>
    */
@@ -5526,11 +5158,9 @@ export namespace ListOriginRequestPoliciesResult {
   export const filterSensitiveLog = (obj: ListOriginRequestPoliciesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOriginRequestPoliciesResult => __isa(o, "ListOriginRequestPoliciesResult");
 }
 
 export interface ListPublicKeysRequest {
-  __type?: "ListPublicKeysRequest";
   /**
    * <p>The maximum number of public keys you want in the response body. </p>
    */
@@ -5548,11 +5178,9 @@ export namespace ListPublicKeysRequest {
   export const filterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPublicKeysRequest => __isa(o, "ListPublicKeysRequest");
 }
 
 export interface ListPublicKeysResult {
-  __type?: "ListPublicKeysResult";
   /**
    * <p>Returns a list of all public keys that have been added to CloudFront for this account.</p>
    */
@@ -5563,14 +5191,12 @@ export namespace ListPublicKeysResult {
   export const filterSensitiveLog = (obj: ListPublicKeysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPublicKeysResult => __isa(o, "ListPublicKeysResult");
 }
 
 /**
  * <p>The request to list your streaming distributions. </p>
  */
 export interface ListStreamingDistributionsRequest {
-  __type?: "ListStreamingDistributionsRequest";
   /**
    * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
    */
@@ -5586,14 +5212,12 @@ export namespace ListStreamingDistributionsRequest {
   export const filterSensitiveLog = (obj: ListStreamingDistributionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamingDistributionsRequest => __isa(o, "ListStreamingDistributionsRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request. </p>
  */
 export interface ListStreamingDistributionsResult {
-  __type?: "ListStreamingDistributionsResult";
   /**
    * <p>The <code>StreamingDistributionList</code> type. </p>
    */
@@ -5604,14 +5228,12 @@ export namespace ListStreamingDistributionsResult {
   export const filterSensitiveLog = (obj: ListStreamingDistributionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamingDistributionsResult => __isa(o, "ListStreamingDistributionsResult");
 }
 
 /**
  * <p> The request to list tags for a CloudFront resource.</p>
  */
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p> An ARN of a CloudFront resource.</p>
    */
@@ -5622,14 +5244,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p> The returned result of the corresponding request.</p>
  */
 export interface ListTagsForResourceResult {
-  __type?: "ListTagsForResourceResult";
   /**
    * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
    */
@@ -5640,7 +5260,6 @@ export namespace ListTagsForResourceResult {
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResult => __isa(o, "ListTagsForResourceResult");
 }
 
 /**
@@ -5648,7 +5267,6 @@ export namespace ListTagsForResourceResult {
  * 			distribution.</p>
  */
 export interface LoggingConfig {
-  __type?: "LoggingConfig";
   /**
    * <p>Specifies whether you want CloudFront to include cookies in access logs, specify
    * 				<code>true</code> for <code>IncludeCookies</code>. If you choose to include cookies in logs,
@@ -5688,7 +5306,6 @@ export namespace LoggingConfig {
   export const filterSensitiveLog = (obj: LoggingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingConfig => __isa(o, "LoggingConfig");
 }
 
 export type Method = "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT";
@@ -5714,7 +5331,6 @@ export namespace MissingBody {
   export const filterSensitiveLog = (obj: MissingBody): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingBody => __isa(o, "MissingBody");
 }
 
 /**
@@ -5730,7 +5346,6 @@ export namespace NoSuchCachePolicy {
   export const filterSensitiveLog = (obj: NoSuchCachePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchCachePolicy => __isa(o, "NoSuchCachePolicy");
 }
 
 /**
@@ -5746,8 +5361,6 @@ export namespace NoSuchCloudFrontOriginAccessIdentity {
   export const filterSensitiveLog = (obj: NoSuchCloudFrontOriginAccessIdentity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchCloudFrontOriginAccessIdentity =>
-    __isa(o, "NoSuchCloudFrontOriginAccessIdentity");
 }
 
 /**
@@ -5763,7 +5376,6 @@ export namespace NoSuchDistribution {
   export const filterSensitiveLog = (obj: NoSuchDistribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchDistribution => __isa(o, "NoSuchDistribution");
 }
 
 /**
@@ -5779,7 +5391,6 @@ export namespace NoSuchFieldLevelEncryptionConfig {
   export const filterSensitiveLog = (obj: NoSuchFieldLevelEncryptionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchFieldLevelEncryptionConfig => __isa(o, "NoSuchFieldLevelEncryptionConfig");
 }
 
 /**
@@ -5795,7 +5406,6 @@ export namespace NoSuchFieldLevelEncryptionProfile {
   export const filterSensitiveLog = (obj: NoSuchFieldLevelEncryptionProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchFieldLevelEncryptionProfile => __isa(o, "NoSuchFieldLevelEncryptionProfile");
 }
 
 /**
@@ -5811,7 +5421,6 @@ export namespace NoSuchInvalidation {
   export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchInvalidation => __isa(o, "NoSuchInvalidation");
 }
 
 /**
@@ -5827,7 +5436,6 @@ export namespace NoSuchOrigin {
   export const filterSensitiveLog = (obj: NoSuchOrigin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchOrigin => __isa(o, "NoSuchOrigin");
 }
 
 /**
@@ -5843,7 +5451,6 @@ export namespace NoSuchOriginRequestPolicy {
   export const filterSensitiveLog = (obj: NoSuchOriginRequestPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchOriginRequestPolicy => __isa(o, "NoSuchOriginRequestPolicy");
 }
 
 /**
@@ -5859,7 +5466,6 @@ export namespace NoSuchPublicKey {
   export const filterSensitiveLog = (obj: NoSuchPublicKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchPublicKey => __isa(o, "NoSuchPublicKey");
 }
 
 /**
@@ -5875,7 +5481,6 @@ export namespace NoSuchResource {
   export const filterSensitiveLog = (obj: NoSuchResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchResource => __isa(o, "NoSuchResource");
 }
 
 /**
@@ -5891,7 +5496,6 @@ export namespace NoSuchStreamingDistribution {
   export const filterSensitiveLog = (obj: NoSuchStreamingDistribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchStreamingDistribution => __isa(o, "NoSuchStreamingDistribution");
 }
 
 /**
@@ -5933,7 +5537,6 @@ export namespace NoSuchStreamingDistribution {
  * 			(quotas were formerly referred to as limits).</p>
  */
 export interface Origin {
-  __type?: "Origin";
   /**
    * <p>The domain name for the origin.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName">Origin Domain Name</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -6008,7 +5611,6 @@ export namespace Origin {
   export const filterSensitiveLog = (obj: Origin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Origin => __isa(o, "Origin");
 }
 
 /**
@@ -6016,7 +5618,6 @@ export namespace Origin {
  * 			elements, if any, for this distribution. </p>
  */
 export interface OriginCustomHeader {
-  __type?: "OriginCustomHeader";
   /**
    * <p>The value for the header that you specified in the <code>HeaderName</code>
    * 			field.</p>
@@ -6035,7 +5636,6 @@ export namespace OriginCustomHeader {
   export const filterSensitiveLog = (obj: OriginCustomHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginCustomHeader => __isa(o, "OriginCustomHeader");
 }
 
 /**
@@ -6045,7 +5645,6 @@ export namespace OriginCustomHeader {
  * 		under the failover conditions that you've chosen.</p>
  */
 export interface OriginGroup {
-  __type?: "OriginGroup";
   /**
    * <p>The origin group's ID.</p>
    */
@@ -6066,7 +5665,6 @@ export namespace OriginGroup {
   export const filterSensitiveLog = (obj: OriginGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginGroup => __isa(o, "OriginGroup");
 }
 
 /**
@@ -6074,7 +5672,6 @@ export namespace OriginGroup {
  * 		the status codes for which CloudFront will failover from the primary origin to the second origin.</p>
  */
 export interface OriginGroupFailoverCriteria {
-  __type?: "OriginGroupFailoverCriteria";
   /**
    * <p>The status codes that, when returned from the primary origin, will trigger CloudFront to failover
    * 		to the second origin.</p>
@@ -6086,14 +5683,12 @@ export namespace OriginGroupFailoverCriteria {
   export const filterSensitiveLog = (obj: OriginGroupFailoverCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginGroupFailoverCriteria => __isa(o, "OriginGroupFailoverCriteria");
 }
 
 /**
  * <p>An origin in an origin group.</p>
  */
 export interface OriginGroupMember {
-  __type?: "OriginGroupMember";
   /**
    * <p>The ID for an origin in an origin group.</p>
    */
@@ -6104,14 +5699,12 @@ export namespace OriginGroupMember {
   export const filterSensitiveLog = (obj: OriginGroupMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginGroupMember => __isa(o, "OriginGroupMember");
 }
 
 /**
  * <p>A complex data type for the origins included in an origin group.</p>
  */
 export interface OriginGroupMembers {
-  __type?: "OriginGroupMembers";
   /**
    * <p>The number of origins in an origin group.</p>
    */
@@ -6127,14 +5720,12 @@ export namespace OriginGroupMembers {
   export const filterSensitiveLog = (obj: OriginGroupMembers): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginGroupMembers => __isa(o, "OriginGroupMembers");
 }
 
 /**
  * <p>A complex data type for the origin groups specified for a distribution.</p>
  */
 export interface OriginGroups {
-  __type?: "OriginGroups";
   /**
    * <p>The items (origin groups) in a distribution.</p>
    */
@@ -6150,7 +5741,6 @@ export namespace OriginGroups {
   export const filterSensitiveLog = (obj: OriginGroups): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginGroups => __isa(o, "OriginGroups");
 }
 
 export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
@@ -6181,7 +5771,6 @@ export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
  * 			<code>CreateCachePolicy</code>.</p>
  */
 export interface OriginRequestPolicy {
-  __type?: "OriginRequestPolicy";
   /**
    * <p>The unique identifier for the origin request policy.</p>
    */
@@ -6202,7 +5791,6 @@ export namespace OriginRequestPolicy {
   export const filterSensitiveLog = (obj: OriginRequestPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicy => __isa(o, "OriginRequestPolicy");
 }
 
 /**
@@ -6220,7 +5808,6 @@ export namespace OriginRequestPolicyAlreadyExists {
   export const filterSensitiveLog = (obj: OriginRequestPolicyAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyAlreadyExists => __isa(o, "OriginRequestPolicyAlreadyExists");
 }
 
 /**
@@ -6248,7 +5835,6 @@ export namespace OriginRequestPolicyAlreadyExists {
  * 			<code>CreateCachePolicy</code>.</p>
  */
 export interface OriginRequestPolicyConfig {
-  __type?: "OriginRequestPolicyConfig";
   /**
    * <p>The cookies from viewer requests to include in origin requests.</p>
    */
@@ -6280,7 +5866,6 @@ export namespace OriginRequestPolicyConfig {
   export const filterSensitiveLog = (obj: OriginRequestPolicyConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyConfig => __isa(o, "OriginRequestPolicyConfig");
 }
 
 export type OriginRequestPolicyCookieBehavior = "all" | "none" | "whitelist";
@@ -6290,7 +5875,6 @@ export type OriginRequestPolicyCookieBehavior = "all" | "none" | "whitelist";
  * 			are included in requests that CloudFront sends to the origin.</p>
  */
 export interface OriginRequestPolicyCookiesConfig {
-  __type?: "OriginRequestPolicyCookiesConfig";
   /**
    * <p>Determines whether cookies in viewer requests are included in requests that CloudFront sends to
    * 			the origin. Valid values are:</p>
@@ -6328,7 +5912,6 @@ export namespace OriginRequestPolicyCookiesConfig {
   export const filterSensitiveLog = (obj: OriginRequestPolicyCookiesConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyCookiesConfig => __isa(o, "OriginRequestPolicyCookiesConfig");
 }
 
 export type OriginRequestPolicyHeaderBehavior = "allViewer" | "allViewerAndWhitelistCloudFront" | "none" | "whitelist";
@@ -6338,7 +5921,6 @@ export type OriginRequestPolicyHeaderBehavior = "allViewer" | "allViewerAndWhite
  * 			in requests that CloudFront sends to the origin.</p>
  */
 export interface OriginRequestPolicyHeadersConfig {
-  __type?: "OriginRequestPolicyHeadersConfig";
   /**
    * <p>Determines whether any HTTP headers are included in requests that CloudFront sends to the origin.
    * 			Valid values are:</p>
@@ -6382,7 +5964,6 @@ export namespace OriginRequestPolicyHeadersConfig {
   export const filterSensitiveLog = (obj: OriginRequestPolicyHeadersConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyHeadersConfig => __isa(o, "OriginRequestPolicyHeadersConfig");
 }
 
 /**
@@ -6399,14 +5980,12 @@ export namespace OriginRequestPolicyInUse {
   export const filterSensitiveLog = (obj: OriginRequestPolicyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyInUse => __isa(o, "OriginRequestPolicyInUse");
 }
 
 /**
  * <p>A list of origin request policies.</p>
  */
 export interface OriginRequestPolicyList {
-  __type?: "OriginRequestPolicyList";
   /**
    * <p>The total number of origin request policies returned in the response.</p>
    */
@@ -6435,7 +6014,6 @@ export namespace OriginRequestPolicyList {
   export const filterSensitiveLog = (obj: OriginRequestPolicyList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyList => __isa(o, "OriginRequestPolicyList");
 }
 
 export type OriginRequestPolicyQueryStringBehavior = "all" | "none" | "whitelist";
@@ -6445,7 +6023,6 @@ export type OriginRequestPolicyQueryStringBehavior = "all" | "none" | "whitelist
  * 			query strings) are included in requests that CloudFront sends to the origin.</p>
  */
 export interface OriginRequestPolicyQueryStringsConfig {
-  __type?: "OriginRequestPolicyQueryStringsConfig";
   /**
    * <p>Contains a list of the query strings in viewer requests that are included in requests that
    * 			CloudFront sends to the origin.</p>
@@ -6483,15 +6060,12 @@ export namespace OriginRequestPolicyQueryStringsConfig {
   export const filterSensitiveLog = (obj: OriginRequestPolicyQueryStringsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicyQueryStringsConfig =>
-    __isa(o, "OriginRequestPolicyQueryStringsConfig");
 }
 
 /**
  * <p>Contains an origin request policy.</p>
  */
 export interface OriginRequestPolicySummary {
-  __type?: "OriginRequestPolicySummary";
   /**
    * <p>The origin request policy.</p>
    */
@@ -6508,7 +6082,6 @@ export namespace OriginRequestPolicySummary {
   export const filterSensitiveLog = (obj: OriginRequestPolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginRequestPolicySummary => __isa(o, "OriginRequestPolicySummary");
 }
 
 export type OriginRequestPolicyType = "custom" | "managed";
@@ -6518,7 +6091,6 @@ export type OriginRequestPolicyType = "custom" | "managed";
  * 		</p>
  */
 export interface Origins {
-  __type?: "Origins";
   /**
    * <p>The number of origins or origin groups for this distribution.</p>
    */
@@ -6534,7 +6106,6 @@ export namespace Origins {
   export const filterSensitiveLog = (obj: Origins): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Origins => __isa(o, "Origins");
 }
 
 /**
@@ -6542,7 +6113,6 @@ export namespace Origins {
  * 			when establishing an HTTPS connection with your origin. </p>
  */
 export interface OriginSslProtocols {
-  __type?: "OriginSslProtocols";
   /**
    * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an
    * 			HTTPS connection with this origin. </p>
@@ -6559,7 +6129,6 @@ export namespace OriginSslProtocols {
   export const filterSensitiveLog = (obj: OriginSslProtocols): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginSslProtocols => __isa(o, "OriginSslProtocols");
 }
 
 /**
@@ -6573,7 +6142,6 @@ export namespace OriginSslProtocols {
  * 			<code>CreateOriginRequestPolicy</code>.</p>
  */
 export interface ParametersInCacheKeyAndForwardedToOrigin {
-  __type?: "ParametersInCacheKeyAndForwardedToOrigin";
   /**
    * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
    * 			are included in the cache key and automatically included in requests that CloudFront sends to
@@ -6634,8 +6202,6 @@ export namespace ParametersInCacheKeyAndForwardedToOrigin {
   export const filterSensitiveLog = (obj: ParametersInCacheKeyAndForwardedToOrigin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParametersInCacheKeyAndForwardedToOrigin =>
-    __isa(o, "ParametersInCacheKeyAndForwardedToOrigin");
 }
 
 /**
@@ -6644,7 +6210,6 @@ export namespace ParametersInCacheKeyAndForwardedToOrigin {
  * 				to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
  */
 export interface Paths {
-  __type?: "Paths";
   /**
    * <p>A complex type that contains a list of the paths that you want to invalidate.</p>
    */
@@ -6660,7 +6225,6 @@ export namespace Paths {
   export const filterSensitiveLog = (obj: Paths): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Paths => __isa(o, "Paths");
 }
 
 /**
@@ -6677,7 +6241,6 @@ export namespace PreconditionFailed {
   export const filterSensitiveLog = (obj: PreconditionFailed): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreconditionFailed => __isa(o, "PreconditionFailed");
 }
 
 export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
@@ -6686,7 +6249,6 @@ export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
  * <p>A complex data type of public keys you add to CloudFront to use with features like field-level encryption.</p>
  */
 export interface PublicKey {
-  __type?: "PublicKey";
   /**
    * <p>A complex data type for a public key you add to CloudFront to use with features like field-level encryption.</p>
    */
@@ -6707,7 +6269,6 @@ export namespace PublicKey {
   export const filterSensitiveLog = (obj: PublicKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKey => __isa(o, "PublicKey");
 }
 
 /**
@@ -6723,14 +6284,12 @@ export namespace PublicKeyAlreadyExists {
   export const filterSensitiveLog = (obj: PublicKeyAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKeyAlreadyExists => __isa(o, "PublicKeyAlreadyExists");
 }
 
 /**
  * <p>Information about a public key you add to CloudFront to use with features like field-level encryption.</p>
  */
 export interface PublicKeyConfig {
-  __type?: "PublicKeyConfig";
   /**
    * <p>An optional comment about a public key.</p>
    */
@@ -6756,7 +6315,6 @@ export namespace PublicKeyConfig {
   export const filterSensitiveLog = (obj: PublicKeyConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKeyConfig => __isa(o, "PublicKeyConfig");
 }
 
 /**
@@ -6772,14 +6330,12 @@ export namespace PublicKeyInUse {
   export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKeyInUse => __isa(o, "PublicKeyInUse");
 }
 
 /**
  * <p>A list of public keys you've added to CloudFront to use with features like field-level encryption.</p>
  */
 export interface PublicKeyList {
-  __type?: "PublicKeyList";
   /**
    * <p>If there are more elements to be listed, this element is present and contains
    * 			the value that you can use for the <code>Marker</code> request parameter to continue
@@ -6808,7 +6364,6 @@ export namespace PublicKeyList {
   export const filterSensitiveLog = (obj: PublicKeyList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKeyList => __isa(o, "PublicKeyList");
 }
 
 /**
@@ -6816,7 +6371,6 @@ export namespace PublicKeyList {
  * 		</p>
  */
 export interface PublicKeySummary {
-  __type?: "PublicKeySummary";
   /**
    * <p>
    * 			Name for public key information summary.
@@ -6857,14 +6411,12 @@ export namespace PublicKeySummary {
   export const filterSensitiveLog = (obj: PublicKeySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicKeySummary => __isa(o, "PublicKeySummary");
 }
 
 /**
  * <p>Query argument-profile mapping for field-level encryption.</p>
  */
 export interface QueryArgProfile {
-  __type?: "QueryArgProfile";
   /**
    * <p>ID of profile to use for field-level encryption query argument-profile mapping</p>
    */
@@ -6880,14 +6432,12 @@ export namespace QueryArgProfile {
   export const filterSensitiveLog = (obj: QueryArgProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryArgProfile => __isa(o, "QueryArgProfile");
 }
 
 /**
  * <p>Configuration for query argument-profile mapping for field-level encryption.</p>
  */
 export interface QueryArgProfileConfig {
-  __type?: "QueryArgProfileConfig";
   /**
    * <p>Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument,
    * 			fle-profile, is unknown.</p>
@@ -6904,7 +6454,6 @@ export namespace QueryArgProfileConfig {
   export const filterSensitiveLog = (obj: QueryArgProfileConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryArgProfileConfig => __isa(o, "QueryArgProfileConfig");
 }
 
 /**
@@ -6920,14 +6469,12 @@ export namespace QueryArgProfileEmpty {
   export const filterSensitiveLog = (obj: QueryArgProfileEmpty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryArgProfileEmpty => __isa(o, "QueryArgProfileEmpty");
 }
 
 /**
  * <p>Query argument-profile mapping for field-level encryption.</p>
  */
 export interface QueryArgProfiles {
-  __type?: "QueryArgProfiles";
   /**
    * <p>Number of profiles for query argument-profile mapping for field-level encryption.</p>
    */
@@ -6943,7 +6490,6 @@ export namespace QueryArgProfiles {
   export const filterSensitiveLog = (obj: QueryArgProfiles): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryArgProfiles => __isa(o, "QueryArgProfiles");
 }
 
 /**
@@ -6960,7 +6506,6 @@ export namespace QueryArgProfiles {
  * 		</p>
  */
 export interface QueryStringCacheKeys {
-  __type?: "QueryStringCacheKeys";
   /**
    * <p>The number of <code>whitelisted</code> query string parameters for a cache
    * 			behavior.</p>
@@ -6979,14 +6524,12 @@ export namespace QueryStringCacheKeys {
   export const filterSensitiveLog = (obj: QueryStringCacheKeys): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryStringCacheKeys => __isa(o, "QueryStringCacheKeys");
 }
 
 /**
  * <p>Contains a list of query string names.</p>
  */
 export interface QueryStringNames {
-  __type?: "QueryStringNames";
   /**
    * <p>A list of query string names.</p>
    */
@@ -7002,7 +6545,6 @@ export namespace QueryStringNames {
   export const filterSensitiveLog = (obj: QueryStringNames): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryStringNames => __isa(o, "QueryStringNames");
 }
 
 /**
@@ -7010,7 +6552,6 @@ export namespace QueryStringNames {
  * 			content.</p>
  */
 export interface Restrictions {
-  __type?: "Restrictions";
   /**
    * <p>A complex type that controls the countries in which your content is distributed. CloudFront
    * 			determines the location of your users using <code>MaxMind</code> GeoIP databases.</p>
@@ -7022,7 +6563,6 @@ export namespace Restrictions {
   export const filterSensitiveLog = (obj: Restrictions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Restrictions => __isa(o, "Restrictions");
 }
 
 /**
@@ -7030,7 +6570,6 @@ export namespace Restrictions {
  * 			CloudFront to get your media files for distribution.</p>
  */
 export interface S3Origin {
-  __type?: "S3Origin";
   /**
    * <p>The CloudFront origin access identity to associate with the distribution. Use an origin
    * 			access identity to configure the distribution so that end users can only access objects in an
@@ -7058,7 +6597,6 @@ export namespace S3Origin {
   export const filterSensitiveLog = (obj: S3Origin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Origin => __isa(o, "S3Origin");
 }
 
 /**
@@ -7067,7 +6605,6 @@ export namespace S3Origin {
  *             <code>CustomOriginConfig</code> element instead.</p>
  */
 export interface S3OriginConfig {
-  __type?: "S3OriginConfig";
   /**
    * <p>The CloudFront origin access identity to associate with the origin. Use an origin access
    * 			identity to configure the origin so that viewers can <i>only</i> access objects
@@ -7096,7 +6633,6 @@ export namespace S3OriginConfig {
   export const filterSensitiveLog = (obj: S3OriginConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3OriginConfig => __isa(o, "S3OriginConfig");
 }
 
 /**
@@ -7105,7 +6641,6 @@ export namespace S3OriginConfig {
  * 		</p>
  */
 export interface Signer {
-  __type?: "Signer";
   /**
    * <p>A complex type that lists the active CloudFront key pairs, if any, that are associated with <code>AwsAccountNumber</code>.</p>
    */
@@ -7131,7 +6666,6 @@ export namespace Signer {
   export const filterSensitiveLog = (obj: Signer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Signer => __isa(o, "Signer");
 }
 
 export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
@@ -7143,7 +6677,6 @@ export type SSLSupportMethod = "sni-only" | "vip";
  * 		CloudFront to failover to a second origin.</p>
  */
 export interface StatusCodes {
-  __type?: "StatusCodes";
   /**
    * <p>The items (status codes) for an origin group.</p>
    */
@@ -7159,7 +6692,6 @@ export namespace StatusCodes {
   export const filterSensitiveLog = (obj: StatusCodes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatusCodes => __isa(o, "StatusCodes");
 }
 
 /**
@@ -7167,7 +6699,6 @@ export namespace StatusCodes {
  * 			track and manage content delivery.</p>
  */
 export interface StreamingDistribution {
-  __type?: "StreamingDistribution";
   /**
    * <p>The date and time that the distribution was last modified. </p>
    */
@@ -7221,7 +6752,6 @@ export namespace StreamingDistribution {
   export const filterSensitiveLog = (obj: StreamingDistribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistribution => __isa(o, "StreamingDistribution");
 }
 
 /**
@@ -7238,15 +6768,12 @@ export namespace StreamingDistributionAlreadyExists {
   export const filterSensitiveLog = (obj: StreamingDistributionAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistributionAlreadyExists =>
-    __isa(o, "StreamingDistributionAlreadyExists");
 }
 
 /**
  * <p>The RTMP distribution's configuration information.</p>
  */
 export interface StreamingDistributionConfig {
-  __type?: "StreamingDistributionConfig";
   /**
    * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
    * 			for this streaming distribution. </p>
@@ -7306,7 +6833,6 @@ export namespace StreamingDistributionConfig {
   export const filterSensitiveLog = (obj: StreamingDistributionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistributionConfig => __isa(o, "StreamingDistributionConfig");
 }
 
 /**
@@ -7314,7 +6840,6 @@ export namespace StreamingDistributionConfig {
  * 			streaming distribution.</p>
  */
 export interface StreamingDistributionConfigWithTags {
-  __type?: "StreamingDistributionConfigWithTags";
   /**
    * <p>A streaming distribution Configuration.</p>
    */
@@ -7330,15 +6855,12 @@ export namespace StreamingDistributionConfigWithTags {
   export const filterSensitiveLog = (obj: StreamingDistributionConfigWithTags): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistributionConfigWithTags =>
-    __isa(o, "StreamingDistributionConfigWithTags");
 }
 
 /**
  * <p>A streaming distribution list. </p>
  */
 export interface StreamingDistributionList {
-  __type?: "StreamingDistributionList";
   /**
    * <p>A flag that indicates whether more streaming distributions remain to be listed. If your
    * 			results were truncated, you can make a follow-up pagination request using the
@@ -7380,7 +6902,6 @@ export namespace StreamingDistributionList {
   export const filterSensitiveLog = (obj: StreamingDistributionList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistributionList => __isa(o, "StreamingDistributionList");
 }
 
 /**
@@ -7397,14 +6918,12 @@ export namespace StreamingDistributionNotDisabled {
   export const filterSensitiveLog = (obj: StreamingDistributionNotDisabled): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistributionNotDisabled => __isa(o, "StreamingDistributionNotDisabled");
 }
 
 /**
  * <p> A summary of the information for a CloudFront streaming distribution.</p>
  */
 export interface StreamingDistributionSummary {
-  __type?: "StreamingDistributionSummary";
   /**
    * <p>The identifier for the distribution, for example, <code>EDFDVBD632BHDS5</code>.</p>
    */
@@ -7484,14 +7003,12 @@ export namespace StreamingDistributionSummary {
   export const filterSensitiveLog = (obj: StreamingDistributionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingDistributionSummary => __isa(o, "StreamingDistributionSummary");
 }
 
 /**
  * <p>A complex type that controls whether access logs are written for this streaming distribution.</p>
  */
 export interface StreamingLoggingConfig {
-  __type?: "StreamingLoggingConfig";
   /**
    * <p>An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example,
    * 			<code>myprefix/</code>. If you want to enable logging, but you don't want to specify a prefix, you still must include
@@ -7520,14 +7037,12 @@ export namespace StreamingLoggingConfig {
   export const filterSensitiveLog = (obj: StreamingLoggingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamingLoggingConfig => __isa(o, "StreamingLoggingConfig");
 }
 
 /**
  * <p> A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p> A string that contains <code>Tag</code> key.</p>
    * 		       <p>The string length should be between 1 and 128 characters. Valid characters include
@@ -7549,14 +7064,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
  */
 export interface TagKeys {
-  __type?: "TagKeys";
   /**
    * <p> A complex type that contains <code>Tag</code> key elements.</p>
    */
@@ -7567,14 +7080,12 @@ export namespace TagKeys {
   export const filterSensitiveLog = (obj: TagKeys): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagKeys => __isa(o, "TagKeys");
 }
 
 /**
  * <p> The request to add tags to a CloudFront resource.</p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p> An ARN of a CloudFront resource.</p>
    */
@@ -7590,14 +7101,12 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
  */
 export interface Tags {
-  __type?: "Tags";
   /**
    * <p> A complex type that contains <code>Tag</code> elements.</p>
    */
@@ -7608,7 +7117,6 @@ export namespace Tags {
   export const filterSensitiveLog = (obj: Tags): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tags => __isa(o, "Tags");
 }
 
 /**
@@ -7624,7 +7132,6 @@ export namespace TooManyCacheBehaviors {
   export const filterSensitiveLog = (obj: TooManyCacheBehaviors): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCacheBehaviors => __isa(o, "TooManyCacheBehaviors");
 }
 
 /**
@@ -7642,7 +7149,6 @@ export namespace TooManyCachePolicies {
   export const filterSensitiveLog = (obj: TooManyCachePolicies): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCachePolicies => __isa(o, "TooManyCachePolicies");
 }
 
 /**
@@ -7658,7 +7164,6 @@ export namespace TooManyCertificates {
   export const filterSensitiveLog = (obj: TooManyCertificates): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCertificates => __isa(o, "TooManyCertificates");
 }
 
 /**
@@ -7674,8 +7179,6 @@ export namespace TooManyCloudFrontOriginAccessIdentities {
   export const filterSensitiveLog = (obj: TooManyCloudFrontOriginAccessIdentities): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCloudFrontOriginAccessIdentities =>
-    __isa(o, "TooManyCloudFrontOriginAccessIdentities");
 }
 
 /**
@@ -7691,7 +7194,6 @@ export namespace TooManyCookieNamesInWhiteList {
   export const filterSensitiveLog = (obj: TooManyCookieNamesInWhiteList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCookieNamesInWhiteList => __isa(o, "TooManyCookieNamesInWhiteList");
 }
 
 /**
@@ -7709,7 +7211,6 @@ export namespace TooManyCookiesInCachePolicy {
   export const filterSensitiveLog = (obj: TooManyCookiesInCachePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCookiesInCachePolicy => __isa(o, "TooManyCookiesInCachePolicy");
 }
 
 /**
@@ -7727,8 +7228,6 @@ export namespace TooManyCookiesInOriginRequestPolicy {
   export const filterSensitiveLog = (obj: TooManyCookiesInOriginRequestPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyCookiesInOriginRequestPolicy =>
-    __isa(o, "TooManyCookiesInOriginRequestPolicy");
 }
 
 /**
@@ -7744,7 +7243,6 @@ export namespace TooManyDistributionCNAMEs {
   export const filterSensitiveLog = (obj: TooManyDistributionCNAMEs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributionCNAMEs => __isa(o, "TooManyDistributionCNAMEs");
 }
 
 /**
@@ -7760,7 +7258,6 @@ export namespace TooManyDistributions {
   export const filterSensitiveLog = (obj: TooManyDistributions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributions => __isa(o, "TooManyDistributions");
 }
 
 /**
@@ -7778,8 +7275,6 @@ export namespace TooManyDistributionsAssociatedToCachePolicy {
   export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToCachePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributionsAssociatedToCachePolicy =>
-    __isa(o, "TooManyDistributionsAssociatedToCachePolicy");
 }
 
 /**
@@ -7795,8 +7290,6 @@ export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
   export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToFieldLevelEncryptionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =>
-    __isa(o, "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig");
 }
 
 /**
@@ -7814,8 +7307,6 @@ export namespace TooManyDistributionsAssociatedToOriginRequestPolicy {
   export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToOriginRequestPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributionsAssociatedToOriginRequestPolicy =>
-    __isa(o, "TooManyDistributionsAssociatedToOriginRequestPolicy");
 }
 
 /**
@@ -7832,8 +7323,6 @@ export namespace TooManyDistributionsWithLambdaAssociations {
   export const filterSensitiveLog = (obj: TooManyDistributionsWithLambdaAssociations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributionsWithLambdaAssociations =>
-    __isa(o, "TooManyDistributionsWithLambdaAssociations");
 }
 
 /**
@@ -7850,8 +7339,6 @@ export namespace TooManyDistributionsWithSingleFunctionARN {
   export const filterSensitiveLog = (obj: TooManyDistributionsWithSingleFunctionARN): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyDistributionsWithSingleFunctionARN =>
-    __isa(o, "TooManyDistributionsWithSingleFunctionARN");
 }
 
 /**
@@ -7867,8 +7354,6 @@ export namespace TooManyFieldLevelEncryptionConfigs {
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionConfigs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionConfigs =>
-    __isa(o, "TooManyFieldLevelEncryptionConfigs");
 }
 
 /**
@@ -7884,8 +7369,6 @@ export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionContentTypeProfiles): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionContentTypeProfiles =>
-    __isa(o, "TooManyFieldLevelEncryptionContentTypeProfiles");
 }
 
 /**
@@ -7901,8 +7384,6 @@ export namespace TooManyFieldLevelEncryptionEncryptionEntities {
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionEncryptionEntities): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionEncryptionEntities =>
-    __isa(o, "TooManyFieldLevelEncryptionEncryptionEntities");
 }
 
 /**
@@ -7918,8 +7399,6 @@ export namespace TooManyFieldLevelEncryptionFieldPatterns {
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionFieldPatterns): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionFieldPatterns =>
-    __isa(o, "TooManyFieldLevelEncryptionFieldPatterns");
 }
 
 /**
@@ -7935,8 +7414,6 @@ export namespace TooManyFieldLevelEncryptionProfiles {
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionProfiles): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionProfiles =>
-    __isa(o, "TooManyFieldLevelEncryptionProfiles");
 }
 
 /**
@@ -7952,8 +7429,6 @@ export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionQueryArgProfiles): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyFieldLevelEncryptionQueryArgProfiles =>
-    __isa(o, "TooManyFieldLevelEncryptionQueryArgProfiles");
 }
 
 /**
@@ -7971,7 +7446,6 @@ export namespace TooManyHeadersInCachePolicy {
   export const filterSensitiveLog = (obj: TooManyHeadersInCachePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyHeadersInCachePolicy => __isa(o, "TooManyHeadersInCachePolicy");
 }
 
 /**
@@ -7987,7 +7461,6 @@ export namespace TooManyHeadersInForwardedValues {
   export const filterSensitiveLog = (obj: TooManyHeadersInForwardedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyHeadersInForwardedValues => __isa(o, "TooManyHeadersInForwardedValues");
 }
 
 /**
@@ -8005,8 +7478,6 @@ export namespace TooManyHeadersInOriginRequestPolicy {
   export const filterSensitiveLog = (obj: TooManyHeadersInOriginRequestPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyHeadersInOriginRequestPolicy =>
-    __isa(o, "TooManyHeadersInOriginRequestPolicy");
 }
 
 /**
@@ -8022,7 +7493,6 @@ export namespace TooManyInvalidationsInProgress {
   export const filterSensitiveLog = (obj: TooManyInvalidationsInProgress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyInvalidationsInProgress => __isa(o, "TooManyInvalidationsInProgress");
 }
 
 /**
@@ -8038,7 +7508,6 @@ export namespace TooManyLambdaFunctionAssociations {
   export const filterSensitiveLog = (obj: TooManyLambdaFunctionAssociations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyLambdaFunctionAssociations => __isa(o, "TooManyLambdaFunctionAssociations");
 }
 
 /**
@@ -8054,7 +7523,6 @@ export namespace TooManyOriginCustomHeaders {
   export const filterSensitiveLog = (obj: TooManyOriginCustomHeaders): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyOriginCustomHeaders => __isa(o, "TooManyOriginCustomHeaders");
 }
 
 /**
@@ -8070,8 +7538,6 @@ export namespace TooManyOriginGroupsPerDistribution {
   export const filterSensitiveLog = (obj: TooManyOriginGroupsPerDistribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyOriginGroupsPerDistribution =>
-    __isa(o, "TooManyOriginGroupsPerDistribution");
 }
 
 /**
@@ -8089,7 +7555,6 @@ export namespace TooManyOriginRequestPolicies {
   export const filterSensitiveLog = (obj: TooManyOriginRequestPolicies): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyOriginRequestPolicies => __isa(o, "TooManyOriginRequestPolicies");
 }
 
 /**
@@ -8105,7 +7570,6 @@ export namespace TooManyOrigins {
   export const filterSensitiveLog = (obj: TooManyOrigins): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyOrigins => __isa(o, "TooManyOrigins");
 }
 
 /**
@@ -8121,7 +7585,6 @@ export namespace TooManyPublicKeys {
   export const filterSensitiveLog = (obj: TooManyPublicKeys): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyPublicKeys => __isa(o, "TooManyPublicKeys");
 }
 
 /**
@@ -8137,7 +7600,6 @@ export namespace TooManyQueryStringParameters {
   export const filterSensitiveLog = (obj: TooManyQueryStringParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyQueryStringParameters => __isa(o, "TooManyQueryStringParameters");
 }
 
 /**
@@ -8155,7 +7617,6 @@ export namespace TooManyQueryStringsInCachePolicy {
   export const filterSensitiveLog = (obj: TooManyQueryStringsInCachePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyQueryStringsInCachePolicy => __isa(o, "TooManyQueryStringsInCachePolicy");
 }
 
 /**
@@ -8173,8 +7634,6 @@ export namespace TooManyQueryStringsInOriginRequestPolicy {
   export const filterSensitiveLog = (obj: TooManyQueryStringsInOriginRequestPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyQueryStringsInOriginRequestPolicy =>
-    __isa(o, "TooManyQueryStringsInOriginRequestPolicy");
 }
 
 /**
@@ -8190,8 +7649,6 @@ export namespace TooManyStreamingDistributionCNAMEs {
   export const filterSensitiveLog = (obj: TooManyStreamingDistributionCNAMEs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyStreamingDistributionCNAMEs =>
-    __isa(o, "TooManyStreamingDistributionCNAMEs");
 }
 
 /**
@@ -8207,7 +7664,6 @@ export namespace TooManyStreamingDistributions {
   export const filterSensitiveLog = (obj: TooManyStreamingDistributions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyStreamingDistributions => __isa(o, "TooManyStreamingDistributions");
 }
 
 /**
@@ -8223,7 +7679,6 @@ export namespace TooManyTrustedSigners {
   export const filterSensitiveLog = (obj: TooManyTrustedSigners): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTrustedSigners => __isa(o, "TooManyTrustedSigners");
 }
 
 /**
@@ -8239,7 +7694,6 @@ export namespace TrustedSignerDoesNotExist {
   export const filterSensitiveLog = (obj: TrustedSignerDoesNotExist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedSignerDoesNotExist => __isa(o, "TrustedSignerDoesNotExist");
 }
 
 /**
@@ -8261,7 +7715,6 @@ export namespace TrustedSignerDoesNotExist {
  * 			<i>Amazon CloudFront API Reference</i>.</p>
  */
 export interface TrustedSigners {
-  __type?: "TrustedSigners";
   /**
    * <p>Specifies whether you want to require viewers to use signed URLs to access the files
    * 			specified by <code>PathPattern</code> and <code>TargetOriginId</code>.</p>
@@ -8286,14 +7739,12 @@ export namespace TrustedSigners {
   export const filterSensitiveLog = (obj: TrustedSigners): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrustedSigners => __isa(o, "TrustedSigners");
 }
 
 /**
  * <p> The request to remove tags from a CloudFront resource.</p>
  */
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p> An ARN of a CloudFront resource.</p>
    */
@@ -8309,11 +7760,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateCachePolicyRequest {
-  __type?: "UpdateCachePolicyRequest";
   /**
    * <p>The version of the cache policy that you are updating. The version is returned in the cache
    * 			policy’s <code>ETag</code> field in the response to
@@ -8338,11 +7787,9 @@ export namespace UpdateCachePolicyRequest {
   export const filterSensitiveLog = (obj: UpdateCachePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCachePolicyRequest => __isa(o, "UpdateCachePolicyRequest");
 }
 
 export interface UpdateCachePolicyResult {
-  __type?: "UpdateCachePolicyResult";
   /**
    * <p>The current version of the cache policy.</p>
    */
@@ -8358,14 +7805,12 @@ export namespace UpdateCachePolicyResult {
   export const filterSensitiveLog = (obj: UpdateCachePolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCachePolicyResult => __isa(o, "UpdateCachePolicyResult");
 }
 
 /**
  * <p>The request to update an origin access identity.</p>
  */
 export interface UpdateCloudFrontOriginAccessIdentityRequest {
-  __type?: "UpdateCloudFrontOriginAccessIdentityRequest";
   /**
    * <p>The value of the <code>ETag</code> header that you received when retrieving the
    * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -8387,15 +7832,12 @@ export namespace UpdateCloudFrontOriginAccessIdentityRequest {
   export const filterSensitiveLog = (obj: UpdateCloudFrontOriginAccessIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCloudFrontOriginAccessIdentityRequest =>
-    __isa(o, "UpdateCloudFrontOriginAccessIdentityRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface UpdateCloudFrontOriginAccessIdentityResult {
-  __type?: "UpdateCloudFrontOriginAccessIdentityResult";
   /**
    * <p>The origin access identity's information.</p>
    */
@@ -8412,15 +7854,12 @@ export namespace UpdateCloudFrontOriginAccessIdentityResult {
   export const filterSensitiveLog = (obj: UpdateCloudFrontOriginAccessIdentityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCloudFrontOriginAccessIdentityResult =>
-    __isa(o, "UpdateCloudFrontOriginAccessIdentityResult");
 }
 
 /**
  * <p>The request to update a distribution.</p>
  */
 export interface UpdateDistributionRequest {
-  __type?: "UpdateDistributionRequest";
   /**
    * <p>The distribution's configuration information.</p>
    */
@@ -8445,14 +7884,12 @@ export namespace UpdateDistributionRequest {
       DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
     }),
   });
-  export const isa = (o: any): o is UpdateDistributionRequest => __isa(o, "UpdateDistributionRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface UpdateDistributionResult {
-  __type?: "UpdateDistributionResult";
   /**
    * <p>The distribution's information.</p>
    */
@@ -8470,11 +7907,9 @@ export namespace UpdateDistributionResult {
     ...obj,
     ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
   });
-  export const isa = (o: any): o is UpdateDistributionResult => __isa(o, "UpdateDistributionResult");
 }
 
 export interface UpdateFieldLevelEncryptionConfigRequest {
-  __type?: "UpdateFieldLevelEncryptionConfigRequest";
   /**
    * <p>Request to update a field-level encryption configuration. </p>
    */
@@ -8496,12 +7931,9 @@ export namespace UpdateFieldLevelEncryptionConfigRequest {
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFieldLevelEncryptionConfigRequest =>
-    __isa(o, "UpdateFieldLevelEncryptionConfigRequest");
 }
 
 export interface UpdateFieldLevelEncryptionConfigResult {
-  __type?: "UpdateFieldLevelEncryptionConfigResult";
   /**
    * <p>The value of the <code>ETag</code> header that you received when updating the configuration.
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -8518,12 +7950,9 @@ export namespace UpdateFieldLevelEncryptionConfigResult {
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFieldLevelEncryptionConfigResult =>
-    __isa(o, "UpdateFieldLevelEncryptionConfigResult");
 }
 
 export interface UpdateFieldLevelEncryptionProfileRequest {
-  __type?: "UpdateFieldLevelEncryptionProfileRequest";
   /**
    * <p>The value of the <code>ETag</code> header that you received when retrieving the profile identity to update.
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -8545,12 +7974,9 @@ export namespace UpdateFieldLevelEncryptionProfileRequest {
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFieldLevelEncryptionProfileRequest =>
-    __isa(o, "UpdateFieldLevelEncryptionProfileRequest");
 }
 
 export interface UpdateFieldLevelEncryptionProfileResult {
-  __type?: "UpdateFieldLevelEncryptionProfileResult";
   /**
    * <p>The result of the field-level encryption profile request. </p>
    */
@@ -8566,12 +7992,9 @@ export namespace UpdateFieldLevelEncryptionProfileResult {
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFieldLevelEncryptionProfileResult =>
-    __isa(o, "UpdateFieldLevelEncryptionProfileResult");
 }
 
 export interface UpdateOriginRequestPolicyRequest {
-  __type?: "UpdateOriginRequestPolicyRequest";
   /**
    * <p>An origin request policy configuration.</p>
    */
@@ -8596,11 +8019,9 @@ export namespace UpdateOriginRequestPolicyRequest {
   export const filterSensitiveLog = (obj: UpdateOriginRequestPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOriginRequestPolicyRequest => __isa(o, "UpdateOriginRequestPolicyRequest");
 }
 
 export interface UpdateOriginRequestPolicyResult {
-  __type?: "UpdateOriginRequestPolicyResult";
   /**
    * <p>The current version of the origin request policy.</p>
    */
@@ -8616,11 +8037,9 @@ export namespace UpdateOriginRequestPolicyResult {
   export const filterSensitiveLog = (obj: UpdateOriginRequestPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateOriginRequestPolicyResult => __isa(o, "UpdateOriginRequestPolicyResult");
 }
 
 export interface UpdatePublicKeyRequest {
-  __type?: "UpdatePublicKeyRequest";
   /**
    * <p>Request to update public key information.</p>
    */
@@ -8642,11 +8061,9 @@ export namespace UpdatePublicKeyRequest {
   export const filterSensitiveLog = (obj: UpdatePublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePublicKeyRequest => __isa(o, "UpdatePublicKeyRequest");
 }
 
 export interface UpdatePublicKeyResult {
-  __type?: "UpdatePublicKeyResult";
   /**
    * <p>The current version of the update public key result. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
@@ -8662,14 +8079,12 @@ export namespace UpdatePublicKeyResult {
   export const filterSensitiveLog = (obj: UpdatePublicKeyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePublicKeyResult => __isa(o, "UpdatePublicKeyResult");
 }
 
 /**
  * <p>The request to update a streaming distribution.</p>
  */
 export interface UpdateStreamingDistributionRequest {
-  __type?: "UpdateStreamingDistributionRequest";
   /**
    * <p>The value of the <code>ETag</code> header that you received when retrieving the
    * 			streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -8691,15 +8106,12 @@ export namespace UpdateStreamingDistributionRequest {
   export const filterSensitiveLog = (obj: UpdateStreamingDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStreamingDistributionRequest =>
-    __isa(o, "UpdateStreamingDistributionRequest");
 }
 
 /**
  * <p>The returned result of the corresponding request.</p>
  */
 export interface UpdateStreamingDistributionResult {
-  __type?: "UpdateStreamingDistributionResult";
   /**
    * <p>The streaming distribution's information.</p>
    */
@@ -8716,7 +8128,6 @@ export namespace UpdateStreamingDistributionResult {
   export const filterSensitiveLog = (obj: UpdateStreamingDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStreamingDistributionResult => __isa(o, "UpdateStreamingDistributionResult");
 }
 
 /**
@@ -8789,7 +8200,6 @@ export namespace UpdateStreamingDistributionResult {
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface ViewerCertificate {
-  __type?: "ViewerCertificate";
   /**
    * <p>This field is deprecated. Use one of the following fields instead:</p>
    * 		       <ul>
@@ -8946,7 +8356,6 @@ export namespace ViewerCertificate {
   export const filterSensitiveLog = (obj: ViewerCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ViewerCertificate => __isa(o, "ViewerCertificate");
 }
 
 export type ViewerProtocolPolicy = "allow-all" | "https-only" | "redirect-to-https";

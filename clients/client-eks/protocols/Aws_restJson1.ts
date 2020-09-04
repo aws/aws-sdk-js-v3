@@ -881,7 +881,6 @@ export const deserializeAws_restJson1CreateClusterCommand = async (
   }
   const contents: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterResponse",
     cluster: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -985,7 +984,6 @@ export const deserializeAws_restJson1CreateFargateProfileCommand = async (
   }
   const contents: CreateFargateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFargateProfileResponse",
     fargateProfile: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1081,7 +1079,6 @@ export const deserializeAws_restJson1CreateNodegroupCommand = async (
   }
   const contents: CreateNodegroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNodegroupResponse",
     nodegroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1185,7 +1182,6 @@ export const deserializeAws_restJson1DeleteClusterCommand = async (
   }
   const contents: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClusterResponse",
     cluster: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1273,7 +1269,6 @@ export const deserializeAws_restJson1DeleteFargateProfileCommand = async (
   }
   const contents: DeleteFargateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFargateProfileResponse",
     fargateProfile: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1353,7 +1348,6 @@ export const deserializeAws_restJson1DeleteNodegroupCommand = async (
   }
   const contents: DeleteNodegroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNodegroupResponse",
     nodegroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1449,7 +1443,6 @@ export const deserializeAws_restJson1DescribeClusterCommand = async (
   }
   const contents: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClusterResponse",
     cluster: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1529,7 +1522,6 @@ export const deserializeAws_restJson1DescribeFargateProfileCommand = async (
   }
   const contents: DescribeFargateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFargateProfileResponse",
     fargateProfile: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1609,7 +1601,6 @@ export const deserializeAws_restJson1DescribeNodegroupCommand = async (
   }
   const contents: DescribeNodegroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNodegroupResponse",
     nodegroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1697,7 +1688,6 @@ export const deserializeAws_restJson1DescribeUpdateCommand = async (
   }
   const contents: DescribeUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUpdateResponse",
     update: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1777,7 +1767,6 @@ export const deserializeAws_restJson1ListClustersCommand = async (
   }
   const contents: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListClustersResponse",
     clusters: undefined,
     nextToken: undefined,
   };
@@ -1861,7 +1850,6 @@ export const deserializeAws_restJson1ListFargateProfilesCommand = async (
   }
   const contents: ListFargateProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFargateProfilesResponse",
     fargateProfileNames: undefined,
     nextToken: undefined,
   };
@@ -1945,7 +1933,6 @@ export const deserializeAws_restJson1ListNodegroupsCommand = async (
   }
   const contents: ListNodegroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNodegroupsResponse",
     nextToken: undefined,
     nodegroups: undefined,
   };
@@ -2037,7 +2024,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2101,7 +2087,6 @@ export const deserializeAws_restJson1ListUpdatesCommand = async (
   }
   const contents: ListUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUpdatesResponse",
     nextToken: undefined,
     updateIds: undefined,
   };
@@ -2185,7 +2170,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2245,7 +2229,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2305,7 +2288,6 @@ export const deserializeAws_restJson1UpdateClusterConfigCommand = async (
   }
   const contents: UpdateClusterConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateClusterConfigResponse",
     update: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2401,7 +2383,6 @@ export const deserializeAws_restJson1UpdateClusterVersionCommand = async (
   }
   const contents: UpdateClusterVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateClusterVersionResponse",
     update: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2497,7 +2478,6 @@ export const deserializeAws_restJson1UpdateNodegroupConfigCommand = async (
   }
   const contents: UpdateNodegroupConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNodegroupConfigResponse",
     update: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2593,7 +2573,6 @@ export const deserializeAws_restJson1UpdateNodegroupVersionCommand = async (
   }
   const contents: UpdateNodegroupVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNodegroupVersionResponse",
     update: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3079,7 +3058,6 @@ const serializeAws_restJson1VpcConfigRequest = (input: VpcConfigRequest, context
 
 const deserializeAws_restJson1AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   return {
-    __type: "AutoScalingGroup",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -3090,14 +3068,12 @@ const deserializeAws_restJson1AutoScalingGroupList = (output: any, context: __Se
 
 const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    __type: "Certificate",
     data: output.data !== undefined && output.data !== null ? output.data : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    __type: "Cluster",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     certificateAuthority:
       output.certificateAuthority !== undefined && output.certificateAuthority !== null
@@ -3143,7 +3119,6 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
   return {
-    __type: "EncryptionConfig",
     provider:
       output.provider !== undefined && output.provider !== null
         ? deserializeAws_restJson1Provider(output.provider, context)
@@ -3161,7 +3136,6 @@ const deserializeAws_restJson1EncryptionConfigList = (output: any, context: __Se
 
 const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    __type: "ErrorDetail",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     resourceIds:
@@ -3177,7 +3151,6 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FargateProfile = (output: any, context: __SerdeContext): FargateProfile => {
   return {
-    __type: "FargateProfile",
     clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -3229,7 +3202,6 @@ const deserializeAws_restJson1FargateProfileSelector = (
   context: __SerdeContext
 ): FargateProfileSelector => {
   return {
-    __type: "FargateProfileSelector",
     labels:
       output.labels !== undefined && output.labels !== null
         ? deserializeAws_restJson1FargateProfileLabel(output.labels, context)
@@ -3247,7 +3219,6 @@ const deserializeAws_restJson1FargateProfileSelectors = (
 
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    __type: "Identity",
     oidc:
       output.oidc !== undefined && output.oidc !== null
         ? deserializeAws_restJson1OIDC(output.oidc, context)
@@ -3257,7 +3228,6 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Issue = (output: any, context: __SerdeContext): Issue => {
   return {
-    __type: "Issue",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceIds:
@@ -3283,7 +3253,6 @@ const deserializeAws_restJson1labelsMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
   return {
-    __type: "Logging",
     clusterLogging:
       output.clusterLogging !== undefined && output.clusterLogging !== null
         ? deserializeAws_restJson1LogSetups(output.clusterLogging, context)
@@ -3293,7 +3262,6 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1LogSetup = (output: any, context: __SerdeContext): LogSetup => {
   return {
-    __type: "LogSetup",
     enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
     types:
       output.types !== undefined && output.types !== null
@@ -3312,7 +3280,6 @@ const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
   return {
-    __type: "Nodegroup",
     amiType: output.amiType !== undefined && output.amiType !== null ? output.amiType : undefined,
     clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
     createdAt:
@@ -3369,7 +3336,6 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1NodegroupHealth = (output: any, context: __SerdeContext): NodegroupHealth => {
   return {
-    __type: "NodegroupHealth",
     issues:
       output.issues !== undefined && output.issues !== null
         ? deserializeAws_restJson1IssueList(output.issues, context)
@@ -3379,7 +3345,6 @@ const deserializeAws_restJson1NodegroupHealth = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1NodegroupResources = (output: any, context: __SerdeContext): NodegroupResources => {
   return {
-    __type: "NodegroupResources",
     autoScalingGroups:
       output.autoScalingGroups !== undefined && output.autoScalingGroups !== null
         ? deserializeAws_restJson1AutoScalingGroupList(output.autoScalingGroups, context)
@@ -3396,7 +3361,6 @@ const deserializeAws_restJson1NodegroupScalingConfig = (
   context: __SerdeContext
 ): NodegroupScalingConfig => {
   return {
-    __type: "NodegroupScalingConfig",
     desiredSize: output.desiredSize !== undefined && output.desiredSize !== null ? output.desiredSize : undefined,
     maxSize: output.maxSize !== undefined && output.maxSize !== null ? output.maxSize : undefined,
     minSize: output.minSize !== undefined && output.minSize !== null ? output.minSize : undefined,
@@ -3405,21 +3369,18 @@ const deserializeAws_restJson1NodegroupScalingConfig = (
 
 const deserializeAws_restJson1OIDC = (output: any, context: __SerdeContext): OIDC => {
   return {
-    __type: "OIDC",
     issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Provider = (output: any, context: __SerdeContext): Provider => {
   return {
-    __type: "Provider",
     keyArn: output.keyArn !== undefined && output.keyArn !== null ? output.keyArn : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1RemoteAccessConfig = (output: any, context: __SerdeContext): RemoteAccessConfig => {
   return {
-    __type: "RemoteAccessConfig",
     ec2SshKey: output.ec2SshKey !== undefined && output.ec2SshKey !== null ? output.ec2SshKey : undefined,
     sourceSecurityGroups:
       output.sourceSecurityGroups !== undefined && output.sourceSecurityGroups !== null
@@ -3444,7 +3405,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1Update = (output: any, context: __SerdeContext): Update => {
   return {
-    __type: "Update",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -3465,7 +3425,6 @@ const deserializeAws_restJson1Update = (output: any, context: __SerdeContext): U
 
 const deserializeAws_restJson1UpdateParam = (output: any, context: __SerdeContext): UpdateParam => {
   return {
-    __type: "UpdateParam",
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -3477,7 +3436,6 @@ const deserializeAws_restJson1UpdateParams = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __SerdeContext): VpcConfigResponse => {
   return {
-    __type: "VpcConfigResponse",
     clusterSecurityGroupId:
       output.clusterSecurityGroupId !== undefined && output.clusterSecurityGroupId !== null
         ? output.clusterSecurityGroupId

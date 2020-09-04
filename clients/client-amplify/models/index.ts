@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             hosting an Amplify app. </p>
  */
 export interface App {
-  __type?: "App";
   /**
    * <p> The platform for the Amplify app. </p>
    */
@@ -129,14 +128,12 @@ export namespace App {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
   });
-  export const isa = (o: any): o is App => __isa(o, "App");
 }
 
 /**
  * <p> Describes an artifact. </p>
  */
 export interface Artifact {
-  __type?: "Artifact";
   /**
    * <p> The unique ID for the artifact. </p>
    */
@@ -152,14 +149,12 @@ export namespace Artifact {
   export const filterSensitiveLog = (obj: Artifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
 }
 
 /**
  * <p> Describes the automated branch creation configuration. </p>
  */
 export interface AutoBranchCreationConfig {
-  __type?: "AutoBranchCreationConfig";
   /**
    * <p> The Amplify environment name for the pull request. </p>
    */
@@ -211,14 +206,12 @@ export namespace AutoBranchCreationConfig {
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AutoBranchCreationConfig => __isa(o, "AutoBranchCreationConfig");
 }
 
 /**
  * <p> Describes the backend environment for an Amplify app. </p>
  */
 export interface BackendEnvironment {
-  __type?: "BackendEnvironment";
   /**
    * <p> The name of deployment artifacts. </p>
    */
@@ -257,7 +250,6 @@ export namespace BackendEnvironment {
   export const filterSensitiveLog = (obj: BackendEnvironment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackendEnvironment => __isa(o, "BackendEnvironment");
 }
 
 /**
@@ -273,14 +265,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
  */
 export interface Branch {
-  __type?: "Branch";
   /**
    * <p> The name for the branch that is part of an Amplify app. </p>
    */
@@ -419,14 +409,12 @@ export namespace Branch {
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Branch => __isa(o, "Branch");
 }
 
 /**
  * <p> The request structure used to create apps in Amplify. </p>
  */
 export interface CreateAppRequest {
-  __type?: "CreateAppRequest";
   /**
    * <p> The tag for an Amplify app. </p>
    */
@@ -534,11 +522,9 @@ export namespace CreateAppRequest {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
   });
-  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 export interface CreateAppResult {
-  __type?: "CreateAppResult";
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
    *             hosting an Amplify app. </p>
@@ -551,14 +537,12 @@ export namespace CreateAppResult {
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
   });
-  export const isa = (o: any): o is CreateAppResult => __isa(o, "CreateAppResult");
 }
 
 /**
  * <p> The request structure for the backend environment create request. </p>
  */
 export interface CreateBackendEnvironmentRequest {
-  __type?: "CreateBackendEnvironmentRequest";
   /**
    * <p> The AWS CloudFormation stack name of a backend environment. </p>
    */
@@ -584,14 +568,12 @@ export namespace CreateBackendEnvironmentRequest {
   export const filterSensitiveLog = (obj: CreateBackendEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackendEnvironmentRequest => __isa(o, "CreateBackendEnvironmentRequest");
 }
 
 /**
  * <p> The result structure for the create backend environment request. </p>
  */
 export interface CreateBackendEnvironmentResult {
-  __type?: "CreateBackendEnvironmentResult";
   /**
    * <p> Describes the backend environment for an Amplify app. </p>
    */
@@ -602,14 +584,12 @@ export namespace CreateBackendEnvironmentResult {
   export const filterSensitiveLog = (obj: CreateBackendEnvironmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackendEnvironmentResult => __isa(o, "CreateBackendEnvironmentResult");
 }
 
 /**
  * <p> The request structure for the create branch request. </p>
  */
 export interface CreateBranchRequest {
-  __type?: "CreateBranchRequest";
   /**
    * <p> Enables pull request preview for this branch. </p>
    */
@@ -702,14 +682,12 @@ export namespace CreateBranchRequest {
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateBranchRequest => __isa(o, "CreateBranchRequest");
 }
 
 /**
  * <p> The result structure for create branch request. </p>
  */
 export interface CreateBranchResult {
-  __type?: "CreateBranchResult";
   /**
    * <p> Describes the branch for an Amplify app, which maps to a third-party repository
    *             branch. </p>
@@ -722,14 +700,12 @@ export namespace CreateBranchResult {
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
   });
-  export const isa = (o: any): o is CreateBranchResult => __isa(o, "CreateBranchResult");
 }
 
 /**
  * <p> The request structure for the create a new deployment request. </p>
  */
 export interface CreateDeploymentRequest {
-  __type?: "CreateDeploymentRequest";
   /**
    * <p> The unique ID for an Amplify app. </p>
    */
@@ -753,14 +729,12 @@ export namespace CreateDeploymentRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentRequest => __isa(o, "CreateDeploymentRequest");
 }
 
 /**
  * <p> The result structure for the create a new deployment request. </p>
  */
 export interface CreateDeploymentResult {
-  __type?: "CreateDeploymentResult";
   /**
    * <p> The job ID for this deployment. will supply to start deployment api. </p>
    */
@@ -783,14 +757,12 @@ export namespace CreateDeploymentResult {
   export const filterSensitiveLog = (obj: CreateDeploymentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentResult => __isa(o, "CreateDeploymentResult");
 }
 
 /**
  * <p> The request structure for the create domain association request. </p>
  */
 export interface CreateDomainAssociationRequest {
-  __type?: "CreateDomainAssociationRequest";
   /**
    * <p> The required AWS Identity and Access Management (IAM) service role for the Amazon
    *             Resource Name (ARN) for automatically creating subdomains. </p>
@@ -827,14 +799,12 @@ export namespace CreateDomainAssociationRequest {
   export const filterSensitiveLog = (obj: CreateDomainAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainAssociationRequest => __isa(o, "CreateDomainAssociationRequest");
 }
 
 /**
  * <p> The result structure for the create domain association request. </p>
  */
 export interface CreateDomainAssociationResult {
-  __type?: "CreateDomainAssociationResult";
   /**
    * <p> Describes the structure of a domain association, which associates a custom domain
    *             with an Amplify app. </p>
@@ -846,14 +816,12 @@ export namespace CreateDomainAssociationResult {
   export const filterSensitiveLog = (obj: CreateDomainAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainAssociationResult => __isa(o, "CreateDomainAssociationResult");
 }
 
 /**
  * <p> The request structure for the create webhook request. </p>
  */
 export interface CreateWebhookRequest {
-  __type?: "CreateWebhookRequest";
   /**
    * <p> The description for a webhook. </p>
    */
@@ -874,14 +842,12 @@ export namespace CreateWebhookRequest {
   export const filterSensitiveLog = (obj: CreateWebhookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebhookRequest => __isa(o, "CreateWebhookRequest");
 }
 
 /**
  * <p> The result structure for the create webhook request. </p>
  */
 export interface CreateWebhookResult {
-  __type?: "CreateWebhookResult";
   /**
    * <p> Describes a webhook that connects repository events to an Amplify app. </p>
    */
@@ -892,14 +858,12 @@ export namespace CreateWebhookResult {
   export const filterSensitiveLog = (obj: CreateWebhookResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebhookResult => __isa(o, "CreateWebhookResult");
 }
 
 /**
  * <p> Describes a custom rewrite or redirect rule. </p>
  */
 export interface CustomRule {
-  __type?: "CustomRule";
   /**
    * <p> The source pattern for a URL rewrite or redirect rule. </p>
    */
@@ -925,14 +889,12 @@ export namespace CustomRule {
   export const filterSensitiveLog = (obj: CustomRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomRule => __isa(o, "CustomRule");
 }
 
 /**
  * <p> Describes the request structure for the delete app request. </p>
  */
 export interface DeleteAppRequest {
-  __type?: "DeleteAppRequest";
   /**
    * <p> The unique ID for an Amplify app. </p>
    */
@@ -943,14 +905,12 @@ export namespace DeleteAppRequest {
   export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 /**
  * <p> The result structure for the delete app request. </p>
  */
 export interface DeleteAppResult {
-  __type?: "DeleteAppResult";
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
    *             hosting an Amplify app. </p>
@@ -963,14 +923,12 @@ export namespace DeleteAppResult {
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
   });
-  export const isa = (o: any): o is DeleteAppResult => __isa(o, "DeleteAppResult");
 }
 
 /**
  * <p> The request structure for the delete backend environment request. </p>
  */
 export interface DeleteBackendEnvironmentRequest {
-  __type?: "DeleteBackendEnvironmentRequest";
   /**
    * <p> The unique ID of an Amplify app. </p>
    */
@@ -986,14 +944,12 @@ export namespace DeleteBackendEnvironmentRequest {
   export const filterSensitiveLog = (obj: DeleteBackendEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackendEnvironmentRequest => __isa(o, "DeleteBackendEnvironmentRequest");
 }
 
 /**
  * <p> The result structure of the delete backend environment result. </p>
  */
 export interface DeleteBackendEnvironmentResult {
-  __type?: "DeleteBackendEnvironmentResult";
   /**
    * <p> Describes the backend environment for an Amplify app. </p>
    */
@@ -1004,14 +960,12 @@ export namespace DeleteBackendEnvironmentResult {
   export const filterSensitiveLog = (obj: DeleteBackendEnvironmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackendEnvironmentResult => __isa(o, "DeleteBackendEnvironmentResult");
 }
 
 /**
  * <p> The request structure for the delete branch request. </p>
  */
 export interface DeleteBranchRequest {
-  __type?: "DeleteBranchRequest";
   /**
    * <p> The unique ID for an Amplify app. </p>
    */
@@ -1027,14 +981,12 @@ export namespace DeleteBranchRequest {
   export const filterSensitiveLog = (obj: DeleteBranchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBranchRequest => __isa(o, "DeleteBranchRequest");
 }
 
 /**
  * <p> The result structure for the delete branch request. </p>
  */
 export interface DeleteBranchResult {
-  __type?: "DeleteBranchResult";
   /**
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
    */
@@ -1046,14 +998,12 @@ export namespace DeleteBranchResult {
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
   });
-  export const isa = (o: any): o is DeleteBranchResult => __isa(o, "DeleteBranchResult");
 }
 
 /**
  * <p> The request structure for the delete domain association request. </p>
  */
 export interface DeleteDomainAssociationRequest {
-  __type?: "DeleteDomainAssociationRequest";
   /**
    * <p> The name of the domain. </p>
    */
@@ -1069,11 +1019,9 @@ export namespace DeleteDomainAssociationRequest {
   export const filterSensitiveLog = (obj: DeleteDomainAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainAssociationRequest => __isa(o, "DeleteDomainAssociationRequest");
 }
 
 export interface DeleteDomainAssociationResult {
-  __type?: "DeleteDomainAssociationResult";
   /**
    * <p> Describes a domain association that associates a custom domain with an Amplify app.
    *         </p>
@@ -1085,14 +1033,12 @@ export namespace DeleteDomainAssociationResult {
   export const filterSensitiveLog = (obj: DeleteDomainAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainAssociationResult => __isa(o, "DeleteDomainAssociationResult");
 }
 
 /**
  * <p> The request structure for the delete job request. </p>
  */
 export interface DeleteJobRequest {
-  __type?: "DeleteJobRequest";
   /**
    * <p> The unique ID for the job. </p>
    */
@@ -1113,14 +1059,12 @@ export namespace DeleteJobRequest {
   export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobRequest => __isa(o, "DeleteJobRequest");
 }
 
 /**
  * <p> The result structure for the delete job request. </p>
  */
 export interface DeleteJobResult {
-  __type?: "DeleteJobResult";
   /**
    * <p> Describes the summary for an execution job for an Amplify app. </p>
    */
@@ -1131,14 +1075,12 @@ export namespace DeleteJobResult {
   export const filterSensitiveLog = (obj: DeleteJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobResult => __isa(o, "DeleteJobResult");
 }
 
 /**
  * <p> The request structure for the delete webhook request. </p>
  */
 export interface DeleteWebhookRequest {
-  __type?: "DeleteWebhookRequest";
   /**
    * <p> The unique ID for a webhook. </p>
    */
@@ -1149,14 +1091,12 @@ export namespace DeleteWebhookRequest {
   export const filterSensitiveLog = (obj: DeleteWebhookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebhookRequest => __isa(o, "DeleteWebhookRequest");
 }
 
 /**
  * <p> The result structure for the delete webhook request. </p>
  */
 export interface DeleteWebhookResult {
-  __type?: "DeleteWebhookResult";
   /**
    * <p> Describes a webhook that connects repository events to an Amplify app. </p>
    */
@@ -1167,7 +1107,6 @@ export namespace DeleteWebhookResult {
   export const filterSensitiveLog = (obj: DeleteWebhookResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebhookResult => __isa(o, "DeleteWebhookResult");
 }
 
 /**
@@ -1183,7 +1122,6 @@ export namespace DependentServiceFailureException {
   export const filterSensitiveLog = (obj: DependentServiceFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependentServiceFailureException => __isa(o, "DependentServiceFailureException");
 }
 
 /**
@@ -1191,7 +1129,6 @@ export namespace DependentServiceFailureException {
  *         </p>
  */
 export interface DomainAssociation {
-  __type?: "DomainAssociation";
   /**
    * <p> Enables the automated creation of subdomains for branches. </p>
    */
@@ -1243,7 +1180,6 @@ export namespace DomainAssociation {
   export const filterSensitiveLog = (obj: DomainAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainAssociation => __isa(o, "DomainAssociation");
 }
 
 export enum DomainStatus {
@@ -1261,7 +1197,6 @@ export enum DomainStatus {
  * <p> The request structure for the generate access logs request. </p>
  */
 export interface GenerateAccessLogsRequest {
-  __type?: "GenerateAccessLogsRequest";
   /**
    * <p> The time at which the logs should end. The time range specified is inclusive of the
    *             end time. </p>
@@ -1289,14 +1224,12 @@ export namespace GenerateAccessLogsRequest {
   export const filterSensitiveLog = (obj: GenerateAccessLogsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateAccessLogsRequest => __isa(o, "GenerateAccessLogsRequest");
 }
 
 /**
  * <p> The result structure for the generate access logs request. </p>
  */
 export interface GenerateAccessLogsResult {
-  __type?: "GenerateAccessLogsResult";
   /**
    * <p> The pre-signed URL for the requested access logs. </p>
    */
@@ -1307,14 +1240,12 @@ export namespace GenerateAccessLogsResult {
   export const filterSensitiveLog = (obj: GenerateAccessLogsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateAccessLogsResult => __isa(o, "GenerateAccessLogsResult");
 }
 
 /**
  * <p> The request structure for the get app request. </p>
  */
 export interface GetAppRequest {
-  __type?: "GetAppRequest";
   /**
    * <p> The unique ID for an Amplify app. </p>
    */
@@ -1325,11 +1256,9 @@ export namespace GetAppRequest {
   export const filterSensitiveLog = (obj: GetAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppRequest => __isa(o, "GetAppRequest");
 }
 
 export interface GetAppResult {
-  __type?: "GetAppResult";
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
    *             hosting an Amplify app. </p>
@@ -1342,14 +1271,12 @@ export namespace GetAppResult {
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
   });
-  export const isa = (o: any): o is GetAppResult => __isa(o, "GetAppResult");
 }
 
 /**
  * <p> Returns the request structure for the get artifact request. </p>
  */
 export interface GetArtifactUrlRequest {
-  __type?: "GetArtifactUrlRequest";
   /**
    * <p> The unique ID for an artifact. </p>
    */
@@ -1360,14 +1287,12 @@ export namespace GetArtifactUrlRequest {
   export const filterSensitiveLog = (obj: GetArtifactUrlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetArtifactUrlRequest => __isa(o, "GetArtifactUrlRequest");
 }
 
 /**
  * <p> Returns the result structure for the get artifact request. </p>
  */
 export interface GetArtifactUrlResult {
-  __type?: "GetArtifactUrlResult";
   /**
    * <p> The presigned URL for the artifact. </p>
    */
@@ -1383,14 +1308,12 @@ export namespace GetArtifactUrlResult {
   export const filterSensitiveLog = (obj: GetArtifactUrlResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetArtifactUrlResult => __isa(o, "GetArtifactUrlResult");
 }
 
 /**
  * <p> The request structure for the get backend environment request. </p>
  */
 export interface GetBackendEnvironmentRequest {
-  __type?: "GetBackendEnvironmentRequest";
   /**
    * <p> The unique id for an Amplify app. </p>
    */
@@ -1406,14 +1329,12 @@ export namespace GetBackendEnvironmentRequest {
   export const filterSensitiveLog = (obj: GetBackendEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackendEnvironmentRequest => __isa(o, "GetBackendEnvironmentRequest");
 }
 
 /**
  * <p> The result structure for the get backend environment result. </p>
  */
 export interface GetBackendEnvironmentResult {
-  __type?: "GetBackendEnvironmentResult";
   /**
    * <p> Describes the backend environment for an Amplify app. </p>
    */
@@ -1424,14 +1345,12 @@ export namespace GetBackendEnvironmentResult {
   export const filterSensitiveLog = (obj: GetBackendEnvironmentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBackendEnvironmentResult => __isa(o, "GetBackendEnvironmentResult");
 }
 
 /**
  * <p> The request structure for the get branch request. </p>
  */
 export interface GetBranchRequest {
-  __type?: "GetBranchRequest";
   /**
    * <p> The name for the branch. </p>
    */
@@ -1447,11 +1366,9 @@ export namespace GetBranchRequest {
   export const filterSensitiveLog = (obj: GetBranchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBranchRequest => __isa(o, "GetBranchRequest");
 }
 
 export interface GetBranchResult {
-  __type?: "GetBranchResult";
   /**
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
    */
@@ -1463,14 +1380,12 @@ export namespace GetBranchResult {
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
   });
-  export const isa = (o: any): o is GetBranchResult => __isa(o, "GetBranchResult");
 }
 
 /**
  * <p> The request structure for the get domain association request. </p>
  */
 export interface GetDomainAssociationRequest {
-  __type?: "GetDomainAssociationRequest";
   /**
    * <p> The name of the domain. </p>
    */
@@ -1486,14 +1401,12 @@ export namespace GetDomainAssociationRequest {
   export const filterSensitiveLog = (obj: GetDomainAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainAssociationRequest => __isa(o, "GetDomainAssociationRequest");
 }
 
 /**
  * <p> The result structure for the get domain association request. </p>
  */
 export interface GetDomainAssociationResult {
-  __type?: "GetDomainAssociationResult";
   /**
    * <p> Describes the structure of a domain association, which associates a custom domain
    *             with an Amplify app. </p>
@@ -1505,14 +1418,12 @@ export namespace GetDomainAssociationResult {
   export const filterSensitiveLog = (obj: GetDomainAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainAssociationResult => __isa(o, "GetDomainAssociationResult");
 }
 
 /**
  * <p> The request structure for the get job request. </p>
  */
 export interface GetJobRequest {
-  __type?: "GetJobRequest";
   /**
    * <p> The branch name for the job. </p>
    */
@@ -1533,11 +1444,9 @@ export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 export interface GetJobResult {
-  __type?: "GetJobResult";
   /**
    * <p> Describes an execution job for an Amplify app. </p>
    */
@@ -1548,14 +1457,12 @@ export namespace GetJobResult {
   export const filterSensitiveLog = (obj: GetJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobResult => __isa(o, "GetJobResult");
 }
 
 /**
  * <p> The request structure for the get webhook request. </p>
  */
 export interface GetWebhookRequest {
-  __type?: "GetWebhookRequest";
   /**
    * <p> The unique ID for a webhook. </p>
    */
@@ -1566,14 +1473,12 @@ export namespace GetWebhookRequest {
   export const filterSensitiveLog = (obj: GetWebhookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebhookRequest => __isa(o, "GetWebhookRequest");
 }
 
 /**
  * <p> The result structure for the get webhook request. </p>
  */
 export interface GetWebhookResult {
-  __type?: "GetWebhookResult";
   /**
    * <p> Describes the structure of a webhook. </p>
    */
@@ -1584,7 +1489,6 @@ export namespace GetWebhookResult {
   export const filterSensitiveLog = (obj: GetWebhookResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebhookResult => __isa(o, "GetWebhookResult");
 }
 
 /**
@@ -1600,14 +1504,12 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p> Describes an execution job for an Amplify app. </p>
  */
 export interface Job {
-  __type?: "Job";
   /**
    * <p> The execution steps for an execution job, for an Amplify app. </p>
    */
@@ -1623,7 +1525,6 @@ export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 export enum JobStatus {
@@ -1640,7 +1541,6 @@ export enum JobStatus {
  * <p> Describes the summary for an execution job for an Amplify app. </p>
  */
 export interface JobSummary {
-  __type?: "JobSummary";
   /**
    * <p> The start date and time for the job. </p>
    */
@@ -1695,7 +1595,6 @@ export namespace JobSummary {
   export const filterSensitiveLog = (obj: JobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobSummary => __isa(o, "JobSummary");
 }
 
 export enum JobType {
@@ -1718,14 +1617,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p> The request structure for the list apps request. </p>
  */
 export interface ListAppsRequest {
-  __type?: "ListAppsRequest";
   /**
    * <p> The maximum number of records to list in a single response. </p>
    */
@@ -1742,14 +1639,12 @@ export namespace ListAppsRequest {
   export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAppsRequest => __isa(o, "ListAppsRequest");
 }
 
 /**
  * <p> The result structure for an Amplify app list request. </p>
  */
 export interface ListAppsResult {
-  __type?: "ListAppsResult";
   /**
    * <p> A pagination token. Set to null to start listing apps from start. If non-null, the
    *             pagination token is returned in a result. Pass its value in here to list more projects.
@@ -1768,14 +1663,12 @@ export namespace ListAppsResult {
     ...obj,
     ...(obj.apps && { apps: obj.apps.map((item) => App.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListAppsResult => __isa(o, "ListAppsResult");
 }
 
 /**
  * <p> Describes the request structure for the list artifacts request. </p>
  */
 export interface ListArtifactsRequest {
-  __type?: "ListArtifactsRequest";
   /**
    * <p> The name of a branch that is part of an Amplify app. </p>
    */
@@ -1808,14 +1701,12 @@ export namespace ListArtifactsRequest {
   export const filterSensitiveLog = (obj: ListArtifactsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListArtifactsRequest => __isa(o, "ListArtifactsRequest");
 }
 
 /**
  * <p> The result structure for the list artifacts request. </p>
  */
 export interface ListArtifactsResult {
-  __type?: "ListArtifactsResult";
   /**
    * <p> A list of artifacts. </p>
    */
@@ -1832,14 +1723,12 @@ export namespace ListArtifactsResult {
   export const filterSensitiveLog = (obj: ListArtifactsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListArtifactsResult => __isa(o, "ListArtifactsResult");
 }
 
 /**
  * <p> The request structure for the list backend environments request. </p>
  */
 export interface ListBackendEnvironmentsRequest {
-  __type?: "ListBackendEnvironmentsRequest";
   /**
    * <p> The maximum number of records to list in a single response. </p>
    */
@@ -1867,14 +1756,12 @@ export namespace ListBackendEnvironmentsRequest {
   export const filterSensitiveLog = (obj: ListBackendEnvironmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackendEnvironmentsRequest => __isa(o, "ListBackendEnvironmentsRequest");
 }
 
 /**
  * <p> The result structure for the list backend environments result. </p>
  */
 export interface ListBackendEnvironmentsResult {
-  __type?: "ListBackendEnvironmentsResult";
   /**
    * <p> The list of backend environments for an Amplify app. </p>
    */
@@ -1891,14 +1778,12 @@ export namespace ListBackendEnvironmentsResult {
   export const filterSensitiveLog = (obj: ListBackendEnvironmentsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackendEnvironmentsResult => __isa(o, "ListBackendEnvironmentsResult");
 }
 
 /**
  * <p> The request structure for the list branches request. </p>
  */
 export interface ListBranchesRequest {
-  __type?: "ListBranchesRequest";
   /**
    * <p> The unique ID for an Amplify app. </p>
    */
@@ -1921,14 +1806,12 @@ export namespace ListBranchesRequest {
   export const filterSensitiveLog = (obj: ListBranchesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBranchesRequest => __isa(o, "ListBranchesRequest");
 }
 
 /**
  * <p> The result structure for the list branches request. </p>
  */
 export interface ListBranchesResult {
-  __type?: "ListBranchesResult";
   /**
    * <p> A pagination token. If a non-null pagination token is returned in a result, pass its
    *             value in another request to retrieve more entries. </p>
@@ -1946,14 +1829,12 @@ export namespace ListBranchesResult {
     ...obj,
     ...(obj.branches && { branches: obj.branches.map((item) => Branch.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListBranchesResult => __isa(o, "ListBranchesResult");
 }
 
 /**
  * <p> The request structure for the list domain associations request. </p>
  */
 export interface ListDomainAssociationsRequest {
-  __type?: "ListDomainAssociationsRequest";
   /**
    * <p> A pagination token. Set to null to start listing apps from the start. If non-null, a
    *             pagination token is returned in a result. Pass its value in here to list more projects.
@@ -1976,14 +1857,12 @@ export namespace ListDomainAssociationsRequest {
   export const filterSensitiveLog = (obj: ListDomainAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainAssociationsRequest => __isa(o, "ListDomainAssociationsRequest");
 }
 
 /**
  * <p> The result structure for the list domain association request. </p>
  */
 export interface ListDomainAssociationsResult {
-  __type?: "ListDomainAssociationsResult";
   /**
    * <p> A pagination token. If non-null, a pagination token is returned in a result. Pass its
    *             value in another request to retrieve more entries. </p>
@@ -2000,14 +1879,12 @@ export namespace ListDomainAssociationsResult {
   export const filterSensitiveLog = (obj: ListDomainAssociationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainAssociationsResult => __isa(o, "ListDomainAssociationsResult");
 }
 
 /**
  * <p> The request structure for the list jobs request. </p>
  */
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p> The name for a branch. </p>
    */
@@ -2035,14 +1912,12 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 /**
  * <p> The maximum number of records to list in a single response. </p>
  */
 export interface ListJobsResult {
-  __type?: "ListJobsResult";
   /**
    * <p> The result structure for the list job result request. </p>
    */
@@ -2059,14 +1934,12 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResult => __isa(o, "ListJobsResult");
 }
 
 /**
  * <p> The request structure to use to list tags for a resource. </p>
  */
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p> The Amazon Resource Name (ARN) to use to list tags. </p>
    */
@@ -2077,14 +1950,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p> The response for the list tags for resource request. </p>
  */
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p> A list of tags for the specified The Amazon Resource Name (ARN). </p>
    */
@@ -2095,14 +1966,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p> The request structure for the list webhooks request. </p>
  */
 export interface ListWebhooksRequest {
-  __type?: "ListWebhooksRequest";
   /**
    * <p> The unique ID for an Amplify app. </p>
    */
@@ -2125,14 +1994,12 @@ export namespace ListWebhooksRequest {
   export const filterSensitiveLog = (obj: ListWebhooksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebhooksRequest => __isa(o, "ListWebhooksRequest");
 }
 
 /**
  * <p> The result structure for the list webhooks request. </p>
  */
 export interface ListWebhooksResult {
-  __type?: "ListWebhooksResult";
   /**
    * <p> A list of webhooks. </p>
    */
@@ -2149,7 +2016,6 @@ export namespace ListWebhooksResult {
   export const filterSensitiveLog = (obj: ListWebhooksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebhooksResult => __isa(o, "ListWebhooksResult");
 }
 
 /**
@@ -2165,7 +2031,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Platform {
@@ -2176,7 +2041,6 @@ export enum Platform {
  * <p> Describes the information about a production branch for an Amplify app. </p>
  */
 export interface ProductionBranch {
-  __type?: "ProductionBranch";
   /**
    * <p> The thumbnail URL for the production branch. </p>
    */
@@ -2202,7 +2066,6 @@ export namespace ProductionBranch {
   export const filterSensitiveLog = (obj: ProductionBranch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductionBranch => __isa(o, "ProductionBranch");
 }
 
 /**
@@ -2219,7 +2082,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum Stage {
@@ -2234,7 +2096,6 @@ export enum Stage {
  * <p> The request structure for the start a deployment request. </p>
  */
 export interface StartDeploymentRequest {
-  __type?: "StartDeploymentRequest";
   /**
    * <p> The job ID for this deployment, generated by the create deployment request. </p>
    */
@@ -2262,14 +2123,12 @@ export namespace StartDeploymentRequest {
   export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeploymentRequest => __isa(o, "StartDeploymentRequest");
 }
 
 /**
  * <p> The result structure for the start a deployment request. </p>
  */
 export interface StartDeploymentResult {
-  __type?: "StartDeploymentResult";
   /**
    * <p> The summary for the job. </p>
    */
@@ -2280,14 +2139,12 @@ export namespace StartDeploymentResult {
   export const filterSensitiveLog = (obj: StartDeploymentResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDeploymentResult => __isa(o, "StartDeploymentResult");
 }
 
 /**
  * <p> The request structure for the start job request. </p>
  */
 export interface StartJobRequest {
-  __type?: "StartJobRequest";
   /**
    * <p> The unique ID for an existing job. This is required if the value of
    *                 <code>jobType</code> is <code>RETRY</code>. </p>
@@ -2338,14 +2195,12 @@ export namespace StartJobRequest {
   export const filterSensitiveLog = (obj: StartJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartJobRequest => __isa(o, "StartJobRequest");
 }
 
 /**
  * <p> The result structure for the run job request. </p>
  */
 export interface StartJobResult {
-  __type?: "StartJobResult";
   /**
    * <p> The summary for the job. </p>
    */
@@ -2356,14 +2211,12 @@ export namespace StartJobResult {
   export const filterSensitiveLog = (obj: StartJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartJobResult => __isa(o, "StartJobResult");
 }
 
 /**
  * <p> Describes an execution step, for an execution job, for an Amplify app. </p>
  */
 export interface Step {
-  __type?: "Step";
   /**
    * <p> The context for the current step. Includes a build image if the step is build.
    *         </p>
@@ -2425,14 +2278,12 @@ export namespace Step {
   export const filterSensitiveLog = (obj: Step): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Step => __isa(o, "Step");
 }
 
 /**
  * <p> The request structure for the stop job request. </p>
  */
 export interface StopJobRequest {
-  __type?: "StopJobRequest";
   /**
    * <p> The name for the branch, for the job. </p>
    */
@@ -2453,14 +2304,12 @@ export namespace StopJobRequest {
   export const filterSensitiveLog = (obj: StopJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopJobRequest => __isa(o, "StopJobRequest");
 }
 
 /**
  * <p> The result structure for the stop job request. </p>
  */
 export interface StopJobResult {
-  __type?: "StopJobResult";
   /**
    * <p> The summary for the job. </p>
    */
@@ -2471,14 +2320,12 @@ export namespace StopJobResult {
   export const filterSensitiveLog = (obj: StopJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopJobResult => __isa(o, "StopJobResult");
 }
 
 /**
  * <p> The subdomain for the domain association. </p>
  */
 export interface SubDomain {
-  __type?: "SubDomain";
   /**
    * <p> The DNS record for the subdomain. </p>
    */
@@ -2499,14 +2346,12 @@ export namespace SubDomain {
   export const filterSensitiveLog = (obj: SubDomain): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubDomain => __isa(o, "SubDomain");
 }
 
 /**
  * <p> Describes the settings for the subdomain. </p>
  */
 export interface SubDomainSetting {
-  __type?: "SubDomainSetting";
   /**
    * <p> The prefix setting for the subdomain. </p>
    */
@@ -2522,14 +2367,12 @@ export namespace SubDomainSetting {
   export const filterSensitiveLog = (obj: SubDomainSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubDomainSetting => __isa(o, "SubDomainSetting");
 }
 
 /**
  * <p> The request structure to tag a resource with a tag key and value. </p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p> The Amazon Resource Name (ARN) to use to tag a resource. </p>
    */
@@ -2545,21 +2388,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p> The response for the tag resource request. </p>
  */
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2575,14 +2414,12 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
  * <p> The request structure for the untag resource request. </p>
  */
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p> The tag keys to use to untag a resource. </p>
    */
@@ -2598,28 +2435,23 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p> The response for the untag resource request. </p>
  */
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p> The request structure for the update app request. </p>
  */
 export interface UpdateAppRequest {
-  __type?: "UpdateAppRequest";
   /**
    * <p> Enables branch auto-building for an Amplify app. </p>
    */
@@ -2726,14 +2558,12 @@ export namespace UpdateAppRequest {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
   });
-  export const isa = (o: any): o is UpdateAppRequest => __isa(o, "UpdateAppRequest");
 }
 
 /**
  * <p> The result structure for an Amplify app update request. </p>
  */
 export interface UpdateAppResult {
-  __type?: "UpdateAppResult";
   /**
    * <p> Represents the updated Amplify app. </p>
    */
@@ -2745,14 +2575,12 @@ export namespace UpdateAppResult {
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
   });
-  export const isa = (o: any): o is UpdateAppResult => __isa(o, "UpdateAppResult");
 }
 
 /**
  * <p> The request structure for the update branch request. </p>
  */
 export interface UpdateBranchRequest {
-  __type?: "UpdateBranchRequest";
   /**
    * <p> Enables notifications for the branch. </p>
    */
@@ -2840,14 +2668,12 @@ export namespace UpdateBranchRequest {
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateBranchRequest => __isa(o, "UpdateBranchRequest");
 }
 
 /**
  * <p> The result structure for the update branch request. </p>
  */
 export interface UpdateBranchResult {
-  __type?: "UpdateBranchResult";
   /**
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
    */
@@ -2859,14 +2685,12 @@ export namespace UpdateBranchResult {
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
   });
-  export const isa = (o: any): o is UpdateBranchResult => __isa(o, "UpdateBranchResult");
 }
 
 /**
  * <p> The request structure for the update domain association request. </p>
  */
 export interface UpdateDomainAssociationRequest {
-  __type?: "UpdateDomainAssociationRequest";
   /**
    * <p> Enables the automated creation of subdomains for branches. </p>
    */
@@ -2903,14 +2727,12 @@ export namespace UpdateDomainAssociationRequest {
   export const filterSensitiveLog = (obj: UpdateDomainAssociationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainAssociationRequest => __isa(o, "UpdateDomainAssociationRequest");
 }
 
 /**
  * <p> The result structure for the update domain association request. </p>
  */
 export interface UpdateDomainAssociationResult {
-  __type?: "UpdateDomainAssociationResult";
   /**
    * <p> Describes a domain association, which associates a custom domain with an Amplify app.
    *         </p>
@@ -2922,14 +2744,12 @@ export namespace UpdateDomainAssociationResult {
   export const filterSensitiveLog = (obj: UpdateDomainAssociationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainAssociationResult => __isa(o, "UpdateDomainAssociationResult");
 }
 
 /**
  * <p> The request structure for the update webhook request. </p>
  */
 export interface UpdateWebhookRequest {
-  __type?: "UpdateWebhookRequest";
   /**
    * <p> The name for a branch that is part of an Amplify app. </p>
    */
@@ -2950,14 +2770,12 @@ export namespace UpdateWebhookRequest {
   export const filterSensitiveLog = (obj: UpdateWebhookRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebhookRequest => __isa(o, "UpdateWebhookRequest");
 }
 
 /**
  * <p> The result structure for the update webhook request. </p>
  */
 export interface UpdateWebhookResult {
-  __type?: "UpdateWebhookResult";
   /**
    * <p> Describes a webhook that connects repository events to an Amplify app. </p>
    */
@@ -2968,14 +2786,12 @@ export namespace UpdateWebhookResult {
   export const filterSensitiveLog = (obj: UpdateWebhookResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebhookResult => __isa(o, "UpdateWebhookResult");
 }
 
 /**
  * <p> Describes a webhook that connects repository events to an Amplify app. </p>
  */
 export interface Webhook {
-  __type?: "Webhook";
   /**
    * <p> The description for a webhook. </p>
    */
@@ -3016,5 +2832,4 @@ export namespace Webhook {
   export const filterSensitiveLog = (obj: Webhook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Webhook => __isa(o, "Webhook");
 }

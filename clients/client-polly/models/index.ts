@@ -1,9 +1,8 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 export interface DeleteLexiconInput {
-  __type?: "DeleteLexiconInput";
   /**
    * <p>The name of the lexicon to delete.
    *       Must be an existing lexicon in the region.</p>
@@ -16,22 +15,17 @@ export namespace DeleteLexiconInput {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteLexiconInput => __isa(o, "DeleteLexiconInput");
 }
 
-export interface DeleteLexiconOutput {
-  __type?: "DeleteLexiconOutput";
-}
+export interface DeleteLexiconOutput {}
 
 export namespace DeleteLexiconOutput {
   export const filterSensitiveLog = (obj: DeleteLexiconOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLexiconOutput => __isa(o, "DeleteLexiconOutput");
 }
 
 export interface DescribeVoicesInput {
-  __type?: "DescribeVoicesInput";
   /**
    * <p>
    *
@@ -66,11 +60,9 @@ export namespace DescribeVoicesInput {
   export const filterSensitiveLog = (obj: DescribeVoicesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVoicesInput => __isa(o, "DescribeVoicesInput");
 }
 
 export interface DescribeVoicesOutput {
-  __type?: "DescribeVoicesOutput";
   /**
    * <p>The pagination token to use in the next request to continue
    *     the listing of voices. <code>NextToken</code> is returned only if
@@ -88,7 +80,6 @@ export namespace DescribeVoicesOutput {
   export const filterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVoicesOutput => __isa(o, "DescribeVoicesOutput");
 }
 
 export enum Engine {
@@ -110,13 +101,11 @@ export namespace EngineNotSupportedException {
   export const filterSensitiveLog = (obj: EngineNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EngineNotSupportedException => __isa(o, "EngineNotSupportedException");
 }
 
 export type Gender = "Female" | "Male";
 
 export interface GetLexiconInput {
-  __type?: "GetLexiconInput";
   /**
    * <p>Name of the lexicon.</p>
    */
@@ -128,11 +117,9 @@ export namespace GetLexiconInput {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetLexiconInput => __isa(o, "GetLexiconInput");
 }
 
 export interface GetLexiconOutput {
-  __type?: "GetLexiconOutput";
   /**
    * <p>Metadata of the lexicon, including phonetic alphabetic used, language code,
    *     lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>
@@ -151,11 +138,9 @@ export namespace GetLexiconOutput {
     ...obj,
     ...(obj.Lexicon && { Lexicon: Lexicon.filterSensitiveLog(obj.Lexicon) }),
   });
-  export const isa = (o: any): o is GetLexiconOutput => __isa(o, "GetLexiconOutput");
 }
 
 export interface GetSpeechSynthesisTaskInput {
-  __type?: "GetSpeechSynthesisTaskInput";
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
    */
@@ -166,11 +151,9 @@ export namespace GetSpeechSynthesisTaskInput {
   export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSpeechSynthesisTaskInput => __isa(o, "GetSpeechSynthesisTaskInput");
 }
 
 export interface GetSpeechSynthesisTaskOutput {
-  __type?: "GetSpeechSynthesisTaskOutput";
   /**
    * <p>SynthesisTask object that provides information from the requested task,
    *       including output format, creation time, task status, and so on.</p>
@@ -183,7 +166,6 @@ export namespace GetSpeechSynthesisTaskOutput {
     ...obj,
     ...(obj.SynthesisTask && { SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask) }),
   });
-  export const isa = (o: any): o is GetSpeechSynthesisTaskOutput => __isa(o, "GetSpeechSynthesisTaskOutput");
 }
 
 /**
@@ -200,7 +182,6 @@ export namespace InvalidLexiconException {
   export const filterSensitiveLog = (obj: InvalidLexiconException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLexiconException => __isa(o, "InvalidLexiconException");
 }
 
 /**
@@ -217,7 +198,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -234,7 +214,6 @@ export namespace InvalidS3BucketException {
   export const filterSensitiveLog = (obj: InvalidS3BucketException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3BucketException => __isa(o, "InvalidS3BucketException");
 }
 
 /**
@@ -250,7 +229,6 @@ export namespace InvalidS3KeyException {
   export const filterSensitiveLog = (obj: InvalidS3KeyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3KeyException => __isa(o, "InvalidS3KeyException");
 }
 
 /**
@@ -266,7 +244,6 @@ export namespace InvalidSampleRateException {
   export const filterSensitiveLog = (obj: InvalidSampleRateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSampleRateException => __isa(o, "InvalidSampleRateException");
 }
 
 /**
@@ -282,7 +259,6 @@ export namespace InvalidSnsTopicArnException {
   export const filterSensitiveLog = (obj: InvalidSnsTopicArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSnsTopicArnException => __isa(o, "InvalidSnsTopicArnException");
 }
 
 /**
@@ -299,7 +275,6 @@ export namespace InvalidSsmlException {
   export const filterSensitiveLog = (obj: InvalidSsmlException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSsmlException => __isa(o, "InvalidSsmlException");
 }
 
 /**
@@ -315,7 +290,6 @@ export namespace InvalidTaskIdException {
   export const filterSensitiveLog = (obj: InvalidTaskIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTaskIdException => __isa(o, "InvalidTaskIdException");
 }
 
 export type LanguageCode =
@@ -362,7 +336,6 @@ export namespace LanguageNotSupportedException {
   export const filterSensitiveLog = (obj: LanguageNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LanguageNotSupportedException => __isa(o, "LanguageNotSupportedException");
 }
 
 /**
@@ -370,7 +343,6 @@ export namespace LanguageNotSupportedException {
  *       For more information, see <a href="https://www.w3.org/TR/pronunciation-lexicon/">Pronunciation Lexicon Specification (PLS) Version 1.0</a>.</p>
  */
 export interface Lexicon {
-  __type?: "Lexicon";
   /**
    * <p>Lexicon content in string format.
    *       The content of a lexicon must be in PLS format.</p>
@@ -388,7 +360,6 @@ export namespace Lexicon {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Lexicon => __isa(o, "Lexicon");
 }
 
 /**
@@ -397,7 +368,6 @@ export namespace Lexicon {
  *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  */
 export interface LexiconAttributes {
-  __type?: "LexiconAttributes";
   /**
    * <p>Date lexicon was last modified (a timestamp value).</p>
    */
@@ -437,14 +407,12 @@ export namespace LexiconAttributes {
   export const filterSensitiveLog = (obj: LexiconAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LexiconAttributes => __isa(o, "LexiconAttributes");
 }
 
 /**
  * <p>Describes the content of the lexicon.</p>
  */
 export interface LexiconDescription {
-  __type?: "LexiconDescription";
   /**
    * <p>Name of the lexicon.</p>
    */
@@ -461,7 +429,6 @@ export namespace LexiconDescription {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LexiconDescription => __isa(o, "LexiconDescription");
 }
 
 /**
@@ -481,7 +448,6 @@ export namespace LexiconNotFoundException {
   export const filterSensitiveLog = (obj: LexiconNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LexiconNotFoundException => __isa(o, "LexiconNotFoundException");
 }
 
 /**
@@ -497,11 +463,9 @@ export namespace LexiconSizeExceededException {
   export const filterSensitiveLog = (obj: LexiconSizeExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LexiconSizeExceededException => __isa(o, "LexiconSizeExceededException");
 }
 
 export interface ListLexiconsInput {
-  __type?: "ListLexiconsInput";
   /**
    * <p>An opaque pagination token returned from previous
    *       <code>ListLexicons</code> operation. If present, indicates where to
@@ -514,11 +478,9 @@ export namespace ListLexiconsInput {
   export const filterSensitiveLog = (obj: ListLexiconsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLexiconsInput => __isa(o, "ListLexiconsInput");
 }
 
 export interface ListLexiconsOutput {
-  __type?: "ListLexiconsOutput";
   /**
    * <p>A list of lexicon names and attributes.</p>
    */
@@ -537,11 +499,9 @@ export namespace ListLexiconsOutput {
     ...obj,
     ...(obj.Lexicons && { Lexicons: obj.Lexicons.map((item) => LexiconDescription.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListLexiconsOutput => __isa(o, "ListLexiconsOutput");
 }
 
 export interface ListSpeechSynthesisTasksInput {
-  __type?: "ListSpeechSynthesisTasksInput";
   /**
    * <p>Maximum number of speech synthesis tasks returned in a List operation.</p>
    */
@@ -563,11 +523,9 @@ export namespace ListSpeechSynthesisTasksInput {
   export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSpeechSynthesisTasksInput => __isa(o, "ListSpeechSynthesisTasksInput");
 }
 
 export interface ListSpeechSynthesisTasksOutput {
-  __type?: "ListSpeechSynthesisTasksOutput";
   /**
    * <p>List of SynthesisTask objects that provides information from the specified task in the list request,
    *       including output format, creation time, task status, and so on.</p>
@@ -585,7 +543,6 @@ export namespace ListSpeechSynthesisTasksOutput {
   export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSpeechSynthesisTasksOutput => __isa(o, "ListSpeechSynthesisTasksOutput");
 }
 
 /**
@@ -602,8 +559,6 @@ export namespace MarksNotSupportedForFormatException {
   export const filterSensitiveLog = (obj: MarksNotSupportedForFormatException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MarksNotSupportedForFormatException =>
-    __isa(o, "MarksNotSupportedForFormatException");
 }
 
 /**
@@ -619,7 +574,6 @@ export namespace MaxLexemeLengthExceededException {
   export const filterSensitiveLog = (obj: MaxLexemeLengthExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaxLexemeLengthExceededException => __isa(o, "MaxLexemeLengthExceededException");
 }
 
 /**
@@ -635,8 +589,6 @@ export namespace MaxLexiconsNumberExceededException {
   export const filterSensitiveLog = (obj: MaxLexiconsNumberExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaxLexiconsNumberExceededException =>
-    __isa(o, "MaxLexiconsNumberExceededException");
 }
 
 export enum OutputFormat {
@@ -647,7 +599,6 @@ export enum OutputFormat {
 }
 
 export interface PutLexiconInput {
-  __type?: "PutLexiconInput";
   /**
    * <p>Content of the PLS lexicon as string data.</p>
    */
@@ -667,18 +618,14 @@ export namespace PutLexiconInput {
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutLexiconInput => __isa(o, "PutLexiconInput");
 }
 
-export interface PutLexiconOutput {
-  __type?: "PutLexiconOutput";
-}
+export interface PutLexiconOutput {}
 
 export namespace PutLexiconOutput {
   export const filterSensitiveLog = (obj: PutLexiconOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLexiconOutput => __isa(o, "PutLexiconOutput");
 }
 
 /**
@@ -694,7 +641,6 @@ export namespace ServiceFailureException {
   export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceFailureException => __isa(o, "ServiceFailureException");
 }
 
 export enum SpeechMarkType {
@@ -717,12 +663,9 @@ export namespace SsmlMarksNotSupportedForTextTypeException {
   export const filterSensitiveLog = (obj: SsmlMarksNotSupportedForTextTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SsmlMarksNotSupportedForTextTypeException =>
-    __isa(o, "SsmlMarksNotSupportedForTextTypeException");
 }
 
 export interface StartSpeechSynthesisTaskInput {
-  __type?: "StartSpeechSynthesisTaskInput";
   /**
    * <p>The audio frequency specified in Hz.</p>
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The
@@ -802,11 +745,9 @@ export namespace StartSpeechSynthesisTaskInput {
     ...obj,
     ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartSpeechSynthesisTaskInput => __isa(o, "StartSpeechSynthesisTaskInput");
 }
 
 export interface StartSpeechSynthesisTaskOutput {
-  __type?: "StartSpeechSynthesisTaskOutput";
   /**
    * <p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>
    */
@@ -818,14 +759,12 @@ export namespace StartSpeechSynthesisTaskOutput {
     ...obj,
     ...(obj.SynthesisTask && { SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask) }),
   });
-  export const isa = (o: any): o is StartSpeechSynthesisTaskOutput => __isa(o, "StartSpeechSynthesisTaskOutput");
 }
 
 /**
  * <p>SynthesisTask object that provides information about a speech synthesis task.</p>
  */
 export interface SynthesisTask {
-  __type?: "SynthesisTask";
   /**
    * <p>List of one or more pronunciation lexicon names you want the service
    *       to apply during synthesis. Lexicons are applied only if the language
@@ -921,7 +860,6 @@ export namespace SynthesisTask {
     ...obj,
     ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SynthesisTask => __isa(o, "SynthesisTask");
 }
 
 /**
@@ -937,11 +875,9 @@ export namespace SynthesisTaskNotFoundException {
   export const filterSensitiveLog = (obj: SynthesisTaskNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SynthesisTaskNotFoundException => __isa(o, "SynthesisTaskNotFoundException");
 }
 
 export interface SynthesizeSpeechInput {
-  __type?: "SynthesizeSpeechInput";
   /**
    * <p>
    *       The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm.
@@ -1017,11 +953,9 @@ export namespace SynthesizeSpeechInput {
     ...obj,
     ...(obj.LexiconNames && { LexiconNames: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SynthesizeSpeechInput => __isa(o, "SynthesizeSpeechInput");
 }
 
 export interface SynthesizeSpeechOutput {
-  __type?: "SynthesizeSpeechOutput";
   /**
    * <p>
    *       Stream containing the synthesized speech.
@@ -1073,7 +1007,6 @@ export namespace SynthesizeSpeechOutput {
   export const filterSensitiveLog = (obj: SynthesizeSpeechOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SynthesizeSpeechOutput => __isa(o, "SynthesizeSpeechOutput");
 }
 
 export enum TaskStatus {
@@ -1099,7 +1032,6 @@ export namespace TextLengthExceededException {
   export const filterSensitiveLog = (obj: TextLengthExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextLengthExceededException => __isa(o, "TextLengthExceededException");
 }
 
 export enum TextType {
@@ -1121,7 +1053,6 @@ export namespace UnsupportedPlsAlphabetException {
   export const filterSensitiveLog = (obj: UnsupportedPlsAlphabetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedPlsAlphabetException => __isa(o, "UnsupportedPlsAlphabetException");
 }
 
 /**
@@ -1138,14 +1069,12 @@ export namespace UnsupportedPlsLanguageException {
   export const filterSensitiveLog = (obj: UnsupportedPlsLanguageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedPlsLanguageException => __isa(o, "UnsupportedPlsLanguageException");
 }
 
 /**
  * <p>Description of the voice.</p>
  */
 export interface Voice {
-  __type?: "Voice";
   /**
    * <p>Name of the voice (for example, Salli, Kendra, etc.).
    *       This provides a human readable voice name that you might display
@@ -1191,7 +1120,6 @@ export namespace Voice {
   export const filterSensitiveLog = (obj: Voice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Voice => __isa(o, "Voice");
 }
 
 export type VoiceId =
