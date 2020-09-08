@@ -1,4 +1,4 @@
-import * as packageInfo from './package.json'; 
+import packageInfo from "./package.json"; 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";

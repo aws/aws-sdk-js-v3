@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "alwaysStrict": true,
     "target": "es2017",
     "module": "commonjs",
