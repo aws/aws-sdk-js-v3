@@ -220,14 +220,13 @@ stream behavior accordingly.
 Here's an example of error handling flow:
 
 ```javascript
-const { InternalFailureException, ConflictException } = require("@aws-sdk/client-transcribe-streaming");
 try {
   const response = await client.send(command);
   await handleResponse(response);
 } catch (e) {
-  if (InternalFailureException.isa(e)) {
+  if (e.name === "InternalFailureException") {
     /* handle InternalFailureException */
-  } else if (ConflictException.isa(e)) {
+  } else if (e.name === "ConflictException") {
     /* handle ConflictException */
   }
 } finally {
