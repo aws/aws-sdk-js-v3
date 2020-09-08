@@ -1,5 +1,5 @@
 // @ts-check
-const { join } = require("path");
+const { normalize, join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
@@ -37,11 +37,10 @@ const getOverwritablePredicate = (packageName) => (pathName) => {
  * from codegen, but maintain the newer dependency versions
  * in existing package.json
  */
-const mergeManifest = (fromContent = {}, toContent) => {
+const mergeManifest = (fromContent = {}, toContent = {}) => {
   const merged = {};
-  const fromNames = Object.keys(fromContent);
-  for (const name of fromNames) {
-    if (typeof toContent[name] === "object") {
+  for (const name of Object.keys(fromContent)) {
+    if (typeof fromContent[name] === "object") {
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
@@ -52,6 +51,10 @@ const mergeManifest = (fromContent = {}, toContent) => {
         // Sort dependencies as done by lerna
         merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
       }
+    } else if (name.indexOf("@aws-sdk/") === 0) {
+      // If it's internal dependency, use current version in the repo if not
+      // present in package.json
+      merged[name] = toContent[name] || getInternalDepVersion(name);
     } else {
       // If key (say dependency) is present in both codegen and
       // package.json, we prefer latter
@@ -62,15 +65,24 @@ const mergeManifest = (fromContent = {}, toContent) => {
 };
 
 /**
- * Remove "^" from the the version of dependencies on @aws-sdk packages.
- * e.g. "@aws-sdk/config-resolver": "^1.0.0-gamma.0"
- *      => "@aws-sdk/config-resolver": "1.0.0-gamma.0"
+ * Returns current version number of the internal dependency version passed.
  */
-const pinDependencies = (manifest) => {
-  const removeRangeVersion = ([name, version]) =>
-    name.indexOf("@aws-sdk/") === 0 ? [name, version.replace("^", "")] : [name, version];
-  manifest.dependencies = Object.fromEntries(Object.entries(manifest.dependencies).map(removeRangeVersion));
-  manifest.devDependencies = Object.fromEntries(Object.entries(manifest.devDependencies).map(removeRangeVersion));
+const getInternalDepVersion = (depName) => {
+  if (depName.indexOf("@aws-sdk/") !== 0) {
+    throw new Error(`getInternalDepVersion called for external dep: "${depName}"`);
+  }
+
+  const packageName = depName.substr(9);
+  const packagesDir = normalize(join(__dirname, "..", "..", "packages"));
+  const clientsDir = normalize(join(__dirname, "..", "..", "clients"));
+
+  if (existsSync(`${packagesDir}/${packageName}`)) {
+    return require(`${packagesDir}/${packageName}/package.json`).version;
+  } else if (existsSync(`${clientsDir}/${packageName}`)) {
+    return require(`${clientsDir}/${packageName}/package.json`).version;
+  }
+
+  throw new Error(`Internal dependency "${packageName}" not found`);
 };
 
 const copyToClients = async (sourceDir, destinationDir) => {
@@ -95,7 +107,6 @@ const copyToClients = async (sourceDir, destinationDir) => {
         //copy manifest file
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = mergeManifest(packageManifest, destManifest);
-        pinDependencies(mergedManifest);
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
