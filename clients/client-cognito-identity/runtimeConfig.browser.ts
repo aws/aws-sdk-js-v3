@@ -1,4 +1,4 @@
-import { name, version } from "./package.json";
+import package from './package.json'; 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
@@ -10,6 +10,8 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { ClientDefaults } from "./CognitoIdentityClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
+
+const { name, version } = package;
 
 export const ClientDefaultValues: Required<ClientDefaults> = {
   ...ClientSharedValues,
