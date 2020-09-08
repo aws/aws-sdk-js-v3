@@ -1,24 +1,18 @@
 // @ts-check
 const { spawn } = require("child_process");
 
-const spawnProcess = (command, args = [], options = {}) =>
-  new Promise((resolve, reject) => {
-    try {
-      const ls = spawn(command, args, options);
-      ls.stdout.on("data", (data) => {
-        console.log(data.toString());
-      });
-      ls.stderr.on("data", (data) => {
-        console.error(`stderr: ${data.toString()}`);
-      });
+const spawnProcess = async (command, args = [], options = {}) => {
+  const childProcess = spawn(command, args, options);
 
-      ls.on("close", (code) => {
-        console.log(`child process exited with code ${code}`);
-        resolve();
-      });
-    } catch (e) {
-      reject(e);
-    }
+  childProcess.stdout.pipe(process.stdout);
+  childProcess.stderr.pipe(process.stderr);
+
+  return new Promise((resolve, reject) => {
+    childProcess.on("error", reject);
+    childProcess.on("exit", (code, signal) =>
+      code === 0 ? resolve() : reject(`${command} failed with { code: ${code}, signal: ${signal} }`)
+    );
   });
+};
 
 module.exports = { spawnProcess };
